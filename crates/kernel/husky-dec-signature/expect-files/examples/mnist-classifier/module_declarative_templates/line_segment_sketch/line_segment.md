@@ -153,7 +153,7 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`(mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::displacement`, `MethodRitchie(
+                TypeItemPath(`<mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)>::displacement`, `MethodRitchie(
                     Fn,
                 )`),
             ),
@@ -163,7 +163,7 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
                         TypeMethodFnDecTemplate {
-                            path: TypeItemPath(`(mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::displacement`, `MethodRitchie(
+                            path: TypeItemPath(`<mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)>::displacement`, `MethodRitchie(
                                 Fn,
                             )`),
                             impl_block: TypeImplBlockDecTemplate {
@@ -233,7 +233,7 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`(mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::dist_to_point`, `MethodRitchie(
+                TypeItemPath(`<mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)>::dist_to_point`, `MethodRitchie(
                     Fn,
                 )`),
             ),
@@ -243,7 +243,7 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
                         TypeMethodFnDecTemplate {
-                            path: TypeItemPath(`(mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::dist_to_point`, `MethodRitchie(
+                            path: TypeItemPath(`<mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)>::dist_to_point`, `MethodRitchie(
                                 Fn,
                             )`),
                             impl_block: TypeImplBlockDecTemplate {

@@ -2703,14 +2703,7 @@ EntityTreeSheet {
                         data: ItemSynNodePathData::ImplBlock(
                             ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                 TraitForTypeImplBlockSynNodePathData {
-                                    path: TraitForTypeImplBlock {
-                                        data: TraitForTypeImplBlockPathData {
-                                            module_path: `core::clone`,
-                                            trai_path: TraitPath(`core::clone::Clone`),
-                                            ty_sketch: TypeSketch::DeriveAny,
-                                            disambiguator: 0,
-                                        },
-                                    },
+                                    path: TraitForTypeImplBlockPath(`#derive _ as core::clone::Clone(0)`),
                                 },
                             ),
                         ),
@@ -2724,14 +2717,7 @@ EntityTreeSheet {
                             data: ItemSynNodePathData::ImplBlock(
                                 ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                     TraitForTypeImplBlockSynNodePathData {
-                                        path: TraitForTypeImplBlock {
-                                            data: TraitForTypeImplBlockPathData {
-                                                module_path: `core::clone`,
-                                                trai_path: TraitPath(`core::clone::Clone`),
-                                                ty_sketch: TypeSketch::DeriveAny,
-                                                disambiguator: 0,
-                                            },
-                                        },
+                                        path: TraitForTypeImplBlockPath(`#derive _ as core::clone::Clone(0)`),
                                     },
                                 ),
                             ),

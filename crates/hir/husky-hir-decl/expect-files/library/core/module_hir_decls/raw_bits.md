@@ -103,7 +103,7 @@
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodFnHirDecl {
-                    path: TypeItemPath(`(core::raw_bits::r32(0)::last_bits`, `MethodRitchie(
+                    path: TypeItemPath(`<core::raw_bits::r32(0)>::last_bits`, `MethodRitchie(
                         Fn,
                     )`),
                     template_parameters: HirTemplateParameters(
@@ -145,7 +145,7 @@
                         region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
-                                    TypeItemPath(`(core::raw_bits::r32(0)::last_bits`, `MethodRitchie(
+                                    TypeItemPath(`<core::raw_bits::r32(0)>::last_bits`, `MethodRitchie(
                                         Fn,
                                     )`),
                                 ),
@@ -198,7 +198,7 @@
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodFnHirDecl {
-                    path: TypeItemPath(`(core::raw_bits::r32(0)::ctz`, `MethodRitchie(
+                    path: TypeItemPath(`<core::raw_bits::r32(0)>::ctz`, `MethodRitchie(
                         Fn,
                     )`),
                     template_parameters: HirTemplateParameters(
@@ -228,7 +228,7 @@
                         region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
-                                    TypeItemPath(`(core::raw_bits::r32(0)::ctz`, `MethodRitchie(
+                                    TypeItemPath(`<core::raw_bits::r32(0)>::ctz`, `MethodRitchie(
                                         Fn,
                                     )`),
                                 ),
@@ -270,7 +270,7 @@
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodFnHirDecl {
-                    path: TypeItemPath(`(core::raw_bits::r32(0)::co`, `MethodRitchie(
+                    path: TypeItemPath(`<core::raw_bits::r32(0)>::co`, `MethodRitchie(
                         Fn,
                     )`),
                     template_parameters: HirTemplateParameters(
@@ -300,7 +300,7 @@
                         region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
-                                    TypeItemPath(`(core::raw_bits::r32(0)::co`, `MethodRitchie(
+                                    TypeItemPath(`<core::raw_bits::r32(0)>::co`, `MethodRitchie(
                                         Fn,
                                     )`),
                                 ),
@@ -342,7 +342,7 @@
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodFnHirDecl {
-                    path: TypeItemPath(`(core::raw_bits::r32(0)::span`, `MethodRitchie(
+                    path: TypeItemPath(`<core::raw_bits::r32(0)>::span`, `MethodRitchie(
                         Fn,
                     )`),
                     template_parameters: HirTemplateParameters(
@@ -372,7 +372,7 @@
                         region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
-                                    TypeItemPath(`(core::raw_bits::r32(0)::span`, `MethodRitchie(
+                                    TypeItemPath(`<core::raw_bits::r32(0)>::span`, `MethodRitchie(
                                         Fn,
                                     )`),
                                 ),
@@ -414,7 +414,7 @@
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodFnHirDecl {
-                    path: TypeItemPath(`(core::raw_bits::r32(0)::right_mass`, `MethodRitchie(
+                    path: TypeItemPath(`<core::raw_bits::r32(0)>::right_mass`, `MethodRitchie(
                         Fn,
                     )`),
                     template_parameters: HirTemplateParameters(
@@ -444,7 +444,7 @@
                         region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
-                                    TypeItemPath(`(core::raw_bits::r32(0)::right_mass`, `MethodRitchie(
+                                    TypeItemPath(`<core::raw_bits::r32(0)>::right_mass`, `MethodRitchie(
                                         Fn,
                                     )`),
                                 ),

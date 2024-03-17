@@ -728,7 +728,7 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::from_i_shift28`, `AssocRitchie(
+                TypeItemPath(`<mnist_classifier::geom2d::Point2d(0)>::from_i_shift28`, `AssocRitchie(
                     Fn,
                 )`),
             ),
@@ -738,7 +738,7 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::AssocFn(
                         TypeAssocFnDecTemplate {
-                            path: TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::from_i_shift28`, `AssocRitchie(
+                            path: TypeItemPath(`<mnist_classifier::geom2d::Point2d(0)>::from_i_shift28`, `AssocRitchie(
                                 Fn,
                             )`),
                             self_ty: EntityPath(
@@ -811,7 +811,7 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::vector`, `MethodRitchie(
+                TypeItemPath(`<mnist_classifier::geom2d::Point2d(0)>::vector`, `MethodRitchie(
                     Fn,
                 )`),
             ),
@@ -821,7 +821,7 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
                         TypeMethodFnDecTemplate {
-                            path: TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::vector`, `MethodRitchie(
+                            path: TypeItemPath(`<mnist_classifier::geom2d::Point2d(0)>::vector`, `MethodRitchie(
                                 Fn,
                             )`),
                             impl_block: TypeImplBlockDecTemplate {
@@ -891,7 +891,7 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::to`, `MethodRitchie(
+                TypeItemPath(`<mnist_classifier::geom2d::Point2d(0)>::to`, `MethodRitchie(
                     Fn,
                 )`),
             ),
@@ -901,7 +901,7 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
                         TypeMethodFnDecTemplate {
-                            path: TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::to`, `MethodRitchie(
+                            path: TypeItemPath(`<mnist_classifier::geom2d::Point2d(0)>::to`, `MethodRitchie(
                                 Fn,
                             )`),
                             impl_block: TypeImplBlockDecTemplate {
@@ -988,7 +988,7 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::norm`, `MethodRitchie(
+                TypeItemPath(`<mnist_classifier::geom2d::Point2d(0)>::norm`, `MethodRitchie(
                     Fn,
                 )`),
             ),
@@ -998,7 +998,7 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
                         TypeMethodFnDecTemplate {
-                            path: TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::norm`, `MethodRitchie(
+                            path: TypeItemPath(`<mnist_classifier::geom2d::Point2d(0)>::norm`, `MethodRitchie(
                                 Fn,
                             )`),
                             impl_block: TypeImplBlockDecTemplate {
@@ -1068,7 +1068,7 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::dist`, `MethodRitchie(
+                TypeItemPath(`<mnist_classifier::geom2d::Point2d(0)>::dist`, `MethodRitchie(
                     Fn,
                 )`),
             ),
@@ -1078,7 +1078,7 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
                         TypeMethodFnDecTemplate {
-                            path: TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::dist`, `MethodRitchie(
+                            path: TypeItemPath(`<mnist_classifier::geom2d::Point2d(0)>::dist`, `MethodRitchie(
                                 Fn,
                             )`),
                             impl_block: TypeImplBlockDecTemplate {
@@ -1200,7 +1200,7 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::point`, `MethodRitchie(
+                TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::point`, `MethodRitchie(
                     Fn,
                 )`),
             ),
@@ -1210,7 +1210,7 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
                         TypeMethodFnDecTemplate {
-                            path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::point`, `MethodRitchie(
+                            path: TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::point`, `MethodRitchie(
                                 Fn,
                             )`),
                             impl_block: TypeImplBlockDecTemplate {
@@ -1280,7 +1280,7 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::to`, `MethodRitchie(
+                TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::to`, `MethodRitchie(
                     Fn,
                 )`),
             ),
@@ -1290,7 +1290,7 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
                         TypeMethodFnDecTemplate {
-                            path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::to`, `MethodRitchie(
+                            path: TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::to`, `MethodRitchie(
                                 Fn,
                             )`),
                             impl_block: TypeImplBlockDecTemplate {
@@ -1377,7 +1377,7 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::norm`, `MethodRitchie(
+                TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::norm`, `MethodRitchie(
                     Fn,
                 )`),
             ),
@@ -1387,7 +1387,7 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
                         TypeMethodFnDecTemplate {
-                            path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::norm`, `MethodRitchie(
+                            path: TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::norm`, `MethodRitchie(
                                 Fn,
                             )`),
                             impl_block: TypeImplBlockDecTemplate {
@@ -1457,7 +1457,7 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::dot`, `MethodRitchie(
+                TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::dot`, `MethodRitchie(
                     Fn,
                 )`),
             ),
@@ -1467,104 +1467,7 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
                         TypeMethodFnDecTemplate {
-                            path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::dot`, `MethodRitchie(
-                                Fn,
-                            )`),
-                            impl_block: TypeImplBlockDecTemplate {
-                                template_parameters: DecTemplateParameters {
-                                    data: [],
-                                },
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 32,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            },
-                            self_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 32,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                            template_parameters: DecTemplateParameters {
-                                data: [],
-                            },
-                            self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 32,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            },
-                            parenate_parameters: DeclarativeParenateParameters {
-                                data: [
-                                    DeclarativeRitchieParameter::Simple(
-                                        DeclarativeRitchieSimpleParameter {
-                                            contract: Pure,
-                                            ty: EntityPath(
-                                                Type(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 32,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                ],
-                            },
-                            return_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 139,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-            ),
-        ),
-    ),
-    (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::cross`, `MethodRitchie(
-                    Fn,
-                )`),
-            ),
-        ),
-        Ok(
-            DecTemplate::AssocItem(
-                AssocItemDecTemplate::TypeItem(
-                    TypeItemDecTemplate::MethodFn(
-                        TypeMethodFnDecTemplate {
-                            path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::cross`, `MethodRitchie(
+                            path: TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::dot`, `MethodRitchie(
                                 Fn,
                             )`),
                             impl_block: TypeImplBlockDecTemplate {
@@ -1651,7 +1554,7 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::angle`, `MethodRitchie(
+                TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::cross`, `MethodRitchie(
                     Fn,
                 )`),
             ),
@@ -1661,7 +1564,104 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
                         TypeMethodFnDecTemplate {
-                            path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::angle`, `MethodRitchie(
+                            path: TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::cross`, `MethodRitchie(
+                                Fn,
+                            )`),
+                            impl_block: TypeImplBlockDecTemplate {
+                                template_parameters: DecTemplateParameters {
+                                    data: [],
+                                },
+                                ty: EntityPath(
+                                    Type(
+                                        TypePath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 32,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                            self_ty: EntityPath(
+                                Type(
+                                    TypePath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 32,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            template_parameters: DecTemplateParameters {
+                                data: [],
+                            },
+                            self_value_parameter: DeclarativeRitchieSimpleParameter {
+                                contract: Pure,
+                                ty: EntityPath(
+                                    Type(
+                                        TypePath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 32,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                            parenate_parameters: DeclarativeParenateParameters {
+                                data: [
+                                    DeclarativeRitchieParameter::Simple(
+                                        DeclarativeRitchieSimpleParameter {
+                                            contract: Pure,
+                                            ty: EntityPath(
+                                                Type(
+                                                    TypePath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 32,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ],
+                            },
+                            return_ty: EntityPath(
+                                Type(
+                                    TypePath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 139,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+            ),
+        ),
+    ),
+    (
+        ItemPath::AssocItem(
+            AssocItemPath::TypeItem(
+                TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::angle`, `MethodRitchie(
+                    Fn,
+                )`),
+            ),
+        ),
+        Ok(
+            DecTemplate::AssocItem(
+                AssocItemDecTemplate::TypeItem(
+                    TypeItemDecTemplate::MethodFn(
+                        TypeMethodFnDecTemplate {
+                            path: TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::angle`, `MethodRitchie(
                                 Fn,
                             )`),
                             impl_block: TypeImplBlockDecTemplate {
@@ -1748,7 +1748,7 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::rotation_direction_to`, `MethodRitchie(
+                TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::rotation_direction_to`, `MethodRitchie(
                     Fn,
                 )`),
             ),
@@ -1758,7 +1758,7 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
                         TypeMethodFnDecTemplate {
-                            path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::rotation_direction_to`, `MethodRitchie(
+                            path: TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::rotation_direction_to`, `MethodRitchie(
                                 Fn,
                             )`),
                             impl_block: TypeImplBlockDecTemplate {
@@ -1845,7 +1845,7 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::angle_to`, `MethodRitchie(
+                TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::angle_to`, `MethodRitchie(
                     Fn,
                 )`),
             ),
@@ -1855,7 +1855,7 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
                         TypeMethodFnDecTemplate {
-                            path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::angle_to`, `MethodRitchie(
+                            path: TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::angle_to`, `MethodRitchie(
                                 Fn,
                             )`),
                             impl_block: TypeImplBlockDecTemplate {
@@ -1993,7 +1993,7 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`(mnist_classifier::geom2d::ClosedRange(0)::relative_range`, `MethodRitchie(
+                TypeItemPath(`<mnist_classifier::geom2d::ClosedRange(0)>::relative_range`, `MethodRitchie(
                     Fn,
                 )`),
             ),
@@ -2003,7 +2003,7 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
                         TypeMethodFnDecTemplate {
-                            path: TypeItemPath(`(mnist_classifier::geom2d::ClosedRange(0)::relative_range`, `MethodRitchie(
+                            path: TypeItemPath(`<mnist_classifier::geom2d::ClosedRange(0)>::relative_range`, `MethodRitchie(
                                 Fn,
                             )`),
                             impl_block: TypeImplBlockDecTemplate {
@@ -2090,7 +2090,7 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`(mnist_classifier::geom2d::ClosedRange(0)::relative_point`, `MethodRitchie(
+                TypeItemPath(`<mnist_classifier::geom2d::ClosedRange(0)>::relative_point`, `MethodRitchie(
                     Fn,
                 )`),
             ),
@@ -2100,7 +2100,7 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
                         TypeMethodFnDecTemplate {
-                            path: TypeItemPath(`(mnist_classifier::geom2d::ClosedRange(0)::relative_point`, `MethodRitchie(
+                            path: TypeItemPath(`<mnist_classifier::geom2d::ClosedRange(0)>::relative_point`, `MethodRitchie(
                                 Fn,
                             )`),
                             impl_block: TypeImplBlockDecTemplate {
@@ -2222,7 +2222,7 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::relative_bounding_box`, `MethodRitchie(
+                TypeItemPath(`<mnist_classifier::geom2d::BoundingBox(0)>::relative_bounding_box`, `MethodRitchie(
                     Fn,
                 )`),
             ),
@@ -2232,7 +2232,7 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
                         TypeMethodFnDecTemplate {
-                            path: TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::relative_bounding_box`, `MethodRitchie(
+                            path: TypeItemPath(`<mnist_classifier::geom2d::BoundingBox(0)>::relative_bounding_box`, `MethodRitchie(
                                 Fn,
                             )`),
                             impl_block: TypeImplBlockDecTemplate {
@@ -2319,7 +2319,7 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::relative_point`, `MethodRitchie(
+                TypeItemPath(`<mnist_classifier::geom2d::BoundingBox(0)>::relative_point`, `MethodRitchie(
                     Fn,
                 )`),
             ),
@@ -2329,7 +2329,7 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
                         TypeMethodFnDecTemplate {
-                            path: TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::relative_point`, `MethodRitchie(
+                            path: TypeItemPath(`<mnist_classifier::geom2d::BoundingBox(0)>::relative_point`, `MethodRitchie(
                                 Fn,
                             )`),
                             impl_block: TypeImplBlockDecTemplate {
@@ -2416,7 +2416,7 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::xmin`, `MethodRitchie(
+                TypeItemPath(`<mnist_classifier::geom2d::BoundingBox(0)>::xmin`, `MethodRitchie(
                     Fn,
                 )`),
             ),
@@ -2426,7 +2426,7 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
                         TypeMethodFnDecTemplate {
-                            path: TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::xmin`, `MethodRitchie(
+                            path: TypeItemPath(`<mnist_classifier::geom2d::BoundingBox(0)>::xmin`, `MethodRitchie(
                                 Fn,
                             )`),
                             impl_block: TypeImplBlockDecTemplate {
@@ -2496,7 +2496,7 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::xmax`, `MethodRitchie(
+                TypeItemPath(`<mnist_classifier::geom2d::BoundingBox(0)>::xmax`, `MethodRitchie(
                     Fn,
                 )`),
             ),
@@ -2506,7 +2506,7 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
                         TypeMethodFnDecTemplate {
-                            path: TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::xmax`, `MethodRitchie(
+                            path: TypeItemPath(`<mnist_classifier::geom2d::BoundingBox(0)>::xmax`, `MethodRitchie(
                                 Fn,
                             )`),
                             impl_block: TypeImplBlockDecTemplate {
@@ -2576,7 +2576,7 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymin`, `MethodRitchie(
+                TypeItemPath(`<mnist_classifier::geom2d::BoundingBox(0)>::ymin`, `MethodRitchie(
                     Fn,
                 )`),
             ),
@@ -2586,7 +2586,7 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
                         TypeMethodFnDecTemplate {
-                            path: TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymin`, `MethodRitchie(
+                            path: TypeItemPath(`<mnist_classifier::geom2d::BoundingBox(0)>::ymin`, `MethodRitchie(
                                 Fn,
                             )`),
                             impl_block: TypeImplBlockDecTemplate {
@@ -2656,7 +2656,7 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymax`, `MethodRitchie(
+                TypeItemPath(`<mnist_classifier::geom2d::BoundingBox(0)>::ymax`, `MethodRitchie(
                     Fn,
                 )`),
             ),
@@ -2666,7 +2666,7 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
                         TypeMethodFnDecTemplate {
-                            path: TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymax`, `MethodRitchie(
+                            path: TypeItemPath(`<mnist_classifier::geom2d::BoundingBox(0)>::ymax`, `MethodRitchie(
                                 Fn,
                             )`),
                             impl_block: TypeImplBlockDecTemplate {
@@ -2771,7 +2771,7 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::xmin`, `MethodRitchie(
+                TypeItemPath(`<mnist_classifier::geom2d::RelativeBoundingBox(0)>::xmin`, `MethodRitchie(
                     Fn,
                 )`),
             ),
@@ -2781,7 +2781,7 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
                         TypeMethodFnDecTemplate {
-                            path: TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::xmin`, `MethodRitchie(
+                            path: TypeItemPath(`<mnist_classifier::geom2d::RelativeBoundingBox(0)>::xmin`, `MethodRitchie(
                                 Fn,
                             )`),
                             impl_block: TypeImplBlockDecTemplate {
@@ -2851,7 +2851,7 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::xmax`, `MethodRitchie(
+                TypeItemPath(`<mnist_classifier::geom2d::RelativeBoundingBox(0)>::xmax`, `MethodRitchie(
                     Fn,
                 )`),
             ),
@@ -2861,7 +2861,7 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
                         TypeMethodFnDecTemplate {
-                            path: TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::xmax`, `MethodRitchie(
+                            path: TypeItemPath(`<mnist_classifier::geom2d::RelativeBoundingBox(0)>::xmax`, `MethodRitchie(
                                 Fn,
                             )`),
                             impl_block: TypeImplBlockDecTemplate {
@@ -2931,7 +2931,7 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::ymin`, `MethodRitchie(
+                TypeItemPath(`<mnist_classifier::geom2d::RelativeBoundingBox(0)>::ymin`, `MethodRitchie(
                     Fn,
                 )`),
             ),
@@ -2941,7 +2941,7 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
                         TypeMethodFnDecTemplate {
-                            path: TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::ymin`, `MethodRitchie(
+                            path: TypeItemPath(`<mnist_classifier::geom2d::RelativeBoundingBox(0)>::ymin`, `MethodRitchie(
                                 Fn,
                             )`),
                             impl_block: TypeImplBlockDecTemplate {
@@ -3011,7 +3011,7 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::ymax`, `MethodRitchie(
+                TypeItemPath(`<mnist_classifier::geom2d::RelativeBoundingBox(0)>::ymax`, `MethodRitchie(
                     Fn,
                 )`),
             ),
@@ -3021,7 +3021,7 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
                         TypeMethodFnDecTemplate {
-                            path: TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::ymax`, `MethodRitchie(
+                            path: TypeItemPath(`<mnist_classifier::geom2d::RelativeBoundingBox(0)>::ymax`, `MethodRitchie(
                                 Fn,
                             )`),
                             impl_block: TypeImplBlockDecTemplate {

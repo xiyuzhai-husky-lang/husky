@@ -198,7 +198,7 @@
                     },
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TypeItem(
-                            TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodRitchie(
+                            TypeItemPath(`<core::slice::CyclicSlice(0)>::end`, `MethodRitchie(
                                 Fn,
                             )`),
                         ),
@@ -234,7 +234,7 @@
                     },
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TypeItem(
-                            TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodRitchie(
+                            TypeItemPath(`<core::slice::CyclicSlice(0)>::start`, `MethodRitchie(
                                 Fn,
                             )`),
                         ),

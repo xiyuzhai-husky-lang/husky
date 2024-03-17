@@ -11,16 +11,7 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TraitForTypeImplBlock(
-                TraitForTypeImplBlock {
-                    data: TraitForTypeImplBlockPathData {
-                        module_path: `core::result`,
-                        trai_path: TraitPath(`core::ops::Unveil`),
-                        ty_sketch: TypeSketch::Path(
-                            TypePath(`core::result::Result`, `Enum`),
-                        ),
-                        disambiguator: 0,
-                    },
-                },
+                core::result::Result as core::ops::Unveil(0),
             ),
         ),
         None,
@@ -28,13 +19,7 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TraitForTypeItem(
-                TraitForTypeItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 174,
-                        },
-                    ),
-                ),
+                TraitForTypeItemPath(`<core::result::Result as core::ops::Unveil(0)>::Continue`, `AssocType`),
             ),
         ),
         None,
@@ -42,13 +27,9 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TraitForTypeItem(
-                TraitForTypeItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 175,
-                        },
-                    ),
-                ),
+                TraitForTypeItemPath(`<core::result::Result as core::ops::Unveil(0)>::unveil`, `AssocRitchie(
+                    Fn,
+                )`),
             ),
         ),
         None,

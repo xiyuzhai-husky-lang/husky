@@ -35,16 +35,7 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TraitForTypeImplBlock(
-                TraitForTypeImplBlock {
-                    data: TraitForTypeImplBlockPathData {
-                        module_path: `mnist`,
-                        trai_path: TraitPath(`core::visual::Visualize`),
-                        ty_sketch: TypeSketch::Path(
-                            TypePath(`mnist::BinaryImage28`, `Extern`),
-                        ),
-                        disambiguator: 0,
-                    },
-                },
+                mnist::BinaryImage28 as core::visual::Visualize(0),
             ),
         ),
         None,
@@ -52,13 +43,9 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TraitForTypeItem(
-                TraitForTypeItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 153,
-                        },
-                    ),
-                ),
+                TraitForTypeItemPath(`<mnist::BinaryImage28 as core::visual::Visualize(0)>::visualize`, `MethodRitchie(
+                    Fn,
+                )`),
             ),
         ),
         None,
@@ -80,7 +67,7 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`(mnist::BinaryImage28(0)::new_zeros`, `AssocRitchie(
+                TypeItemPath(`<mnist::BinaryImage28(0)>::new_zeros`, `AssocRitchie(
                     Fn,
                 )`),
             ),
@@ -90,16 +77,7 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TraitForTypeImplBlock(
-                TraitForTypeImplBlock {
-                    data: TraitForTypeImplBlockPathData {
-                        module_path: `mnist`,
-                        trai_path: TraitPath(`core::ops::IntIndex`),
-                        ty_sketch: TypeSketch::Path(
-                            TypePath(`mnist::BinaryImage28`, `Extern`),
-                        ),
-                        disambiguator: 0,
-                    },
-                },
+                mnist::BinaryImage28 as core::ops::IntIndex(0),
             ),
         ),
         None,
@@ -107,13 +85,7 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TraitForTypeItem(
-                TraitForTypeItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 155,
-                        },
-                    ),
-                ),
+                TraitForTypeItemPath(`<mnist::BinaryImage28 as core::ops::IntIndex(0)>::Output`, `AssocType`),
             ),
         ),
         None,
@@ -121,16 +93,7 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TraitForTypeImplBlock(
-                TraitForTypeImplBlock {
-                    data: TraitForTypeImplBlockPathData {
-                        module_path: `mnist`,
-                        trai_path: TraitPath(`core::visual::Visualize`),
-                        ty_sketch: TypeSketch::Path(
-                            TypePath(`mnist::BinaryGrid28`, `Extern`),
-                        ),
-                        disambiguator: 0,
-                    },
-                },
+                mnist::BinaryGrid28 as core::visual::Visualize(0),
             ),
         ),
         None,
@@ -138,13 +101,9 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TraitForTypeItem(
-                TraitForTypeItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 156,
-                        },
-                    ),
-                ),
+                TraitForTypeItemPath(`<mnist::BinaryGrid28 as core::visual::Visualize(0)>::visualize`, `MethodRitchie(
+                    Fn,
+                )`),
             ),
         ),
         None,
@@ -166,7 +125,7 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`(mnist::BinaryGrid28(0)::new_zeros`, `AssocRitchie(
+                TypeItemPath(`<mnist::BinaryGrid28(0)>::new_zeros`, `AssocRitchie(
                     Fn,
                 )`),
             ),
@@ -176,16 +135,7 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TraitForTypeImplBlock(
-                TraitForTypeImplBlock {
-                    data: TraitForTypeImplBlockPathData {
-                        module_path: `mnist`,
-                        trai_path: TraitPath(`core::ops::IntIndex`),
-                        ty_sketch: TypeSketch::Path(
-                            TypePath(`mnist::BinaryGrid28`, `Extern`),
-                        ),
-                        disambiguator: 0,
-                    },
-                },
+                mnist::BinaryGrid28 as core::ops::IntIndex(0),
             ),
         ),
         None,
@@ -193,13 +143,7 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TraitForTypeItem(
-                TraitForTypeItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 158,
-                        },
-                    ),
-                ),
+                TraitForTypeItemPath(`<mnist::BinaryGrid28 as core::ops::IntIndex(0)>::Output`, `AssocType`),
             ),
         ),
         None,

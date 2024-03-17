@@ -1282,7 +1282,7 @@ SynDeclSheet {
         (
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`(core::num::i8(0)::abs`, `MethodRitchie(
+                    TypeItemPath(`<core::num::i8(0)>::abs`, `MethodRitchie(
                         Fn,
                     )`),
                 ),
@@ -1291,7 +1291,7 @@ SynDeclSheet {
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodFnSynDecl {
-                            path: TypeItemPath(`(core::num::i8(0)::abs`, `MethodRitchie(
+                            path: TypeItemPath(`<core::num::i8(0)>::abs`, `MethodRitchie(
                                 Fn,
                             )`),
                             template_parameters: [],
@@ -1415,7 +1415,7 @@ SynDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath(`(core::num::i8(0)::abs`, `MethodRitchie(
+                                                                        path: TypeItemPath(`<core::num::i8(0)>::abs`, `MethodRitchie(
                                                                             Fn,
                                                                         )`),
                                                                         disambiguator: 0,
@@ -1510,7 +1510,7 @@ SynDeclSheet {
         (
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`(core::num::i8(0)::max`, `MethodRitchie(
+                    TypeItemPath(`<core::num::i8(0)>::max`, `MethodRitchie(
                         Fn,
                     )`),
                 ),
@@ -1519,7 +1519,7 @@ SynDeclSheet {
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodFnSynDecl {
-                            path: TypeItemPath(`(core::num::i8(0)::max`, `MethodRitchie(
+                            path: TypeItemPath(`<core::num::i8(0)>::max`, `MethodRitchie(
                                 Fn,
                             )`),
                             template_parameters: [],
@@ -1658,7 +1658,7 @@ SynDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath(`(core::num::i8(0)::max`, `MethodRitchie(
+                                                                        path: TypeItemPath(`<core::num::i8(0)>::max`, `MethodRitchie(
                                                                             Fn,
                                                                         )`),
                                                                         disambiguator: 0,
@@ -1841,31 +1841,13 @@ SynDeclSheet {
         (
             ItemPath::ImplBlock(
                 ImplBlockPath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlock {
-                        data: TraitForTypeImplBlockPathData {
-                            module_path: `core::num`,
-                            trai_path: TraitPath(`core::ops::Add`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`core::num::i8`, `Extern`),
-                            ),
-                            disambiguator: 0,
-                        },
-                    },
+                    core::num::i8 as core::ops::Add(0),
                 ),
             ),
             SynDecl::ImplBlock(
                 ImplBlockSynDecl::TraitForType(
                     TraitForTypeImplBlockSynDecl {
-                        path: TraitForTypeImplBlock {
-                            data: TraitForTypeImplBlockPathData {
-                                module_path: `core::num`,
-                                trai_path: TraitPath(`core::ops::Add`),
-                                ty_sketch: TypeSketch::Path(
-                                    TypePath(`core::num::i8`, `Extern`),
-                                ),
-                                disambiguator: 0,
-                            },
-                        },
+                        path: core::num::i8 as core::ops::Add(0),
                         template_parameters: [],
                         trai_expr: TraitSyndicate {
                             syn_expr_idx: 3,
@@ -1886,16 +1868,7 @@ SynDeclSheet {
                                                     data: ItemSynNodePathData::ImplBlock(
                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                path: TraitForTypeImplBlock {
-                                                                    data: TraitForTypeImplBlockPathData {
-                                                                        module_path: `core::num`,
-                                                                        trai_path: TraitPath(`core::ops::Add`),
-                                                                        ty_sketch: TypeSketch::Path(
-                                                                            TypePath(`core::num::i8`, `Extern`),
-                                                                        ),
-                                                                        disambiguator: 0,
-                                                                    },
-                                                                },
+                                                                path: core::num::i8 as core::ops::Add(0),
                                                             },
                                                         ),
                                                     ),
@@ -2043,26 +2016,18 @@ SynDeclSheet {
         (
             ItemPath::AssocItem(
                 AssocItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 131,
-                            },
-                        ),
-                    ),
+                    TraitForTypeItemPath(`<core::num::i8 as core::ops::Add(0)>::add`, `MethodRitchie(
+                        Fn,
+                    )`),
                 ),
             ),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TraitForTypeItem(
                     TraitForTypeItemSynDecl::MethodFn(
                         TraitForTypeMethodFnSynDecl {
-                            path: TraitForTypeItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 131,
-                                    },
-                                ),
-                            ),
+                            path: TraitForTypeItemPath(`<core::num::i8 as core::ops::Add(0)>::add`, `MethodRitchie(
+                                Fn,
+                            )`),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
@@ -2100,16 +2065,7 @@ SynDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                                path: TraitForTypeImplBlock {
-                                                                                    data: TraitForTypeImplBlockPathData {
-                                                                                        module_path: `core::num`,
-                                                                                        trai_path: TraitPath(`core::ops::Add`),
-                                                                                        ty_sketch: TypeSketch::Path(
-                                                                                            TypePath(`core::num::i8`, `Extern`),
-                                                                                        ),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                },
+                                                                                path: core::num::i8 as core::ops::Add(0),
                                                                             },
                                                                         ),
                                                                     ),
@@ -2260,13 +2216,9 @@ SynDeclSheet {
                                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                                 TraitForTypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TraitForTypeItemPath(
-                                                                            ItemPathId(
-                                                                                Id {
-                                                                                    value: 131,
-                                                                                },
-                                                                            ),
-                                                                        ),
+                                                                        path: TraitForTypeItemPath(`<core::num::i8 as core::ops::Add(0)>::add`, `MethodRitchie(
+                                                                            Fn,
+                                                                        )`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -2577,7 +2529,7 @@ SynDeclSheet {
         (
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`(core::num::i16(0)::abs`, `MethodRitchie(
+                    TypeItemPath(`<core::num::i16(0)>::abs`, `MethodRitchie(
                         Fn,
                     )`),
                 ),
@@ -2586,7 +2538,7 @@ SynDeclSheet {
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodFnSynDecl {
-                            path: TypeItemPath(`(core::num::i16(0)::abs`, `MethodRitchie(
+                            path: TypeItemPath(`<core::num::i16(0)>::abs`, `MethodRitchie(
                                 Fn,
                             )`),
                             template_parameters: [],
@@ -2710,7 +2662,7 @@ SynDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath(`(core::num::i16(0)::abs`, `MethodRitchie(
+                                                                        path: TypeItemPath(`<core::num::i16(0)>::abs`, `MethodRitchie(
                                                                             Fn,
                                                                         )`),
                                                                         disambiguator: 0,
@@ -2805,7 +2757,7 @@ SynDeclSheet {
         (
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`(core::num::i16(0)::max`, `MethodRitchie(
+                    TypeItemPath(`<core::num::i16(0)>::max`, `MethodRitchie(
                         Fn,
                     )`),
                 ),
@@ -2814,7 +2766,7 @@ SynDeclSheet {
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodFnSynDecl {
-                            path: TypeItemPath(`(core::num::i16(0)::max`, `MethodRitchie(
+                            path: TypeItemPath(`<core::num::i16(0)>::max`, `MethodRitchie(
                                 Fn,
                             )`),
                             template_parameters: [],
@@ -2953,7 +2905,7 @@ SynDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath(`(core::num::i16(0)::max`, `MethodRitchie(
+                                                                        path: TypeItemPath(`<core::num::i16(0)>::max`, `MethodRitchie(
                                                                             Fn,
                                                                         )`),
                                                                         disambiguator: 0,
@@ -3136,31 +3088,13 @@ SynDeclSheet {
         (
             ItemPath::ImplBlock(
                 ImplBlockPath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlock {
-                        data: TraitForTypeImplBlockPathData {
-                            module_path: `core::num`,
-                            trai_path: TraitPath(`core::ops::Add`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`core::num::i16`, `Extern`),
-                            ),
-                            disambiguator: 0,
-                        },
-                    },
+                    core::num::i16 as core::ops::Add(0),
                 ),
             ),
             SynDecl::ImplBlock(
                 ImplBlockSynDecl::TraitForType(
                     TraitForTypeImplBlockSynDecl {
-                        path: TraitForTypeImplBlock {
-                            data: TraitForTypeImplBlockPathData {
-                                module_path: `core::num`,
-                                trai_path: TraitPath(`core::ops::Add`),
-                                ty_sketch: TypeSketch::Path(
-                                    TypePath(`core::num::i16`, `Extern`),
-                                ),
-                                disambiguator: 0,
-                            },
-                        },
+                        path: core::num::i16 as core::ops::Add(0),
                         template_parameters: [],
                         trai_expr: TraitSyndicate {
                             syn_expr_idx: 3,
@@ -3181,16 +3115,7 @@ SynDeclSheet {
                                                     data: ItemSynNodePathData::ImplBlock(
                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                path: TraitForTypeImplBlock {
-                                                                    data: TraitForTypeImplBlockPathData {
-                                                                        module_path: `core::num`,
-                                                                        trai_path: TraitPath(`core::ops::Add`),
-                                                                        ty_sketch: TypeSketch::Path(
-                                                                            TypePath(`core::num::i16`, `Extern`),
-                                                                        ),
-                                                                        disambiguator: 0,
-                                                                    },
-                                                                },
+                                                                path: core::num::i16 as core::ops::Add(0),
                                                             },
                                                         ),
                                                     ),
@@ -3338,26 +3263,18 @@ SynDeclSheet {
         (
             ItemPath::AssocItem(
                 AssocItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 134,
-                            },
-                        ),
-                    ),
+                    TraitForTypeItemPath(`<core::num::i16 as core::ops::Add(0)>::add`, `MethodRitchie(
+                        Fn,
+                    )`),
                 ),
             ),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TraitForTypeItem(
                     TraitForTypeItemSynDecl::MethodFn(
                         TraitForTypeMethodFnSynDecl {
-                            path: TraitForTypeItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 134,
-                                    },
-                                ),
-                            ),
+                            path: TraitForTypeItemPath(`<core::num::i16 as core::ops::Add(0)>::add`, `MethodRitchie(
+                                Fn,
+                            )`),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
@@ -3395,16 +3312,7 @@ SynDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                                path: TraitForTypeImplBlock {
-                                                                                    data: TraitForTypeImplBlockPathData {
-                                                                                        module_path: `core::num`,
-                                                                                        trai_path: TraitPath(`core::ops::Add`),
-                                                                                        ty_sketch: TypeSketch::Path(
-                                                                                            TypePath(`core::num::i16`, `Extern`),
-                                                                                        ),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                },
+                                                                                path: core::num::i16 as core::ops::Add(0),
                                                                             },
                                                                         ),
                                                                     ),
@@ -3555,13 +3463,9 @@ SynDeclSheet {
                                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                                 TraitForTypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TraitForTypeItemPath(
-                                                                            ItemPathId(
-                                                                                Id {
-                                                                                    value: 134,
-                                                                                },
-                                                                            ),
-                                                                        ),
+                                                                        path: TraitForTypeItemPath(`<core::num::i16 as core::ops::Add(0)>::add`, `MethodRitchie(
+                                                                            Fn,
+                                                                        )`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -3872,7 +3776,7 @@ SynDeclSheet {
         (
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`(core::num::i32(0)::abs`, `MethodRitchie(
+                    TypeItemPath(`<core::num::i32(0)>::abs`, `MethodRitchie(
                         Fn,
                     )`),
                 ),
@@ -3881,7 +3785,7 @@ SynDeclSheet {
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodFnSynDecl {
-                            path: TypeItemPath(`(core::num::i32(0)::abs`, `MethodRitchie(
+                            path: TypeItemPath(`<core::num::i32(0)>::abs`, `MethodRitchie(
                                 Fn,
                             )`),
                             template_parameters: [],
@@ -4005,7 +3909,7 @@ SynDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath(`(core::num::i32(0)::abs`, `MethodRitchie(
+                                                                        path: TypeItemPath(`<core::num::i32(0)>::abs`, `MethodRitchie(
                                                                             Fn,
                                                                         )`),
                                                                         disambiguator: 0,
@@ -4100,7 +4004,7 @@ SynDeclSheet {
         (
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`(core::num::i32(0)::max`, `MethodRitchie(
+                    TypeItemPath(`<core::num::i32(0)>::max`, `MethodRitchie(
                         Fn,
                     )`),
                 ),
@@ -4109,7 +4013,7 @@ SynDeclSheet {
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodFnSynDecl {
-                            path: TypeItemPath(`(core::num::i32(0)::max`, `MethodRitchie(
+                            path: TypeItemPath(`<core::num::i32(0)>::max`, `MethodRitchie(
                                 Fn,
                             )`),
                             template_parameters: [],
@@ -4248,7 +4152,7 @@ SynDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath(`(core::num::i32(0)::max`, `MethodRitchie(
+                                                                        path: TypeItemPath(`<core::num::i32(0)>::max`, `MethodRitchie(
                                                                             Fn,
                                                                         )`),
                                                                         disambiguator: 0,
@@ -4431,7 +4335,7 @@ SynDeclSheet {
         (
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`(core::num::i32(0)::min`, `MethodRitchie(
+                    TypeItemPath(`<core::num::i32(0)>::min`, `MethodRitchie(
                         Fn,
                     )`),
                 ),
@@ -4440,7 +4344,7 @@ SynDeclSheet {
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodFnSynDecl {
-                            path: TypeItemPath(`(core::num::i32(0)::min`, `MethodRitchie(
+                            path: TypeItemPath(`<core::num::i32(0)>::min`, `MethodRitchie(
                                 Fn,
                             )`),
                             template_parameters: [],
@@ -4579,7 +4483,7 @@ SynDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath(`(core::num::i32(0)::min`, `MethodRitchie(
+                                                                        path: TypeItemPath(`<core::num::i32(0)>::min`, `MethodRitchie(
                                                                             Fn,
                                                                         )`),
                                                                         disambiguator: 0,
@@ -4762,31 +4666,13 @@ SynDeclSheet {
         (
             ItemPath::ImplBlock(
                 ImplBlockPath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlock {
-                        data: TraitForTypeImplBlockPathData {
-                            module_path: `core::num`,
-                            trai_path: TraitPath(`core::ops::Add`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`core::num::i32`, `Extern`),
-                            ),
-                            disambiguator: 0,
-                        },
-                    },
+                    core::num::i32 as core::ops::Add(0),
                 ),
             ),
             SynDecl::ImplBlock(
                 ImplBlockSynDecl::TraitForType(
                     TraitForTypeImplBlockSynDecl {
-                        path: TraitForTypeImplBlock {
-                            data: TraitForTypeImplBlockPathData {
-                                module_path: `core::num`,
-                                trai_path: TraitPath(`core::ops::Add`),
-                                ty_sketch: TypeSketch::Path(
-                                    TypePath(`core::num::i32`, `Extern`),
-                                ),
-                                disambiguator: 0,
-                            },
-                        },
+                        path: core::num::i32 as core::ops::Add(0),
                         template_parameters: [],
                         trai_expr: TraitSyndicate {
                             syn_expr_idx: 3,
@@ -4807,16 +4693,7 @@ SynDeclSheet {
                                                     data: ItemSynNodePathData::ImplBlock(
                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                path: TraitForTypeImplBlock {
-                                                                    data: TraitForTypeImplBlockPathData {
-                                                                        module_path: `core::num`,
-                                                                        trai_path: TraitPath(`core::ops::Add`),
-                                                                        ty_sketch: TypeSketch::Path(
-                                                                            TypePath(`core::num::i32`, `Extern`),
-                                                                        ),
-                                                                        disambiguator: 0,
-                                                                    },
-                                                                },
+                                                                path: core::num::i32 as core::ops::Add(0),
                                                             },
                                                         ),
                                                     ),
@@ -4964,26 +4841,18 @@ SynDeclSheet {
         (
             ItemPath::AssocItem(
                 AssocItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 138,
-                            },
-                        ),
-                    ),
+                    TraitForTypeItemPath(`<core::num::i32 as core::ops::Add(0)>::add`, `MethodRitchie(
+                        Fn,
+                    )`),
                 ),
             ),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TraitForTypeItem(
                     TraitForTypeItemSynDecl::MethodFn(
                         TraitForTypeMethodFnSynDecl {
-                            path: TraitForTypeItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 138,
-                                    },
-                                ),
-                            ),
+                            path: TraitForTypeItemPath(`<core::num::i32 as core::ops::Add(0)>::add`, `MethodRitchie(
+                                Fn,
+                            )`),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
@@ -5021,16 +4890,7 @@ SynDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                                path: TraitForTypeImplBlock {
-                                                                                    data: TraitForTypeImplBlockPathData {
-                                                                                        module_path: `core::num`,
-                                                                                        trai_path: TraitPath(`core::ops::Add`),
-                                                                                        ty_sketch: TypeSketch::Path(
-                                                                                            TypePath(`core::num::i32`, `Extern`),
-                                                                                        ),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                },
+                                                                                path: core::num::i32 as core::ops::Add(0),
                                                                             },
                                                                         ),
                                                                     ),
@@ -5181,13 +5041,9 @@ SynDeclSheet {
                                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                                 TraitForTypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TraitForTypeItemPath(
-                                                                            ItemPathId(
-                                                                                Id {
-                                                                                    value: 138,
-                                                                                },
-                                                                            ),
-                                                                        ),
+                                                                        path: TraitForTypeItemPath(`<core::num::i32 as core::ops::Add(0)>::add`, `MethodRitchie(
+                                                                            Fn,
+                                                                        )`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -5498,7 +5354,7 @@ SynDeclSheet {
         (
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`(core::num::i64(0)::abs`, `MethodRitchie(
+                    TypeItemPath(`<core::num::i64(0)>::abs`, `MethodRitchie(
                         Fn,
                     )`),
                 ),
@@ -5507,7 +5363,7 @@ SynDeclSheet {
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodFnSynDecl {
-                            path: TypeItemPath(`(core::num::i64(0)::abs`, `MethodRitchie(
+                            path: TypeItemPath(`<core::num::i64(0)>::abs`, `MethodRitchie(
                                 Fn,
                             )`),
                             template_parameters: [],
@@ -5631,7 +5487,7 @@ SynDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath(`(core::num::i64(0)::abs`, `MethodRitchie(
+                                                                        path: TypeItemPath(`<core::num::i64(0)>::abs`, `MethodRitchie(
                                                                             Fn,
                                                                         )`),
                                                                         disambiguator: 0,
@@ -5726,31 +5582,13 @@ SynDeclSheet {
         (
             ItemPath::ImplBlock(
                 ImplBlockPath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlock {
-                        data: TraitForTypeImplBlockPathData {
-                            module_path: `core::num`,
-                            trai_path: TraitPath(`core::ops::Add`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`core::num::i64`, `Extern`),
-                            ),
-                            disambiguator: 0,
-                        },
-                    },
+                    core::num::i64 as core::ops::Add(0),
                 ),
             ),
             SynDecl::ImplBlock(
                 ImplBlockSynDecl::TraitForType(
                     TraitForTypeImplBlockSynDecl {
-                        path: TraitForTypeImplBlock {
-                            data: TraitForTypeImplBlockPathData {
-                                module_path: `core::num`,
-                                trai_path: TraitPath(`core::ops::Add`),
-                                ty_sketch: TypeSketch::Path(
-                                    TypePath(`core::num::i64`, `Extern`),
-                                ),
-                                disambiguator: 0,
-                            },
-                        },
+                        path: core::num::i64 as core::ops::Add(0),
                         template_parameters: [],
                         trai_expr: TraitSyndicate {
                             syn_expr_idx: 3,
@@ -5771,16 +5609,7 @@ SynDeclSheet {
                                                     data: ItemSynNodePathData::ImplBlock(
                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                path: TraitForTypeImplBlock {
-                                                                    data: TraitForTypeImplBlockPathData {
-                                                                        module_path: `core::num`,
-                                                                        trai_path: TraitPath(`core::ops::Add`),
-                                                                        ty_sketch: TypeSketch::Path(
-                                                                            TypePath(`core::num::i64`, `Extern`),
-                                                                        ),
-                                                                        disambiguator: 0,
-                                                                    },
-                                                                },
+                                                                path: core::num::i64 as core::ops::Add(0),
                                                             },
                                                         ),
                                                     ),
@@ -5928,26 +5757,18 @@ SynDeclSheet {
         (
             ItemPath::AssocItem(
                 AssocItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 140,
-                            },
-                        ),
-                    ),
+                    TraitForTypeItemPath(`<core::num::i64 as core::ops::Add(0)>::add`, `MethodRitchie(
+                        Fn,
+                    )`),
                 ),
             ),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TraitForTypeItem(
                     TraitForTypeItemSynDecl::MethodFn(
                         TraitForTypeMethodFnSynDecl {
-                            path: TraitForTypeItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 140,
-                                    },
-                                ),
-                            ),
+                            path: TraitForTypeItemPath(`<core::num::i64 as core::ops::Add(0)>::add`, `MethodRitchie(
+                                Fn,
+                            )`),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
@@ -5985,16 +5806,7 @@ SynDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                                path: TraitForTypeImplBlock {
-                                                                                    data: TraitForTypeImplBlockPathData {
-                                                                                        module_path: `core::num`,
-                                                                                        trai_path: TraitPath(`core::ops::Add`),
-                                                                                        ty_sketch: TypeSketch::Path(
-                                                                                            TypePath(`core::num::i64`, `Extern`),
-                                                                                        ),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                },
+                                                                                path: core::num::i64 as core::ops::Add(0),
                                                                             },
                                                                         ),
                                                                     ),
@@ -6145,13 +5957,9 @@ SynDeclSheet {
                                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                                 TraitForTypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TraitForTypeItemPath(
-                                                                            ItemPathId(
-                                                                                Id {
-                                                                                    value: 140,
-                                                                                },
-                                                                            ),
-                                                                        ),
+                                                                        path: TraitForTypeItemPath(`<core::num::i64 as core::ops::Add(0)>::add`, `MethodRitchie(
+                                                                            Fn,
+                                                                        )`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -6462,7 +6270,7 @@ SynDeclSheet {
         (
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`(core::num::i128(0)::abs`, `MethodRitchie(
+                    TypeItemPath(`<core::num::i128(0)>::abs`, `MethodRitchie(
                         Fn,
                     )`),
                 ),
@@ -6471,7 +6279,7 @@ SynDeclSheet {
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodFnSynDecl {
-                            path: TypeItemPath(`(core::num::i128(0)::abs`, `MethodRitchie(
+                            path: TypeItemPath(`<core::num::i128(0)>::abs`, `MethodRitchie(
                                 Fn,
                             )`),
                             template_parameters: [],
@@ -6595,7 +6403,7 @@ SynDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath(`(core::num::i128(0)::abs`, `MethodRitchie(
+                                                                        path: TypeItemPath(`<core::num::i128(0)>::abs`, `MethodRitchie(
                                                                             Fn,
                                                                         )`),
                                                                         disambiguator: 0,
@@ -6690,31 +6498,13 @@ SynDeclSheet {
         (
             ItemPath::ImplBlock(
                 ImplBlockPath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlock {
-                        data: TraitForTypeImplBlockPathData {
-                            module_path: `core::num`,
-                            trai_path: TraitPath(`core::ops::Add`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`core::num::i128`, `Extern`),
-                            ),
-                            disambiguator: 0,
-                        },
-                    },
+                    core::num::i128 as core::ops::Add(0),
                 ),
             ),
             SynDecl::ImplBlock(
                 ImplBlockSynDecl::TraitForType(
                     TraitForTypeImplBlockSynDecl {
-                        path: TraitForTypeImplBlock {
-                            data: TraitForTypeImplBlockPathData {
-                                module_path: `core::num`,
-                                trai_path: TraitPath(`core::ops::Add`),
-                                ty_sketch: TypeSketch::Path(
-                                    TypePath(`core::num::i128`, `Extern`),
-                                ),
-                                disambiguator: 0,
-                            },
-                        },
+                        path: core::num::i128 as core::ops::Add(0),
                         template_parameters: [],
                         trai_expr: TraitSyndicate {
                             syn_expr_idx: 3,
@@ -6735,16 +6525,7 @@ SynDeclSheet {
                                                     data: ItemSynNodePathData::ImplBlock(
                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                path: TraitForTypeImplBlock {
-                                                                    data: TraitForTypeImplBlockPathData {
-                                                                        module_path: `core::num`,
-                                                                        trai_path: TraitPath(`core::ops::Add`),
-                                                                        ty_sketch: TypeSketch::Path(
-                                                                            TypePath(`core::num::i128`, `Extern`),
-                                                                        ),
-                                                                        disambiguator: 0,
-                                                                    },
-                                                                },
+                                                                path: core::num::i128 as core::ops::Add(0),
                                                             },
                                                         ),
                                                     ),
@@ -6892,26 +6673,18 @@ SynDeclSheet {
         (
             ItemPath::AssocItem(
                 AssocItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 142,
-                            },
-                        ),
-                    ),
+                    TraitForTypeItemPath(`<core::num::i128 as core::ops::Add(0)>::add`, `MethodRitchie(
+                        Fn,
+                    )`),
                 ),
             ),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TraitForTypeItem(
                     TraitForTypeItemSynDecl::MethodFn(
                         TraitForTypeMethodFnSynDecl {
-                            path: TraitForTypeItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 142,
-                                    },
-                                ),
-                            ),
+                            path: TraitForTypeItemPath(`<core::num::i128 as core::ops::Add(0)>::add`, `MethodRitchie(
+                                Fn,
+                            )`),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
@@ -6949,16 +6722,7 @@ SynDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                                path: TraitForTypeImplBlock {
-                                                                                    data: TraitForTypeImplBlockPathData {
-                                                                                        module_path: `core::num`,
-                                                                                        trai_path: TraitPath(`core::ops::Add`),
-                                                                                        ty_sketch: TypeSketch::Path(
-                                                                                            TypePath(`core::num::i128`, `Extern`),
-                                                                                        ),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                },
+                                                                                path: core::num::i128 as core::ops::Add(0),
                                                                             },
                                                                         ),
                                                                     ),
@@ -7109,13 +6873,9 @@ SynDeclSheet {
                                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                                 TraitForTypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TraitForTypeItemPath(
-                                                                            ItemPathId(
-                                                                                Id {
-                                                                                    value: 142,
-                                                                                },
-                                                                            ),
-                                                                        ),
+                                                                        path: TraitForTypeItemPath(`<core::num::i128 as core::ops::Add(0)>::add`, `MethodRitchie(
+                                                                            Fn,
+                                                                        )`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -7426,7 +7186,7 @@ SynDeclSheet {
         (
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`(core::num::isize(0)::abs`, `MethodRitchie(
+                    TypeItemPath(`<core::num::isize(0)>::abs`, `MethodRitchie(
                         Fn,
                     )`),
                 ),
@@ -7435,7 +7195,7 @@ SynDeclSheet {
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodFnSynDecl {
-                            path: TypeItemPath(`(core::num::isize(0)::abs`, `MethodRitchie(
+                            path: TypeItemPath(`<core::num::isize(0)>::abs`, `MethodRitchie(
                                 Fn,
                             )`),
                             template_parameters: [],
@@ -7559,7 +7319,7 @@ SynDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath(`(core::num::isize(0)::abs`, `MethodRitchie(
+                                                                        path: TypeItemPath(`<core::num::isize(0)>::abs`, `MethodRitchie(
                                                                             Fn,
                                                                         )`),
                                                                         disambiguator: 0,
@@ -7654,31 +7414,13 @@ SynDeclSheet {
         (
             ItemPath::ImplBlock(
                 ImplBlockPath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlock {
-                        data: TraitForTypeImplBlockPathData {
-                            module_path: `core::num`,
-                            trai_path: TraitPath(`core::ops::Add`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`core::num::isize`, `Extern`),
-                            ),
-                            disambiguator: 0,
-                        },
-                    },
+                    core::num::isize as core::ops::Add(0),
                 ),
             ),
             SynDecl::ImplBlock(
                 ImplBlockSynDecl::TraitForType(
                     TraitForTypeImplBlockSynDecl {
-                        path: TraitForTypeImplBlock {
-                            data: TraitForTypeImplBlockPathData {
-                                module_path: `core::num`,
-                                trai_path: TraitPath(`core::ops::Add`),
-                                ty_sketch: TypeSketch::Path(
-                                    TypePath(`core::num::isize`, `Extern`),
-                                ),
-                                disambiguator: 0,
-                            },
-                        },
+                        path: core::num::isize as core::ops::Add(0),
                         template_parameters: [],
                         trai_expr: TraitSyndicate {
                             syn_expr_idx: 3,
@@ -7699,16 +7441,7 @@ SynDeclSheet {
                                                     data: ItemSynNodePathData::ImplBlock(
                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                path: TraitForTypeImplBlock {
-                                                                    data: TraitForTypeImplBlockPathData {
-                                                                        module_path: `core::num`,
-                                                                        trai_path: TraitPath(`core::ops::Add`),
-                                                                        ty_sketch: TypeSketch::Path(
-                                                                            TypePath(`core::num::isize`, `Extern`),
-                                                                        ),
-                                                                        disambiguator: 0,
-                                                                    },
-                                                                },
+                                                                path: core::num::isize as core::ops::Add(0),
                                                             },
                                                         ),
                                                     ),
@@ -7856,26 +7589,18 @@ SynDeclSheet {
         (
             ItemPath::AssocItem(
                 AssocItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 144,
-                            },
-                        ),
-                    ),
+                    TraitForTypeItemPath(`<core::num::isize as core::ops::Add(0)>::add`, `MethodRitchie(
+                        Fn,
+                    )`),
                 ),
             ),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TraitForTypeItem(
                     TraitForTypeItemSynDecl::MethodFn(
                         TraitForTypeMethodFnSynDecl {
-                            path: TraitForTypeItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 144,
-                                    },
-                                ),
-                            ),
+                            path: TraitForTypeItemPath(`<core::num::isize as core::ops::Add(0)>::add`, `MethodRitchie(
+                                Fn,
+                            )`),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
@@ -7913,16 +7638,7 @@ SynDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                                path: TraitForTypeImplBlock {
-                                                                                    data: TraitForTypeImplBlockPathData {
-                                                                                        module_path: `core::num`,
-                                                                                        trai_path: TraitPath(`core::ops::Add`),
-                                                                                        ty_sketch: TypeSketch::Path(
-                                                                                            TypePath(`core::num::isize`, `Extern`),
-                                                                                        ),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                },
+                                                                                path: core::num::isize as core::ops::Add(0),
                                                                             },
                                                                         ),
                                                                     ),
@@ -8073,13 +7789,9 @@ SynDeclSheet {
                                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                                 TraitForTypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TraitForTypeItemPath(
-                                                                            ItemPathId(
-                                                                                Id {
-                                                                                    value: 144,
-                                                                                },
-                                                                            ),
-                                                                        ),
+                                                                        path: TraitForTypeItemPath(`<core::num::isize as core::ops::Add(0)>::add`, `MethodRitchie(
+                                                                            Fn,
+                                                                        )`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -8390,7 +8102,7 @@ SynDeclSheet {
         (
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`(core::num::u8(0)::abs`, `MethodRitchie(
+                    TypeItemPath(`<core::num::u8(0)>::abs`, `MethodRitchie(
                         Fn,
                     )`),
                 ),
@@ -8399,7 +8111,7 @@ SynDeclSheet {
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodFnSynDecl {
-                            path: TypeItemPath(`(core::num::u8(0)::abs`, `MethodRitchie(
+                            path: TypeItemPath(`<core::num::u8(0)>::abs`, `MethodRitchie(
                                 Fn,
                             )`),
                             template_parameters: [],
@@ -8523,7 +8235,7 @@ SynDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath(`(core::num::u8(0)::abs`, `MethodRitchie(
+                                                                        path: TypeItemPath(`<core::num::u8(0)>::abs`, `MethodRitchie(
                                                                             Fn,
                                                                         )`),
                                                                         disambiguator: 0,
@@ -8618,31 +8330,13 @@ SynDeclSheet {
         (
             ItemPath::ImplBlock(
                 ImplBlockPath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlock {
-                        data: TraitForTypeImplBlockPathData {
-                            module_path: `core::num`,
-                            trai_path: TraitPath(`core::ops::Add`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`core::num::u8`, `Extern`),
-                            ),
-                            disambiguator: 0,
-                        },
-                    },
+                    core::num::u8 as core::ops::Add(0),
                 ),
             ),
             SynDecl::ImplBlock(
                 ImplBlockSynDecl::TraitForType(
                     TraitForTypeImplBlockSynDecl {
-                        path: TraitForTypeImplBlock {
-                            data: TraitForTypeImplBlockPathData {
-                                module_path: `core::num`,
-                                trai_path: TraitPath(`core::ops::Add`),
-                                ty_sketch: TypeSketch::Path(
-                                    TypePath(`core::num::u8`, `Extern`),
-                                ),
-                                disambiguator: 0,
-                            },
-                        },
+                        path: core::num::u8 as core::ops::Add(0),
                         template_parameters: [],
                         trai_expr: TraitSyndicate {
                             syn_expr_idx: 3,
@@ -8663,16 +8357,7 @@ SynDeclSheet {
                                                     data: ItemSynNodePathData::ImplBlock(
                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                path: TraitForTypeImplBlock {
-                                                                    data: TraitForTypeImplBlockPathData {
-                                                                        module_path: `core::num`,
-                                                                        trai_path: TraitPath(`core::ops::Add`),
-                                                                        ty_sketch: TypeSketch::Path(
-                                                                            TypePath(`core::num::u8`, `Extern`),
-                                                                        ),
-                                                                        disambiguator: 0,
-                                                                    },
-                                                                },
+                                                                path: core::num::u8 as core::ops::Add(0),
                                                             },
                                                         ),
                                                     ),
@@ -8820,26 +8505,18 @@ SynDeclSheet {
         (
             ItemPath::AssocItem(
                 AssocItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 146,
-                            },
-                        ),
-                    ),
+                    TraitForTypeItemPath(`<core::num::u8 as core::ops::Add(0)>::add`, `MethodRitchie(
+                        Fn,
+                    )`),
                 ),
             ),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TraitForTypeItem(
                     TraitForTypeItemSynDecl::MethodFn(
                         TraitForTypeMethodFnSynDecl {
-                            path: TraitForTypeItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 146,
-                                    },
-                                ),
-                            ),
+                            path: TraitForTypeItemPath(`<core::num::u8 as core::ops::Add(0)>::add`, `MethodRitchie(
+                                Fn,
+                            )`),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
@@ -8877,16 +8554,7 @@ SynDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                                path: TraitForTypeImplBlock {
-                                                                                    data: TraitForTypeImplBlockPathData {
-                                                                                        module_path: `core::num`,
-                                                                                        trai_path: TraitPath(`core::ops::Add`),
-                                                                                        ty_sketch: TypeSketch::Path(
-                                                                                            TypePath(`core::num::u8`, `Extern`),
-                                                                                        ),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                },
+                                                                                path: core::num::u8 as core::ops::Add(0),
                                                                             },
                                                                         ),
                                                                     ),
@@ -9037,13 +8705,9 @@ SynDeclSheet {
                                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                                 TraitForTypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TraitForTypeItemPath(
-                                                                            ItemPathId(
-                                                                                Id {
-                                                                                    value: 146,
-                                                                                },
-                                                                            ),
-                                                                        ),
+                                                                        path: TraitForTypeItemPath(`<core::num::u8 as core::ops::Add(0)>::add`, `MethodRitchie(
+                                                                            Fn,
+                                                                        )`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -9354,7 +9018,7 @@ SynDeclSheet {
         (
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`(core::num::u16(0)::abs`, `MethodRitchie(
+                    TypeItemPath(`<core::num::u16(0)>::abs`, `MethodRitchie(
                         Fn,
                     )`),
                 ),
@@ -9363,7 +9027,7 @@ SynDeclSheet {
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodFnSynDecl {
-                            path: TypeItemPath(`(core::num::u16(0)::abs`, `MethodRitchie(
+                            path: TypeItemPath(`<core::num::u16(0)>::abs`, `MethodRitchie(
                                 Fn,
                             )`),
                             template_parameters: [],
@@ -9487,7 +9151,7 @@ SynDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath(`(core::num::u16(0)::abs`, `MethodRitchie(
+                                                                        path: TypeItemPath(`<core::num::u16(0)>::abs`, `MethodRitchie(
                                                                             Fn,
                                                                         )`),
                                                                         disambiguator: 0,
@@ -9582,31 +9246,13 @@ SynDeclSheet {
         (
             ItemPath::ImplBlock(
                 ImplBlockPath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlock {
-                        data: TraitForTypeImplBlockPathData {
-                            module_path: `core::num`,
-                            trai_path: TraitPath(`core::ops::Add`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`core::num::u16`, `Extern`),
-                            ),
-                            disambiguator: 0,
-                        },
-                    },
+                    core::num::u16 as core::ops::Add(0),
                 ),
             ),
             SynDecl::ImplBlock(
                 ImplBlockSynDecl::TraitForType(
                     TraitForTypeImplBlockSynDecl {
-                        path: TraitForTypeImplBlock {
-                            data: TraitForTypeImplBlockPathData {
-                                module_path: `core::num`,
-                                trai_path: TraitPath(`core::ops::Add`),
-                                ty_sketch: TypeSketch::Path(
-                                    TypePath(`core::num::u16`, `Extern`),
-                                ),
-                                disambiguator: 0,
-                            },
-                        },
+                        path: core::num::u16 as core::ops::Add(0),
                         template_parameters: [],
                         trai_expr: TraitSyndicate {
                             syn_expr_idx: 3,
@@ -9627,16 +9273,7 @@ SynDeclSheet {
                                                     data: ItemSynNodePathData::ImplBlock(
                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                path: TraitForTypeImplBlock {
-                                                                    data: TraitForTypeImplBlockPathData {
-                                                                        module_path: `core::num`,
-                                                                        trai_path: TraitPath(`core::ops::Add`),
-                                                                        ty_sketch: TypeSketch::Path(
-                                                                            TypePath(`core::num::u16`, `Extern`),
-                                                                        ),
-                                                                        disambiguator: 0,
-                                                                    },
-                                                                },
+                                                                path: core::num::u16 as core::ops::Add(0),
                                                             },
                                                         ),
                                                     ),
@@ -9784,26 +9421,18 @@ SynDeclSheet {
         (
             ItemPath::AssocItem(
                 AssocItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 148,
-                            },
-                        ),
-                    ),
+                    TraitForTypeItemPath(`<core::num::u16 as core::ops::Add(0)>::add`, `MethodRitchie(
+                        Fn,
+                    )`),
                 ),
             ),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TraitForTypeItem(
                     TraitForTypeItemSynDecl::MethodFn(
                         TraitForTypeMethodFnSynDecl {
-                            path: TraitForTypeItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 148,
-                                    },
-                                ),
-                            ),
+                            path: TraitForTypeItemPath(`<core::num::u16 as core::ops::Add(0)>::add`, `MethodRitchie(
+                                Fn,
+                            )`),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
@@ -9841,16 +9470,7 @@ SynDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                                path: TraitForTypeImplBlock {
-                                                                                    data: TraitForTypeImplBlockPathData {
-                                                                                        module_path: `core::num`,
-                                                                                        trai_path: TraitPath(`core::ops::Add`),
-                                                                                        ty_sketch: TypeSketch::Path(
-                                                                                            TypePath(`core::num::u16`, `Extern`),
-                                                                                        ),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                },
+                                                                                path: core::num::u16 as core::ops::Add(0),
                                                                             },
                                                                         ),
                                                                     ),
@@ -10001,13 +9621,9 @@ SynDeclSheet {
                                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                                 TraitForTypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TraitForTypeItemPath(
-                                                                            ItemPathId(
-                                                                                Id {
-                                                                                    value: 148,
-                                                                                },
-                                                                            ),
-                                                                        ),
+                                                                        path: TraitForTypeItemPath(`<core::num::u16 as core::ops::Add(0)>::add`, `MethodRitchie(
+                                                                            Fn,
+                                                                        )`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -10318,7 +9934,7 @@ SynDeclSheet {
         (
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`(core::num::u32(0)::abs`, `MethodRitchie(
+                    TypeItemPath(`<core::num::u32(0)>::abs`, `MethodRitchie(
                         Fn,
                     )`),
                 ),
@@ -10327,7 +9943,7 @@ SynDeclSheet {
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodFnSynDecl {
-                            path: TypeItemPath(`(core::num::u32(0)::abs`, `MethodRitchie(
+                            path: TypeItemPath(`<core::num::u32(0)>::abs`, `MethodRitchie(
                                 Fn,
                             )`),
                             template_parameters: [],
@@ -10451,7 +10067,7 @@ SynDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath(`(core::num::u32(0)::abs`, `MethodRitchie(
+                                                                        path: TypeItemPath(`<core::num::u32(0)>::abs`, `MethodRitchie(
                                                                             Fn,
                                                                         )`),
                                                                         disambiguator: 0,
@@ -10546,31 +10162,13 @@ SynDeclSheet {
         (
             ItemPath::ImplBlock(
                 ImplBlockPath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlock {
-                        data: TraitForTypeImplBlockPathData {
-                            module_path: `core::num`,
-                            trai_path: TraitPath(`core::ops::Add`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`core::num::u32`, `Extern`),
-                            ),
-                            disambiguator: 0,
-                        },
-                    },
+                    core::num::u32 as core::ops::Add(0),
                 ),
             ),
             SynDecl::ImplBlock(
                 ImplBlockSynDecl::TraitForType(
                     TraitForTypeImplBlockSynDecl {
-                        path: TraitForTypeImplBlock {
-                            data: TraitForTypeImplBlockPathData {
-                                module_path: `core::num`,
-                                trai_path: TraitPath(`core::ops::Add`),
-                                ty_sketch: TypeSketch::Path(
-                                    TypePath(`core::num::u32`, `Extern`),
-                                ),
-                                disambiguator: 0,
-                            },
-                        },
+                        path: core::num::u32 as core::ops::Add(0),
                         template_parameters: [],
                         trai_expr: TraitSyndicate {
                             syn_expr_idx: 3,
@@ -10591,16 +10189,7 @@ SynDeclSheet {
                                                     data: ItemSynNodePathData::ImplBlock(
                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                path: TraitForTypeImplBlock {
-                                                                    data: TraitForTypeImplBlockPathData {
-                                                                        module_path: `core::num`,
-                                                                        trai_path: TraitPath(`core::ops::Add`),
-                                                                        ty_sketch: TypeSketch::Path(
-                                                                            TypePath(`core::num::u32`, `Extern`),
-                                                                        ),
-                                                                        disambiguator: 0,
-                                                                    },
-                                                                },
+                                                                path: core::num::u32 as core::ops::Add(0),
                                                             },
                                                         ),
                                                     ),
@@ -10748,26 +10337,18 @@ SynDeclSheet {
         (
             ItemPath::AssocItem(
                 AssocItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 150,
-                            },
-                        ),
-                    ),
+                    TraitForTypeItemPath(`<core::num::u32 as core::ops::Add(0)>::add`, `MethodRitchie(
+                        Fn,
+                    )`),
                 ),
             ),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TraitForTypeItem(
                     TraitForTypeItemSynDecl::MethodFn(
                         TraitForTypeMethodFnSynDecl {
-                            path: TraitForTypeItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 150,
-                                    },
-                                ),
-                            ),
+                            path: TraitForTypeItemPath(`<core::num::u32 as core::ops::Add(0)>::add`, `MethodRitchie(
+                                Fn,
+                            )`),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
@@ -10805,16 +10386,7 @@ SynDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                                path: TraitForTypeImplBlock {
-                                                                                    data: TraitForTypeImplBlockPathData {
-                                                                                        module_path: `core::num`,
-                                                                                        trai_path: TraitPath(`core::ops::Add`),
-                                                                                        ty_sketch: TypeSketch::Path(
-                                                                                            TypePath(`core::num::u32`, `Extern`),
-                                                                                        ),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                },
+                                                                                path: core::num::u32 as core::ops::Add(0),
                                                                             },
                                                                         ),
                                                                     ),
@@ -10965,13 +10537,9 @@ SynDeclSheet {
                                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                                 TraitForTypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TraitForTypeItemPath(
-                                                                            ItemPathId(
-                                                                                Id {
-                                                                                    value: 150,
-                                                                                },
-                                                                            ),
-                                                                        ),
+                                                                        path: TraitForTypeItemPath(`<core::num::u32 as core::ops::Add(0)>::add`, `MethodRitchie(
+                                                                            Fn,
+                                                                        )`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -11282,7 +10850,7 @@ SynDeclSheet {
         (
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`(core::num::u64(0)::abs`, `MethodRitchie(
+                    TypeItemPath(`<core::num::u64(0)>::abs`, `MethodRitchie(
                         Fn,
                     )`),
                 ),
@@ -11291,7 +10859,7 @@ SynDeclSheet {
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodFnSynDecl {
-                            path: TypeItemPath(`(core::num::u64(0)::abs`, `MethodRitchie(
+                            path: TypeItemPath(`<core::num::u64(0)>::abs`, `MethodRitchie(
                                 Fn,
                             )`),
                             template_parameters: [],
@@ -11415,7 +10983,7 @@ SynDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath(`(core::num::u64(0)::abs`, `MethodRitchie(
+                                                                        path: TypeItemPath(`<core::num::u64(0)>::abs`, `MethodRitchie(
                                                                             Fn,
                                                                         )`),
                                                                         disambiguator: 0,
@@ -11510,31 +11078,13 @@ SynDeclSheet {
         (
             ItemPath::ImplBlock(
                 ImplBlockPath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlock {
-                        data: TraitForTypeImplBlockPathData {
-                            module_path: `core::num`,
-                            trai_path: TraitPath(`core::ops::Add`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`core::num::u64`, `Extern`),
-                            ),
-                            disambiguator: 0,
-                        },
-                    },
+                    core::num::u64 as core::ops::Add(0),
                 ),
             ),
             SynDecl::ImplBlock(
                 ImplBlockSynDecl::TraitForType(
                     TraitForTypeImplBlockSynDecl {
-                        path: TraitForTypeImplBlock {
-                            data: TraitForTypeImplBlockPathData {
-                                module_path: `core::num`,
-                                trai_path: TraitPath(`core::ops::Add`),
-                                ty_sketch: TypeSketch::Path(
-                                    TypePath(`core::num::u64`, `Extern`),
-                                ),
-                                disambiguator: 0,
-                            },
-                        },
+                        path: core::num::u64 as core::ops::Add(0),
                         template_parameters: [],
                         trai_expr: TraitSyndicate {
                             syn_expr_idx: 3,
@@ -11555,16 +11105,7 @@ SynDeclSheet {
                                                     data: ItemSynNodePathData::ImplBlock(
                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                path: TraitForTypeImplBlock {
-                                                                    data: TraitForTypeImplBlockPathData {
-                                                                        module_path: `core::num`,
-                                                                        trai_path: TraitPath(`core::ops::Add`),
-                                                                        ty_sketch: TypeSketch::Path(
-                                                                            TypePath(`core::num::u64`, `Extern`),
-                                                                        ),
-                                                                        disambiguator: 0,
-                                                                    },
-                                                                },
+                                                                path: core::num::u64 as core::ops::Add(0),
                                                             },
                                                         ),
                                                     ),
@@ -11712,26 +11253,18 @@ SynDeclSheet {
         (
             ItemPath::AssocItem(
                 AssocItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 152,
-                            },
-                        ),
-                    ),
+                    TraitForTypeItemPath(`<core::num::u64 as core::ops::Add(0)>::add`, `MethodRitchie(
+                        Fn,
+                    )`),
                 ),
             ),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TraitForTypeItem(
                     TraitForTypeItemSynDecl::MethodFn(
                         TraitForTypeMethodFnSynDecl {
-                            path: TraitForTypeItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 152,
-                                    },
-                                ),
-                            ),
+                            path: TraitForTypeItemPath(`<core::num::u64 as core::ops::Add(0)>::add`, `MethodRitchie(
+                                Fn,
+                            )`),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
@@ -11769,16 +11302,7 @@ SynDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                                path: TraitForTypeImplBlock {
-                                                                                    data: TraitForTypeImplBlockPathData {
-                                                                                        module_path: `core::num`,
-                                                                                        trai_path: TraitPath(`core::ops::Add`),
-                                                                                        ty_sketch: TypeSketch::Path(
-                                                                                            TypePath(`core::num::u64`, `Extern`),
-                                                                                        ),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                },
+                                                                                path: core::num::u64 as core::ops::Add(0),
                                                                             },
                                                                         ),
                                                                     ),
@@ -11929,13 +11453,9 @@ SynDeclSheet {
                                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                                 TraitForTypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TraitForTypeItemPath(
-                                                                            ItemPathId(
-                                                                                Id {
-                                                                                    value: 152,
-                                                                                },
-                                                                            ),
-                                                                        ),
+                                                                        path: TraitForTypeItemPath(`<core::num::u64 as core::ops::Add(0)>::add`, `MethodRitchie(
+                                                                            Fn,
+                                                                        )`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -12246,7 +11766,7 @@ SynDeclSheet {
         (
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`(core::num::u128(0)::abs`, `MethodRitchie(
+                    TypeItemPath(`<core::num::u128(0)>::abs`, `MethodRitchie(
                         Fn,
                     )`),
                 ),
@@ -12255,7 +11775,7 @@ SynDeclSheet {
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodFnSynDecl {
-                            path: TypeItemPath(`(core::num::u128(0)::abs`, `MethodRitchie(
+                            path: TypeItemPath(`<core::num::u128(0)>::abs`, `MethodRitchie(
                                 Fn,
                             )`),
                             template_parameters: [],
@@ -12379,7 +11899,7 @@ SynDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath(`(core::num::u128(0)::abs`, `MethodRitchie(
+                                                                        path: TypeItemPath(`<core::num::u128(0)>::abs`, `MethodRitchie(
                                                                             Fn,
                                                                         )`),
                                                                         disambiguator: 0,
@@ -12474,31 +11994,13 @@ SynDeclSheet {
         (
             ItemPath::ImplBlock(
                 ImplBlockPath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlock {
-                        data: TraitForTypeImplBlockPathData {
-                            module_path: `core::num`,
-                            trai_path: TraitPath(`core::ops::Add`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`core::num::u128`, `Extern`),
-                            ),
-                            disambiguator: 0,
-                        },
-                    },
+                    core::num::u128 as core::ops::Add(0),
                 ),
             ),
             SynDecl::ImplBlock(
                 ImplBlockSynDecl::TraitForType(
                     TraitForTypeImplBlockSynDecl {
-                        path: TraitForTypeImplBlock {
-                            data: TraitForTypeImplBlockPathData {
-                                module_path: `core::num`,
-                                trai_path: TraitPath(`core::ops::Add`),
-                                ty_sketch: TypeSketch::Path(
-                                    TypePath(`core::num::u128`, `Extern`),
-                                ),
-                                disambiguator: 0,
-                            },
-                        },
+                        path: core::num::u128 as core::ops::Add(0),
                         template_parameters: [],
                         trai_expr: TraitSyndicate {
                             syn_expr_idx: 3,
@@ -12519,16 +12021,7 @@ SynDeclSheet {
                                                     data: ItemSynNodePathData::ImplBlock(
                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                path: TraitForTypeImplBlock {
-                                                                    data: TraitForTypeImplBlockPathData {
-                                                                        module_path: `core::num`,
-                                                                        trai_path: TraitPath(`core::ops::Add`),
-                                                                        ty_sketch: TypeSketch::Path(
-                                                                            TypePath(`core::num::u128`, `Extern`),
-                                                                        ),
-                                                                        disambiguator: 0,
-                                                                    },
-                                                                },
+                                                                path: core::num::u128 as core::ops::Add(0),
                                                             },
                                                         ),
                                                     ),
@@ -12676,26 +12169,18 @@ SynDeclSheet {
         (
             ItemPath::AssocItem(
                 AssocItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 154,
-                            },
-                        ),
-                    ),
+                    TraitForTypeItemPath(`<core::num::u128 as core::ops::Add(0)>::add`, `MethodRitchie(
+                        Fn,
+                    )`),
                 ),
             ),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TraitForTypeItem(
                     TraitForTypeItemSynDecl::MethodFn(
                         TraitForTypeMethodFnSynDecl {
-                            path: TraitForTypeItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 154,
-                                    },
-                                ),
-                            ),
+                            path: TraitForTypeItemPath(`<core::num::u128 as core::ops::Add(0)>::add`, `MethodRitchie(
+                                Fn,
+                            )`),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
@@ -12733,16 +12218,7 @@ SynDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                                path: TraitForTypeImplBlock {
-                                                                                    data: TraitForTypeImplBlockPathData {
-                                                                                        module_path: `core::num`,
-                                                                                        trai_path: TraitPath(`core::ops::Add`),
-                                                                                        ty_sketch: TypeSketch::Path(
-                                                                                            TypePath(`core::num::u128`, `Extern`),
-                                                                                        ),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                },
+                                                                                path: core::num::u128 as core::ops::Add(0),
                                                                             },
                                                                         ),
                                                                     ),
@@ -12893,13 +12369,9 @@ SynDeclSheet {
                                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                                 TraitForTypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TraitForTypeItemPath(
-                                                                            ItemPathId(
-                                                                                Id {
-                                                                                    value: 154,
-                                                                                },
-                                                                            ),
-                                                                        ),
+                                                                        path: TraitForTypeItemPath(`<core::num::u128 as core::ops::Add(0)>::add`, `MethodRitchie(
+                                                                            Fn,
+                                                                        )`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -13210,7 +12682,7 @@ SynDeclSheet {
         (
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`(core::num::usize(0)::abs`, `MethodRitchie(
+                    TypeItemPath(`<core::num::usize(0)>::abs`, `MethodRitchie(
                         Fn,
                     )`),
                 ),
@@ -13219,7 +12691,7 @@ SynDeclSheet {
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodFnSynDecl {
-                            path: TypeItemPath(`(core::num::usize(0)::abs`, `MethodRitchie(
+                            path: TypeItemPath(`<core::num::usize(0)>::abs`, `MethodRitchie(
                                 Fn,
                             )`),
                             template_parameters: [],
@@ -13343,7 +12815,7 @@ SynDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath(`(core::num::usize(0)::abs`, `MethodRitchie(
+                                                                        path: TypeItemPath(`<core::num::usize(0)>::abs`, `MethodRitchie(
                                                                             Fn,
                                                                         )`),
                                                                         disambiguator: 0,
@@ -13438,31 +12910,13 @@ SynDeclSheet {
         (
             ItemPath::ImplBlock(
                 ImplBlockPath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlock {
-                        data: TraitForTypeImplBlockPathData {
-                            module_path: `core::num`,
-                            trai_path: TraitPath(`core::ops::Add`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`core::num::usize`, `Extern`),
-                            ),
-                            disambiguator: 0,
-                        },
-                    },
+                    core::num::usize as core::ops::Add(0),
                 ),
             ),
             SynDecl::ImplBlock(
                 ImplBlockSynDecl::TraitForType(
                     TraitForTypeImplBlockSynDecl {
-                        path: TraitForTypeImplBlock {
-                            data: TraitForTypeImplBlockPathData {
-                                module_path: `core::num`,
-                                trai_path: TraitPath(`core::ops::Add`),
-                                ty_sketch: TypeSketch::Path(
-                                    TypePath(`core::num::usize`, `Extern`),
-                                ),
-                                disambiguator: 0,
-                            },
-                        },
+                        path: core::num::usize as core::ops::Add(0),
                         template_parameters: [],
                         trai_expr: TraitSyndicate {
                             syn_expr_idx: 3,
@@ -13483,16 +12937,7 @@ SynDeclSheet {
                                                     data: ItemSynNodePathData::ImplBlock(
                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                path: TraitForTypeImplBlock {
-                                                                    data: TraitForTypeImplBlockPathData {
-                                                                        module_path: `core::num`,
-                                                                        trai_path: TraitPath(`core::ops::Add`),
-                                                                        ty_sketch: TypeSketch::Path(
-                                                                            TypePath(`core::num::usize`, `Extern`),
-                                                                        ),
-                                                                        disambiguator: 0,
-                                                                    },
-                                                                },
+                                                                path: core::num::usize as core::ops::Add(0),
                                                             },
                                                         ),
                                                     ),
@@ -13640,26 +13085,18 @@ SynDeclSheet {
         (
             ItemPath::AssocItem(
                 AssocItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 156,
-                            },
-                        ),
-                    ),
+                    TraitForTypeItemPath(`<core::num::usize as core::ops::Add(0)>::add`, `MethodRitchie(
+                        Fn,
+                    )`),
                 ),
             ),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TraitForTypeItem(
                     TraitForTypeItemSynDecl::MethodFn(
                         TraitForTypeMethodFnSynDecl {
-                            path: TraitForTypeItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 156,
-                                    },
-                                ),
-                            ),
+                            path: TraitForTypeItemPath(`<core::num::usize as core::ops::Add(0)>::add`, `MethodRitchie(
+                                Fn,
+                            )`),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
@@ -13697,16 +13134,7 @@ SynDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                                path: TraitForTypeImplBlock {
-                                                                                    data: TraitForTypeImplBlockPathData {
-                                                                                        module_path: `core::num`,
-                                                                                        trai_path: TraitPath(`core::ops::Add`),
-                                                                                        ty_sketch: TypeSketch::Path(
-                                                                                            TypePath(`core::num::usize`, `Extern`),
-                                                                                        ),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                },
+                                                                                path: core::num::usize as core::ops::Add(0),
                                                                             },
                                                                         ),
                                                                     ),
@@ -13857,13 +13285,9 @@ SynDeclSheet {
                                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                                 TraitForTypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TraitForTypeItemPath(
-                                                                            ItemPathId(
-                                                                                Id {
-                                                                                    value: 156,
-                                                                                },
-                                                                            ),
-                                                                        ),
+                                                                        path: TraitForTypeItemPath(`<core::num::usize as core::ops::Add(0)>::add`, `MethodRitchie(
+                                                                            Fn,
+                                                                        )`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -14174,7 +13598,7 @@ SynDeclSheet {
         (
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`(core::num::f32(0)::abs`, `MethodRitchie(
+                    TypeItemPath(`<core::num::f32(0)>::abs`, `MethodRitchie(
                         Fn,
                     )`),
                 ),
@@ -14183,7 +13607,7 @@ SynDeclSheet {
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodFnSynDecl {
-                            path: TypeItemPath(`(core::num::f32(0)::abs`, `MethodRitchie(
+                            path: TypeItemPath(`<core::num::f32(0)>::abs`, `MethodRitchie(
                                 Fn,
                             )`),
                             template_parameters: [],
@@ -14307,7 +13731,7 @@ SynDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath(`(core::num::f32(0)::abs`, `MethodRitchie(
+                                                                        path: TypeItemPath(`<core::num::f32(0)>::abs`, `MethodRitchie(
                                                                             Fn,
                                                                         )`),
                                                                         disambiguator: 0,
@@ -14402,7 +13826,7 @@ SynDeclSheet {
         (
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`(core::num::f32(0)::sqrt`, `MethodRitchie(
+                    TypeItemPath(`<core::num::f32(0)>::sqrt`, `MethodRitchie(
                         Fn,
                     )`),
                 ),
@@ -14411,7 +13835,7 @@ SynDeclSheet {
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodFnSynDecl {
-                            path: TypeItemPath(`(core::num::f32(0)::sqrt`, `MethodRitchie(
+                            path: TypeItemPath(`<core::num::f32(0)>::sqrt`, `MethodRitchie(
                                 Fn,
                             )`),
                             template_parameters: [],
@@ -14535,7 +13959,7 @@ SynDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath(`(core::num::f32(0)::sqrt`, `MethodRitchie(
+                                                                        path: TypeItemPath(`<core::num::f32(0)>::sqrt`, `MethodRitchie(
                                                                             Fn,
                                                                         )`),
                                                                         disambiguator: 0,
@@ -14630,7 +14054,7 @@ SynDeclSheet {
         (
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`(core::num::f32(0)::max`, `MethodRitchie(
+                    TypeItemPath(`<core::num::f32(0)>::max`, `MethodRitchie(
                         Fn,
                     )`),
                 ),
@@ -14639,7 +14063,7 @@ SynDeclSheet {
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodFnSynDecl {
-                            path: TypeItemPath(`(core::num::f32(0)::max`, `MethodRitchie(
+                            path: TypeItemPath(`<core::num::f32(0)>::max`, `MethodRitchie(
                                 Fn,
                             )`),
                             template_parameters: [],
@@ -14778,7 +14202,7 @@ SynDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath(`(core::num::f32(0)::max`, `MethodRitchie(
+                                                                        path: TypeItemPath(`<core::num::f32(0)>::max`, `MethodRitchie(
                                                                             Fn,
                                                                         )`),
                                                                         disambiguator: 0,
@@ -14961,7 +14385,7 @@ SynDeclSheet {
         (
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`(core::num::f32(0)::min`, `MethodRitchie(
+                    TypeItemPath(`<core::num::f32(0)>::min`, `MethodRitchie(
                         Fn,
                     )`),
                 ),
@@ -14970,7 +14394,7 @@ SynDeclSheet {
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodFnSynDecl {
-                            path: TypeItemPath(`(core::num::f32(0)::min`, `MethodRitchie(
+                            path: TypeItemPath(`<core::num::f32(0)>::min`, `MethodRitchie(
                                 Fn,
                             )`),
                             template_parameters: [],
@@ -15109,7 +14533,7 @@ SynDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath(`(core::num::f32(0)::min`, `MethodRitchie(
+                                                                        path: TypeItemPath(`<core::num::f32(0)>::min`, `MethodRitchie(
                                                                             Fn,
                                                                         )`),
                                                                         disambiguator: 0,
@@ -15292,7 +14716,7 @@ SynDeclSheet {
         (
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`(core::num::f32(0)::sgnx`, `MethodRitchie(
+                    TypeItemPath(`<core::num::f32(0)>::sgnx`, `MethodRitchie(
                         Fn,
                     )`),
                 ),
@@ -15301,7 +14725,7 @@ SynDeclSheet {
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodFnSynDecl {
-                            path: TypeItemPath(`(core::num::f32(0)::sgnx`, `MethodRitchie(
+                            path: TypeItemPath(`<core::num::f32(0)>::sgnx`, `MethodRitchie(
                                 Fn,
                             )`),
                             template_parameters: [],
@@ -15425,7 +14849,7 @@ SynDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath(`(core::num::f32(0)::sgnx`, `MethodRitchie(
+                                                                        path: TypeItemPath(`<core::num::f32(0)>::sgnx`, `MethodRitchie(
                                                                             Fn,
                                                                         )`),
                                                                         disambiguator: 0,
@@ -15520,7 +14944,7 @@ SynDeclSheet {
         (
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`(core::num::f32(0)::cos`, `MethodRitchie(
+                    TypeItemPath(`<core::num::f32(0)>::cos`, `MethodRitchie(
                         Fn,
                     )`),
                 ),
@@ -15529,7 +14953,7 @@ SynDeclSheet {
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodFnSynDecl {
-                            path: TypeItemPath(`(core::num::f32(0)::cos`, `MethodRitchie(
+                            path: TypeItemPath(`<core::num::f32(0)>::cos`, `MethodRitchie(
                                 Fn,
                             )`),
                             template_parameters: [],
@@ -15653,7 +15077,7 @@ SynDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath(`(core::num::f32(0)::cos`, `MethodRitchie(
+                                                                        path: TypeItemPath(`<core::num::f32(0)>::cos`, `MethodRitchie(
                                                                             Fn,
                                                                         )`),
                                                                         disambiguator: 0,
@@ -15748,7 +15172,7 @@ SynDeclSheet {
         (
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`(core::num::f32(0)::sin`, `MethodRitchie(
+                    TypeItemPath(`<core::num::f32(0)>::sin`, `MethodRitchie(
                         Fn,
                     )`),
                 ),
@@ -15757,7 +15181,7 @@ SynDeclSheet {
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodFnSynDecl {
-                            path: TypeItemPath(`(core::num::f32(0)::sin`, `MethodRitchie(
+                            path: TypeItemPath(`<core::num::f32(0)>::sin`, `MethodRitchie(
                                 Fn,
                             )`),
                             template_parameters: [],
@@ -15881,7 +15305,7 @@ SynDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath(`(core::num::f32(0)::sin`, `MethodRitchie(
+                                                                        path: TypeItemPath(`<core::num::f32(0)>::sin`, `MethodRitchie(
                                                                             Fn,
                                                                         )`),
                                                                         disambiguator: 0,
@@ -15976,7 +15400,7 @@ SynDeclSheet {
         (
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`(core::num::f32(0)::acos`, `MethodRitchie(
+                    TypeItemPath(`<core::num::f32(0)>::acos`, `MethodRitchie(
                         Fn,
                     )`),
                 ),
@@ -15985,7 +15409,7 @@ SynDeclSheet {
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodFnSynDecl {
-                            path: TypeItemPath(`(core::num::f32(0)::acos`, `MethodRitchie(
+                            path: TypeItemPath(`<core::num::f32(0)>::acos`, `MethodRitchie(
                                 Fn,
                             )`),
                             template_parameters: [],
@@ -16109,7 +15533,7 @@ SynDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath(`(core::num::f32(0)::acos`, `MethodRitchie(
+                                                                        path: TypeItemPath(`<core::num::f32(0)>::acos`, `MethodRitchie(
                                                                             Fn,
                                                                         )`),
                                                                         disambiguator: 0,
@@ -16204,31 +15628,13 @@ SynDeclSheet {
         (
             ItemPath::ImplBlock(
                 ImplBlockPath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlock {
-                        data: TraitForTypeImplBlockPathData {
-                            module_path: `core::num`,
-                            trai_path: TraitPath(`core::ops::Add`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`core::num::f32`, `Extern`),
-                            ),
-                            disambiguator: 0,
-                        },
-                    },
+                    core::num::f32 as core::ops::Add(0),
                 ),
             ),
             SynDecl::ImplBlock(
                 ImplBlockSynDecl::TraitForType(
                     TraitForTypeImplBlockSynDecl {
-                        path: TraitForTypeImplBlock {
-                            data: TraitForTypeImplBlockPathData {
-                                module_path: `core::num`,
-                                trai_path: TraitPath(`core::ops::Add`),
-                                ty_sketch: TypeSketch::Path(
-                                    TypePath(`core::num::f32`, `Extern`),
-                                ),
-                                disambiguator: 0,
-                            },
-                        },
+                        path: core::num::f32 as core::ops::Add(0),
                         template_parameters: [],
                         trai_expr: TraitSyndicate {
                             syn_expr_idx: 3,
@@ -16249,16 +15655,7 @@ SynDeclSheet {
                                                     data: ItemSynNodePathData::ImplBlock(
                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                path: TraitForTypeImplBlock {
-                                                                    data: TraitForTypeImplBlockPathData {
-                                                                        module_path: `core::num`,
-                                                                        trai_path: TraitPath(`core::ops::Add`),
-                                                                        ty_sketch: TypeSketch::Path(
-                                                                            TypePath(`core::num::f32`, `Extern`),
-                                                                        ),
-                                                                        disambiguator: 0,
-                                                                    },
-                                                                },
+                                                                path: core::num::f32 as core::ops::Add(0),
                                                             },
                                                         ),
                                                     ),
@@ -16406,26 +15803,18 @@ SynDeclSheet {
         (
             ItemPath::AssocItem(
                 AssocItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 165,
-                            },
-                        ),
-                    ),
+                    TraitForTypeItemPath(`<core::num::f32 as core::ops::Add(0)>::add`, `MethodRitchie(
+                        Fn,
+                    )`),
                 ),
             ),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TraitForTypeItem(
                     TraitForTypeItemSynDecl::MethodFn(
                         TraitForTypeMethodFnSynDecl {
-                            path: TraitForTypeItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 165,
-                                    },
-                                ),
-                            ),
+                            path: TraitForTypeItemPath(`<core::num::f32 as core::ops::Add(0)>::add`, `MethodRitchie(
+                                Fn,
+                            )`),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
@@ -16463,16 +15852,7 @@ SynDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                                path: TraitForTypeImplBlock {
-                                                                                    data: TraitForTypeImplBlockPathData {
-                                                                                        module_path: `core::num`,
-                                                                                        trai_path: TraitPath(`core::ops::Add`),
-                                                                                        ty_sketch: TypeSketch::Path(
-                                                                                            TypePath(`core::num::f32`, `Extern`),
-                                                                                        ),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                },
+                                                                                path: core::num::f32 as core::ops::Add(0),
                                                                             },
                                                                         ),
                                                                     ),
@@ -16623,13 +16003,9 @@ SynDeclSheet {
                                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                                 TraitForTypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TraitForTypeItemPath(
-                                                                            ItemPathId(
-                                                                                Id {
-                                                                                    value: 165,
-                                                                                },
-                                                                            ),
-                                                                        ),
+                                                                        path: TraitForTypeItemPath(`<core::num::f32 as core::ops::Add(0)>::add`, `MethodRitchie(
+                                                                            Fn,
+                                                                        )`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -16940,7 +16316,7 @@ SynDeclSheet {
         (
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`(core::num::f64(0)::abs`, `MethodRitchie(
+                    TypeItemPath(`<core::num::f64(0)>::abs`, `MethodRitchie(
                         Fn,
                     )`),
                 ),
@@ -16949,7 +16325,7 @@ SynDeclSheet {
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodFnSynDecl {
-                            path: TypeItemPath(`(core::num::f64(0)::abs`, `MethodRitchie(
+                            path: TypeItemPath(`<core::num::f64(0)>::abs`, `MethodRitchie(
                                 Fn,
                             )`),
                             template_parameters: [],
@@ -17073,7 +16449,7 @@ SynDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath(`(core::num::f64(0)::abs`, `MethodRitchie(
+                                                                        path: TypeItemPath(`<core::num::f64(0)>::abs`, `MethodRitchie(
                                                                             Fn,
                                                                         )`),
                                                                         disambiguator: 0,
@@ -17168,7 +16544,7 @@ SynDeclSheet {
         (
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`(core::num::f64(0)::acos`, `MethodRitchie(
+                    TypeItemPath(`<core::num::f64(0)>::acos`, `MethodRitchie(
                         Fn,
                     )`),
                 ),
@@ -17177,7 +16553,7 @@ SynDeclSheet {
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodFnSynDecl {
-                            path: TypeItemPath(`(core::num::f64(0)::acos`, `MethodRitchie(
+                            path: TypeItemPath(`<core::num::f64(0)>::acos`, `MethodRitchie(
                                 Fn,
                             )`),
                             template_parameters: [],
@@ -17301,7 +16677,7 @@ SynDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath(`(core::num::f64(0)::acos`, `MethodRitchie(
+                                                                        path: TypeItemPath(`<core::num::f64(0)>::acos`, `MethodRitchie(
                                                                             Fn,
                                                                         )`),
                                                                         disambiguator: 0,
@@ -17396,31 +16772,13 @@ SynDeclSheet {
         (
             ItemPath::ImplBlock(
                 ImplBlockPath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlock {
-                        data: TraitForTypeImplBlockPathData {
-                            module_path: `core::num`,
-                            trai_path: TraitPath(`core::ops::Add`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`core::num::f64`, `Extern`),
-                            ),
-                            disambiguator: 0,
-                        },
-                    },
+                    core::num::f64 as core::ops::Add(0),
                 ),
             ),
             SynDecl::ImplBlock(
                 ImplBlockSynDecl::TraitForType(
                     TraitForTypeImplBlockSynDecl {
-                        path: TraitForTypeImplBlock {
-                            data: TraitForTypeImplBlockPathData {
-                                module_path: `core::num`,
-                                trai_path: TraitPath(`core::ops::Add`),
-                                ty_sketch: TypeSketch::Path(
-                                    TypePath(`core::num::f64`, `Extern`),
-                                ),
-                                disambiguator: 0,
-                            },
-                        },
+                        path: core::num::f64 as core::ops::Add(0),
                         template_parameters: [],
                         trai_expr: TraitSyndicate {
                             syn_expr_idx: 3,
@@ -17441,16 +16799,7 @@ SynDeclSheet {
                                                     data: ItemSynNodePathData::ImplBlock(
                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                path: TraitForTypeImplBlock {
-                                                                    data: TraitForTypeImplBlockPathData {
-                                                                        module_path: `core::num`,
-                                                                        trai_path: TraitPath(`core::ops::Add`),
-                                                                        ty_sketch: TypeSketch::Path(
-                                                                            TypePath(`core::num::f64`, `Extern`),
-                                                                        ),
-                                                                        disambiguator: 0,
-                                                                    },
-                                                                },
+                                                                path: core::num::f64 as core::ops::Add(0),
                                                             },
                                                         ),
                                                     ),
@@ -17598,26 +16947,18 @@ SynDeclSheet {
         (
             ItemPath::AssocItem(
                 AssocItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 168,
-                            },
-                        ),
-                    ),
+                    TraitForTypeItemPath(`<core::num::f64 as core::ops::Add(0)>::add`, `MethodRitchie(
+                        Fn,
+                    )`),
                 ),
             ),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TraitForTypeItem(
                     TraitForTypeItemSynDecl::MethodFn(
                         TraitForTypeMethodFnSynDecl {
-                            path: TraitForTypeItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 168,
-                                    },
-                                ),
-                            ),
+                            path: TraitForTypeItemPath(`<core::num::f64 as core::ops::Add(0)>::add`, `MethodRitchie(
+                                Fn,
+                            )`),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
@@ -17655,16 +16996,7 @@ SynDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                                path: TraitForTypeImplBlock {
-                                                                                    data: TraitForTypeImplBlockPathData {
-                                                                                        module_path: `core::num`,
-                                                                                        trai_path: TraitPath(`core::ops::Add`),
-                                                                                        ty_sketch: TypeSketch::Path(
-                                                                                            TypePath(`core::num::f64`, `Extern`),
-                                                                                        ),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                },
+                                                                                path: core::num::f64 as core::ops::Add(0),
                                                                             },
                                                                         ),
                                                                     ),
@@ -17815,13 +17147,9 @@ SynDeclSheet {
                                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                                 TraitForTypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TraitForTypeItemPath(
-                                                                            ItemPathId(
-                                                                                Id {
-                                                                                    value: 168,
-                                                                                },
-                                                                            ),
-                                                                        ),
+                                                                        path: TraitForTypeItemPath(`<core::num::f64 as core::ops::Add(0)>::add`, `MethodRitchie(
+                                                                            Fn,
+                                                                        )`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },

@@ -11,7 +11,7 @@ pub enum ImplBlockPath {
 }
 
 #[test]
-fn item_path_size_works() {
+fn impl_block_path_size_works() {
     assert_eq!(
         std::mem::size_of::<ImplBlockPath>(),
         std::mem::size_of::<[u32; 2]>()
@@ -184,16 +184,12 @@ impl TraitForTypeImplBlockPath {
         self.data(db).ty_sketch
     }
 
-    #[inline(never)]
-    fn show(
-        &self,
+    pub(crate) fn show_aux(
+        self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
-    ) -> Result<(), std::fmt::Error> {
-        use salsa::DebugWithDb;
-        f.debug_struct("TraitForTypeImplBlock")
-            .field("data", &self.data(db).debug(db))
-            .finish()
+    ) -> std::fmt::Result {
+        self.data(db).show_aux(f, db)
     }
 }
 
@@ -218,6 +214,17 @@ impl TraitForTypeImplBlockPathData {
     pub fn disambiguator(self) -> u8 {
         self.disambiguator
     }
+
+    pub(crate) fn show_aux(
+        self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &::salsa::Db,
+    ) -> std::fmt::Result {
+        self.ty_sketch.show_aux(f, db)?;
+        f.write_str(" as ")?;
+        self.trai_path.show_aux(f, db)?;
+        f.write_fmt(format_args!("({})", self.disambiguator))
+    }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
@@ -226,6 +233,15 @@ pub enum TypeSketch {
     DeriveAny,
     // { ty_kind: Option<TypeKind> }
     Path(TypePath),
+}
+
+impl TypeSketch {
+    fn show_aux(self, f: &mut std::fmt::Formatter<'_>, db: &::salsa::Db) -> std::fmt::Result {
+        match self {
+            TypeSketch::DeriveAny => f.write_str("#derive _"),
+            TypeSketch::Path(ty_path) => ty_path.show_aux(f, db),
+        }
+    }
 }
 
 impl TraitForTypeImplBlockPath {
@@ -262,7 +278,9 @@ impl salsa::DebugWithDb for TraitForTypeImplBlockPath {
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
     ) -> std::fmt::Result {
-        self.show(f, db)
+        f.write_str("TraitForTypeImplBlockPath(`")?;
+        self.show_aux(f, db)?;
+        f.write_str("`)")
     }
 }
 

@@ -2814,16 +2814,7 @@ EntityTreeSheet {
                         data: ItemSynNodePathData::ImplBlock(
                             ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                 TraitForTypeImplBlockSynNodePathData {
-                                    path: TraitForTypeImplBlock {
-                                        data: TraitForTypeImplBlockPathData {
-                                            module_path: `core::slice`,
-                                            trai_path: TraitPath(`core::ops::IntIndex`),
-                                            ty_sketch: TypeSketch::Path(
-                                                TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
+                                    path: TraitForTypeImplBlockPath(`core::slice::CyclicSlice as core::ops::IntIndex(0)`),
                                 },
                             ),
                         ),
@@ -2837,16 +2828,7 @@ EntityTreeSheet {
                             data: ItemSynNodePathData::ImplBlock(
                                 ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                     TraitForTypeImplBlockSynNodePathData {
-                                        path: TraitForTypeImplBlock {
-                                            data: TraitForTypeImplBlockPathData {
-                                                module_path: `core::slice`,
-                                                trai_path: TraitPath(`core::ops::IntIndex`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                                ),
-                                                disambiguator: 0,
-                                            },
-                                        },
+                                        path: TraitForTypeImplBlockPath(`core::slice::CyclicSlice as core::ops::IntIndex(0)`),
                                     },
                                 ),
                             ),

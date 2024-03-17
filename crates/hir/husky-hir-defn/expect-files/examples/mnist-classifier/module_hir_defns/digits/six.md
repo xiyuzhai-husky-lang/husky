@@ -328,7 +328,7 @@
                                                 self_contract: Pure,
                                                 ident: `displacement`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`, `MethodRitchie(
+                                                    TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::displacement`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -723,7 +723,7 @@
                                                 self_contract: Pure,
                                                 ident: `displacement`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`, `MethodRitchie(
+                                                    TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::displacement`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -974,7 +974,7 @@
                                                 self_contract: Pure,
                                                 ident: `abs`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::num::f32(0)::abs`, `MethodRitchie(
+                                                    TypeItemPath(`<core::num::f32(0)>::abs`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -1066,7 +1066,7 @@
                                                 ),
                                                 ident: `relative_bounding_box`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::relative_bounding_box`, `MemoizedField`),
+                                                    TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::relative_bounding_box`, `MemoizedField`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -1087,7 +1087,7 @@
                                                 self_contract: Pure,
                                                 ident: `ymax`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::ymax`, `MethodRitchie(
+                                                    TypeItemPath(`<mnist_classifier::geom2d::RelativeBoundingBox(0)>::ymax`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -1224,7 +1224,7 @@
                                                 ),
                                                 ident: `bounding_box`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`, `MemoizedField`),
+                                                    TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentSketch(0)>::bounding_box`, `MemoizedField`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -1266,7 +1266,7 @@
                                                 self_contract: Pure,
                                                 ident: `end`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::end`, `MethodRitchie(
+                                                    TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::end`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -1290,7 +1290,7 @@
                                                 self_contract: Pure,
                                                 ident: `relative_point`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::relative_point`, `MethodRitchie(
+                                                    TypeItemPath(`<mnist_classifier::geom2d::BoundingBox(0)>::relative_point`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -1442,7 +1442,7 @@
                                                 self_contract: Pure,
                                                 ident: `end`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::end`, `MethodRitchie(
+                                                    TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::end`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),

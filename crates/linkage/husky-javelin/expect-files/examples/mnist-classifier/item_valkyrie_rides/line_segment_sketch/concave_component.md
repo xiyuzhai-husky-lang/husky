@@ -44,7 +44,7 @@
                     },
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TypeItem(
-                            TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodRitchie(
+                            TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
                                 Fn,
                             )`),
                         ),
@@ -80,7 +80,7 @@
                     },
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TypeItem(
-                            TypeItemPath(`(core::vec::Vec(0)::cyclic_slice_leashed`, `MethodRitchie(
+                            TypeItemPath(`<core::vec::Vec(0)>::cyclic_slice_leashed`, `MethodRitchie(
                                 Fn,
                             )`),
                         ),
@@ -116,7 +116,7 @@
                     },
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TypeItem(
-                            TypeItemPath(`(core::vec::Vec(0)::push`, `MethodRitchie(
+                            TypeItemPath(`<core::vec::Vec(0)>::push`, `MethodRitchie(
                                 Fn,
                             )`),
                         ),
@@ -163,16 +163,7 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TraitForTypeImplBlock(
-                TraitForTypeImplBlock {
-                    data: TraitForTypeImplBlockPathData {
-                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                        trai_path: TraitPath(`core::visual::Visualize`),
-                        ty_sketch: TypeSketch::Path(
-                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                        ),
-                        disambiguator: 0,
-                    },
-                },
+                TraitForTypeImplBlockPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent as core::visual::Visualize(0)`),
             ),
         ),
         Some(
@@ -189,13 +180,9 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TraitForTypeItem(
-                TraitForTypeItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 415,
-                        },
-                    ),
-                ),
+                TraitForTypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent as core::visual::Visualize(0)>::visualize`, `MethodRitchie(
+                    Fn,
+                )`),
             ),
         ),
         Some(
@@ -235,7 +222,7 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::norm`, `MemoizedField`),
+                TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::norm`, `MemoizedField`),
             ),
         ),
         Some(
@@ -248,7 +235,7 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::rel_norm`, `MemoizedField`),
+                TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::rel_norm`, `MemoizedField`),
             ),
         ),
         Some(
@@ -261,7 +248,7 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::hausdorff_norm`, `MemoizedField`),
+                TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::hausdorff_norm`, `MemoizedField`),
             ),
         ),
         Some(
@@ -270,7 +257,7 @@
                 rides: [
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TypeItem(
-                            TypeItemPath(`(core::slice::CyclicSlice(0)::first`, `MethodRitchie(
+                            TypeItemPath(`<core::slice::CyclicSlice(0)>::first`, `MethodRitchie(
                                 Fn,
                             )`),
                         ),
@@ -306,7 +293,7 @@
                     },
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TypeItem(
-                            TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodRitchie(
+                            TypeItemPath(`<core::slice::CyclicSlice(0)>::start`, `MethodRitchie(
                                 Fn,
                             )`),
                         ),
@@ -342,7 +329,7 @@
                     },
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TypeItem(
-                            TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodRitchie(
+                            TypeItemPath(`<core::slice::CyclicSlice(0)>::end`, `MethodRitchie(
                                 Fn,
                             )`),
                         ),
@@ -383,7 +370,7 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::angle_change`, `MemoizedField`),
+                TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::angle_change`, `MemoizedField`),
             ),
         ),
         Some(
@@ -392,7 +379,7 @@
                 rides: [
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TypeItem(
-                            TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodRitchie(
+                            TypeItemPath(`<core::slice::CyclicSlice(0)>::start`, `MethodRitchie(
                                 Fn,
                             )`),
                         ),
@@ -428,7 +415,7 @@
                     },
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TypeItem(
-                            TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodRitchie(
+                            TypeItemPath(`<core::slice::CyclicSlice(0)>::end`, `MethodRitchie(
                                 Fn,
                             )`),
                         ),
@@ -469,7 +456,7 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::bounding_box`, `MemoizedField`),
+                TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::bounding_box`, `MemoizedField`),
             ),
         ),
         Some(
@@ -478,7 +465,7 @@
                 rides: [
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TypeItem(
-                            TypeItemPath(`(core::slice::CyclicSlice(0)::first`, `MethodRitchie(
+                            TypeItemPath(`<core::slice::CyclicSlice(0)>::first`, `MethodRitchie(
                                 Fn,
                             )`),
                         ),
@@ -514,7 +501,7 @@
                     },
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TypeItem(
-                            TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodRitchie(
+                            TypeItemPath(`<core::slice::CyclicSlice(0)>::start`, `MethodRitchie(
                                 Fn,
                             )`),
                         ),
@@ -550,7 +537,7 @@
                     },
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TypeItem(
-                            TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodRitchie(
+                            TypeItemPath(`<core::slice::CyclicSlice(0)>::end`, `MethodRitchie(
                                 Fn,
                             )`),
                         ),
@@ -591,7 +578,7 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::relative_bounding_box`, `MemoizedField`),
+                TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::relative_bounding_box`, `MemoizedField`),
             ),
         ),
         Some(
@@ -604,7 +591,7 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::line_segment`, `MethodRitchie(
+                TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::line_segment`, `MethodRitchie(
                     Fn,
                 )`),
             ),
@@ -619,7 +606,7 @@
                 rides: [
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TypeItem(
-                            TypeItemPath(`(core::slice::CyclicSlice(0)::first`, `MethodRitchie(
+                            TypeItemPath(`<core::slice::CyclicSlice(0)>::first`, `MethodRitchie(
                                 Fn,
                             )`),
                         ),
@@ -655,13 +642,9 @@
                     },
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TraitForTypeItem(
-                            TraitForTypeItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 333,
-                                    },
-                                ),
-                            ),
+                            TraitForTypeItemPath(`<#derive _ as core::clone::Clone(0)>::clone`, `MethodRitchie(
+                                Fn,
+                            )`),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
@@ -689,7 +672,7 @@
                     },
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TypeItem(
-                            TypeItemPath(`(core::slice::CyclicSlice(0)::last`, `MethodRitchie(
+                            TypeItemPath(`<core::slice::CyclicSlice(0)>::last`, `MethodRitchie(
                                 Fn,
                             )`),
                         ),
@@ -730,7 +713,7 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::start`, `MethodRitchie(
+                TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::start`, `MethodRitchie(
                     Fn,
                 )`),
             ),
@@ -745,7 +728,7 @@
                 rides: [
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TypeItem(
-                            TypeItemPath(`(core::slice::CyclicSlice(0)::first`, `MethodRitchie(
+                            TypeItemPath(`<core::slice::CyclicSlice(0)>::first`, `MethodRitchie(
                                 Fn,
                             )`),
                         ),
@@ -781,13 +764,9 @@
                     },
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TraitForTypeItem(
-                            TraitForTypeItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 333,
-                                    },
-                                ),
-                            ),
+                            TraitForTypeItemPath(`<#derive _ as core::clone::Clone(0)>::clone`, `MethodRitchie(
+                                Fn,
+                            )`),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
@@ -820,7 +799,7 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::end`, `MethodRitchie(
+                TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::end`, `MethodRitchie(
                     Fn,
                 )`),
             ),
@@ -835,7 +814,7 @@
                 rides: [
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TypeItem(
-                            TypeItemPath(`(core::slice::CyclicSlice(0)::last`, `MethodRitchie(
+                            TypeItemPath(`<core::slice::CyclicSlice(0)>::last`, `MethodRitchie(
                                 Fn,
                             )`),
                         ),
@@ -871,13 +850,9 @@
                     },
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TraitForTypeItem(
-                            TraitForTypeItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 333,
-                                    },
-                                ),
-                            ),
+                            TraitForTypeItemPath(`<#derive _ as core::clone::Clone(0)>::clone`, `MethodRitchie(
+                                Fn,
+                            )`),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
@@ -910,7 +885,7 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`, `MethodRitchie(
+                TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::displacement`, `MethodRitchie(
                     Fn,
                 )`),
             ),
@@ -929,7 +904,7 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::start_tangent`, `MethodRitchie(
+                TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::start_tangent`, `MethodRitchie(
                     Fn,
                 )`),
             ),
@@ -944,7 +919,7 @@
                 rides: [
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TypeItem(
-                            TypeItemPath(`(core::slice::CyclicSlice(0)::first`, `MethodRitchie(
+                            TypeItemPath(`<core::slice::CyclicSlice(0)>::first`, `MethodRitchie(
                                 Fn,
                             )`),
                         ),
@@ -985,7 +960,7 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::end_tangent`, `MethodRitchie(
+                TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::end_tangent`, `MethodRitchie(
                     Fn,
                 )`),
             ),
@@ -1000,7 +975,7 @@
                 rides: [
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TypeItem(
-                            TypeItemPath(`(core::slice::CyclicSlice(0)::last`, `MethodRitchie(
+                            TypeItemPath(`<core::slice::CyclicSlice(0)>::last`, `MethodRitchie(
                                 Fn,
                             )`),
                         ),

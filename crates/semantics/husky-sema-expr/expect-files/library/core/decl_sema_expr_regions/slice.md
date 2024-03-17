@@ -546,7 +546,7 @@
         path: RegionPath::Decl(
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`(core::slice::Slice(0)::len`, `MethodRitchie(
+                    TypeItemPath(`<core::slice::Slice(0)>::len`, `MethodRitchie(
                         Fn,
                     )`),
                 ),
@@ -556,7 +556,7 @@
             path: RegionPath::Decl(
                 ItemPath::AssocItem(
                     AssocItemPath::TypeItem(
-                        TypeItemPath(`(core::slice::Slice(0)::len`, `MethodRitchie(
+                        TypeItemPath(`<core::slice::Slice(0)>::len`, `MethodRitchie(
                             Fn,
                         )`),
                     ),
@@ -729,7 +729,7 @@
         path: RegionPath::Decl(
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`(core::slice::Slice(0)::swap`, `MethodRitchie(
+                    TypeItemPath(`<core::slice::Slice(0)>::swap`, `MethodRitchie(
                         Fn,
                     )`),
                 ),
@@ -739,7 +739,7 @@
             path: RegionPath::Decl(
                 ItemPath::AssocItem(
                     AssocItemPath::TypeItem(
-                        TypeItemPath(`(core::slice::Slice(0)::swap`, `MethodRitchie(
+                        TypeItemPath(`<core::slice::Slice(0)>::swap`, `MethodRitchie(
                             Fn,
                         )`),
                     ),
@@ -1050,16 +1050,7 @@
         path: RegionPath::Decl(
             ItemPath::ImplBlock(
                 ImplBlockPath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlock {
-                        data: TraitForTypeImplBlockPathData {
-                            module_path: `core::slice`,
-                            trai_path: TraitPath(`core::ops::IntIndex`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`core::slice::CyclicSlice`, `Extern`),
-                            ),
-                            disambiguator: 0,
-                        },
-                    },
+                    core::slice::CyclicSlice as core::ops::IntIndex(0),
                 ),
             ),
         ),
@@ -1067,16 +1058,7 @@
             path: RegionPath::Decl(
                 ItemPath::ImplBlock(
                     ImplBlockPath::TraitForTypeImplBlock(
-                        TraitForTypeImplBlock {
-                            data: TraitForTypeImplBlockPathData {
-                                module_path: `core::slice`,
-                                trai_path: TraitPath(`core::ops::IntIndex`),
-                                ty_sketch: TypeSketch::Path(
-                                    TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                ),
-                                disambiguator: 0,
-                            },
-                        },
+                        core::slice::CyclicSlice as core::ops::IntIndex(0),
                     ),
                 ),
             ),
@@ -1504,13 +1486,7 @@
         path: RegionPath::Decl(
             ItemPath::AssocItem(
                 AssocItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 214,
-                            },
-                        ),
-                    ),
+                    TraitForTypeItemPath(`<core::slice::CyclicSlice as core::ops::IntIndex(0)>::Output`, `AssocType`),
                 ),
             ),
         ),
@@ -1518,13 +1494,7 @@
             path: RegionPath::Decl(
                 ItemPath::AssocItem(
                     AssocItemPath::TraitForTypeItem(
-                        TraitForTypeItemPath(
-                            ItemPathId(
-                                Id {
-                                    value: 214,
-                                },
-                            ),
-                        ),
+                        TraitForTypeItemPath(`<core::slice::CyclicSlice as core::ops::IntIndex(0)>::Output`, `AssocType`),
                     ),
                 ),
             ),
@@ -2069,7 +2039,7 @@
         path: RegionPath::Decl(
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`(core::slice::CyclicSlice(0)::ilen`, `MethodRitchie(
+                    TypeItemPath(`<core::slice::CyclicSlice(0)>::ilen`, `MethodRitchie(
                         Fn,
                     )`),
                 ),
@@ -2079,7 +2049,7 @@
             path: RegionPath::Decl(
                 ItemPath::AssocItem(
                     AssocItemPath::TypeItem(
-                        TypeItemPath(`(core::slice::CyclicSlice(0)::ilen`, `MethodRitchie(
+                        TypeItemPath(`<core::slice::CyclicSlice(0)>::ilen`, `MethodRitchie(
                             Fn,
                         )`),
                     ),
@@ -2252,7 +2222,7 @@
         path: RegionPath::Decl(
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodRitchie(
+                    TypeItemPath(`<core::slice::CyclicSlice(0)>::start`, `MethodRitchie(
                         Fn,
                     )`),
                 ),
@@ -2262,7 +2232,7 @@
             path: RegionPath::Decl(
                 ItemPath::AssocItem(
                     AssocItemPath::TypeItem(
-                        TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodRitchie(
+                        TypeItemPath(`<core::slice::CyclicSlice(0)>::start`, `MethodRitchie(
                             Fn,
                         )`),
                     ),
@@ -2435,7 +2405,7 @@
         path: RegionPath::Decl(
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodRitchie(
+                    TypeItemPath(`<core::slice::CyclicSlice(0)>::end`, `MethodRitchie(
                         Fn,
                     )`),
                 ),
@@ -2445,7 +2415,7 @@
             path: RegionPath::Decl(
                 ItemPath::AssocItem(
                     AssocItemPath::TypeItem(
-                        TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodRitchie(
+                        TypeItemPath(`<core::slice::CyclicSlice(0)>::end`, `MethodRitchie(
                             Fn,
                         )`),
                     ),
@@ -2618,7 +2588,7 @@
         path: RegionPath::Decl(
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`(core::slice::CyclicSlice(0)::first`, `MethodRitchie(
+                    TypeItemPath(`<core::slice::CyclicSlice(0)>::first`, `MethodRitchie(
                         Fn,
                     )`),
                 ),
@@ -2628,7 +2598,7 @@
             path: RegionPath::Decl(
                 ItemPath::AssocItem(
                     AssocItemPath::TypeItem(
-                        TypeItemPath(`(core::slice::CyclicSlice(0)::first`, `MethodRitchie(
+                        TypeItemPath(`<core::slice::CyclicSlice(0)>::first`, `MethodRitchie(
                             Fn,
                         )`),
                     ),
@@ -2957,7 +2927,7 @@
         path: RegionPath::Decl(
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`(core::slice::CyclicSlice(0)::last`, `MethodRitchie(
+                    TypeItemPath(`<core::slice::CyclicSlice(0)>::last`, `MethodRitchie(
                         Fn,
                     )`),
                 ),
@@ -2967,7 +2937,7 @@
             path: RegionPath::Decl(
                 ItemPath::AssocItem(
                     AssocItemPath::TypeItem(
-                        TypeItemPath(`(core::slice::CyclicSlice(0)::last`, `MethodRitchie(
+                        TypeItemPath(`<core::slice::CyclicSlice(0)>::last`, `MethodRitchie(
                             Fn,
                         )`),
                     ),

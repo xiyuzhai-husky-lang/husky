@@ -282,7 +282,7 @@
                                                 ),
                                                 ident: `relative_bounding_box`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::relative_bounding_box`, `MemoizedField`),
+                                                    TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::relative_bounding_box`, `MemoizedField`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -303,7 +303,7 @@
                                                 self_contract: Pure,
                                                 ident: `ymax`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::ymax`, `MethodRitchie(
+                                                    TypeItemPath(`<mnist_classifier::geom2d::RelativeBoundingBox(0)>::ymax`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -434,7 +434,7 @@
                                                 self_contract: Pure,
                                                 ident: `first`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::slice::CyclicSlice(0)::first`, `MethodRitchie(
+                                                    TypeItemPath(`<core::slice::CyclicSlice(0)>::first`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -627,7 +627,7 @@
                                                 self_contract: Pure,
                                                 ident: `first`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::slice::CyclicSlice(0)::first`, `MethodRitchie(
+                                                    TypeItemPath(`<core::slice::CyclicSlice(0)>::first`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -795,7 +795,7 @@
                                                 ),
                                                 ident: `relative_bounding_box`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::relative_bounding_box`, `MemoizedField`),
+                                                    TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::relative_bounding_box`, `MemoizedField`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -816,7 +816,7 @@
                                                 self_contract: Pure,
                                                 ident: `ymax`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::ymax`, `MethodRitchie(
+                                                    TypeItemPath(`<mnist_classifier::geom2d::RelativeBoundingBox(0)>::ymax`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),

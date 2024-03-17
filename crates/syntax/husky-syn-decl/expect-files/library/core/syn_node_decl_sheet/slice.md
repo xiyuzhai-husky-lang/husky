@@ -632,7 +632,7 @@ SynNodeDeclSheet {
                                 AssocItemSynNodePathData::TypeItem(
                                     TypeItemSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TypeItemPath(`(core::slice::Slice(0)::len`, `MethodRitchie(
+                                            path: TypeItemPath(`<core::slice::Slice(0)>::len`, `MethodRitchie(
                                                 Fn,
                                             )`),
                                             disambiguator: 0,
@@ -654,7 +654,7 @@ SynNodeDeclSheet {
                                         AssocItemSynNodePathData::TypeItem(
                                             TypeItemSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypeItemPath(`(core::slice::Slice(0)::len`, `MethodRitchie(
+                                                    path: TypeItemPath(`<core::slice::Slice(0)>::len`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                     disambiguator: 0,
@@ -873,7 +873,7 @@ SynNodeDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath(`(core::slice::Slice(0)::len`, `MethodRitchie(
+                                                                        path: TypeItemPath(`<core::slice::Slice(0)>::len`, `MethodRitchie(
                                                                             Fn,
                                                                         )`),
                                                                         disambiguator: 0,
@@ -986,7 +986,7 @@ SynNodeDeclSheet {
                                 AssocItemSynNodePathData::TypeItem(
                                     TypeItemSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TypeItemPath(`(core::slice::Slice(0)::swap`, `MethodRitchie(
+                                            path: TypeItemPath(`<core::slice::Slice(0)>::swap`, `MethodRitchie(
                                                 Fn,
                                             )`),
                                             disambiguator: 0,
@@ -1008,7 +1008,7 @@ SynNodeDeclSheet {
                                         AssocItemSynNodePathData::TypeItem(
                                             TypeItemSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypeItemPath(`(core::slice::Slice(0)::swap`, `MethodRitchie(
+                                                    path: TypeItemPath(`<core::slice::Slice(0)>::swap`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                     disambiguator: 0,
@@ -1281,7 +1281,7 @@ SynNodeDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath(`(core::slice::Slice(0)::swap`, `MethodRitchie(
+                                                                        path: TypeItemPath(`<core::slice::Slice(0)>::swap`, `MethodRitchie(
                                                                             Fn,
                                                                         )`),
                                                                         disambiguator: 0,
@@ -1531,16 +1531,7 @@ SynNodeDeclSheet {
                             data: ItemSynNodePathData::ImplBlock(
                                 ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                     TraitForTypeImplBlockSynNodePathData {
-                                        path: TraitForTypeImplBlock {
-                                            data: TraitForTypeImplBlockPathData {
-                                                module_path: `core::slice`,
-                                                trai_path: TraitPath(`core::ops::IntIndex`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                                ),
-                                                disambiguator: 0,
-                                            },
-                                        },
+                                        path: core::slice::CyclicSlice as core::ops::IntIndex(0),
                                     },
                                 ),
                             ),
@@ -1556,16 +1547,7 @@ SynNodeDeclSheet {
                                 data: ItemSynNodePathData::ImplBlock(
                                     ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                         TraitForTypeImplBlockSynNodePathData {
-                                            path: TraitForTypeImplBlock {
-                                                data: TraitForTypeImplBlockPathData {
-                                                    module_path: `core::slice`,
-                                                    trai_path: TraitPath(`core::ops::IntIndex`),
-                                                    ty_sketch: TypeSketch::Path(
-                                                        TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                                    ),
-                                                    disambiguator: 0,
-                                                },
-                                            },
+                                            path: core::slice::CyclicSlice as core::ops::IntIndex(0),
                                         },
                                     ),
                                 ),
@@ -1644,16 +1626,7 @@ SynNodeDeclSheet {
                                                     data: ItemSynNodePathData::ImplBlock(
                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                path: TraitForTypeImplBlock {
-                                                                    data: TraitForTypeImplBlockPathData {
-                                                                        module_path: `core::slice`,
-                                                                        trai_path: TraitPath(`core::ops::IntIndex`),
-                                                                        ty_sketch: TypeSketch::Path(
-                                                                            TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                                                        ),
-                                                                        disambiguator: 0,
-                                                                    },
-                                                                },
+                                                                path: core::slice::CyclicSlice as core::ops::IntIndex(0),
                                                             },
                                                         ),
                                                     ),
@@ -1869,13 +1842,7 @@ SynNodeDeclSheet {
                                 AssocItemSynNodePathData::TraitForTypeItem(
                                     TraitForTypeItemSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TraitForTypeItemPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 178,
-                                                    },
-                                                ),
-                                            ),
+                                            path: TraitForTypeItemPath(`<core::slice::CyclicSlice as core::ops::IntIndex(0)>::Output`, `AssocType`),
                                             disambiguator: 0,
                                         },
                                     },
@@ -1895,13 +1862,7 @@ SynNodeDeclSheet {
                                         AssocItemSynNodePathData::TraitForTypeItem(
                                             TraitForTypeItemSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TraitForTypeItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 178,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    path: TraitForTypeItemPath(`<core::slice::CyclicSlice as core::ops::IntIndex(0)>::Output`, `AssocType`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -1934,16 +1895,7 @@ SynNodeDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                                path: TraitForTypeImplBlock {
-                                                                                    data: TraitForTypeImplBlockPathData {
-                                                                                        module_path: `core::slice`,
-                                                                                        trai_path: TraitPath(`core::ops::IntIndex`),
-                                                                                        ty_sketch: TypeSketch::Path(
-                                                                                            TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                                                                        ),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                },
+                                                                                path: core::slice::CyclicSlice as core::ops::IntIndex(0),
                                                                             },
                                                                         ),
                                                                     ),
@@ -2156,13 +2108,7 @@ SynNodeDeclSheet {
                                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                                 TraitForTypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TraitForTypeItemPath(
-                                                                            ItemPathId(
-                                                                                Id {
-                                                                                    value: 178,
-                                                                                },
-                                                                            ),
-                                                                        ),
+                                                                        path: TraitForTypeItemPath(`<core::slice::CyclicSlice as core::ops::IntIndex(0)>::Output`, `AssocType`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -2507,7 +2453,7 @@ SynNodeDeclSheet {
                                 AssocItemSynNodePathData::TypeItem(
                                     TypeItemSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TypeItemPath(`(core::slice::CyclicSlice(0)::ilen`, `MethodRitchie(
+                                            path: TypeItemPath(`<core::slice::CyclicSlice(0)>::ilen`, `MethodRitchie(
                                                 Fn,
                                             )`),
                                             disambiguator: 0,
@@ -2529,7 +2475,7 @@ SynNodeDeclSheet {
                                         AssocItemSynNodePathData::TypeItem(
                                             TypeItemSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypeItemPath(`(core::slice::CyclicSlice(0)::ilen`, `MethodRitchie(
+                                                    path: TypeItemPath(`<core::slice::CyclicSlice(0)>::ilen`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                     disambiguator: 0,
@@ -2748,7 +2694,7 @@ SynNodeDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath(`(core::slice::CyclicSlice(0)::ilen`, `MethodRitchie(
+                                                                        path: TypeItemPath(`<core::slice::CyclicSlice(0)>::ilen`, `MethodRitchie(
                                                                             Fn,
                                                                         )`),
                                                                         disambiguator: 0,
@@ -2861,7 +2807,7 @@ SynNodeDeclSheet {
                                 AssocItemSynNodePathData::TypeItem(
                                     TypeItemSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodRitchie(
+                                            path: TypeItemPath(`<core::slice::CyclicSlice(0)>::start`, `MethodRitchie(
                                                 Fn,
                                             )`),
                                             disambiguator: 0,
@@ -2883,7 +2829,7 @@ SynNodeDeclSheet {
                                         AssocItemSynNodePathData::TypeItem(
                                             TypeItemSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodRitchie(
+                                                    path: TypeItemPath(`<core::slice::CyclicSlice(0)>::start`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                     disambiguator: 0,
@@ -3102,7 +3048,7 @@ SynNodeDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodRitchie(
+                                                                        path: TypeItemPath(`<core::slice::CyclicSlice(0)>::start`, `MethodRitchie(
                                                                             Fn,
                                                                         )`),
                                                                         disambiguator: 0,
@@ -3215,7 +3161,7 @@ SynNodeDeclSheet {
                                 AssocItemSynNodePathData::TypeItem(
                                     TypeItemSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodRitchie(
+                                            path: TypeItemPath(`<core::slice::CyclicSlice(0)>::end`, `MethodRitchie(
                                                 Fn,
                                             )`),
                                             disambiguator: 0,
@@ -3237,7 +3183,7 @@ SynNodeDeclSheet {
                                         AssocItemSynNodePathData::TypeItem(
                                             TypeItemSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodRitchie(
+                                                    path: TypeItemPath(`<core::slice::CyclicSlice(0)>::end`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                     disambiguator: 0,
@@ -3456,7 +3402,7 @@ SynNodeDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodRitchie(
+                                                                        path: TypeItemPath(`<core::slice::CyclicSlice(0)>::end`, `MethodRitchie(
                                                                             Fn,
                                                                         )`),
                                                                         disambiguator: 0,
@@ -3569,7 +3515,7 @@ SynNodeDeclSheet {
                                 AssocItemSynNodePathData::TypeItem(
                                     TypeItemSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TypeItemPath(`(core::slice::CyclicSlice(0)::first`, `MethodRitchie(
+                                            path: TypeItemPath(`<core::slice::CyclicSlice(0)>::first`, `MethodRitchie(
                                                 Fn,
                                             )`),
                                             disambiguator: 0,
@@ -3591,7 +3537,7 @@ SynNodeDeclSheet {
                                         AssocItemSynNodePathData::TypeItem(
                                             TypeItemSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypeItemPath(`(core::slice::CyclicSlice(0)::first`, `MethodRitchie(
+                                                    path: TypeItemPath(`<core::slice::CyclicSlice(0)>::first`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                     disambiguator: 0,
@@ -3810,7 +3756,7 @@ SynNodeDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath(`(core::slice::CyclicSlice(0)::first`, `MethodRitchie(
+                                                                        path: TypeItemPath(`<core::slice::CyclicSlice(0)>::first`, `MethodRitchie(
                                                                             Fn,
                                                                         )`),
                                                                         disambiguator: 0,
@@ -3923,7 +3869,7 @@ SynNodeDeclSheet {
                                 AssocItemSynNodePathData::TypeItem(
                                     TypeItemSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TypeItemPath(`(core::slice::CyclicSlice(0)::last`, `MethodRitchie(
+                                            path: TypeItemPath(`<core::slice::CyclicSlice(0)>::last`, `MethodRitchie(
                                                 Fn,
                                             )`),
                                             disambiguator: 0,
@@ -3945,7 +3891,7 @@ SynNodeDeclSheet {
                                         AssocItemSynNodePathData::TypeItem(
                                             TypeItemSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypeItemPath(`(core::slice::CyclicSlice(0)::last`, `MethodRitchie(
+                                                    path: TypeItemPath(`<core::slice::CyclicSlice(0)>::last`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                     disambiguator: 0,
@@ -4164,7 +4110,7 @@ SynNodeDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath(`(core::slice::CyclicSlice(0)::last`, `MethodRitchie(
+                                                                        path: TypeItemPath(`<core::slice::CyclicSlice(0)>::last`, `MethodRitchie(
                                                                             Fn,
                                                                         )`),
                                                                         disambiguator: 0,

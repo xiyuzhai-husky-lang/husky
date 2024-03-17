@@ -162,7 +162,7 @@
                                             self_contract: Pure,
                                             ident: `first`,
                                             path: AssocItemPath::TypeItem(
-                                                TypeItemPath(`(core::slice::CyclicSlice(0)::first`, `MethodRitchie(
+                                                TypeItemPath(`<core::slice::CyclicSlice(0)>::first`, `MethodRitchie(
                                                     Fn,
                                                 )`),
                                             ),
@@ -219,13 +219,9 @@
                                             self_contract: Pure,
                                             ident: `clone`,
                                             path: AssocItemPath::TraitForTypeItem(
-                                                TraitForTypeItemPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 333,
-                                                        },
-                                                    ),
-                                                ),
+                                                TraitForTypeItemPath(`<#derive _ as core::clone::Clone(0)>::clone`, `MethodRitchie(
+                                                    Fn,
+                                                )`),
                                             ),
                                             instantiation: HirInstantiation {
                                                 symbol_map: [
@@ -285,7 +281,7 @@
                                             self_contract: Pure,
                                             ident: `last`,
                                             path: AssocItemPath::TypeItem(
-                                                TypeItemPath(`(core::slice::CyclicSlice(0)::last`, `MethodRitchie(
+                                                TypeItemPath(`<core::slice::CyclicSlice(0)>::last`, `MethodRitchie(
                                                     Fn,
                                                 )`),
                                             ),
@@ -342,13 +338,9 @@
                                             self_contract: Pure,
                                             ident: `clone`,
                                             path: AssocItemPath::TraitForTypeItem(
-                                                TraitForTypeItemPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 333,
-                                                        },
-                                                    ),
-                                                ),
+                                                TraitForTypeItemPath(`<#derive _ as core::clone::Clone(0)>::clone`, `MethodRitchie(
+                                                    Fn,
+                                                )`),
                                             ),
                                             instantiation: HirInstantiation {
                                                 symbol_map: [
@@ -918,7 +910,7 @@
                                                 self_contract: Pure,
                                                 ident: `sqrt`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::num::f32(0)::sqrt`, `MethodRitchie(
+                                                    TypeItemPath(`<core::num::f32(0)>::sqrt`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -1180,7 +1172,7 @@
                                                 self_contract: Pure,
                                                 ident: `sqrt`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::num::f32(0)::sqrt`, `MethodRitchie(
+                                                    TypeItemPath(`<core::num::f32(0)>::sqrt`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -2262,7 +2254,7 @@
                                                 self_contract: Pure,
                                                 ident: `sqrt`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::num::f32(0)::sqrt`, `MethodRitchie(
+                                                    TypeItemPath(`<core::num::f32(0)>::sqrt`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -2524,7 +2516,7 @@
                                                 self_contract: Pure,
                                                 ident: `sqrt`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::num::f32(0)::sqrt`, `MethodRitchie(
+                                                    TypeItemPath(`<core::num::f32(0)>::sqrt`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -3477,7 +3469,7 @@
                                                 self_contract: Pure,
                                                 ident: `displacement`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::displacement`, `MethodRitchie(
+                                                    TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::displacement`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -3608,7 +3600,7 @@
                                                 self_contract: Pure,
                                                 ident: `ilen`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodRitchie(
+                                                    TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -3788,7 +3780,7 @@
                                                 self_contract: Pure,
                                                 ident: `norm`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::norm`, `MethodRitchie(
+                                                    TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::norm`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -4003,7 +3995,7 @@
                                                 self_contract: Pure,
                                                 ident: `displacement`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::displacement`, `MethodRitchie(
+                                                    TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::displacement`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -4101,7 +4093,7 @@
                                                 self_contract: Pure,
                                                 ident: `norm`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::norm`, `MethodRitchie(
+                                                    TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::norm`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -4504,7 +4496,7 @@
                                                 self_contract: Pure,
                                                 ident: `rotation_direction_to`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::rotation_direction_to`, `MethodRitchie(
+                                                    TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::rotation_direction_to`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -4633,7 +4625,7 @@
                                                 self_contract: Pure,
                                                 ident: `rotation_direction_to`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::rotation_direction_to`, `MethodRitchie(
+                                                    TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::rotation_direction_to`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -4741,7 +4733,7 @@
                                                 self_contract: Pure,
                                                 ident: `norm`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::norm`, `MethodRitchie(
+                                                    TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::norm`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -5272,7 +5264,7 @@
                                                 self_contract: Pure,
                                                 ident: `rotation_direction_to`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::rotation_direction_to`, `MethodRitchie(
+                                                    TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::rotation_direction_to`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -5441,7 +5433,7 @@
                                                 self_contract: Pure,
                                                 ident: `rotation_direction_to`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::rotation_direction_to`, `MethodRitchie(
+                                                    TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::rotation_direction_to`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -5710,7 +5702,7 @@
                                                 self_contract: Pure,
                                                 ident: `displacement`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::displacement`, `MethodRitchie(
+                                                    TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::displacement`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -6602,7 +6594,7 @@
                                                 self_contract: Pure,
                                                 ident: `displacement`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::displacement`, `MethodRitchie(
+                                                    TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::displacement`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -6754,7 +6746,7 @@
                                                 self_contract: Pure,
                                                 ident: `ilen`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodRitchie(
+                                                    TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -6892,7 +6884,7 @@
                                                 self_contract: Pure,
                                                 ident: `norm`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::norm`, `MethodRitchie(
+                                                    TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::norm`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -7107,7 +7099,7 @@
                                                 self_contract: Pure,
                                                 ident: `displacement`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::displacement`, `MethodRitchie(
+                                                    TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::displacement`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -7205,7 +7197,7 @@
                                                 self_contract: Pure,
                                                 ident: `norm`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::norm`, `MethodRitchie(
+                                                    TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::norm`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -7306,7 +7298,7 @@
                                                 self_contract: Pure,
                                                 ident: `min`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::num::i32(0)::min`, `MethodRitchie(
+                                                    TypeItemPath(`<core::num::i32(0)>::min`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -7723,7 +7715,7 @@
                                                 self_contract: Pure,
                                                 ident: `displacement`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::displacement`, `MethodRitchie(
+                                                    TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::displacement`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -7809,7 +7801,7 @@
                                                 self_contract: Pure,
                                                 ident: `norm`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::norm`, `MethodRitchie(
+                                                    TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::norm`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -8340,7 +8332,7 @@
                                                 self_contract: Pure,
                                                 ident: `rotation_direction_to`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::rotation_direction_to`, `MethodRitchie(
+                                                    TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::rotation_direction_to`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -8509,7 +8501,7 @@
                                                 self_contract: Pure,
                                                 ident: `rotation_direction_to`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::rotation_direction_to`, `MethodRitchie(
+                                                    TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::rotation_direction_to`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -8678,7 +8670,7 @@
                                                 self_contract: Pure,
                                                 ident: `rotation_direction_to`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::rotation_direction_to`, `MethodRitchie(
+                                                    TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::rotation_direction_to`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -8849,7 +8841,7 @@
                                                 self_contract: Pure,
                                                 ident: `rotation_direction_to`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::rotation_direction_to`, `MethodRitchie(
+                                                    TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::rotation_direction_to`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -8964,7 +8956,7 @@
                                                 self_contract: Pure,
                                                 ident: `rotation_direction_to`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::rotation_direction_to`, `MethodRitchie(
+                                                    TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::rotation_direction_to`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -9959,7 +9951,7 @@
                                                 self_contract: Pure,
                                                 ident: `ilen`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodRitchie(
+                                                    TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -10302,7 +10294,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::AssocFunctionFnCall {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::new`, `AssocRitchie(
+                                                    TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke(0)>::new`, `AssocRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -10426,7 +10418,7 @@
                                                 self_contract: Pure,
                                                 ident: `ilen`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodRitchie(
+                                                    TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -10520,7 +10512,7 @@
                                                 self_contract: Pure,
                                                 ident: `displacement`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodRitchie(
+                                                    TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke(0)>::displacement`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -10565,7 +10557,7 @@
                                                 self_contract: At,
                                                 ident: `last`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::vec::Vec(0)::last`, `MethodRitchie(
+                                                    TypeItemPath(`<core::vec::Vec(0)>::last`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -10652,7 +10644,7 @@
                                                 self_contract: Pure,
                                                 ident: `displacement`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodRitchie(
+                                                    TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke(0)>::displacement`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -10718,7 +10710,7 @@
                                                 self_contract: Pure,
                                                 ident: `cross`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::cross`, `MethodRitchie(
+                                                    TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::cross`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -10765,7 +10757,7 @@
                                                 self_contract: Pure,
                                                 ident: `abs`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::num::f32(0)::abs`, `MethodRitchie(
+                                                    TypeItemPath(`<core::num::f32(0)>::abs`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -10862,7 +10854,7 @@
                                                 self_contract: Pure,
                                                 ident: `dot`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::dot`, `MethodRitchie(
+                                                    TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::dot`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -11020,7 +11012,7 @@
                                                 self_contract: Pure,
                                                 ident: `ilen`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodRitchie(
+                                                    TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -11088,7 +11080,7 @@
                                                 self_contract: At,
                                                 ident: `last`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::vec::Vec(0)::last`, `MethodRitchie(
+                                                    TypeItemPath(`<core::vec::Vec(0)>::last`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -11217,7 +11209,7 @@
                                                 self_contract: At,
                                                 ident: `last`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::vec::Vec(0)::last`, `MethodRitchie(
+                                                    TypeItemPath(`<core::vec::Vec(0)>::last`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -11360,7 +11352,7 @@
                                                 self_contract: Pure,
                                                 ident: `start`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodRitchie(
+                                                    TypeItemPath(`<core::slice::CyclicSlice(0)>::start`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -11425,7 +11417,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::AssocFunctionFnCall {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::new`, `AssocRitchie(
+                                                    TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke(0)>::new`, `AssocRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -11873,7 +11865,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::AssocFunctionFnCall {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::new`, `AssocRitchie(
+                                                    TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke(0)>::new`, `AssocRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -11985,7 +11977,7 @@
                                                 self_contract: Pure,
                                                 ident: `ilen`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodRitchie(
+                                                    TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -12079,7 +12071,7 @@
                                                 self_contract: At,
                                                 ident: `last`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::vec::Vec(0)::last`, `MethodRitchie(
+                                                    TypeItemPath(`<core::vec::Vec(0)>::last`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -12189,7 +12181,7 @@
                                                 self_contract: Pure,
                                                 ident: `displacement`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodRitchie(
+                                                    TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke(0)>::displacement`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -12234,7 +12226,7 @@
                                                 self_contract: Pure,
                                                 ident: `displacement`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodRitchie(
+                                                    TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke(0)>::displacement`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -12376,7 +12368,7 @@
                                                 self_contract: Pure,
                                                 ident: `to`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::to`, `MethodRitchie(
+                                                    TypeItemPath(`<mnist_classifier::geom2d::Point2d(0)>::to`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -12465,7 +12457,7 @@
                                                 self_contract: Pure,
                                                 ident: `cross`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::cross`, `MethodRitchie(
+                                                    TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::cross`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -12512,7 +12504,7 @@
                                                 self_contract: Pure,
                                                 ident: `abs`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::num::f32(0)::abs`, `MethodRitchie(
+                                                    TypeItemPath(`<core::num::f32(0)>::abs`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -12609,7 +12601,7 @@
                                                 self_contract: Pure,
                                                 ident: `dot`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::dot`, `MethodRitchie(
+                                                    TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::dot`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -12743,7 +12735,7 @@
                                                 self_contract: Pure,
                                                 ident: `cross`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::cross`, `MethodRitchie(
+                                                    TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::cross`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -12790,7 +12782,7 @@
                                                 self_contract: Pure,
                                                 ident: `abs`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::num::f32(0)::abs`, `MethodRitchie(
+                                                    TypeItemPath(`<core::num::f32(0)>::abs`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -12901,7 +12893,7 @@
                                                 self_contract: Pure,
                                                 ident: `dot`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::dot`, `MethodRitchie(
+                                                    TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::dot`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -13014,7 +13006,7 @@
                                                 self_contract: BorrowMut,
                                                 ident: `pop`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::vec::Vec(0)::pop`, `MethodRitchie(
+                                                    TypeItemPath(`<core::vec::Vec(0)>::pop`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -13196,7 +13188,7 @@
                                                 self_contract: Pure,
                                                 ident: `start`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodRitchie(
+                                                    TypeItemPath(`<core::slice::CyclicSlice(0)>::start`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -13320,7 +13312,7 @@
                                                 self_contract: Pure,
                                                 ident: `end`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodRitchie(
+                                                    TypeItemPath(`<core::slice::CyclicSlice(0)>::end`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -13364,7 +13356,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::AssocFunctionFnCall {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::new`, `AssocRitchie(
+                                                    TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke(0)>::new`, `AssocRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -13567,7 +13559,7 @@
                                                 self_contract: Pure,
                                                 ident: `ilen`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodRitchie(
+                                                    TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -13682,7 +13674,7 @@
                                                 self_contract: BorrowMut,
                                                 ident: `push`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::vec::Vec(0)::push`, `MethodRitchie(
+                                                    TypeItemPath(`<core::vec::Vec(0)>::push`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -13958,7 +13950,7 @@
                                                 self_contract: Pure,
                                                 ident: `ilen`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodRitchie(
+                                                    TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -14026,7 +14018,7 @@
                                                 self_contract: At,
                                                 ident: `first`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::vec::Vec(0)::first`, `MethodRitchie(
+                                                    TypeItemPath(`<core::vec::Vec(0)>::first`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -14169,7 +14161,7 @@
                                                 self_contract: Pure,
                                                 ident: `end`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodRitchie(
+                                                    TypeItemPath(`<core::slice::CyclicSlice(0)>::end`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -14237,7 +14229,7 @@
                                                 self_contract: At,
                                                 ident: `last`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::vec::Vec(0)::last`, `MethodRitchie(
+                                                    TypeItemPath(`<core::vec::Vec(0)>::last`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -14405,7 +14397,7 @@
                                                 self_contract: Pure,
                                                 ident: `end`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodRitchie(
+                                                    TypeItemPath(`<core::slice::CyclicSlice(0)>::end`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -14543,7 +14535,7 @@
                                                 self_contract: BorrowMut,
                                                 ident: `pop`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::vec::Vec(0)::pop`, `MethodRitchie(
+                                                    TypeItemPath(`<core::vec::Vec(0)>::pop`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -14627,7 +14619,7 @@
                                                 self_contract: At,
                                                 ident: `first`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::vec::Vec(0)::first`, `MethodRitchie(
+                                                    TypeItemPath(`<core::vec::Vec(0)>::first`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -14812,7 +14804,7 @@
                                                 self_contract: Pure,
                                                 ident: `start`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodRitchie(
+                                                    TypeItemPath(`<core::slice::CyclicSlice(0)>::start`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -14915,7 +14907,7 @@
                                                 self_contract: At,
                                                 ident: `first`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::vec::Vec(0)::first`, `MethodRitchie(
+                                                    TypeItemPath(`<core::vec::Vec(0)>::first`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -15058,7 +15050,7 @@
                                                 self_contract: Pure,
                                                 ident: `end`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodRitchie(
+                                                    TypeItemPath(`<core::slice::CyclicSlice(0)>::end`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -15128,7 +15120,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::AssocFunctionFnCall {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::new`, `AssocRitchie(
+                                                    TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke(0)>::new`, `AssocRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -15911,16 +15903,7 @@
         ImplBlockHirDefn::TraitForType(
             TraitForTypeImplBlockHirDefn {
                 hir_decl: TraitForTypeImplBlockHirDecl {
-                    path: TraitForTypeImplBlock {
-                        data: TraitForTypeImplBlockPathData {
-                            module_path: `mnist_classifier::line_segment_sketch`,
-                            trai_path: TraitPath(`core::visual::Visualize`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                            ),
-                            disambiguator: 0,
-                        },
-                    },
+                    path: TraitForTypeImplBlockPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke as core::visual::Visualize(0)`),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -15939,16 +15922,7 @@
                         region_path: RegionPath::Decl(
                             ItemPath::ImplBlock(
                                 ImplBlockPath::TraitForTypeImplBlock(
-                                    TraitForTypeImplBlock {
-                                        data: TraitForTypeImplBlockPathData {
-                                            module_path: `mnist_classifier::line_segment_sketch`,
-                                            trai_path: TraitPath(`core::visual::Visualize`),
-                                            ty_sketch: TypeSketch::Path(
-                                                TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
+                                    TraitForTypeImplBlockPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke as core::visual::Visualize(0)`),
                                 ),
                             ),
                         ),
@@ -15981,21 +15955,13 @@
         AssocItemHirDefn::TraitForTypeItem(
             TraitForTypeItemHirDefn::MethodFn(
                 TraitForTypeMethodFnHirDefn {
-                    path: TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 420,
-                            },
-                        ),
-                    ),
+                    path: TraitForTypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke as core::visual::Visualize(0)>::visualize`, `MethodRitchie(
+                        Fn,
+                    )`),
                     hir_decl: TraitForTypeMethodFnHirDecl {
-                        path: TraitForTypeItemPath(
-                            ItemPathId(
-                                Id {
-                                    value: 420,
-                                },
-                            ),
-                        ),
+                        path: TraitForTypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke as core::visual::Visualize(0)>::visualize`, `MethodRitchie(
+                            Fn,
+                        )`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -16023,13 +15989,9 @@
                             region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TraitForTypeItem(
-                                        TraitForTypeItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 420,
-                                                },
-                                            ),
-                                        ),
+                                        TraitForTypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke as core::visual::Visualize(0)>::visualize`, `MethodRitchie(
+                                            Fn,
+                                        )`),
                                     ),
                                 ),
                             ),
@@ -16069,13 +16031,9 @@
                                 region_path: RegionPath::Defn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TraitForTypeItem(
-                                            TraitForTypeItemPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 420,
-                                                    },
-                                                ),
-                                            ),
+                                            TraitForTypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke as core::visual::Visualize(0)>::visualize`, `MethodRitchie(
+                                                Fn,
+                                            )`),
                                         ),
                                     ),
                                 ),
@@ -16348,11 +16306,11 @@
         AssocItemHirDefn::TypeItem(
             TypeItemHirDefn::AssocFn(
                 TypeAssocFnHirDefn {
-                    path: TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::new`, `AssocRitchie(
+                    path: TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke(0)>::new`, `AssocRitchie(
                         Fn,
                     )`),
                     hir_decl: TypeAssocFnHirDecl {
-                        path: TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::new`, `AssocRitchie(
+                        path: TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke(0)>::new`, `AssocRitchie(
                             Fn,
                         )`),
                         template_parameters: HirTemplateParameters(
@@ -16416,7 +16374,7 @@
                             region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
-                                        TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::new`, `AssocRitchie(
+                                        TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke(0)>::new`, `AssocRitchie(
                                             Fn,
                                         )`),
                                     ),
@@ -16489,7 +16447,7 @@
                                 region_path: RegionPath::Defn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
-                                            TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::new`, `AssocRitchie(
+                                            TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke(0)>::new`, `AssocRitchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -16693,7 +16651,7 @@
                                                 self_contract: Leash,
                                                 ident: `cyclic_slice_leashed`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::vec::Vec(0)::cyclic_slice_leashed`, `MethodRitchie(
+                                                    TypeItemPath(`<core::vec::Vec(0)>::cyclic_slice_leashed`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -16888,11 +16846,11 @@
         AssocItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodRitchie(
+                    path: TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke(0)>::displacement`, `MethodRitchie(
                         Fn,
                     )`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodRitchie(
+                        path: TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke(0)>::displacement`, `MethodRitchie(
                             Fn,
                         )`),
                         template_parameters: HirTemplateParameters(
@@ -16922,7 +16880,7 @@
                             region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
-                                        TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodRitchie(
+                                        TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke(0)>::displacement`, `MethodRitchie(
                                             Fn,
                                         )`),
                                     ),
@@ -16964,7 +16922,7 @@
                                 region_path: RegionPath::Defn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
-                                            TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodRitchie(
+                                            TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke(0)>::displacement`, `MethodRitchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -17092,7 +17050,7 @@
                                                 self_contract: Pure,
                                                 ident: `to`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::to`, `MethodRitchie(
+                                                    TypeItemPath(`<mnist_classifier::geom2d::Point2d(0)>::to`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -17194,16 +17152,7 @@
         ImplBlockHirDefn::TraitForType(
             TraitForTypeImplBlockHirDefn {
                 hir_decl: TraitForTypeImplBlockHirDecl {
-                    path: TraitForTypeImplBlock {
-                        data: TraitForTypeImplBlockPathData {
-                            module_path: `mnist_classifier::line_segment_sketch`,
-                            trai_path: TraitPath(`core::visual::Visualize`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                            ),
-                            disambiguator: 0,
-                        },
-                    },
+                    path: TraitForTypeImplBlockPath(`mnist_classifier::line_segment_sketch::LineSegmentSketch as core::visual::Visualize(0)`),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -17222,16 +17171,7 @@
                         region_path: RegionPath::Decl(
                             ItemPath::ImplBlock(
                                 ImplBlockPath::TraitForTypeImplBlock(
-                                    TraitForTypeImplBlock {
-                                        data: TraitForTypeImplBlockPathData {
-                                            module_path: `mnist_classifier::line_segment_sketch`,
-                                            trai_path: TraitPath(`core::visual::Visualize`),
-                                            ty_sketch: TypeSketch::Path(
-                                                TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
+                                    TraitForTypeImplBlockPath(`mnist_classifier::line_segment_sketch::LineSegmentSketch as core::visual::Visualize(0)`),
                                 ),
                             ),
                         ),
@@ -17264,21 +17204,13 @@
         AssocItemHirDefn::TraitForTypeItem(
             TraitForTypeItemHirDefn::MethodFn(
                 TraitForTypeMethodFnHirDefn {
-                    path: TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 421,
-                            },
-                        ),
-                    ),
+                    path: TraitForTypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentSketch as core::visual::Visualize(0)>::visualize`, `MethodRitchie(
+                        Fn,
+                    )`),
                     hir_decl: TraitForTypeMethodFnHirDecl {
-                        path: TraitForTypeItemPath(
-                            ItemPathId(
-                                Id {
-                                    value: 421,
-                                },
-                            ),
-                        ),
+                        path: TraitForTypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentSketch as core::visual::Visualize(0)>::visualize`, `MethodRitchie(
+                            Fn,
+                        )`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -17306,13 +17238,9 @@
                             region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TraitForTypeItem(
-                                        TraitForTypeItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 421,
-                                                },
-                                            ),
-                                        ),
+                                        TraitForTypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentSketch as core::visual::Visualize(0)>::visualize`, `MethodRitchie(
+                                            Fn,
+                                        )`),
                                     ),
                                 ),
                             ),
@@ -17352,13 +17280,9 @@
                                 region_path: RegionPath::Defn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TraitForTypeItem(
-                                            TraitForTypeItemPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 421,
-                                                    },
-                                                ),
-                                            ),
+                                            TraitForTypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentSketch as core::visual::Visualize(0)>::visualize`, `MethodRitchie(
+                                                Fn,
+                                            )`),
                                         ),
                                     ),
                                 ),
@@ -17437,13 +17361,9 @@
                                                 self_contract: Pure,
                                                 ident: `visualize`,
                                                 path: AssocItemPath::TraitForTypeItem(
-                                                    TraitForTypeItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 416,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    TraitForTypeItemPath(`<#derive _ as core::visual::Visualize(0)>::visualize`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [
@@ -17607,9 +17527,9 @@
         AssocItemHirDefn::TypeItem(
             TypeItemHirDefn::MemoizedField(
                 TypeMemoizedFieldHirDefn {
-                    path: TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::concave_components`, `MemoizedField`),
+                    path: TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentSketch(0)>::concave_components`, `MemoizedField`),
                     hir_decl: TypeMemoFieldHirDecl {
-                        path: TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::concave_components`, `MemoizedField`),
+                        path: TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentSketch(0)>::concave_components`, `MemoizedField`),
                         return_ty: HirType::PathLeading(
                             HirTypePathLeading {
                                 ty_path: TypePath(`core::vec::Vec`, `Extern`),
@@ -17631,7 +17551,7 @@
                             region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
-                                        TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::concave_components`, `MemoizedField`),
+                                        TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentSketch(0)>::concave_components`, `MemoizedField`),
                                     ),
                                 ),
                             ),
@@ -17671,7 +17591,7 @@
                                 region_path: RegionPath::Defn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
-                                            TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::concave_components`, `MemoizedField`),
+                                            TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentSketch(0)>::concave_components`, `MemoizedField`),
                                         ),
                                     ),
                                 ),
@@ -17780,9 +17700,9 @@
         AssocItemHirDefn::TypeItem(
             TypeItemHirDefn::MemoizedField(
                 TypeMemoizedFieldHirDefn {
-                    path: TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`, `MemoizedField`),
+                    path: TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentSketch(0)>::bounding_box`, `MemoizedField`),
                     hir_decl: TypeMemoFieldHirDecl {
-                        path: TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`, `MemoizedField`),
+                        path: TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentSketch(0)>::bounding_box`, `MemoizedField`),
                         return_ty: HirType::PathLeading(
                             HirTypePathLeading {
                                 ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
@@ -17794,7 +17714,7 @@
                             region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
-                                        TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`, `MemoizedField`),
+                                        TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentSketch(0)>::bounding_box`, `MemoizedField`),
                                     ),
                                 ),
                             ),
@@ -17834,7 +17754,7 @@
                                 region_path: RegionPath::Defn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
-                                            TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`, `MemoizedField`),
+                                            TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentSketch(0)>::bounding_box`, `MemoizedField`),
                                         ),
                                     ),
                                 ),
@@ -18128,7 +18048,7 @@
                                                 self_contract: Pure,
                                                 ident: `ilen`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodRitchie(
+                                                    TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -18356,7 +18276,7 @@
                                                 self_contract: Pure,
                                                 ident: `min`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::num::f32(0)::min`, `MethodRitchie(
+                                                    TypeItemPath(`<core::num::f32(0)>::min`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -18488,7 +18408,7 @@
                                                 self_contract: Pure,
                                                 ident: `max`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::num::f32(0)::max`, `MethodRitchie(
+                                                    TypeItemPath(`<core::num::f32(0)>::max`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -18620,7 +18540,7 @@
                                                 self_contract: Pure,
                                                 ident: `min`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::num::f32(0)::min`, `MethodRitchie(
+                                                    TypeItemPath(`<core::num::f32(0)>::min`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -18752,7 +18672,7 @@
                                                 self_contract: Pure,
                                                 ident: `max`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::num::f32(0)::max`, `MethodRitchie(
+                                                    TypeItemPath(`<core::num::f32(0)>::max`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -19317,11 +19237,11 @@
         AssocItemHirDefn::TypeItem(
             TypeItemHirDefn::AssocFn(
                 TypeAssocFnHirDefn {
-                    path: TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::new`, `AssocRitchie(
+                    path: TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentSketch(0)>::new`, `AssocRitchie(
                         Fn,
                     )`),
                     hir_decl: TypeAssocFnHirDecl {
-                        path: TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::new`, `AssocRitchie(
+                        path: TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentSketch(0)>::new`, `AssocRitchie(
                             Fn,
                         )`),
                         template_parameters: HirTemplateParameters(
@@ -19374,7 +19294,7 @@
                             region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
-                                        TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::new`, `AssocRitchie(
+                                        TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentSketch(0)>::new`, `AssocRitchie(
                                             Fn,
                                         )`),
                                     ),
@@ -19437,7 +19357,7 @@
                                 region_path: RegionPath::Defn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
-                                            TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::new`, `AssocRitchie(
+                                            TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentSketch(0)>::new`, `AssocRitchie(
                                                 Fn,
                                             )`),
                                         ),

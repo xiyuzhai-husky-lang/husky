@@ -4524,16 +4524,7 @@
         path: RegionPath::Decl(
             ItemPath::ImplBlock(
                 ImplBlockPath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlock {
-                        data: TraitForTypeImplBlockPathData {
-                            module_path: `mnist_classifier::raw_contour`,
-                            trai_path: TraitPath(`core::visual::Visualize`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                            ),
-                            disambiguator: 0,
-                        },
-                    },
+                    mnist_classifier::raw_contour::RawContour as core::visual::Visualize(0),
                 ),
             ),
         ),
@@ -4541,16 +4532,7 @@
             path: RegionPath::Decl(
                 ItemPath::ImplBlock(
                     ImplBlockPath::TraitForTypeImplBlock(
-                        TraitForTypeImplBlock {
-                            data: TraitForTypeImplBlockPathData {
-                                module_path: `mnist_classifier::raw_contour`,
-                                trai_path: TraitPath(`core::visual::Visualize`),
-                                ty_sketch: TypeSketch::Path(
-                                    TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                ),
-                                disambiguator: 0,
-                            },
-                        },
+                        mnist_classifier::raw_contour::RawContour as core::visual::Visualize(0),
                     ),
                 ),
             ),
@@ -4781,13 +4763,9 @@
         path: RegionPath::Decl(
             ItemPath::AssocItem(
                 AssocItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 372,
-                            },
-                        ),
-                    ),
+                    TraitForTypeItemPath(`<mnist_classifier::raw_contour::RawContour as core::visual::Visualize(0)>::visualize`, `MethodRitchie(
+                        Fn,
+                    )`),
                 ),
             ),
         ),
@@ -4795,13 +4773,9 @@
             path: RegionPath::Decl(
                 ItemPath::AssocItem(
                     AssocItemPath::TraitForTypeItem(
-                        TraitForTypeItemPath(
-                            ItemPathId(
-                                Id {
-                                    value: 372,
-                                },
-                            ),
-                        ),
+                        TraitForTypeItemPath(`<mnist_classifier::raw_contour::RawContour as core::visual::Visualize(0)>::visualize`, `MethodRitchie(
+                            Fn,
+                        )`),
                     ),
                 ),
             ),
@@ -5125,7 +5099,7 @@
         path: RegionPath::Decl(
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::line_segment_sketch`, `MemoizedField`),
+                    TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::line_segment_sketch`, `MemoizedField`),
                 ),
             ),
         ),
@@ -5133,7 +5107,7 @@
             path: RegionPath::Decl(
                 ItemPath::AssocItem(
                     AssocItemPath::TypeItem(
-                        TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::line_segment_sketch`, `MemoizedField`),
+                        TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::line_segment_sketch`, `MemoizedField`),
                     ),
                 ),
             ),
@@ -5284,7 +5258,7 @@
         path: RegionPath::Decl(
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::bounding_box`, `MemoizedField`),
+                    TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::bounding_box`, `MemoizedField`),
                 ),
             ),
         ),
@@ -5292,7 +5266,7 @@
             path: RegionPath::Decl(
                 ItemPath::AssocItem(
                     AssocItemPath::TypeItem(
-                        TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::bounding_box`, `MemoizedField`),
+                        TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::bounding_box`, `MemoizedField`),
                     ),
                 ),
             ),
@@ -5443,7 +5417,7 @@
         path: RegionPath::Decl(
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::relative_bounding_box`, `MemoizedField`),
+                    TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::relative_bounding_box`, `MemoizedField`),
                 ),
             ),
         ),
@@ -5451,7 +5425,7 @@
             path: RegionPath::Decl(
                 ItemPath::AssocItem(
                     AssocItemPath::TypeItem(
-                        TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::relative_bounding_box`, `MemoizedField`),
+                        TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::relative_bounding_box`, `MemoizedField`),
                     ),
                 ),
             ),
@@ -5602,7 +5576,7 @@
         path: RegionPath::Decl(
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::contour_len`, `MemoizedField`),
+                    TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::contour_len`, `MemoizedField`),
                 ),
             ),
         ),
@@ -5610,7 +5584,7 @@
             path: RegionPath::Decl(
                 ItemPath::AssocItem(
                     AssocItemPath::TypeItem(
-                        TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::contour_len`, `MemoizedField`),
+                        TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::contour_len`, `MemoizedField`),
                     ),
                 ),
             ),
@@ -5761,7 +5735,7 @@
         path: RegionPath::Decl(
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::displacement`, `MethodRitchie(
+                    TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::displacement`, `MethodRitchie(
                         Fn,
                     )`),
                 ),
@@ -5771,7 +5745,7 @@
             path: RegionPath::Decl(
                 ItemPath::AssocItem(
                     AssocItemPath::TypeItem(
-                        TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::displacement`, `MethodRitchie(
+                        TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::displacement`, `MethodRitchie(
                             Fn,
                         )`),
                     ),

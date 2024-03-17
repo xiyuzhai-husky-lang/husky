@@ -30,7 +30,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::TypeItem(
-                    TypeItemPath(`(mnist::BinaryImage28(0)::new_zeros`, `AssocRitchie(
+                    TypeItemPath(`<mnist::BinaryImage28(0)>::new_zeros`, `AssocRitchie(
                         Fn,
                     )`),
                 ),
@@ -47,13 +47,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 155,
-                            },
-                        ),
-                    ),
+                    TraitForTypeItemPath(`<mnist::BinaryImage28 as core::ops::IntIndex(0)>::Output`, `AssocType`),
                 ),
                 instantiation: JavInstantiation {
                     symbol_resolutions: [],
@@ -68,7 +62,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::TypeItem(
-                    TypeItemPath(`(mnist::BinaryGrid28(0)::new_zeros`, `AssocRitchie(
+                    TypeItemPath(`<mnist::BinaryGrid28(0)>::new_zeros`, `AssocRitchie(
                         Fn,
                     )`),
                 ),
@@ -85,13 +79,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 158,
-                            },
-                        ),
-                    ),
+                    TraitForTypeItemPath(`<mnist::BinaryGrid28 as core::ops::IntIndex(0)>::Output`, `AssocType`),
                 ),
                 instantiation: JavInstantiation {
                     symbol_resolutions: [],

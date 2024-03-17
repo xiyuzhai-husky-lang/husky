@@ -19,14 +19,7 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TraitForTypeImplBlock(
-                TraitForTypeImplBlock {
-                    data: TraitForTypeImplBlockPathData {
-                        module_path: `core::marker`,
-                        trai_path: TraitPath(`core::marker::Copy`),
-                        ty_sketch: TypeSketch::DeriveAny,
-                        disambiguator: 0,
-                    },
-                },
+                #derive _ as core::marker::Copy(0),
             ),
         ),
         None,

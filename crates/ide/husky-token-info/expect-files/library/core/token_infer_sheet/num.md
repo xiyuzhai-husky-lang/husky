@@ -275,7 +275,7 @@ Ok(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`(core::num::i8(0)::abs`, `MethodRitchie(
+                                                        path: TypeItemPath(`<core::num::i8(0)>::abs`, `MethodRitchie(
                                                             Fn,
                                                         )`),
                                                         disambiguator: 0,
@@ -334,7 +334,7 @@ Ok(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`(core::num::i8(0)::max`, `MethodRitchie(
+                                                        path: TypeItemPath(`<core::num::i8(0)>::max`, `MethodRitchie(
                                                             Fn,
                                                         )`),
                                                         disambiguator: 0,
@@ -487,13 +487,9 @@ Ok(
                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                 TraitForTypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TraitForTypeItemPath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 156,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        path: TraitForTypeItemPath(`<core::num::i8 as core::ops::Add(0)>::add`, `MethodRitchie(
+                                                            Fn,
+                                                        )`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -749,7 +745,7 @@ Ok(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`(core::num::i16(0)::abs`, `MethodRitchie(
+                                                        path: TypeItemPath(`<core::num::i16(0)>::abs`, `MethodRitchie(
                                                             Fn,
                                                         )`),
                                                         disambiguator: 0,
@@ -808,7 +804,7 @@ Ok(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`(core::num::i16(0)::max`, `MethodRitchie(
+                                                        path: TypeItemPath(`<core::num::i16(0)>::max`, `MethodRitchie(
                                                             Fn,
                                                         )`),
                                                         disambiguator: 0,
@@ -961,13 +957,9 @@ Ok(
                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                 TraitForTypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TraitForTypeItemPath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 159,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        path: TraitForTypeItemPath(`<core::num::i16 as core::ops::Add(0)>::add`, `MethodRitchie(
+                                                            Fn,
+                                                        )`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -1223,7 +1215,7 @@ Ok(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`(core::num::i32(0)::abs`, `MethodRitchie(
+                                                        path: TypeItemPath(`<core::num::i32(0)>::abs`, `MethodRitchie(
                                                             Fn,
                                                         )`),
                                                         disambiguator: 0,
@@ -1282,7 +1274,7 @@ Ok(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`(core::num::i32(0)::max`, `MethodRitchie(
+                                                        path: TypeItemPath(`<core::num::i32(0)>::max`, `MethodRitchie(
                                                             Fn,
                                                         )`),
                                                         disambiguator: 0,
@@ -1375,7 +1367,7 @@ Ok(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`(core::num::i32(0)::min`, `MethodRitchie(
+                                                        path: TypeItemPath(`<core::num::i32(0)>::min`, `MethodRitchie(
                                                             Fn,
                                                         )`),
                                                         disambiguator: 0,
@@ -1527,13 +1519,9 @@ Ok(
                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                 TraitForTypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TraitForTypeItemPath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 163,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        path: TraitForTypeItemPath(`<core::num::i32 as core::ops::Add(0)>::add`, `MethodRitchie(
+                                                            Fn,
+                                                        )`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -1789,7 +1777,7 @@ Ok(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`(core::num::i64(0)::abs`, `MethodRitchie(
+                                                        path: TypeItemPath(`<core::num::i64(0)>::abs`, `MethodRitchie(
                                                             Fn,
                                                         )`),
                                                         disambiguator: 0,
@@ -1908,13 +1896,9 @@ Ok(
                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                 TraitForTypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TraitForTypeItemPath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 165,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        path: TraitForTypeItemPath(`<core::num::i64 as core::ops::Add(0)>::add`, `MethodRitchie(
+                                                            Fn,
+                                                        )`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -2170,7 +2154,7 @@ Ok(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`(core::num::i128(0)::abs`, `MethodRitchie(
+                                                        path: TypeItemPath(`<core::num::i128(0)>::abs`, `MethodRitchie(
                                                             Fn,
                                                         )`),
                                                         disambiguator: 0,
@@ -2289,13 +2273,9 @@ Ok(
                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                 TraitForTypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TraitForTypeItemPath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 167,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        path: TraitForTypeItemPath(`<core::num::i128 as core::ops::Add(0)>::add`, `MethodRitchie(
+                                                            Fn,
+                                                        )`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -2551,7 +2531,7 @@ Ok(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`(core::num::isize(0)::abs`, `MethodRitchie(
+                                                        path: TypeItemPath(`<core::num::isize(0)>::abs`, `MethodRitchie(
                                                             Fn,
                                                         )`),
                                                         disambiguator: 0,
@@ -2670,13 +2650,9 @@ Ok(
                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                 TraitForTypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TraitForTypeItemPath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 169,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        path: TraitForTypeItemPath(`<core::num::isize as core::ops::Add(0)>::add`, `MethodRitchie(
+                                                            Fn,
+                                                        )`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -2932,7 +2908,7 @@ Ok(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`(core::num::u8(0)::abs`, `MethodRitchie(
+                                                        path: TypeItemPath(`<core::num::u8(0)>::abs`, `MethodRitchie(
                                                             Fn,
                                                         )`),
                                                         disambiguator: 0,
@@ -3051,13 +3027,9 @@ Ok(
                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                 TraitForTypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TraitForTypeItemPath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 171,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        path: TraitForTypeItemPath(`<core::num::u8 as core::ops::Add(0)>::add`, `MethodRitchie(
+                                                            Fn,
+                                                        )`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -3313,7 +3285,7 @@ Ok(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`(core::num::u16(0)::abs`, `MethodRitchie(
+                                                        path: TypeItemPath(`<core::num::u16(0)>::abs`, `MethodRitchie(
                                                             Fn,
                                                         )`),
                                                         disambiguator: 0,
@@ -3432,13 +3404,9 @@ Ok(
                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                 TraitForTypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TraitForTypeItemPath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 173,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        path: TraitForTypeItemPath(`<core::num::u16 as core::ops::Add(0)>::add`, `MethodRitchie(
+                                                            Fn,
+                                                        )`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -3694,7 +3662,7 @@ Ok(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`(core::num::u32(0)::abs`, `MethodRitchie(
+                                                        path: TypeItemPath(`<core::num::u32(0)>::abs`, `MethodRitchie(
                                                             Fn,
                                                         )`),
                                                         disambiguator: 0,
@@ -3813,13 +3781,9 @@ Ok(
                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                 TraitForTypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TraitForTypeItemPath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 175,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        path: TraitForTypeItemPath(`<core::num::u32 as core::ops::Add(0)>::add`, `MethodRitchie(
+                                                            Fn,
+                                                        )`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -4075,7 +4039,7 @@ Ok(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`(core::num::u64(0)::abs`, `MethodRitchie(
+                                                        path: TypeItemPath(`<core::num::u64(0)>::abs`, `MethodRitchie(
                                                             Fn,
                                                         )`),
                                                         disambiguator: 0,
@@ -4194,13 +4158,9 @@ Ok(
                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                 TraitForTypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TraitForTypeItemPath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 177,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        path: TraitForTypeItemPath(`<core::num::u64 as core::ops::Add(0)>::add`, `MethodRitchie(
+                                                            Fn,
+                                                        )`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -4456,7 +4416,7 @@ Ok(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`(core::num::u128(0)::abs`, `MethodRitchie(
+                                                        path: TypeItemPath(`<core::num::u128(0)>::abs`, `MethodRitchie(
                                                             Fn,
                                                         )`),
                                                         disambiguator: 0,
@@ -4575,13 +4535,9 @@ Ok(
                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                 TraitForTypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TraitForTypeItemPath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 179,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        path: TraitForTypeItemPath(`<core::num::u128 as core::ops::Add(0)>::add`, `MethodRitchie(
+                                                            Fn,
+                                                        )`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -4837,7 +4793,7 @@ Ok(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`(core::num::usize(0)::abs`, `MethodRitchie(
+                                                        path: TypeItemPath(`<core::num::usize(0)>::abs`, `MethodRitchie(
                                                             Fn,
                                                         )`),
                                                         disambiguator: 0,
@@ -4956,13 +4912,9 @@ Ok(
                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                 TraitForTypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TraitForTypeItemPath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 181,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        path: TraitForTypeItemPath(`<core::num::usize as core::ops::Add(0)>::add`, `MethodRitchie(
+                                                            Fn,
+                                                        )`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -5223,7 +5175,7 @@ Ok(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`(core::num::f32(0)::abs`, `MethodRitchie(
+                                                        path: TypeItemPath(`<core::num::f32(0)>::abs`, `MethodRitchie(
                                                             Fn,
                                                         )`),
                                                         disambiguator: 0,
@@ -5287,7 +5239,7 @@ Ok(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`(core::num::f32(0)::sqrt`, `MethodRitchie(
+                                                        path: TypeItemPath(`<core::num::f32(0)>::sqrt`, `MethodRitchie(
                                                             Fn,
                                                         )`),
                                                         disambiguator: 0,
@@ -5355,109 +5307,7 @@ Ok(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`(core::num::f32(0)::max`, `MethodRitchie(
-                                                            Fn,
-                                                        )`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
-                            ),
-                        ),
-                        EntityKind::AssocItem {
-                            assoc_item_kind: AssocItemKind::TypeItem(
-                                TypeItemKind::MethodRitchie(
-                                    Fn,
-                                ),
-                            ),
-                        },
-                    ),
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::PatternExpr(
-                        1,
-                    ),
-                    data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::SimpleParenateParameter {
-                            pattern_symbol_idx: 1,
-                        },
-                        syn_expr_region: ExprRegionLeash(_),
-                    },
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
-                        PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Type(
-                                TypePath(`core::num::f32`, `Extern`),
-                            ),
-                        ),
-                    ),
-                    data: TokenInfoData::Entity(
-                        EntityPath::MajorItem(
-                            MajorItemPath::Type(
-                                TypePath(`core::num::f32`, `Extern`),
-                            ),
-                        ),
-                    ),
-                },
-            ),
-            None,
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        2,
-                        PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Type(
-                                TypePath(`core::num::f32`, `Extern`),
-                            ),
-                        ),
-                    ),
-                    data: TokenInfoData::Entity(
-                        EntityPath::MajorItem(
-                            MajorItemPath::Type(
-                                TypePath(`core::num::f32`, `Extern`),
-                            ),
-                        ),
-                    ),
-                },
-            ),
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::AstIdentifiable,
-                    data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssocItem(
-                            AssocItemSynNodePath::TypeItem(
-                                TypeItemSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssocItem(
-                                            AssocItemSynNodePathData::TypeItem(
-                                                TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`(core::num::f32(0)::min`, `MethodRitchie(
+                                                        path: TypeItemPath(`<core::num::f32(0)>::max`, `MethodRitchie(
                                                             Fn,
                                                         )`),
                                                         disambiguator: 0,
@@ -5538,6 +5388,15 @@ Ok(
             None,
             None,
             None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
             Some(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
@@ -5550,7 +5409,100 @@ Ok(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`(core::num::f32(0)::sgnx`, `MethodRitchie(
+                                                        path: TypeItemPath(`<core::num::f32(0)>::min`, `MethodRitchie(
+                                                            Fn,
+                                                        )`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
+                        ),
+                        EntityKind::AssocItem {
+                            assoc_item_kind: AssocItemKind::TypeItem(
+                                TypeItemKind::MethodRitchie(
+                                    Fn,
+                                ),
+                            ),
+                        },
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::PatternExpr(
+                        1,
+                    ),
+                    data: TokenInfoData::CurrentSynSymbol {
+                        current_syn_symbol_idx: 1,
+                        current_syn_symbol_kind: CurrentSynSymbolKind::SimpleParenateParameter {
+                            pattern_symbol_idx: 1,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        1,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`core::num::f32`, `Extern`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`core::num::f32`, `Extern`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        2,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`core::num::f32`, `Extern`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`core::num::f32`, `Extern`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            None,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::AstIdentifiable,
+                    data: TokenInfoData::EntityNode(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TypeItem(
+                                TypeItemSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TypeItem(
+                                                TypeItemSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypeItemPath(`<core::num::f32(0)>::sgnx`, `MethodRitchie(
                                                             Fn,
                                                         )`),
                                                         disambiguator: 0,
@@ -5614,7 +5566,7 @@ Ok(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`(core::num::f32(0)::cos`, `MethodRitchie(
+                                                        path: TypeItemPath(`<core::num::f32(0)>::cos`, `MethodRitchie(
                                                             Fn,
                                                         )`),
                                                         disambiguator: 0,
@@ -5685,7 +5637,7 @@ Ok(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`(core::num::f32(0)::sin`, `MethodRitchie(
+                                                        path: TypeItemPath(`<core::num::f32(0)>::sin`, `MethodRitchie(
                                                             Fn,
                                                         )`),
                                                         disambiguator: 0,
@@ -5744,7 +5696,7 @@ Ok(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`(core::num::f32(0)::acos`, `MethodRitchie(
+                                                        path: TypeItemPath(`<core::num::f32(0)>::acos`, `MethodRitchie(
                                                             Fn,
                                                         )`),
                                                         disambiguator: 0,
@@ -5867,13 +5819,9 @@ Ok(
                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                 TraitForTypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TraitForTypeItemPath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 190,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        path: TraitForTypeItemPath(`<core::num::f32 as core::ops::Add(0)>::add`, `MethodRitchie(
+                                                            Fn,
+                                                        )`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -6129,7 +6077,7 @@ Ok(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`(core::num::f64(0)::abs`, `MethodRitchie(
+                                                        path: TypeItemPath(`<core::num::f64(0)>::abs`, `MethodRitchie(
                                                             Fn,
                                                         )`),
                                                         disambiguator: 0,
@@ -6188,7 +6136,7 @@ Ok(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`(core::num::f64(0)::acos`, `MethodRitchie(
+                                                        path: TypeItemPath(`<core::num::f64(0)>::acos`, `MethodRitchie(
                                                             Fn,
                                                         )`),
                                                         disambiguator: 0,
@@ -6307,13 +6255,9 @@ Ok(
                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                 TraitForTypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TraitForTypeItemPath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 193,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        path: TraitForTypeItemPath(`<core::num::f64 as core::ops::Add(0)>::add`, `MethodRitchie(
+                                                            Fn,
+                                                        )`),
                                                         disambiguator: 0,
                                                     },
                                                 },

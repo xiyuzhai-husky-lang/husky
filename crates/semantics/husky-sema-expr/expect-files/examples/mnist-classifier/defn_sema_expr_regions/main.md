@@ -83,26 +83,11 @@
                                         2,
                                     ),
                                     unveil_output_ty_signature: TraitForTypeAssocTypeEtherealSignature {
-                                        path: TraitForTypeItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 303,
-                                                },
-                                            ),
-                                        ),
+                                        path: TraitForTypeItemPath(`<malamute::Class as core::ops::Unveil(0)>::Output`, `AssocType`),
                                         instantiation: EthInstantiation {
                                             path: ItemPath::ImplBlock(
                                                 ImplBlockPath::TraitForTypeImplBlock(
-                                                    TraitForTypeImplBlock {
-                                                        data: TraitForTypeImplBlockPathData {
-                                                            module_path: `malamute`,
-                                                            trai_path: TraitPath(`core::ops::Unveil`),
-                                                            ty_sketch: TypeSketch::Path(
-                                                                TypePath(`malamute::Class`, `Enum`),
-                                                            ),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
+                                                    malamute::Class as core::ops::Unveil(0),
                                                 ),
                                             ),
                                             symbol_map: [
@@ -121,13 +106,9 @@
                                         },
                                         ty_term: EthTerm(`unit`),
                                     },
-                                    unveil_assoc_fn_path: TraitForTypeItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 304,
-                                            },
-                                        ),
-                                    ),
+                                    unveil_assoc_fn_path: TraitForTypeItemPath(`<malamute::Class as core::ops::Unveil(0)>::unveil`, `AssocRitchie(
+                                        Fn,
+                                    )`),
                                     return_ty: EthTerm(`Class MnistLabel`),
                                 },
                             ),
@@ -209,26 +190,11 @@
                                         4,
                                     ),
                                     unveil_output_ty_signature: TraitForTypeAssocTypeEtherealSignature {
-                                        path: TraitForTypeItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 303,
-                                                },
-                                            ),
-                                        ),
+                                        path: TraitForTypeItemPath(`<malamute::Class as core::ops::Unveil(0)>::Output`, `AssocType`),
                                         instantiation: EthInstantiation {
                                             path: ItemPath::ImplBlock(
                                                 ImplBlockPath::TraitForTypeImplBlock(
-                                                    TraitForTypeImplBlock {
-                                                        data: TraitForTypeImplBlockPathData {
-                                                            module_path: `malamute`,
-                                                            trai_path: TraitPath(`core::ops::Unveil`),
-                                                            ty_sketch: TypeSketch::Path(
-                                                                TypePath(`malamute::Class`, `Enum`),
-                                                            ),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
+                                                    malamute::Class as core::ops::Unveil(0),
                                                 ),
                                             ),
                                             symbol_map: [
@@ -247,13 +213,9 @@
                                         },
                                         ty_term: EthTerm(`unit`),
                                     },
-                                    unveil_assoc_fn_path: TraitForTypeItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 304,
-                                            },
-                                        ),
-                                    ),
+                                    unveil_assoc_fn_path: TraitForTypeItemPath(`<malamute::Class as core::ops::Unveil(0)>::unveil`, `AssocRitchie(
+                                        Fn,
+                                    )`),
                                     return_ty: EthTerm(`Class MnistLabel`),
                                 },
                             ),
@@ -335,26 +297,11 @@
                                         6,
                                     ),
                                     unveil_output_ty_signature: TraitForTypeAssocTypeEtherealSignature {
-                                        path: TraitForTypeItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 303,
-                                                },
-                                            ),
-                                        ),
+                                        path: TraitForTypeItemPath(`<malamute::Class as core::ops::Unveil(0)>::Output`, `AssocType`),
                                         instantiation: EthInstantiation {
                                             path: ItemPath::ImplBlock(
                                                 ImplBlockPath::TraitForTypeImplBlock(
-                                                    TraitForTypeImplBlock {
-                                                        data: TraitForTypeImplBlockPathData {
-                                                            module_path: `malamute`,
-                                                            trai_path: TraitPath(`core::ops::Unveil`),
-                                                            ty_sketch: TypeSketch::Path(
-                                                                TypePath(`malamute::Class`, `Enum`),
-                                                            ),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
+                                                    malamute::Class as core::ops::Unveil(0),
                                                 ),
                                             ),
                                             symbol_map: [
@@ -373,13 +320,9 @@
                                         },
                                         ty_term: EthTerm(`unit`),
                                     },
-                                    unveil_assoc_fn_path: TraitForTypeItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 304,
-                                            },
-                                        ),
-                                    ),
+                                    unveil_assoc_fn_path: TraitForTypeItemPath(`<malamute::Class as core::ops::Unveil(0)>::unveil`, `AssocRitchie(
+                                        Fn,
+                                    )`),
                                     return_ty: EthTerm(`Class MnistLabel`),
                                 },
                             ),
@@ -461,26 +404,11 @@
                                         8,
                                     ),
                                     unveil_output_ty_signature: TraitForTypeAssocTypeEtherealSignature {
-                                        path: TraitForTypeItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 303,
-                                                },
-                                            ),
-                                        ),
+                                        path: TraitForTypeItemPath(`<malamute::Class as core::ops::Unveil(0)>::Output`, `AssocType`),
                                         instantiation: EthInstantiation {
                                             path: ItemPath::ImplBlock(
                                                 ImplBlockPath::TraitForTypeImplBlock(
-                                                    TraitForTypeImplBlock {
-                                                        data: TraitForTypeImplBlockPathData {
-                                                            module_path: `malamute`,
-                                                            trai_path: TraitPath(`core::ops::Unveil`),
-                                                            ty_sketch: TypeSketch::Path(
-                                                                TypePath(`malamute::Class`, `Enum`),
-                                                            ),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
+                                                    malamute::Class as core::ops::Unveil(0),
                                                 ),
                                             ),
                                             symbol_map: [
@@ -499,13 +427,9 @@
                                         },
                                         ty_term: EthTerm(`unit`),
                                     },
-                                    unveil_assoc_fn_path: TraitForTypeItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 304,
-                                            },
-                                        ),
-                                    ),
+                                    unveil_assoc_fn_path: TraitForTypeItemPath(`<malamute::Class as core::ops::Unveil(0)>::unveil`, `AssocRitchie(
+                                        Fn,
+                                    )`),
                                     return_ty: EthTerm(`Class MnistLabel`),
                                 },
                             ),
@@ -587,26 +511,11 @@
                                         10,
                                     ),
                                     unveil_output_ty_signature: TraitForTypeAssocTypeEtherealSignature {
-                                        path: TraitForTypeItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 303,
-                                                },
-                                            ),
-                                        ),
+                                        path: TraitForTypeItemPath(`<malamute::Class as core::ops::Unveil(0)>::Output`, `AssocType`),
                                         instantiation: EthInstantiation {
                                             path: ItemPath::ImplBlock(
                                                 ImplBlockPath::TraitForTypeImplBlock(
-                                                    TraitForTypeImplBlock {
-                                                        data: TraitForTypeImplBlockPathData {
-                                                            module_path: `malamute`,
-                                                            trai_path: TraitPath(`core::ops::Unveil`),
-                                                            ty_sketch: TypeSketch::Path(
-                                                                TypePath(`malamute::Class`, `Enum`),
-                                                            ),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
+                                                    malamute::Class as core::ops::Unveil(0),
                                                 ),
                                             ),
                                             symbol_map: [
@@ -625,13 +534,9 @@
                                         },
                                         ty_term: EthTerm(`unit`),
                                     },
-                                    unveil_assoc_fn_path: TraitForTypeItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 304,
-                                            },
-                                        ),
-                                    ),
+                                    unveil_assoc_fn_path: TraitForTypeItemPath(`<malamute::Class as core::ops::Unveil(0)>::unveil`, `AssocRitchie(
+                                        Fn,
+                                    )`),
                                     return_ty: EthTerm(`Class MnistLabel`),
                                 },
                             ),
@@ -713,26 +618,11 @@
                                         12,
                                     ),
                                     unveil_output_ty_signature: TraitForTypeAssocTypeEtherealSignature {
-                                        path: TraitForTypeItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 303,
-                                                },
-                                            ),
-                                        ),
+                                        path: TraitForTypeItemPath(`<malamute::Class as core::ops::Unveil(0)>::Output`, `AssocType`),
                                         instantiation: EthInstantiation {
                                             path: ItemPath::ImplBlock(
                                                 ImplBlockPath::TraitForTypeImplBlock(
-                                                    TraitForTypeImplBlock {
-                                                        data: TraitForTypeImplBlockPathData {
-                                                            module_path: `malamute`,
-                                                            trai_path: TraitPath(`core::ops::Unveil`),
-                                                            ty_sketch: TypeSketch::Path(
-                                                                TypePath(`malamute::Class`, `Enum`),
-                                                            ),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
+                                                    malamute::Class as core::ops::Unveil(0),
                                                 ),
                                             ),
                                             symbol_map: [
@@ -751,13 +641,9 @@
                                         },
                                         ty_term: EthTerm(`unit`),
                                     },
-                                    unveil_assoc_fn_path: TraitForTypeItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 304,
-                                            },
-                                        ),
-                                    ),
+                                    unveil_assoc_fn_path: TraitForTypeItemPath(`<malamute::Class as core::ops::Unveil(0)>::unveil`, `AssocRitchie(
+                                        Fn,
+                                    )`),
                                     return_ty: EthTerm(`Class MnistLabel`),
                                 },
                             ),
@@ -839,26 +725,11 @@
                                         14,
                                     ),
                                     unveil_output_ty_signature: TraitForTypeAssocTypeEtherealSignature {
-                                        path: TraitForTypeItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 303,
-                                                },
-                                            ),
-                                        ),
+                                        path: TraitForTypeItemPath(`<malamute::Class as core::ops::Unveil(0)>::Output`, `AssocType`),
                                         instantiation: EthInstantiation {
                                             path: ItemPath::ImplBlock(
                                                 ImplBlockPath::TraitForTypeImplBlock(
-                                                    TraitForTypeImplBlock {
-                                                        data: TraitForTypeImplBlockPathData {
-                                                            module_path: `malamute`,
-                                                            trai_path: TraitPath(`core::ops::Unveil`),
-                                                            ty_sketch: TypeSketch::Path(
-                                                                TypePath(`malamute::Class`, `Enum`),
-                                                            ),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
+                                                    malamute::Class as core::ops::Unveil(0),
                                                 ),
                                             ),
                                             symbol_map: [
@@ -877,13 +748,9 @@
                                         },
                                         ty_term: EthTerm(`unit`),
                                     },
-                                    unveil_assoc_fn_path: TraitForTypeItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 304,
-                                            },
-                                        ),
-                                    ),
+                                    unveil_assoc_fn_path: TraitForTypeItemPath(`<malamute::Class as core::ops::Unveil(0)>::unveil`, `AssocRitchie(
+                                        Fn,
+                                    )`),
                                     return_ty: EthTerm(`Class MnistLabel`),
                                 },
                             ),
@@ -965,26 +832,11 @@
                                         16,
                                     ),
                                     unveil_output_ty_signature: TraitForTypeAssocTypeEtherealSignature {
-                                        path: TraitForTypeItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 303,
-                                                },
-                                            ),
-                                        ),
+                                        path: TraitForTypeItemPath(`<malamute::Class as core::ops::Unveil(0)>::Output`, `AssocType`),
                                         instantiation: EthInstantiation {
                                             path: ItemPath::ImplBlock(
                                                 ImplBlockPath::TraitForTypeImplBlock(
-                                                    TraitForTypeImplBlock {
-                                                        data: TraitForTypeImplBlockPathData {
-                                                            module_path: `malamute`,
-                                                            trai_path: TraitPath(`core::ops::Unveil`),
-                                                            ty_sketch: TypeSketch::Path(
-                                                                TypePath(`malamute::Class`, `Enum`),
-                                                            ),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
+                                                    malamute::Class as core::ops::Unveil(0),
                                                 ),
                                             ),
                                             symbol_map: [
@@ -1003,13 +855,9 @@
                                         },
                                         ty_term: EthTerm(`unit`),
                                     },
-                                    unveil_assoc_fn_path: TraitForTypeItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 304,
-                                            },
-                                        ),
-                                    ),
+                                    unveil_assoc_fn_path: TraitForTypeItemPath(`<malamute::Class as core::ops::Unveil(0)>::unveil`, `AssocRitchie(
+                                        Fn,
+                                    )`),
                                     return_ty: EthTerm(`Class MnistLabel`),
                                 },
                             ),
@@ -1091,26 +939,11 @@
                                         18,
                                     ),
                                     unveil_output_ty_signature: TraitForTypeAssocTypeEtherealSignature {
-                                        path: TraitForTypeItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 303,
-                                                },
-                                            ),
-                                        ),
+                                        path: TraitForTypeItemPath(`<malamute::Class as core::ops::Unveil(0)>::Output`, `AssocType`),
                                         instantiation: EthInstantiation {
                                             path: ItemPath::ImplBlock(
                                                 ImplBlockPath::TraitForTypeImplBlock(
-                                                    TraitForTypeImplBlock {
-                                                        data: TraitForTypeImplBlockPathData {
-                                                            module_path: `malamute`,
-                                                            trai_path: TraitPath(`core::ops::Unveil`),
-                                                            ty_sketch: TypeSketch::Path(
-                                                                TypePath(`malamute::Class`, `Enum`),
-                                                            ),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
+                                                    malamute::Class as core::ops::Unveil(0),
                                                 ),
                                             ),
                                             symbol_map: [
@@ -1129,13 +962,9 @@
                                         },
                                         ty_term: EthTerm(`unit`),
                                     },
-                                    unveil_assoc_fn_path: TraitForTypeItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 304,
-                                            },
-                                        ),
-                                    ),
+                                    unveil_assoc_fn_path: TraitForTypeItemPath(`<malamute::Class as core::ops::Unveil(0)>::unveil`, `AssocRitchie(
+                                        Fn,
+                                    )`),
                                     return_ty: EthTerm(`Class MnistLabel`),
                                 },
                             ),

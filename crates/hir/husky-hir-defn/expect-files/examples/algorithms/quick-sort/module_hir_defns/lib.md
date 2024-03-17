@@ -174,7 +174,7 @@
                                                 self_contract: Pure,
                                                 ident: `len`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::slice::Slice(0)::len`, `MethodRitchie(
+                                                    TypeItemPath(`<core::slice::Slice(0)>::len`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -2506,7 +2506,7 @@
                                                 self_contract: BorrowMut,
                                                 ident: `swap`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::slice::Slice(0)::swap`, `MethodRitchie(
+                                                    TypeItemPath(`<core::slice::Slice(0)>::swap`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -2696,7 +2696,7 @@
                                                 self_contract: BorrowMut,
                                                 ident: `swap`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::slice::Slice(0)::swap`, `MethodRitchie(
+                                                    TypeItemPath(`<core::slice::Slice(0)>::swap`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),

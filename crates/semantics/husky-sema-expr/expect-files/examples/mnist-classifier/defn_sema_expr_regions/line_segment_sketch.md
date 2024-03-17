@@ -784,7 +784,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::num::f32(0)::sqrt`, `MethodRitchie(
+                                                    TypeItemPath(`<core::num::f32(0)>::sqrt`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -807,7 +807,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(core::num::f32(0)::sqrt`, `MethodRitchie(
+                                                            TypeItemPath(`<core::num::f32(0)>::sqrt`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -1497,7 +1497,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::num::f32(0)::sqrt`, `MethodRitchie(
+                                                    TypeItemPath(`<core::num::f32(0)>::sqrt`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -1520,7 +1520,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(core::num::f32(0)::sqrt`, `MethodRitchie(
+                                                            TypeItemPath(`<core::num::f32(0)>::sqrt`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -6117,7 +6117,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::num::f32(0)::sqrt`, `MethodRitchie(
+                                                    TypeItemPath(`<core::num::f32(0)>::sqrt`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -6140,7 +6140,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(core::num::f32(0)::sqrt`, `MethodRitchie(
+                                                            TypeItemPath(`<core::num::f32(0)>::sqrt`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -6830,7 +6830,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::num::f32(0)::sqrt`, `MethodRitchie(
+                                                    TypeItemPath(`<core::num::f32(0)>::sqrt`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -6853,7 +6853,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(core::num::f32(0)::sqrt`, `MethodRitchie(
+                                                            TypeItemPath(`<core::num::f32(0)>::sqrt`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -11089,7 +11089,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::displacement`, `MethodRitchie(
+                                                    TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::displacement`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -11135,7 +11135,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::displacement`, `MethodRitchie(
+                                                            TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::displacement`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -11387,7 +11387,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodRitchie(
+                                                    TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -11410,7 +11410,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodRitchie(
+                                                            TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -11816,7 +11816,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::norm`, `MethodRitchie(
+                                                    TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::norm`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -11839,7 +11839,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::norm`, `MethodRitchie(
+                                                            TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::norm`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -12394,7 +12394,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::displacement`, `MethodRitchie(
+                                                    TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::displacement`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -12440,7 +12440,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::displacement`, `MethodRitchie(
+                                                            TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::displacement`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -12668,7 +12668,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::norm`, `MethodRitchie(
+                                                    TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::norm`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -12691,7 +12691,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::norm`, `MethodRitchie(
+                                                            TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::norm`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -13663,7 +13663,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::rotation_direction_to`, `MethodRitchie(
+                                                    TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::rotation_direction_to`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -13698,7 +13698,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::rotation_direction_to`, `MethodRitchie(
+                                                            TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::rotation_direction_to`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -14029,7 +14029,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::rotation_direction_to`, `MethodRitchie(
+                                                    TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::rotation_direction_to`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -14064,7 +14064,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::rotation_direction_to`, `MethodRitchie(
+                                                            TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::rotation_direction_to`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -14350,7 +14350,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::norm`, `MethodRitchie(
+                                                    TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::norm`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -14373,7 +14373,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::norm`, `MethodRitchie(
+                                                            TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::norm`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -15670,7 +15670,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::rotation_direction_to`, `MethodRitchie(
+                                                    TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::rotation_direction_to`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -15705,7 +15705,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::rotation_direction_to`, `MethodRitchie(
+                                                            TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::rotation_direction_to`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -16124,7 +16124,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::rotation_direction_to`, `MethodRitchie(
+                                                    TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::rotation_direction_to`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -16159,7 +16159,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::rotation_direction_to`, `MethodRitchie(
+                                                            TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::rotation_direction_to`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -16825,7 +16825,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::displacement`, `MethodRitchie(
+                                                    TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::displacement`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -16871,7 +16871,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::displacement`, `MethodRitchie(
+                                                            TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::displacement`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -23913,7 +23913,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::displacement`, `MethodRitchie(
+                                                    TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::displacement`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -23959,7 +23959,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::displacement`, `MethodRitchie(
+                                                            TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::displacement`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -24256,7 +24256,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodRitchie(
+                                                    TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -24279,7 +24279,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodRitchie(
+                                                            TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -24595,7 +24595,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::norm`, `MethodRitchie(
+                                                    TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::norm`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -24618,7 +24618,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::norm`, `MethodRitchie(
+                                                            TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::norm`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -25173,7 +25173,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::displacement`, `MethodRitchie(
+                                                    TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::displacement`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -25219,7 +25219,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::displacement`, `MethodRitchie(
+                                                            TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::displacement`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -25447,7 +25447,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::norm`, `MethodRitchie(
+                                                    TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::norm`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -25470,7 +25470,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::norm`, `MethodRitchie(
+                                                            TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::norm`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -25733,7 +25733,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::num::i32(0)::min`, `MethodRitchie(
+                                                    TypeItemPath(`<core::num::i32(0)>::min`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -25768,7 +25768,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(core::num::i32(0)::min`, `MethodRitchie(
+                                                            TypeItemPath(`<core::num::i32(0)>::min`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -26761,7 +26761,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::displacement`, `MethodRitchie(
+                                                    TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::displacement`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -26807,7 +26807,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::displacement`, `MethodRitchie(
+                                                            TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::displacement`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -26992,7 +26992,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::norm`, `MethodRitchie(
+                                                    TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::norm`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -27015,7 +27015,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::norm`, `MethodRitchie(
+                                                            TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::norm`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -28312,7 +28312,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::rotation_direction_to`, `MethodRitchie(
+                                                    TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::rotation_direction_to`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -28347,7 +28347,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::rotation_direction_to`, `MethodRitchie(
+                                                            TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::rotation_direction_to`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -28766,7 +28766,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::rotation_direction_to`, `MethodRitchie(
+                                                    TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::rotation_direction_to`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -28801,7 +28801,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::rotation_direction_to`, `MethodRitchie(
+                                                            TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::rotation_direction_to`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -29220,7 +29220,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::rotation_direction_to`, `MethodRitchie(
+                                                    TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::rotation_direction_to`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -29255,7 +29255,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::rotation_direction_to`, `MethodRitchie(
+                                                            TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::rotation_direction_to`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -29676,7 +29676,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::rotation_direction_to`, `MethodRitchie(
+                                                    TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::rotation_direction_to`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -29711,7 +29711,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::rotation_direction_to`, `MethodRitchie(
+                                                            TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::rotation_direction_to`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -29997,7 +29997,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::rotation_direction_to`, `MethodRitchie(
+                                                    TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::rotation_direction_to`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -30032,7 +30032,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::rotation_direction_to`, `MethodRitchie(
+                                                            TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::rotation_direction_to`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -38035,7 +38035,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodRitchie(
+                                                    TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -38058,7 +38058,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodRitchie(
+                                                            TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -39242,7 +39242,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodRitchie(
+                                                    TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -39265,7 +39265,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodRitchie(
+                                                            TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -39487,7 +39487,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodRitchie(
+                                                    TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke(0)>::displacement`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -39510,7 +39510,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodRitchie(
+                                                            TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke(0)>::displacement`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -39638,7 +39638,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::vec::Vec(0)::last`, `MethodRitchie(
+                                                    TypeItemPath(`<core::vec::Vec(0)>::last`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -39663,7 +39663,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(core::vec::Vec(0)::last`, `MethodRitchie(
+                                                            TypeItemPath(`<core::vec::Vec(0)>::last`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -39815,7 +39815,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodRitchie(
+                                                    TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke(0)>::displacement`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -39838,7 +39838,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodRitchie(
+                                                            TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke(0)>::displacement`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -40011,7 +40011,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::cross`, `MethodRitchie(
+                                                    TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::cross`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -40046,7 +40046,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::cross`, `MethodRitchie(
+                                                            TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::cross`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -40152,7 +40152,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::num::f32(0)::abs`, `MethodRitchie(
+                                                    TypeItemPath(`<core::num::f32(0)>::abs`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -40175,7 +40175,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(core::num::f32(0)::abs`, `MethodRitchie(
+                                                            TypeItemPath(`<core::num::f32(0)>::abs`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -40430,7 +40430,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::dot`, `MethodRitchie(
+                                                    TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::dot`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -40465,7 +40465,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::dot`, `MethodRitchie(
+                                                            TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::dot`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -40822,7 +40822,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodRitchie(
+                                                    TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -40845,7 +40845,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodRitchie(
+                                                            TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -40981,7 +40981,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::vec::Vec(0)::last`, `MethodRitchie(
+                                                    TypeItemPath(`<core::vec::Vec(0)>::last`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -41006,7 +41006,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(core::vec::Vec(0)::last`, `MethodRitchie(
+                                                            TypeItemPath(`<core::vec::Vec(0)>::last`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -41424,7 +41424,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::vec::Vec(0)::last`, `MethodRitchie(
+                                                    TypeItemPath(`<core::vec::Vec(0)>::last`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -41449,7 +41449,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(core::vec::Vec(0)::last`, `MethodRitchie(
+                                                            TypeItemPath(`<core::vec::Vec(0)>::last`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -41684,7 +41684,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodRitchie(
+                                                    TypeItemPath(`<core::slice::CyclicSlice(0)>::start`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -41707,7 +41707,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodRitchie(
+                                                            TypeItemPath(`<core::slice::CyclicSlice(0)>::start`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -43194,7 +43194,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodRitchie(
+                                                    TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -43217,7 +43217,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodRitchie(
+                                                            TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -43439,7 +43439,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::vec::Vec(0)::last`, `MethodRitchie(
+                                                    TypeItemPath(`<core::vec::Vec(0)>::last`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -43464,7 +43464,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(core::vec::Vec(0)::last`, `MethodRitchie(
+                                                            TypeItemPath(`<core::vec::Vec(0)>::last`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -43669,7 +43669,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodRitchie(
+                                                    TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke(0)>::displacement`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -43692,7 +43692,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodRitchie(
+                                                            TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke(0)>::displacement`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -43822,7 +43822,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodRitchie(
+                                                    TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke(0)>::displacement`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -43845,7 +43845,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodRitchie(
+                                                            TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke(0)>::displacement`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -44206,7 +44206,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::to`, `MethodRitchie(
+                                                    TypeItemPath(`<mnist_classifier::geom2d::Point2d(0)>::to`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -44241,7 +44241,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::to`, `MethodRitchie(
+                                                            TypeItemPath(`<mnist_classifier::geom2d::Point2d(0)>::to`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -44447,7 +44447,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::cross`, `MethodRitchie(
+                                                    TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::cross`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -44482,7 +44482,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::cross`, `MethodRitchie(
+                                                            TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::cross`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -44588,7 +44588,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::num::f32(0)::abs`, `MethodRitchie(
+                                                    TypeItemPath(`<core::num::f32(0)>::abs`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -44611,7 +44611,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(core::num::f32(0)::abs`, `MethodRitchie(
+                                                            TypeItemPath(`<core::num::f32(0)>::abs`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -44866,7 +44866,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::dot`, `MethodRitchie(
+                                                    TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::dot`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -44901,7 +44901,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::dot`, `MethodRitchie(
+                                                            TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::dot`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -45236,7 +45236,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::cross`, `MethodRitchie(
+                                                    TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::cross`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -45271,7 +45271,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::cross`, `MethodRitchie(
+                                                            TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::cross`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -45377,7 +45377,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::num::f32(0)::abs`, `MethodRitchie(
+                                                    TypeItemPath(`<core::num::f32(0)>::abs`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -45400,7 +45400,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(core::num::f32(0)::abs`, `MethodRitchie(
+                                                            TypeItemPath(`<core::num::f32(0)>::abs`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -45700,7 +45700,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::dot`, `MethodRitchie(
+                                                    TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::dot`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -45735,7 +45735,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::dot`, `MethodRitchie(
+                                                            TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::dot`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -46025,7 +46025,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::vec::Vec(0)::pop`, `MethodRitchie(
+                                                    TypeItemPath(`<core::vec::Vec(0)>::pop`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -46048,7 +46048,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(core::vec::Vec(0)::pop`, `MethodRitchie(
+                                                            TypeItemPath(`<core::vec::Vec(0)>::pop`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -46572,7 +46572,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodRitchie(
+                                                    TypeItemPath(`<core::slice::CyclicSlice(0)>::start`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -46595,7 +46595,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodRitchie(
+                                                            TypeItemPath(`<core::slice::CyclicSlice(0)>::start`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -46814,7 +46814,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodRitchie(
+                                                    TypeItemPath(`<core::slice::CyclicSlice(0)>::end`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -46837,7 +46837,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodRitchie(
+                                                            TypeItemPath(`<core::slice::CyclicSlice(0)>::end`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -47307,7 +47307,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodRitchie(
+                                                    TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -47330,7 +47330,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodRitchie(
+                                                            TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -47599,7 +47599,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::vec::Vec(0)::push`, `MethodRitchie(
+                                                    TypeItemPath(`<core::vec::Vec(0)>::push`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -47634,7 +47634,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(core::vec::Vec(0)::push`, `MethodRitchie(
+                                                            TypeItemPath(`<core::vec::Vec(0)>::push`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -48240,7 +48240,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodRitchie(
+                                                    TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -48263,7 +48263,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodRitchie(
+                                                            TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -48399,7 +48399,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::vec::Vec(0)::first`, `MethodRitchie(
+                                                    TypeItemPath(`<core::vec::Vec(0)>::first`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -48424,7 +48424,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(core::vec::Vec(0)::first`, `MethodRitchie(
+                                                            TypeItemPath(`<core::vec::Vec(0)>::first`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -48659,7 +48659,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodRitchie(
+                                                    TypeItemPath(`<core::slice::CyclicSlice(0)>::end`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -48682,7 +48682,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodRitchie(
+                                                            TypeItemPath(`<core::slice::CyclicSlice(0)>::end`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -48818,7 +48818,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::vec::Vec(0)::last`, `MethodRitchie(
+                                                    TypeItemPath(`<core::vec::Vec(0)>::last`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -48843,7 +48843,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(core::vec::Vec(0)::last`, `MethodRitchie(
+                                                            TypeItemPath(`<core::vec::Vec(0)>::last`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -49139,7 +49139,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodRitchie(
+                                                    TypeItemPath(`<core::slice::CyclicSlice(0)>::end`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -49162,7 +49162,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodRitchie(
+                                                            TypeItemPath(`<core::slice::CyclicSlice(0)>::end`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -49478,7 +49478,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::vec::Vec(0)::pop`, `MethodRitchie(
+                                                    TypeItemPath(`<core::vec::Vec(0)>::pop`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -49501,7 +49501,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(core::vec::Vec(0)::pop`, `MethodRitchie(
+                                                            TypeItemPath(`<core::vec::Vec(0)>::pop`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -49676,7 +49676,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::vec::Vec(0)::first`, `MethodRitchie(
+                                                    TypeItemPath(`<core::vec::Vec(0)>::first`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -49701,7 +49701,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(core::vec::Vec(0)::first`, `MethodRitchie(
+                                                            TypeItemPath(`<core::vec::Vec(0)>::first`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -50202,7 +50202,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodRitchie(
+                                                    TypeItemPath(`<core::slice::CyclicSlice(0)>::start`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -50225,7 +50225,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodRitchie(
+                                                            TypeItemPath(`<core::slice::CyclicSlice(0)>::start`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -50451,7 +50451,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::vec::Vec(0)::first`, `MethodRitchie(
+                                                    TypeItemPath(`<core::vec::Vec(0)>::first`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -50476,7 +50476,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(core::vec::Vec(0)::first`, `MethodRitchie(
+                                                            TypeItemPath(`<core::vec::Vec(0)>::first`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -50711,7 +50711,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodRitchie(
+                                                    TypeItemPath(`<core::slice::CyclicSlice(0)>::end`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -50734,7 +50734,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodRitchie(
+                                                            TypeItemPath(`<core::slice::CyclicSlice(0)>::end`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -61135,13 +61135,9 @@
         path: RegionPath::Defn(
             ItemPath::AssocItem(
                 AssocItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 415,
-                            },
-                        ),
-                    ),
+                    TraitForTypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke as core::visual::Visualize(0)>::visualize`, `MethodRitchie(
+                        Fn,
+                    )`),
                 ),
             ),
         ),
@@ -61149,13 +61145,9 @@
             path: RegionPath::Defn(
                 ItemPath::AssocItem(
                     AssocItemPath::TraitForTypeItem(
-                        TraitForTypeItemPath(
-                            ItemPathId(
-                                Id {
-                                    value: 415,
-                                },
-                            ),
-                        ),
+                        TraitForTypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke as core::visual::Visualize(0)>::visualize`, `MethodRitchie(
+                            Fn,
+                        )`),
                     ),
                 ),
             ),
@@ -61849,7 +61841,7 @@
         path: RegionPath::Defn(
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::new`, `AssocRitchie(
+                    TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke(0)>::new`, `AssocRitchie(
                         Fn,
                     )`),
                 ),
@@ -61859,7 +61851,7 @@
             path: RegionPath::Defn(
                 ItemPath::AssocItem(
                     AssocItemPath::TypeItem(
-                        TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::new`, `AssocRitchie(
+                        TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke(0)>::new`, `AssocRitchie(
                             Fn,
                         )`),
                     ),
@@ -62370,7 +62362,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::vec::Vec(0)::cyclic_slice_leashed`, `MethodRitchie(
+                                                    TypeItemPath(`<core::vec::Vec(0)>::cyclic_slice_leashed`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -62416,7 +62408,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(core::vec::Vec(0)::cyclic_slice_leashed`, `MethodRitchie(
+                                                            TypeItemPath(`<core::vec::Vec(0)>::cyclic_slice_leashed`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -63311,7 +63303,7 @@
         path: RegionPath::Defn(
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodRitchie(
+                    TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke(0)>::displacement`, `MethodRitchie(
                         Fn,
                     )`),
                 ),
@@ -63321,7 +63313,7 @@
             path: RegionPath::Defn(
                 ItemPath::AssocItem(
                     AssocItemPath::TypeItem(
-                        TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodRitchie(
+                        TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke(0)>::displacement`, `MethodRitchie(
                             Fn,
                         )`),
                     ),
@@ -63621,7 +63613,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::to`, `MethodRitchie(
+                                                    TypeItemPath(`<mnist_classifier::geom2d::Point2d(0)>::to`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -63656,7 +63648,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::to`, `MethodRitchie(
+                                                            TypeItemPath(`<mnist_classifier::geom2d::Point2d(0)>::to`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -64079,13 +64071,9 @@
         path: RegionPath::Defn(
             ItemPath::AssocItem(
                 AssocItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 416,
-                            },
-                        ),
-                    ),
+                    TraitForTypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentSketch as core::visual::Visualize(0)>::visualize`, `MethodRitchie(
+                        Fn,
+                    )`),
                 ),
             ),
         ),
@@ -64093,13 +64081,9 @@
             path: RegionPath::Defn(
                 ItemPath::AssocItem(
                     AssocItemPath::TraitForTypeItem(
-                        TraitForTypeItemPath(
-                            ItemPathId(
-                                Id {
-                                    value: 416,
-                                },
-                            ),
-                        ),
+                        TraitForTypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentSketch as core::visual::Visualize(0)>::visualize`, `MethodRitchie(
+                            Fn,
+                        )`),
                     ),
                 ),
             ),
@@ -64272,13 +64256,9 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TraitForTypeItem(
-                                                    TraitForTypeItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 410,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    TraitForTypeItemPath(`<#derive _ as core::visual::Visualize(0)>::visualize`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                                 self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Pure,
@@ -64299,14 +64279,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::ImplBlock(
                                                         ImplBlockPath::TraitForTypeImplBlock(
-                                                            TraitForTypeImplBlock {
-                                                                data: TraitForTypeImplBlockPathData {
-                                                                    module_path: `core::visual`,
-                                                                    trai_path: TraitPath(`core::visual::Visualize`),
-                                                                    ty_sketch: TypeSketch::DeriveAny,
-                                                                    disambiguator: 0,
-                                                                },
-                                                            },
+                                                            #derive _ as core::visual::Visualize(0),
                                                         ),
                                                     ),
                                                     env: MethodFn {
@@ -64628,7 +64601,7 @@
         path: RegionPath::Defn(
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::concave_components`, `MemoizedField`),
+                    TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentSketch(0)>::concave_components`, `MemoizedField`),
                 ),
             ),
         ),
@@ -64636,7 +64609,7 @@
             path: RegionPath::Defn(
                 ItemPath::AssocItem(
                     AssocItemPath::TypeItem(
-                        TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::concave_components`, `MemoizedField`),
+                        TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentSketch(0)>::concave_components`, `MemoizedField`),
                     ),
                 ),
             ),
@@ -65080,7 +65053,7 @@
         path: RegionPath::Defn(
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`, `MemoizedField`),
+                    TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentSketch(0)>::bounding_box`, `MemoizedField`),
                 ),
             ),
         ),
@@ -65088,7 +65061,7 @@
             path: RegionPath::Defn(
                 ItemPath::AssocItem(
                     AssocItemPath::TypeItem(
-                        TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`, `MemoizedField`),
+                        TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentSketch(0)>::bounding_box`, `MemoizedField`),
                     ),
                 ),
             ),
@@ -65946,7 +65919,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodRitchie(
+                                                    TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -65969,7 +65942,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodRitchie(
+                                                            TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -66565,7 +66538,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::num::f32(0)::min`, `MethodRitchie(
+                                                    TypeItemPath(`<core::num::f32(0)>::min`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -66600,7 +66573,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(core::num::f32(0)::min`, `MethodRitchie(
+                                                            TypeItemPath(`<core::num::f32(0)>::min`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -66945,7 +66918,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::num::f32(0)::max`, `MethodRitchie(
+                                                    TypeItemPath(`<core::num::f32(0)>::max`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -66980,7 +66953,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(core::num::f32(0)::max`, `MethodRitchie(
+                                                            TypeItemPath(`<core::num::f32(0)>::max`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -67325,7 +67298,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::num::f32(0)::min`, `MethodRitchie(
+                                                    TypeItemPath(`<core::num::f32(0)>::min`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -67360,7 +67333,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(core::num::f32(0)::min`, `MethodRitchie(
+                                                            TypeItemPath(`<core::num::f32(0)>::min`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -67705,7 +67678,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::num::f32(0)::max`, `MethodRitchie(
+                                                    TypeItemPath(`<core::num::f32(0)>::max`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -67740,7 +67713,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(core::num::f32(0)::max`, `MethodRitchie(
+                                                            TypeItemPath(`<core::num::f32(0)>::max`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -71471,7 +71444,7 @@
         path: RegionPath::Defn(
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::new`, `AssocRitchie(
+                    TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentSketch(0)>::new`, `AssocRitchie(
                         Fn,
                     )`),
                 ),
@@ -71481,7 +71454,7 @@
             path: RegionPath::Defn(
                 ItemPath::AssocItem(
                     AssocItemPath::TypeItem(
-                        TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::new`, `AssocRitchie(
+                        TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentSketch(0)>::new`, `AssocRitchie(
                             Fn,
                         )`),
                     ),

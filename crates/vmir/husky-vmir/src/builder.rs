@@ -8,12 +8,12 @@ use husky_hir_expr::{HirExprIdx, HirExprRegion};
 use husky_linkage::{instantiation::LinInstantiation, linkage::Linkage};
 use husky_task::linktime::IsLinktime;
 
-pub(crate) struct VmirExprBuilder<'db, Linktime: IsLinktime> {
-    db: &'db ::salsa::Db,
-    hir_eager_expr_arena: &'db HirEagerExprArena,
-    hir_eager_stmt_arena: &'db HirEagerStmtArena,
-    instantiation: &'db LinInstantiation,
-    linktime: &'db Linktime,
+pub(crate) struct VmirExprBuilder<'comptime, Linktime: IsLinktime> {
+    db: &'comptime ::salsa::Db,
+    hir_eager_expr_arena: &'comptime HirEagerExprArena,
+    hir_eager_stmt_arena: &'comptime HirEagerStmtArena,
+    instantiation: &'comptime LinInstantiation,
+    linktime: &'comptime Linktime,
     vmir_expr_arena: VmirExprArena<Linktime::LinkageImpl>,
     vmir_stmt_arena: VmirStmtArena<Linktime::LinkageImpl>,
     vmir_destroyer_arena: VmirDestroyerArena,

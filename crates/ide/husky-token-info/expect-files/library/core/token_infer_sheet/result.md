@@ -432,13 +432,7 @@ Ok(
                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                 TraitForTypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TraitForTypeItemPath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 229,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        path: TraitForTypeItemPath(`<core::result::Result as core::ops::Unveil(0)>::Continue`, `AssocType`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -489,13 +483,9 @@ Ok(
                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                 TraitForTypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TraitForTypeItemPath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 230,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        path: TraitForTypeItemPath(`<core::result::Result as core::ops::Unveil(0)>::unveil`, `AssocRitchie(
+                                                            Fn,
+                                                        )`),
                                                         disambiguator: 0,
                                                     },
                                                 },

@@ -115,16 +115,7 @@
         ImplBlockHirDefn::TraitForType(
             TraitForTypeImplBlockHirDefn {
                 hir_decl: TraitForTypeImplBlockHirDecl {
-                    path: TraitForTypeImplBlock {
-                        data: TraitForTypeImplBlockPathData {
-                            module_path: `mnist_classifier::line_segment_sketch::convex_component`,
-                            trai_path: TraitPath(`core::visual::Visualize`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
-                            ),
-                            disambiguator: 0,
-                        },
-                    },
+                    path: TraitForTypeImplBlockPath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent as core::visual::Visualize(0)`),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -143,16 +134,7 @@
                         region_path: RegionPath::Decl(
                             ItemPath::ImplBlock(
                                 ImplBlockPath::TraitForTypeImplBlock(
-                                    TraitForTypeImplBlock {
-                                        data: TraitForTypeImplBlockPathData {
-                                            module_path: `mnist_classifier::line_segment_sketch::convex_component`,
-                                            trai_path: TraitPath(`core::visual::Visualize`),
-                                            ty_sketch: TypeSketch::Path(
-                                                TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
+                                    TraitForTypeImplBlockPath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent as core::visual::Visualize(0)`),
                                 ),
                             ),
                         ),
@@ -185,21 +167,13 @@
         AssocItemHirDefn::TraitForTypeItem(
             TraitForTypeItemHirDefn::MethodFn(
                 TraitForTypeMethodFnHirDefn {
-                    path: TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 419,
-                            },
-                        ),
-                    ),
+                    path: TraitForTypeItemPath(`<mnist_classifier::line_segment_sketch::convex_component::ConvexComponent as core::visual::Visualize(0)>::visualize`, `MethodRitchie(
+                        Fn,
+                    )`),
                     hir_decl: TraitForTypeMethodFnHirDecl {
-                        path: TraitForTypeItemPath(
-                            ItemPathId(
-                                Id {
-                                    value: 419,
-                                },
-                            ),
-                        ),
+                        path: TraitForTypeItemPath(`<mnist_classifier::line_segment_sketch::convex_component::ConvexComponent as core::visual::Visualize(0)>::visualize`, `MethodRitchie(
+                            Fn,
+                        )`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -227,13 +201,9 @@
                             region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TraitForTypeItem(
-                                        TraitForTypeItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 419,
-                                                },
-                                            ),
-                                        ),
+                                        TraitForTypeItemPath(`<mnist_classifier::line_segment_sketch::convex_component::ConvexComponent as core::visual::Visualize(0)>::visualize`, `MethodRitchie(
+                                            Fn,
+                                        )`),
                                     ),
                                 ),
                             ),
@@ -273,13 +243,9 @@
                                 region_path: RegionPath::Defn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TraitForTypeItem(
-                                            TraitForTypeItemPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 419,
-                                                    },
-                                                ),
-                                            ),
+                                            TraitForTypeItemPath(`<mnist_classifier::line_segment_sketch::convex_component::ConvexComponent as core::visual::Visualize(0)>::visualize`, `MethodRitchie(
+                                                Fn,
+                                            )`),
                                         ),
                                     ),
                                 ),
@@ -368,13 +334,9 @@
                                                 self_contract: Pure,
                                                 ident: `visualize`,
                                                 path: AssocItemPath::TraitForTypeItem(
-                                                    TraitForTypeItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 416,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    TraitForTypeItemPath(`<#derive _ as core::visual::Visualize(0)>::visualize`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [

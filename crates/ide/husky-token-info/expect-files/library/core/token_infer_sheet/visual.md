@@ -136,13 +136,9 @@ Ok(
                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                 TraitForTypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TraitForTypeItemPath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 249,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        path: TraitForTypeItemPath(`<#derive _ as core::visual::Visualize(0)>::visualize`, `MethodRitchie(
+                                                            Fn,
+                                                        )`),
                                                         disambiguator: 0,
                                                     },
                                                 },

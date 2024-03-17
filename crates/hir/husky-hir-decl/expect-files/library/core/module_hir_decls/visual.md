@@ -83,14 +83,7 @@
     HirDecl::ImplBlock(
         ImplBlockHirDecl::TraitForType(
             TraitForTypeImplBlockHirDecl {
-                path: TraitForTypeImplBlock {
-                    data: TraitForTypeImplBlockPathData {
-                        module_path: `core::visual`,
-                        trai_path: TraitPath(`core::visual::Visualize`),
-                        ty_sketch: TypeSketch::DeriveAny,
-                        disambiguator: 0,
-                    },
-                },
+                path: TraitForTypeImplBlockPath(`#derive _ as core::visual::Visualize(0)`),
                 template_parameters: HirTemplateParameters(
                     [],
                 ),
@@ -105,14 +98,7 @@
                     region_path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TraitForTypeImplBlock(
-                                TraitForTypeImplBlock {
-                                    data: TraitForTypeImplBlockPathData {
-                                        module_path: `core::visual`,
-                                        trai_path: TraitPath(`core::visual::Visualize`),
-                                        ty_sketch: TypeSketch::DeriveAny,
-                                        disambiguator: 0,
-                                    },
-                                },
+                                TraitForTypeImplBlockPath(`#derive _ as core::visual::Visualize(0)`),
                             ),
                         ),
                     ),
@@ -144,13 +130,9 @@
         AssocItemHirDecl::TraitForTypeItem(
             TraitForTypeItemHirDecl::MethodFn(
                 TraitForTypeMethodFnHirDecl {
-                    path: TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 246,
-                            },
-                        ),
-                    ),
+                    path: TraitForTypeItemPath(`<#derive _ as core::visual::Visualize(0)>::visualize`, `MethodRitchie(
+                        Fn,
+                    )`),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -174,13 +156,9 @@
                         region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TraitForTypeItem(
-                                    TraitForTypeItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 246,
-                                            },
-                                        ),
-                                    ),
+                                    TraitForTypeItemPath(`<#derive _ as core::visual::Visualize(0)>::visualize`, `MethodRitchie(
+                                        Fn,
+                                    )`),
                                 ),
                             ),
                         ),

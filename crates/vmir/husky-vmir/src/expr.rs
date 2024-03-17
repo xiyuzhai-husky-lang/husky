@@ -76,7 +76,7 @@ impl<LinkageImpl: IsLinkageImpl> ToVmir<LinkageImpl> for HirEagerExprIdx {
     }
 }
 
-impl<'db, Linktime: IsLinktime> VmirExprBuilder<'db, Linktime> {
+impl<'comptime, Linktime: IsLinktime> VmirExprBuilder<'comptime, Linktime> {
     fn build_vmir_expr(&mut self, expr: HirEagerExprIdx) -> VmirExprData<Linktime::LinkageImpl> {
         match *self.hir_eager_expr_arena()[expr].data() {
             HirEagerExprData::Literal(_) => VmirExprData::Literal,
@@ -297,8 +297,9 @@ impl<'db, Linktime: IsLinktime> VmirExprBuilder<'db, Linktime> {
 
     fn build_arguments<'a>(
         &'a mut self,
-        arguments: &'db [HirEagerRitchieArgument],
-    ) -> impl Iterator<Item = VmirArgument<Linktime::LinkageImpl>> + Captures<&'db ()> + 'a {
+        arguments: &'comptime [HirEagerRitchieArgument],
+    ) -> impl Iterator<Item = VmirArgument<Linktime::LinkageImpl>> + Captures<&'comptime ()> + 'a
+    {
         arguments.iter().map(move |m| match m {
             HirEagerRitchieArgument::Simple(_, arg, coersion) => VmirArgument::Simple {
                 expr: arg.to_vmir(self),

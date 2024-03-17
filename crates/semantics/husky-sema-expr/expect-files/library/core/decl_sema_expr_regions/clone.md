@@ -73,14 +73,7 @@
         path: RegionPath::Decl(
             ItemPath::ImplBlock(
                 ImplBlockPath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlock {
-                        data: TraitForTypeImplBlockPathData {
-                            module_path: `core::clone`,
-                            trai_path: TraitPath(`core::clone::Clone`),
-                            ty_sketch: TypeSketch::DeriveAny,
-                            disambiguator: 0,
-                        },
-                    },
+                    #derive _ as core::clone::Clone(0),
                 ),
             ),
         ),
@@ -88,14 +81,7 @@
             path: RegionPath::Decl(
                 ItemPath::ImplBlock(
                     ImplBlockPath::TraitForTypeImplBlock(
-                        TraitForTypeImplBlock {
-                            data: TraitForTypeImplBlockPathData {
-                                module_path: `core::clone`,
-                                trai_path: TraitPath(`core::clone::Clone`),
-                                ty_sketch: TypeSketch::DeriveAny,
-                                disambiguator: 0,
-                            },
-                        },
+                        #derive _ as core::clone::Clone(0),
                     ),
                 ),
             ),
@@ -240,13 +226,9 @@
         path: RegionPath::Decl(
             ItemPath::AssocItem(
                 AssocItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 136,
-                            },
-                        ),
-                    ),
+                    TraitForTypeItemPath(`<#derive _ as core::clone::Clone(0)>::clone`, `MethodRitchie(
+                        Fn,
+                    )`),
                 ),
             ),
         ),
@@ -254,13 +236,9 @@
             path: RegionPath::Decl(
                 ItemPath::AssocItem(
                     AssocItemPath::TraitForTypeItem(
-                        TraitForTypeItemPath(
-                            ItemPathId(
-                                Id {
-                                    value: 136,
-                                },
-                            ),
-                        ),
+                        TraitForTypeItemPath(`<#derive _ as core::clone::Clone(0)>::clone`, `MethodRitchie(
+                            Fn,
+                        )`),
                     ),
                 ),
             ),

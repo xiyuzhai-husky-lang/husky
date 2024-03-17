@@ -30,13 +30,9 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 147,
-                            },
-                        ),
-                    ),
+                    TraitForTypeItemPath(`<malamute::OneVsAll as core::default::Default(0)>::default`, `AssocRitchie(
+                        Fn,
+                    )`),
                 ),
                 instantiation: JavInstantiation {
                     symbol_resolutions: [],
@@ -51,13 +47,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 150,
-                            },
-                        ),
-                    ),
+                    TraitForTypeItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::Output`, `AssocType`),
                 ),
                 instantiation: JavInstantiation {
                     symbol_resolutions: [],
@@ -72,13 +62,9 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 151,
-                            },
-                        ),
-                    ),
+                    TraitForTypeItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`, `AssocRitchie(
+                        Fn,
+                    )`),
                 ),
                 instantiation: JavInstantiation {
                     symbol_resolutions: [],

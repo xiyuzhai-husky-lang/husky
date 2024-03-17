@@ -271,16 +271,7 @@ EntityTreeCrateBundle {
                                 data: ItemSynNodePathData::ImplBlock(
                                     ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                         TraitForTypeImplBlockSynNodePathData {
-                                            path: TraitForTypeImplBlock {
-                                                data: TraitForTypeImplBlockPathData {
-                                                    module_path: `malamute`,
-                                                    trai_path: TraitPath(`core::default::Default`),
-                                                    ty_sketch: TypeSketch::Path(
-                                                        TypePath(`malamute::OneVsAll`, `Enum`),
-                                                    ),
-                                                    disambiguator: 0,
-                                                },
-                                            },
+                                            path: TraitForTypeImplBlockPath(`malamute::OneVsAll as core::default::Default(0)`),
                                         },
                                     ),
                                 ),
@@ -294,16 +285,7 @@ EntityTreeCrateBundle {
                                     data: ItemSynNodePathData::ImplBlock(
                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                             TraitForTypeImplBlockSynNodePathData {
-                                                path: TraitForTypeImplBlock {
-                                                    data: TraitForTypeImplBlockPathData {
-                                                        module_path: `malamute`,
-                                                        trai_path: TraitPath(`core::default::Default`),
-                                                        ty_sketch: TypeSketch::Path(
-                                                            TypePath(`malamute::OneVsAll`, `Enum`),
-                                                        ),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
+                                                path: TraitForTypeImplBlockPath(`malamute::OneVsAll as core::default::Default(0)`),
                                             },
                                         ),
                                     ),
@@ -341,16 +323,7 @@ EntityTreeCrateBundle {
                                 data: ItemSynNodePathData::ImplBlock(
                                     ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                         TraitForTypeImplBlockSynNodePathData {
-                                            path: TraitForTypeImplBlock {
-                                                data: TraitForTypeImplBlockPathData {
-                                                    module_path: `malamute`,
-                                                    trai_path: TraitPath(`core::ops::Unveil`),
-                                                    ty_sketch: TypeSketch::Path(
-                                                        TypePath(`malamute::Class`, `Enum`),
-                                                    ),
-                                                    disambiguator: 0,
-                                                },
-                                            },
+                                            path: TraitForTypeImplBlockPath(`malamute::Class as core::ops::Unveil(0)`),
                                         },
                                     ),
                                 ),
@@ -364,16 +337,7 @@ EntityTreeCrateBundle {
                                     data: ItemSynNodePathData::ImplBlock(
                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                             TraitForTypeImplBlockSynNodePathData {
-                                                path: TraitForTypeImplBlock {
-                                                    data: TraitForTypeImplBlockPathData {
-                                                        module_path: `malamute`,
-                                                        trai_path: TraitPath(`core::ops::Unveil`),
-                                                        ty_sketch: TypeSketch::Path(
-                                                            TypePath(`malamute::Class`, `Enum`),
-                                                        ),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
+                                                path: TraitForTypeImplBlockPath(`malamute::Class as core::ops::Unveil(0)`),
                                             },
                                         ),
                                     ),
@@ -411,16 +375,7 @@ EntityTreeCrateBundle {
                                 data: ItemSynNodePathData::ImplBlock(
                                     ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                         TraitForTypeImplBlockSynNodePathData {
-                                            path: TraitForTypeImplBlock {
-                                                data: TraitForTypeImplBlockPathData {
-                                                    module_path: `malamute`,
-                                                    trai_path: TraitPath(`core::ops::Unveil`),
-                                                    ty_sketch: TypeSketch::Path(
-                                                        TypePath(`malamute::OneVsAll`, `Enum`),
-                                                    ),
-                                                    disambiguator: 0,
-                                                },
-                                            },
+                                            path: TraitForTypeImplBlockPath(`malamute::OneVsAll as core::ops::Unveil(0)`),
                                         },
                                     ),
                                 ),
@@ -434,16 +389,7 @@ EntityTreeCrateBundle {
                                     data: ItemSynNodePathData::ImplBlock(
                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                             TraitForTypeImplBlockSynNodePathData {
-                                                path: TraitForTypeImplBlock {
-                                                    data: TraitForTypeImplBlockPathData {
-                                                        module_path: `malamute`,
-                                                        trai_path: TraitPath(`core::ops::Unveil`),
-                                                        ty_sketch: TypeSketch::Path(
-                                                            TypePath(`malamute::OneVsAll`, `Enum`),
-                                                        ),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
+                                                path: TraitForTypeImplBlockPath(`malamute::OneVsAll as core::ops::Unveil(0)`),
                                             },
                                         ),
                                     ),

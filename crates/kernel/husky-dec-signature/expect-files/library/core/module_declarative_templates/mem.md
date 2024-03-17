@@ -160,16 +160,7 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TraitForTypeImplBlock(
-                TraitForTypeImplBlock {
-                    data: TraitForTypeImplBlockPathData {
-                        module_path: `core::mem`,
-                        trai_path: TraitPath(`core::marker::Copy`),
-                        ty_sketch: TypeSketch::Path(
-                            TypePath(`core::mem::Leash`, `Extern`),
-                        ),
-                        disambiguator: 0,
-                    },
-                },
+                TraitForTypeImplBlockPath(`core::mem::Leash as core::marker::Copy(0)`),
             ),
         ),
         Ok(

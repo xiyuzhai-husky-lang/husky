@@ -1193,12 +1193,12 @@
                                                 ),
                                             },
                                             path: AssocItemPath::TypeItem(
-                                                TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`, `MemoizedField`),
+                                                TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::max_hole_ilen`, `MemoizedField`),
                                             ),
                                             instantiation: FlyInstantiation {
                                                 path: ItemPath::AssocItem(
                                                     AssocItemPath::TypeItem(
-                                                        TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`, `MemoizedField`),
+                                                        TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::max_hole_ilen`, `MemoizedField`),
                                                     ),
                                                 ),
                                                 env: MemoizedField,
@@ -1463,26 +1463,11 @@
                                         14,
                                     ),
                                     unveil_output_ty_signature: TraitForTypeAssocTypeEtherealSignature {
-                                        path: TraitForTypeItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 371,
-                                                },
-                                            ),
-                                        ),
+                                        path: TraitForTypeItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::Output`, `AssocType`),
                                         instantiation: EthInstantiation {
                                             path: ItemPath::ImplBlock(
                                                 ImplBlockPath::TraitForTypeImplBlock(
-                                                    TraitForTypeImplBlock {
-                                                        data: TraitForTypeImplBlockPathData {
-                                                            module_path: `malamute`,
-                                                            trai_path: TraitPath(`core::ops::Unveil`),
-                                                            ty_sketch: TypeSketch::Path(
-                                                                TypePath(`malamute::OneVsAll`, `Enum`),
-                                                            ),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
+                                                    malamute::OneVsAll as core::ops::Unveil(0),
                                                 ),
                                             ),
                                             symbol_map: [
@@ -1501,13 +1486,9 @@
                                         },
                                         ty_term: EthTerm(`unit`),
                                     },
-                                    unveil_assoc_fn_path: TraitForTypeItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 372,
-                                            },
-                                        ),
-                                    ),
+                                    unveil_assoc_fn_path: TraitForTypeItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`, `AssocRitchie(
+                                        Fn,
+                                    )`),
                                     return_ty: EthTerm(`OneVsAll MnistLabel One`),
                                 },
                             ),
@@ -1856,12 +1837,12 @@
                                                 ),
                                             },
                                             path: AssocItemPath::TypeItem(
-                                                TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
+                                                TypeItemPath(`<mnist_classifier::fermi::FermiMatchResult(0)>::norm`, `MemoizedField`),
                                             ),
                                             instantiation: FlyInstantiation {
                                                 path: ItemPath::AssocItem(
                                                     AssocItemPath::TypeItem(
-                                                        TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
+                                                        TypeItemPath(`<mnist_classifier::fermi::FermiMatchResult(0)>::norm`, `MemoizedField`),
                                                     ),
                                                 ),
                                                 env: MemoizedField,
@@ -2159,12 +2140,12 @@
                                                 ),
                                             },
                                             path: AssocItemPath::TypeItem(
-                                                TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::max_row_span`, `MemoizedField`),
+                                                TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::max_row_span`, `MemoizedField`),
                                             ),
                                             instantiation: FlyInstantiation {
                                                 path: ItemPath::AssocItem(
                                                     AssocItemPath::TypeItem(
-                                                        TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::max_row_span`, `MemoizedField`),
+                                                        TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::max_row_span`, `MemoizedField`),
                                                     ),
                                                 ),
                                                 env: MemoizedField,
@@ -2362,26 +2343,11 @@
                                         43,
                                     ),
                                     unveil_output_ty_signature: TraitForTypeAssocTypeEtherealSignature {
-                                        path: TraitForTypeItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 371,
-                                                },
-                                            ),
-                                        ),
+                                        path: TraitForTypeItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::Output`, `AssocType`),
                                         instantiation: EthInstantiation {
                                             path: ItemPath::ImplBlock(
                                                 ImplBlockPath::TraitForTypeImplBlock(
-                                                    TraitForTypeImplBlock {
-                                                        data: TraitForTypeImplBlockPathData {
-                                                            module_path: `malamute`,
-                                                            trai_path: TraitPath(`core::ops::Unveil`),
-                                                            ty_sketch: TypeSketch::Path(
-                                                                TypePath(`malamute::OneVsAll`, `Enum`),
-                                                            ),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
+                                                    malamute::OneVsAll as core::ops::Unveil(0),
                                                 ),
                                             ),
                                             symbol_map: [
@@ -2400,13 +2366,9 @@
                                         },
                                         ty_term: EthTerm(`unit`),
                                     },
-                                    unveil_assoc_fn_path: TraitForTypeItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 372,
-                                            },
-                                        ),
-                                    ),
+                                    unveil_assoc_fn_path: TraitForTypeItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`, `AssocRitchie(
+                                        Fn,
+                                    )`),
                                     return_ty: EthTerm(`OneVsAll MnistLabel One`),
                                 },
                             ),
@@ -2518,12 +2480,12 @@
                                                 ),
                                             },
                                             path: AssocItemPath::TypeItem(
-                                                TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::max_row_span`, `MemoizedField`),
+                                                TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::max_row_span`, `MemoizedField`),
                                             ),
                                             instantiation: FlyInstantiation {
                                                 path: ItemPath::AssocItem(
                                                     AssocItemPath::TypeItem(
-                                                        TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::max_row_span`, `MemoizedField`),
+                                                        TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::max_row_span`, `MemoizedField`),
                                                     ),
                                                 ),
                                                 env: MemoizedField,
@@ -2734,12 +2696,12 @@
                                                 ),
                                             },
                                             path: AssocItemPath::TypeItem(
-                                                TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`, `MemoizedField`),
+                                                TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::max_hole_ilen`, `MemoizedField`),
                                             ),
                                             instantiation: FlyInstantiation {
                                                 path: ItemPath::AssocItem(
                                                     AssocItemPath::TypeItem(
-                                                        TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`, `MemoizedField`),
+                                                        TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::max_hole_ilen`, `MemoizedField`),
                                                     ),
                                                 ),
                                                 env: MemoizedField,
@@ -3034,12 +2996,12 @@
                                                 ),
                                             },
                                             path: AssocItemPath::TypeItem(
-                                                TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`, `MemoizedField`),
+                                                TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::max_hole_ilen`, `MemoizedField`),
                                             ),
                                             instantiation: FlyInstantiation {
                                                 path: ItemPath::AssocItem(
                                                     AssocItemPath::TypeItem(
-                                                        TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`, `MemoizedField`),
+                                                        TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::max_hole_ilen`, `MemoizedField`),
                                                     ),
                                                 ),
                                                 env: MemoizedField,
@@ -4120,12 +4082,12 @@
                                                 ),
                                             },
                                             path: AssocItemPath::TypeItem(
-                                                TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
+                                                TypeItemPath(`<mnist_classifier::fermi::FermiMatchResult(0)>::norm`, `MemoizedField`),
                                             ),
                                             instantiation: FlyInstantiation {
                                                 path: ItemPath::AssocItem(
                                                     AssocItemPath::TypeItem(
-                                                        TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
+                                                        TypeItemPath(`<mnist_classifier::fermi::FermiMatchResult(0)>::norm`, `MemoizedField`),
                                                     ),
                                                 ),
                                                 env: MemoizedField,
@@ -4430,12 +4392,12 @@
                                                 ),
                                             },
                                             path: AssocItemPath::TypeItem(
-                                                TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::angle_change_norm`, `MemoizedField`),
+                                                TypeItemPath(`<mnist_classifier::fermi::FermiMatchResult(0)>::angle_change_norm`, `MemoizedField`),
                                             ),
                                             instantiation: FlyInstantiation {
                                                 path: ItemPath::AssocItem(
                                                     AssocItemPath::TypeItem(
-                                                        TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::angle_change_norm`, `MemoizedField`),
+                                                        TypeItemPath(`<mnist_classifier::fermi::FermiMatchResult(0)>::angle_change_norm`, `MemoizedField`),
                                                     ),
                                                 ),
                                                 env: MemoizedField,
@@ -4513,7 +4475,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::num::f32(0)::abs`, `MethodRitchie(
+                                                    TypeItemPath(`<core::num::f32(0)>::abs`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -4536,7 +4498,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(core::num::f32(0)::abs`, `MethodRitchie(
+                                                            TypeItemPath(`<core::num::f32(0)>::abs`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -4747,26 +4709,11 @@
                                         125,
                                     ),
                                     unveil_output_ty_signature: TraitForTypeAssocTypeEtherealSignature {
-                                        path: TraitForTypeItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 371,
-                                                },
-                                            ),
-                                        ),
+                                        path: TraitForTypeItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::Output`, `AssocType`),
                                         instantiation: EthInstantiation {
                                             path: ItemPath::ImplBlock(
                                                 ImplBlockPath::TraitForTypeImplBlock(
-                                                    TraitForTypeImplBlock {
-                                                        data: TraitForTypeImplBlockPathData {
-                                                            module_path: `malamute`,
-                                                            trai_path: TraitPath(`core::ops::Unveil`),
-                                                            ty_sketch: TypeSketch::Path(
-                                                                TypePath(`malamute::OneVsAll`, `Enum`),
-                                                            ),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
+                                                    malamute::OneVsAll as core::ops::Unveil(0),
                                                 ),
                                             ),
                                             symbol_map: [
@@ -4785,13 +4732,9 @@
                                         },
                                         ty_term: EthTerm(`unit`),
                                     },
-                                    unveil_assoc_fn_path: TraitForTypeItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 372,
-                                            },
-                                        ),
-                                    ),
+                                    unveil_assoc_fn_path: TraitForTypeItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`, `AssocRitchie(
+                                        Fn,
+                                    )`),
                                     return_ty: EthTerm(`OneVsAll MnistLabel One`),
                                 },
                             ),
@@ -4948,12 +4891,12 @@
                                                 ),
                                             },
                                             path: AssocItemPath::TypeItem(
-                                                TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`, `MemoizedField`),
+                                                TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::lower_mass`, `MemoizedField`),
                                             ),
                                             instantiation: FlyInstantiation {
                                                 path: ItemPath::AssocItem(
                                                     AssocItemPath::TypeItem(
-                                                        TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`, `MemoizedField`),
+                                                        TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::lower_mass`, `MemoizedField`),
                                                     ),
                                                 ),
                                                 env: MemoizedField,
@@ -5123,12 +5066,12 @@
                                                 ),
                                             },
                                             path: AssocItemPath::TypeItem(
-                                                TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`, `MemoizedField`),
+                                                TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::upper_mass`, `MemoizedField`),
                                             ),
                                             instantiation: FlyInstantiation {
                                                 path: ItemPath::AssocItem(
                                                     AssocItemPath::TypeItem(
-                                                        TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`, `MemoizedField`),
+                                                        TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::upper_mass`, `MemoizedField`),
                                                     ),
                                                 ),
                                                 env: MemoizedField,
@@ -5548,7 +5491,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodRitchie(
+                                                    TypeItemPath(`<core::slice::CyclicSlice(0)>::end`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -5571,7 +5514,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodRitchie(
+                                                            TypeItemPath(`<core::slice::CyclicSlice(0)>::end`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -5797,7 +5740,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodRitchie(
+                                                    TypeItemPath(`<core::slice::CyclicSlice(0)>::start`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -5820,7 +5763,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodRitchie(
+                                                            TypeItemPath(`<core::slice::CyclicSlice(0)>::start`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -6009,12 +5952,12 @@
                                                 ),
                                             },
                                             path: AssocItemPath::TypeItem(
-                                                TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
+                                                TypeItemPath(`<mnist_classifier::fermi::FermiMatchResult(0)>::norm`, `MemoizedField`),
                                             ),
                                             instantiation: FlyInstantiation {
                                                 path: ItemPath::AssocItem(
                                                     AssocItemPath::TypeItem(
-                                                        TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
+                                                        TypeItemPath(`<mnist_classifier::fermi::FermiMatchResult(0)>::norm`, `MemoizedField`),
                                                     ),
                                                 ),
                                                 env: MemoizedField,
@@ -6328,7 +6271,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`, `MethodRitchie(
+                                                    TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::top_k_row_span_sum`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -6363,7 +6306,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`, `MethodRitchie(
+                                                            TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::top_k_row_span_sum`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -6522,12 +6465,12 @@
                                                 ),
                                             },
                                             path: AssocItemPath::TypeItem(
-                                                TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
+                                                TypeItemPath(`<mnist_classifier::fermi::FermiMatchResult(0)>::norm`, `MemoizedField`),
                                             ),
                                             instantiation: FlyInstantiation {
                                                 path: ItemPath::AssocItem(
                                                     AssocItemPath::TypeItem(
-                                                        TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
+                                                        TypeItemPath(`<mnist_classifier::fermi::FermiMatchResult(0)>::norm`, `MemoizedField`),
                                                     ),
                                                 ),
                                                 env: MemoizedField,
@@ -6650,12 +6593,12 @@
                                                 ),
                                             },
                                             path: AssocItemPath::TypeItem(
-                                                TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::rel_norm`, `MemoizedField`),
+                                                TypeItemPath(`<mnist_classifier::fermi::FermiMatchResult(0)>::rel_norm`, `MemoizedField`),
                                             ),
                                             instantiation: FlyInstantiation {
                                                 path: ItemPath::AssocItem(
                                                     AssocItemPath::TypeItem(
-                                                        TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::rel_norm`, `MemoizedField`),
+                                                        TypeItemPath(`<mnist_classifier::fermi::FermiMatchResult(0)>::rel_norm`, `MemoizedField`),
                                                     ),
                                                 ),
                                                 env: MemoizedField,
@@ -6778,12 +6721,12 @@
                                                 ),
                                             },
                                             path: AssocItemPath::TypeItem(
-                                                TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::angle_change_norm`, `MemoizedField`),
+                                                TypeItemPath(`<mnist_classifier::fermi::FermiMatchResult(0)>::angle_change_norm`, `MemoizedField`),
                                             ),
                                             instantiation: FlyInstantiation {
                                                 path: ItemPath::AssocItem(
                                                     AssocItemPath::TypeItem(
-                                                        TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::angle_change_norm`, `MemoizedField`),
+                                                        TypeItemPath(`<mnist_classifier::fermi::FermiMatchResult(0)>::angle_change_norm`, `MemoizedField`),
                                                     ),
                                                 ),
                                                 env: MemoizedField,
@@ -7038,26 +6981,11 @@
                                         194,
                                     ),
                                     unveil_output_ty_signature: TraitForTypeAssocTypeEtherealSignature {
-                                        path: TraitForTypeItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 371,
-                                                },
-                                            ),
-                                        ),
+                                        path: TraitForTypeItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::Output`, `AssocType`),
                                         instantiation: EthInstantiation {
                                             path: ItemPath::ImplBlock(
                                                 ImplBlockPath::TraitForTypeImplBlock(
-                                                    TraitForTypeImplBlock {
-                                                        data: TraitForTypeImplBlockPathData {
-                                                            module_path: `malamute`,
-                                                            trai_path: TraitPath(`core::ops::Unveil`),
-                                                            ty_sketch: TypeSketch::Path(
-                                                                TypePath(`malamute::OneVsAll`, `Enum`),
-                                                            ),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
+                                                    malamute::OneVsAll as core::ops::Unveil(0),
                                                 ),
                                             ),
                                             symbol_map: [
@@ -7076,13 +7004,9 @@
                                         },
                                         ty_term: EthTerm(`unit`),
                                     },
-                                    unveil_assoc_fn_path: TraitForTypeItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 372,
-                                            },
-                                        ),
-                                    ),
+                                    unveil_assoc_fn_path: TraitForTypeItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`, `AssocRitchie(
+                                        Fn,
+                                    )`),
                                     return_ty: EthTerm(`OneVsAll MnistLabel One`),
                                 },
                             ),
@@ -7469,12 +7393,12 @@
                                                 ),
                                             },
                                             path: AssocItemPath::TypeItem(
-                                                TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::rel_norm`, `MemoizedField`),
+                                                TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::rel_norm`, `MemoizedField`),
                                             ),
                                             instantiation: FlyInstantiation {
                                                 path: ItemPath::AssocItem(
                                                     AssocItemPath::TypeItem(
-                                                        TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::rel_norm`, `MemoizedField`),
+                                                        TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::rel_norm`, `MemoizedField`),
                                                     ),
                                                 ),
                                                 env: MemoizedField,
@@ -7795,12 +7719,12 @@
                                                 ),
                                             },
                                             path: AssocItemPath::TypeItem(
-                                                TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::angle_change`, `MemoizedField`),
+                                                TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::angle_change`, `MemoizedField`),
                                             ),
                                             instantiation: FlyInstantiation {
                                                 path: ItemPath::AssocItem(
                                                     AssocItemPath::TypeItem(
-                                                        TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::angle_change`, `MemoizedField`),
+                                                        TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::angle_change`, `MemoizedField`),
                                                     ),
                                                 ),
                                                 env: MemoizedField,
@@ -7862,7 +7786,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::num::f32(0)::abs`, `MethodRitchie(
+                                                    TypeItemPath(`<core::num::f32(0)>::abs`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -7885,7 +7809,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(core::num::f32(0)::abs`, `MethodRitchie(
+                                                            TypeItemPath(`<core::num::f32(0)>::abs`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -8111,26 +8035,11 @@
                                         226,
                                     ),
                                     unveil_output_ty_signature: TraitForTypeAssocTypeEtherealSignature {
-                                        path: TraitForTypeItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 371,
-                                                },
-                                            ),
-                                        ),
+                                        path: TraitForTypeItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::Output`, `AssocType`),
                                         instantiation: EthInstantiation {
                                             path: ItemPath::ImplBlock(
                                                 ImplBlockPath::TraitForTypeImplBlock(
-                                                    TraitForTypeImplBlock {
-                                                        data: TraitForTypeImplBlockPathData {
-                                                            module_path: `malamute`,
-                                                            trai_path: TraitPath(`core::ops::Unveil`),
-                                                            ty_sketch: TypeSketch::Path(
-                                                                TypePath(`malamute::OneVsAll`, `Enum`),
-                                                            ),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
+                                                    malamute::OneVsAll as core::ops::Unveil(0),
                                                 ),
                                             ),
                                             symbol_map: [
@@ -8149,13 +8058,9 @@
                                         },
                                         ty_term: EthTerm(`unit`),
                                     },
-                                    unveil_assoc_fn_path: TraitForTypeItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 372,
-                                            },
-                                        ),
-                                    ),
+                                    unveil_assoc_fn_path: TraitForTypeItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`, `AssocRitchie(
+                                        Fn,
+                                    )`),
                                     return_ty: EthTerm(`OneVsAll MnistLabel One`),
                                 },
                             ),
@@ -8431,7 +8336,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodRitchie(
+                                                    TypeItemPath(`<core::slice::CyclicSlice(0)>::end`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -8454,7 +8359,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodRitchie(
+                                                            TypeItemPath(`<core::slice::CyclicSlice(0)>::end`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -8680,7 +8585,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodRitchie(
+                                                    TypeItemPath(`<core::slice::CyclicSlice(0)>::start`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -8703,7 +8608,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodRitchie(
+                                                            TypeItemPath(`<core::slice::CyclicSlice(0)>::start`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -9197,7 +9102,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodRitchie(
+                                                    TypeItemPath(`<core::slice::CyclicSlice(0)>::start`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -9220,7 +9125,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodRitchie(
+                                                            TypeItemPath(`<core::slice::CyclicSlice(0)>::start`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -9485,7 +9390,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodRitchie(
+                                                    TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke(0)>::displacement`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -9508,7 +9413,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodRitchie(
+                                                            TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke(0)>::displacement`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -9963,12 +9868,12 @@
                                                 ),
                                             },
                                             path: AssocItemPath::TypeItem(
-                                                TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::norm`, `MemoizedField`),
+                                                TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::norm`, `MemoizedField`),
                                             ),
                                             instantiation: FlyInstantiation {
                                                 path: ItemPath::AssocItem(
                                                     AssocItemPath::TypeItem(
-                                                        TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::norm`, `MemoizedField`),
+                                                        TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::norm`, `MemoizedField`),
                                                     ),
                                                 ),
                                                 env: MemoizedField,
@@ -10119,12 +10024,12 @@
                                                 ),
                                             },
                                             path: AssocItemPath::TypeItem(
-                                                TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::rel_norm`, `MemoizedField`),
+                                                TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::rel_norm`, `MemoizedField`),
                                             ),
                                             instantiation: FlyInstantiation {
                                                 path: ItemPath::AssocItem(
                                                     AssocItemPath::TypeItem(
-                                                        TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::rel_norm`, `MemoizedField`),
+                                                        TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::rel_norm`, `MemoizedField`),
                                                     ),
                                                 ),
                                                 env: MemoizedField,
@@ -10275,12 +10180,12 @@
                                                 ),
                                             },
                                             path: AssocItemPath::TypeItem(
-                                                TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::angle_change`, `MemoizedField`),
+                                                TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::angle_change`, `MemoizedField`),
                                             ),
                                             instantiation: FlyInstantiation {
                                                 path: ItemPath::AssocItem(
                                                     AssocItemPath::TypeItem(
-                                                        TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::angle_change`, `MemoizedField`),
+                                                        TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::angle_change`, `MemoizedField`),
                                                     ),
                                                 ),
                                                 env: MemoizedField,
@@ -10342,7 +10247,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::num::f32(0)::abs`, `MethodRitchie(
+                                                    TypeItemPath(`<core::num::f32(0)>::abs`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -10365,7 +10270,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(core::num::f32(0)::abs`, `MethodRitchie(
+                                                            TypeItemPath(`<core::num::f32(0)>::abs`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -10610,26 +10515,11 @@
                                         314,
                                     ),
                                     unveil_output_ty_signature: TraitForTypeAssocTypeEtherealSignature {
-                                        path: TraitForTypeItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 371,
-                                                },
-                                            ),
-                                        ),
+                                        path: TraitForTypeItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::Output`, `AssocType`),
                                         instantiation: EthInstantiation {
                                             path: ItemPath::ImplBlock(
                                                 ImplBlockPath::TraitForTypeImplBlock(
-                                                    TraitForTypeImplBlock {
-                                                        data: TraitForTypeImplBlockPathData {
-                                                            module_path: `malamute`,
-                                                            trai_path: TraitPath(`core::ops::Unveil`),
-                                                            ty_sketch: TypeSketch::Path(
-                                                                TypePath(`malamute::OneVsAll`, `Enum`),
-                                                            ),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
+                                                    malamute::OneVsAll as core::ops::Unveil(0),
                                                 ),
                                             ),
                                             symbol_map: [
@@ -10648,13 +10538,9 @@
                                         },
                                         ty_term: EthTerm(`unit`),
                                     },
-                                    unveil_assoc_fn_path: TraitForTypeItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 372,
-                                            },
-                                        ),
-                                    ),
+                                    unveil_assoc_fn_path: TraitForTypeItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`, `AssocRitchie(
+                                        Fn,
+                                    )`),
                                     return_ty: EthTerm(`OneVsAll MnistLabel One`),
                                 },
                             ),
@@ -10835,7 +10721,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::norm`, `MethodRitchie(
+                                                    TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::norm`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -10858,7 +10744,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::norm`, `MethodRitchie(
+                                                            TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::norm`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -11393,26 +11279,11 @@
                                         336,
                                     ),
                                     unveil_output_ty_signature: TraitForTypeAssocTypeEtherealSignature {
-                                        path: TraitForTypeItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 371,
-                                                },
-                                            ),
-                                        ),
+                                        path: TraitForTypeItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::Output`, `AssocType`),
                                         instantiation: EthInstantiation {
                                             path: ItemPath::ImplBlock(
                                                 ImplBlockPath::TraitForTypeImplBlock(
-                                                    TraitForTypeImplBlock {
-                                                        data: TraitForTypeImplBlockPathData {
-                                                            module_path: `malamute`,
-                                                            trai_path: TraitPath(`core::ops::Unveil`),
-                                                            ty_sketch: TypeSketch::Path(
-                                                                TypePath(`malamute::OneVsAll`, `Enum`),
-                                                            ),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
+                                                    malamute::OneVsAll as core::ops::Unveil(0),
                                                 ),
                                             ),
                                             symbol_map: [
@@ -11431,13 +11302,9 @@
                                         },
                                         ty_term: EthTerm(`unit`),
                                     },
-                                    unveil_assoc_fn_path: TraitForTypeItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 372,
-                                            },
-                                        ),
-                                    ),
+                                    unveil_assoc_fn_path: TraitForTypeItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`, `AssocRitchie(
+                                        Fn,
+                                    )`),
                                     return_ty: EthTerm(`OneVsAll MnistLabel One`),
                                 },
                             ),
@@ -11908,12 +11775,12 @@
                                                 ),
                                             },
                                             path: AssocItemPath::TypeItem(
-                                                TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::norm`, `MemoizedField`),
+                                                TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::norm`, `MemoizedField`),
                                             ),
                                             instantiation: FlyInstantiation {
                                                 path: ItemPath::AssocItem(
                                                     AssocItemPath::TypeItem(
-                                                        TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::norm`, `MemoizedField`),
+                                                        TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::norm`, `MemoizedField`),
                                                     ),
                                                 ),
                                                 env: MemoizedField,
@@ -12234,12 +12101,12 @@
                                                 ),
                                             },
                                             path: AssocItemPath::TypeItem(
-                                                TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::rel_norm`, `MemoizedField`),
+                                                TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::rel_norm`, `MemoizedField`),
                                             ),
                                             instantiation: FlyInstantiation {
                                                 path: ItemPath::AssocItem(
                                                     AssocItemPath::TypeItem(
-                                                        TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::rel_norm`, `MemoizedField`),
+                                                        TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::rel_norm`, `MemoizedField`),
                                                     ),
                                                 ),
                                                 env: MemoizedField,
@@ -12560,12 +12427,12 @@
                                                 ),
                                             },
                                             path: AssocItemPath::TypeItem(
-                                                TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::angle_change`, `MemoizedField`),
+                                                TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::angle_change`, `MemoizedField`),
                                             ),
                                             instantiation: FlyInstantiation {
                                                 path: ItemPath::AssocItem(
                                                     AssocItemPath::TypeItem(
-                                                        TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::angle_change`, `MemoizedField`),
+                                                        TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::angle_change`, `MemoizedField`),
                                                     ),
                                                 ),
                                                 env: MemoizedField,
@@ -12627,7 +12494,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::num::f32(0)::abs`, `MethodRitchie(
+                                                    TypeItemPath(`<core::num::f32(0)>::abs`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -12650,7 +12517,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(core::num::f32(0)::abs`, `MethodRitchie(
+                                                            TypeItemPath(`<core::num::f32(0)>::abs`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -12895,26 +12762,11 @@
                                         386,
                                     ),
                                     unveil_output_ty_signature: TraitForTypeAssocTypeEtherealSignature {
-                                        path: TraitForTypeItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 371,
-                                                },
-                                            ),
-                                        ),
+                                        path: TraitForTypeItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::Output`, `AssocType`),
                                         instantiation: EthInstantiation {
                                             path: ItemPath::ImplBlock(
                                                 ImplBlockPath::TraitForTypeImplBlock(
-                                                    TraitForTypeImplBlock {
-                                                        data: TraitForTypeImplBlockPathData {
-                                                            module_path: `malamute`,
-                                                            trai_path: TraitPath(`core::ops::Unveil`),
-                                                            ty_sketch: TypeSketch::Path(
-                                                                TypePath(`malamute::OneVsAll`, `Enum`),
-                                                            ),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
+                                                    malamute::OneVsAll as core::ops::Unveil(0),
                                                 ),
                                             ),
                                             symbol_map: [
@@ -12933,13 +12785,9 @@
                                         },
                                         ty_term: EthTerm(`unit`),
                                     },
-                                    unveil_assoc_fn_path: TraitForTypeItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 372,
-                                            },
-                                        ),
-                                    ),
+                                    unveil_assoc_fn_path: TraitForTypeItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`, `AssocRitchie(
+                                        Fn,
+                                    )`),
                                     return_ty: EthTerm(`OneVsAll MnistLabel One`),
                                 },
                             ),
@@ -13399,7 +13247,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodRitchie(
+                                                    TypeItemPath(`<core::slice::CyclicSlice(0)>::start`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -13422,7 +13270,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodRitchie(
+                                                            TypeItemPath(`<core::slice::CyclicSlice(0)>::start`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -13605,7 +13453,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodRitchie(
+                                                    TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke(0)>::displacement`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -13628,7 +13476,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodRitchie(
+                                                            TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke(0)>::displacement`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -13983,7 +13831,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodRitchie(
+                                                    TypeItemPath(`<core::slice::CyclicSlice(0)>::start`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -14006,7 +13854,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodRitchie(
+                                                            TypeItemPath(`<core::slice::CyclicSlice(0)>::start`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -14271,7 +14119,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodRitchie(
+                                                    TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke(0)>::displacement`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -14294,7 +14142,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodRitchie(
+                                                            TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke(0)>::displacement`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -14863,26 +14711,11 @@
                                         457,
                                     ),
                                     unveil_output_ty_signature: TraitForTypeAssocTypeEtherealSignature {
-                                        path: TraitForTypeItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 371,
-                                                },
-                                            ),
-                                        ),
+                                        path: TraitForTypeItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::Output`, `AssocType`),
                                         instantiation: EthInstantiation {
                                             path: ItemPath::ImplBlock(
                                                 ImplBlockPath::TraitForTypeImplBlock(
-                                                    TraitForTypeImplBlock {
-                                                        data: TraitForTypeImplBlockPathData {
-                                                            module_path: `malamute`,
-                                                            trai_path: TraitPath(`core::ops::Unveil`),
-                                                            ty_sketch: TypeSketch::Path(
-                                                                TypePath(`malamute::OneVsAll`, `Enum`),
-                                                            ),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
+                                                    malamute::OneVsAll as core::ops::Unveil(0),
                                                 ),
                                             ),
                                             symbol_map: [
@@ -14901,13 +14734,9 @@
                                         },
                                         ty_term: EthTerm(`unit`),
                                     },
-                                    unveil_assoc_fn_path: TraitForTypeItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 372,
-                                            },
-                                        ),
-                                    ),
+                                    unveil_assoc_fn_path: TraitForTypeItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`, `AssocRitchie(
+                                        Fn,
+                                    )`),
                                     return_ty: EthTerm(`OneVsAll MnistLabel One`),
                                 },
                             ),
@@ -15146,12 +14975,12 @@
                                                 ),
                                             },
                                             path: AssocItemPath::TypeItem(
-                                                TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`, `MemoizedField`),
+                                                TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::lower_mass`, `MemoizedField`),
                                             ),
                                             instantiation: FlyInstantiation {
                                                 path: ItemPath::AssocItem(
                                                     AssocItemPath::TypeItem(
-                                                        TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`, `MemoizedField`),
+                                                        TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::lower_mass`, `MemoizedField`),
                                                     ),
                                                 ),
                                                 env: MemoizedField,
@@ -15276,12 +15105,12 @@
                                                 ),
                                             },
                                             path: AssocItemPath::TypeItem(
-                                                TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`, `MemoizedField`),
+                                                TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::upper_mass`, `MemoizedField`),
                                             ),
                                             instantiation: FlyInstantiation {
                                                 path: ItemPath::AssocItem(
                                                     AssocItemPath::TypeItem(
-                                                        TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`, `MemoizedField`),
+                                                        TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::upper_mass`, `MemoizedField`),
                                                     ),
                                                 ),
                                                 env: MemoizedField,
@@ -30632,7 +30461,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`, `MethodRitchie(
+                                                    TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::displacement`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -30655,7 +30484,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`, `MethodRitchie(
+                                                            TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::displacement`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -31750,7 +31579,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`, `MethodRitchie(
+                                                    TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::displacement`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -31773,7 +31602,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`, `MethodRitchie(
+                                                            TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::displacement`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -32111,7 +31940,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::end`, `MethodRitchie(
+                                                    TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::end`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -32134,7 +31963,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::end`, `MethodRitchie(
+                                                            TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::end`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -33014,7 +32843,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`, `MethodRitchie(
+                                                    TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::displacement`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -33037,7 +32866,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`, `MethodRitchie(
+                                                            TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::displacement`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),

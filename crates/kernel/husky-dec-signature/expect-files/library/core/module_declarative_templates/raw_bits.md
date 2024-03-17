@@ -58,7 +58,7 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`(core::raw_bits::r32(0)::last_bits`, `MethodRitchie(
+                TypeItemPath(`<core::raw_bits::r32(0)>::last_bits`, `MethodRitchie(
                     Fn,
                 )`),
             ),
@@ -68,7 +68,7 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
                         TypeMethodFnDecTemplate {
-                            path: TypeItemPath(`(core::raw_bits::r32(0)::last_bits`, `MethodRitchie(
+                            path: TypeItemPath(`<core::raw_bits::r32(0)>::last_bits`, `MethodRitchie(
                                 Fn,
                             )`),
                             impl_block: TypeImplBlockDecTemplate {
@@ -155,7 +155,7 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`(core::raw_bits::r32(0)::ctz`, `MethodRitchie(
+                TypeItemPath(`<core::raw_bits::r32(0)>::ctz`, `MethodRitchie(
                     Fn,
                 )`),
             ),
@@ -165,7 +165,7 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
                         TypeMethodFnDecTemplate {
-                            path: TypeItemPath(`(core::raw_bits::r32(0)::ctz`, `MethodRitchie(
+                            path: TypeItemPath(`<core::raw_bits::r32(0)>::ctz`, `MethodRitchie(
                                 Fn,
                             )`),
                             impl_block: TypeImplBlockDecTemplate {
@@ -235,7 +235,7 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`(core::raw_bits::r32(0)::co`, `MethodRitchie(
+                TypeItemPath(`<core::raw_bits::r32(0)>::co`, `MethodRitchie(
                     Fn,
                 )`),
             ),
@@ -245,7 +245,7 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
                         TypeMethodFnDecTemplate {
-                            path: TypeItemPath(`(core::raw_bits::r32(0)::co`, `MethodRitchie(
+                            path: TypeItemPath(`<core::raw_bits::r32(0)>::co`, `MethodRitchie(
                                 Fn,
                             )`),
                             impl_block: TypeImplBlockDecTemplate {
@@ -315,7 +315,7 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`(core::raw_bits::r32(0)::span`, `MethodRitchie(
+                TypeItemPath(`<core::raw_bits::r32(0)>::span`, `MethodRitchie(
                     Fn,
                 )`),
             ),
@@ -325,7 +325,7 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
                         TypeMethodFnDecTemplate {
-                            path: TypeItemPath(`(core::raw_bits::r32(0)::span`, `MethodRitchie(
+                            path: TypeItemPath(`<core::raw_bits::r32(0)>::span`, `MethodRitchie(
                                 Fn,
                             )`),
                             impl_block: TypeImplBlockDecTemplate {
@@ -395,7 +395,7 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`(core::raw_bits::r32(0)::right_mass`, `MethodRitchie(
+                TypeItemPath(`<core::raw_bits::r32(0)>::right_mass`, `MethodRitchie(
                     Fn,
                 )`),
             ),
@@ -405,7 +405,7 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
                         TypeMethodFnDecTemplate {
-                            path: TypeItemPath(`(core::raw_bits::r32(0)::right_mass`, `MethodRitchie(
+                            path: TypeItemPath(`<core::raw_bits::r32(0)>::right_mass`, `MethodRitchie(
                                 Fn,
                             )`),
                             impl_block: TypeImplBlockDecTemplate {

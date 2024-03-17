@@ -101,7 +101,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::TypeItem(
-                    TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::raw_contours`, `MemoizedField`),
+                    TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::raw_contours`, `MemoizedField`),
                 ),
                 instantiation: JavInstantiation {
                     symbol_resolutions: [],
@@ -116,7 +116,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::TypeItem(
-                    TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`, `MemoizedField`),
+                    TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::eff_holes`, `MemoizedField`),
                 ),
                 instantiation: JavInstantiation {
                     symbol_resolutions: [],
@@ -131,7 +131,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::TypeItem(
-                    TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`, `MemoizedField`),
+                    TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::max_hole_ilen`, `MemoizedField`),
                 ),
                 instantiation: JavInstantiation {
                     symbol_resolutions: [],
@@ -146,7 +146,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::TypeItem(
-                    TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::max_row_span`, `MemoizedField`),
+                    TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::max_row_span`, `MemoizedField`),
                 ),
                 instantiation: JavInstantiation {
                     symbol_resolutions: [],
@@ -161,7 +161,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::TypeItem(
-                    TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::row_span_sum`, `MemoizedField`),
+                    TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::row_span_sum`, `MemoizedField`),
                 ),
                 instantiation: JavInstantiation {
                     symbol_resolutions: [],
@@ -176,7 +176,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::TypeItem(
-                    TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::distribution`, `MemoizedField`),
+                    TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::distribution`, `MemoizedField`),
                 ),
                 instantiation: JavInstantiation {
                     symbol_resolutions: [],
@@ -191,7 +191,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::TypeItem(
-                    TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`, `MemoizedField`),
+                    TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::upper_mass`, `MemoizedField`),
                 ),
                 instantiation: JavInstantiation {
                     symbol_resolutions: [],
@@ -206,7 +206,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::TypeItem(
-                    TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`, `MemoizedField`),
+                    TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::lower_mass`, `MemoizedField`),
                 ),
                 instantiation: JavInstantiation {
                     symbol_resolutions: [],
@@ -221,7 +221,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::TypeItem(
-                    TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`, `MethodRitchie(
+                    TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::top_k_row_span_sum`, `MethodRitchie(
                         Fn,
                     )`),
                 ),
@@ -238,7 +238,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::TypeItem(
-                    TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_right_mass_sum`, `MethodRitchie(
+                    TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::top_k_row_right_mass_sum`, `MethodRitchie(
                         Fn,
                     )`),
                 ),
@@ -414,7 +414,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::TypeItem(
-                    TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::line_segment_sketch`, `MemoizedField`),
+                    TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::line_segment_sketch`, `MemoizedField`),
                 ),
                 instantiation: JavInstantiation {
                     symbol_resolutions: [],
@@ -429,7 +429,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::TypeItem(
-                    TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::bounding_box`, `MemoizedField`),
+                    TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::bounding_box`, `MemoizedField`),
                 ),
                 instantiation: JavInstantiation {
                     symbol_resolutions: [],
@@ -444,7 +444,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::TypeItem(
-                    TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::relative_bounding_box`, `MemoizedField`),
+                    TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::relative_bounding_box`, `MemoizedField`),
                 ),
                 instantiation: JavInstantiation {
                     symbol_resolutions: [],
@@ -459,7 +459,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::TypeItem(
-                    TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::contour_len`, `MemoizedField`),
+                    TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::contour_len`, `MemoizedField`),
                 ),
                 instantiation: JavInstantiation {
                     symbol_resolutions: [],
@@ -474,7 +474,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::TypeItem(
-                    TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::displacement`, `MethodRitchie(
+                    TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::displacement`, `MethodRitchie(
                         Fn,
                     )`),
                 ),
@@ -569,7 +569,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::TypeItem(
-                    TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::from_i_shift28`, `AssocRitchie(
+                    TypeItemPath(`<mnist_classifier::geom2d::Point2d(0)>::from_i_shift28`, `AssocRitchie(
                         Fn,
                     )`),
                 ),
@@ -586,7 +586,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::TypeItem(
-                    TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::vector`, `MethodRitchie(
+                    TypeItemPath(`<mnist_classifier::geom2d::Point2d(0)>::vector`, `MethodRitchie(
                         Fn,
                     )`),
                 ),
@@ -603,7 +603,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::TypeItem(
-                    TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::to`, `MethodRitchie(
+                    TypeItemPath(`<mnist_classifier::geom2d::Point2d(0)>::to`, `MethodRitchie(
                         Fn,
                     )`),
                 ),
@@ -620,7 +620,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::TypeItem(
-                    TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::norm`, `MethodRitchie(
+                    TypeItemPath(`<mnist_classifier::geom2d::Point2d(0)>::norm`, `MethodRitchie(
                         Fn,
                     )`),
                 ),
@@ -637,7 +637,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::TypeItem(
-                    TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::dist`, `MethodRitchie(
+                    TypeItemPath(`<mnist_classifier::geom2d::Point2d(0)>::dist`, `MethodRitchie(
                         Fn,
                     )`),
                 ),
@@ -654,7 +654,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::TypeItem(
-                    TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::point`, `MethodRitchie(
+                    TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::point`, `MethodRitchie(
                         Fn,
                     )`),
                 ),
@@ -671,7 +671,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::TypeItem(
-                    TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::to`, `MethodRitchie(
+                    TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::to`, `MethodRitchie(
                         Fn,
                     )`),
                 ),
@@ -688,7 +688,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::TypeItem(
-                    TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::norm`, `MethodRitchie(
+                    TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::norm`, `MethodRitchie(
                         Fn,
                     )`),
                 ),
@@ -705,7 +705,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::TypeItem(
-                    TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::dot`, `MethodRitchie(
+                    TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::dot`, `MethodRitchie(
                         Fn,
                     )`),
                 ),
@@ -722,7 +722,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::TypeItem(
-                    TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::cross`, `MethodRitchie(
+                    TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::cross`, `MethodRitchie(
                         Fn,
                     )`),
                 ),
@@ -739,7 +739,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::TypeItem(
-                    TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::angle`, `MethodRitchie(
+                    TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::angle`, `MethodRitchie(
                         Fn,
                     )`),
                 ),
@@ -756,7 +756,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::TypeItem(
-                    TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::rotation_direction_to`, `MethodRitchie(
+                    TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::rotation_direction_to`, `MethodRitchie(
                         Fn,
                     )`),
                 ),
@@ -773,7 +773,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::TypeItem(
-                    TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::angle_to`, `MethodRitchie(
+                    TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::angle_to`, `MethodRitchie(
                         Fn,
                     )`),
                 ),
@@ -790,7 +790,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::TypeItem(
-                    TypeItemPath(`(mnist_classifier::geom2d::ClosedRange(0)::relative_range`, `MethodRitchie(
+                    TypeItemPath(`<mnist_classifier::geom2d::ClosedRange(0)>::relative_range`, `MethodRitchie(
                         Fn,
                     )`),
                 ),
@@ -807,7 +807,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::TypeItem(
-                    TypeItemPath(`(mnist_classifier::geom2d::ClosedRange(0)::relative_point`, `MethodRitchie(
+                    TypeItemPath(`<mnist_classifier::geom2d::ClosedRange(0)>::relative_point`, `MethodRitchie(
                         Fn,
                     )`),
                 ),
@@ -824,7 +824,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::TypeItem(
-                    TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::relative_bounding_box`, `MethodRitchie(
+                    TypeItemPath(`<mnist_classifier::geom2d::BoundingBox(0)>::relative_bounding_box`, `MethodRitchie(
                         Fn,
                     )`),
                 ),
@@ -841,7 +841,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::TypeItem(
-                    TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::relative_point`, `MethodRitchie(
+                    TypeItemPath(`<mnist_classifier::geom2d::BoundingBox(0)>::relative_point`, `MethodRitchie(
                         Fn,
                     )`),
                 ),
@@ -858,7 +858,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::TypeItem(
-                    TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::xmin`, `MethodRitchie(
+                    TypeItemPath(`<mnist_classifier::geom2d::BoundingBox(0)>::xmin`, `MethodRitchie(
                         Fn,
                     )`),
                 ),
@@ -875,7 +875,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::TypeItem(
-                    TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::xmax`, `MethodRitchie(
+                    TypeItemPath(`<mnist_classifier::geom2d::BoundingBox(0)>::xmax`, `MethodRitchie(
                         Fn,
                     )`),
                 ),
@@ -892,7 +892,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::TypeItem(
-                    TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymin`, `MethodRitchie(
+                    TypeItemPath(`<mnist_classifier::geom2d::BoundingBox(0)>::ymin`, `MethodRitchie(
                         Fn,
                     )`),
                 ),
@@ -909,7 +909,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::TypeItem(
-                    TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymax`, `MethodRitchie(
+                    TypeItemPath(`<mnist_classifier::geom2d::BoundingBox(0)>::ymax`, `MethodRitchie(
                         Fn,
                     )`),
                 ),
@@ -926,7 +926,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::TypeItem(
-                    TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::xmin`, `MethodRitchie(
+                    TypeItemPath(`<mnist_classifier::geom2d::RelativeBoundingBox(0)>::xmin`, `MethodRitchie(
                         Fn,
                     )`),
                 ),
@@ -943,7 +943,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::TypeItem(
-                    TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::xmax`, `MethodRitchie(
+                    TypeItemPath(`<mnist_classifier::geom2d::RelativeBoundingBox(0)>::xmax`, `MethodRitchie(
                         Fn,
                     )`),
                 ),
@@ -960,7 +960,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::TypeItem(
-                    TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::ymin`, `MethodRitchie(
+                    TypeItemPath(`<mnist_classifier::geom2d::RelativeBoundingBox(0)>::ymin`, `MethodRitchie(
                         Fn,
                     )`),
                 ),
@@ -977,7 +977,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::TypeItem(
-                    TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::ymax`, `MethodRitchie(
+                    TypeItemPath(`<mnist_classifier::geom2d::RelativeBoundingBox(0)>::ymax`, `MethodRitchie(
                         Fn,
                     )`),
                 ),
@@ -1095,7 +1095,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::TypeItem(
-                    TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::new`, `AssocRitchie(
+                    TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke(0)>::new`, `AssocRitchie(
                         Fn,
                     )`),
                 ),
@@ -1112,7 +1112,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::TypeItem(
-                    TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodRitchie(
+                    TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke(0)>::displacement`, `MethodRitchie(
                         Fn,
                     )`),
                 ),
@@ -1129,7 +1129,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::TypeItem(
-                    TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::concave_components`, `MemoizedField`),
+                    TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentSketch(0)>::concave_components`, `MemoizedField`),
                 ),
                 instantiation: JavInstantiation {
                     symbol_resolutions: [],
@@ -1144,7 +1144,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::TypeItem(
-                    TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`, `MemoizedField`),
+                    TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentSketch(0)>::bounding_box`, `MemoizedField`),
                 ),
                 instantiation: JavInstantiation {
                     symbol_resolutions: [],
@@ -1159,7 +1159,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::TypeItem(
-                    TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::new`, `AssocRitchie(
+                    TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentSketch(0)>::new`, `AssocRitchie(
                         Fn,
                     )`),
                 ),
@@ -1204,7 +1204,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::TypeItem(
-                    TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::norm`, `MemoizedField`),
+                    TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::norm`, `MemoizedField`),
                 ),
                 instantiation: JavInstantiation {
                     symbol_resolutions: [],
@@ -1219,7 +1219,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::TypeItem(
-                    TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::rel_norm`, `MemoizedField`),
+                    TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::rel_norm`, `MemoizedField`),
                 ),
                 instantiation: JavInstantiation {
                     symbol_resolutions: [],
@@ -1234,7 +1234,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::TypeItem(
-                    TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::hausdorff_norm`, `MemoizedField`),
+                    TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::hausdorff_norm`, `MemoizedField`),
                 ),
                 instantiation: JavInstantiation {
                     symbol_resolutions: [],
@@ -1249,7 +1249,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::TypeItem(
-                    TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::angle_change`, `MemoizedField`),
+                    TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::angle_change`, `MemoizedField`),
                 ),
                 instantiation: JavInstantiation {
                     symbol_resolutions: [],
@@ -1264,7 +1264,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::TypeItem(
-                    TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::bounding_box`, `MemoizedField`),
+                    TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::bounding_box`, `MemoizedField`),
                 ),
                 instantiation: JavInstantiation {
                     symbol_resolutions: [],
@@ -1279,7 +1279,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::TypeItem(
-                    TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::relative_bounding_box`, `MemoizedField`),
+                    TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::relative_bounding_box`, `MemoizedField`),
                 ),
                 instantiation: JavInstantiation {
                     symbol_resolutions: [],
@@ -1294,7 +1294,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::TypeItem(
-                    TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::line_segment`, `MethodRitchie(
+                    TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::line_segment`, `MethodRitchie(
                         Fn,
                     )`),
                 ),
@@ -1311,7 +1311,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::TypeItem(
-                    TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::start`, `MethodRitchie(
+                    TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::start`, `MethodRitchie(
                         Fn,
                     )`),
                 ),
@@ -1328,7 +1328,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::TypeItem(
-                    TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::end`, `MethodRitchie(
+                    TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::end`, `MethodRitchie(
                         Fn,
                     )`),
                 ),
@@ -1345,7 +1345,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::TypeItem(
-                    TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`, `MethodRitchie(
+                    TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::displacement`, `MethodRitchie(
                         Fn,
                     )`),
                 ),
@@ -1362,7 +1362,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::TypeItem(
-                    TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::start_tangent`, `MethodRitchie(
+                    TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::start_tangent`, `MethodRitchie(
                         Fn,
                     )`),
                 ),
@@ -1379,7 +1379,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::TypeItem(
-                    TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::end_tangent`, `MethodRitchie(
+                    TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::end_tangent`, `MethodRitchie(
                         Fn,
                     )`),
                 ),
@@ -1437,7 +1437,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::TypeItem(
-                    TypeItemPath(`(mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::displacement`, `MethodRitchie(
+                    TypeItemPath(`<mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)>::displacement`, `MethodRitchie(
                         Fn,
                     )`),
                 ),
@@ -1454,7 +1454,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::TypeItem(
-                    TypeItemPath(`(mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::dist_to_point`, `MethodRitchie(
+                    TypeItemPath(`<mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)>::dist_to_point`, `MethodRitchie(
                         Fn,
                     )`),
                 ),
@@ -1499,7 +1499,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::TypeItem(
-                    TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
+                    TypeItemPath(`<mnist_classifier::fermi::FermiMatchResult(0)>::norm`, `MemoizedField`),
                 ),
                 instantiation: JavInstantiation {
                     symbol_resolutions: [],
@@ -1514,7 +1514,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::TypeItem(
-                    TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::rel_norm`, `MemoizedField`),
+                    TypeItemPath(`<mnist_classifier::fermi::FermiMatchResult(0)>::rel_norm`, `MemoizedField`),
                 ),
                 instantiation: JavInstantiation {
                     symbol_resolutions: [],
@@ -1529,7 +1529,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::TypeItem(
-                    TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::angle_change_norm`, `MemoizedField`),
+                    TypeItemPath(`<mnist_classifier::fermi::FermiMatchResult(0)>::angle_change_norm`, `MemoizedField`),
                 ),
                 instantiation: JavInstantiation {
                     symbol_resolutions: [],

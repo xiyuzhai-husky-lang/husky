@@ -169,31 +169,13 @@ SynDeclSheet {
         (
             ItemPath::ImplBlock(
                 ImplBlockPath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlock {
-                        data: TraitForTypeImplBlockPathData {
-                            module_path: `core::result`,
-                            trai_path: TraitPath(`core::ops::Unveil`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`core::result::Result`, `Enum`),
-                            ),
-                            disambiguator: 0,
-                        },
-                    },
+                    core::result::Result as core::ops::Unveil(0),
                 ),
             ),
             SynDecl::ImplBlock(
                 ImplBlockSynDecl::TraitForType(
                     TraitForTypeImplBlockSynDecl {
-                        path: TraitForTypeImplBlock {
-                            data: TraitForTypeImplBlockPathData {
-                                module_path: `core::result`,
-                                trai_path: TraitPath(`core::ops::Unveil`),
-                                ty_sketch: TypeSketch::Path(
-                                    TypePath(`core::result::Result`, `Enum`),
-                                ),
-                                disambiguator: 0,
-                            },
-                        },
+                        path: core::result::Result as core::ops::Unveil(0),
                         template_parameters: [
                             TemplateSynParameterData {
                                 annotated_variance_token: None,
@@ -267,16 +249,7 @@ SynDeclSheet {
                                                     data: ItemSynNodePathData::ImplBlock(
                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                path: TraitForTypeImplBlock {
-                                                                    data: TraitForTypeImplBlockPathData {
-                                                                        module_path: `core::result`,
-                                                                        trai_path: TraitPath(`core::ops::Unveil`),
-                                                                        ty_sketch: TypeSketch::Path(
-                                                                            TypePath(`core::result::Result`, `Enum`),
-                                                                        ),
-                                                                        disambiguator: 0,
-                                                                    },
-                                                                },
+                                                                path: core::result::Result as core::ops::Unveil(0),
                                                             },
                                                         ),
                                                     ),
@@ -659,26 +632,14 @@ SynDeclSheet {
         (
             ItemPath::AssocItem(
                 AssocItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 174,
-                            },
-                        ),
-                    ),
+                    TraitForTypeItemPath(`<core::result::Result as core::ops::Unveil(0)>::Continue`, `AssocType`),
                 ),
             ),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TraitForTypeItem(
                     TraitForTypeItemSynDecl::AssocType(
                         TraitForTypeAssocTypeSynDecl {
-                            path: TraitForTypeItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 174,
-                                    },
-                                ),
-                            ),
+                            path: TraitForTypeItemPath(`<core::result::Result as core::ops::Unveil(0)>::Continue`, `AssocType`),
                             template_parameters: [],
                             ty_term_expr_idx: 1,
                             syn_expr_region: SynExprRegion {
@@ -695,16 +656,7 @@ SynDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                                path: TraitForTypeImplBlock {
-                                                                                    data: TraitForTypeImplBlockPathData {
-                                                                                        module_path: `core::result`,
-                                                                                        trai_path: TraitPath(`core::ops::Unveil`),
-                                                                                        ty_sketch: TypeSketch::Path(
-                                                                                            TypePath(`core::result::Result`, `Enum`),
-                                                                                        ),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                },
+                                                                                path: core::result::Result as core::ops::Unveil(0),
                                                                             },
                                                                         ),
                                                                     ),
@@ -1090,13 +1042,7 @@ SynDeclSheet {
                                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                                 TraitForTypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TraitForTypeItemPath(
-                                                                            ItemPathId(
-                                                                                Id {
-                                                                                    value: 174,
-                                                                                },
-                                                                            ),
-                                                                        ),
+                                                                        path: TraitForTypeItemPath(`<core::result::Result as core::ops::Unveil(0)>::Continue`, `AssocType`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -1220,26 +1166,18 @@ SynDeclSheet {
         (
             ItemPath::AssocItem(
                 AssocItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 175,
-                            },
-                        ),
-                    ),
+                    TraitForTypeItemPath(`<core::result::Result as core::ops::Unveil(0)>::unveil`, `AssocRitchie(
+                        Fn,
+                    )`),
                 ),
             ),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TraitForTypeItem(
                     TraitForTypeItemSynDecl::AssocFn(
                         TraitForTypeAssocFnSynDecl {
-                            path: TraitForTypeItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 175,
-                                    },
-                                ),
-                            ),
+                            path: TraitForTypeItemPath(`<core::result::Result as core::ops::Unveil(0)>::unveil`, `AssocRitchie(
+                                Fn,
+                            )`),
                             template_parameters: [],
                             parenate_parameters: [
                                 ParenateParameterSyndicate::Simple {
@@ -1276,16 +1214,7 @@ SynDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                                path: TraitForTypeImplBlock {
-                                                                                    data: TraitForTypeImplBlockPathData {
-                                                                                        module_path: `core::result`,
-                                                                                        trai_path: TraitPath(`core::ops::Unveil`),
-                                                                                        ty_sketch: TypeSketch::Path(
-                                                                                            TypePath(`core::result::Result`, `Enum`),
-                                                                                        ),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                },
+                                                                                path: core::result::Result as core::ops::Unveil(0),
                                                                             },
                                                                         ),
                                                                     ),
@@ -1671,13 +1600,9 @@ SynDeclSheet {
                                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                                 TraitForTypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TraitForTypeItemPath(
-                                                                            ItemPathId(
-                                                                                Id {
-                                                                                    value: 175,
-                                                                                },
-                                                                            ),
-                                                                        ),
+                                                                        path: TraitForTypeItemPath(`<core::result::Result as core::ops::Unveil(0)>::unveil`, `AssocRitchie(
+                                                                            Fn,
+                                                                        )`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },

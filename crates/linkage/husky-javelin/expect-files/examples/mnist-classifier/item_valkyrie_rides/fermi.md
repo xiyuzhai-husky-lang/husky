@@ -35,7 +35,7 @@
                 rides: [
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TypeItem(
-                            TypeItemPath(`(core::vec::Vec(0)::collect_leashes`, `MethodRitchie(
+                            TypeItemPath(`<core::vec::Vec(0)>::collect_leashes`, `MethodRitchie(
                                 Fn,
                             )`),
                         ),
@@ -100,7 +100,7 @@
                     },
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TypeItem(
-                            TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodRitchie(
+                            TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
                                 Fn,
                             )`),
                         ),
@@ -179,7 +179,7 @@
                     },
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TypeItem(
-                            TypeItemPath(`(core::vec::Vec(0)::pop_with_largest_opt_f32`, `MethodRitchie(
+                            TypeItemPath(`<core::vec::Vec(0)>::pop_with_largest_opt_f32`, `MethodRitchie(
                                 Fn,
                             )`),
                         ),
@@ -231,7 +231,7 @@
                     },
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TypeItem(
-                            TypeItemPath(`(core::vec::Vec(0)::push`, `MethodRitchie(
+                            TypeItemPath(`<core::vec::Vec(0)>::push`, `MethodRitchie(
                                 Fn,
                             )`),
                         ),
@@ -321,7 +321,7 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
+                TypeItemPath(`<mnist_classifier::fermi::FermiMatchResult(0)>::norm`, `MemoizedField`),
             ),
         ),
         Some(
@@ -330,7 +330,7 @@
                 rides: [
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TypeItem(
-                            TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodRitchie(
+                            TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
                                 Fn,
                             )`),
                         ),
@@ -381,7 +381,7 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::rel_norm`, `MemoizedField`),
+                TypeItemPath(`<mnist_classifier::fermi::FermiMatchResult(0)>::rel_norm`, `MemoizedField`),
             ),
         ),
         Some(
@@ -390,7 +390,7 @@
                 rides: [
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TypeItem(
-                            TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodRitchie(
+                            TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
                                 Fn,
                             )`),
                         ),
@@ -441,7 +441,7 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::angle_change_norm`, `MemoizedField`),
+                TypeItemPath(`<mnist_classifier::fermi::FermiMatchResult(0)>::angle_change_norm`, `MemoizedField`),
             ),
         ),
         Some(
@@ -450,7 +450,7 @@
                 rides: [
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TypeItem(
-                            TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodRitchie(
+                            TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
                                 Fn,
                             )`),
                         ),

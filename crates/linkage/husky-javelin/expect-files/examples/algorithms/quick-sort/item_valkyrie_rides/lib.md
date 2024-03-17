@@ -39,7 +39,7 @@
                 rides: [
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TypeItem(
-                            TypeItemPath(`(core::slice::Slice(0)::len`, `MethodRitchie(
+                            TypeItemPath(`<core::slice::Slice(0)>::len`, `MethodRitchie(
                                 Fn,
                             )`),
                         ),
@@ -267,7 +267,7 @@
                 rides: [
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TypeItem(
-                            TypeItemPath(`(core::slice::Slice(0)::swap`, `MethodRitchie(
+                            TypeItemPath(`<core::slice::Slice(0)>::swap`, `MethodRitchie(
                                 Fn,
                             )`),
                         ),

@@ -397,7 +397,7 @@
     Linkage {
         data: LinkageData::AssocRitchie {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`(mnist::BinaryImage28(0)::new_zeros`, `AssocRitchie(
+                TypeItemPath(`<mnist::BinaryImage28(0)>::new_zeros`, `AssocRitchie(
                     Fn,
                 )`),
             ),
@@ -412,7 +412,7 @@
     Linkage {
         data: LinkageData::AssocRitchie {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`(mnist::BinaryGrid28(0)::new_zeros`, `AssocRitchie(
+                TypeItemPath(`<mnist::BinaryGrid28(0)>::new_zeros`, `AssocRitchie(
                     Fn,
                 )`),
             ),

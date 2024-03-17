@@ -81,14 +81,7 @@
     HirDecl::ImplBlock(
         ImplBlockHirDecl::TraitForType(
             TraitForTypeImplBlockHirDecl {
-                path: TraitForTypeImplBlock {
-                    data: TraitForTypeImplBlockPathData {
-                        module_path: `core::marker`,
-                        trai_path: TraitPath(`core::marker::Copy`),
-                        ty_sketch: TypeSketch::DeriveAny,
-                        disambiguator: 0,
-                    },
-                },
+                path: TraitForTypeImplBlockPath(`#derive _ as core::marker::Copy(0)`),
                 template_parameters: HirTemplateParameters(
                     [],
                 ),
@@ -103,14 +96,7 @@
                     region_path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TraitForTypeImplBlock(
-                                TraitForTypeImplBlock {
-                                    data: TraitForTypeImplBlockPathData {
-                                        module_path: `core::marker`,
-                                        trai_path: TraitPath(`core::marker::Copy`),
-                                        ty_sketch: TypeSketch::DeriveAny,
-                                        disambiguator: 0,
-                                    },
-                                },
+                                TraitForTypeImplBlockPath(`#derive _ as core::marker::Copy(0)`),
                             ),
                         ),
                     ),

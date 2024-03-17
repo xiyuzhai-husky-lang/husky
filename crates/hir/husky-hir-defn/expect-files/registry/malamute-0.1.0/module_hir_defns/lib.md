@@ -315,16 +315,7 @@
         ImplBlockHirDefn::TraitForType(
             TraitForTypeImplBlockHirDefn {
                 hir_decl: TraitForTypeImplBlockHirDecl {
-                    path: TraitForTypeImplBlock {
-                        data: TraitForTypeImplBlockPathData {
-                            module_path: `malamute`,
-                            trai_path: TraitPath(`core::default::Default`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`malamute::OneVsAll`, `Enum`),
-                            ),
-                            disambiguator: 0,
-                        },
-                    },
+                    path: TraitForTypeImplBlockPath(`malamute::OneVsAll as core::default::Default(0)`),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -343,16 +334,7 @@
                         region_path: RegionPath::Decl(
                             ItemPath::ImplBlock(
                                 ImplBlockPath::TraitForTypeImplBlock(
-                                    TraitForTypeImplBlock {
-                                        data: TraitForTypeImplBlockPathData {
-                                            module_path: `malamute`,
-                                            trai_path: TraitPath(`core::default::Default`),
-                                            ty_sketch: TypeSketch::Path(
-                                                TypePath(`malamute::OneVsAll`, `Enum`),
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
+                                    TraitForTypeImplBlockPath(`malamute::OneVsAll as core::default::Default(0)`),
                                 ),
                             ),
                         ),
@@ -385,21 +367,13 @@
         AssocItemHirDefn::TraitForTypeItem(
             TraitForTypeItemHirDefn::AssocFn(
                 TraitForTypeAssocFnHirDefn {
-                    path: TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 147,
-                            },
-                        ),
-                    ),
+                    path: TraitForTypeItemPath(`<malamute::OneVsAll as core::default::Default(0)>::default`, `AssocRitchie(
+                        Fn,
+                    )`),
                     hir_decl: TraitForTypeAssocFnHirDecl {
-                        path: TraitForTypeItemPath(
-                            ItemPathId(
-                                Id {
-                                    value: 147,
-                                },
-                            ),
-                        ),
+                        path: TraitForTypeItemPath(`<malamute::OneVsAll as core::default::Default(0)>::default`, `AssocRitchie(
+                            Fn,
+                        )`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -417,13 +391,9 @@
                             region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TraitForTypeItem(
-                                        TraitForTypeItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 147,
-                                                },
-                                            ),
-                                        ),
+                                        TraitForTypeItemPath(`<malamute::OneVsAll as core::default::Default(0)>::default`, `AssocRitchie(
+                                            Fn,
+                                        )`),
                                     ),
                                 ),
                             ),
@@ -463,13 +433,9 @@
                                 region_path: RegionPath::Defn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TraitForTypeItem(
-                                            TraitForTypeItemPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 147,
-                                                    },
-                                                ),
-                                            ),
+                                            TraitForTypeItemPath(`<malamute::OneVsAll as core::default::Default(0)>::default`, `AssocRitchie(
+                                                Fn,
+                                            )`),
                                         ),
                                     ),
                                 ),
@@ -547,16 +513,7 @@
         ImplBlockHirDefn::TraitForType(
             TraitForTypeImplBlockHirDefn {
                 hir_decl: TraitForTypeImplBlockHirDecl {
-                    path: TraitForTypeImplBlock {
-                        data: TraitForTypeImplBlockPathData {
-                            module_path: `malamute`,
-                            trai_path: TraitPath(`core::ops::Unveil`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`malamute::Class`, `Enum`),
-                            ),
-                            disambiguator: 0,
-                        },
-                    },
+                    path: TraitForTypeImplBlockPath(`malamute::Class as core::ops::Unveil(0)`),
                     template_parameters: HirTemplateParameters(
                         [
                             HirTemplateParameter {
@@ -646,16 +603,7 @@
                         region_path: RegionPath::Decl(
                             ItemPath::ImplBlock(
                                 ImplBlockPath::TraitForTypeImplBlock(
-                                    TraitForTypeImplBlock {
-                                        data: TraitForTypeImplBlockPathData {
-                                            module_path: `malamute`,
-                                            trai_path: TraitPath(`core::ops::Unveil`),
-                                            ty_sketch: TypeSketch::Path(
-                                                TypePath(`malamute::Class`, `Enum`),
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
+                                    TraitForTypeImplBlockPath(`malamute::Class as core::ops::Unveil(0)`),
                                 ),
                             ),
                         ),
@@ -729,21 +677,9 @@
         AssocItemHirDefn::TraitForTypeItem(
             TraitForTypeItemHirDefn::AssocType(
                 TraitForTypeAssocTypeHirDefn {
-                    path: TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 148,
-                            },
-                        ),
-                    ),
+                    path: TraitForTypeItemPath(`<malamute::Class as core::ops::Unveil(0)>::Output`, `AssocType`),
                     hir_decl: TraitForTypeAssocTypeHirDecl {
-                        path: TraitForTypeItemPath(
-                            ItemPathId(
-                                Id {
-                                    value: 148,
-                                },
-                            ),
-                        ),
+                        path: TraitForTypeItemPath(`<malamute::Class as core::ops::Unveil(0)>::Output`, `AssocType`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -758,13 +694,7 @@
                             region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TraitForTypeItem(
-                                        TraitForTypeItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 148,
-                                                },
-                                            ),
-                                        ),
+                                        TraitForTypeItemPath(`<malamute::Class as core::ops::Unveil(0)>::Output`, `AssocType`),
                                     ),
                                 ),
                             ),
@@ -839,21 +769,13 @@
         AssocItemHirDefn::TraitForTypeItem(
             TraitForTypeItemHirDefn::AssocFn(
                 TraitForTypeAssocFnHirDefn {
-                    path: TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 149,
-                            },
-                        ),
-                    ),
+                    path: TraitForTypeItemPath(`<malamute::Class as core::ops::Unveil(0)>::unveil`, `AssocRitchie(
+                        Fn,
+                    )`),
                     hir_decl: TraitForTypeAssocFnHirDecl {
-                        path: TraitForTypeItemPath(
-                            ItemPathId(
-                                Id {
-                                    value: 149,
-                                },
-                            ),
-                        ),
+                        path: TraitForTypeItemPath(`<malamute::Class as core::ops::Unveil(0)>::unveil`, `AssocRitchie(
+                            Fn,
+                        )`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -914,13 +836,9 @@
                             region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TraitForTypeItem(
-                                        TraitForTypeItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 149,
-                                                },
-                                            ),
-                                        ),
+                                        TraitForTypeItemPath(`<malamute::Class as core::ops::Unveil(0)>::unveil`, `AssocRitchie(
+                                            Fn,
+                                        )`),
                                     ),
                                 ),
                             ),
@@ -1012,13 +930,9 @@
                                 region_path: RegionPath::Defn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TraitForTypeItem(
-                                            TraitForTypeItemPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 149,
-                                                    },
-                                                ),
-                                            ),
+                                            TraitForTypeItemPath(`<malamute::Class as core::ops::Unveil(0)>::unveil`, `AssocRitchie(
+                                                Fn,
+                                            )`),
                                         ),
                                     ),
                                 ),
@@ -1481,16 +1395,7 @@
         ImplBlockHirDefn::TraitForType(
             TraitForTypeImplBlockHirDefn {
                 hir_decl: TraitForTypeImplBlockHirDecl {
-                    path: TraitForTypeImplBlock {
-                        data: TraitForTypeImplBlockPathData {
-                            module_path: `malamute`,
-                            trai_path: TraitPath(`core::ops::Unveil`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`malamute::OneVsAll`, `Enum`),
-                            ),
-                            disambiguator: 0,
-                        },
-                    },
+                    path: TraitForTypeImplBlockPath(`malamute::OneVsAll as core::ops::Unveil(0)`),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -1519,16 +1424,7 @@
                         region_path: RegionPath::Decl(
                             ItemPath::ImplBlock(
                                 ImplBlockPath::TraitForTypeImplBlock(
-                                    TraitForTypeImplBlock {
-                                        data: TraitForTypeImplBlockPathData {
-                                            module_path: `malamute`,
-                                            trai_path: TraitPath(`core::ops::Unveil`),
-                                            ty_sketch: TypeSketch::Path(
-                                                TypePath(`malamute::OneVsAll`, `Enum`),
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
+                                    TraitForTypeImplBlockPath(`malamute::OneVsAll as core::ops::Unveil(0)`),
                                 ),
                             ),
                         ),
@@ -1561,21 +1457,9 @@
         AssocItemHirDefn::TraitForTypeItem(
             TraitForTypeItemHirDefn::AssocType(
                 TraitForTypeAssocTypeHirDefn {
-                    path: TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 150,
-                            },
-                        ),
-                    ),
+                    path: TraitForTypeItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::Output`, `AssocType`),
                     hir_decl: TraitForTypeAssocTypeHirDecl {
-                        path: TraitForTypeItemPath(
-                            ItemPathId(
-                                Id {
-                                    value: 150,
-                                },
-                            ),
-                        ),
+                        path: TraitForTypeItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::Output`, `AssocType`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -1590,13 +1474,7 @@
                             region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TraitForTypeItem(
-                                        TraitForTypeItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 150,
-                                                },
-                                            ),
-                                        ),
+                                        TraitForTypeItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::Output`, `AssocType`),
                                     ),
                                 ),
                             ),
@@ -1630,21 +1508,13 @@
         AssocItemHirDefn::TraitForTypeItem(
             TraitForTypeItemHirDefn::AssocFn(
                 TraitForTypeAssocFnHirDefn {
-                    path: TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 151,
-                            },
-                        ),
-                    ),
+                    path: TraitForTypeItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`, `AssocRitchie(
+                        Fn,
+                    )`),
                     hir_decl: TraitForTypeAssocFnHirDecl {
-                        path: TraitForTypeItemPath(
-                            ItemPathId(
-                                Id {
-                                    value: 151,
-                                },
-                            ),
-                        ),
+                        path: TraitForTypeItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`, `AssocRitchie(
+                            Fn,
+                        )`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -1693,13 +1563,9 @@
                             region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TraitForTypeItem(
-                                        TraitForTypeItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 151,
-                                                },
-                                            ),
-                                        ),
+                                        TraitForTypeItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`, `AssocRitchie(
+                                            Fn,
+                                        )`),
                                     ),
                                 ),
                             ),
@@ -1750,13 +1616,9 @@
                                 region_path: RegionPath::Defn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TraitForTypeItem(
-                                            TraitForTypeItemPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 151,
-                                                    },
-                                                ),
-                                            ),
+                                            TraitForTypeItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`, `AssocRitchie(
+                                                Fn,
+                                            )`),
                                         ),
                                     ),
                                 ),

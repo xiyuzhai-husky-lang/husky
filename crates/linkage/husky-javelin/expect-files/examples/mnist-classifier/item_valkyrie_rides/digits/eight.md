@@ -97,7 +97,7 @@
                 rides: [
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TypeItem(
-                            TypeItemPath(`(core::slice::CyclicSlice(0)::first`, `MethodRitchie(
+                            TypeItemPath(`<core::slice::CyclicSlice(0)>::first`, `MethodRitchie(
                                 Fn,
                             )`),
                         ),

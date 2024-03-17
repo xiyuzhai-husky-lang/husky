@@ -203,13 +203,9 @@
     Linkage {
         data: LinkageData::AssocRitchie {
             path: AssocItemPath::TraitForTypeItem(
-                TraitForTypeItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 147,
-                        },
-                    ),
-                ),
+                TraitForTypeItemPath(`<malamute::OneVsAll as core::default::Default(0)>::default`, `AssocRitchie(
+                    Fn,
+                )`),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -222,13 +218,9 @@
     Linkage {
         data: LinkageData::AssocRitchie {
             path: AssocItemPath::TraitForTypeItem(
-                TraitForTypeItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 151,
-                        },
-                    ),
-                ),
+                TraitForTypeItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`, `AssocRitchie(
+                    Fn,
+                )`),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -240,13 +232,9 @@
     },
     Linkage {
         data: LinkageData::UnveilAssocFn {
-            path: TraitForTypeItemPath(
-                ItemPathId(
-                    Id {
-                        value: 151,
-                    },
-                ),
-            ),
+            path: TraitForTypeItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`, `AssocRitchie(
+                Fn,
+            )`),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
                 separator: Some(

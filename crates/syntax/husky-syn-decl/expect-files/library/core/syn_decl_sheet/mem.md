@@ -701,31 +701,13 @@ SynDeclSheet {
         (
             ItemPath::ImplBlock(
                 ImplBlockPath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlock {
-                        data: TraitForTypeImplBlockPathData {
-                            module_path: `core::mem`,
-                            trai_path: TraitPath(`core::marker::Copy`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`core::mem::Leash`, `Extern`),
-                            ),
-                            disambiguator: 0,
-                        },
-                    },
+                    core::mem::Leash as core::marker::Copy(0),
                 ),
             ),
             SynDecl::ImplBlock(
                 ImplBlockSynDecl::TraitForType(
                     TraitForTypeImplBlockSynDecl {
-                        path: TraitForTypeImplBlock {
-                            data: TraitForTypeImplBlockPathData {
-                                module_path: `core::mem`,
-                                trai_path: TraitPath(`core::marker::Copy`),
-                                ty_sketch: TypeSketch::Path(
-                                    TypePath(`core::mem::Leash`, `Extern`),
-                                ),
-                                disambiguator: 0,
-                            },
-                        },
+                        path: core::mem::Leash as core::marker::Copy(0),
                         template_parameters: [
                             TemplateSynParameterData {
                                 annotated_variance_token: None,
@@ -760,16 +742,7 @@ SynDeclSheet {
                                                     data: ItemSynNodePathData::ImplBlock(
                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                path: TraitForTypeImplBlock {
-                                                                    data: TraitForTypeImplBlockPathData {
-                                                                        module_path: `core::mem`,
-                                                                        trai_path: TraitPath(`core::marker::Copy`),
-                                                                        ty_sketch: TypeSketch::Path(
-                                                                            TypePath(`core::mem::Leash`, `Extern`),
-                                                                        ),
-                                                                        disambiguator: 0,
-                                                                    },
-                                                                },
+                                                                path: core::mem::Leash as core::marker::Copy(0),
                                                             },
                                                         ),
                                                     ),

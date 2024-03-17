@@ -2,7 +2,6 @@ use super::*;
 
 #[salsa::as_id]
 #[salsa::deref_id]
-#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub struct TraitForTypeItemPath(ItemPathId);
 
@@ -53,11 +52,6 @@ impl TraitForTypeItemPath {
     pub fn item_kind(self, db: &::salsa::Db) -> TraitItemKind {
         self.data(db).item_kind
     }
-
-    #[inline(never)]
-    fn show_aux(self, _f: &mut std::fmt::Formatter<'_>, _db: &::salsa::Db) -> std::fmt::Result {
-        todo!()
-    }
 }
 
 impl TraitForTypeItemPathData {
@@ -79,6 +73,32 @@ impl TraitForTypeItemPathData {
             assoc_item_kind: AssocItemKind::TraitForTypeItem(self.item_kind),
         }
     }
+
+    #[inline(never)]
+    fn show_aux(self, f: &mut std::fmt::Formatter<'_>, db: &::salsa::Db) -> std::fmt::Result {
+        f.write_str("<")?;
+        self.impl_block.show_aux(f, db)?;
+        f.write_str(">")?;
+        f.write_str("::")?;
+        f.write_str(self.ident.data(db))
+    }
+}
+
+impl salsa::DebugWithDb for TraitForTypeItemPath {
+    fn debug_with_db_fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &::salsa::Db,
+    ) -> std::fmt::Result {
+        use std::fmt::Debug;
+
+        let data = self.data(db);
+        f.write_str("TraitForTypeItemPath(`")?;
+        data.show_aux(f, db)?;
+        f.write_str("`, `")?;
+        data.item_kind.fmt(f)?;
+        f.write_str("`)")
+    }
 }
 
 impl salsa::DisplayWithDb for TraitForTypeItemPath {
@@ -87,6 +107,6 @@ impl salsa::DisplayWithDb for TraitForTypeItemPath {
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
     ) -> std::fmt::Result {
-        self.show_aux(f, db)
+        self.data(db).show_aux(f, db)
     }
 }

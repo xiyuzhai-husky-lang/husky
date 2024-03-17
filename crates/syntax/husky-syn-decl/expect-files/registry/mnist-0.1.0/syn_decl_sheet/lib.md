@@ -354,31 +354,13 @@ SynDeclSheet {
         (
             ItemPath::ImplBlock(
                 ImplBlockPath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlock {
-                        data: TraitForTypeImplBlockPathData {
-                            module_path: `mnist`,
-                            trai_path: TraitPath(`core::visual::Visualize`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`mnist::BinaryImage28`, `Extern`),
-                            ),
-                            disambiguator: 0,
-                        },
-                    },
+                    mnist::BinaryImage28 as core::visual::Visualize(0),
                 ),
             ),
             SynDecl::ImplBlock(
                 ImplBlockSynDecl::TraitForType(
                     TraitForTypeImplBlockSynDecl {
-                        path: TraitForTypeImplBlock {
-                            data: TraitForTypeImplBlockPathData {
-                                module_path: `mnist`,
-                                trai_path: TraitPath(`core::visual::Visualize`),
-                                ty_sketch: TypeSketch::Path(
-                                    TypePath(`mnist::BinaryImage28`, `Extern`),
-                                ),
-                                disambiguator: 0,
-                            },
-                        },
+                        path: mnist::BinaryImage28 as core::visual::Visualize(0),
                         template_parameters: [],
                         trai_expr: TraitSyndicate {
                             syn_expr_idx: 1,
@@ -399,16 +381,7 @@ SynDeclSheet {
                                                     data: ItemSynNodePathData::ImplBlock(
                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                path: TraitForTypeImplBlock {
-                                                                    data: TraitForTypeImplBlockPathData {
-                                                                        module_path: `mnist`,
-                                                                        trai_path: TraitPath(`core::visual::Visualize`),
-                                                                        ty_sketch: TypeSketch::Path(
-                                                                            TypePath(`mnist::BinaryImage28`, `Extern`),
-                                                                        ),
-                                                                        disambiguator: 0,
-                                                                    },
-                                                                },
+                                                                path: mnist::BinaryImage28 as core::visual::Visualize(0),
                                                             },
                                                         ),
                                                     ),
@@ -527,26 +500,18 @@ SynDeclSheet {
         (
             ItemPath::AssocItem(
                 AssocItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 153,
-                            },
-                        ),
-                    ),
+                    TraitForTypeItemPath(`<mnist::BinaryImage28 as core::visual::Visualize(0)>::visualize`, `MethodRitchie(
+                        Fn,
+                    )`),
                 ),
             ),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TraitForTypeItem(
                     TraitForTypeItemSynDecl::MethodFn(
                         TraitForTypeMethodFnSynDecl {
-                            path: TraitForTypeItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 153,
-                                    },
-                                ),
-                            ),
+                            path: TraitForTypeItemPath(`<mnist::BinaryImage28 as core::visual::Visualize(0)>::visualize`, `MethodRitchie(
+                                Fn,
+                            )`),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [],
@@ -569,16 +534,7 @@ SynDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                                path: TraitForTypeImplBlock {
-                                                                                    data: TraitForTypeImplBlockPathData {
-                                                                                        module_path: `mnist`,
-                                                                                        trai_path: TraitPath(`core::visual::Visualize`),
-                                                                                        ty_sketch: TypeSketch::Path(
-                                                                                            TypePath(`mnist::BinaryImage28`, `Extern`),
-                                                                                        ),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                },
+                                                                                path: mnist::BinaryImage28 as core::visual::Visualize(0),
                                                                             },
                                                                         ),
                                                                     ),
@@ -700,13 +656,9 @@ SynDeclSheet {
                                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                                 TraitForTypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TraitForTypeItemPath(
-                                                                            ItemPathId(
-                                                                                Id {
-                                                                                    value: 153,
-                                                                                },
-                                                                            ),
-                                                                        ),
+                                                                        path: TraitForTypeItemPath(`<mnist::BinaryImage28 as core::visual::Visualize(0)>::visualize`, `MethodRitchie(
+                                                                            Fn,
+                                                                        )`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -929,7 +881,7 @@ SynDeclSheet {
         (
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`(mnist::BinaryImage28(0)::new_zeros`, `AssocRitchie(
+                    TypeItemPath(`<mnist::BinaryImage28(0)>::new_zeros`, `AssocRitchie(
                         Fn,
                     )`),
                 ),
@@ -938,7 +890,7 @@ SynDeclSheet {
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::AssocFn(
                         TypeAssocFnSynDecl {
-                            path: TypeItemPath(`(mnist::BinaryImage28(0)::new_zeros`, `AssocRitchie(
+                            path: TypeItemPath(`<mnist::BinaryImage28(0)>::new_zeros`, `AssocRitchie(
                                 Fn,
                             )`),
                             template_parameters: [],
@@ -1061,7 +1013,7 @@ SynDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath(`(mnist::BinaryImage28(0)::new_zeros`, `AssocRitchie(
+                                                                        path: TypeItemPath(`<mnist::BinaryImage28(0)>::new_zeros`, `AssocRitchie(
                                                                             Fn,
                                                                         )`),
                                                                         disambiguator: 0,
@@ -1135,31 +1087,13 @@ SynDeclSheet {
         (
             ItemPath::ImplBlock(
                 ImplBlockPath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlock {
-                        data: TraitForTypeImplBlockPathData {
-                            module_path: `mnist`,
-                            trai_path: TraitPath(`core::ops::IntIndex`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`mnist::BinaryImage28`, `Extern`),
-                            ),
-                            disambiguator: 0,
-                        },
-                    },
+                    mnist::BinaryImage28 as core::ops::IntIndex(0),
                 ),
             ),
             SynDecl::ImplBlock(
                 ImplBlockSynDecl::TraitForType(
                     TraitForTypeImplBlockSynDecl {
-                        path: TraitForTypeImplBlock {
-                            data: TraitForTypeImplBlockPathData {
-                                module_path: `mnist`,
-                                trai_path: TraitPath(`core::ops::IntIndex`),
-                                ty_sketch: TypeSketch::Path(
-                                    TypePath(`mnist::BinaryImage28`, `Extern`),
-                                ),
-                                disambiguator: 0,
-                            },
-                        },
+                        path: mnist::BinaryImage28 as core::ops::IntIndex(0),
                         template_parameters: [],
                         trai_expr: TraitSyndicate {
                             syn_expr_idx: 1,
@@ -1180,16 +1114,7 @@ SynDeclSheet {
                                                     data: ItemSynNodePathData::ImplBlock(
                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                path: TraitForTypeImplBlock {
-                                                                    data: TraitForTypeImplBlockPathData {
-                                                                        module_path: `mnist`,
-                                                                        trai_path: TraitPath(`core::ops::IntIndex`),
-                                                                        ty_sketch: TypeSketch::Path(
-                                                                            TypePath(`mnist::BinaryImage28`, `Extern`),
-                                                                        ),
-                                                                        disambiguator: 0,
-                                                                    },
-                                                                },
+                                                                path: mnist::BinaryImage28 as core::ops::IntIndex(0),
                                                             },
                                                         ),
                                                     ),
@@ -1350,26 +1275,14 @@ SynDeclSheet {
         (
             ItemPath::AssocItem(
                 AssocItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 155,
-                            },
-                        ),
-                    ),
+                    TraitForTypeItemPath(`<mnist::BinaryImage28 as core::ops::IntIndex(0)>::Output`, `AssocType`),
                 ),
             ),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TraitForTypeItem(
                     TraitForTypeItemSynDecl::AssocType(
                         TraitForTypeAssocTypeSynDecl {
-                            path: TraitForTypeItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 155,
-                                    },
-                                ),
-                            ),
+                            path: TraitForTypeItemPath(`<mnist::BinaryImage28 as core::ops::IntIndex(0)>::Output`, `AssocType`),
                             template_parameters: [],
                             ty_term_expr_idx: 1,
                             syn_expr_region: SynExprRegion {
@@ -1386,16 +1299,7 @@ SynDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                                path: TraitForTypeImplBlock {
-                                                                                    data: TraitForTypeImplBlockPathData {
-                                                                                        module_path: `mnist`,
-                                                                                        trai_path: TraitPath(`core::ops::IntIndex`),
-                                                                                        ty_sketch: TypeSketch::Path(
-                                                                                            TypePath(`mnist::BinaryImage28`, `Extern`),
-                                                                                        ),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                },
+                                                                                path: mnist::BinaryImage28 as core::ops::IntIndex(0),
                                                                             },
                                                                         ),
                                                                     ),
@@ -1559,13 +1463,7 @@ SynDeclSheet {
                                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                                 TraitForTypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TraitForTypeItemPath(
-                                                                            ItemPathId(
-                                                                                Id {
-                                                                                    value: 155,
-                                                                                },
-                                                                            ),
-                                                                        ),
+                                                                        path: TraitForTypeItemPath(`<mnist::BinaryImage28 as core::ops::IntIndex(0)>::Output`, `AssocType`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -1658,31 +1556,13 @@ SynDeclSheet {
         (
             ItemPath::ImplBlock(
                 ImplBlockPath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlock {
-                        data: TraitForTypeImplBlockPathData {
-                            module_path: `mnist`,
-                            trai_path: TraitPath(`core::visual::Visualize`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`mnist::BinaryGrid28`, `Extern`),
-                            ),
-                            disambiguator: 0,
-                        },
-                    },
+                    mnist::BinaryGrid28 as core::visual::Visualize(0),
                 ),
             ),
             SynDecl::ImplBlock(
                 ImplBlockSynDecl::TraitForType(
                     TraitForTypeImplBlockSynDecl {
-                        path: TraitForTypeImplBlock {
-                            data: TraitForTypeImplBlockPathData {
-                                module_path: `mnist`,
-                                trai_path: TraitPath(`core::visual::Visualize`),
-                                ty_sketch: TypeSketch::Path(
-                                    TypePath(`mnist::BinaryGrid28`, `Extern`),
-                                ),
-                                disambiguator: 0,
-                            },
-                        },
+                        path: mnist::BinaryGrid28 as core::visual::Visualize(0),
                         template_parameters: [],
                         trai_expr: TraitSyndicate {
                             syn_expr_idx: 1,
@@ -1703,16 +1583,7 @@ SynDeclSheet {
                                                     data: ItemSynNodePathData::ImplBlock(
                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                path: TraitForTypeImplBlock {
-                                                                    data: TraitForTypeImplBlockPathData {
-                                                                        module_path: `mnist`,
-                                                                        trai_path: TraitPath(`core::visual::Visualize`),
-                                                                        ty_sketch: TypeSketch::Path(
-                                                                            TypePath(`mnist::BinaryGrid28`, `Extern`),
-                                                                        ),
-                                                                        disambiguator: 0,
-                                                                    },
-                                                                },
+                                                                path: mnist::BinaryGrid28 as core::visual::Visualize(0),
                                                             },
                                                         ),
                                                     ),
@@ -1831,26 +1702,18 @@ SynDeclSheet {
         (
             ItemPath::AssocItem(
                 AssocItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 156,
-                            },
-                        ),
-                    ),
+                    TraitForTypeItemPath(`<mnist::BinaryGrid28 as core::visual::Visualize(0)>::visualize`, `MethodRitchie(
+                        Fn,
+                    )`),
                 ),
             ),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TraitForTypeItem(
                     TraitForTypeItemSynDecl::MethodFn(
                         TraitForTypeMethodFnSynDecl {
-                            path: TraitForTypeItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 156,
-                                    },
-                                ),
-                            ),
+                            path: TraitForTypeItemPath(`<mnist::BinaryGrid28 as core::visual::Visualize(0)>::visualize`, `MethodRitchie(
+                                Fn,
+                            )`),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [],
@@ -1873,16 +1736,7 @@ SynDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                                path: TraitForTypeImplBlock {
-                                                                                    data: TraitForTypeImplBlockPathData {
-                                                                                        module_path: `mnist`,
-                                                                                        trai_path: TraitPath(`core::visual::Visualize`),
-                                                                                        ty_sketch: TypeSketch::Path(
-                                                                                            TypePath(`mnist::BinaryGrid28`, `Extern`),
-                                                                                        ),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                },
+                                                                                path: mnist::BinaryGrid28 as core::visual::Visualize(0),
                                                                             },
                                                                         ),
                                                                     ),
@@ -2004,13 +1858,9 @@ SynDeclSheet {
                                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                                 TraitForTypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TraitForTypeItemPath(
-                                                                            ItemPathId(
-                                                                                Id {
-                                                                                    value: 156,
-                                                                                },
-                                                                            ),
-                                                                        ),
+                                                                        path: TraitForTypeItemPath(`<mnist::BinaryGrid28 as core::visual::Visualize(0)>::visualize`, `MethodRitchie(
+                                                                            Fn,
+                                                                        )`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -2233,7 +2083,7 @@ SynDeclSheet {
         (
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`(mnist::BinaryGrid28(0)::new_zeros`, `AssocRitchie(
+                    TypeItemPath(`<mnist::BinaryGrid28(0)>::new_zeros`, `AssocRitchie(
                         Fn,
                     )`),
                 ),
@@ -2242,7 +2092,7 @@ SynDeclSheet {
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::AssocFn(
                         TypeAssocFnSynDecl {
-                            path: TypeItemPath(`(mnist::BinaryGrid28(0)::new_zeros`, `AssocRitchie(
+                            path: TypeItemPath(`<mnist::BinaryGrid28(0)>::new_zeros`, `AssocRitchie(
                                 Fn,
                             )`),
                             template_parameters: [],
@@ -2365,7 +2215,7 @@ SynDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath(`(mnist::BinaryGrid28(0)::new_zeros`, `AssocRitchie(
+                                                                        path: TypeItemPath(`<mnist::BinaryGrid28(0)>::new_zeros`, `AssocRitchie(
                                                                             Fn,
                                                                         )`),
                                                                         disambiguator: 0,
@@ -2439,31 +2289,13 @@ SynDeclSheet {
         (
             ItemPath::ImplBlock(
                 ImplBlockPath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlock {
-                        data: TraitForTypeImplBlockPathData {
-                            module_path: `mnist`,
-                            trai_path: TraitPath(`core::ops::IntIndex`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`mnist::BinaryGrid28`, `Extern`),
-                            ),
-                            disambiguator: 0,
-                        },
-                    },
+                    mnist::BinaryGrid28 as core::ops::IntIndex(0),
                 ),
             ),
             SynDecl::ImplBlock(
                 ImplBlockSynDecl::TraitForType(
                     TraitForTypeImplBlockSynDecl {
-                        path: TraitForTypeImplBlock {
-                            data: TraitForTypeImplBlockPathData {
-                                module_path: `mnist`,
-                                trai_path: TraitPath(`core::ops::IntIndex`),
-                                ty_sketch: TypeSketch::Path(
-                                    TypePath(`mnist::BinaryGrid28`, `Extern`),
-                                ),
-                                disambiguator: 0,
-                            },
-                        },
+                        path: mnist::BinaryGrid28 as core::ops::IntIndex(0),
                         template_parameters: [],
                         trai_expr: TraitSyndicate {
                             syn_expr_idx: 1,
@@ -2484,16 +2316,7 @@ SynDeclSheet {
                                                     data: ItemSynNodePathData::ImplBlock(
                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                path: TraitForTypeImplBlock {
-                                                                    data: TraitForTypeImplBlockPathData {
-                                                                        module_path: `mnist`,
-                                                                        trai_path: TraitPath(`core::ops::IntIndex`),
-                                                                        ty_sketch: TypeSketch::Path(
-                                                                            TypePath(`mnist::BinaryGrid28`, `Extern`),
-                                                                        ),
-                                                                        disambiguator: 0,
-                                                                    },
-                                                                },
+                                                                path: mnist::BinaryGrid28 as core::ops::IntIndex(0),
                                                             },
                                                         ),
                                                     ),
@@ -2654,26 +2477,14 @@ SynDeclSheet {
         (
             ItemPath::AssocItem(
                 AssocItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 158,
-                            },
-                        ),
-                    ),
+                    TraitForTypeItemPath(`<mnist::BinaryGrid28 as core::ops::IntIndex(0)>::Output`, `AssocType`),
                 ),
             ),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TraitForTypeItem(
                     TraitForTypeItemSynDecl::AssocType(
                         TraitForTypeAssocTypeSynDecl {
-                            path: TraitForTypeItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 158,
-                                    },
-                                ),
-                            ),
+                            path: TraitForTypeItemPath(`<mnist::BinaryGrid28 as core::ops::IntIndex(0)>::Output`, `AssocType`),
                             template_parameters: [],
                             ty_term_expr_idx: 1,
                             syn_expr_region: SynExprRegion {
@@ -2690,16 +2501,7 @@ SynDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                                path: TraitForTypeImplBlock {
-                                                                                    data: TraitForTypeImplBlockPathData {
-                                                                                        module_path: `mnist`,
-                                                                                        trai_path: TraitPath(`core::ops::IntIndex`),
-                                                                                        ty_sketch: TypeSketch::Path(
-                                                                                            TypePath(`mnist::BinaryGrid28`, `Extern`),
-                                                                                        ),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                },
+                                                                                path: mnist::BinaryGrid28 as core::ops::IntIndex(0),
                                                                             },
                                                                         ),
                                                                     ),
@@ -2863,13 +2665,7 @@ SynDeclSheet {
                                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                                 TraitForTypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TraitForTypeItemPath(
-                                                                            ItemPathId(
-                                                                                Id {
-                                                                                    value: 158,
-                                                                                },
-                                                                            ),
-                                                                        ),
+                                                                        path: TraitForTypeItemPath(`<mnist::BinaryGrid28 as core::ops::IntIndex(0)>::Output`, `AssocType`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },

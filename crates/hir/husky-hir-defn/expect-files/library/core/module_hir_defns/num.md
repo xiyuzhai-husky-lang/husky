@@ -680,11 +680,11 @@
         AssocItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(`(core::num::i8(0)::abs`, `MethodRitchie(
+                    path: TypeItemPath(`<core::num::i8(0)>::abs`, `MethodRitchie(
                         Fn,
                     )`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(`(core::num::i8(0)::abs`, `MethodRitchie(
+                        path: TypeItemPath(`<core::num::i8(0)>::abs`, `MethodRitchie(
                             Fn,
                         )`),
                         template_parameters: HirTemplateParameters(
@@ -714,7 +714,7 @@
                             region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
-                                        TypeItemPath(`(core::num::i8(0)::abs`, `MethodRitchie(
+                                        TypeItemPath(`<core::num::i8(0)>::abs`, `MethodRitchie(
                                             Fn,
                                         )`),
                                     ),
@@ -758,11 +758,11 @@
         AssocItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(`(core::num::i8(0)::max`, `MethodRitchie(
+                    path: TypeItemPath(`<core::num::i8(0)>::max`, `MethodRitchie(
                         Fn,
                     )`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(`(core::num::i8(0)::max`, `MethodRitchie(
+                        path: TypeItemPath(`<core::num::i8(0)>::max`, `MethodRitchie(
                             Fn,
                         )`),
                         template_parameters: HirTemplateParameters(
@@ -804,7 +804,7 @@
                             region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
-                                        TypeItemPath(`(core::num::i8(0)::max`, `MethodRitchie(
+                                        TypeItemPath(`<core::num::i8(0)>::max`, `MethodRitchie(
                                             Fn,
                                         )`),
                                     ),
@@ -859,16 +859,7 @@
         ImplBlockHirDefn::TraitForType(
             TraitForTypeImplBlockHirDefn {
                 hir_decl: TraitForTypeImplBlockHirDecl {
-                    path: TraitForTypeImplBlock {
-                        data: TraitForTypeImplBlockPathData {
-                            module_path: `core::num`,
-                            trai_path: TraitPath(`core::ops::Add`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`core::num::i8`, `Extern`),
-                            ),
-                            disambiguator: 0,
-                        },
-                    },
+                    path: TraitForTypeImplBlockPath(`core::num::i8 as core::ops::Add(0)`),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -897,16 +888,7 @@
                         region_path: RegionPath::Decl(
                             ItemPath::ImplBlock(
                                 ImplBlockPath::TraitForTypeImplBlock(
-                                    TraitForTypeImplBlock {
-                                        data: TraitForTypeImplBlockPathData {
-                                            module_path: `core::num`,
-                                            trai_path: TraitPath(`core::ops::Add`),
-                                            ty_sketch: TypeSketch::Path(
-                                                TypePath(`core::num::i8`, `Extern`),
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
+                                    TraitForTypeImplBlockPath(`core::num::i8 as core::ops::Add(0)`),
                                 ),
                             ),
                         ),
@@ -939,21 +921,13 @@
         AssocItemHirDefn::TraitForTypeItem(
             TraitForTypeItemHirDefn::MethodFn(
                 TraitForTypeMethodFnHirDefn {
-                    path: TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 140,
-                            },
-                        ),
-                    ),
+                    path: TraitForTypeItemPath(`<core::num::i8 as core::ops::Add(0)>::add`, `MethodRitchie(
+                        Fn,
+                    )`),
                     hir_decl: TraitForTypeMethodFnHirDecl {
-                        path: TraitForTypeItemPath(
-                            ItemPathId(
-                                Id {
-                                    value: 140,
-                                },
-                            ),
-                        ),
+                        path: TraitForTypeItemPath(`<core::num::i8 as core::ops::Add(0)>::add`, `MethodRitchie(
+                            Fn,
+                        )`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -993,13 +967,9 @@
                             region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TraitForTypeItem(
-                                        TraitForTypeItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 140,
-                                                },
-                                            ),
-                                        ),
+                                        TraitForTypeItemPath(`<core::num::i8 as core::ops::Add(0)>::add`, `MethodRitchie(
+                                            Fn,
+                                        )`),
                                     ),
                                 ),
                             ),
@@ -1112,11 +1082,11 @@
         AssocItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(`(core::num::i16(0)::abs`, `MethodRitchie(
+                    path: TypeItemPath(`<core::num::i16(0)>::abs`, `MethodRitchie(
                         Fn,
                     )`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(`(core::num::i16(0)::abs`, `MethodRitchie(
+                        path: TypeItemPath(`<core::num::i16(0)>::abs`, `MethodRitchie(
                             Fn,
                         )`),
                         template_parameters: HirTemplateParameters(
@@ -1146,7 +1116,7 @@
                             region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
-                                        TypeItemPath(`(core::num::i16(0)::abs`, `MethodRitchie(
+                                        TypeItemPath(`<core::num::i16(0)>::abs`, `MethodRitchie(
                                             Fn,
                                         )`),
                                     ),
@@ -1190,11 +1160,11 @@
         AssocItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(`(core::num::i16(0)::max`, `MethodRitchie(
+                    path: TypeItemPath(`<core::num::i16(0)>::max`, `MethodRitchie(
                         Fn,
                     )`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(`(core::num::i16(0)::max`, `MethodRitchie(
+                        path: TypeItemPath(`<core::num::i16(0)>::max`, `MethodRitchie(
                             Fn,
                         )`),
                         template_parameters: HirTemplateParameters(
@@ -1236,7 +1206,7 @@
                             region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
-                                        TypeItemPath(`(core::num::i16(0)::max`, `MethodRitchie(
+                                        TypeItemPath(`<core::num::i16(0)>::max`, `MethodRitchie(
                                             Fn,
                                         )`),
                                     ),
@@ -1291,16 +1261,7 @@
         ImplBlockHirDefn::TraitForType(
             TraitForTypeImplBlockHirDefn {
                 hir_decl: TraitForTypeImplBlockHirDecl {
-                    path: TraitForTypeImplBlock {
-                        data: TraitForTypeImplBlockPathData {
-                            module_path: `core::num`,
-                            trai_path: TraitPath(`core::ops::Add`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`core::num::i16`, `Extern`),
-                            ),
-                            disambiguator: 0,
-                        },
-                    },
+                    path: TraitForTypeImplBlockPath(`core::num::i16 as core::ops::Add(0)`),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -1329,16 +1290,7 @@
                         region_path: RegionPath::Decl(
                             ItemPath::ImplBlock(
                                 ImplBlockPath::TraitForTypeImplBlock(
-                                    TraitForTypeImplBlock {
-                                        data: TraitForTypeImplBlockPathData {
-                                            module_path: `core::num`,
-                                            trai_path: TraitPath(`core::ops::Add`),
-                                            ty_sketch: TypeSketch::Path(
-                                                TypePath(`core::num::i16`, `Extern`),
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
+                                    TraitForTypeImplBlockPath(`core::num::i16 as core::ops::Add(0)`),
                                 ),
                             ),
                         ),
@@ -1371,21 +1323,13 @@
         AssocItemHirDefn::TraitForTypeItem(
             TraitForTypeItemHirDefn::MethodFn(
                 TraitForTypeMethodFnHirDefn {
-                    path: TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 143,
-                            },
-                        ),
-                    ),
+                    path: TraitForTypeItemPath(`<core::num::i16 as core::ops::Add(0)>::add`, `MethodRitchie(
+                        Fn,
+                    )`),
                     hir_decl: TraitForTypeMethodFnHirDecl {
-                        path: TraitForTypeItemPath(
-                            ItemPathId(
-                                Id {
-                                    value: 143,
-                                },
-                            ),
-                        ),
+                        path: TraitForTypeItemPath(`<core::num::i16 as core::ops::Add(0)>::add`, `MethodRitchie(
+                            Fn,
+                        )`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -1425,13 +1369,9 @@
                             region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TraitForTypeItem(
-                                        TraitForTypeItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 143,
-                                                },
-                                            ),
-                                        ),
+                                        TraitForTypeItemPath(`<core::num::i16 as core::ops::Add(0)>::add`, `MethodRitchie(
+                                            Fn,
+                                        )`),
                                     ),
                                 ),
                             ),
@@ -1544,11 +1484,11 @@
         AssocItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(`(core::num::i32(0)::abs`, `MethodRitchie(
+                    path: TypeItemPath(`<core::num::i32(0)>::abs`, `MethodRitchie(
                         Fn,
                     )`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(`(core::num::i32(0)::abs`, `MethodRitchie(
+                        path: TypeItemPath(`<core::num::i32(0)>::abs`, `MethodRitchie(
                             Fn,
                         )`),
                         template_parameters: HirTemplateParameters(
@@ -1578,7 +1518,7 @@
                             region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
-                                        TypeItemPath(`(core::num::i32(0)::abs`, `MethodRitchie(
+                                        TypeItemPath(`<core::num::i32(0)>::abs`, `MethodRitchie(
                                             Fn,
                                         )`),
                                     ),
@@ -1622,11 +1562,11 @@
         AssocItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(`(core::num::i32(0)::max`, `MethodRitchie(
+                    path: TypeItemPath(`<core::num::i32(0)>::max`, `MethodRitchie(
                         Fn,
                     )`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(`(core::num::i32(0)::max`, `MethodRitchie(
+                        path: TypeItemPath(`<core::num::i32(0)>::max`, `MethodRitchie(
                             Fn,
                         )`),
                         template_parameters: HirTemplateParameters(
@@ -1668,7 +1608,7 @@
                             region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
-                                        TypeItemPath(`(core::num::i32(0)::max`, `MethodRitchie(
+                                        TypeItemPath(`<core::num::i32(0)>::max`, `MethodRitchie(
                                             Fn,
                                         )`),
                                     ),
@@ -1723,11 +1663,11 @@
         AssocItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(`(core::num::i32(0)::min`, `MethodRitchie(
+                    path: TypeItemPath(`<core::num::i32(0)>::min`, `MethodRitchie(
                         Fn,
                     )`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(`(core::num::i32(0)::min`, `MethodRitchie(
+                        path: TypeItemPath(`<core::num::i32(0)>::min`, `MethodRitchie(
                             Fn,
                         )`),
                         template_parameters: HirTemplateParameters(
@@ -1769,7 +1709,7 @@
                             region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
-                                        TypeItemPath(`(core::num::i32(0)::min`, `MethodRitchie(
+                                        TypeItemPath(`<core::num::i32(0)>::min`, `MethodRitchie(
                                             Fn,
                                         )`),
                                     ),
@@ -1824,16 +1764,7 @@
         ImplBlockHirDefn::TraitForType(
             TraitForTypeImplBlockHirDefn {
                 hir_decl: TraitForTypeImplBlockHirDecl {
-                    path: TraitForTypeImplBlock {
-                        data: TraitForTypeImplBlockPathData {
-                            module_path: `core::num`,
-                            trai_path: TraitPath(`core::ops::Add`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`core::num::i32`, `Extern`),
-                            ),
-                            disambiguator: 0,
-                        },
-                    },
+                    path: TraitForTypeImplBlockPath(`core::num::i32 as core::ops::Add(0)`),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -1862,16 +1793,7 @@
                         region_path: RegionPath::Decl(
                             ItemPath::ImplBlock(
                                 ImplBlockPath::TraitForTypeImplBlock(
-                                    TraitForTypeImplBlock {
-                                        data: TraitForTypeImplBlockPathData {
-                                            module_path: `core::num`,
-                                            trai_path: TraitPath(`core::ops::Add`),
-                                            ty_sketch: TypeSketch::Path(
-                                                TypePath(`core::num::i32`, `Extern`),
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
+                                    TraitForTypeImplBlockPath(`core::num::i32 as core::ops::Add(0)`),
                                 ),
                             ),
                         ),
@@ -1904,21 +1826,13 @@
         AssocItemHirDefn::TraitForTypeItem(
             TraitForTypeItemHirDefn::MethodFn(
                 TraitForTypeMethodFnHirDefn {
-                    path: TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 147,
-                            },
-                        ),
-                    ),
+                    path: TraitForTypeItemPath(`<core::num::i32 as core::ops::Add(0)>::add`, `MethodRitchie(
+                        Fn,
+                    )`),
                     hir_decl: TraitForTypeMethodFnHirDecl {
-                        path: TraitForTypeItemPath(
-                            ItemPathId(
-                                Id {
-                                    value: 147,
-                                },
-                            ),
-                        ),
+                        path: TraitForTypeItemPath(`<core::num::i32 as core::ops::Add(0)>::add`, `MethodRitchie(
+                            Fn,
+                        )`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -1958,13 +1872,9 @@
                             region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TraitForTypeItem(
-                                        TraitForTypeItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 147,
-                                                },
-                                            ),
-                                        ),
+                                        TraitForTypeItemPath(`<core::num::i32 as core::ops::Add(0)>::add`, `MethodRitchie(
+                                            Fn,
+                                        )`),
                                     ),
                                 ),
                             ),
@@ -2077,11 +1987,11 @@
         AssocItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(`(core::num::i64(0)::abs`, `MethodRitchie(
+                    path: TypeItemPath(`<core::num::i64(0)>::abs`, `MethodRitchie(
                         Fn,
                     )`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(`(core::num::i64(0)::abs`, `MethodRitchie(
+                        path: TypeItemPath(`<core::num::i64(0)>::abs`, `MethodRitchie(
                             Fn,
                         )`),
                         template_parameters: HirTemplateParameters(
@@ -2111,7 +2021,7 @@
                             region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
-                                        TypeItemPath(`(core::num::i64(0)::abs`, `MethodRitchie(
+                                        TypeItemPath(`<core::num::i64(0)>::abs`, `MethodRitchie(
                                             Fn,
                                         )`),
                                     ),
@@ -2155,16 +2065,7 @@
         ImplBlockHirDefn::TraitForType(
             TraitForTypeImplBlockHirDefn {
                 hir_decl: TraitForTypeImplBlockHirDecl {
-                    path: TraitForTypeImplBlock {
-                        data: TraitForTypeImplBlockPathData {
-                            module_path: `core::num`,
-                            trai_path: TraitPath(`core::ops::Add`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`core::num::i64`, `Extern`),
-                            ),
-                            disambiguator: 0,
-                        },
-                    },
+                    path: TraitForTypeImplBlockPath(`core::num::i64 as core::ops::Add(0)`),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -2193,16 +2094,7 @@
                         region_path: RegionPath::Decl(
                             ItemPath::ImplBlock(
                                 ImplBlockPath::TraitForTypeImplBlock(
-                                    TraitForTypeImplBlock {
-                                        data: TraitForTypeImplBlockPathData {
-                                            module_path: `core::num`,
-                                            trai_path: TraitPath(`core::ops::Add`),
-                                            ty_sketch: TypeSketch::Path(
-                                                TypePath(`core::num::i64`, `Extern`),
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
+                                    TraitForTypeImplBlockPath(`core::num::i64 as core::ops::Add(0)`),
                                 ),
                             ),
                         ),
@@ -2235,21 +2127,13 @@
         AssocItemHirDefn::TraitForTypeItem(
             TraitForTypeItemHirDefn::MethodFn(
                 TraitForTypeMethodFnHirDefn {
-                    path: TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 149,
-                            },
-                        ),
-                    ),
+                    path: TraitForTypeItemPath(`<core::num::i64 as core::ops::Add(0)>::add`, `MethodRitchie(
+                        Fn,
+                    )`),
                     hir_decl: TraitForTypeMethodFnHirDecl {
-                        path: TraitForTypeItemPath(
-                            ItemPathId(
-                                Id {
-                                    value: 149,
-                                },
-                            ),
-                        ),
+                        path: TraitForTypeItemPath(`<core::num::i64 as core::ops::Add(0)>::add`, `MethodRitchie(
+                            Fn,
+                        )`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -2289,13 +2173,9 @@
                             region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TraitForTypeItem(
-                                        TraitForTypeItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 149,
-                                                },
-                                            ),
-                                        ),
+                                        TraitForTypeItemPath(`<core::num::i64 as core::ops::Add(0)>::add`, `MethodRitchie(
+                                            Fn,
+                                        )`),
                                     ),
                                 ),
                             ),
@@ -2408,11 +2288,11 @@
         AssocItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(`(core::num::i128(0)::abs`, `MethodRitchie(
+                    path: TypeItemPath(`<core::num::i128(0)>::abs`, `MethodRitchie(
                         Fn,
                     )`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(`(core::num::i128(0)::abs`, `MethodRitchie(
+                        path: TypeItemPath(`<core::num::i128(0)>::abs`, `MethodRitchie(
                             Fn,
                         )`),
                         template_parameters: HirTemplateParameters(
@@ -2442,7 +2322,7 @@
                             region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
-                                        TypeItemPath(`(core::num::i128(0)::abs`, `MethodRitchie(
+                                        TypeItemPath(`<core::num::i128(0)>::abs`, `MethodRitchie(
                                             Fn,
                                         )`),
                                     ),
@@ -2486,16 +2366,7 @@
         ImplBlockHirDefn::TraitForType(
             TraitForTypeImplBlockHirDefn {
                 hir_decl: TraitForTypeImplBlockHirDecl {
-                    path: TraitForTypeImplBlock {
-                        data: TraitForTypeImplBlockPathData {
-                            module_path: `core::num`,
-                            trai_path: TraitPath(`core::ops::Add`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`core::num::i128`, `Extern`),
-                            ),
-                            disambiguator: 0,
-                        },
-                    },
+                    path: TraitForTypeImplBlockPath(`core::num::i128 as core::ops::Add(0)`),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -2524,16 +2395,7 @@
                         region_path: RegionPath::Decl(
                             ItemPath::ImplBlock(
                                 ImplBlockPath::TraitForTypeImplBlock(
-                                    TraitForTypeImplBlock {
-                                        data: TraitForTypeImplBlockPathData {
-                                            module_path: `core::num`,
-                                            trai_path: TraitPath(`core::ops::Add`),
-                                            ty_sketch: TypeSketch::Path(
-                                                TypePath(`core::num::i128`, `Extern`),
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
+                                    TraitForTypeImplBlockPath(`core::num::i128 as core::ops::Add(0)`),
                                 ),
                             ),
                         ),
@@ -2566,21 +2428,13 @@
         AssocItemHirDefn::TraitForTypeItem(
             TraitForTypeItemHirDefn::MethodFn(
                 TraitForTypeMethodFnHirDefn {
-                    path: TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 151,
-                            },
-                        ),
-                    ),
+                    path: TraitForTypeItemPath(`<core::num::i128 as core::ops::Add(0)>::add`, `MethodRitchie(
+                        Fn,
+                    )`),
                     hir_decl: TraitForTypeMethodFnHirDecl {
-                        path: TraitForTypeItemPath(
-                            ItemPathId(
-                                Id {
-                                    value: 151,
-                                },
-                            ),
-                        ),
+                        path: TraitForTypeItemPath(`<core::num::i128 as core::ops::Add(0)>::add`, `MethodRitchie(
+                            Fn,
+                        )`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -2620,13 +2474,9 @@
                             region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TraitForTypeItem(
-                                        TraitForTypeItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 151,
-                                                },
-                                            ),
-                                        ),
+                                        TraitForTypeItemPath(`<core::num::i128 as core::ops::Add(0)>::add`, `MethodRitchie(
+                                            Fn,
+                                        )`),
                                     ),
                                 ),
                             ),
@@ -2739,11 +2589,11 @@
         AssocItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(`(core::num::isize(0)::abs`, `MethodRitchie(
+                    path: TypeItemPath(`<core::num::isize(0)>::abs`, `MethodRitchie(
                         Fn,
                     )`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(`(core::num::isize(0)::abs`, `MethodRitchie(
+                        path: TypeItemPath(`<core::num::isize(0)>::abs`, `MethodRitchie(
                             Fn,
                         )`),
                         template_parameters: HirTemplateParameters(
@@ -2773,7 +2623,7 @@
                             region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
-                                        TypeItemPath(`(core::num::isize(0)::abs`, `MethodRitchie(
+                                        TypeItemPath(`<core::num::isize(0)>::abs`, `MethodRitchie(
                                             Fn,
                                         )`),
                                     ),
@@ -2817,16 +2667,7 @@
         ImplBlockHirDefn::TraitForType(
             TraitForTypeImplBlockHirDefn {
                 hir_decl: TraitForTypeImplBlockHirDecl {
-                    path: TraitForTypeImplBlock {
-                        data: TraitForTypeImplBlockPathData {
-                            module_path: `core::num`,
-                            trai_path: TraitPath(`core::ops::Add`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`core::num::isize`, `Extern`),
-                            ),
-                            disambiguator: 0,
-                        },
-                    },
+                    path: TraitForTypeImplBlockPath(`core::num::isize as core::ops::Add(0)`),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -2855,16 +2696,7 @@
                         region_path: RegionPath::Decl(
                             ItemPath::ImplBlock(
                                 ImplBlockPath::TraitForTypeImplBlock(
-                                    TraitForTypeImplBlock {
-                                        data: TraitForTypeImplBlockPathData {
-                                            module_path: `core::num`,
-                                            trai_path: TraitPath(`core::ops::Add`),
-                                            ty_sketch: TypeSketch::Path(
-                                                TypePath(`core::num::isize`, `Extern`),
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
+                                    TraitForTypeImplBlockPath(`core::num::isize as core::ops::Add(0)`),
                                 ),
                             ),
                         ),
@@ -2897,21 +2729,13 @@
         AssocItemHirDefn::TraitForTypeItem(
             TraitForTypeItemHirDefn::MethodFn(
                 TraitForTypeMethodFnHirDefn {
-                    path: TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 153,
-                            },
-                        ),
-                    ),
+                    path: TraitForTypeItemPath(`<core::num::isize as core::ops::Add(0)>::add`, `MethodRitchie(
+                        Fn,
+                    )`),
                     hir_decl: TraitForTypeMethodFnHirDecl {
-                        path: TraitForTypeItemPath(
-                            ItemPathId(
-                                Id {
-                                    value: 153,
-                                },
-                            ),
-                        ),
+                        path: TraitForTypeItemPath(`<core::num::isize as core::ops::Add(0)>::add`, `MethodRitchie(
+                            Fn,
+                        )`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -2951,13 +2775,9 @@
                             region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TraitForTypeItem(
-                                        TraitForTypeItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 153,
-                                                },
-                                            ),
-                                        ),
+                                        TraitForTypeItemPath(`<core::num::isize as core::ops::Add(0)>::add`, `MethodRitchie(
+                                            Fn,
+                                        )`),
                                     ),
                                 ),
                             ),
@@ -3070,11 +2890,11 @@
         AssocItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(`(core::num::u8(0)::abs`, `MethodRitchie(
+                    path: TypeItemPath(`<core::num::u8(0)>::abs`, `MethodRitchie(
                         Fn,
                     )`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(`(core::num::u8(0)::abs`, `MethodRitchie(
+                        path: TypeItemPath(`<core::num::u8(0)>::abs`, `MethodRitchie(
                             Fn,
                         )`),
                         template_parameters: HirTemplateParameters(
@@ -3104,7 +2924,7 @@
                             region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
-                                        TypeItemPath(`(core::num::u8(0)::abs`, `MethodRitchie(
+                                        TypeItemPath(`<core::num::u8(0)>::abs`, `MethodRitchie(
                                             Fn,
                                         )`),
                                     ),
@@ -3148,16 +2968,7 @@
         ImplBlockHirDefn::TraitForType(
             TraitForTypeImplBlockHirDefn {
                 hir_decl: TraitForTypeImplBlockHirDecl {
-                    path: TraitForTypeImplBlock {
-                        data: TraitForTypeImplBlockPathData {
-                            module_path: `core::num`,
-                            trai_path: TraitPath(`core::ops::Add`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`core::num::u8`, `Extern`),
-                            ),
-                            disambiguator: 0,
-                        },
-                    },
+                    path: TraitForTypeImplBlockPath(`core::num::u8 as core::ops::Add(0)`),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -3186,16 +2997,7 @@
                         region_path: RegionPath::Decl(
                             ItemPath::ImplBlock(
                                 ImplBlockPath::TraitForTypeImplBlock(
-                                    TraitForTypeImplBlock {
-                                        data: TraitForTypeImplBlockPathData {
-                                            module_path: `core::num`,
-                                            trai_path: TraitPath(`core::ops::Add`),
-                                            ty_sketch: TypeSketch::Path(
-                                                TypePath(`core::num::u8`, `Extern`),
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
+                                    TraitForTypeImplBlockPath(`core::num::u8 as core::ops::Add(0)`),
                                 ),
                             ),
                         ),
@@ -3228,21 +3030,13 @@
         AssocItemHirDefn::TraitForTypeItem(
             TraitForTypeItemHirDefn::MethodFn(
                 TraitForTypeMethodFnHirDefn {
-                    path: TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 155,
-                            },
-                        ),
-                    ),
+                    path: TraitForTypeItemPath(`<core::num::u8 as core::ops::Add(0)>::add`, `MethodRitchie(
+                        Fn,
+                    )`),
                     hir_decl: TraitForTypeMethodFnHirDecl {
-                        path: TraitForTypeItemPath(
-                            ItemPathId(
-                                Id {
-                                    value: 155,
-                                },
-                            ),
-                        ),
+                        path: TraitForTypeItemPath(`<core::num::u8 as core::ops::Add(0)>::add`, `MethodRitchie(
+                            Fn,
+                        )`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -3282,13 +3076,9 @@
                             region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TraitForTypeItem(
-                                        TraitForTypeItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 155,
-                                                },
-                                            ),
-                                        ),
+                                        TraitForTypeItemPath(`<core::num::u8 as core::ops::Add(0)>::add`, `MethodRitchie(
+                                            Fn,
+                                        )`),
                                     ),
                                 ),
                             ),
@@ -3401,11 +3191,11 @@
         AssocItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(`(core::num::u16(0)::abs`, `MethodRitchie(
+                    path: TypeItemPath(`<core::num::u16(0)>::abs`, `MethodRitchie(
                         Fn,
                     )`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(`(core::num::u16(0)::abs`, `MethodRitchie(
+                        path: TypeItemPath(`<core::num::u16(0)>::abs`, `MethodRitchie(
                             Fn,
                         )`),
                         template_parameters: HirTemplateParameters(
@@ -3435,7 +3225,7 @@
                             region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
-                                        TypeItemPath(`(core::num::u16(0)::abs`, `MethodRitchie(
+                                        TypeItemPath(`<core::num::u16(0)>::abs`, `MethodRitchie(
                                             Fn,
                                         )`),
                                     ),
@@ -3479,16 +3269,7 @@
         ImplBlockHirDefn::TraitForType(
             TraitForTypeImplBlockHirDefn {
                 hir_decl: TraitForTypeImplBlockHirDecl {
-                    path: TraitForTypeImplBlock {
-                        data: TraitForTypeImplBlockPathData {
-                            module_path: `core::num`,
-                            trai_path: TraitPath(`core::ops::Add`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`core::num::u16`, `Extern`),
-                            ),
-                            disambiguator: 0,
-                        },
-                    },
+                    path: TraitForTypeImplBlockPath(`core::num::u16 as core::ops::Add(0)`),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -3517,16 +3298,7 @@
                         region_path: RegionPath::Decl(
                             ItemPath::ImplBlock(
                                 ImplBlockPath::TraitForTypeImplBlock(
-                                    TraitForTypeImplBlock {
-                                        data: TraitForTypeImplBlockPathData {
-                                            module_path: `core::num`,
-                                            trai_path: TraitPath(`core::ops::Add`),
-                                            ty_sketch: TypeSketch::Path(
-                                                TypePath(`core::num::u16`, `Extern`),
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
+                                    TraitForTypeImplBlockPath(`core::num::u16 as core::ops::Add(0)`),
                                 ),
                             ),
                         ),
@@ -3559,21 +3331,13 @@
         AssocItemHirDefn::TraitForTypeItem(
             TraitForTypeItemHirDefn::MethodFn(
                 TraitForTypeMethodFnHirDefn {
-                    path: TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 157,
-                            },
-                        ),
-                    ),
+                    path: TraitForTypeItemPath(`<core::num::u16 as core::ops::Add(0)>::add`, `MethodRitchie(
+                        Fn,
+                    )`),
                     hir_decl: TraitForTypeMethodFnHirDecl {
-                        path: TraitForTypeItemPath(
-                            ItemPathId(
-                                Id {
-                                    value: 157,
-                                },
-                            ),
-                        ),
+                        path: TraitForTypeItemPath(`<core::num::u16 as core::ops::Add(0)>::add`, `MethodRitchie(
+                            Fn,
+                        )`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -3613,13 +3377,9 @@
                             region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TraitForTypeItem(
-                                        TraitForTypeItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 157,
-                                                },
-                                            ),
-                                        ),
+                                        TraitForTypeItemPath(`<core::num::u16 as core::ops::Add(0)>::add`, `MethodRitchie(
+                                            Fn,
+                                        )`),
                                     ),
                                 ),
                             ),
@@ -3732,11 +3492,11 @@
         AssocItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(`(core::num::u32(0)::abs`, `MethodRitchie(
+                    path: TypeItemPath(`<core::num::u32(0)>::abs`, `MethodRitchie(
                         Fn,
                     )`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(`(core::num::u32(0)::abs`, `MethodRitchie(
+                        path: TypeItemPath(`<core::num::u32(0)>::abs`, `MethodRitchie(
                             Fn,
                         )`),
                         template_parameters: HirTemplateParameters(
@@ -3766,7 +3526,7 @@
                             region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
-                                        TypeItemPath(`(core::num::u32(0)::abs`, `MethodRitchie(
+                                        TypeItemPath(`<core::num::u32(0)>::abs`, `MethodRitchie(
                                             Fn,
                                         )`),
                                     ),
@@ -3810,16 +3570,7 @@
         ImplBlockHirDefn::TraitForType(
             TraitForTypeImplBlockHirDefn {
                 hir_decl: TraitForTypeImplBlockHirDecl {
-                    path: TraitForTypeImplBlock {
-                        data: TraitForTypeImplBlockPathData {
-                            module_path: `core::num`,
-                            trai_path: TraitPath(`core::ops::Add`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`core::num::u32`, `Extern`),
-                            ),
-                            disambiguator: 0,
-                        },
-                    },
+                    path: TraitForTypeImplBlockPath(`core::num::u32 as core::ops::Add(0)`),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -3848,16 +3599,7 @@
                         region_path: RegionPath::Decl(
                             ItemPath::ImplBlock(
                                 ImplBlockPath::TraitForTypeImplBlock(
-                                    TraitForTypeImplBlock {
-                                        data: TraitForTypeImplBlockPathData {
-                                            module_path: `core::num`,
-                                            trai_path: TraitPath(`core::ops::Add`),
-                                            ty_sketch: TypeSketch::Path(
-                                                TypePath(`core::num::u32`, `Extern`),
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
+                                    TraitForTypeImplBlockPath(`core::num::u32 as core::ops::Add(0)`),
                                 ),
                             ),
                         ),
@@ -3890,21 +3632,13 @@
         AssocItemHirDefn::TraitForTypeItem(
             TraitForTypeItemHirDefn::MethodFn(
                 TraitForTypeMethodFnHirDefn {
-                    path: TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 159,
-                            },
-                        ),
-                    ),
+                    path: TraitForTypeItemPath(`<core::num::u32 as core::ops::Add(0)>::add`, `MethodRitchie(
+                        Fn,
+                    )`),
                     hir_decl: TraitForTypeMethodFnHirDecl {
-                        path: TraitForTypeItemPath(
-                            ItemPathId(
-                                Id {
-                                    value: 159,
-                                },
-                            ),
-                        ),
+                        path: TraitForTypeItemPath(`<core::num::u32 as core::ops::Add(0)>::add`, `MethodRitchie(
+                            Fn,
+                        )`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -3944,13 +3678,9 @@
                             region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TraitForTypeItem(
-                                        TraitForTypeItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 159,
-                                                },
-                                            ),
-                                        ),
+                                        TraitForTypeItemPath(`<core::num::u32 as core::ops::Add(0)>::add`, `MethodRitchie(
+                                            Fn,
+                                        )`),
                                     ),
                                 ),
                             ),
@@ -4063,11 +3793,11 @@
         AssocItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(`(core::num::u64(0)::abs`, `MethodRitchie(
+                    path: TypeItemPath(`<core::num::u64(0)>::abs`, `MethodRitchie(
                         Fn,
                     )`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(`(core::num::u64(0)::abs`, `MethodRitchie(
+                        path: TypeItemPath(`<core::num::u64(0)>::abs`, `MethodRitchie(
                             Fn,
                         )`),
                         template_parameters: HirTemplateParameters(
@@ -4097,7 +3827,7 @@
                             region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
-                                        TypeItemPath(`(core::num::u64(0)::abs`, `MethodRitchie(
+                                        TypeItemPath(`<core::num::u64(0)>::abs`, `MethodRitchie(
                                             Fn,
                                         )`),
                                     ),
@@ -4141,16 +3871,7 @@
         ImplBlockHirDefn::TraitForType(
             TraitForTypeImplBlockHirDefn {
                 hir_decl: TraitForTypeImplBlockHirDecl {
-                    path: TraitForTypeImplBlock {
-                        data: TraitForTypeImplBlockPathData {
-                            module_path: `core::num`,
-                            trai_path: TraitPath(`core::ops::Add`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`core::num::u64`, `Extern`),
-                            ),
-                            disambiguator: 0,
-                        },
-                    },
+                    path: TraitForTypeImplBlockPath(`core::num::u64 as core::ops::Add(0)`),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -4179,16 +3900,7 @@
                         region_path: RegionPath::Decl(
                             ItemPath::ImplBlock(
                                 ImplBlockPath::TraitForTypeImplBlock(
-                                    TraitForTypeImplBlock {
-                                        data: TraitForTypeImplBlockPathData {
-                                            module_path: `core::num`,
-                                            trai_path: TraitPath(`core::ops::Add`),
-                                            ty_sketch: TypeSketch::Path(
-                                                TypePath(`core::num::u64`, `Extern`),
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
+                                    TraitForTypeImplBlockPath(`core::num::u64 as core::ops::Add(0)`),
                                 ),
                             ),
                         ),
@@ -4221,21 +3933,13 @@
         AssocItemHirDefn::TraitForTypeItem(
             TraitForTypeItemHirDefn::MethodFn(
                 TraitForTypeMethodFnHirDefn {
-                    path: TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 161,
-                            },
-                        ),
-                    ),
+                    path: TraitForTypeItemPath(`<core::num::u64 as core::ops::Add(0)>::add`, `MethodRitchie(
+                        Fn,
+                    )`),
                     hir_decl: TraitForTypeMethodFnHirDecl {
-                        path: TraitForTypeItemPath(
-                            ItemPathId(
-                                Id {
-                                    value: 161,
-                                },
-                            ),
-                        ),
+                        path: TraitForTypeItemPath(`<core::num::u64 as core::ops::Add(0)>::add`, `MethodRitchie(
+                            Fn,
+                        )`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -4275,13 +3979,9 @@
                             region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TraitForTypeItem(
-                                        TraitForTypeItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 161,
-                                                },
-                                            ),
-                                        ),
+                                        TraitForTypeItemPath(`<core::num::u64 as core::ops::Add(0)>::add`, `MethodRitchie(
+                                            Fn,
+                                        )`),
                                     ),
                                 ),
                             ),
@@ -4394,11 +4094,11 @@
         AssocItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(`(core::num::u128(0)::abs`, `MethodRitchie(
+                    path: TypeItemPath(`<core::num::u128(0)>::abs`, `MethodRitchie(
                         Fn,
                     )`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(`(core::num::u128(0)::abs`, `MethodRitchie(
+                        path: TypeItemPath(`<core::num::u128(0)>::abs`, `MethodRitchie(
                             Fn,
                         )`),
                         template_parameters: HirTemplateParameters(
@@ -4428,7 +4128,7 @@
                             region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
-                                        TypeItemPath(`(core::num::u128(0)::abs`, `MethodRitchie(
+                                        TypeItemPath(`<core::num::u128(0)>::abs`, `MethodRitchie(
                                             Fn,
                                         )`),
                                     ),
@@ -4472,16 +4172,7 @@
         ImplBlockHirDefn::TraitForType(
             TraitForTypeImplBlockHirDefn {
                 hir_decl: TraitForTypeImplBlockHirDecl {
-                    path: TraitForTypeImplBlock {
-                        data: TraitForTypeImplBlockPathData {
-                            module_path: `core::num`,
-                            trai_path: TraitPath(`core::ops::Add`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`core::num::u128`, `Extern`),
-                            ),
-                            disambiguator: 0,
-                        },
-                    },
+                    path: TraitForTypeImplBlockPath(`core::num::u128 as core::ops::Add(0)`),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -4510,16 +4201,7 @@
                         region_path: RegionPath::Decl(
                             ItemPath::ImplBlock(
                                 ImplBlockPath::TraitForTypeImplBlock(
-                                    TraitForTypeImplBlock {
-                                        data: TraitForTypeImplBlockPathData {
-                                            module_path: `core::num`,
-                                            trai_path: TraitPath(`core::ops::Add`),
-                                            ty_sketch: TypeSketch::Path(
-                                                TypePath(`core::num::u128`, `Extern`),
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
+                                    TraitForTypeImplBlockPath(`core::num::u128 as core::ops::Add(0)`),
                                 ),
                             ),
                         ),
@@ -4552,21 +4234,13 @@
         AssocItemHirDefn::TraitForTypeItem(
             TraitForTypeItemHirDefn::MethodFn(
                 TraitForTypeMethodFnHirDefn {
-                    path: TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 163,
-                            },
-                        ),
-                    ),
+                    path: TraitForTypeItemPath(`<core::num::u128 as core::ops::Add(0)>::add`, `MethodRitchie(
+                        Fn,
+                    )`),
                     hir_decl: TraitForTypeMethodFnHirDecl {
-                        path: TraitForTypeItemPath(
-                            ItemPathId(
-                                Id {
-                                    value: 163,
-                                },
-                            ),
-                        ),
+                        path: TraitForTypeItemPath(`<core::num::u128 as core::ops::Add(0)>::add`, `MethodRitchie(
+                            Fn,
+                        )`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -4606,13 +4280,9 @@
                             region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TraitForTypeItem(
-                                        TraitForTypeItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 163,
-                                                },
-                                            ),
-                                        ),
+                                        TraitForTypeItemPath(`<core::num::u128 as core::ops::Add(0)>::add`, `MethodRitchie(
+                                            Fn,
+                                        )`),
                                     ),
                                 ),
                             ),
@@ -4725,11 +4395,11 @@
         AssocItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(`(core::num::usize(0)::abs`, `MethodRitchie(
+                    path: TypeItemPath(`<core::num::usize(0)>::abs`, `MethodRitchie(
                         Fn,
                     )`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(`(core::num::usize(0)::abs`, `MethodRitchie(
+                        path: TypeItemPath(`<core::num::usize(0)>::abs`, `MethodRitchie(
                             Fn,
                         )`),
                         template_parameters: HirTemplateParameters(
@@ -4759,7 +4429,7 @@
                             region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
-                                        TypeItemPath(`(core::num::usize(0)::abs`, `MethodRitchie(
+                                        TypeItemPath(`<core::num::usize(0)>::abs`, `MethodRitchie(
                                             Fn,
                                         )`),
                                     ),
@@ -4803,16 +4473,7 @@
         ImplBlockHirDefn::TraitForType(
             TraitForTypeImplBlockHirDefn {
                 hir_decl: TraitForTypeImplBlockHirDecl {
-                    path: TraitForTypeImplBlock {
-                        data: TraitForTypeImplBlockPathData {
-                            module_path: `core::num`,
-                            trai_path: TraitPath(`core::ops::Add`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`core::num::usize`, `Extern`),
-                            ),
-                            disambiguator: 0,
-                        },
-                    },
+                    path: TraitForTypeImplBlockPath(`core::num::usize as core::ops::Add(0)`),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -4841,16 +4502,7 @@
                         region_path: RegionPath::Decl(
                             ItemPath::ImplBlock(
                                 ImplBlockPath::TraitForTypeImplBlock(
-                                    TraitForTypeImplBlock {
-                                        data: TraitForTypeImplBlockPathData {
-                                            module_path: `core::num`,
-                                            trai_path: TraitPath(`core::ops::Add`),
-                                            ty_sketch: TypeSketch::Path(
-                                                TypePath(`core::num::usize`, `Extern`),
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
+                                    TraitForTypeImplBlockPath(`core::num::usize as core::ops::Add(0)`),
                                 ),
                             ),
                         ),
@@ -4883,21 +4535,13 @@
         AssocItemHirDefn::TraitForTypeItem(
             TraitForTypeItemHirDefn::MethodFn(
                 TraitForTypeMethodFnHirDefn {
-                    path: TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 165,
-                            },
-                        ),
-                    ),
+                    path: TraitForTypeItemPath(`<core::num::usize as core::ops::Add(0)>::add`, `MethodRitchie(
+                        Fn,
+                    )`),
                     hir_decl: TraitForTypeMethodFnHirDecl {
-                        path: TraitForTypeItemPath(
-                            ItemPathId(
-                                Id {
-                                    value: 165,
-                                },
-                            ),
-                        ),
+                        path: TraitForTypeItemPath(`<core::num::usize as core::ops::Add(0)>::add`, `MethodRitchie(
+                            Fn,
+                        )`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -4937,13 +4581,9 @@
                             region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TraitForTypeItem(
-                                        TraitForTypeItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 165,
-                                                },
-                                            ),
-                                        ),
+                                        TraitForTypeItemPath(`<core::num::usize as core::ops::Add(0)>::add`, `MethodRitchie(
+                                            Fn,
+                                        )`),
                                     ),
                                 ),
                             ),
@@ -5056,11 +4696,11 @@
         AssocItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(`(core::num::f32(0)::abs`, `MethodRitchie(
+                    path: TypeItemPath(`<core::num::f32(0)>::abs`, `MethodRitchie(
                         Fn,
                     )`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(`(core::num::f32(0)::abs`, `MethodRitchie(
+                        path: TypeItemPath(`<core::num::f32(0)>::abs`, `MethodRitchie(
                             Fn,
                         )`),
                         template_parameters: HirTemplateParameters(
@@ -5090,7 +4730,7 @@
                             region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
-                                        TypeItemPath(`(core::num::f32(0)::abs`, `MethodRitchie(
+                                        TypeItemPath(`<core::num::f32(0)>::abs`, `MethodRitchie(
                                             Fn,
                                         )`),
                                     ),
@@ -5134,11 +4774,11 @@
         AssocItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(`(core::num::f32(0)::sqrt`, `MethodRitchie(
+                    path: TypeItemPath(`<core::num::f32(0)>::sqrt`, `MethodRitchie(
                         Fn,
                     )`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(`(core::num::f32(0)::sqrt`, `MethodRitchie(
+                        path: TypeItemPath(`<core::num::f32(0)>::sqrt`, `MethodRitchie(
                             Fn,
                         )`),
                         template_parameters: HirTemplateParameters(
@@ -5168,7 +4808,7 @@
                             region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
-                                        TypeItemPath(`(core::num::f32(0)::sqrt`, `MethodRitchie(
+                                        TypeItemPath(`<core::num::f32(0)>::sqrt`, `MethodRitchie(
                                             Fn,
                                         )`),
                                     ),
@@ -5212,11 +4852,11 @@
         AssocItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(`(core::num::f32(0)::max`, `MethodRitchie(
+                    path: TypeItemPath(`<core::num::f32(0)>::max`, `MethodRitchie(
                         Fn,
                     )`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(`(core::num::f32(0)::max`, `MethodRitchie(
+                        path: TypeItemPath(`<core::num::f32(0)>::max`, `MethodRitchie(
                             Fn,
                         )`),
                         template_parameters: HirTemplateParameters(
@@ -5258,7 +4898,7 @@
                             region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
-                                        TypeItemPath(`(core::num::f32(0)::max`, `MethodRitchie(
+                                        TypeItemPath(`<core::num::f32(0)>::max`, `MethodRitchie(
                                             Fn,
                                         )`),
                                     ),
@@ -5313,11 +4953,11 @@
         AssocItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(`(core::num::f32(0)::min`, `MethodRitchie(
+                    path: TypeItemPath(`<core::num::f32(0)>::min`, `MethodRitchie(
                         Fn,
                     )`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(`(core::num::f32(0)::min`, `MethodRitchie(
+                        path: TypeItemPath(`<core::num::f32(0)>::min`, `MethodRitchie(
                             Fn,
                         )`),
                         template_parameters: HirTemplateParameters(
@@ -5359,7 +4999,7 @@
                             region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
-                                        TypeItemPath(`(core::num::f32(0)::min`, `MethodRitchie(
+                                        TypeItemPath(`<core::num::f32(0)>::min`, `MethodRitchie(
                                             Fn,
                                         )`),
                                     ),
@@ -5414,11 +5054,11 @@
         AssocItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(`(core::num::f32(0)::sgnx`, `MethodRitchie(
+                    path: TypeItemPath(`<core::num::f32(0)>::sgnx`, `MethodRitchie(
                         Fn,
                     )`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(`(core::num::f32(0)::sgnx`, `MethodRitchie(
+                        path: TypeItemPath(`<core::num::f32(0)>::sgnx`, `MethodRitchie(
                             Fn,
                         )`),
                         template_parameters: HirTemplateParameters(
@@ -5448,7 +5088,7 @@
                             region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
-                                        TypeItemPath(`(core::num::f32(0)::sgnx`, `MethodRitchie(
+                                        TypeItemPath(`<core::num::f32(0)>::sgnx`, `MethodRitchie(
                                             Fn,
                                         )`),
                                     ),
@@ -5492,11 +5132,11 @@
         AssocItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(`(core::num::f32(0)::cos`, `MethodRitchie(
+                    path: TypeItemPath(`<core::num::f32(0)>::cos`, `MethodRitchie(
                         Fn,
                     )`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(`(core::num::f32(0)::cos`, `MethodRitchie(
+                        path: TypeItemPath(`<core::num::f32(0)>::cos`, `MethodRitchie(
                             Fn,
                         )`),
                         template_parameters: HirTemplateParameters(
@@ -5526,7 +5166,7 @@
                             region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
-                                        TypeItemPath(`(core::num::f32(0)::cos`, `MethodRitchie(
+                                        TypeItemPath(`<core::num::f32(0)>::cos`, `MethodRitchie(
                                             Fn,
                                         )`),
                                     ),
@@ -5570,11 +5210,11 @@
         AssocItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(`(core::num::f32(0)::sin`, `MethodRitchie(
+                    path: TypeItemPath(`<core::num::f32(0)>::sin`, `MethodRitchie(
                         Fn,
                     )`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(`(core::num::f32(0)::sin`, `MethodRitchie(
+                        path: TypeItemPath(`<core::num::f32(0)>::sin`, `MethodRitchie(
                             Fn,
                         )`),
                         template_parameters: HirTemplateParameters(
@@ -5604,7 +5244,7 @@
                             region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
-                                        TypeItemPath(`(core::num::f32(0)::sin`, `MethodRitchie(
+                                        TypeItemPath(`<core::num::f32(0)>::sin`, `MethodRitchie(
                                             Fn,
                                         )`),
                                     ),
@@ -5648,11 +5288,11 @@
         AssocItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(`(core::num::f32(0)::acos`, `MethodRitchie(
+                    path: TypeItemPath(`<core::num::f32(0)>::acos`, `MethodRitchie(
                         Fn,
                     )`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(`(core::num::f32(0)::acos`, `MethodRitchie(
+                        path: TypeItemPath(`<core::num::f32(0)>::acos`, `MethodRitchie(
                             Fn,
                         )`),
                         template_parameters: HirTemplateParameters(
@@ -5682,7 +5322,7 @@
                             region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
-                                        TypeItemPath(`(core::num::f32(0)::acos`, `MethodRitchie(
+                                        TypeItemPath(`<core::num::f32(0)>::acos`, `MethodRitchie(
                                             Fn,
                                         )`),
                                     ),
@@ -5726,16 +5366,7 @@
         ImplBlockHirDefn::TraitForType(
             TraitForTypeImplBlockHirDefn {
                 hir_decl: TraitForTypeImplBlockHirDecl {
-                    path: TraitForTypeImplBlock {
-                        data: TraitForTypeImplBlockPathData {
-                            module_path: `core::num`,
-                            trai_path: TraitPath(`core::ops::Add`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`core::num::f32`, `Extern`),
-                            ),
-                            disambiguator: 0,
-                        },
-                    },
+                    path: TraitForTypeImplBlockPath(`core::num::f32 as core::ops::Add(0)`),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -5764,16 +5395,7 @@
                         region_path: RegionPath::Decl(
                             ItemPath::ImplBlock(
                                 ImplBlockPath::TraitForTypeImplBlock(
-                                    TraitForTypeImplBlock {
-                                        data: TraitForTypeImplBlockPathData {
-                                            module_path: `core::num`,
-                                            trai_path: TraitPath(`core::ops::Add`),
-                                            ty_sketch: TypeSketch::Path(
-                                                TypePath(`core::num::f32`, `Extern`),
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
+                                    TraitForTypeImplBlockPath(`core::num::f32 as core::ops::Add(0)`),
                                 ),
                             ),
                         ),
@@ -5806,21 +5428,13 @@
         AssocItemHirDefn::TraitForTypeItem(
             TraitForTypeItemHirDefn::MethodFn(
                 TraitForTypeMethodFnHirDefn {
-                    path: TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 174,
-                            },
-                        ),
-                    ),
+                    path: TraitForTypeItemPath(`<core::num::f32 as core::ops::Add(0)>::add`, `MethodRitchie(
+                        Fn,
+                    )`),
                     hir_decl: TraitForTypeMethodFnHirDecl {
-                        path: TraitForTypeItemPath(
-                            ItemPathId(
-                                Id {
-                                    value: 174,
-                                },
-                            ),
-                        ),
+                        path: TraitForTypeItemPath(`<core::num::f32 as core::ops::Add(0)>::add`, `MethodRitchie(
+                            Fn,
+                        )`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -5860,13 +5474,9 @@
                             region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TraitForTypeItem(
-                                        TraitForTypeItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 174,
-                                                },
-                                            ),
-                                        ),
+                                        TraitForTypeItemPath(`<core::num::f32 as core::ops::Add(0)>::add`, `MethodRitchie(
+                                            Fn,
+                                        )`),
                                     ),
                                 ),
                             ),
@@ -5979,11 +5589,11 @@
         AssocItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(`(core::num::f64(0)::abs`, `MethodRitchie(
+                    path: TypeItemPath(`<core::num::f64(0)>::abs`, `MethodRitchie(
                         Fn,
                     )`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(`(core::num::f64(0)::abs`, `MethodRitchie(
+                        path: TypeItemPath(`<core::num::f64(0)>::abs`, `MethodRitchie(
                             Fn,
                         )`),
                         template_parameters: HirTemplateParameters(
@@ -6013,7 +5623,7 @@
                             region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
-                                        TypeItemPath(`(core::num::f64(0)::abs`, `MethodRitchie(
+                                        TypeItemPath(`<core::num::f64(0)>::abs`, `MethodRitchie(
                                             Fn,
                                         )`),
                                     ),
@@ -6057,11 +5667,11 @@
         AssocItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(`(core::num::f64(0)::acos`, `MethodRitchie(
+                    path: TypeItemPath(`<core::num::f64(0)>::acos`, `MethodRitchie(
                         Fn,
                     )`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(`(core::num::f64(0)::acos`, `MethodRitchie(
+                        path: TypeItemPath(`<core::num::f64(0)>::acos`, `MethodRitchie(
                             Fn,
                         )`),
                         template_parameters: HirTemplateParameters(
@@ -6091,7 +5701,7 @@
                             region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
-                                        TypeItemPath(`(core::num::f64(0)::acos`, `MethodRitchie(
+                                        TypeItemPath(`<core::num::f64(0)>::acos`, `MethodRitchie(
                                             Fn,
                                         )`),
                                     ),
@@ -6135,16 +5745,7 @@
         ImplBlockHirDefn::TraitForType(
             TraitForTypeImplBlockHirDefn {
                 hir_decl: TraitForTypeImplBlockHirDecl {
-                    path: TraitForTypeImplBlock {
-                        data: TraitForTypeImplBlockPathData {
-                            module_path: `core::num`,
-                            trai_path: TraitPath(`core::ops::Add`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`core::num::f64`, `Extern`),
-                            ),
-                            disambiguator: 0,
-                        },
-                    },
+                    path: TraitForTypeImplBlockPath(`core::num::f64 as core::ops::Add(0)`),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -6173,16 +5774,7 @@
                         region_path: RegionPath::Decl(
                             ItemPath::ImplBlock(
                                 ImplBlockPath::TraitForTypeImplBlock(
-                                    TraitForTypeImplBlock {
-                                        data: TraitForTypeImplBlockPathData {
-                                            module_path: `core::num`,
-                                            trai_path: TraitPath(`core::ops::Add`),
-                                            ty_sketch: TypeSketch::Path(
-                                                TypePath(`core::num::f64`, `Extern`),
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
+                                    TraitForTypeImplBlockPath(`core::num::f64 as core::ops::Add(0)`),
                                 ),
                             ),
                         ),
@@ -6215,21 +5807,13 @@
         AssocItemHirDefn::TraitForTypeItem(
             TraitForTypeItemHirDefn::MethodFn(
                 TraitForTypeMethodFnHirDefn {
-                    path: TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 177,
-                            },
-                        ),
-                    ),
+                    path: TraitForTypeItemPath(`<core::num::f64 as core::ops::Add(0)>::add`, `MethodRitchie(
+                        Fn,
+                    )`),
                     hir_decl: TraitForTypeMethodFnHirDecl {
-                        path: TraitForTypeItemPath(
-                            ItemPathId(
-                                Id {
-                                    value: 177,
-                                },
-                            ),
-                        ),
+                        path: TraitForTypeItemPath(`<core::num::f64 as core::ops::Add(0)>::add`, `MethodRitchie(
+                            Fn,
+                        )`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -6269,13 +5853,9 @@
                             region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TraitForTypeItem(
-                                        TraitForTypeItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 177,
-                                                },
-                                            ),
-                                        ),
+                                        TraitForTypeItemPath(`<core::num::f64 as core::ops::Add(0)>::add`, `MethodRitchie(
+                                            Fn,
+                                        )`),
                                     ),
                                 ),
                             ),

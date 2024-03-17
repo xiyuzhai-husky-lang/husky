@@ -4515,16 +4515,7 @@ EntityTreeCrateBundle {
                                 data: ItemSynNodePathData::ImplBlock(
                                     ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                         TraitForTypeImplBlockSynNodePathData {
-                                            path: TraitForTypeImplBlock {
-                                                data: TraitForTypeImplBlockPathData {
-                                                    module_path: `mnist_classifier::connected_component`,
-                                                    trai_path: TraitPath(`core::visual::Visualize`),
-                                                    ty_sketch: TypeSketch::Path(
-                                                        TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                    ),
-                                                    disambiguator: 0,
-                                                },
-                                            },
+                                            path: TraitForTypeImplBlockPath(`mnist_classifier::connected_component::ConnectedComponent as core::visual::Visualize(0)`),
                                         },
                                     ),
                                 ),
@@ -4538,16 +4529,7 @@ EntityTreeCrateBundle {
                                     data: ItemSynNodePathData::ImplBlock(
                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                             TraitForTypeImplBlockSynNodePathData {
-                                                path: TraitForTypeImplBlock {
-                                                    data: TraitForTypeImplBlockPathData {
-                                                        module_path: `mnist_classifier::connected_component`,
-                                                        trai_path: TraitPath(`core::visual::Visualize`),
-                                                        ty_sketch: TypeSketch::Path(
-                                                            TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                        ),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
+                                                path: TraitForTypeImplBlockPath(`mnist_classifier::connected_component::ConnectedComponent as core::visual::Visualize(0)`),
                                             },
                                         ),
                                     ),
@@ -7693,16 +7675,7 @@ EntityTreeCrateBundle {
                                 data: ItemSynNodePathData::ImplBlock(
                                     ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                         TraitForTypeImplBlockSynNodePathData {
-                                            path: TraitForTypeImplBlock {
-                                                data: TraitForTypeImplBlockPathData {
-                                                    module_path: `mnist_classifier::raw_contour`,
-                                                    trai_path: TraitPath(`core::visual::Visualize`),
-                                                    ty_sketch: TypeSketch::Path(
-                                                        TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                    ),
-                                                    disambiguator: 0,
-                                                },
-                                            },
+                                            path: TraitForTypeImplBlockPath(`mnist_classifier::raw_contour::RawContour as core::visual::Visualize(0)`),
                                         },
                                     ),
                                 ),
@@ -7716,16 +7689,7 @@ EntityTreeCrateBundle {
                                     data: ItemSynNodePathData::ImplBlock(
                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                             TraitForTypeImplBlockSynNodePathData {
-                                                path: TraitForTypeImplBlock {
-                                                    data: TraitForTypeImplBlockPathData {
-                                                        module_path: `mnist_classifier::raw_contour`,
-                                                        trai_path: TraitPath(`core::visual::Visualize`),
-                                                        ty_sketch: TypeSketch::Path(
-                                                            TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                        ),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
+                                                path: TraitForTypeImplBlockPath(`mnist_classifier::raw_contour::RawContour as core::visual::Visualize(0)`),
                                             },
                                         ),
                                     ),
@@ -9766,16 +9730,7 @@ EntityTreeCrateBundle {
                                 data: ItemSynNodePathData::ImplBlock(
                                     ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                         TraitForTypeImplBlockSynNodePathData {
-                                            path: TraitForTypeImplBlock {
-                                                data: TraitForTypeImplBlockPathData {
-                                                    module_path: `mnist_classifier::line_segment_sketch`,
-                                                    trai_path: TraitPath(`core::visual::Visualize`),
-                                                    ty_sketch: TypeSketch::Path(
-                                                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                                                    ),
-                                                    disambiguator: 0,
-                                                },
-                                            },
+                                            path: TraitForTypeImplBlockPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke as core::visual::Visualize(0)`),
                                         },
                                     ),
                                 ),
@@ -9789,16 +9744,7 @@ EntityTreeCrateBundle {
                                     data: ItemSynNodePathData::ImplBlock(
                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                             TraitForTypeImplBlockSynNodePathData {
-                                                path: TraitForTypeImplBlock {
-                                                    data: TraitForTypeImplBlockPathData {
-                                                        module_path: `mnist_classifier::line_segment_sketch`,
-                                                        trai_path: TraitPath(`core::visual::Visualize`),
-                                                        ty_sketch: TypeSketch::Path(
-                                                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                                                        ),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
+                                                path: TraitForTypeImplBlockPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke as core::visual::Visualize(0)`),
                                             },
                                         ),
                                     ),
@@ -9890,16 +9836,7 @@ EntityTreeCrateBundle {
                                 data: ItemSynNodePathData::ImplBlock(
                                     ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                         TraitForTypeImplBlockSynNodePathData {
-                                            path: TraitForTypeImplBlock {
-                                                data: TraitForTypeImplBlockPathData {
-                                                    module_path: `mnist_classifier::line_segment_sketch`,
-                                                    trai_path: TraitPath(`core::visual::Visualize`),
-                                                    ty_sketch: TypeSketch::Path(
-                                                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                                                    ),
-                                                    disambiguator: 0,
-                                                },
-                                            },
+                                            path: TraitForTypeImplBlockPath(`mnist_classifier::line_segment_sketch::LineSegmentSketch as core::visual::Visualize(0)`),
                                         },
                                     ),
                                 ),
@@ -9913,16 +9850,7 @@ EntityTreeCrateBundle {
                                     data: ItemSynNodePathData::ImplBlock(
                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                             TraitForTypeImplBlockSynNodePathData {
-                                                path: TraitForTypeImplBlock {
-                                                    data: TraitForTypeImplBlockPathData {
-                                                        module_path: `mnist_classifier::line_segment_sketch`,
-                                                        trai_path: TraitPath(`core::visual::Visualize`),
-                                                        ty_sketch: TypeSketch::Path(
-                                                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                                                        ),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
+                                                path: TraitForTypeImplBlockPath(`mnist_classifier::line_segment_sketch::LineSegmentSketch as core::visual::Visualize(0)`),
                                             },
                                         ),
                                     ),
@@ -13283,16 +13211,7 @@ EntityTreeCrateBundle {
                                 data: ItemSynNodePathData::ImplBlock(
                                     ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                         TraitForTypeImplBlockSynNodePathData {
-                                            path: TraitForTypeImplBlock {
-                                                data: TraitForTypeImplBlockPathData {
-                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                    trai_path: TraitPath(`core::visual::Visualize`),
-                                                    ty_sketch: TypeSketch::Path(
-                                                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                    ),
-                                                    disambiguator: 0,
-                                                },
-                                            },
+                                            path: TraitForTypeImplBlockPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent as core::visual::Visualize(0)`),
                                         },
                                     ),
                                 ),
@@ -13306,16 +13225,7 @@ EntityTreeCrateBundle {
                                     data: ItemSynNodePathData::ImplBlock(
                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                             TraitForTypeImplBlockSynNodePathData {
-                                                path: TraitForTypeImplBlock {
-                                                    data: TraitForTypeImplBlockPathData {
-                                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                        trai_path: TraitPath(`core::visual::Visualize`),
-                                                        ty_sketch: TypeSketch::Path(
-                                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                        ),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
+                                                path: TraitForTypeImplBlockPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent as core::visual::Visualize(0)`),
                                             },
                                         ),
                                     ),
@@ -14695,16 +14605,7 @@ EntityTreeCrateBundle {
                                 data: ItemSynNodePathData::ImplBlock(
                                     ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                         TraitForTypeImplBlockSynNodePathData {
-                                            path: TraitForTypeImplBlock {
-                                                data: TraitForTypeImplBlockPathData {
-                                                    module_path: `mnist_classifier::line_segment_sketch::convex_component`,
-                                                    trai_path: TraitPath(`core::visual::Visualize`),
-                                                    ty_sketch: TypeSketch::Path(
-                                                        TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
-                                                    ),
-                                                    disambiguator: 0,
-                                                },
-                                            },
+                                            path: TraitForTypeImplBlockPath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent as core::visual::Visualize(0)`),
                                         },
                                     ),
                                 ),
@@ -14718,16 +14619,7 @@ EntityTreeCrateBundle {
                                     data: ItemSynNodePathData::ImplBlock(
                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                             TraitForTypeImplBlockSynNodePathData {
-                                                path: TraitForTypeImplBlock {
-                                                    data: TraitForTypeImplBlockPathData {
-                                                        module_path: `mnist_classifier::line_segment_sketch::convex_component`,
-                                                        trai_path: TraitPath(`core::visual::Visualize`),
-                                                        ty_sketch: TypeSketch::Path(
-                                                            TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
-                                                        ),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
+                                                path: TraitForTypeImplBlockPath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent as core::visual::Visualize(0)`),
                                             },
                                         ),
                                     ),

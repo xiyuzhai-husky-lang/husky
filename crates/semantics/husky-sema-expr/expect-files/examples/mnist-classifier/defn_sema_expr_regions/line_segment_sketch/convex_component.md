@@ -4,13 +4,9 @@
         path: RegionPath::Defn(
             ItemPath::AssocItem(
                 AssocItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 414,
-                            },
-                        ),
-                    ),
+                    TraitForTypeItemPath(`<mnist_classifier::line_segment_sketch::convex_component::ConvexComponent as core::visual::Visualize(0)>::visualize`, `MethodRitchie(
+                        Fn,
+                    )`),
                 ),
             ),
         ),
@@ -18,13 +14,9 @@
             path: RegionPath::Defn(
                 ItemPath::AssocItem(
                     AssocItemPath::TraitForTypeItem(
-                        TraitForTypeItemPath(
-                            ItemPathId(
-                                Id {
-                                    value: 414,
-                                },
-                            ),
-                        ),
+                        TraitForTypeItemPath(`<mnist_classifier::line_segment_sketch::convex_component::ConvexComponent as core::visual::Visualize(0)>::visualize`, `MethodRitchie(
+                            Fn,
+                        )`),
                     ),
                 ),
             ),
@@ -195,13 +187,9 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TraitForTypeItem(
-                                                    TraitForTypeItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 410,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    TraitForTypeItemPath(`<#derive _ as core::visual::Visualize(0)>::visualize`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                                 self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Pure,
@@ -222,14 +210,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::ImplBlock(
                                                         ImplBlockPath::TraitForTypeImplBlock(
-                                                            TraitForTypeImplBlock {
-                                                                data: TraitForTypeImplBlockPathData {
-                                                                    module_path: `core::visual`,
-                                                                    trai_path: TraitPath(`core::visual::Visualize`),
-                                                                    ty_sketch: TypeSketch::DeriveAny,
-                                                                    disambiguator: 0,
-                                                                },
-                                                            },
+                                                            #derive _ as core::visual::Visualize(0),
                                                         ),
                                                     ),
                                                     env: MethodFn {
