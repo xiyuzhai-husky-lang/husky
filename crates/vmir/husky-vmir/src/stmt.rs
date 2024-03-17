@@ -3,7 +3,8 @@ mod r#loop;
 mod r#match;
 
 use crate::{coersion::VmirCoersion, expr::VmirExprIdx, pattern::VmirPatternIdx, *};
-use husky_hir_eager_expr::{HirEagerStmtData, HirEagerStmtIdxRange};
+use husky_expr::stmt::ConditionConversion;
+use husky_hir_eager_expr::{HirEagerCondition, HirEagerStmtData, HirEagerStmtIdxRange};
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
 
 #[salsa::derive_debug_with_db]
@@ -14,7 +15,9 @@ pub enum VmirStmtData<LinkageImpl: IsLinkageImpl> {
         result: VmirExprIdx<LinkageImpl>,
         coersion: VmirCoersion,
     },
-    Require,
+    Require {
+        condition: VmirCondition<LinkageImpl>,
+    },
     Assert,
     Break,
     Eval {
@@ -58,7 +61,9 @@ impl<LinkageImpl: IsLinkageImpl> ToVmir<LinkageImpl> for HirEagerStmtIdxRange {
                     result: result.to_vmir(builder),
                     coersion: coersion.to_vmir(builder),
                 },
-                HirEagerStmtData::Require { ref condition } => VmirStmtData::Require,
+                HirEagerStmtData::Require { ref condition } => VmirStmtData::Require {
+                    condition: condition.to_vmir(builder),
+                },
                 HirEagerStmtData::Assert { ref condition } => VmirStmtData::Assert,
                 HirEagerStmtData::Break => VmirStmtData::Break,
                 HirEagerStmtData::Eval {
@@ -105,19 +110,61 @@ impl<LinkageImpl: IsLinkageImpl> ToVmir<LinkageImpl> for HirEagerStmtIdxRange {
     }
 }
 
+#[salsa::derive_debug_with_db]
+#[derive(Debug, PartialEq, Eq)]
 pub enum VmirCondition<LinkageImpl: IsLinkageImpl> {
     /// `be` condition with syntactically correct pattern.
     /// This requires special handling for many cases.
     Be {
-        src: VmirExprIdx<LinkageImpl>,
-        target: VmirPatternIdx,
+        opd: VmirExprIdx<LinkageImpl>,
+        pattern: VmirPatternIdx<LinkageImpl>,
     },
     /// all other conditions.
     /// for simplicity, `be` with a syntactically broken pattern is also included in there
     Other {
-        expr: VmirExprIdx<LinkageImpl>,
-        conversion: VmirConditionConversion,
+        opd: VmirExprIdx<LinkageImpl>,
+        conversion: VmirConditionConversion<LinkageImpl>,
     },
 }
 
-pub enum VmirConditionConversion {}
+#[salsa::derive_debug_with_db]
+#[derive(Debug, PartialEq, Eq)]
+pub enum VmirConditionConversion<LinkageImpl> {
+    None,
+    IntToBool,
+    Todo(LinkageImpl),
+}
+
+impl<LinkageImpl: IsLinkageImpl> ToVmir<LinkageImpl> for &HirEagerCondition {
+    type Output = VmirCondition<LinkageImpl>;
+
+    fn to_vmir<Linktime>(self, builder: &mut VmirExprBuilder<Linktime>) -> Self::Output
+    where
+        Linktime: IsLinktime<LinkageImpl = LinkageImpl>,
+    {
+        match *self {
+            HirEagerCondition::Be { opd, ref pattern } => VmirCondition::Be {
+                opd: opd.to_vmir(builder),
+                pattern: pattern.pattern.to_vmir(builder),
+            },
+            HirEagerCondition::Other { opd, conversion } => VmirCondition::Other {
+                opd: opd.to_vmir(builder),
+                conversion: conversion.to_vmir(builder),
+            },
+        }
+    }
+}
+
+impl<LinkageImpl: IsLinkageImpl> ToVmir<LinkageImpl> for ConditionConversion {
+    type Output = VmirConditionConversion<LinkageImpl>;
+
+    fn to_vmir<Linktime>(self, builder: &mut VmirExprBuilder<Linktime>) -> Self::Output
+    where
+        Linktime: IsLinktime<LinkageImpl = LinkageImpl>,
+    {
+        match self {
+            ConditionConversion::None => VmirConditionConversion::None,
+            ConditionConversion::IntToBool(_) => VmirConditionConversion::IntToBool,
+        }
+    }
+}

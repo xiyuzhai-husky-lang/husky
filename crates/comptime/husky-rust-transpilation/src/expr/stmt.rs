@@ -43,9 +43,9 @@ impl TranspileToRustWith<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
             }
             HirEagerStmtData::Assert { ref condition } => {
                 builder.on_fresh_semicolon_line(|builder| match *condition {
-                    HirEagerCondition::Be { src: _, target: _ } => todo!(),
+                    HirEagerCondition::Be { opd: _, pattern: _ } => todo!(),
                     HirEagerCondition::Other {
-                        hir_eager_expr_idx,
+                        opd: hir_eager_expr_idx,
                         conversion,
                     } => {
                         builder.macro_name(RustMacroName::Assert);
@@ -247,7 +247,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
                                     condition.transpile_to_rust(builder)
                                 }
                                 HirEagerCondition::Other {
-                                    hir_eager_expr_idx,
+                                    opd: hir_eager_expr_idx,
                                     conversion,
                                 } => match conversion {
                                     ConditionConversion::None => {
@@ -309,14 +309,17 @@ impl TranspileToRustWith<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
 impl TranspileToRustWith<HirEagerExprRegion> for &HirEagerCondition {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         match *self {
-            HirEagerCondition::Be { src, ref target } => {
+            HirEagerCondition::Be {
+                opd: src,
+                pattern: ref target,
+            } => {
                 builder.keyword(RustKeyword::Let);
                 target.pattern.transpile_to_rust(builder);
                 builder.punctuation(RustPunctuation::Assign);
                 (src, HirEagerExprSite::new_root(None)).transpile_to_rust(builder)
             }
             HirEagerCondition::Other {
-                hir_eager_expr_idx,
+                opd: hir_eager_expr_idx,
                 conversion,
             } => match conversion {
                 ConditionConversion::None => (hir_eager_expr_idx, HirEagerExprSite::new_root(None))

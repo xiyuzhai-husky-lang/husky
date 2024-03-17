@@ -529,7 +529,7 @@
                                         },
                                         Require {
                                             condition: Other {
-                                                hir_eager_expr_idx: 6,
+                                                opd: 6,
                                                 conversion: None,
                                             },
                                         },
@@ -1514,7 +1514,7 @@
                                     data: [
                                         Require {
                                             condition: Other {
-                                                hir_eager_expr_idx: 15,
+                                                opd: 15,
                                                 conversion: None,
                                             },
                                         },
@@ -1530,7 +1530,7 @@
                                         IfElse {
                                             if_branch: HirEagerIfBranch {
                                                 condition: Other {
-                                                    hir_eager_expr_idx: 7,
+                                                    opd: 7,
                                                     conversion: None,
                                                 },
                                                 stmts: ArenaIdxRange(
@@ -1542,7 +1542,7 @@
                                         },
                                         Require {
                                             condition: Other {
-                                                hir_eager_expr_idx: 20,
+                                                opd: 20,
                                                 conversion: None,
                                             },
                                         },
@@ -1557,7 +1557,7 @@
                                         },
                                         Require {
                                             condition: Other {
-                                                hir_eager_expr_idx: 30,
+                                                opd: 30,
                                                 conversion: None,
                                             },
                                         },

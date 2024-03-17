@@ -426,7 +426,7 @@
                                     data: [
                                         Require {
                                             condition: Other {
-                                                hir_eager_expr_idx: 7,
+                                                opd: 7,
                                                 conversion: None,
                                             },
                                         },

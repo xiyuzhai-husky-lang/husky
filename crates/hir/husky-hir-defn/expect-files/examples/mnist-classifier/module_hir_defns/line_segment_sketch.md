@@ -1749,7 +1749,7 @@
                                         },
                                         Assert {
                                             condition: Other {
-                                                hir_eager_expr_idx: 15,
+                                                opd: 15,
                                                 conversion: None,
                                             },
                                         },
@@ -3093,7 +3093,7 @@
                                         },
                                         Assert {
                                             condition: Other {
-                                                hir_eager_expr_idx: 15,
+                                                opd: 15,
                                                 conversion: None,
                                             },
                                         },
@@ -5961,7 +5961,7 @@
                                         IfElse {
                                             if_branch: HirEagerIfBranch {
                                                 condition: Other {
-                                                    hir_eager_expr_idx: 85,
+                                                    opd: 85,
                                                     conversion: None,
                                                 },
                                                 stmts: ArenaIdxRange(
@@ -5974,7 +5974,7 @@
                                         IfElse {
                                             if_branch: HirEagerIfBranch {
                                                 condition: Other {
-                                                    hir_eager_expr_idx: 93,
+                                                    opd: 93,
                                                     conversion: None,
                                                 },
                                                 stmts: ArenaIdxRange(
@@ -5996,7 +5996,7 @@
                                         IfElse {
                                             if_branch: HirEagerIfBranch {
                                                 condition: Other {
-                                                    hir_eager_expr_idx: 65,
+                                                    opd: 65,
                                                     conversion: None,
                                                 },
                                                 stmts: ArenaIdxRange(
@@ -6006,7 +6006,7 @@
                                             elif_branches: [
                                                 HirEagerElifBranch {
                                                     condition: Other {
-                                                        hir_eager_expr_idx: 68,
+                                                        opd: 68,
                                                         conversion: None,
                                                     },
                                                     stmts: ArenaIdxRange(
@@ -6019,7 +6019,7 @@
                                         IfElse {
                                             if_branch: HirEagerIfBranch {
                                                 condition: Other {
-                                                    hir_eager_expr_idx: 74,
+                                                    opd: 74,
                                                     conversion: None,
                                                 },
                                                 stmts: ArenaIdxRange(
@@ -6089,7 +6089,7 @@
                                         },
                                         While {
                                             condition: Other {
-                                                hir_eager_expr_idx: 21,
+                                                opd: 21,
                                                 conversion: None,
                                             },
                                             stmts: ArenaIdxRange(
@@ -6099,7 +6099,7 @@
                                         IfElse {
                                             if_branch: HirEagerIfBranch {
                                                 condition: Other {
-                                                    hir_eager_expr_idx: 35,
+                                                    opd: 35,
                                                     conversion: None,
                                                 },
                                                 stmts: ArenaIdxRange(
@@ -6138,7 +6138,7 @@
                                         },
                                         While {
                                             condition: Other {
-                                                hir_eager_expr_idx: 58,
+                                                opd: 58,
                                                 conversion: None,
                                             },
                                             stmts: ArenaIdxRange(
@@ -6147,7 +6147,7 @@
                                         },
                                         Assert {
                                             condition: Other {
-                                                hir_eager_expr_idx: 109,
+                                                opd: 109,
                                                 conversion: None,
                                             },
                                         },
@@ -9299,7 +9299,7 @@
                                         IfElse {
                                             if_branch: HirEagerIfBranch {
                                                 condition: Other {
-                                                    hir_eager_expr_idx: 80,
+                                                    opd: 80,
                                                     conversion: None,
                                                 },
                                                 stmts: ArenaIdxRange(
@@ -9312,7 +9312,7 @@
                                         IfElse {
                                             if_branch: HirEagerIfBranch {
                                                 condition: Other {
-                                                    hir_eager_expr_idx: 88,
+                                                    opd: 88,
                                                     conversion: None,
                                                 },
                                                 stmts: ArenaIdxRange(
@@ -9326,7 +9326,7 @@
                                         IfElse {
                                             if_branch: HirEagerIfBranch {
                                                 condition: Other {
-                                                    hir_eager_expr_idx: 112,
+                                                    opd: 112,
                                                     conversion: None,
                                                 },
                                                 stmts: ArenaIdxRange(
@@ -9369,7 +9369,7 @@
                                         IfElse {
                                             if_branch: HirEagerIfBranch {
                                                 condition: Other {
-                                                    hir_eager_expr_idx: 60,
+                                                    opd: 60,
                                                     conversion: None,
                                                 },
                                                 stmts: ArenaIdxRange(
@@ -9379,7 +9379,7 @@
                                             elif_branches: [
                                                 HirEagerElifBranch {
                                                     condition: Other {
-                                                        hir_eager_expr_idx: 63,
+                                                        opd: 63,
                                                         conversion: None,
                                                     },
                                                     stmts: ArenaIdxRange(
@@ -9392,7 +9392,7 @@
                                         IfElse {
                                             if_branch: HirEagerIfBranch {
                                                 condition: Other {
-                                                    hir_eager_expr_idx: 69,
+                                                    opd: 69,
                                                     conversion: None,
                                                 },
                                                 stmts: ArenaIdxRange(
@@ -9405,7 +9405,7 @@
                                         IfElse {
                                             if_branch: HirEagerIfBranch {
                                                 condition: Other {
-                                                    hir_eager_expr_idx: 96,
+                                                    opd: 96,
                                                     conversion: None,
                                                 },
                                                 stmts: ArenaIdxRange(
@@ -9474,7 +9474,7 @@
                                         },
                                         While {
                                             condition: Other {
-                                                hir_eager_expr_idx: 20,
+                                                opd: 20,
                                                 conversion: None,
                                             },
                                             stmts: ArenaIdxRange(
@@ -9484,7 +9484,7 @@
                                         IfElse {
                                             if_branch: HirEagerIfBranch {
                                                 condition: Other {
-                                                    hir_eager_expr_idx: 34,
+                                                    opd: 34,
                                                     conversion: None,
                                                 },
                                                 stmts: ArenaIdxRange(
@@ -9523,7 +9523,7 @@
                                         },
                                         While {
                                             condition: Other {
-                                                hir_eager_expr_idx: 47,
+                                                opd: 47,
                                                 conversion: None,
                                             },
                                             stmts: ArenaIdxRange(
@@ -9533,7 +9533,7 @@
                                         IfElse {
                                             if_branch: HirEagerIfBranch {
                                                 condition: Other {
-                                                    hir_eager_expr_idx: 117,
+                                                    opd: 117,
                                                     conversion: None,
                                                 },
                                                 stmts: ArenaIdxRange(
@@ -15315,7 +15315,7 @@
                                         IfElse {
                                             if_branch: HirEagerIfBranch {
                                                 condition: Other {
-                                                    hir_eager_expr_idx: 42,
+                                                    opd: 42,
                                                     conversion: None,
                                                 },
                                                 stmts: ArenaIdxRange(
@@ -15384,7 +15384,7 @@
                                         IfElse {
                                             if_branch: HirEagerIfBranch {
                                                 condition: Other {
-                                                    hir_eager_expr_idx: 113,
+                                                    opd: 113,
                                                     conversion: None,
                                                 },
                                                 stmts: ArenaIdxRange(
@@ -15428,7 +15428,7 @@
                                         IfElse {
                                             if_branch: HirEagerIfBranch {
                                                 condition: Other {
-                                                    hir_eager_expr_idx: 76,
+                                                    opd: 76,
                                                     conversion: None,
                                                 },
                                                 stmts: ArenaIdxRange(
@@ -15487,7 +15487,7 @@
                                         IfElse {
                                             if_branch: HirEagerIfBranch {
                                                 condition: Other {
-                                                    hir_eager_expr_idx: 24,
+                                                    opd: 24,
                                                     conversion: None,
                                                 },
                                                 stmts: ArenaIdxRange(
@@ -15500,7 +15500,7 @@
                                         IfElse {
                                             if_branch: HirEagerIfBranch {
                                                 condition: Other {
-                                                    hir_eager_expr_idx: 61,
+                                                    opd: 61,
                                                     conversion: None,
                                                 },
                                                 stmts: ArenaIdxRange(
@@ -15604,7 +15604,7 @@
                                         },
                                         While {
                                             condition: Other {
-                                                hir_eager_expr_idx: 9,
+                                                opd: 9,
                                                 conversion: None,
                                             },
                                             stmts: ArenaIdxRange(
@@ -15641,7 +15641,7 @@
                                         IfElse {
                                             if_branch: HirEagerIfBranch {
                                                 condition: Other {
-                                                    hir_eager_expr_idx: 162,
+                                                    opd: 162,
                                                     conversion: None,
                                                 },
                                                 stmts: ArenaIdxRange(
@@ -16803,7 +16803,7 @@
                                     data: [
                                         Assert {
                                             condition: Other {
-                                                hir_eager_expr_idx: 3,
+                                                opd: 3,
                                                 conversion: None,
                                             },
                                         },
