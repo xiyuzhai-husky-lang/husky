@@ -87,7 +87,7 @@
                                         instantiation: EthInstantiation {
                                             path: ItemPath::ImplBlock(
                                                 ImplBlockPath::TraitForTypeImplBlock(
-                                                    malamute::Class as core::ops::Unveil(0),
+                                                    TraitForTypeImplBlockPath(`malamute::Class as core::ops::Unveil(0)`),
                                                 ),
                                             ),
                                             symbol_map: [
@@ -194,7 +194,7 @@
                                         instantiation: EthInstantiation {
                                             path: ItemPath::ImplBlock(
                                                 ImplBlockPath::TraitForTypeImplBlock(
-                                                    malamute::Class as core::ops::Unveil(0),
+                                                    TraitForTypeImplBlockPath(`malamute::Class as core::ops::Unveil(0)`),
                                                 ),
                                             ),
                                             symbol_map: [
@@ -301,7 +301,7 @@
                                         instantiation: EthInstantiation {
                                             path: ItemPath::ImplBlock(
                                                 ImplBlockPath::TraitForTypeImplBlock(
-                                                    malamute::Class as core::ops::Unveil(0),
+                                                    TraitForTypeImplBlockPath(`malamute::Class as core::ops::Unveil(0)`),
                                                 ),
                                             ),
                                             symbol_map: [
@@ -408,7 +408,7 @@
                                         instantiation: EthInstantiation {
                                             path: ItemPath::ImplBlock(
                                                 ImplBlockPath::TraitForTypeImplBlock(
-                                                    malamute::Class as core::ops::Unveil(0),
+                                                    TraitForTypeImplBlockPath(`malamute::Class as core::ops::Unveil(0)`),
                                                 ),
                                             ),
                                             symbol_map: [
@@ -515,7 +515,7 @@
                                         instantiation: EthInstantiation {
                                             path: ItemPath::ImplBlock(
                                                 ImplBlockPath::TraitForTypeImplBlock(
-                                                    malamute::Class as core::ops::Unveil(0),
+                                                    TraitForTypeImplBlockPath(`malamute::Class as core::ops::Unveil(0)`),
                                                 ),
                                             ),
                                             symbol_map: [
@@ -622,7 +622,7 @@
                                         instantiation: EthInstantiation {
                                             path: ItemPath::ImplBlock(
                                                 ImplBlockPath::TraitForTypeImplBlock(
-                                                    malamute::Class as core::ops::Unveil(0),
+                                                    TraitForTypeImplBlockPath(`malamute::Class as core::ops::Unveil(0)`),
                                                 ),
                                             ),
                                             symbol_map: [
@@ -729,7 +729,7 @@
                                         instantiation: EthInstantiation {
                                             path: ItemPath::ImplBlock(
                                                 ImplBlockPath::TraitForTypeImplBlock(
-                                                    malamute::Class as core::ops::Unveil(0),
+                                                    TraitForTypeImplBlockPath(`malamute::Class as core::ops::Unveil(0)`),
                                                 ),
                                             ),
                                             symbol_map: [
@@ -836,7 +836,7 @@
                                         instantiation: EthInstantiation {
                                             path: ItemPath::ImplBlock(
                                                 ImplBlockPath::TraitForTypeImplBlock(
-                                                    malamute::Class as core::ops::Unveil(0),
+                                                    TraitForTypeImplBlockPath(`malamute::Class as core::ops::Unveil(0)`),
                                                 ),
                                             ),
                                             symbol_map: [
@@ -943,7 +943,7 @@
                                         instantiation: EthInstantiation {
                                             path: ItemPath::ImplBlock(
                                                 ImplBlockPath::TraitForTypeImplBlock(
-                                                    malamute::Class as core::ops::Unveil(0),
+                                                    TraitForTypeImplBlockPath(`malamute::Class as core::ops::Unveil(0)`),
                                                 ),
                                             ),
                                             symbol_map: [

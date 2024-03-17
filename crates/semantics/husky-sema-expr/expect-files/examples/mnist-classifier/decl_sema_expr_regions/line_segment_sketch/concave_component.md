@@ -1131,7 +1131,7 @@
         path: RegionPath::Decl(
             ItemPath::ImplBlock(
                 ImplBlockPath::TraitForTypeImplBlock(
-                    mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent as core::visual::Visualize(0),
+                    TraitForTypeImplBlockPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent as core::visual::Visualize(0)`),
                 ),
             ),
         ),
@@ -1139,7 +1139,7 @@
             path: RegionPath::Decl(
                 ItemPath::ImplBlock(
                     ImplBlockPath::TraitForTypeImplBlock(
-                        mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent as core::visual::Visualize(0),
+                        TraitForTypeImplBlockPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent as core::visual::Visualize(0)`),
                     ),
                 ),
             ),

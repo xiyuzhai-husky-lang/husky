@@ -563,13 +563,13 @@ SynDeclSheet {
         (
             ItemPath::ImplBlock(
                 ImplBlockPath::TraitForTypeImplBlock(
-                    mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent as core::visual::Visualize(0),
+                    TraitForTypeImplBlockPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent as core::visual::Visualize(0)`),
                 ),
             ),
             SynDecl::ImplBlock(
                 ImplBlockSynDecl::TraitForType(
                     TraitForTypeImplBlockSynDecl {
-                        path: mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent as core::visual::Visualize(0),
+                        path: TraitForTypeImplBlockPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent as core::visual::Visualize(0)`),
                         template_parameters: [],
                         trai_expr: TraitSyndicate {
                             syn_expr_idx: 1,
@@ -590,7 +590,7 @@ SynDeclSheet {
                                                     data: ItemSynNodePathData::ImplBlock(
                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                path: mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent as core::visual::Visualize(0),
+                                                                path: TraitForTypeImplBlockPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent as core::visual::Visualize(0)`),
                                                             },
                                                         ),
                                                     ),
@@ -743,7 +743,7 @@ SynDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                                path: mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent as core::visual::Visualize(0),
+                                                                                path: TraitForTypeImplBlockPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent as core::visual::Visualize(0)`),
                                                                             },
                                                                         ),
                                                                     ),

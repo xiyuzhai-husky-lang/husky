@@ -1050,7 +1050,7 @@
         path: RegionPath::Decl(
             ItemPath::ImplBlock(
                 ImplBlockPath::TraitForTypeImplBlock(
-                    core::slice::CyclicSlice as core::ops::IntIndex(0),
+                    TraitForTypeImplBlockPath(`core::slice::CyclicSlice as core::ops::IntIndex(0)`),
                 ),
             ),
         ),
@@ -1058,7 +1058,7 @@
             path: RegionPath::Decl(
                 ItemPath::ImplBlock(
                     ImplBlockPath::TraitForTypeImplBlock(
-                        core::slice::CyclicSlice as core::ops::IntIndex(0),
+                        TraitForTypeImplBlockPath(`core::slice::CyclicSlice as core::ops::IntIndex(0)`),
                     ),
                 ),
             ),

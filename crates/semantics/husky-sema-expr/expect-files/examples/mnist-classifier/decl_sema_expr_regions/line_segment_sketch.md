@@ -461,7 +461,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::ImplBlock(
                                                         ImplBlockPath::TraitForTypeImplBlock(
-                                                            #derive _ as core::clone::Clone(0),
+                                                            TraitForTypeImplBlockPath(`#derive _ as core::clone::Clone(0)`),
                                                         ),
                                                     ),
                                                     env: MethodFn {
@@ -793,7 +793,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::ImplBlock(
                                                         ImplBlockPath::TraitForTypeImplBlock(
-                                                            #derive _ as core::clone::Clone(0),
+                                                            TraitForTypeImplBlockPath(`#derive _ as core::clone::Clone(0)`),
                                                         ),
                                                     ),
                                                     env: MethodFn {
@@ -4711,7 +4711,7 @@
         path: RegionPath::Decl(
             ItemPath::ImplBlock(
                 ImplBlockPath::TraitForTypeImplBlock(
-                    mnist_classifier::line_segment_sketch::LineSegmentStroke as core::visual::Visualize(0),
+                    TraitForTypeImplBlockPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke as core::visual::Visualize(0)`),
                 ),
             ),
         ),
@@ -4719,7 +4719,7 @@
             path: RegionPath::Decl(
                 ItemPath::ImplBlock(
                     ImplBlockPath::TraitForTypeImplBlock(
-                        mnist_classifier::line_segment_sketch::LineSegmentStroke as core::visual::Visualize(0),
+                        TraitForTypeImplBlockPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke as core::visual::Visualize(0)`),
                     ),
                 ),
             ),
@@ -6021,7 +6021,7 @@
         path: RegionPath::Decl(
             ItemPath::ImplBlock(
                 ImplBlockPath::TraitForTypeImplBlock(
-                    mnist_classifier::line_segment_sketch::LineSegmentSketch as core::visual::Visualize(0),
+                    TraitForTypeImplBlockPath(`mnist_classifier::line_segment_sketch::LineSegmentSketch as core::visual::Visualize(0)`),
                 ),
             ),
         ),
@@ -6029,7 +6029,7 @@
             path: RegionPath::Decl(
                 ItemPath::ImplBlock(
                     ImplBlockPath::TraitForTypeImplBlock(
-                        mnist_classifier::line_segment_sketch::LineSegmentSketch as core::visual::Visualize(0),
+                        TraitForTypeImplBlockPath(`mnist_classifier::line_segment_sketch::LineSegmentSketch as core::visual::Visualize(0)`),
                     ),
                 ),
             ),

@@ -4524,7 +4524,7 @@
         path: RegionPath::Decl(
             ItemPath::ImplBlock(
                 ImplBlockPath::TraitForTypeImplBlock(
-                    mnist_classifier::raw_contour::RawContour as core::visual::Visualize(0),
+                    TraitForTypeImplBlockPath(`mnist_classifier::raw_contour::RawContour as core::visual::Visualize(0)`),
                 ),
             ),
         ),
@@ -4532,7 +4532,7 @@
             path: RegionPath::Decl(
                 ItemPath::ImplBlock(
                     ImplBlockPath::TraitForTypeImplBlock(
-                        mnist_classifier::raw_contour::RawContour as core::visual::Visualize(0),
+                        TraitForTypeImplBlockPath(`mnist_classifier::raw_contour::RawContour as core::visual::Visualize(0)`),
                     ),
                 ),
             ),

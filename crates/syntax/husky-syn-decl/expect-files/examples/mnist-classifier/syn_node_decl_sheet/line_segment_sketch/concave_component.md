@@ -669,7 +669,7 @@ SynNodeDeclSheet {
                             data: ItemSynNodePathData::ImplBlock(
                                 ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                     TraitForTypeImplBlockSynNodePathData {
-                                        path: mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent as core::visual::Visualize(0),
+                                        path: TraitForTypeImplBlockPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent as core::visual::Visualize(0)`),
                                     },
                                 ),
                             ),
@@ -685,7 +685,7 @@ SynNodeDeclSheet {
                                 data: ItemSynNodePathData::ImplBlock(
                                     ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                         TraitForTypeImplBlockSynNodePathData {
-                                            path: mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent as core::visual::Visualize(0),
+                                            path: TraitForTypeImplBlockPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent as core::visual::Visualize(0)`),
                                         },
                                     ),
                                 ),
@@ -732,7 +732,7 @@ SynNodeDeclSheet {
                                                     data: ItemSynNodePathData::ImplBlock(
                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                path: mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent as core::visual::Visualize(0),
+                                                                path: TraitForTypeImplBlockPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent as core::visual::Visualize(0)`),
                                                             },
                                                         ),
                                                     ),
@@ -949,7 +949,7 @@ SynNodeDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                                path: mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent as core::visual::Visualize(0),
+                                                                                path: TraitForTypeImplBlockPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent as core::visual::Visualize(0)`),
                                                                             },
                                                                         ),
                                                                     ),

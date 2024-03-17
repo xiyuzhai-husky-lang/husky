@@ -701,13 +701,13 @@ SynDeclSheet {
         (
             ItemPath::ImplBlock(
                 ImplBlockPath::TraitForTypeImplBlock(
-                    core::mem::Leash as core::marker::Copy(0),
+                    TraitForTypeImplBlockPath(`core::mem::Leash as core::marker::Copy(0)`),
                 ),
             ),
             SynDecl::ImplBlock(
                 ImplBlockSynDecl::TraitForType(
                     TraitForTypeImplBlockSynDecl {
-                        path: core::mem::Leash as core::marker::Copy(0),
+                        path: TraitForTypeImplBlockPath(`core::mem::Leash as core::marker::Copy(0)`),
                         template_parameters: [
                             TemplateSynParameterData {
                                 annotated_variance_token: None,
@@ -742,7 +742,7 @@ SynDeclSheet {
                                                     data: ItemSynNodePathData::ImplBlock(
                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                path: core::mem::Leash as core::marker::Copy(0),
+                                                                path: TraitForTypeImplBlockPath(`core::mem::Leash as core::marker::Copy(0)`),
                                                             },
                                                         ),
                                                     ),
