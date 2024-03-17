@@ -228,7 +228,7 @@
                                     data: [
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::NewList {
-                                                items: [],
+                                                exprs: [],
                                                 element_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
@@ -266,8 +266,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 2,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 2,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`core::mem::Leash`, `Extern`),
                                                         template_arguments: [
@@ -348,7 +348,7 @@
                                                         1,
                                                     ),
                                                 },
-                                                item_groups: [],
+                                                arguments: [],
                                             },
                                             quary: Transient,
                                             is_always_copyable: true,
@@ -509,7 +509,7 @@
                                                     symbol_map: [],
                                                     separator: None,
                                                 },
-                                                item_groups: [
+                                                arguments: [
                                                     Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Pure,
@@ -867,7 +867,7 @@
                                                     symbol_map: [],
                                                     separator: None,
                                                 },
-                                                item_groups: [
+                                                arguments: [
                                                     Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Pure,
@@ -1118,8 +1118,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 43,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 43,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`core::mem::Leash`, `Extern`),
                                                         template_arguments: [
@@ -1242,7 +1242,7 @@
                                                         1,
                                                     ),
                                                 },
-                                                item_groups: [
+                                                arguments: [
                                                     Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Pure,
@@ -1302,7 +1302,7 @@
                                                     symbol_map: [],
                                                     separator: None,
                                                 },
-                                                item_groups: [
+                                                arguments: [
                                                     Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Move,
@@ -1396,7 +1396,7 @@
                                                         1,
                                                     ),
                                                 },
-                                                item_groups: [
+                                                arguments: [
                                                     Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Move,
@@ -1595,7 +1595,7 @@
                                 stmt_arena: Arena {
                                     data: [
                                         Eval {
-                                            expr_idx: 17,
+                                            expr: 17,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -1606,7 +1606,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr_idx: 35,
+                                            expr: 35,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -1617,7 +1617,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr_idx: 49,
+                                            expr: 49,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -1650,7 +1650,7 @@
                                             else_branch: None,
                                         },
                                         Eval {
-                                            expr_idx: 52,
+                                            expr: 52,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -1661,7 +1661,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr_idx: 57,
+                                            expr: 57,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -2044,8 +2044,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 1,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 1,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                         template_arguments: [],
@@ -2145,7 +2145,7 @@
                                                         1,
                                                     ),
                                                 },
-                                                item_groups: [],
+                                                arguments: [],
                                             },
                                             quary: Transient,
                                             is_always_copyable: false,
@@ -2170,7 +2170,7 @@
                                 stmt_arena: Arena {
                                     data: [
                                         Eval {
-                                            expr_idx: 3,
+                                            expr: 3,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -2346,11 +2346,24 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MemoizedField {
-                                                owner_hir_expr_idx: 1,
+                                                self_argument: 1,
+                                                self_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                        template_arguments: [],
+                                                        always_copyable: false,
+                                                    },
+                                                ),
                                                 ident: `hausdorff_norm`,
                                                 path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::hausdorff_norm`, `MemoizedField`),
                                                 ),
+                                                instantiation: HirInstantiation {
+                                                    symbol_map: [],
+                                                    separator: Some(
+                                                        0,
+                                                    ),
+                                                },
                                             },
                                             quary: Leashed,
                                             is_always_copyable: true,
@@ -2375,7 +2388,7 @@
                                 stmt_arena: Arena {
                                     data: [
                                         Eval {
-                                            expr_idx: 2,
+                                            expr: 2,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -2491,11 +2504,24 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MemoizedField {
-                                                owner_hir_expr_idx: 1,
+                                                self_argument: 1,
+                                                self_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                        template_arguments: [],
+                                                        always_copyable: false,
+                                                    },
+                                                ),
                                                 ident: `norm`,
                                                 path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::norm`, `MemoizedField`),
                                                 ),
+                                                instantiation: HirInstantiation {
+                                                    symbol_map: [],
+                                                    separator: Some(
+                                                        0,
+                                                    ),
+                                                },
                                             },
                                             quary: Leashed,
                                             is_always_copyable: true,
@@ -2529,7 +2555,7 @@
                                                         0,
                                                     ),
                                                 },
-                                                item_groups: [],
+                                                arguments: [],
                                             },
                                             quary: Transient,
                                             is_always_copyable: false,
@@ -2553,7 +2579,7 @@
                                                         0,
                                                     ),
                                                 },
-                                                item_groups: [],
+                                                arguments: [],
                                             },
                                             quary: Transient,
                                             is_always_copyable: true,
@@ -2592,7 +2618,7 @@
                                 stmt_arena: Arena {
                                     data: [
                                         Eval {
-                                            expr_idx: 6,
+                                            expr: 6,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -2725,8 +2751,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 2,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 2,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                         template_arguments: [],
@@ -2807,7 +2833,7 @@
                                                         1,
                                                     ),
                                                 },
-                                                item_groups: [],
+                                                arguments: [],
                                             },
                                             quary: Transient,
                                             is_always_copyable: true,
@@ -2827,8 +2853,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 5,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 5,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`core::mem::Leash`, `Extern`),
                                                         template_arguments: [
@@ -2886,7 +2912,7 @@
                                                         0,
                                                     ),
                                                 },
-                                                item_groups: [],
+                                                arguments: [],
                                             },
                                             quary: Transient,
                                             is_always_copyable: false,
@@ -2931,7 +2957,7 @@
                                                         0,
                                                     ),
                                                 },
-                                                item_groups: [],
+                                                arguments: [],
                                             },
                                             quary: Transient,
                                             is_always_copyable: false,
@@ -2955,7 +2981,7 @@
                                                         0,
                                                     ),
                                                 },
-                                                item_groups: [],
+                                                arguments: [],
                                             },
                                             quary: Transient,
                                             is_always_copyable: true,
@@ -2975,8 +3001,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 12,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 12,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                         template_arguments: [],
@@ -3057,7 +3083,7 @@
                                                         1,
                                                     ),
                                                 },
-                                                item_groups: [],
+                                                arguments: [],
                                             },
                                             quary: Transient,
                                             is_always_copyable: true,
@@ -3077,8 +3103,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 15,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 15,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                         template_arguments: [],
@@ -3159,7 +3185,7 @@
                                                         1,
                                                     ),
                                                 },
-                                                item_groups: [],
+                                                arguments: [],
                                             },
                                             quary: Transient,
                                             is_always_copyable: true,
@@ -3179,8 +3205,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 18,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 18,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                         template_arguments: [],
@@ -3258,8 +3284,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 21,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 21,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                                         template_arguments: [],
@@ -3328,7 +3354,7 @@
                                                         0,
                                                     ),
                                                 },
-                                                item_groups: [
+                                                arguments: [
                                                     Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Pure,
@@ -3503,7 +3529,7 @@
                                 stmt_arena: Arena {
                                     data: [
                                         Eval {
-                                            expr_idx: 31,
+                                            expr: 31,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -3815,8 +3841,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 2,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 2,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                         template_arguments: [],
@@ -3870,8 +3896,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 4,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 4,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                         template_arguments: [],
@@ -3952,7 +3978,7 @@
                                                         1,
                                                     ),
                                                 },
-                                                item_groups: [],
+                                                arguments: [],
                                             },
                                             quary: Transient,
                                             is_always_copyable: true,
@@ -3989,7 +4015,7 @@
                                                         0,
                                                     ),
                                                 },
-                                                item_groups: [],
+                                                arguments: [],
                                             },
                                             quary: Transient,
                                             is_always_copyable: false,
@@ -4009,8 +4035,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 9,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 9,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                         template_arguments: [],
@@ -4091,7 +4117,7 @@
                                                         1,
                                                     ),
                                                 },
-                                                item_groups: [],
+                                                arguments: [],
                                             },
                                             quary: Transient,
                                             is_always_copyable: true,
@@ -4111,8 +4137,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 12,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 12,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                         template_arguments: [],
@@ -4193,7 +4219,7 @@
                                                         1,
                                                     ),
                                                 },
-                                                item_groups: [],
+                                                arguments: [],
                                             },
                                             quary: Transient,
                                             is_always_copyable: true,
@@ -4213,8 +4239,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 15,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 15,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                         template_arguments: [],
@@ -4306,7 +4332,7 @@
                                                         0,
                                                     ),
                                                 },
-                                                item_groups: [],
+                                                arguments: [],
                                             },
                                             quary: Transient,
                                             is_always_copyable: false,
@@ -4405,7 +4431,7 @@
                                                         0,
                                                     ),
                                                 },
-                                                item_groups: [
+                                                arguments: [
                                                     Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Pure,
@@ -4569,7 +4595,7 @@
                                             coersion: None,
                                         },
                                         Eval {
-                                            expr_idx: 25,
+                                            expr: 25,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -4580,7 +4606,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr_idx: 28,
+                                            expr: 28,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -4798,8 +4824,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 1,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 1,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                         template_arguments: [],
@@ -4880,7 +4906,7 @@
                                                         1,
                                                     ),
                                                 },
-                                                item_groups: [],
+                                                arguments: [],
                                             },
                                             quary: Transient,
                                             is_always_copyable: true,
@@ -4900,8 +4926,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 4,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 4,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`core::mem::Leash`, `Extern`),
                                                         template_arguments: [
@@ -4945,8 +4971,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 6,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 6,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                         template_arguments: [],
@@ -4980,8 +5006,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 8,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 8,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                         template_arguments: [],
@@ -5015,8 +5041,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 10,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 10,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                         template_arguments: [],
@@ -5050,8 +5076,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 12,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 12,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                         template_arguments: [],
@@ -5085,8 +5111,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 14,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 14,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                         template_arguments: [],
@@ -5167,7 +5193,7 @@
                                                         1,
                                                     ),
                                                 },
-                                                item_groups: [],
+                                                arguments: [],
                                             },
                                             quary: Transient,
                                             is_always_copyable: true,
@@ -5187,8 +5213,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 17,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 17,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                         template_arguments: [],
@@ -5269,7 +5295,7 @@
                                                         1,
                                                     ),
                                                 },
-                                                item_groups: [],
+                                                arguments: [],
                                             },
                                             quary: Transient,
                                             is_always_copyable: true,
@@ -5289,8 +5315,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 20,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 20,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                         template_arguments: [],
@@ -5368,8 +5394,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 23,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 23,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                                         template_arguments: [],
@@ -5445,8 +5471,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 27,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 27,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                         template_arguments: [],
@@ -5484,7 +5510,7 @@
                                                         0,
                                                     ),
                                                 },
-                                                item_groups: [
+                                                arguments: [
                                                     Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Pure,
@@ -5577,8 +5603,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 33,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 33,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                         template_arguments: [],
@@ -5616,7 +5642,7 @@
                                                         0,
                                                     ),
                                                 },
-                                                item_groups: [
+                                                arguments: [
                                                     Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Pure,
@@ -5709,8 +5735,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 39,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 39,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                         template_arguments: [],
@@ -5748,7 +5774,7 @@
                                                         0,
                                                     ),
                                                 },
-                                                item_groups: [
+                                                arguments: [
                                                     Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Pure,
@@ -5841,8 +5867,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 45,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 45,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                         template_arguments: [],
@@ -5880,7 +5906,7 @@
                                                         0,
                                                     ),
                                                 },
-                                                item_groups: [
+                                                arguments: [
                                                     Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Pure,
@@ -5968,7 +5994,7 @@
                                                     symbol_map: [],
                                                     separator: None,
                                                 },
-                                                item_groups: [
+                                                arguments: [
                                                     Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Move,
@@ -6070,7 +6096,7 @@
                                                     symbol_map: [],
                                                     separator: None,
                                                 },
-                                                item_groups: [
+                                                arguments: [
                                                     Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Move,
@@ -6130,7 +6156,7 @@
                                                     symbol_map: [],
                                                     separator: None,
                                                 },
-                                                item_groups: [
+                                                arguments: [
                                                     Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Move,
@@ -6201,7 +6227,7 @@
                                             coersion: None,
                                         },
                                         Eval {
-                                            expr_idx: 30,
+                                            expr: 30,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -6212,7 +6238,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr_idx: 36,
+                                            expr: 36,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -6223,7 +6249,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr_idx: 42,
+                                            expr: 42,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -6234,7 +6260,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr_idx: 48,
+                                            expr: 48,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -6509,8 +6535,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 1,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 1,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                         template_arguments: [],
@@ -6544,11 +6570,34 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MemoizedField {
-                                                owner_hir_expr_idx: 2,
+                                                self_argument: 2,
+                                                self_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                                        template_arguments: [
+                                                            HirTemplateArgument::Type(
+                                                                HirType::PathLeading(
+                                                                    HirTypePathLeading {
+                                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                                        template_arguments: [],
+                                                                        always_copyable: false,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ],
+                                                        always_copyable: true,
+                                                    },
+                                                ),
                                                 ident: `bounding_box`,
                                                 path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`, `MemoizedField`),
                                                 ),
+                                                instantiation: HirInstantiation {
+                                                    symbol_map: [],
+                                                    separator: Some(
+                                                        0,
+                                                    ),
+                                                },
                                             },
                                             quary: Leashed,
                                             is_always_copyable: false,
@@ -6568,11 +6617,24 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MemoizedField {
-                                                owner_hir_expr_idx: 4,
+                                                self_argument: 4,
+                                                self_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                        template_arguments: [],
+                                                        always_copyable: false,
+                                                    },
+                                                ),
                                                 ident: `bounding_box`,
                                                 path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::bounding_box`, `MemoizedField`),
                                                 ),
+                                                instantiation: HirInstantiation {
+                                                    symbol_map: [],
+                                                    separator: Some(
+                                                        0,
+                                                    ),
+                                                },
                                             },
                                             quary: Leashed,
                                             is_always_copyable: false,
@@ -6596,7 +6658,7 @@
                                                         0,
                                                     ),
                                                 },
-                                                item_groups: [
+                                                arguments: [
                                                     Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Pure,
@@ -6640,7 +6702,7 @@
                                 stmt_arena: Arena {
                                     data: [
                                         Eval {
-                                            expr_idx: 6,
+                                            expr: 6,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -6791,8 +6853,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 1,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 1,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                         template_arguments: [],
@@ -6884,7 +6946,7 @@
                                                         1,
                                                     ),
                                                 },
-                                                item_groups: [],
+                                                arguments: [],
                                             },
                                             quary: Transient,
                                             is_always_copyable: true,
@@ -6904,8 +6966,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 4,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 4,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`core::mem::Leash`, `Extern`),
                                                         template_arguments: [
@@ -6974,7 +7036,7 @@
                                                         1,
                                                     ),
                                                 },
-                                                item_groups: [],
+                                                arguments: [],
                                             },
                                             quary: Transient,
                                             is_always_copyable: false,
@@ -7005,8 +7067,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 7,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 7,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                         template_arguments: [],
@@ -7098,7 +7160,7 @@
                                                         1,
                                                     ),
                                                 },
-                                                item_groups: [],
+                                                arguments: [],
                                             },
                                             quary: Transient,
                                             is_always_copyable: true,
@@ -7118,8 +7180,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 10,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 10,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`core::mem::Leash`, `Extern`),
                                                         template_arguments: [
@@ -7188,7 +7250,7 @@
                                                         1,
                                                     ),
                                                 },
-                                                item_groups: [],
+                                                arguments: [],
                                             },
                                             quary: Transient,
                                             is_always_copyable: false,
@@ -7203,7 +7265,7 @@
                                                     symbol_map: [],
                                                     separator: None,
                                                 },
-                                                item_groups: [
+                                                arguments: [
                                                     Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Move,
@@ -7265,7 +7327,7 @@
                                 stmt_arena: Arena {
                                     data: [
                                         Eval {
-                                            expr_idx: 13,
+                                            expr: 13,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -7416,8 +7478,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 1,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 1,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                         template_arguments: [],
@@ -7509,7 +7571,7 @@
                                                         1,
                                                     ),
                                                 },
-                                                item_groups: [],
+                                                arguments: [],
                                             },
                                             quary: Transient,
                                             is_always_copyable: true,
@@ -7529,8 +7591,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 4,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 4,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`core::mem::Leash`, `Extern`),
                                                         template_arguments: [
@@ -7599,7 +7661,7 @@
                                                         1,
                                                     ),
                                                 },
-                                                item_groups: [],
+                                                arguments: [],
                                             },
                                             quary: Transient,
                                             is_always_copyable: false,
@@ -7624,7 +7686,7 @@
                                 stmt_arena: Arena {
                                     data: [
                                         Eval {
-                                            expr_idx: 6,
+                                            expr: 6,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -7775,8 +7837,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 1,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 1,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                         template_arguments: [],
@@ -7868,7 +7930,7 @@
                                                         1,
                                                     ),
                                                 },
-                                                item_groups: [],
+                                                arguments: [],
                                             },
                                             quary: Transient,
                                             is_always_copyable: true,
@@ -7888,8 +7950,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 4,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 4,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`core::mem::Leash`, `Extern`),
                                                         template_arguments: [
@@ -7958,7 +8020,7 @@
                                                         1,
                                                     ),
                                                 },
-                                                item_groups: [],
+                                                arguments: [],
                                             },
                                             quary: Transient,
                                             is_always_copyable: false,
@@ -7983,7 +8045,7 @@
                                 stmt_arena: Arena {
                                     data: [
                                         Eval {
-                                            expr_idx: 6,
+                                            expr: 6,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -8148,7 +8210,7 @@
                                                         0,
                                                     ),
                                                 },
-                                                item_groups: [],
+                                                arguments: [],
                                             },
                                             quary: Transient,
                                             is_always_copyable: false,
@@ -8172,7 +8234,7 @@
                                                         0,
                                                     ),
                                                 },
-                                                item_groups: [],
+                                                arguments: [],
                                             },
                                             quary: Transient,
                                             is_always_copyable: false,
@@ -8197,7 +8259,7 @@
                                 stmt_arena: Arena {
                                     data: [
                                         Eval {
-                                            expr_idx: 3,
+                                            expr: 3,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -8348,8 +8410,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 1,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 1,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                         template_arguments: [],
@@ -8441,7 +8503,7 @@
                                                         1,
                                                     ),
                                                 },
-                                                item_groups: [],
+                                                arguments: [],
                                             },
                                             quary: Transient,
                                             is_always_copyable: true,
@@ -8475,7 +8537,7 @@
                                                         0,
                                                     ),
                                                 },
-                                                item_groups: [],
+                                                arguments: [],
                                             },
                                             quary: Transient,
                                             is_always_copyable: false,
@@ -8500,7 +8562,7 @@
                                 stmt_arena: Arena {
                                     data: [
                                         Eval {
-                                            expr_idx: 5,
+                                            expr: 5,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -8651,8 +8713,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 1,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 1,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                         template_arguments: [],
@@ -8744,7 +8806,7 @@
                                                         1,
                                                     ),
                                                 },
-                                                item_groups: [],
+                                                arguments: [],
                                             },
                                             quary: Transient,
                                             is_always_copyable: true,
@@ -8778,7 +8840,7 @@
                                                         0,
                                                     ),
                                                 },
-                                                item_groups: [],
+                                                arguments: [],
                                             },
                                             quary: Transient,
                                             is_always_copyable: false,
@@ -8803,7 +8865,7 @@
                                 stmt_arena: Arena {
                                     data: [
                                         Eval {
-                                            expr_idx: 5,
+                                            expr: 5,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {

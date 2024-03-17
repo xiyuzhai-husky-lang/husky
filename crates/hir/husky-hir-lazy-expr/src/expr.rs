@@ -323,8 +323,8 @@ impl ToHirLazy for SemaExprIdx {
                 return_ty_sema_expr_idx: _,
             } => todo!(),
             SemaExprData::Field {
-                owner,
-                owner_ty,
+                self_argument: owner,
+                self_ty: owner_ty,
                 ident_token,
                 ref dispatch,
                 ..

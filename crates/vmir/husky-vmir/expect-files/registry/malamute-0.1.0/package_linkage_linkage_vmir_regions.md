@@ -277,9 +277,10 @@
                         },
                     },
                 },
-                root_expr: 1,
+                root_expr: 2,
                 vmir_expr_arena: Arena {
                     data: [
+                        VmirExprData::PrincipalEntityPath,
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
                                 1..2,
@@ -292,7 +293,13 @@
                 },
                 vmir_stmt_arena: Arena {
                     data: [
-                        VmirStmtData::Eval,
+                        VmirStmtData::Eval {
+                            expr: 1,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
                     ],
                 },
             },

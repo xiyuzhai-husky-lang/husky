@@ -397,7 +397,7 @@
                                 stmt_arena: Arena {
                                     data: [
                                         Eval {
-                                            expr_idx: 7,
+                                            expr: 7,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -669,7 +669,7 @@
                                 stmt_arena: Arena {
                                     data: [
                                         Eval {
-                                            expr_idx: 5,
+                                            expr: 5,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -967,7 +967,7 @@
                                 stmt_arena: Arena {
                                     data: [
                                         Eval {
-                                            expr_idx: 7,
+                                            expr: 7,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -1201,7 +1201,7 @@
                                                     symbol_map: [],
                                                     separator: None,
                                                 },
-                                                item_groups: [
+                                                arguments: [
                                                     Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Pure,
@@ -1305,7 +1305,7 @@
                                                     symbol_map: [],
                                                     separator: None,
                                                 },
-                                                item_groups: [
+                                                arguments: [
                                                     Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Pure,
@@ -1635,7 +1635,7 @@
                                 stmt_arena: Arena {
                                     data: [
                                         Eval {
-                                            expr_idx: 9,
+                                            expr: 9,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -1646,7 +1646,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr_idx: 10,
+                                            expr: 10,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -1657,7 +1657,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr_idx: 11,
+                                            expr: 11,
                                             coersion: Some(
                                                 Never,
                                             ),
@@ -1687,7 +1687,7 @@
                                             match_target: 8,
                                         },
                                         Eval {
-                                            expr_idx: 12,
+                                            expr: 12,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -1698,7 +1698,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr_idx: 14,
+                                            expr: 14,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -1709,7 +1709,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr_idx: 15,
+                                            expr: 15,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -1720,7 +1720,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr_idx: 16,
+                                            expr: 16,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -1731,7 +1731,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr_idx: 17,
+                                            expr: 17,
                                             coersion: Some(
                                                 Never,
                                             ),
@@ -1767,7 +1767,7 @@
                                             match_target: 13,
                                         },
                                         Eval {
-                                            expr_idx: 19,
+                                            expr: 19,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -1778,7 +1778,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr_idx: 20,
+                                            expr: 20,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -1789,7 +1789,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr_idx: 21,
+                                            expr: 21,
                                             coersion: Some(
                                                 Never,
                                             ),
@@ -1819,7 +1819,7 @@
                                             match_target: 18,
                                         },
                                         Eval {
-                                            expr_idx: 22,
+                                            expr: 22,
                                             coersion: Some(
                                                 Never,
                                             ),
@@ -2317,7 +2317,7 @@
                                                         0,
                                                     ),
                                                 },
-                                                item_groups: [
+                                                arguments: [
                                                     Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Pure,
@@ -2451,7 +2451,7 @@
                                 stmt_arena: Arena {
                                     data: [
                                         Eval {
-                                            expr_idx: 11,
+                                            expr: 11,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -2462,7 +2462,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr_idx: 13,
+                                            expr: 13,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -2473,7 +2473,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr_idx: 14,
+                                            expr: 14,
                                             coersion: Some(
                                                 Never,
                                             ),
@@ -2802,7 +2802,7 @@
                                                     symbol_map: [],
                                                     separator: None,
                                                 },
-                                                item_groups: [
+                                                arguments: [
                                                     Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Pure,
@@ -2906,7 +2906,7 @@
                                                     symbol_map: [],
                                                     separator: None,
                                                 },
-                                                item_groups: [
+                                                arguments: [
                                                     Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Pure,
@@ -3395,7 +3395,7 @@
                                 stmt_arena: Arena {
                                     data: [
                                         Eval {
-                                            expr_idx: 9,
+                                            expr: 9,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -3406,7 +3406,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr_idx: 10,
+                                            expr: 10,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -3417,7 +3417,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr_idx: 11,
+                                            expr: 11,
                                             coersion: Some(
                                                 Never,
                                             ),
@@ -3447,7 +3447,7 @@
                                             match_target: 8,
                                         },
                                         Eval {
-                                            expr_idx: 13,
+                                            expr: 13,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -3458,7 +3458,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr_idx: 14,
+                                            expr: 14,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -3469,7 +3469,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr_idx: 16,
+                                            expr: 16,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -3480,7 +3480,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr_idx: 17,
+                                            expr: 17,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -3491,7 +3491,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr_idx: 18,
+                                            expr: 18,
                                             coersion: Some(
                                                 Never,
                                             ),
@@ -3521,7 +3521,7 @@
                                             match_target: 15,
                                         },
                                         Eval {
-                                            expr_idx: 19,
+                                            expr: 19,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -3532,7 +3532,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr_idx: 20,
+                                            expr: 20,
                                             coersion: Some(
                                                 Never,
                                             ),
@@ -3574,7 +3574,7 @@
                                             match_target: 12,
                                         },
                                         Eval {
-                                            expr_idx: 22,
+                                            expr: 22,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -3585,7 +3585,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr_idx: 24,
+                                            expr: 24,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -3596,7 +3596,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr_idx: 25,
+                                            expr: 25,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -3607,7 +3607,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr_idx: 26,
+                                            expr: 26,
                                             coersion: Some(
                                                 Never,
                                             ),
@@ -3637,7 +3637,7 @@
                                             match_target: 23,
                                         },
                                         Eval {
-                                            expr_idx: 27,
+                                            expr: 27,
                                             coersion: Some(
                                                 Never,
                                             ),
@@ -3667,7 +3667,7 @@
                                             match_target: 21,
                                         },
                                         Eval {
-                                            expr_idx: 29,
+                                            expr: 29,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -3678,7 +3678,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr_idx: 30,
+                                            expr: 30,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -3689,7 +3689,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr_idx: 31,
+                                            expr: 31,
                                             coersion: Some(
                                                 Never,
                                             ),
@@ -3719,7 +3719,7 @@
                                             match_target: 28,
                                         },
                                         Eval {
-                                            expr_idx: 32,
+                                            expr: 32,
                                             coersion: Some(
                                                 Never,
                                             ),
@@ -4312,7 +4312,7 @@
                                                         1,
                                                     ),
                                                 },
-                                                item_groups: [],
+                                                arguments: [],
                                             },
                                             quary: Transient,
                                             is_always_copyable: true,
@@ -4529,8 +4529,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 13,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 13,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                         template_arguments: [],
@@ -4590,8 +4590,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 15,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 15,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                         template_arguments: [],
@@ -4696,8 +4696,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 20,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 20,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                         template_arguments: [],
@@ -4757,8 +4757,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 22,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 22,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                         template_arguments: [],
@@ -4845,7 +4845,7 @@
                                                     symbol_map: [],
                                                     separator: None,
                                                 },
-                                                item_groups: [
+                                                arguments: [
                                                     Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Move,
@@ -4934,7 +4934,7 @@
                                             coersion: None,
                                         },
                                         Eval {
-                                            expr_idx: 27,
+                                            expr: 27,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -5122,7 +5122,7 @@
                                     data: [
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::NewList {
-                                                items: [],
+                                                exprs: [],
                                                 element_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
@@ -5150,7 +5150,7 @@
                                                         0,
                                                     ),
                                                 },
-                                                item_groups: [],
+                                                arguments: [],
                                             },
                                             quary: Transient,
                                             is_always_copyable: false,
@@ -5205,8 +5205,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 5,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 5,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`core::mem::Leash`, `Extern`),
                                                         template_arguments: [
@@ -5332,8 +5332,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 11,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 11,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`core::mem::Leash`, `Extern`),
                                                         template_arguments: [
@@ -5962,7 +5962,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::NewList {
-                                                items: [],
+                                                exprs: [],
                                                 element_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -6080,7 +6080,7 @@
                                                         0,
                                                     ),
                                                 },
-                                                item_groups: [],
+                                                arguments: [],
                                             },
                                             quary: Transient,
                                             is_always_copyable: true,
@@ -6111,8 +6111,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 52,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 52,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`core::mem::Leash`, `Extern`),
                                                         template_arguments: [
@@ -6238,8 +6238,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 58,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 58,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`core::mem::Leash`, `Extern`),
                                                         template_arguments: [
@@ -6377,7 +6377,7 @@
                                                     symbol_map: [],
                                                     separator: None,
                                                 },
-                                                item_groups: [
+                                                arguments: [
                                                     Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Pure,
@@ -6920,7 +6920,7 @@
                                                     symbol_map: [],
                                                     separator: None,
                                                 },
-                                                item_groups: [
+                                                arguments: [
                                                     Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Pure,
@@ -7068,7 +7068,7 @@
                                                     symbol_map: [],
                                                     separator: None,
                                                 },
-                                                item_groups: [
+                                                arguments: [
                                                     Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Pure,
@@ -7754,7 +7754,7 @@
                                                         1,
                                                     ),
                                                 },
-                                                item_groups: [],
+                                                arguments: [],
                                             },
                                             quary: Transient,
                                             is_always_copyable: false,
@@ -7820,7 +7820,7 @@
                                                     symbol_map: [],
                                                     separator: None,
                                                 },
-                                                item_groups: [
+                                                arguments: [
                                                     Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Pure,
@@ -7939,7 +7939,7 @@
                                                         0,
                                                     ),
                                                 },
-                                                item_groups: [
+                                                arguments: [
                                                     Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Pure,
@@ -8037,7 +8037,7 @@
                                                         1,
                                                     ),
                                                 },
-                                                item_groups: [
+                                                arguments: [
                                                     Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Move,
@@ -8428,7 +8428,7 @@
                                                         1,
                                                     ),
                                                 },
-                                                item_groups: [],
+                                                arguments: [],
                                             },
                                             quary: Transient,
                                             is_always_copyable: false,
@@ -8519,7 +8519,7 @@
                                                         0,
                                                     ),
                                                 },
-                                                item_groups: [
+                                                arguments: [
                                                     Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Pure,
@@ -9005,7 +9005,7 @@
                                                         1,
                                                     ),
                                                 },
-                                                item_groups: [],
+                                                arguments: [],
                                             },
                                             quary: Transient,
                                             is_always_copyable: false,
@@ -9096,7 +9096,7 @@
                                                         0,
                                                     ),
                                                 },
-                                                item_groups: [
+                                                arguments: [
                                                     Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Pure,
@@ -9349,7 +9349,7 @@
                                                         0,
                                                     ),
                                                 },
-                                                item_groups: [
+                                                arguments: [
                                                     Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Pure,
@@ -9447,7 +9447,7 @@
                                                         1,
                                                     ),
                                                 },
-                                                item_groups: [
+                                                arguments: [
                                                     Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Move,
@@ -9934,8 +9934,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 238,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 238,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`core::mem::Leash`, `Extern`),
                                                         template_arguments: [
@@ -10217,8 +10217,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 254,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 254,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`core::mem::Leash`, `Extern`),
                                                         template_arguments: [
@@ -10846,7 +10846,7 @@
                                                         1,
                                                     ),
                                                 },
-                                                item_groups: [],
+                                                arguments: [],
                                             },
                                             quary: Transient,
                                             is_always_copyable: true,
@@ -10924,7 +10924,7 @@
                                                     symbol_map: [],
                                                     separator: None,
                                                 },
-                                                item_groups: [
+                                                arguments: [
                                                     Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Move,
@@ -11022,7 +11022,7 @@
                                                         1,
                                                     ),
                                                 },
-                                                item_groups: [
+                                                arguments: [
                                                     Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Move,
@@ -11123,7 +11123,7 @@
                                             coersion: None,
                                         },
                                         Eval {
-                                            expr_idx: 40,
+                                            expr: 40,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -11134,7 +11134,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr_idx: 138,
+                                            expr: 138,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -11145,7 +11145,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr_idx: 143,
+                                            expr: 143,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -11156,7 +11156,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr_idx: 147,
+                                            expr: 147,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -11167,7 +11167,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr_idx: 151,
+                                            expr: 151,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -11178,7 +11178,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr_idx: 170,
+                                            expr: 170,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -11189,7 +11189,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr_idx: 173,
+                                            expr: 173,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -11200,7 +11200,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr_idx: 176,
+                                            expr: 176,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -11211,7 +11211,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr_idx: 199,
+                                            expr: 199,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -11222,7 +11222,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr_idx: 203,
+                                            expr: 203,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -11233,7 +11233,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr_idx: 207,
+                                            expr: 207,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -11244,7 +11244,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr_idx: 212,
+                                            expr: 212,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -11255,7 +11255,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr_idx: 215,
+                                            expr: 215,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -11266,7 +11266,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr_idx: 218,
+                                            expr: 218,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -11315,7 +11315,7 @@
                                             ),
                                         },
                                         Eval {
-                                            expr_idx: 221,
+                                            expr: 221,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -11326,7 +11326,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr_idx: 224,
+                                            expr: 224,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -11337,7 +11337,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr_idx: 227,
+                                            expr: 227,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -11348,7 +11348,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr_idx: 233,
+                                            expr: 233,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -11359,7 +11359,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr_idx: 236,
+                                            expr: 236,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -11370,7 +11370,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr_idx: 244,
+                                            expr: 244,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -11381,7 +11381,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr_idx: 249,
+                                            expr: 249,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -11392,7 +11392,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr_idx: 252,
+                                            expr: 252,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -11403,7 +11403,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr_idx: 258,
+                                            expr: 258,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -11414,7 +11414,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr_idx: 263,
+                                            expr: 263,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -11425,7 +11425,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr_idx: 268,
+                                            expr: 268,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -11436,7 +11436,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr_idx: 277,
+                                            expr: 277,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -11465,7 +11465,7 @@
                                             coersion: None,
                                         },
                                         Eval {
-                                            expr_idx: 109,
+                                            expr: 109,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -11520,7 +11520,7 @@
                                             match_target: 228,
                                         },
                                         Eval {
-                                            expr_idx: 271,
+                                            expr: 271,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -11544,7 +11544,7 @@
                                             else_branch: None,
                                         },
                                         Eval {
-                                            expr_idx: 291,
+                                            expr: 291,
                                             coersion: None,
                                             discarded: true,
                                         },
@@ -11720,7 +11720,7 @@
                                             else_branch: None,
                                         },
                                         Eval {
-                                            expr_idx: 296,
+                                            expr: 296,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -12389,8 +12389,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 1,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 1,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                         template_arguments: [],
@@ -12472,7 +12472,7 @@
                                 stmt_arena: Arena {
                                     data: [
                                         Eval {
-                                            expr_idx: 3,
+                                            expr: 3,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -12676,7 +12676,7 @@
                                                         0,
                                                     ),
                                                 },
-                                                item_groups: [
+                                                arguments: [
                                                     Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Pure,
@@ -12734,7 +12734,7 @@
                                 stmt_arena: Arena {
                                     data: [
                                         Eval {
-                                            expr_idx: 3,
+                                            expr: 3,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -12850,8 +12850,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 1,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 1,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                         template_arguments: [],
@@ -12922,8 +12922,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 5,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 5,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                         template_arguments: [],
@@ -12957,8 +12957,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 7,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 7,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                         template_arguments: [],
@@ -12992,8 +12992,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 9,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 9,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                         template_arguments: [],
@@ -13027,8 +13027,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 11,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 11,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                         template_arguments: [],
@@ -13062,8 +13062,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 13,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 13,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                         template_arguments: [],
@@ -13134,7 +13134,7 @@
                                                         1,
                                                     ),
                                                 },
-                                                item_groups: [],
+                                                arguments: [],
                                             },
                                             quary: Transient,
                                             is_always_copyable: true,
@@ -13154,8 +13154,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 16,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 16,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                         template_arguments: [],
@@ -13275,8 +13275,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 22,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 22,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                         template_arguments: [],
@@ -13314,7 +13314,7 @@
                                                         0,
                                                     ),
                                                 },
-                                                item_groups: [
+                                                arguments: [
                                                     Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Pure,
@@ -13407,8 +13407,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 28,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 28,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                         template_arguments: [],
@@ -13446,7 +13446,7 @@
                                                         0,
                                                     ),
                                                 },
-                                                item_groups: [
+                                                arguments: [
                                                     Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Pure,
@@ -13539,8 +13539,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 34,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 34,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                         template_arguments: [],
@@ -13578,7 +13578,7 @@
                                                         0,
                                                     ),
                                                 },
-                                                item_groups: [
+                                                arguments: [
                                                     Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Pure,
@@ -13671,8 +13671,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 40,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 40,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                         template_arguments: [],
@@ -13710,7 +13710,7 @@
                                                         0,
                                                     ),
                                                 },
-                                                item_groups: [
+                                                arguments: [
                                                     Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Pure,
@@ -13798,7 +13798,7 @@
                                                     symbol_map: [],
                                                     separator: None,
                                                 },
-                                                item_groups: [
+                                                arguments: [
                                                     Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Move,
@@ -13900,7 +13900,7 @@
                                                     symbol_map: [],
                                                     separator: None,
                                                 },
-                                                item_groups: [
+                                                arguments: [
                                                     Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Move,
@@ -13960,7 +13960,7 @@
                                                     symbol_map: [],
                                                     separator: None,
                                                 },
-                                                item_groups: [
+                                                arguments: [
                                                     Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Move,
@@ -14031,7 +14031,7 @@
                                             coersion: None,
                                         },
                                         Eval {
-                                            expr_idx: 25,
+                                            expr: 25,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -14042,7 +14042,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr_idx: 31,
+                                            expr: 31,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -14053,7 +14053,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr_idx: 37,
+                                            expr: 37,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -14064,7 +14064,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr_idx: 43,
+                                            expr: 43,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -14337,8 +14337,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 1,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 1,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                         template_arguments: [],
@@ -14372,11 +14372,34 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MemoizedField {
-                                                owner_hir_expr_idx: 2,
+                                                self_argument: 2,
+                                                self_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                                        template_arguments: [
+                                                            HirTemplateArgument::Type(
+                                                                HirType::PathLeading(
+                                                                    HirTypePathLeading {
+                                                                        ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                        template_arguments: [],
+                                                                        always_copyable: false,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ],
+                                                        always_copyable: true,
+                                                    },
+                                                ),
                                                 ident: `raw_contours`,
                                                 path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::raw_contours`, `MemoizedField`),
                                                 ),
+                                                instantiation: HirInstantiation {
+                                                    symbol_map: [],
+                                                    separator: Some(
+                                                        0,
+                                                    ),
+                                                },
                                             },
                                             quary: Leashed,
                                             is_always_copyable: false,
@@ -14413,11 +14436,24 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MemoizedField {
-                                                owner_hir_expr_idx: 5,
+                                                self_argument: 5,
+                                                self_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                        template_arguments: [],
+                                                        always_copyable: false,
+                                                    },
+                                                ),
                                                 ident: `bounding_box`,
                                                 path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::bounding_box`, `MemoizedField`),
                                                 ),
+                                                instantiation: HirInstantiation {
+                                                    symbol_map: [],
+                                                    separator: Some(
+                                                        0,
+                                                    ),
+                                                },
                                             },
                                             quary: Leashed,
                                             is_always_copyable: false,
@@ -14437,11 +14473,24 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MemoizedField {
-                                                owner_hir_expr_idx: 7,
+                                                self_argument: 7,
+                                                self_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                        template_arguments: [],
+                                                        always_copyable: false,
+                                                    },
+                                                ),
                                                 ident: `bounding_box`,
                                                 path: AssocItemPath::TypeItem(
                                                     TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::bounding_box`, `MemoizedField`),
                                                 ),
+                                                instantiation: HirInstantiation {
+                                                    symbol_map: [],
+                                                    separator: Some(
+                                                        0,
+                                                    ),
+                                                },
                                             },
                                             quary: Leashed,
                                             is_always_copyable: false,
@@ -14465,7 +14514,7 @@
                                                         0,
                                                     ),
                                                 },
-                                                item_groups: [
+                                                arguments: [
                                                     Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Pure,
@@ -14509,7 +14558,7 @@
                                 stmt_arena: Arena {
                                     data: [
                                         Eval {
-                                            expr_idx: 9,
+                                            expr: 9,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -14654,8 +14703,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 3,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 3,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                         template_arguments: [],
@@ -14726,7 +14775,7 @@
                                                         1,
                                                     ),
                                                 },
-                                                item_groups: [],
+                                                arguments: [],
                                             },
                                             quary: Transient,
                                             is_always_copyable: true,
@@ -14746,8 +14795,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 6,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 6,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                         template_arguments: [],
@@ -14851,8 +14900,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 12,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 12,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                         template_arguments: [],
@@ -14951,8 +15000,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 17,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 17,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                         template_arguments: [],
@@ -14986,8 +15035,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 19,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 19,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                         template_arguments: [],
@@ -15039,7 +15088,7 @@
                                                         0,
                                                     ),
                                                 },
-                                                item_groups: [],
+                                                arguments: [],
                                             },
                                             quary: Transient,
                                             is_always_copyable: true,
@@ -15059,8 +15108,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 23,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 23,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                         template_arguments: [],
@@ -15094,8 +15143,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 25,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 25,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                         template_arguments: [],
@@ -15147,7 +15196,7 @@
                                                         0,
                                                     ),
                                                 },
-                                                item_groups: [],
+                                                arguments: [],
                                             },
                                             quary: Transient,
                                             is_always_copyable: true,
@@ -15195,8 +15244,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 31,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 31,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                         template_arguments: [],
@@ -15240,8 +15289,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 33,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 33,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                         template_arguments: [],
@@ -15312,7 +15361,7 @@
                                                         1,
                                                     ),
                                                 },
-                                                item_groups: [],
+                                                arguments: [],
                                             },
                                             quary: Transient,
                                             is_always_copyable: true,
@@ -15371,8 +15420,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 39,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 39,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                         template_arguments: [],
@@ -15464,8 +15513,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 44,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 44,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                         template_arguments: [],
@@ -15499,8 +15548,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 46,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 46,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                         template_arguments: [],
@@ -15552,7 +15601,7 @@
                                                         0,
                                                     ),
                                                 },
-                                                item_groups: [],
+                                                arguments: [],
                                             },
                                             quary: Transient,
                                             is_always_copyable: true,
@@ -15572,8 +15621,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 50,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 50,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                         template_arguments: [],
@@ -15607,8 +15656,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 52,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 52,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                         template_arguments: [],
@@ -15660,7 +15709,7 @@
                                                         0,
                                                     ),
                                                 },
-                                                item_groups: [],
+                                                arguments: [],
                                             },
                                             quary: Transient,
                                             is_always_copyable: true,
@@ -15752,7 +15801,7 @@
                                             coersion: None,
                                         },
                                         Eval {
-                                            expr_idx: 30,
+                                            expr: 30,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -15821,7 +15870,7 @@
                                             coersion: None,
                                         },
                                         Eval {
-                                            expr_idx: 57,
+                                            expr: 57,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -16087,8 +16136,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 1,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 1,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                         template_arguments: [],
@@ -16170,7 +16219,7 @@
                                                         1,
                                                     ),
                                                 },
-                                                item_groups: [],
+                                                arguments: [],
                                             },
                                             quary: Transient,
                                             is_always_copyable: true,
@@ -16201,8 +16250,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 4,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 4,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                         template_arguments: [],
@@ -16348,8 +16397,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 10,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 10,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                         template_arguments: [],
@@ -16534,7 +16583,7 @@
                                                         0,
                                                     ),
                                                 },
-                                                item_groups: [
+                                                arguments: [
                                                     Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Pure,
@@ -16611,7 +16660,7 @@
                                             coersion: None,
                                         },
                                         Eval {
-                                            expr_idx: 18,
+                                            expr: 18,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {

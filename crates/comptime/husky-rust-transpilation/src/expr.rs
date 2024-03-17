@@ -219,7 +219,7 @@ fn transpile_hir_eager_expr_to_rust(
         HirEagerExprData::TypeConstructorFnCall {
             path,
             instantiation: _,
-            ref item_groups,
+            arguments: ref item_groups,
         } => {
             builder.struct_ty_constructor_path(path);
             builder.delimited_comma_list(RustDelimiter::Par, item_groups)
@@ -235,21 +235,21 @@ fn transpile_hir_eager_expr_to_rust(
         HirEagerExprData::FunctionFnCall {
             path,
             instantiation: _,
-            ref item_groups,
+            arguments: ref item_groups,
         } => {
             path.transpile_to_rust(builder);
             builder.delimited_comma_list(RustDelimiter::Par, item_groups)
         }
         HirEagerExprData::AssocFunctionFnCall {
             path,
-            ref item_groups,
+            arguments: ref item_groups,
             ..
         } => {
             path.transpile_to_rust(builder);
             builder.delimited_comma_list(RustDelimiter::Par, item_groups)
         }
         HirEagerExprData::PropsStructField {
-            owner: owner_hir_expr_idx,
+            self_argument: owner_hir_expr_idx,
             ident,
             ..
         } => {
@@ -262,7 +262,7 @@ fn transpile_hir_eager_expr_to_rust(
             ident.transpile_to_rust(builder)
         }
         HirEagerExprData::MemoizedField {
-            owner_hir_expr_idx,
+            self_argument: owner_hir_expr_idx,
             ident,
             ..
         } => {
@@ -277,7 +277,7 @@ fn transpile_hir_eager_expr_to_rust(
             ident,
             path,
             ref instantiation,
-            ref item_groups,
+            arguments: ref item_groups,
         } => {
             (self_argument, HirEagerExprSite::self_expr_on_site(true)).transpile_to_rust(builder);
             builder.punctuation(RustPunctuation::Dot);
@@ -322,7 +322,9 @@ fn transpile_hir_eager_expr_to_rust(
                 builder.usize()
             })
         }
-        HirEagerExprData::NewList { ref items, .. } => {
+        HirEagerExprData::NewList {
+            exprs: ref items, ..
+        } => {
             builder.macro_name(RustMacroName::Vec);
             builder.delimited_comma_list(
                 RustDelimiter::Box,

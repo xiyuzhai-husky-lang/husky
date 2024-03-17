@@ -64,15 +64,15 @@ impl TranspileToRustWith<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
                 builder.on_fresh_semicolon_line(|builder| builder.keyword(RustKeyword::Break))
             }
             HirEagerStmtData::Eval {
-                expr_idx,
+                expr,
                 coersion,
                 discarded,
             } => match discarded || !is_last_stmt {
                 true => builder.on_fresh_semicolon_line(|builder| {
-                    (expr_idx, HirEagerExprSite::new_root(coersion)).transpile_to_rust(builder);
+                    (expr, HirEagerExprSite::new_root(coersion)).transpile_to_rust(builder);
                 }),
                 false => builder.on_fresh_line(|builder| {
-                    (expr_idx, HirEagerExprSite::new_root(coersion)).transpile_to_rust(builder);
+                    (expr, HirEagerExprSite::new_root(coersion)).transpile_to_rust(builder);
                 }),
             },
             HirEagerStmtData::ForBetween {

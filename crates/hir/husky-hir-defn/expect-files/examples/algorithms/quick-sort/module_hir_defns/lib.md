@@ -209,7 +209,7 @@
                                                         1,
                                                     ),
                                                 },
-                                                item_groups: [],
+                                                arguments: [],
                                             },
                                             quary: Transient,
                                             is_always_copyable: true,
@@ -353,7 +353,7 @@
                                                     ],
                                                     separator: None,
                                                 },
-                                                item_groups: [
+                                                arguments: [
                                                     Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: BorrowMut,
@@ -447,7 +447,7 @@
                                             coersion: None,
                                         },
                                         Eval {
-                                            expr_idx: 9,
+                                            expr: 9,
                                             coersion: None,
                                             discarded: false,
                                         },
@@ -850,7 +850,7 @@
                                                     ],
                                                     separator: None,
                                                 },
-                                                item_groups: [
+                                                arguments: [
                                                     Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: BorrowMut,
@@ -1052,7 +1052,7 @@
                                                     ],
                                                     separator: None,
                                                 },
-                                                item_groups: [
+                                                arguments: [
                                                     Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: BorrowMut,
@@ -1250,7 +1250,7 @@
                                                     ],
                                                     separator: None,
                                                 },
-                                                item_groups: [
+                                                arguments: [
                                                     Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: BorrowMut,
@@ -1348,7 +1348,7 @@
                                             coersion: None,
                                         },
                                         Eval {
-                                            expr_idx: 13,
+                                            expr: 13,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -1359,7 +1359,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr_idx: 19,
+                                            expr: 19,
                                             coersion: None,
                                             discarded: false,
                                         },
@@ -2547,7 +2547,7 @@
                                                         1,
                                                     ),
                                                 },
-                                                item_groups: [
+                                                arguments: [
                                                     Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Pure,
@@ -2737,7 +2737,7 @@
                                                         1,
                                                     ),
                                                 },
-                                                item_groups: [
+                                                arguments: [
                                                     Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Pure,
@@ -2831,7 +2831,7 @@
                                 stmt_arena: Arena {
                                     data: [
                                         Eval {
-                                            expr_idx: 21,
+                                            expr: 21,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -2842,7 +2842,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr_idx: 39,
+                                            expr: 39,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -2854,7 +2854,7 @@
                                         },
                                         Break,
                                         Eval {
-                                            expr_idx: 48,
+                                            expr: 48,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -2865,7 +2865,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr_idx: 10,
+                                            expr: 10,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -2885,7 +2885,7 @@
                                             ),
                                         },
                                         Eval {
-                                            expr_idx: 24,
+                                            expr: 24,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -2960,7 +2960,7 @@
                                             ),
                                         },
                                         Eval {
-                                            expr_idx: 54,
+                                            expr: 54,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -2971,7 +2971,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr_idx: 55,
+                                            expr: 55,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -3282,7 +3282,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::NewList {
-                                                items: [
+                                                exprs: [
                                                     1,
                                                     2,
                                                     3,
@@ -3541,7 +3541,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::NewList {
-                                                items: [
+                                                exprs: [
                                                     1,
                                                     2,
                                                     3,

@@ -510,7 +510,7 @@
                                 stmt_arena: Arena {
                                     data: [
                                         Eval {
-                                            expr_idx: 1,
+                                            expr: 1,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -1345,7 +1345,7 @@
                                 stmt_arena: Arena {
                                     data: [
                                         Eval {
-                                            expr_idx: 4,
+                                            expr: 4,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -1356,7 +1356,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr_idx: 6,
+                                            expr: 6,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -2103,7 +2103,7 @@
                                 stmt_arena: Arena {
                                     data: [
                                         Eval {
-                                            expr_idx: 3,
+                                            expr: 3,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -2114,7 +2114,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr_idx: 5,
+                                            expr: 5,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -2125,7 +2125,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr_idx: 7,
+                                            expr: 7,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {

@@ -101,7 +101,7 @@ pub enum HirEagerExprData {
     TypeConstructorFnCall {
         path: TypePath,
         instantiation: HirInstantiation,
-        item_groups: SmallVec<[HirEagerRitchieArgument; 4]>,
+        arguments: SmallVec<[HirEagerRitchieArgument; 4]>,
     },
     TypeVariantConstructorCall {
         path: TypeVariantPath,
@@ -111,23 +111,25 @@ pub enum HirEagerExprData {
     FunctionFnCall {
         path: FugitivePath,
         instantiation: HirInstantiation,
-        item_groups: SmallVec<[HirEagerRitchieArgument; 4]>,
+        arguments: SmallVec<[HirEagerRitchieArgument; 4]>,
     },
     AssocFunctionFnCall {
         path: AssocItemPath,
         instantiation: HirInstantiation,
-        item_groups: SmallVec<[HirEagerRitchieArgument; 4]>,
+        arguments: SmallVec<[HirEagerRitchieArgument; 4]>,
     },
     PropsStructField {
-        owner: HirEagerExprIdx,
-        owner_base_ty: HirType,
+        self_argument: HirEagerExprIdx,
+        self_ty: HirType,
         ident: Ident,
         field_ty: HirType,
     },
     MemoizedField {
-        owner_hir_expr_idx: HirEagerExprIdx,
+        self_argument: HirEagerExprIdx,
+        self_ty: HirType,
         ident: Ident,
         path: AssocItemPath,
+        instantiation: HirInstantiation,
     },
     MethodFnCall {
         self_argument: HirEagerExprIdx,
@@ -135,7 +137,7 @@ pub enum HirEagerExprData {
         ident: Ident,
         path: AssocItemPath,
         instantiation: HirInstantiation,
-        item_groups: SmallVec<[HirEagerRitchieArgument; 4]>,
+        arguments: SmallVec<[HirEagerRitchieArgument; 4]>,
     },
     NewTuple {
         /// guaranteed that items.len() > 0
@@ -146,7 +148,8 @@ pub enum HirEagerExprData {
         items: SmallVec<[HirEagerExprIdx; 4]>,
     },
     NewList {
-        items: SmallVec<[HirEagerExprIdx; 4]>,
+        // todo: change it to HirEagerExprIdxRange
+        exprs: SmallVec<[HirEagerExprIdx; 4]>,
         element_ty: HirType,
         // todo: disambiguate Vec, SmallVec, Array, etc.
     },
@@ -325,7 +328,7 @@ impl ToHirEager for SemaExprIdx {
                                     db,
                                     builder.fly_terms(),
                                 ),
-                                item_groups,
+                                arguments: item_groups,
                             },
                             MajorItemPath::Trait(_) => unreachable!(),
                             MajorItemPath::Fugitive(path) => HirEagerExprData::FunctionFnCall {
@@ -335,7 +338,7 @@ impl ToHirEager for SemaExprIdx {
                                     db,
                                     builder.fly_terms(),
                                 ),
-                                item_groups,
+                                arguments: item_groups,
                             },
                         },
                         PrincipalEntityPath::TypeVariant(path) => {
@@ -362,7 +365,7 @@ impl ToHirEager for SemaExprIdx {
                                     db,
                                     builder.fly_terms(),
                                 ),
-                                item_groups,
+                                arguments: item_groups,
                             }
                         }
                         StaticDispatch::AssocGn => unreachable!(),
@@ -372,16 +375,15 @@ impl ToHirEager for SemaExprIdx {
             }
             SemaExprData::Ritchie { .. } => todo!(),
             SemaExprData::Field {
-                owner,
-                owner_ty,
+                self_argument,
+                self_ty,
                 ident_token,
                 ref dispatch,
                 ..
             } => match *dispatch.signature() {
                 FlyFieldSignature::PropsStruct { ty } => HirEagerExprData::PropsStructField {
-                    owner: owner.to_hir_eager(builder),
-                    owner_base_ty: HirType::from_fly(owner_ty, builder.db(), builder.fly_terms())
-                        .unwrap(),
+                    self_argument: self_argument.to_hir_eager(builder),
+                    self_ty: HirType::from_fly(self_ty, builder.db(), builder.fly_terms()).unwrap(),
                     ident: ident_token.ident(),
                     field_ty: HirType::from_fly(ty, builder.db(), builder.fly_terms()).unwrap(),
                 },
@@ -392,9 +394,16 @@ impl ToHirEager for SemaExprIdx {
                 } => {
                     debug_assert!(instantiation.separator().is_some());
                     HirEagerExprData::MemoizedField {
-                        owner_hir_expr_idx: owner.to_hir_eager(builder),
+                        self_argument: self_argument.to_hir_eager(builder),
+                        self_ty: HirType::from_fly(self_ty, builder.db(), builder.fly_terms())
+                            .unwrap(),
                         ident: ident_token.ident(),
                         path,
+                        instantiation: HirInstantiation::from_fly(
+                            instantiation,
+                            builder.db(),
+                            builder.fly_terms(),
+                        ),
                     }
                 }
             },
@@ -421,8 +430,7 @@ impl ToHirEager for SemaExprIdx {
                         builder.db(),
                         builder.fly_terms(),
                     ),
-                    item_groups: builder
-                        .new_call_list_arguments(ritchie_parameter_argument_matches),
+                    arguments: builder.new_call_list_arguments(ritchie_parameter_argument_matches),
                 }
             }
             SemaExprData::MethodGnCall { .. } => {
@@ -453,7 +461,7 @@ impl ToHirEager for SemaExprIdx {
                 element_ty,
                 ..
             } => HirEagerExprData::NewList {
-                items: items
+                exprs: items
                     .iter()
                     .map(|item| item.sema_expr_idx.to_hir_eager(builder))
                     .collect(),

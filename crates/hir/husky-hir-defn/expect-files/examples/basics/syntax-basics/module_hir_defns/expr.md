@@ -112,7 +112,7 @@
                                 stmt_arena: Arena {
                                     data: [
                                         Eval {
-                                            expr_idx: 1,
+                                            expr: 1,
                                             coersion: None,
                                             discarded: false,
                                         },
@@ -545,7 +545,7 @@
                                 stmt_arena: Arena {
                                     data: [
                                         Eval {
-                                            expr_idx: 3,
+                                            expr: 3,
                                             coersion: None,
                                             discarded: false,
                                         },

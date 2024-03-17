@@ -412,7 +412,7 @@ impl<'a> SemaExprRangeCalculator<'a> {
             )),
             SemaExprData::MethodGnCall { .. } => todo!(),
             SemaExprData::Field {
-                owner: owner_sema_expr_idx,
+                self_argument: owner_sema_expr_idx,
                 ident_token,
                 ..
             } => self[owner_sema_expr_idx].to(RegionalTokenIdxRangeEnd::new_after(
