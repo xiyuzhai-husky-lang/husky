@@ -473,11 +473,12 @@
                         },
                     },
                 },
-                root_expr: 2,
+                root_expr: 3,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Linkage(
-                            Linkage {
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
                                 data: LinkageData::StructConstructor {
                                     path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
                                     instantiation: LinInstantiation {
@@ -486,7 +487,10 @@
                                     },
                                 },
                             },
-                        ),
+                            opds: ArenaIdxRange(
+                                1..2,
+                            ),
+                        },
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
                                 1..7,
@@ -505,7 +509,7 @@
                         VmirStmtData::Eval,
                         VmirStmtData::Eval,
                         VmirStmtData::Return {
-                            result: 1,
+                            result: 2,
                             coersion: VmirCoersion::Trivial,
                         },
                     ],
@@ -711,11 +715,15 @@
                         },
                     },
                 },
-                root_expr: 2,
+                root_expr: 6,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Linkage(
-                            Linkage {
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
                                 data: LinkageData::StructConstructor {
                                     path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
                                     instantiation: LinInstantiation {
@@ -724,7 +732,10 @@
                                     },
                                 },
                             },
-                        ),
+                            opds: ArenaIdxRange(
+                                1..5,
+                            ),
+                        },
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
                                 1..12,
@@ -748,7 +759,7 @@
                         VmirStmtData::Let,
                         VmirStmtData::ForBetween,
                         VmirStmtData::Return {
-                            result: 1,
+                            result: 5,
                             coersion: VmirCoersion::Trivial,
                         },
                     ],
@@ -1755,11 +1766,43 @@
                         },
                     },
                 },
-                root_expr: 2,
+                root_expr: 8,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Linkage(
-                            Linkage {
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::StructConstructor {
+                                    path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: None,
+                                    },
+                                },
+                            },
+                            opds: ArenaIdxRange(
+                                1..3,
+                            ),
+                        },
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::StructConstructor {
+                                    path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: None,
+                                    },
+                                },
+                            },
+                            opds: ArenaIdxRange(
+                                3..5,
+                            ),
+                        },
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
                                 data: LinkageData::StructConstructor {
                                     path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                     instantiation: LinInstantiation {
@@ -1768,7 +1811,10 @@
                                     },
                                 },
                             },
-                        ),
+                            opds: ArenaIdxRange(
+                                5..7,
+                            ),
+                        },
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
                                 1..8,
@@ -1788,7 +1834,7 @@
                         VmirStmtData::Let,
                         VmirStmtData::ForBetween,
                         VmirStmtData::Return {
-                            result: 1,
+                            result: 7,
                             coersion: VmirCoersion::Trivial,
                         },
                     ],
@@ -4308,11 +4354,43 @@
                         },
                     },
                 },
-                root_expr: 2,
+                root_expr: 8,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Linkage(
-                            Linkage {
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::StructConstructor {
+                                    path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: None,
+                                    },
+                                },
+                            },
+                            opds: ArenaIdxRange(
+                                1..3,
+                            ),
+                        },
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::StructConstructor {
+                                    path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: None,
+                                    },
+                                },
+                            },
+                            opds: ArenaIdxRange(
+                                3..5,
+                            ),
+                        },
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
                                 data: LinkageData::StructConstructor {
                                     path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                     instantiation: LinInstantiation {
@@ -4321,7 +4399,10 @@
                                     },
                                 },
                             },
-                        ),
+                            opds: ArenaIdxRange(
+                                5..7,
+                            ),
+                        },
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
                                 1..8,
@@ -4341,7 +4422,7 @@
                         VmirStmtData::Let,
                         VmirStmtData::ForBetween,
                         VmirStmtData::Return {
-                            result: 1,
+                            result: 7,
                             coersion: VmirCoersion::Trivial,
                         },
                     ],
@@ -4768,11 +4849,43 @@
                         },
                     },
                 },
-                root_expr: 2,
+                root_expr: 8,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Linkage(
-                            Linkage {
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::StructConstructor {
+                                    path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: None,
+                                    },
+                                },
+                            },
+                            opds: ArenaIdxRange(
+                                1..3,
+                            ),
+                        },
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::StructConstructor {
+                                    path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: None,
+                                    },
+                                },
+                            },
+                            opds: ArenaIdxRange(
+                                3..5,
+                            ),
+                        },
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
                                 data: LinkageData::StructConstructor {
                                     path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                     instantiation: LinInstantiation {
@@ -4781,7 +4894,10 @@
                                     },
                                 },
                             },
-                        ),
+                            opds: ArenaIdxRange(
+                                5..7,
+                            ),
+                        },
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
                                 1..8,
@@ -4801,7 +4917,7 @@
                         VmirStmtData::Let,
                         VmirStmtData::ForBetween,
                         VmirStmtData::Return {
-                            result: 1,
+                            result: 7,
                             coersion: VmirCoersion::Trivial,
                         },
                     ],
@@ -5557,11 +5673,13 @@
                         },
                     },
                 },
-                root_expr: 2,
+                root_expr: 4,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Linkage(
-                            Linkage {
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
                                 data: LinkageData::StructConstructor {
                                     path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                     instantiation: LinInstantiation {
@@ -5570,7 +5688,10 @@
                                     },
                                 },
                             },
-                        ),
+                            opds: ArenaIdxRange(
+                                1..3,
+                            ),
+                        },
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
                                 1..5,
@@ -5587,7 +5708,7 @@
                         VmirStmtData::Let,
                         VmirStmtData::ForBetween,
                         VmirStmtData::Return {
-                            result: 1,
+                            result: 3,
                             coersion: VmirCoersion::Trivial,
                         },
                     ],
