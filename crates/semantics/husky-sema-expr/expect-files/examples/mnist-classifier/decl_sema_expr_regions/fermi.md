@@ -1202,7 +1202,7 @@
                                     ),
                                     ritchie_kind: RitchieKind::Type(
                                         RitchieTypeKind::Item(
-                                            Fn,
+                                            RitchieItemKind::Fn,
                                         ),
                                     ),
                                     lpar_token: LparRegionalToken(

@@ -3110,7 +3110,7 @@ SynDeclSheet {
                                             SynExprData::Ritchie {
                                                 ritchie_kind: RitchieKind::Type(
                                                     RitchieTypeKind::Item(
-                                                        Fn,
+                                                        RitchieItemKind::Fn,
                                                     ),
                                                 ),
                                                 ritchie_kind_regional_token_idx: RegionalTokenIdx(

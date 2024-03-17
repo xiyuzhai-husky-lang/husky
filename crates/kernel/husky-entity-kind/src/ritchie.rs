@@ -1,5 +1,6 @@
 use super::*;
 
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash, Serialize, Deserialize)]
 pub enum RitchieItemKind {
     Fn,

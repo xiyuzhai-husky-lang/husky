@@ -574,7 +574,7 @@
         AssocItemHirDecl::TraitForTypeItem(
             TraitForTypeItemHirDecl::AssocType(
                 TraitForTypeAssocTypeHirDecl {
-                    path: TraitForTypeItemPath(`<core::slice::CyclicSlice as core::ops::IntIndex(0)>::Output`, `AssocType`),
+                    path: TraitForTypeItemPath(`<core::slice::CyclicSlice as core::ops::IntIndex(0)>::Output`, `TraitItemKind::AssocType`),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -591,7 +591,7 @@
                         region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TraitForTypeItem(
-                                    TraitForTypeItemPath(`<core::slice::CyclicSlice as core::ops::IntIndex(0)>::Output`, `AssocType`),
+                                    TraitForTypeItemPath(`<core::slice::CyclicSlice as core::ops::IntIndex(0)>::Output`, `TraitItemKind::AssocType`),
                                 ),
                             ),
                         ),

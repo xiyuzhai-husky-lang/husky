@@ -632,14 +632,14 @@ SynDeclSheet {
         (
             ItemPath::AssocItem(
                 AssocItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath(`<core::result::Result as core::ops::Unveil(0)>::Continue`, `AssocType`),
+                    TraitForTypeItemPath(`<core::result::Result as core::ops::Unveil(0)>::Continue`, `TraitItemKind::AssocType`),
                 ),
             ),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TraitForTypeItem(
                     TraitForTypeItemSynDecl::AssocType(
                         TraitForTypeAssocTypeSynDecl {
-                            path: TraitForTypeItemPath(`<core::result::Result as core::ops::Unveil(0)>::Continue`, `AssocType`),
+                            path: TraitForTypeItemPath(`<core::result::Result as core::ops::Unveil(0)>::Continue`, `TraitItemKind::AssocType`),
                             template_parameters: [],
                             ty_term_expr_idx: 1,
                             syn_expr_region: SynExprRegion {
@@ -1042,7 +1042,7 @@ SynDeclSheet {
                                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                                 TraitForTypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TraitForTypeItemPath(`<core::result::Result as core::ops::Unveil(0)>::Continue`, `AssocType`),
+                                                                        path: TraitForTypeItemPath(`<core::result::Result as core::ops::Unveil(0)>::Continue`, `TraitItemKind::AssocType`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -1166,8 +1166,8 @@ SynDeclSheet {
         (
             ItemPath::AssocItem(
                 AssocItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath(`<core::result::Result as core::ops::Unveil(0)>::unveil`, `AssocRitchie(
-                        Fn,
+                    TraitForTypeItemPath(`<core::result::Result as core::ops::Unveil(0)>::unveil`, `TraitItemKind::AssocRitchie(
+                        RitchieItemKind::Fn,
                     )`),
                 ),
             ),
@@ -1175,8 +1175,8 @@ SynDeclSheet {
                 AssocItemSynDecl::TraitForTypeItem(
                     TraitForTypeItemSynDecl::AssocFn(
                         TraitForTypeAssocFnSynDecl {
-                            path: TraitForTypeItemPath(`<core::result::Result as core::ops::Unveil(0)>::unveil`, `AssocRitchie(
-                                Fn,
+                            path: TraitForTypeItemPath(`<core::result::Result as core::ops::Unveil(0)>::unveil`, `TraitItemKind::AssocRitchie(
+                                RitchieItemKind::Fn,
                             )`),
                             template_parameters: [],
                             parenate_parameters: [
@@ -1600,8 +1600,8 @@ SynDeclSheet {
                                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                                 TraitForTypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TraitForTypeItemPath(`<core::result::Result as core::ops::Unveil(0)>::unveil`, `AssocRitchie(
-                                                                            Fn,
+                                                                        path: TraitForTypeItemPath(`<core::result::Result as core::ops::Unveil(0)>::unveil`, `TraitItemKind::AssocRitchie(
+                                                                            RitchieItemKind::Fn,
                                                                         )`),
                                                                         disambiguator: 0,
                                                                     },

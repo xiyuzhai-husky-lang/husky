@@ -90,13 +90,11 @@ impl salsa::DebugWithDb for TraitForTypeItemPath {
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
     ) -> std::fmt::Result {
-        use std::fmt::Debug;
-
         let data = self.data(db);
         f.write_str("TraitForTypeItemPath(`")?;
         data.show_aux(f, db)?;
         f.write_str("`, `")?;
-        data.item_kind.fmt(f)?;
+        data.item_kind.debug_with_db_fmt(f, db)?;
         f.write_str("`)")
     }
 }

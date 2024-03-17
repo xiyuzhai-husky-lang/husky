@@ -700,7 +700,7 @@ AstSheet {
                 item_kind: EntityKind::MajorItem {
                     module_item_kind: MajorItemKind::Fugitive(
                         MajorFugitiveKind::Ritchie(
-                            Fn,
+                            RitchieItemKind::Fn,
                         ),
                     ),
                     connection: MajorItemConnectionKind::Connected,
@@ -747,7 +747,7 @@ AstSheet {
                 item_kind: EntityKind::MajorItem {
                     module_item_kind: MajorItemKind::Fugitive(
                         MajorFugitiveKind::Ritchie(
-                            Fn,
+                            RitchieItemKind::Fn,
                         ),
                     ),
                     connection: MajorItemConnectionKind::Connected,
@@ -794,7 +794,7 @@ AstSheet {
                 item_kind: EntityKind::MajorItem {
                     module_item_kind: MajorItemKind::Fugitive(
                         MajorFugitiveKind::Ritchie(
-                            Fn,
+                            RitchieItemKind::Fn,
                         ),
                     ),
                     connection: MajorItemConnectionKind::Connected,

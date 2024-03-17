@@ -52,7 +52,7 @@
                             instance_constructor_ritchie_ty: DecRitchie {
                                 ritchie_kind: RitchieKind::Type(
                                     RitchieTypeKind::Item(
-                                        Fn,
+                                        RitchieItemKind::Fn,
                                     ),
                                 ),
                                 params: [
@@ -652,7 +652,7 @@
                             instance_constructor_ritchie_ty: DecRitchie {
                                 ritchie_kind: RitchieKind::Type(
                                     RitchieTypeKind::Item(
-                                        Fn,
+                                        RitchieItemKind::Fn,
                                     ),
                                 ),
                                 params: [
@@ -846,8 +846,8 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TraitForTypeItem(
-                TraitForTypeItemPath(`<mnist_classifier::raw_contour::RawContour as core::visual::Visualize(0)>::visualize`, `MethodRitchie(
-                    Fn,
+                TraitForTypeItemPath(`<mnist_classifier::raw_contour::RawContour as core::visual::Visualize(0)>::visualize`, `TraitItemKind::MethodRitchie(
+                    RitchieItemKind::Fn,
                 )`),
             ),
         ),

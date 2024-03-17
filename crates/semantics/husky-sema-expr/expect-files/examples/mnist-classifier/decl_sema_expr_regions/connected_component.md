@@ -2730,8 +2730,8 @@
         path: RegionPath::Decl(
             ItemPath::AssocItem(
                 AssocItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent as core::visual::Visualize(0)>::visualize`, `MethodRitchie(
-                        Fn,
+                    TraitForTypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent as core::visual::Visualize(0)>::visualize`, `TraitItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
                     )`),
                 ),
             ),
@@ -2740,8 +2740,8 @@
             path: RegionPath::Decl(
                 ItemPath::AssocItem(
                     AssocItemPath::TraitForTypeItem(
-                        TraitForTypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent as core::visual::Visualize(0)>::visualize`, `MethodRitchie(
-                            Fn,
+                        TraitForTypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent as core::visual::Visualize(0)>::visualize`, `TraitItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
                         )`),
                     ),
                 ),

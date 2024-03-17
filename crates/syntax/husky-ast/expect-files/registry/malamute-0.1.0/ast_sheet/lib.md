@@ -155,7 +155,7 @@ AstSheet {
                 item_kind: EntityKind::AssocItem {
                     assoc_item_kind: AssocItemKind::TraitForTypeItem(
                         TraitItemKind::AssocRitchie(
-                            Fn,
+                            RitchieItemKind::Fn,
                         ),
                     ),
                 },
@@ -272,7 +272,7 @@ AstSheet {
                 item_kind: EntityKind::AssocItem {
                     assoc_item_kind: AssocItemKind::TraitForTypeItem(
                         TraitItemKind::AssocRitchie(
-                            Fn,
+                            RitchieItemKind::Fn,
                         ),
                     ),
                 },
@@ -494,7 +494,7 @@ AstSheet {
                 item_kind: EntityKind::AssocItem {
                     assoc_item_kind: AssocItemKind::TraitForTypeItem(
                         TraitItemKind::AssocRitchie(
-                            Fn,
+                            RitchieItemKind::Fn,
                         ),
                     ),
                 },
@@ -760,7 +760,7 @@ AstSheet {
                 item_kind: EntityKind::MajorItem {
                     module_item_kind: MajorItemKind::Fugitive(
                         MajorFugitiveKind::Ritchie(
-                            Gn,
+                            RitchieItemKind::Gn,
                         ),
                     ),
                     connection: MajorItemConnectionKind::Connected,

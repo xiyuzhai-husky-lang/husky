@@ -117,7 +117,7 @@ AstSheet {
                 item_kind: EntityKind::AssocItem {
                     assoc_item_kind: AssocItemKind::TraitForTypeItem(
                         TraitItemKind::AssocRitchie(
-                            Fn,
+                            RitchieItemKind::Fn,
                         ),
                     ),
                 },

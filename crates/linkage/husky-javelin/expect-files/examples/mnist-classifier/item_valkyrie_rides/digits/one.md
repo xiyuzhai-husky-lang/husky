@@ -14,7 +14,7 @@
                         element_ty: HirType::Ritchie(
                             HirRitchieType {
                                 ritchie_ty_kind: RitchieTypeKind::Item(
-                                    Fn,
+                                    RitchieItemKind::Fn,
                                 ),
                                 parameters: HirRitchieParameters {
                                     data: [
@@ -148,7 +148,7 @@
                         element_ty: HirType::Ritchie(
                             HirRitchieType {
                                 ritchie_ty_kind: RitchieTypeKind::Item(
-                                    Fn,
+                                    RitchieItemKind::Fn,
                                 ),
                                 parameters: HirRitchieParameters {
                                     data: [

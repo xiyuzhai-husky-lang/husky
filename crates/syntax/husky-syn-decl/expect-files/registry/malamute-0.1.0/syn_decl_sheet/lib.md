@@ -1419,8 +1419,8 @@ SynDeclSheet {
         (
             ItemPath::AssocItem(
                 AssocItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath(`<malamute::OneVsAll as core::default::Default(0)>::default`, `AssocRitchie(
-                        Fn,
+                    TraitForTypeItemPath(`<malamute::OneVsAll as core::default::Default(0)>::default`, `TraitItemKind::AssocRitchie(
+                        RitchieItemKind::Fn,
                     )`),
                 ),
             ),
@@ -1428,8 +1428,8 @@ SynDeclSheet {
                 AssocItemSynDecl::TraitForTypeItem(
                     TraitForTypeItemSynDecl::AssocFn(
                         TraitForTypeAssocFnSynDecl {
-                            path: TraitForTypeItemPath(`<malamute::OneVsAll as core::default::Default(0)>::default`, `AssocRitchie(
-                                Fn,
+                            path: TraitForTypeItemPath(`<malamute::OneVsAll as core::default::Default(0)>::default`, `TraitItemKind::AssocRitchie(
+                                RitchieItemKind::Fn,
                             )`),
                             template_parameters: [],
                             parenate_parameters: [],
@@ -1720,8 +1720,8 @@ SynDeclSheet {
                                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                                 TraitForTypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TraitForTypeItemPath(`<malamute::OneVsAll as core::default::Default(0)>::default`, `AssocRitchie(
-                                                                            Fn,
+                                                                        path: TraitForTypeItemPath(`<malamute::OneVsAll as core::default::Default(0)>::default`, `TraitItemKind::AssocRitchie(
+                                                                            RitchieItemKind::Fn,
                                                                         )`),
                                                                         disambiguator: 0,
                                                                     },
@@ -2225,14 +2225,14 @@ SynDeclSheet {
         (
             ItemPath::AssocItem(
                 AssocItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath(`<malamute::Class as core::ops::Unveil(0)>::Output`, `AssocType`),
+                    TraitForTypeItemPath(`<malamute::Class as core::ops::Unveil(0)>::Output`, `TraitItemKind::AssocType`),
                 ),
             ),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TraitForTypeItem(
                     TraitForTypeItemSynDecl::AssocType(
                         TraitForTypeAssocTypeSynDecl {
-                            path: TraitForTypeItemPath(`<malamute::Class as core::ops::Unveil(0)>::Output`, `AssocType`),
+                            path: TraitForTypeItemPath(`<malamute::Class as core::ops::Unveil(0)>::Output`, `TraitItemKind::AssocType`),
                             template_parameters: [],
                             ty_term_expr_idx: 1,
                             syn_expr_region: SynExprRegion {
@@ -2596,7 +2596,7 @@ SynDeclSheet {
                                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                                 TraitForTypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TraitForTypeItemPath(`<malamute::Class as core::ops::Unveil(0)>::Output`, `AssocType`),
+                                                                        path: TraitForTypeItemPath(`<malamute::Class as core::ops::Unveil(0)>::Output`, `TraitItemKind::AssocType`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -2694,8 +2694,8 @@ SynDeclSheet {
         (
             ItemPath::AssocItem(
                 AssocItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath(`<malamute::Class as core::ops::Unveil(0)>::unveil`, `AssocRitchie(
-                        Fn,
+                    TraitForTypeItemPath(`<malamute::Class as core::ops::Unveil(0)>::unveil`, `TraitItemKind::AssocRitchie(
+                        RitchieItemKind::Fn,
                     )`),
                 ),
             ),
@@ -2703,8 +2703,8 @@ SynDeclSheet {
                 AssocItemSynDecl::TraitForTypeItem(
                     TraitForTypeItemSynDecl::AssocFn(
                         TraitForTypeAssocFnSynDecl {
-                            path: TraitForTypeItemPath(`<malamute::Class as core::ops::Unveil(0)>::unveil`, `AssocRitchie(
-                                Fn,
+                            path: TraitForTypeItemPath(`<malamute::Class as core::ops::Unveil(0)>::unveil`, `TraitItemKind::AssocRitchie(
+                                RitchieItemKind::Fn,
                             )`),
                             template_parameters: [],
                             parenate_parameters: [
@@ -3089,8 +3089,8 @@ SynDeclSheet {
                                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                                 TraitForTypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TraitForTypeItemPath(`<malamute::Class as core::ops::Unveil(0)>::unveil`, `AssocRitchie(
-                                                                            Fn,
+                                                                        path: TraitForTypeItemPath(`<malamute::Class as core::ops::Unveil(0)>::unveil`, `TraitItemKind::AssocRitchie(
+                                                                            RitchieItemKind::Fn,
                                                                         )`),
                                                                         disambiguator: 0,
                                                                     },
@@ -3831,14 +3831,14 @@ SynDeclSheet {
         (
             ItemPath::AssocItem(
                 AssocItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::Output`, `AssocType`),
+                    TraitForTypeItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::Output`, `TraitItemKind::AssocType`),
                 ),
             ),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TraitForTypeItem(
                     TraitForTypeItemSynDecl::AssocType(
                         TraitForTypeAssocTypeSynDecl {
-                            path: TraitForTypeItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::Output`, `AssocType`),
+                            path: TraitForTypeItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::Output`, `TraitItemKind::AssocType`),
                             template_parameters: [],
                             ty_term_expr_idx: 1,
                             syn_expr_region: SynExprRegion {
@@ -4236,7 +4236,7 @@ SynDeclSheet {
                                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                                 TraitForTypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TraitForTypeItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::Output`, `AssocType`),
+                                                                        path: TraitForTypeItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::Output`, `TraitItemKind::AssocType`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -4334,8 +4334,8 @@ SynDeclSheet {
         (
             ItemPath::AssocItem(
                 AssocItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`, `AssocRitchie(
-                        Fn,
+                    TraitForTypeItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`, `TraitItemKind::AssocRitchie(
+                        RitchieItemKind::Fn,
                     )`),
                 ),
             ),
@@ -4343,8 +4343,8 @@ SynDeclSheet {
                 AssocItemSynDecl::TraitForTypeItem(
                     TraitForTypeItemSynDecl::AssocFn(
                         TraitForTypeAssocFnSynDecl {
-                            path: TraitForTypeItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`, `AssocRitchie(
-                                Fn,
+                            path: TraitForTypeItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`, `TraitItemKind::AssocRitchie(
+                                RitchieItemKind::Fn,
                             )`),
                             template_parameters: [],
                             parenate_parameters: [
@@ -4763,8 +4763,8 @@ SynDeclSheet {
                                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                                 TraitForTypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TraitForTypeItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`, `AssocRitchie(
-                                                                            Fn,
+                                                                        path: TraitForTypeItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`, `TraitItemKind::AssocRitchie(
+                                                                            RitchieItemKind::Fn,
                                                                         )`),
                                                                         disambiguator: 0,
                                                                     },

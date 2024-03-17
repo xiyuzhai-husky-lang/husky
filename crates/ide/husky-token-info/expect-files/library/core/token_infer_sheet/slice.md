@@ -179,7 +179,7 @@ Ok(
                         EntityKind::AssocItem {
                             assoc_item_kind: AssocItemKind::TypeItem(
                                 TypeItemKind::MethodRitchie(
-                                    Fn,
+                                    RitchieItemKind::Fn,
                                 ),
                             ),
                         },
@@ -238,7 +238,7 @@ Ok(
                         EntityKind::AssocItem {
                             assoc_item_kind: AssocItemKind::TypeItem(
                                 TypeItemKind::MethodRitchie(
-                                    Fn,
+                                    RitchieItemKind::Fn,
                                 ),
                             ),
                         },
@@ -554,7 +554,7 @@ Ok(
                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                 TraitForTypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TraitForTypeItemPath(`<core::slice::CyclicSlice as core::ops::IntIndex(0)>::Output`, `AssocType`),
+                                                        path: TraitForTypeItemPath(`<core::slice::CyclicSlice as core::ops::IntIndex(0)>::Output`, `TraitItemKind::AssocType`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -687,7 +687,7 @@ Ok(
                         EntityKind::AssocItem {
                             assoc_item_kind: AssocItemKind::TypeItem(
                                 TypeItemKind::MethodRitchie(
-                                    Fn,
+                                    RitchieItemKind::Fn,
                                 ),
                             ),
                         },
@@ -746,7 +746,7 @@ Ok(
                         EntityKind::AssocItem {
                             assoc_item_kind: AssocItemKind::TypeItem(
                                 TypeItemKind::MethodRitchie(
-                                    Fn,
+                                    RitchieItemKind::Fn,
                                 ),
                             ),
                         },
@@ -805,7 +805,7 @@ Ok(
                         EntityKind::AssocItem {
                             assoc_item_kind: AssocItemKind::TypeItem(
                                 TypeItemKind::MethodRitchie(
-                                    Fn,
+                                    RitchieItemKind::Fn,
                                 ),
                             ),
                         },
@@ -864,7 +864,7 @@ Ok(
                         EntityKind::AssocItem {
                             assoc_item_kind: AssocItemKind::TypeItem(
                                 TypeItemKind::MethodRitchie(
-                                    Fn,
+                                    RitchieItemKind::Fn,
                                 ),
                             ),
                         },
@@ -942,7 +942,7 @@ Ok(
                         EntityKind::AssocItem {
                             assoc_item_kind: AssocItemKind::TypeItem(
                                 TypeItemKind::MethodRitchie(
-                                    Fn,
+                                    RitchieItemKind::Fn,
                                 ),
                             ),
                         },

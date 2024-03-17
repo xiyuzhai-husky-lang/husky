@@ -350,8 +350,8 @@
         AssocItemHirDecl::TraitForTypeItem(
             TraitForTypeItemHirDecl::AssocFn(
                 TraitForTypeAssocFnHirDecl {
-                    path: TraitForTypeItemPath(`<malamute::OneVsAll as core::default::Default(0)>::default`, `AssocRitchie(
-                        Fn,
+                    path: TraitForTypeItemPath(`<malamute::OneVsAll as core::default::Default(0)>::default`, `TraitItemKind::AssocRitchie(
+                        RitchieItemKind::Fn,
                     )`),
                     template_parameters: HirTemplateParameters(
                         [],
@@ -370,8 +370,8 @@
                         region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TraitForTypeItem(
-                                    TraitForTypeItemPath(`<malamute::OneVsAll as core::default::Default(0)>::default`, `AssocRitchie(
-                                        Fn,
+                                    TraitForTypeItemPath(`<malamute::OneVsAll as core::default::Default(0)>::default`, `TraitItemKind::AssocRitchie(
+                                        RitchieItemKind::Fn,
                                     )`),
                                 ),
                             ),
@@ -574,7 +574,7 @@
         AssocItemHirDecl::TraitForTypeItem(
             TraitForTypeItemHirDecl::AssocType(
                 TraitForTypeAssocTypeHirDecl {
-                    path: TraitForTypeItemPath(`<malamute::Class as core::ops::Unveil(0)>::Output`, `AssocType`),
+                    path: TraitForTypeItemPath(`<malamute::Class as core::ops::Unveil(0)>::Output`, `TraitItemKind::AssocType`),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -589,7 +589,7 @@
                         region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TraitForTypeItem(
-                                    TraitForTypeItemPath(`<malamute::Class as core::ops::Unveil(0)>::Output`, `AssocType`),
+                                    TraitForTypeItemPath(`<malamute::Class as core::ops::Unveil(0)>::Output`, `TraitItemKind::AssocType`),
                                 ),
                             ),
                         ),
@@ -663,8 +663,8 @@
         AssocItemHirDecl::TraitForTypeItem(
             TraitForTypeItemHirDecl::AssocFn(
                 TraitForTypeAssocFnHirDecl {
-                    path: TraitForTypeItemPath(`<malamute::Class as core::ops::Unveil(0)>::unveil`, `AssocRitchie(
-                        Fn,
+                    path: TraitForTypeItemPath(`<malamute::Class as core::ops::Unveil(0)>::unveil`, `TraitItemKind::AssocRitchie(
+                        RitchieItemKind::Fn,
                     )`),
                     template_parameters: HirTemplateParameters(
                         [],
@@ -726,8 +726,8 @@
                         region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TraitForTypeItem(
-                                    TraitForTypeItemPath(`<malamute::Class as core::ops::Unveil(0)>::unveil`, `AssocRitchie(
-                                        Fn,
+                                    TraitForTypeItemPath(`<malamute::Class as core::ops::Unveil(0)>::unveil`, `TraitItemKind::AssocRitchie(
+                                        RitchieItemKind::Fn,
                                     )`),
                                 ),
                             ),
@@ -880,7 +880,7 @@
         AssocItemHirDecl::TraitForTypeItem(
             TraitForTypeItemHirDecl::AssocType(
                 TraitForTypeAssocTypeHirDecl {
-                    path: TraitForTypeItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::Output`, `AssocType`),
+                    path: TraitForTypeItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::Output`, `TraitItemKind::AssocType`),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -895,7 +895,7 @@
                         region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TraitForTypeItem(
-                                    TraitForTypeItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::Output`, `AssocType`),
+                                    TraitForTypeItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::Output`, `TraitItemKind::AssocType`),
                                 ),
                             ),
                         ),
@@ -928,8 +928,8 @@
         AssocItemHirDecl::TraitForTypeItem(
             TraitForTypeItemHirDecl::AssocFn(
                 TraitForTypeAssocFnHirDecl {
-                    path: TraitForTypeItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`, `AssocRitchie(
-                        Fn,
+                    path: TraitForTypeItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`, `TraitItemKind::AssocRitchie(
+                        RitchieItemKind::Fn,
                     )`),
                     template_parameters: HirTemplateParameters(
                         [],
@@ -979,8 +979,8 @@
                         region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TraitForTypeItem(
-                                    TraitForTypeItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`, `AssocRitchie(
-                                        Fn,
+                                    TraitForTypeItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`, `TraitItemKind::AssocRitchie(
+                                        RitchieItemKind::Fn,
                                     )`),
                                 ),
                             ),

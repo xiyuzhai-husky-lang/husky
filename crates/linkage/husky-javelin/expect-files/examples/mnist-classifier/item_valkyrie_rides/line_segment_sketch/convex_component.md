@@ -37,8 +37,8 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TraitForTypeItem(
-                TraitForTypeItemPath(`<mnist_classifier::line_segment_sketch::convex_component::ConvexComponent as core::visual::Visualize(0)>::visualize`, `MethodRitchie(
-                    Fn,
+                TraitForTypeItemPath(`<mnist_classifier::line_segment_sketch::convex_component::ConvexComponent as core::visual::Visualize(0)>::visualize`, `TraitItemKind::MethodRitchie(
+                    RitchieItemKind::Fn,
                 )`),
             ),
         ),

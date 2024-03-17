@@ -1497,14 +1497,14 @@ SynDeclSheet {
         (
             ItemPath::AssocItem(
                 AssocItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath(`<core::slice::CyclicSlice as core::ops::IntIndex(0)>::Output`, `AssocType`),
+                    TraitForTypeItemPath(`<core::slice::CyclicSlice as core::ops::IntIndex(0)>::Output`, `TraitItemKind::AssocType`),
                 ),
             ),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TraitForTypeItem(
                     TraitForTypeItemSynDecl::AssocType(
                         TraitForTypeAssocTypeSynDecl {
-                            path: TraitForTypeItemPath(`<core::slice::CyclicSlice as core::ops::IntIndex(0)>::Output`, `AssocType`),
+                            path: TraitForTypeItemPath(`<core::slice::CyclicSlice as core::ops::IntIndex(0)>::Output`, `TraitItemKind::AssocType`),
                             template_parameters: [],
                             ty_term_expr_idx: 1,
                             syn_expr_region: SynExprRegion {
@@ -1734,7 +1734,7 @@ SynDeclSheet {
                                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                                 TraitForTypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TraitForTypeItemPath(`<core::slice::CyclicSlice as core::ops::IntIndex(0)>::Output`, `AssocType`),
+                                                                        path: TraitForTypeItemPath(`<core::slice::CyclicSlice as core::ops::IntIndex(0)>::Output`, `TraitItemKind::AssocType`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },

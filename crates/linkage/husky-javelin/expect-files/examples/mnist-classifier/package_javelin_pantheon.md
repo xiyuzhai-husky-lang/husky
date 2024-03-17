@@ -576,8 +576,8 @@ ValkyrieJavelinPantheon {
             Javelin {
                 data: JavelinData::PathLeading {
                     path: JavPath::TraitForTypeItem(
-                        TraitForTypeItemPath(`<malamute::Class as core::ops::Unveil(0)>::unveil`, `AssocRitchie(
-                            Fn,
+                        TraitForTypeItemPath(`<malamute::Class as core::ops::Unveil(0)>::unveil`, `TraitItemKind::AssocRitchie(
+                            RitchieItemKind::Fn,
                         )`),
                     ),
                     instantiation: JavInstantiation {
@@ -2122,8 +2122,8 @@ ValkyrieJavelinPantheon {
             Javelin {
                 data: JavelinData::PathLeading {
                     path: JavPath::TraitForTypeItem(
-                        TraitForTypeItemPath(`<#derive _ as core::clone::Clone(0)>::clone`, `MethodRitchie(
-                            Fn,
+                        TraitForTypeItemPath(`<#derive _ as core::clone::Clone(0)>::clone`, `TraitItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
                         )`),
                     ),
                     instantiation: JavInstantiation {
@@ -2371,8 +2371,8 @@ ValkyrieJavelinPantheon {
             Javelin {
                 data: JavelinData::PathLeading {
                     path: JavPath::TraitForTypeItem(
-                        TraitForTypeItemPath(`<#derive _ as core::clone::Clone(0)>::clone`, `MethodRitchie(
-                            Fn,
+                        TraitForTypeItemPath(`<#derive _ as core::clone::Clone(0)>::clone`, `TraitItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
                         )`),
                     ),
                     instantiation: JavInstantiation {
@@ -2894,8 +2894,8 @@ ValkyrieJavelinPantheon {
             Javelin {
                 data: JavelinData::PathLeading {
                     path: JavPath::TraitForTypeItem(
-                        TraitForTypeItemPath(`<malamute::Class as core::ops::Unveil(0)>::unveil`, `AssocRitchie(
-                            Fn,
+                        TraitForTypeItemPath(`<malamute::Class as core::ops::Unveil(0)>::unveil`, `TraitItemKind::AssocRitchie(
+                            RitchieItemKind::Fn,
                         )`),
                     ),
                     instantiation: JavInstantiation {
@@ -2945,8 +2945,8 @@ ValkyrieJavelinPantheon {
             Javelin {
                 data: JavelinData::PathLeading {
                     path: JavPath::TraitForTypeItem(
-                        TraitForTypeItemPath(`<#derive _ as core::clone::Clone(0)>::clone`, `MethodRitchie(
-                            Fn,
+                        TraitForTypeItemPath(`<#derive _ as core::clone::Clone(0)>::clone`, `TraitItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
                         )`),
                     ),
                     instantiation: JavInstantiation {
@@ -3530,8 +3530,8 @@ ValkyrieJavelinPantheon {
             Javelin {
                 data: JavelinData::PathLeading {
                     path: JavPath::TraitForTypeItem(
-                        TraitForTypeItemPath(`<#derive _ as core::clone::Clone(0)>::clone`, `MethodRitchie(
-                            Fn,
+                        TraitForTypeItemPath(`<#derive _ as core::clone::Clone(0)>::clone`, `TraitItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
                         )`),
                     ),
                     instantiation: JavInstantiation {

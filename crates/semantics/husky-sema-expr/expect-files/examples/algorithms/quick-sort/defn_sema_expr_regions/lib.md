@@ -602,7 +602,7 @@
                                         3,
                                     ),
                                     ritchie_ty_kind: RitchieTypeKind::Item(
-                                        Fn,
+                                        RitchieItemKind::Fn,
                                     ),
                                     template_arguments: None,
                                     lpar_regional_token_idx: RegionalTokenIdx(
@@ -1048,7 +1048,7 @@
                                 data: HolTermData::Ritchie {
                                     ritchie_kind: RitchieKind::Type(
                                         RitchieTypeKind::Item(
-                                            Fn,
+                                            RitchieItemKind::Fn,
                                         ),
                                     ),
                                     params: [
@@ -1195,7 +1195,7 @@
                                                     },
                                                     variant: ExpectEqsFunctionTypeOutcomeData::TypeRitchie {
                                                         ritchie_ty_kind: RitchieTypeKind::Item(
-                                                            Fn,
+                                                            RitchieItemKind::Fn,
                                                         ),
                                                         parameter_contracted_tys: [
                                                             FlyRitchieParameter::Simple(
@@ -2027,7 +2027,7 @@
                                         4,
                                     ),
                                     ritchie_ty_kind: RitchieTypeKind::Item(
-                                        Fn,
+                                        RitchieItemKind::Fn,
                                     ),
                                     template_arguments: None,
                                     lpar_regional_token_idx: RegionalTokenIdx(
@@ -2453,7 +2453,7 @@
                                         9,
                                     ),
                                     ritchie_ty_kind: RitchieTypeKind::Item(
-                                        Fn,
+                                        RitchieItemKind::Fn,
                                     ),
                                     template_arguments: None,
                                     lpar_regional_token_idx: RegionalTokenIdx(
@@ -2875,7 +2875,7 @@
                                         16,
                                     ),
                                     ritchie_ty_kind: RitchieTypeKind::Item(
-                                        Fn,
+                                        RitchieItemKind::Fn,
                                     ),
                                     template_arguments: None,
                                     lpar_regional_token_idx: RegionalTokenIdx(
@@ -3408,7 +3408,7 @@
                                 data: HolTermData::Ritchie {
                                     ritchie_kind: RitchieKind::Type(
                                         RitchieTypeKind::Item(
-                                            Fn,
+                                            RitchieItemKind::Fn,
                                         ),
                                     ),
                                     params: [
@@ -3515,7 +3515,7 @@
                                 data: HolTermData::Ritchie {
                                     ritchie_kind: RitchieKind::Type(
                                         RitchieTypeKind::Item(
-                                            Fn,
+                                            RitchieItemKind::Fn,
                                         ),
                                     ),
                                     params: [
@@ -3622,7 +3622,7 @@
                                 data: HolTermData::Ritchie {
                                     ritchie_kind: RitchieKind::Type(
                                         RitchieTypeKind::Item(
-                                            Fn,
+                                            RitchieItemKind::Fn,
                                         ),
                                     ),
                                     params: [
@@ -3825,7 +3825,7 @@
                                                     },
                                                     variant: ExpectEqsFunctionTypeOutcomeData::TypeRitchie {
                                                         ritchie_ty_kind: RitchieTypeKind::Item(
-                                                            Fn,
+                                                            RitchieItemKind::Fn,
                                                         ),
                                                         parameter_contracted_tys: [
                                                             FlyRitchieParameter::Simple(
@@ -4115,7 +4115,7 @@
                                                     },
                                                     variant: ExpectEqsFunctionTypeOutcomeData::TypeRitchie {
                                                         ritchie_ty_kind: RitchieTypeKind::Item(
-                                                            Fn,
+                                                            RitchieItemKind::Fn,
                                                         ),
                                                         parameter_contracted_tys: [
                                                             FlyRitchieParameter::Simple(
@@ -4487,7 +4487,7 @@
                                                     },
                                                     variant: ExpectEqsFunctionTypeOutcomeData::TypeRitchie {
                                                         ritchie_ty_kind: RitchieTypeKind::Item(
-                                                            Fn,
+                                                            RitchieItemKind::Fn,
                                                         ),
                                                         parameter_contracted_tys: [
                                                             FlyRitchieParameter::Simple(

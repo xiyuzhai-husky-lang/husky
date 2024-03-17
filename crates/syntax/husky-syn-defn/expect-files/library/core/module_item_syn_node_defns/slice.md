@@ -181,7 +181,7 @@
                             AssocItemSynNodePathData::TraitForTypeItem(
                                 TraitForTypeItemSynNodePathData {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TraitForTypeItemPath(`<core::slice::CyclicSlice as core::ops::IntIndex(0)>::Output`, `AssocType`),
+                                        path: TraitForTypeItemPath(`<core::slice::CyclicSlice as core::ops::IntIndex(0)>::Output`, `TraitItemKind::AssocType`),
                                         disambiguator: 0,
                                     },
                                 },

@@ -22,7 +22,7 @@ AstSheet {
                 item_kind: EntityKind::AssocItem {
                     assoc_item_kind: AssocItemKind::TypeItem(
                         TypeItemKind::MethodRitchie(
-                            Fn,
+                            RitchieItemKind::Fn,
                         ),
                     ),
                 },
@@ -63,7 +63,7 @@ AstSheet {
                 item_kind: EntityKind::AssocItem {
                     assoc_item_kind: AssocItemKind::TypeItem(
                         TypeItemKind::MethodRitchie(
-                            Fn,
+                            RitchieItemKind::Fn,
                         ),
                     ),
                 },
@@ -104,7 +104,7 @@ AstSheet {
                 item_kind: EntityKind::AssocItem {
                     assoc_item_kind: AssocItemKind::TraitForTypeItem(
                         TraitItemKind::MethodRitchie(
-                            Fn,
+                            RitchieItemKind::Fn,
                         ),
                     ),
                 },
@@ -145,7 +145,7 @@ AstSheet {
                 item_kind: EntityKind::AssocItem {
                     assoc_item_kind: AssocItemKind::TypeItem(
                         TypeItemKind::MethodRitchie(
-                            Fn,
+                            RitchieItemKind::Fn,
                         ),
                     ),
                 },
@@ -186,7 +186,7 @@ AstSheet {
                 item_kind: EntityKind::AssocItem {
                     assoc_item_kind: AssocItemKind::TypeItem(
                         TypeItemKind::MethodRitchie(
-                            Fn,
+                            RitchieItemKind::Fn,
                         ),
                     ),
                 },
@@ -227,7 +227,7 @@ AstSheet {
                 item_kind: EntityKind::AssocItem {
                     assoc_item_kind: AssocItemKind::TraitForTypeItem(
                         TraitItemKind::MethodRitchie(
-                            Fn,
+                            RitchieItemKind::Fn,
                         ),
                     ),
                 },
@@ -268,7 +268,7 @@ AstSheet {
                 item_kind: EntityKind::AssocItem {
                     assoc_item_kind: AssocItemKind::TypeItem(
                         TypeItemKind::MethodRitchie(
-                            Fn,
+                            RitchieItemKind::Fn,
                         ),
                     ),
                 },
@@ -309,7 +309,7 @@ AstSheet {
                 item_kind: EntityKind::AssocItem {
                     assoc_item_kind: AssocItemKind::TypeItem(
                         TypeItemKind::MethodRitchie(
-                            Fn,
+                            RitchieItemKind::Fn,
                         ),
                     ),
                 },
@@ -350,7 +350,7 @@ AstSheet {
                 item_kind: EntityKind::AssocItem {
                     assoc_item_kind: AssocItemKind::TypeItem(
                         TypeItemKind::MethodRitchie(
-                            Fn,
+                            RitchieItemKind::Fn,
                         ),
                     ),
                 },
@@ -387,7 +387,7 @@ AstSheet {
                 item_kind: EntityKind::AssocItem {
                     assoc_item_kind: AssocItemKind::TraitForTypeItem(
                         TraitItemKind::MethodRitchie(
-                            Fn,
+                            RitchieItemKind::Fn,
                         ),
                     ),
                 },
@@ -428,7 +428,7 @@ AstSheet {
                 item_kind: EntityKind::AssocItem {
                     assoc_item_kind: AssocItemKind::TypeItem(
                         TypeItemKind::MethodRitchie(
-                            Fn,
+                            RitchieItemKind::Fn,
                         ),
                     ),
                 },
@@ -469,7 +469,7 @@ AstSheet {
                 item_kind: EntityKind::AssocItem {
                     assoc_item_kind: AssocItemKind::TraitForTypeItem(
                         TraitItemKind::MethodRitchie(
-                            Fn,
+                            RitchieItemKind::Fn,
                         ),
                     ),
                 },
@@ -510,7 +510,7 @@ AstSheet {
                 item_kind: EntityKind::AssocItem {
                     assoc_item_kind: AssocItemKind::TypeItem(
                         TypeItemKind::MethodRitchie(
-                            Fn,
+                            RitchieItemKind::Fn,
                         ),
                     ),
                 },
@@ -551,7 +551,7 @@ AstSheet {
                 item_kind: EntityKind::AssocItem {
                     assoc_item_kind: AssocItemKind::TraitForTypeItem(
                         TraitItemKind::MethodRitchie(
-                            Fn,
+                            RitchieItemKind::Fn,
                         ),
                     ),
                 },
@@ -592,7 +592,7 @@ AstSheet {
                 item_kind: EntityKind::AssocItem {
                     assoc_item_kind: AssocItemKind::TypeItem(
                         TypeItemKind::MethodRitchie(
-                            Fn,
+                            RitchieItemKind::Fn,
                         ),
                     ),
                 },
@@ -633,7 +633,7 @@ AstSheet {
                 item_kind: EntityKind::AssocItem {
                     assoc_item_kind: AssocItemKind::TraitForTypeItem(
                         TraitItemKind::MethodRitchie(
-                            Fn,
+                            RitchieItemKind::Fn,
                         ),
                     ),
                 },
@@ -674,7 +674,7 @@ AstSheet {
                 item_kind: EntityKind::AssocItem {
                     assoc_item_kind: AssocItemKind::TypeItem(
                         TypeItemKind::MethodRitchie(
-                            Fn,
+                            RitchieItemKind::Fn,
                         ),
                     ),
                 },
@@ -715,7 +715,7 @@ AstSheet {
                 item_kind: EntityKind::AssocItem {
                     assoc_item_kind: AssocItemKind::TraitForTypeItem(
                         TraitItemKind::MethodRitchie(
-                            Fn,
+                            RitchieItemKind::Fn,
                         ),
                     ),
                 },
@@ -756,7 +756,7 @@ AstSheet {
                 item_kind: EntityKind::AssocItem {
                     assoc_item_kind: AssocItemKind::TypeItem(
                         TypeItemKind::MethodRitchie(
-                            Fn,
+                            RitchieItemKind::Fn,
                         ),
                     ),
                 },
@@ -797,7 +797,7 @@ AstSheet {
                 item_kind: EntityKind::AssocItem {
                     assoc_item_kind: AssocItemKind::TraitForTypeItem(
                         TraitItemKind::MethodRitchie(
-                            Fn,
+                            RitchieItemKind::Fn,
                         ),
                     ),
                 },
@@ -838,7 +838,7 @@ AstSheet {
                 item_kind: EntityKind::AssocItem {
                     assoc_item_kind: AssocItemKind::TypeItem(
                         TypeItemKind::MethodRitchie(
-                            Fn,
+                            RitchieItemKind::Fn,
                         ),
                     ),
                 },
@@ -879,7 +879,7 @@ AstSheet {
                 item_kind: EntityKind::AssocItem {
                     assoc_item_kind: AssocItemKind::TraitForTypeItem(
                         TraitItemKind::MethodRitchie(
-                            Fn,
+                            RitchieItemKind::Fn,
                         ),
                     ),
                 },
@@ -920,7 +920,7 @@ AstSheet {
                 item_kind: EntityKind::AssocItem {
                     assoc_item_kind: AssocItemKind::TypeItem(
                         TypeItemKind::MethodRitchie(
-                            Fn,
+                            RitchieItemKind::Fn,
                         ),
                     ),
                 },
@@ -961,7 +961,7 @@ AstSheet {
                 item_kind: EntityKind::AssocItem {
                     assoc_item_kind: AssocItemKind::TraitForTypeItem(
                         TraitItemKind::MethodRitchie(
-                            Fn,
+                            RitchieItemKind::Fn,
                         ),
                     ),
                 },
@@ -1002,7 +1002,7 @@ AstSheet {
                 item_kind: EntityKind::AssocItem {
                     assoc_item_kind: AssocItemKind::TypeItem(
                         TypeItemKind::MethodRitchie(
-                            Fn,
+                            RitchieItemKind::Fn,
                         ),
                     ),
                 },
@@ -1043,7 +1043,7 @@ AstSheet {
                 item_kind: EntityKind::AssocItem {
                     assoc_item_kind: AssocItemKind::TraitForTypeItem(
                         TraitItemKind::MethodRitchie(
-                            Fn,
+                            RitchieItemKind::Fn,
                         ),
                     ),
                 },
@@ -1084,7 +1084,7 @@ AstSheet {
                 item_kind: EntityKind::AssocItem {
                     assoc_item_kind: AssocItemKind::TypeItem(
                         TypeItemKind::MethodRitchie(
-                            Fn,
+                            RitchieItemKind::Fn,
                         ),
                     ),
                 },
@@ -1125,7 +1125,7 @@ AstSheet {
                 item_kind: EntityKind::AssocItem {
                     assoc_item_kind: AssocItemKind::TraitForTypeItem(
                         TraitItemKind::MethodRitchie(
-                            Fn,
+                            RitchieItemKind::Fn,
                         ),
                     ),
                 },
@@ -1175,7 +1175,7 @@ AstSheet {
                 item_kind: EntityKind::AssocItem {
                     assoc_item_kind: AssocItemKind::TypeItem(
                         TypeItemKind::MethodRitchie(
-                            Fn,
+                            RitchieItemKind::Fn,
                         ),
                     ),
                 },
@@ -1225,7 +1225,7 @@ AstSheet {
                 item_kind: EntityKind::AssocItem {
                     assoc_item_kind: AssocItemKind::TypeItem(
                         TypeItemKind::MethodRitchie(
-                            Fn,
+                            RitchieItemKind::Fn,
                         ),
                     ),
                 },
@@ -1275,7 +1275,7 @@ AstSheet {
                 item_kind: EntityKind::AssocItem {
                     assoc_item_kind: AssocItemKind::TypeItem(
                         TypeItemKind::MethodRitchie(
-                            Fn,
+                            RitchieItemKind::Fn,
                         ),
                     ),
                 },
@@ -1325,7 +1325,7 @@ AstSheet {
                 item_kind: EntityKind::AssocItem {
                     assoc_item_kind: AssocItemKind::TypeItem(
                         TypeItemKind::MethodRitchie(
-                            Fn,
+                            RitchieItemKind::Fn,
                         ),
                     ),
                 },
@@ -1366,7 +1366,7 @@ AstSheet {
                 item_kind: EntityKind::AssocItem {
                     assoc_item_kind: AssocItemKind::TypeItem(
                         TypeItemKind::MethodRitchie(
-                            Fn,
+                            RitchieItemKind::Fn,
                         ),
                     ),
                 },
@@ -1416,7 +1416,7 @@ AstSheet {
                 item_kind: EntityKind::AssocItem {
                     assoc_item_kind: AssocItemKind::TypeItem(
                         TypeItemKind::MethodRitchie(
-                            Fn,
+                            RitchieItemKind::Fn,
                         ),
                     ),
                 },
@@ -1466,7 +1466,7 @@ AstSheet {
                 item_kind: EntityKind::AssocItem {
                     assoc_item_kind: AssocItemKind::TypeItem(
                         TypeItemKind::MethodRitchie(
-                            Fn,
+                            RitchieItemKind::Fn,
                         ),
                     ),
                 },
@@ -1507,7 +1507,7 @@ AstSheet {
                 item_kind: EntityKind::AssocItem {
                     assoc_item_kind: AssocItemKind::TypeItem(
                         TypeItemKind::MethodRitchie(
-                            Fn,
+                            RitchieItemKind::Fn,
                         ),
                     ),
                 },
@@ -1553,7 +1553,7 @@ AstSheet {
                 item_kind: EntityKind::AssocItem {
                     assoc_item_kind: AssocItemKind::TraitForTypeItem(
                         TraitItemKind::MethodRitchie(
-                            Fn,
+                            RitchieItemKind::Fn,
                         ),
                     ),
                 },
@@ -1594,7 +1594,7 @@ AstSheet {
                 item_kind: EntityKind::AssocItem {
                     assoc_item_kind: AssocItemKind::TypeItem(
                         TypeItemKind::MethodRitchie(
-                            Fn,
+                            RitchieItemKind::Fn,
                         ),
                     ),
                 },
@@ -1635,7 +1635,7 @@ AstSheet {
                 item_kind: EntityKind::AssocItem {
                     assoc_item_kind: AssocItemKind::TypeItem(
                         TypeItemKind::MethodRitchie(
-                            Fn,
+                            RitchieItemKind::Fn,
                         ),
                     ),
                 },
@@ -1676,7 +1676,7 @@ AstSheet {
                 item_kind: EntityKind::AssocItem {
                     assoc_item_kind: AssocItemKind::TraitForTypeItem(
                         TraitItemKind::MethodRitchie(
-                            Fn,
+                            RitchieItemKind::Fn,
                         ),
                     ),
                 },
