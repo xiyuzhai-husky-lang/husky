@@ -1,5 +1,11 @@
-use super::*;
+pub mod trai_for_ty_impl_block;
+pub mod ty_impl_block;
 
+use self::{
+    trai_for_ty_impl_block::{TraitForTypeImplBlockPath, TraitForTypeImplBlockPathData},
+    ty_impl_block::{TypeImplBlockPath, TypeImplBlockPathData},
+};
+use super::*;
 use vec_like::VecPairMap;
 
 #[salsa::derive_debug_with_db]
@@ -51,182 +57,6 @@ impl ImplBlockPathData {
     }
 }
 
-#[salsa::derive_debug_with_db]
-#[salsa::as_id(jar = EntityPathJar)]
-#[salsa::deref_id]
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub struct TypeImplBlockPath(ItemPathId);
-
-#[salsa::derive_debug_with_db]
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub struct TypeImplBlockPathData {
-    module_path: ModulePath,
-    ty_path: TypePath,
-    disambiguator: u8,
-}
-
-impl TypeImplBlockPath {
-    pub fn data(self, db: &::salsa::Db) -> TypeImplBlockPathData {
-        match self.0.data(db) {
-            ItemPathData::ImplBlock(ImplBlockPathData::TypeImplBlock(data)) => data,
-            _ => unreachable!(),
-        }
-    }
-
-    pub fn ty_path(self, db: &::salsa::Db) -> TypePath {
-        self.data(db).ty_path
-    }
-
-    pub(crate) fn show_aux(
-        self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &::salsa::Db,
-    ) -> std::fmt::Result {
-        self.data(db).show_aux(f, db)
-    }
-}
-
-impl TypeImplBlockPathData {
-    #[inline(always)]
-    pub(super) fn item_path(self, id: ItemPathId) -> TypeImplBlockPath {
-        TypeImplBlockPath(id)
-    }
-
-    pub fn module_path(self) -> ModulePath {
-        self.module_path
-    }
-
-    pub fn ty_path(self) -> TypePath {
-        self.ty_path
-    }
-
-    pub fn disambiguator(self) -> u8 {
-        self.disambiguator
-    }
-
-    pub(crate) fn show_aux(
-        self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &::salsa::Db,
-    ) -> std::fmt::Result {
-        self.ty_path.show_aux(f, db)?;
-        use std::fmt::Display;
-        f.write_str("(")?;
-        self.disambiguator.fmt(f)?;
-        f.write_str(")")
-    }
-}
-
-impl From<TypeImplBlockPath> for ItemPath {
-    fn from(path: TypeImplBlockPath) -> Self {
-        ItemPath::ImplBlock(path.into())
-    }
-}
-
-impl TypeImplBlockPath {
-    pub fn new(
-        db: &::salsa::Db,
-        registry: &mut ImplBlockRegistry,
-        module_path: ModulePath,
-        ty_path: TypePath,
-    ) -> Self {
-        TypeImplBlockPath(ItemPathId::new(
-            db,
-            ItemPathData::ImplBlock(ImplBlockPathData::TypeImplBlock(TypeImplBlockPathData {
-                module_path,
-                ty_path,
-                disambiguator: registry
-                    .issue_disambiguitor(module_path, ImplBlockKind::Type { ty_path }),
-            })),
-        ))
-    }
-}
-
-impl TypeImplBlockPathData {
-    pub fn toolchain(self, db: &::salsa::Db) -> Toolchain {
-        self.module_path.toolchain(db)
-    }
-}
-
-#[salsa::as_id(jar = EntityPathJar)]
-#[salsa::deref_id]
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub struct TraitForTypeImplBlockPath(ItemPathId);
-
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::derive_debug_with_db]
-pub struct TraitForTypeImplBlockPathData {
-    module_path: ModulePath,
-    trai_path: TraitPath,
-    ty_sketch: TypeSketch,
-    disambiguator: u8,
-}
-
-impl From<TraitForTypeImplBlockPath> for ItemPath {
-    fn from(path: TraitForTypeImplBlockPath) -> Self {
-        ItemPath::ImplBlock(path.into())
-    }
-}
-
-impl TraitForTypeImplBlockPath {
-    pub fn data(self, db: &::salsa::Db) -> TraitForTypeImplBlockPathData {
-        match self.0.data(db) {
-            ItemPathData::ImplBlock(ImplBlockPathData::TraitForTypeImplBlock(data)) => data,
-            _ => unreachable!(),
-        }
-    }
-
-    pub fn trai_path(self, db: &::salsa::Db) -> TraitPath {
-        self.data(db).trai_path
-    }
-
-    pub fn ty_sketch(self, db: &::salsa::Db) -> TypeSketch {
-        self.data(db).ty_sketch
-    }
-
-    pub(crate) fn show_aux(
-        self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &::salsa::Db,
-    ) -> std::fmt::Result {
-        self.data(db).show_aux(f, db)
-    }
-}
-
-impl TraitForTypeImplBlockPathData {
-    #[inline(always)]
-    pub(super) fn item_path(self, id: ItemPathId) -> TraitForTypeImplBlockPath {
-        TraitForTypeImplBlockPath(id)
-    }
-
-    pub fn module_path(self) -> ModulePath {
-        self.module_path
-    }
-
-    pub fn trai_path(self) -> TraitPath {
-        self.trai_path
-    }
-
-    pub fn ty_sketch(self) -> TypeSketch {
-        self.ty_sketch
-    }
-
-    pub fn disambiguator(self) -> u8 {
-        self.disambiguator
-    }
-
-    pub(crate) fn show_aux(
-        self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &::salsa::Db,
-    ) -> std::fmt::Result {
-        self.ty_sketch.show_aux(f, db)?;
-        f.write_str(" as ")?;
-        self.trai_path.show_aux(f, db)?;
-        f.write_fmt(format_args!("({})", self.disambiguator))
-    }
-}
-
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db]
 pub enum TypeSketch {
@@ -241,46 +71,6 @@ impl TypeSketch {
             TypeSketch::DeriveAny => f.write_str("#derive _"),
             TypeSketch::Path(ty_path) => ty_path.show_aux(f, db),
         }
-    }
-}
-
-impl TraitForTypeImplBlockPath {
-    pub fn new(
-        db: &::salsa::Db,
-        registry: &mut ImplBlockRegistry,
-        module_path: ModulePath,
-        trai_path: TraitPath,
-        ty_sketch: TypeSketch,
-    ) -> Self {
-        TraitForTypeImplBlockPath(ItemPathId::new(
-            db,
-            ItemPathData::ImplBlock(ImplBlockPathData::TraitForTypeImplBlock(
-                TraitForTypeImplBlockPathData {
-                    module_path,
-                    trai_path,
-                    ty_sketch,
-                    disambiguator: registry.issue_disambiguitor(
-                        module_path,
-                        ImplBlockKind::TraitForType {
-                            ty_sketch,
-                            trai_path,
-                        },
-                    ),
-                },
-            )),
-        ))
-    }
-}
-
-impl salsa::DebugWithDb for TraitForTypeImplBlockPath {
-    fn debug_with_db_fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &::salsa::Db,
-    ) -> std::fmt::Result {
-        f.write_str("TraitForTypeImplBlockPath(`")?;
-        self.show_aux(f, db)?;
-        f.write_str("`)")
     }
 }
 

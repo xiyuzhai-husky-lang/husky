@@ -68,9 +68,6 @@ impl LinInstantiation {
                 },
             ));
         let separator = hir_instantiation.separator();
-        if let Some(separator) = separator {
-            debug_assert!((separator as usize) <= symbol_resolutions.len());
-        }
         LinInstantiation {
             symbol_resolutions,
             separator,

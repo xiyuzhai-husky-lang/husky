@@ -1,3 +1,5 @@
+use husky_entity_path::ty_impl_block::TypeImplBlockPath;
+
 use super::*;
 
 #[salsa::interned(db = HirDeclDb, jar = HirDeclJar)]

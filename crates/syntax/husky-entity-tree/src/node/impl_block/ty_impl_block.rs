@@ -1,5 +1,6 @@
 use super::*;
 
+use husky_entity_path::ty_impl_block::TypeImplBlockPath;
 use vec_like::SmallVecPairMap;
 
 #[salsa::derive_debug_with_db]

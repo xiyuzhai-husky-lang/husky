@@ -1,4 +1,5 @@
 use super::*;
+use husky_entity_path::trai_for_ty_impl_block::TraitForTypeImplBlockPath;
 
 // trait side
 

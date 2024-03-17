@@ -1,5 +1,6 @@
 use crate::*;
 
+use husky_entity_path::trai_for_ty_impl_block::TraitForTypeImplBlockPath;
 use vec_like::VecMap;
 mod error;
 

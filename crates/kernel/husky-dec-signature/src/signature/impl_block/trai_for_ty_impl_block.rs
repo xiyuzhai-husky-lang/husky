@@ -1,3 +1,5 @@
+use husky_entity_path::trai_for_ty_impl_block::TraitForTypeImplBlockPath;
+
 use super::*;
 
 #[salsa::interned(db = DecSignatureDb, jar = DecSignatureJar)]

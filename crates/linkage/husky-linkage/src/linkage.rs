@@ -289,10 +289,6 @@ impl Linkage {
         lin_instantiation: &LinInstantiation,
         db: &::salsa::Db,
     ) -> Self {
-        use husky_print_utils::p;
-        use salsa::DebugWithDb;
-
-        p!(path.debug(db), hir_instantiation.debug(db));
         Self::new(
             db,
             LinkageData::UnveilAssocFn {

@@ -4,8 +4,7 @@ pub mod impl_block;
 pub mod major_item;
 pub mod submodule;
 pub mod ty_variant;
-
-use enum_class::Room32;
+mod utils;
 
 pub use self::assoc_item::*;
 pub use self::attr::*;
@@ -14,7 +13,9 @@ pub use self::major_item::*;
 pub use self::submodule::*;
 pub use self::ty_variant::*;
 
+use self::utils::debug_with_db_fmt;
 use crate::*;
+use enum_class::Room32;
 
 #[salsa::interned(db = EntityPathDb, jar = EntityPathJar, override_debug)]
 pub struct ItemPathId {
