@@ -95,9 +95,12 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TraitForTypeItem(
-                TraitForTypeItemPath(`<#derive _ as core::clone::Clone(0)>::clone`, `TraitItemKind::MethodRitchie(
-                    RitchieItemKind::Fn,
-                )`),
+                TraitForTypeItemPath(
+                    `<#derive _ as core::clone::Clone(0)>::clone`,
+                    TraitItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
         ),
         Ok(

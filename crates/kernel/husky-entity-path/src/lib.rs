@@ -1,3 +1,4 @@
+#![feature(debug_closure_helpers)]
 #![allow(incomplete_features)]
 mod ancestry;
 mod error;

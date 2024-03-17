@@ -237,13 +237,19 @@
         AssocItemHirDefn::TraitForTypeItem(
             TraitForTypeItemHirDefn::MethodFn(
                 TraitForTypeMethodFnHirDefn {
-                    path: TraitForTypeItemPath(`<mnist::BinaryImage28 as core::visual::Visualize(0)>::visualize`, `TraitItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    )`),
-                    hir_decl: TraitForTypeMethodFnHirDecl {
-                        path: TraitForTypeItemPath(`<mnist::BinaryImage28 as core::visual::Visualize(0)>::visualize`, `TraitItemKind::MethodRitchie(
+                    path: TraitForTypeItemPath(
+                        `<mnist::BinaryImage28 as core::visual::Visualize(0)>::visualize`,
+                        TraitItemKind::MethodRitchie(
                             RitchieItemKind::Fn,
-                        )`),
+                        ),
+                    ),
+                    hir_decl: TraitForTypeMethodFnHirDecl {
+                        path: TraitForTypeItemPath(
+                            `<mnist::BinaryImage28 as core::visual::Visualize(0)>::visualize`,
+                            TraitItemKind::MethodRitchie(
+                                RitchieItemKind::Fn,
+                            ),
+                        ),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -271,9 +277,12 @@
                             region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TraitForTypeItem(
-                                        TraitForTypeItemPath(`<mnist::BinaryImage28 as core::visual::Visualize(0)>::visualize`, `TraitItemKind::MethodRitchie(
-                                            RitchieItemKind::Fn,
-                                        )`),
+                                        TraitForTypeItemPath(
+                                            `<mnist::BinaryImage28 as core::visual::Visualize(0)>::visualize`,
+                                            TraitItemKind::MethodRitchie(
+                                                RitchieItemKind::Fn,
+                                            ),
+                                        ),
                                     ),
                                 ),
                             ),
@@ -495,9 +504,15 @@
         AssocItemHirDefn::TraitForTypeItem(
             TraitForTypeItemHirDefn::AssocType(
                 TraitForTypeAssocTypeHirDefn {
-                    path: TraitForTypeItemPath(`<mnist::BinaryImage28 as core::ops::IntIndex(0)>::Output`, `TraitItemKind::AssocType`),
+                    path: TraitForTypeItemPath(
+                        `<mnist::BinaryImage28 as core::ops::IntIndex(0)>::Output`,
+                        TraitItemKind::AssocType,
+                    ),
                     hir_decl: TraitForTypeAssocTypeHirDecl {
-                        path: TraitForTypeItemPath(`<mnist::BinaryImage28 as core::ops::IntIndex(0)>::Output`, `TraitItemKind::AssocType`),
+                        path: TraitForTypeItemPath(
+                            `<mnist::BinaryImage28 as core::ops::IntIndex(0)>::Output`,
+                            TraitItemKind::AssocType,
+                        ),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -512,7 +527,10 @@
                             region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TraitForTypeItem(
-                                        TraitForTypeItemPath(`<mnist::BinaryImage28 as core::ops::IntIndex(0)>::Output`, `TraitItemKind::AssocType`),
+                                        TraitForTypeItemPath(
+                                            `<mnist::BinaryImage28 as core::ops::IntIndex(0)>::Output`,
+                                            TraitItemKind::AssocType,
+                                        ),
                                     ),
                                 ),
                             ),
@@ -598,13 +616,19 @@
         AssocItemHirDefn::TraitForTypeItem(
             TraitForTypeItemHirDefn::MethodFn(
                 TraitForTypeMethodFnHirDefn {
-                    path: TraitForTypeItemPath(`<mnist::BinaryGrid28 as core::visual::Visualize(0)>::visualize`, `TraitItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    )`),
-                    hir_decl: TraitForTypeMethodFnHirDecl {
-                        path: TraitForTypeItemPath(`<mnist::BinaryGrid28 as core::visual::Visualize(0)>::visualize`, `TraitItemKind::MethodRitchie(
+                    path: TraitForTypeItemPath(
+                        `<mnist::BinaryGrid28 as core::visual::Visualize(0)>::visualize`,
+                        TraitItemKind::MethodRitchie(
                             RitchieItemKind::Fn,
-                        )`),
+                        ),
+                    ),
+                    hir_decl: TraitForTypeMethodFnHirDecl {
+                        path: TraitForTypeItemPath(
+                            `<mnist::BinaryGrid28 as core::visual::Visualize(0)>::visualize`,
+                            TraitItemKind::MethodRitchie(
+                                RitchieItemKind::Fn,
+                            ),
+                        ),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -632,9 +656,12 @@
                             region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TraitForTypeItem(
-                                        TraitForTypeItemPath(`<mnist::BinaryGrid28 as core::visual::Visualize(0)>::visualize`, `TraitItemKind::MethodRitchie(
-                                            RitchieItemKind::Fn,
-                                        )`),
+                                        TraitForTypeItemPath(
+                                            `<mnist::BinaryGrid28 as core::visual::Visualize(0)>::visualize`,
+                                            TraitItemKind::MethodRitchie(
+                                                RitchieItemKind::Fn,
+                                            ),
+                                        ),
                                     ),
                                 ),
                             ),
@@ -856,9 +883,15 @@
         AssocItemHirDefn::TraitForTypeItem(
             TraitForTypeItemHirDefn::AssocType(
                 TraitForTypeAssocTypeHirDefn {
-                    path: TraitForTypeItemPath(`<mnist::BinaryGrid28 as core::ops::IntIndex(0)>::Output`, `TraitItemKind::AssocType`),
+                    path: TraitForTypeItemPath(
+                        `<mnist::BinaryGrid28 as core::ops::IntIndex(0)>::Output`,
+                        TraitItemKind::AssocType,
+                    ),
                     hir_decl: TraitForTypeAssocTypeHirDecl {
-                        path: TraitForTypeItemPath(`<mnist::BinaryGrid28 as core::ops::IntIndex(0)>::Output`, `TraitItemKind::AssocType`),
+                        path: TraitForTypeItemPath(
+                            `<mnist::BinaryGrid28 as core::ops::IntIndex(0)>::Output`,
+                            TraitItemKind::AssocType,
+                        ),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -873,7 +906,10 @@
                             region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TraitForTypeItem(
-                                        TraitForTypeItemPath(`<mnist::BinaryGrid28 as core::ops::IntIndex(0)>::Output`, `TraitItemKind::AssocType`),
+                                        TraitForTypeItemPath(
+                                            `<mnist::BinaryGrid28 as core::ops::IntIndex(0)>::Output`,
+                                            TraitItemKind::AssocType,
+                                        ),
                                     ),
                                 ),
                             ),

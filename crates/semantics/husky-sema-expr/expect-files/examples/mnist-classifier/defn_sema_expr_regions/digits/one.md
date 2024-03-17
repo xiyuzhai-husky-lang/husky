@@ -1463,7 +1463,10 @@
                                         14,
                                     ),
                                     unveil_output_ty_signature: TraitForTypeAssocTypeEtherealSignature {
-                                        path: TraitForTypeItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::Output`, `TraitItemKind::AssocType`),
+                                        path: TraitForTypeItemPath(
+                                            `<malamute::OneVsAll as core::ops::Unveil(0)>::Output`,
+                                            TraitItemKind::AssocType,
+                                        ),
                                         instantiation: EthInstantiation {
                                             path: ItemPath::ImplBlock(
                                                 ImplBlockPath::TraitForTypeImplBlock(
@@ -1486,9 +1489,12 @@
                                         },
                                         ty_term: EthTerm(`unit`),
                                     },
-                                    unveil_assoc_fn_path: TraitForTypeItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`, `TraitItemKind::AssocRitchie(
-                                        RitchieItemKind::Fn,
-                                    )`),
+                                    unveil_assoc_fn_path: TraitForTypeItemPath(
+                                        `<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`,
+                                        TraitItemKind::AssocRitchie(
+                                            RitchieItemKind::Fn,
+                                        ),
+                                    ),
                                     return_ty: EthTerm(`OneVsAll MnistLabel One`),
                                 },
                             ),
@@ -2343,7 +2349,10 @@
                                         43,
                                     ),
                                     unveil_output_ty_signature: TraitForTypeAssocTypeEtherealSignature {
-                                        path: TraitForTypeItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::Output`, `TraitItemKind::AssocType`),
+                                        path: TraitForTypeItemPath(
+                                            `<malamute::OneVsAll as core::ops::Unveil(0)>::Output`,
+                                            TraitItemKind::AssocType,
+                                        ),
                                         instantiation: EthInstantiation {
                                             path: ItemPath::ImplBlock(
                                                 ImplBlockPath::TraitForTypeImplBlock(
@@ -2366,9 +2375,12 @@
                                         },
                                         ty_term: EthTerm(`unit`),
                                     },
-                                    unveil_assoc_fn_path: TraitForTypeItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`, `TraitItemKind::AssocRitchie(
-                                        RitchieItemKind::Fn,
-                                    )`),
+                                    unveil_assoc_fn_path: TraitForTypeItemPath(
+                                        `<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`,
+                                        TraitItemKind::AssocRitchie(
+                                            RitchieItemKind::Fn,
+                                        ),
+                                    ),
                                     return_ty: EthTerm(`OneVsAll MnistLabel One`),
                                 },
                             ),
@@ -4709,7 +4721,10 @@
                                         125,
                                     ),
                                     unveil_output_ty_signature: TraitForTypeAssocTypeEtherealSignature {
-                                        path: TraitForTypeItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::Output`, `TraitItemKind::AssocType`),
+                                        path: TraitForTypeItemPath(
+                                            `<malamute::OneVsAll as core::ops::Unveil(0)>::Output`,
+                                            TraitItemKind::AssocType,
+                                        ),
                                         instantiation: EthInstantiation {
                                             path: ItemPath::ImplBlock(
                                                 ImplBlockPath::TraitForTypeImplBlock(
@@ -4732,9 +4747,12 @@
                                         },
                                         ty_term: EthTerm(`unit`),
                                     },
-                                    unveil_assoc_fn_path: TraitForTypeItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`, `TraitItemKind::AssocRitchie(
-                                        RitchieItemKind::Fn,
-                                    )`),
+                                    unveil_assoc_fn_path: TraitForTypeItemPath(
+                                        `<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`,
+                                        TraitItemKind::AssocRitchie(
+                                            RitchieItemKind::Fn,
+                                        ),
+                                    ),
                                     return_ty: EthTerm(`OneVsAll MnistLabel One`),
                                 },
                             ),
@@ -6981,7 +6999,10 @@
                                         194,
                                     ),
                                     unveil_output_ty_signature: TraitForTypeAssocTypeEtherealSignature {
-                                        path: TraitForTypeItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::Output`, `TraitItemKind::AssocType`),
+                                        path: TraitForTypeItemPath(
+                                            `<malamute::OneVsAll as core::ops::Unveil(0)>::Output`,
+                                            TraitItemKind::AssocType,
+                                        ),
                                         instantiation: EthInstantiation {
                                             path: ItemPath::ImplBlock(
                                                 ImplBlockPath::TraitForTypeImplBlock(
@@ -7004,9 +7025,12 @@
                                         },
                                         ty_term: EthTerm(`unit`),
                                     },
-                                    unveil_assoc_fn_path: TraitForTypeItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`, `TraitItemKind::AssocRitchie(
-                                        RitchieItemKind::Fn,
-                                    )`),
+                                    unveil_assoc_fn_path: TraitForTypeItemPath(
+                                        `<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`,
+                                        TraitItemKind::AssocRitchie(
+                                            RitchieItemKind::Fn,
+                                        ),
+                                    ),
                                     return_ty: EthTerm(`OneVsAll MnistLabel One`),
                                 },
                             ),
@@ -8035,7 +8059,10 @@
                                         226,
                                     ),
                                     unveil_output_ty_signature: TraitForTypeAssocTypeEtherealSignature {
-                                        path: TraitForTypeItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::Output`, `TraitItemKind::AssocType`),
+                                        path: TraitForTypeItemPath(
+                                            `<malamute::OneVsAll as core::ops::Unveil(0)>::Output`,
+                                            TraitItemKind::AssocType,
+                                        ),
                                         instantiation: EthInstantiation {
                                             path: ItemPath::ImplBlock(
                                                 ImplBlockPath::TraitForTypeImplBlock(
@@ -8058,9 +8085,12 @@
                                         },
                                         ty_term: EthTerm(`unit`),
                                     },
-                                    unveil_assoc_fn_path: TraitForTypeItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`, `TraitItemKind::AssocRitchie(
-                                        RitchieItemKind::Fn,
-                                    )`),
+                                    unveil_assoc_fn_path: TraitForTypeItemPath(
+                                        `<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`,
+                                        TraitItemKind::AssocRitchie(
+                                            RitchieItemKind::Fn,
+                                        ),
+                                    ),
                                     return_ty: EthTerm(`OneVsAll MnistLabel One`),
                                 },
                             ),
@@ -10515,7 +10545,10 @@
                                         314,
                                     ),
                                     unveil_output_ty_signature: TraitForTypeAssocTypeEtherealSignature {
-                                        path: TraitForTypeItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::Output`, `TraitItemKind::AssocType`),
+                                        path: TraitForTypeItemPath(
+                                            `<malamute::OneVsAll as core::ops::Unveil(0)>::Output`,
+                                            TraitItemKind::AssocType,
+                                        ),
                                         instantiation: EthInstantiation {
                                             path: ItemPath::ImplBlock(
                                                 ImplBlockPath::TraitForTypeImplBlock(
@@ -10538,9 +10571,12 @@
                                         },
                                         ty_term: EthTerm(`unit`),
                                     },
-                                    unveil_assoc_fn_path: TraitForTypeItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`, `TraitItemKind::AssocRitchie(
-                                        RitchieItemKind::Fn,
-                                    )`),
+                                    unveil_assoc_fn_path: TraitForTypeItemPath(
+                                        `<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`,
+                                        TraitItemKind::AssocRitchie(
+                                            RitchieItemKind::Fn,
+                                        ),
+                                    ),
                                     return_ty: EthTerm(`OneVsAll MnistLabel One`),
                                 },
                             ),
@@ -11279,7 +11315,10 @@
                                         336,
                                     ),
                                     unveil_output_ty_signature: TraitForTypeAssocTypeEtherealSignature {
-                                        path: TraitForTypeItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::Output`, `TraitItemKind::AssocType`),
+                                        path: TraitForTypeItemPath(
+                                            `<malamute::OneVsAll as core::ops::Unveil(0)>::Output`,
+                                            TraitItemKind::AssocType,
+                                        ),
                                         instantiation: EthInstantiation {
                                             path: ItemPath::ImplBlock(
                                                 ImplBlockPath::TraitForTypeImplBlock(
@@ -11302,9 +11341,12 @@
                                         },
                                         ty_term: EthTerm(`unit`),
                                     },
-                                    unveil_assoc_fn_path: TraitForTypeItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`, `TraitItemKind::AssocRitchie(
-                                        RitchieItemKind::Fn,
-                                    )`),
+                                    unveil_assoc_fn_path: TraitForTypeItemPath(
+                                        `<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`,
+                                        TraitItemKind::AssocRitchie(
+                                            RitchieItemKind::Fn,
+                                        ),
+                                    ),
                                     return_ty: EthTerm(`OneVsAll MnistLabel One`),
                                 },
                             ),
@@ -12762,7 +12804,10 @@
                                         386,
                                     ),
                                     unveil_output_ty_signature: TraitForTypeAssocTypeEtherealSignature {
-                                        path: TraitForTypeItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::Output`, `TraitItemKind::AssocType`),
+                                        path: TraitForTypeItemPath(
+                                            `<malamute::OneVsAll as core::ops::Unveil(0)>::Output`,
+                                            TraitItemKind::AssocType,
+                                        ),
                                         instantiation: EthInstantiation {
                                             path: ItemPath::ImplBlock(
                                                 ImplBlockPath::TraitForTypeImplBlock(
@@ -12785,9 +12830,12 @@
                                         },
                                         ty_term: EthTerm(`unit`),
                                     },
-                                    unveil_assoc_fn_path: TraitForTypeItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`, `TraitItemKind::AssocRitchie(
-                                        RitchieItemKind::Fn,
-                                    )`),
+                                    unveil_assoc_fn_path: TraitForTypeItemPath(
+                                        `<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`,
+                                        TraitItemKind::AssocRitchie(
+                                            RitchieItemKind::Fn,
+                                        ),
+                                    ),
                                     return_ty: EthTerm(`OneVsAll MnistLabel One`),
                                 },
                             ),
@@ -14711,7 +14759,10 @@
                                         457,
                                     ),
                                     unveil_output_ty_signature: TraitForTypeAssocTypeEtherealSignature {
-                                        path: TraitForTypeItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::Output`, `TraitItemKind::AssocType`),
+                                        path: TraitForTypeItemPath(
+                                            `<malamute::OneVsAll as core::ops::Unveil(0)>::Output`,
+                                            TraitItemKind::AssocType,
+                                        ),
                                         instantiation: EthInstantiation {
                                             path: ItemPath::ImplBlock(
                                                 ImplBlockPath::TraitForTypeImplBlock(
@@ -14734,9 +14785,12 @@
                                         },
                                         ty_term: EthTerm(`unit`),
                                     },
-                                    unveil_assoc_fn_path: TraitForTypeItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`, `TraitItemKind::AssocRitchie(
-                                        RitchieItemKind::Fn,
-                                    )`),
+                                    unveil_assoc_fn_path: TraitForTypeItemPath(
+                                        `<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`,
+                                        TraitItemKind::AssocRitchie(
+                                            RitchieItemKind::Fn,
+                                        ),
+                                    ),
                                     return_ty: EthTerm(`OneVsAll MnistLabel One`),
                                 },
                             ),

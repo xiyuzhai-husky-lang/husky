@@ -91,11 +91,16 @@ impl salsa::DebugWithDb for TraitForTypeItemPath {
         db: &::salsa::Db,
     ) -> std::fmt::Result {
         let data = self.data(db);
-        f.write_str("TraitForTypeItemPath(`")?;
-        data.show_aux(f, db)?;
-        f.write_str("`, `")?;
-        data.item_kind.debug_with_db_fmt(f, db)?;
-        f.write_str("`)")
+        f.debug_tuple("TraitForTypeItemPath")
+            .field_with(|f| {
+                f.write_str("`")?;
+                data.show_aux(f, db)?;
+                f.write_str("`")
+            })
+            .field(&data.item_kind.debug(db))
+            .finish()?;
+        // this is due to rustc borrow checker's wierdness
+        Ok(())
     }
 }
 

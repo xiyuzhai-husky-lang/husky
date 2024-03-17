@@ -89,9 +89,12 @@
         AssocItemHirDecl::TraitForTypeItem(
             TraitForTypeItemHirDecl::MethodFn(
                 TraitForTypeMethodFnHirDecl {
-                    path: TraitForTypeItemPath(`<#derive _ as core::clone::Clone(0)>::clone`, `TraitItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    )`),
+                    path: TraitForTypeItemPath(
+                        `<#derive _ as core::clone::Clone(0)>::clone`,
+                        TraitItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -111,9 +114,12 @@
                         region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TraitForTypeItem(
-                                    TraitForTypeItemPath(`<#derive _ as core::clone::Clone(0)>::clone`, `TraitItemKind::MethodRitchie(
-                                        RitchieItemKind::Fn,
-                                    )`),
+                                    TraitForTypeItemPath(
+                                        `<#derive _ as core::clone::Clone(0)>::clone`,
+                                        TraitItemKind::MethodRitchie(
+                                            RitchieItemKind::Fn,
+                                        ),
+                                    ),
                                 ),
                             ),
                         ),

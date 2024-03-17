@@ -295,18 +295,24 @@ SynDeclSheet {
         (
             ItemPath::AssocItem(
                 AssocItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath(`<#derive _ as core::visual::Visualize(0)>::visualize`, `TraitItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    )`),
+                    TraitForTypeItemPath(
+                        `<#derive _ as core::visual::Visualize(0)>::visualize`,
+                        TraitItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
                 ),
             ),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TraitForTypeItem(
                     TraitForTypeItemSynDecl::MethodFn(
                         TraitForTypeMethodFnSynDecl {
-                            path: TraitForTypeItemPath(`<#derive _ as core::visual::Visualize(0)>::visualize`, `TraitItemKind::MethodRitchie(
-                                RitchieItemKind::Fn,
-                            )`),
+                            path: TraitForTypeItemPath(
+                                `<#derive _ as core::visual::Visualize(0)>::visualize`,
+                                TraitItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [],
@@ -422,9 +428,12 @@ SynDeclSheet {
                                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                                 TraitForTypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TraitForTypeItemPath(`<#derive _ as core::visual::Visualize(0)>::visualize`, `TraitItemKind::MethodRitchie(
-                                                                            RitchieItemKind::Fn,
-                                                                        )`),
+                                                                        path: TraitForTypeItemPath(
+                                                                            `<#derive _ as core::visual::Visualize(0)>::visualize`,
+                                                                            TraitItemKind::MethodRitchie(
+                                                                                RitchieItemKind::Fn,
+                                                                            ),
+                                                                        ),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },

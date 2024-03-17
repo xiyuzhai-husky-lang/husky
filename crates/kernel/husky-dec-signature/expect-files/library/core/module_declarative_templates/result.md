@@ -120,7 +120,10 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TraitForTypeItem(
-                TraitForTypeItemPath(`<core::result::Result as core::ops::Unveil(0)>::Continue`, `TraitItemKind::AssocType`),
+                TraitForTypeItemPath(
+                    `<core::result::Result as core::ops::Unveil(0)>::Continue`,
+                    TraitItemKind::AssocType,
+                ),
             ),
         ),
         Ok(
@@ -128,7 +131,10 @@
                 AssocItemDecTemplate::TraitForTypeItem(
                     TraitForTypeItemDecTemplate::AssocType(
                         TraitForTypeAssocTypeDecTemplate {
-                            path: TraitForTypeItemPath(`<core::result::Result as core::ops::Unveil(0)>::Continue`, `TraitItemKind::AssocType`),
+                            path: TraitForTypeItemPath(
+                                `<core::result::Result as core::ops::Unveil(0)>::Continue`,
+                                TraitItemKind::AssocType,
+                            ),
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
@@ -148,9 +154,12 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TraitForTypeItem(
-                TraitForTypeItemPath(`<core::result::Result as core::ops::Unveil(0)>::unveil`, `TraitItemKind::AssocRitchie(
-                    RitchieItemKind::Fn,
-                )`),
+                TraitForTypeItemPath(
+                    `<core::result::Result as core::ops::Unveil(0)>::unveil`,
+                    TraitItemKind::AssocRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
         ),
         Ok(

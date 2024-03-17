@@ -61135,9 +61135,12 @@
         path: RegionPath::Defn(
             ItemPath::AssocItem(
                 AssocItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke as core::visual::Visualize(0)>::visualize`, `TraitItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    )`),
+                    TraitForTypeItemPath(
+                        `<mnist_classifier::line_segment_sketch::LineSegmentStroke as core::visual::Visualize(0)>::visualize`,
+                        TraitItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
                 ),
             ),
         ),
@@ -61145,9 +61148,12 @@
             path: RegionPath::Defn(
                 ItemPath::AssocItem(
                     AssocItemPath::TraitForTypeItem(
-                        TraitForTypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke as core::visual::Visualize(0)>::visualize`, `TraitItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        )`),
+                        TraitForTypeItemPath(
+                            `<mnist_classifier::line_segment_sketch::LineSegmentStroke as core::visual::Visualize(0)>::visualize`,
+                            TraitItemKind::MethodRitchie(
+                                RitchieItemKind::Fn,
+                            ),
+                        ),
                     ),
                 ),
             ),
@@ -64071,9 +64077,12 @@
         path: RegionPath::Defn(
             ItemPath::AssocItem(
                 AssocItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentSketch as core::visual::Visualize(0)>::visualize`, `TraitItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    )`),
+                    TraitForTypeItemPath(
+                        `<mnist_classifier::line_segment_sketch::LineSegmentSketch as core::visual::Visualize(0)>::visualize`,
+                        TraitItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
                 ),
             ),
         ),
@@ -64081,9 +64090,12 @@
             path: RegionPath::Defn(
                 ItemPath::AssocItem(
                     AssocItemPath::TraitForTypeItem(
-                        TraitForTypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentSketch as core::visual::Visualize(0)>::visualize`, `TraitItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        )`),
+                        TraitForTypeItemPath(
+                            `<mnist_classifier::line_segment_sketch::LineSegmentSketch as core::visual::Visualize(0)>::visualize`,
+                            TraitItemKind::MethodRitchie(
+                                RitchieItemKind::Fn,
+                            ),
+                        ),
                     ),
                 ),
             ),
@@ -64256,9 +64268,12 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TraitForTypeItem(
-                                                    TraitForTypeItemPath(`<#derive _ as core::visual::Visualize(0)>::visualize`, `TraitItemKind::MethodRitchie(
-                                                        RitchieItemKind::Fn,
-                                                    )`),
+                                                    TraitForTypeItemPath(
+                                                        `<#derive _ as core::visual::Visualize(0)>::visualize`,
+                                                        TraitItemKind::MethodRitchie(
+                                                            RitchieItemKind::Fn,
+                                                        ),
+                                                    ),
                                                 ),
                                                 self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Pure,

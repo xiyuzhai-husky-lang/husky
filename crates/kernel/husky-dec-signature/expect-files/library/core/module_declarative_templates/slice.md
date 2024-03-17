@@ -355,7 +355,10 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TraitForTypeItem(
-                TraitForTypeItemPath(`<core::slice::CyclicSlice as core::ops::IntIndex(0)>::Output`, `TraitItemKind::AssocType`),
+                TraitForTypeItemPath(
+                    `<core::slice::CyclicSlice as core::ops::IntIndex(0)>::Output`,
+                    TraitItemKind::AssocType,
+                ),
             ),
         ),
         Ok(
@@ -363,7 +366,10 @@
                 AssocItemDecTemplate::TraitForTypeItem(
                     TraitForTypeItemDecTemplate::AssocType(
                         TraitForTypeAssocTypeDecTemplate {
-                            path: TraitForTypeItemPath(`<core::slice::CyclicSlice as core::ops::IntIndex(0)>::Output`, `TraitItemKind::AssocType`),
+                            path: TraitForTypeItemPath(
+                                `<core::slice::CyclicSlice as core::ops::IntIndex(0)>::Output`,
+                                TraitItemKind::AssocType,
+                            ),
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
