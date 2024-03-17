@@ -1156,10 +1156,10 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner: SemaExprIdx(
+                                    self_argument: SemaExprIdx(
                                         2,
                                     ),
-                                    owner_ty: FlyTerm {
+                                    self_ty: FlyTerm {
                                         place: Some(
                                             Leashed,
                                         ),
@@ -1809,10 +1809,10 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner: SemaExprIdx(
+                                    self_argument: SemaExprIdx(
                                         12,
                                     ),
-                                    owner_ty: FlyTerm {
+                                    self_ty: FlyTerm {
                                         place: Some(
                                             ImmutableOnStack {
                                                 place: Idx(
@@ -2122,10 +2122,10 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner: SemaExprIdx(
+                                    self_argument: SemaExprIdx(
                                         17,
                                     ),
-                                    owner_ty: FlyTerm {
+                                    self_ty: FlyTerm {
                                         place: Some(
                                             Leashed,
                                         ),
@@ -2481,10 +2481,10 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner: SemaExprIdx(
+                                    self_argument: SemaExprIdx(
                                         22,
                                     ),
-                                    owner_ty: FlyTerm {
+                                    self_ty: FlyTerm {
                                         place: Some(
                                             Leashed,
                                         ),
@@ -2697,10 +2697,10 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner: SemaExprIdx(
+                                    self_argument: SemaExprIdx(
                                         26,
                                     ),
-                                    owner_ty: FlyTerm {
+                                    self_ty: FlyTerm {
                                         place: Some(
                                             Leashed,
                                         ),
@@ -2997,10 +2997,10 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner: SemaExprIdx(
+                                    self_argument: SemaExprIdx(
                                         31,
                                     ),
-                                    owner_ty: FlyTerm {
+                                    self_ty: FlyTerm {
                                         place: Some(
                                             Leashed,
                                         ),
@@ -3347,10 +3347,10 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner: SemaExprIdx(
+                                    self_argument: SemaExprIdx(
                                         38,
                                     ),
-                                    owner_ty: FlyTerm {
+                                    self_ty: FlyTerm {
                                         place: Some(
                                             Leashed,
                                         ),
@@ -3562,10 +3562,10 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner: SemaExprIdx(
+                                    self_argument: SemaExprIdx(
                                         42,
                                     ),
-                                    owner_ty: FlyTerm {
+                                    self_ty: FlyTerm {
                                         place: Some(
                                             Leashed,
                                         ),
@@ -3777,10 +3777,10 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner: SemaExprIdx(
+                                    self_argument: SemaExprIdx(
                                         46,
                                     ),
-                                    owner_ty: FlyTerm {
+                                    self_ty: FlyTerm {
                                         place: Some(
                                             Leashed,
                                         ),
@@ -4073,10 +4073,10 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner: SemaExprIdx(
+                                    self_argument: SemaExprIdx(
                                         52,
                                     ),
-                                    owner_ty: FlyTerm {
+                                    self_ty: FlyTerm {
                                         place: Some(
                                             ImmutableOnStack {
                                                 place: Idx(
@@ -4383,10 +4383,10 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner: SemaExprIdx(
+                                    self_argument: SemaExprIdx(
                                         57,
                                     ),
-                                    owner_ty: FlyTerm {
+                                    self_ty: FlyTerm {
                                         place: Some(
                                             ImmutableOnStack {
                                                 place: Idx(
@@ -4911,10 +4911,10 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner: SemaExprIdx(
+                                    self_argument: SemaExprIdx(
                                         64,
                                     ),
-                                    owner_ty: FlyTerm {
+                                    self_ty: FlyTerm {
                                         place: Some(
                                             Leashed,
                                         ),
@@ -5086,10 +5086,10 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner: SemaExprIdx(
+                                    self_argument: SemaExprIdx(
                                         67,
                                     ),
-                                    owner_ty: FlyTerm {
+                                    self_ty: FlyTerm {
                                         place: Some(
                                             Leashed,
                                         ),
@@ -5459,10 +5459,10 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner: SemaExprIdx(
+                                    self_argument: SemaExprIdx(
                                         74,
                                     ),
-                                    owner_ty: FlyTerm {
+                                    self_ty: FlyTerm {
                                         place: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConcaveComponent`),
@@ -5708,10 +5708,10 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner: SemaExprIdx(
+                                    self_argument: SemaExprIdx(
                                         78,
                                     ),
-                                    owner_ty: FlyTerm {
+                                    self_ty: FlyTerm {
                                         place: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConcaveComponent`),
@@ -5974,10 +5974,10 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner: SemaExprIdx(
+                                    self_argument: SemaExprIdx(
                                         82,
                                     ),
-                                    owner_ty: FlyTerm {
+                                    self_ty: FlyTerm {
                                         place: Some(
                                             Leashed,
                                         ),
@@ -6487,10 +6487,10 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner: SemaExprIdx(
+                                    self_argument: SemaExprIdx(
                                         90,
                                     ),
-                                    owner_ty: FlyTerm {
+                                    self_ty: FlyTerm {
                                         place: Some(
                                             Leashed,
                                         ),
@@ -6615,10 +6615,10 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner: SemaExprIdx(
+                                    self_argument: SemaExprIdx(
                                         92,
                                     ),
-                                    owner_ty: FlyTerm {
+                                    self_ty: FlyTerm {
                                         place: Some(
                                             Leashed,
                                         ),
@@ -6743,10 +6743,10 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner: SemaExprIdx(
+                                    self_argument: SemaExprIdx(
                                         94,
                                     ),
-                                    owner_ty: FlyTerm {
+                                    self_ty: FlyTerm {
                                         place: Some(
                                             Leashed,
                                         ),
@@ -7236,10 +7236,10 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner: SemaExprIdx(
+                                    self_argument: SemaExprIdx(
                                         100,
                                     ),
-                                    owner_ty: FlyTerm {
+                                    self_ty: FlyTerm {
                                         place: Some(
                                             Leashed,
                                         ),
@@ -7434,10 +7434,10 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner: SemaExprIdx(
+                                    self_argument: SemaExprIdx(
                                         104,
                                     ),
-                                    owner_ty: FlyTerm {
+                                    self_ty: FlyTerm {
                                         place: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConcaveComponent`),
@@ -7562,10 +7562,10 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner: SemaExprIdx(
+                                    self_argument: SemaExprIdx(
                                         106,
                                     ),
-                                    owner_ty: FlyTerm {
+                                    self_ty: FlyTerm {
                                         place: Some(
                                             Leashed,
                                         ),
@@ -7760,10 +7760,10 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner: SemaExprIdx(
+                                    self_argument: SemaExprIdx(
                                         110,
                                     ),
-                                    owner_ty: FlyTerm {
+                                    self_ty: FlyTerm {
                                         place: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConcaveComponent`),
@@ -8342,10 +8342,10 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner: SemaExprIdx(
+                                    self_argument: SemaExprIdx(
                                         119,
                                     ),
-                                    owner_ty: FlyTerm {
+                                    self_ty: FlyTerm {
                                         place: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConcaveComponent`),
@@ -8591,10 +8591,10 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner: SemaExprIdx(
+                                    self_argument: SemaExprIdx(
                                         123,
                                     ),
-                                    owner_ty: FlyTerm {
+                                    self_ty: FlyTerm {
                                         place: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConcaveComponent`),
@@ -8967,10 +8967,10 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner: SemaExprIdx(
+                                    self_argument: SemaExprIdx(
                                         130,
                                     ),
-                                    owner_ty: FlyTerm {
+                                    self_ty: FlyTerm {
                                         place: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConcaveComponent`),
@@ -9108,10 +9108,10 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner: SemaExprIdx(
+                                    self_argument: SemaExprIdx(
                                         133,
                                     ),
-                                    owner_ty: FlyTerm {
+                                    self_ty: FlyTerm {
                                         place: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConcaveComponent`),
@@ -9602,10 +9602,10 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner: SemaExprIdx(
+                                    self_argument: SemaExprIdx(
                                         141,
                                     ),
-                                    owner_ty: FlyTerm {
+                                    self_ty: FlyTerm {
                                         place: Some(
                                             ImmutableOnStack {
                                                 place: Idx(
@@ -9928,10 +9928,10 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner: SemaExprIdx(
+                                    self_argument: SemaExprIdx(
                                         147,
                                     ),
-                                    owner_ty: FlyTerm {
+                                    self_ty: FlyTerm {
                                         place: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConcaveComponent`),
@@ -10084,10 +10084,10 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner: SemaExprIdx(
+                                    self_argument: SemaExprIdx(
                                         150,
                                     ),
-                                    owner_ty: FlyTerm {
+                                    self_ty: FlyTerm {
                                         place: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConcaveComponent`),
@@ -10240,10 +10240,10 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner: SemaExprIdx(
+                                    self_argument: SemaExprIdx(
                                         153,
                                     ),
-                                    owner_ty: FlyTerm {
+                                    self_ty: FlyTerm {
                                         place: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConcaveComponent`),
@@ -10956,10 +10956,10 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner: SemaExprIdx(
+                                    self_argument: SemaExprIdx(
                                         162,
                                     ),
-                                    owner_ty: FlyTerm {
+                                    self_ty: FlyTerm {
                                         place: Some(
                                             ImmutableOnStack {
                                                 place: Idx(
@@ -11086,10 +11086,10 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner: SemaExprIdx(
+                                    self_argument: SemaExprIdx(
                                         164,
                                     ),
-                                    owner_ty: FlyTerm {
+                                    self_ty: FlyTerm {
                                         place: Some(
                                             ImmutableOnStack {
                                                 place: Idx(
@@ -11675,10 +11675,10 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner: SemaExprIdx(
+                                    self_argument: SemaExprIdx(
                                         173,
                                     ),
-                                    owner_ty: FlyTerm {
+                                    self_ty: FlyTerm {
                                         place: Some(
                                             Leashed,
                                         ),
@@ -11873,10 +11873,10 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner: SemaExprIdx(
+                                    self_argument: SemaExprIdx(
                                         177,
                                     ),
-                                    owner_ty: FlyTerm {
+                                    self_ty: FlyTerm {
                                         place: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConcaveComponent`),
@@ -12001,10 +12001,10 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner: SemaExprIdx(
+                                    self_argument: SemaExprIdx(
                                         179,
                                     ),
-                                    owner_ty: FlyTerm {
+                                    self_ty: FlyTerm {
                                         place: Some(
                                             Leashed,
                                         ),
@@ -12199,10 +12199,10 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner: SemaExprIdx(
+                                    self_argument: SemaExprIdx(
                                         183,
                                     ),
-                                    owner_ty: FlyTerm {
+                                    self_ty: FlyTerm {
                                         place: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConcaveComponent`),
@@ -12327,10 +12327,10 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner: SemaExprIdx(
+                                    self_argument: SemaExprIdx(
                                         185,
                                     ),
-                                    owner_ty: FlyTerm {
+                                    self_ty: FlyTerm {
                                         place: Some(
                                             Leashed,
                                         ),
@@ -12525,10 +12525,10 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner: SemaExprIdx(
+                                    self_argument: SemaExprIdx(
                                         189,
                                     ),
-                                    owner_ty: FlyTerm {
+                                    self_ty: FlyTerm {
                                         place: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConcaveComponent`),
@@ -13169,10 +13169,10 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner: SemaExprIdx(
+                                    self_argument: SemaExprIdx(
                                         199,
                                     ),
-                                    owner_ty: FlyTerm {
+                                    self_ty: FlyTerm {
                                         place: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConcaveComponent`),
@@ -13310,10 +13310,10 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner: SemaExprIdx(
+                                    self_argument: SemaExprIdx(
                                         202,
                                     ),
-                                    owner_ty: FlyTerm {
+                                    self_ty: FlyTerm {
                                         place: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConcaveComponent`),
@@ -13753,10 +13753,10 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner: SemaExprIdx(
+                                    self_argument: SemaExprIdx(
                                         209,
                                     ),
-                                    owner_ty: FlyTerm {
+                                    self_ty: FlyTerm {
                                         place: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConcaveComponent`),
@@ -13894,10 +13894,10 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner: SemaExprIdx(
+                                    self_argument: SemaExprIdx(
                                         212,
                                     ),
-                                    owner_ty: FlyTerm {
+                                    self_ty: FlyTerm {
                                         place: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConcaveComponent`),
@@ -14467,10 +14467,10 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner: SemaExprIdx(
+                                    self_argument: SemaExprIdx(
                                         221,
                                     ),
-                                    owner_ty: FlyTerm {
+                                    self_ty: FlyTerm {
                                         place: Some(
                                             ImmutableOnStack {
                                                 place: Idx(
@@ -14597,10 +14597,10 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner: SemaExprIdx(
+                                    self_argument: SemaExprIdx(
                                         223,
                                     ),
-                                    owner_ty: FlyTerm {
+                                    self_ty: FlyTerm {
                                         place: Some(
                                             ImmutableOnStack {
                                                 place: Idx(
@@ -15109,10 +15109,10 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner: SemaExprIdx(
+                                    self_argument: SemaExprIdx(
                                         231,
                                     ),
-                                    owner_ty: FlyTerm {
+                                    self_ty: FlyTerm {
                                         place: Some(
                                             Leashed,
                                         ),
@@ -15239,10 +15239,10 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner: SemaExprIdx(
+                                    self_argument: SemaExprIdx(
                                         233,
                                     ),
-                                    owner_ty: FlyTerm {
+                                    self_ty: FlyTerm {
                                         place: Some(
                                             Leashed,
                                         ),
@@ -30749,10 +30749,10 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner: SemaExprIdx(
+                                    self_argument: SemaExprIdx(
                                         3,
                                     ),
-                                    owner_ty: FlyTerm {
+                                    self_ty: FlyTerm {
                                         place: Some(
                                             ImmutableOnStack {
                                                 place: Idx(
@@ -30965,10 +30965,10 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner: SemaExprIdx(
+                                    self_argument: SemaExprIdx(
                                         7,
                                     ),
-                                    owner_ty: FlyTerm {
+                                    self_ty: FlyTerm {
                                         place: Some(
                                             ImmutableOnStack {
                                                 place: Idx(
@@ -31867,10 +31867,10 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner: SemaExprIdx(
+                                    self_argument: SemaExprIdx(
                                         3,
                                     ),
-                                    owner_ty: FlyTerm {
+                                    self_ty: FlyTerm {
                                         place: Some(
                                             ImmutableOnStack {
                                                 place: Idx(
@@ -32183,10 +32183,10 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner: SemaExprIdx(
+                                    self_argument: SemaExprIdx(
                                         8,
                                     ),
-                                    owner_ty: FlyTerm {
+                                    self_ty: FlyTerm {
                                         place: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Point2d`),
@@ -33131,10 +33131,10 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner: SemaExprIdx(
+                                    self_argument: SemaExprIdx(
                                         3,
                                     ),
-                                    owner_ty: FlyTerm {
+                                    self_ty: FlyTerm {
                                         place: Some(
                                             ImmutableOnStack {
                                                 place: Idx(
@@ -33347,10 +33347,10 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner: SemaExprIdx(
+                                    self_argument: SemaExprIdx(
                                         7,
                                     ),
-                                    owner_ty: FlyTerm {
+                                    self_ty: FlyTerm {
                                         place: Some(
                                             ImmutableOnStack {
                                                 place: Idx(
@@ -33563,10 +33563,10 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner: SemaExprIdx(
+                                    self_argument: SemaExprIdx(
                                         11,
                                     ),
-                                    owner_ty: FlyTerm {
+                                    self_ty: FlyTerm {
                                         place: Some(
                                             ImmutableOnStack {
                                                 place: Idx(
@@ -33737,10 +33737,10 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner: SemaExprIdx(
+                                    self_argument: SemaExprIdx(
                                         14,
                                     ),
-                                    owner_ty: FlyTerm {
+                                    self_ty: FlyTerm {
                                         place: Some(
                                             ImmutableOnStack {
                                                 place: Idx(

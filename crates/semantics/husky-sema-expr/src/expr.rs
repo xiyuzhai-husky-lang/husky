@@ -165,8 +165,8 @@ pub enum SemaExprData {
         return_ty_sema_expr_idx: Option<SemaExprIdx>,
     },
     Field {
-        owner: SemaExprIdx,
-        owner_ty: FlyTerm,
+        self_argument: SemaExprIdx,
+        self_ty: FlyTerm,
         dot_regional_token_idx: RegionalTokenIdx,
         ident_token: IdentRegionalToken,
         dispatch: FlyFieldDyanmicDispatch,

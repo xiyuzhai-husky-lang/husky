@@ -33,7 +33,7 @@ pub enum HirEagerStmtData {
     },
     Break,
     Eval {
-        expr_idx: HirEagerExprIdx,
+        expr: HirEagerExprIdx,
         coersion: Option<HirEagerCoersion>,
         discarded: bool,
     },
@@ -117,7 +117,7 @@ impl ToHirEager for SemaStmtIdx {
                 outcome,
                 eol_semicolon,
             } => HirEagerStmtData::Eval {
-                expr_idx: sema_expr_idx.to_hir_eager(builder),
+                expr: sema_expr_idx.to_hir_eager(builder),
                 discarded: eol_semicolon.is_some(),
                 coersion: match outcome {
                     Some(ExpectationOutcome::Coersion(coersion_outcome)) => {

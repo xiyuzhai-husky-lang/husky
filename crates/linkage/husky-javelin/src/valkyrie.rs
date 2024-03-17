@@ -170,11 +170,7 @@ impl ValkyrieRides {
                     }
                 }
                 HirEagerExprData::PropsStructField { .. } => (),
-                HirEagerExprData::MemoizedField {
-                    owner_hir_expr_idx: _,
-                    ident: _,
-                    path: _,
-                } =>
+                HirEagerExprData::MemoizedField { .. } =>
                 /* ad hoc */
                 {
                     ()

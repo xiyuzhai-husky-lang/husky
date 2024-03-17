@@ -276,7 +276,7 @@
                                                         0,
                                                     ),
                                                 },
-                                                item_groups: [],
+                                                arguments: [],
                                             },
                                             quary: Transient,
                                             is_always_copyable: false,
@@ -307,8 +307,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 3,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 3,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                         template_arguments: [],
@@ -395,8 +395,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 7,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 7,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                         template_arguments: [],
@@ -472,7 +472,7 @@
                                             },
                                         },
                                         Eval {
-                                            expr_idx: 8,
+                                            expr: 8,
                                             coersion: Some(
                                                 WrapInSome,
                                             ),
@@ -671,7 +671,7 @@
                                                         0,
                                                     ),
                                                 },
-                                                item_groups: [],
+                                                arguments: [],
                                             },
                                             quary: Transient,
                                             is_always_copyable: false,
@@ -702,8 +702,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 3,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 3,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                         template_arguments: [],
@@ -804,7 +804,7 @@
                                                         0,
                                                     ),
                                                 },
-                                                item_groups: [],
+                                                arguments: [],
                                             },
                                             quary: Transient,
                                             is_always_copyable: false,
@@ -814,8 +814,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 8,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 8,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                         template_arguments: [],
@@ -880,7 +880,7 @@
                                             },
                                         },
                                         Eval {
-                                            expr_idx: 10,
+                                            expr: 10,
                                             coersion: Some(
                                                 WrapInSome,
                                             ),
@@ -1079,7 +1079,7 @@
                                                         0,
                                                     ),
                                                 },
-                                                item_groups: [],
+                                                arguments: [],
                                             },
                                             quary: Transient,
                                             is_always_copyable: false,
@@ -1110,8 +1110,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 3,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 3,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                         template_arguments: [],
@@ -1198,8 +1198,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 7,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 7,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                         template_arguments: [],
@@ -1286,8 +1286,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 11,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 11,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                         template_arguments: [],
@@ -1365,8 +1365,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 14,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 14,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                         template_arguments: [],
@@ -1451,7 +1451,7 @@
                                             },
                                         },
                                         Eval {
-                                            expr_idx: 16,
+                                            expr: 16,
                                             coersion: Some(
                                                 WrapInSome,
                                             ),

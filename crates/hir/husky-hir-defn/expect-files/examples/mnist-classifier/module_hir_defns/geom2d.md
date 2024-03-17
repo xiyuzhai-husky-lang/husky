@@ -803,7 +803,7 @@
                                                     symbol_map: [],
                                                     separator: None,
                                                 },
-                                                item_groups: [
+                                                arguments: [
                                                     Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Move,
@@ -865,7 +865,7 @@
                                 stmt_arena: Arena {
                                     data: [
                                         Eval {
-                                            expr_idx: 9,
+                                            expr: 9,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -1022,8 +1022,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 1,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 1,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                         template_arguments: [],
@@ -1079,8 +1079,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 3,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 3,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                         template_arguments: [],
@@ -1120,7 +1120,7 @@
                                                     symbol_map: [],
                                                     separator: None,
                                                 },
-                                                item_groups: [
+                                                arguments: [
                                                     Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Move,
@@ -1190,7 +1190,7 @@
                                 stmt_arena: Arena {
                                     data: [
                                         Eval {
-                                            expr_idx: 5,
+                                            expr: 5,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -1364,8 +1364,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 1,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 1,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                         template_arguments: [],
@@ -1421,8 +1421,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 3,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 3,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                         template_arguments: [],
@@ -1492,8 +1492,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 6,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 6,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                         template_arguments: [],
@@ -1549,8 +1549,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 8,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 8,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                         template_arguments: [],
@@ -1604,7 +1604,7 @@
                                                     symbol_map: [],
                                                     separator: None,
                                                 },
-                                                item_groups: [
+                                                arguments: [
                                                     Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Move,
@@ -1666,7 +1666,7 @@
                                 stmt_arena: Arena {
                                     data: [
                                         Eval {
-                                            expr_idx: 11,
+                                            expr: 11,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -1823,8 +1823,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 1,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 1,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                         template_arguments: [],
@@ -1880,8 +1880,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 3,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 3,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                         template_arguments: [],
@@ -1951,8 +1951,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 6,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 6,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                         template_arguments: [],
@@ -2008,8 +2008,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 8,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 8,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                         template_arguments: [],
@@ -2086,7 +2086,7 @@
                                                         0,
                                                     ),
                                                 },
-                                                item_groups: [],
+                                                arguments: [],
                                             },
                                             quary: Transient,
                                             is_always_copyable: true,
@@ -2111,7 +2111,7 @@
                                 stmt_arena: Arena {
                                     data: [
                                         Eval {
-                                            expr_idx: 12,
+                                            expr: 12,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -2320,7 +2320,7 @@
                                                         0,
                                                     ),
                                                 },
-                                                item_groups: [
+                                                arguments: [
                                                     Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Pure,
@@ -2367,7 +2367,7 @@
                                                         0,
                                                     ),
                                                 },
-                                                item_groups: [],
+                                                arguments: [],
                                             },
                                             quary: Transient,
                                             is_always_copyable: true,
@@ -2392,7 +2392,7 @@
                                 stmt_arena: Arena {
                                     data: [
                                         Eval {
-                                            expr_idx: 4,
+                                            expr: 4,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -2609,8 +2609,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 1,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 1,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                         template_arguments: [],
@@ -2666,8 +2666,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 3,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 3,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                         template_arguments: [],
@@ -2707,7 +2707,7 @@
                                                     symbol_map: [],
                                                     separator: None,
                                                 },
-                                                item_groups: [
+                                                arguments: [
                                                     Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Move,
@@ -2777,7 +2777,7 @@
                                 stmt_arena: Arena {
                                     data: [
                                         Eval {
-                                            expr_idx: 5,
+                                            expr: 5,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -2951,8 +2951,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 1,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 1,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                         template_arguments: [],
@@ -3008,8 +3008,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 3,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 3,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                         template_arguments: [],
@@ -3079,8 +3079,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 6,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 6,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                         template_arguments: [],
@@ -3136,8 +3136,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 8,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 8,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                         template_arguments: [],
@@ -3191,7 +3191,7 @@
                                                     symbol_map: [],
                                                     separator: None,
                                                 },
-                                                item_groups: [
+                                                arguments: [
                                                     Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Move,
@@ -3253,7 +3253,7 @@
                                 stmt_arena: Arena {
                                     data: [
                                         Eval {
-                                            expr_idx: 11,
+                                            expr: 11,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -3410,8 +3410,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 1,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 1,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                         template_arguments: [],
@@ -3467,8 +3467,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 3,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 3,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                         template_arguments: [],
@@ -3538,8 +3538,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 6,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 6,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                         template_arguments: [],
@@ -3595,8 +3595,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 8,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 8,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                         template_arguments: [],
@@ -3673,7 +3673,7 @@
                                                         0,
                                                     ),
                                                 },
-                                                item_groups: [],
+                                                arguments: [],
                                             },
                                             quary: Transient,
                                             is_always_copyable: true,
@@ -3698,7 +3698,7 @@
                                 stmt_arena: Arena {
                                     data: [
                                         Eval {
-                                            expr_idx: 12,
+                                            expr: 12,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -3872,8 +3872,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 1,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 1,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                         template_arguments: [],
@@ -3929,8 +3929,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 3,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 3,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                         template_arguments: [],
@@ -4000,8 +4000,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 6,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 6,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                         template_arguments: [],
@@ -4057,8 +4057,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 8,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 8,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                         template_arguments: [],
@@ -4136,7 +4136,7 @@
                                 stmt_arena: Arena {
                                     data: [
                                         Eval {
-                                            expr_idx: 11,
+                                            expr: 11,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -4316,8 +4316,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 1,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 1,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                         template_arguments: [],
@@ -4373,8 +4373,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 3,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 3,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                         template_arguments: [],
@@ -4444,8 +4444,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 6,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 6,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                         template_arguments: [],
@@ -4501,8 +4501,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 8,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 8,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                         template_arguments: [],
@@ -4580,7 +4580,7 @@
                                 stmt_arena: Arena {
                                     data: [
                                         Eval {
-                                            expr_idx: 11,
+                                            expr: 11,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -4760,8 +4760,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 1,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 1,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                         template_arguments: [],
@@ -4831,7 +4831,7 @@
                                                         0,
                                                     ),
                                                 },
-                                                item_groups: [],
+                                                arguments: [],
                                             },
                                             quary: Transient,
                                             is_always_copyable: true,
@@ -4886,7 +4886,7 @@
                                                         0,
                                                     ),
                                                 },
-                                                item_groups: [
+                                                arguments: [
                                                     Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Pure,
@@ -5085,8 +5085,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 17,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 17,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                         template_arguments: [],
@@ -5135,7 +5135,7 @@
                                                         0,
                                                     ),
                                                 },
-                                                item_groups: [],
+                                                arguments: [],
                                             },
                                             quary: Transient,
                                             is_always_copyable: true,
@@ -5197,7 +5197,7 @@
                                                         0,
                                                     ),
                                                 },
-                                                item_groups: [],
+                                                arguments: [],
                                             },
                                             quary: Transient,
                                             is_always_copyable: true,
@@ -5298,7 +5298,7 @@
                                 stmt_arena: Arena {
                                     data: [
                                         Eval {
-                                            expr_idx: 14,
+                                            expr: 14,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -5309,7 +5309,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr_idx: 16,
+                                            expr: 16,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -5339,7 +5339,7 @@
                                             ),
                                         },
                                         Eval {
-                                            expr_idx: 27,
+                                            expr: 27,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -5593,7 +5593,7 @@
                                                         0,
                                                     ),
                                                 },
-                                                item_groups: [
+                                                arguments: [
                                                     Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Pure,
@@ -5640,7 +5640,7 @@
                                                         0,
                                                     ),
                                                 },
-                                                item_groups: [],
+                                                arguments: [],
                                             },
                                             quary: Transient,
                                             is_always_copyable: true,
@@ -5665,7 +5665,7 @@
                                 stmt_arena: Arena {
                                     data: [
                                         Eval {
-                                            expr_idx: 4,
+                                            expr: 4,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -5880,7 +5880,7 @@
                                                         0,
                                                     ),
                                                 },
-                                                item_groups: [],
+                                                arguments: [],
                                             },
                                             quary: Transient,
                                             is_always_copyable: true,
@@ -5977,7 +5977,7 @@
                                                         0,
                                                     ),
                                                 },
-                                                item_groups: [],
+                                                arguments: [],
                                             },
                                             quary: Transient,
                                             is_always_copyable: true,
@@ -6095,7 +6095,7 @@
                                                         0,
                                                     ),
                                                 },
-                                                item_groups: [
+                                                arguments: [
                                                     Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Pure,
@@ -6229,7 +6229,7 @@
                                                         0,
                                                     ),
                                                 },
-                                                item_groups: [
+                                                arguments: [
                                                     Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Pure,
@@ -6463,7 +6463,7 @@
                                                         0,
                                                     ),
                                                 },
-                                                item_groups: [
+                                                arguments: [
                                                     Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Pure,
@@ -6548,7 +6548,7 @@
                                                         0,
                                                     ),
                                                 },
-                                                item_groups: [],
+                                                arguments: [],
                                             },
                                             quary: Transient,
                                             is_always_copyable: true,
@@ -6670,7 +6670,7 @@
                                 stmt_arena: Arena {
                                     data: [
                                         Eval {
-                                            expr_idx: 26,
+                                            expr: 26,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -6681,7 +6681,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr_idx: 28,
+                                            expr: 28,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -6720,7 +6720,7 @@
                                             coersion: None,
                                         },
                                         Eval {
-                                            expr_idx: 40,
+                                            expr: 40,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -7065,8 +7065,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 1,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 1,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                                         template_arguments: [],
@@ -7122,8 +7122,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 3,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 3,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                                         template_arguments: [],
@@ -7193,8 +7193,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 6,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 6,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                                         template_arguments: [],
@@ -7250,8 +7250,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 8,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 8,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                                         template_arguments: [],
@@ -7321,8 +7321,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 11,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 11,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                                         template_arguments: [],
@@ -7378,8 +7378,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 13,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 13,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                                         template_arguments: [],
@@ -7484,8 +7484,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 18,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 18,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                                         template_arguments: [],
@@ -7541,8 +7541,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 20,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 20,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                                         template_arguments: [],
@@ -7673,7 +7673,7 @@
                                                     symbol_map: [],
                                                     separator: None,
                                                 },
-                                                item_groups: [
+                                                arguments: [
                                                     Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Move,
@@ -7776,7 +7776,7 @@
                                             coersion: None,
                                         },
                                         Eval {
-                                            expr_idx: 27,
+                                            expr: 27,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -7987,8 +7987,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 1,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 1,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                                         template_arguments: [],
@@ -8044,8 +8044,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 3,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 3,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                                         template_arguments: [],
@@ -8136,8 +8136,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 7,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 7,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                                         template_arguments: [],
@@ -8245,7 +8245,7 @@
                                             coersion: None,
                                         },
                                         Eval {
-                                            expr_idx: 11,
+                                            expr: 11,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -8496,8 +8496,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 1,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 1,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                         template_arguments: [],
@@ -8553,8 +8553,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 3,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 3,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                         template_arguments: [],
@@ -8603,7 +8603,7 @@
                                                         0,
                                                     ),
                                                 },
-                                                item_groups: [
+                                                arguments: [
                                                     Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Pure,
@@ -8657,8 +8657,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 6,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 6,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                         template_arguments: [],
@@ -8714,8 +8714,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 8,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 8,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                         template_arguments: [],
@@ -8764,7 +8764,7 @@
                                                         0,
                                                     ),
                                                 },
-                                                item_groups: [
+                                                arguments: [
                                                     Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Pure,
@@ -8802,7 +8802,7 @@
                                                     symbol_map: [],
                                                     separator: None,
                                                 },
-                                                item_groups: [
+                                                arguments: [
                                                     Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Move,
@@ -8864,7 +8864,7 @@
                                 stmt_arena: Arena {
                                     data: [
                                         Eval {
-                                            expr_idx: 11,
+                                            expr: 11,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -9044,8 +9044,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 1,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 1,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                         template_arguments: [],
@@ -9101,8 +9101,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 3,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 3,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                         template_arguments: [],
@@ -9151,7 +9151,7 @@
                                                         0,
                                                     ),
                                                 },
-                                                item_groups: [
+                                                arguments: [
                                                     Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Pure,
@@ -9205,8 +9205,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 6,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 6,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                         template_arguments: [],
@@ -9262,8 +9262,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 8,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 8,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                         template_arguments: [],
@@ -9312,7 +9312,7 @@
                                                         0,
                                                     ),
                                                 },
-                                                item_groups: [
+                                                arguments: [
                                                     Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Pure,
@@ -9350,7 +9350,7 @@
                                                     symbol_map: [],
                                                     separator: None,
                                                 },
-                                                item_groups: [
+                                                arguments: [
                                                     Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Move,
@@ -9412,7 +9412,7 @@
                                 stmt_arena: Arena {
                                     data: [
                                         Eval {
-                                            expr_idx: 11,
+                                            expr: 11,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -9569,8 +9569,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 1,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 1,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                         template_arguments: [],
@@ -9605,8 +9605,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 2,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 2,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                                         template_arguments: [],
@@ -9667,7 +9667,7 @@
                                 stmt_arena: Arena {
                                     data: [
                                         Eval {
-                                            expr_idx: 3,
+                                            expr: 3,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -9822,8 +9822,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 1,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 1,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                         template_arguments: [],
@@ -9858,8 +9858,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 2,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 2,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                                         template_arguments: [],
@@ -9920,7 +9920,7 @@
                                 stmt_arena: Arena {
                                     data: [
                                         Eval {
-                                            expr_idx: 3,
+                                            expr: 3,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -10075,8 +10075,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 1,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 1,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                         template_arguments: [],
@@ -10111,8 +10111,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 2,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 2,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                                         template_arguments: [],
@@ -10173,7 +10173,7 @@
                                 stmt_arena: Arena {
                                     data: [
                                         Eval {
-                                            expr_idx: 3,
+                                            expr: 3,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -10328,8 +10328,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 1,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 1,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                         template_arguments: [],
@@ -10364,8 +10364,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 2,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 2,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                                         template_arguments: [],
@@ -10426,7 +10426,7 @@
                                 stmt_arena: Arena {
                                     data: [
                                         Eval {
-                                            expr_idx: 3,
+                                            expr: 3,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -10641,8 +10641,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 1,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 1,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                                         template_arguments: [],
@@ -10677,8 +10677,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 2,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 2,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                                         template_arguments: [],
@@ -10739,7 +10739,7 @@
                                 stmt_arena: Arena {
                                     data: [
                                         Eval {
-                                            expr_idx: 3,
+                                            expr: 3,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -10894,8 +10894,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 1,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 1,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                                         template_arguments: [],
@@ -10930,8 +10930,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 2,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 2,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                                         template_arguments: [],
@@ -10992,7 +10992,7 @@
                                 stmt_arena: Arena {
                                     data: [
                                         Eval {
-                                            expr_idx: 3,
+                                            expr: 3,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -11147,8 +11147,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 1,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 1,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                                         template_arguments: [],
@@ -11183,8 +11183,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 2,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 2,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                                         template_arguments: [],
@@ -11245,7 +11245,7 @@
                                 stmt_arena: Arena {
                                     data: [
                                         Eval {
-                                            expr_idx: 3,
+                                            expr: 3,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -11400,8 +11400,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 1,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 1,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                                         template_arguments: [],
@@ -11436,8 +11436,8 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner: 2,
-                                                owner_base_ty: HirType::PathLeading(
+                                                self_argument: 2,
+                                                self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                                         template_arguments: [],
@@ -11498,7 +11498,7 @@
                                 stmt_arena: Arena {
                                     data: [
                                         Eval {
-                                            expr_idx: 3,
+                                            expr: 3,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {

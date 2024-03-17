@@ -119,8 +119,8 @@ impl<'a> PlaceContractEngine<'a> {
             }
             SemaExprData::Ritchie { .. } => (),
             SemaExprData::Field {
-                owner,
-                owner_ty,
+                self_argument: owner,
+                self_ty: owner_ty,
                 dot_regional_token_idx,
                 ident_token,
                 ref dispatch,

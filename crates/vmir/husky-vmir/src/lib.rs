@@ -27,3 +27,17 @@ pub(crate) trait ToVmir<LinkageImpl: IsLinkageImpl>: Copy {
     where
         Linktime: IsLinktime<LinkageImpl = LinkageImpl>;
 }
+
+impl<T, LinkageImpl: IsLinkageImpl> ToVmir<LinkageImpl> for Option<T>
+where
+    T: ToVmir<LinkageImpl>,
+{
+    type Output = Option<T::Output>;
+
+    fn to_vmir<Linktime>(self, builder: &mut VmirExprBuilder<Linktime>) -> Self::Output
+    where
+        Linktime: IsLinktime<LinkageImpl = LinkageImpl>,
+    {
+        self.map(|slf| slf.to_vmir(builder))
+    }
+}

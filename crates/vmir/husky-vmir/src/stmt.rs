@@ -17,7 +17,11 @@ pub enum VmirStmtData<LinkageImpl: IsLinkageImpl> {
     Require,
     Assert,
     Break,
-    Eval,
+    Eval {
+        expr: VmirExprIdx<LinkageImpl>,
+        coersion: Option<VmirCoersion>,
+        discarded: bool,
+    },
     ForBetween,
     Forext,
     ForIn,
@@ -58,10 +62,14 @@ impl<LinkageImpl: IsLinkageImpl> ToVmir<LinkageImpl> for HirEagerStmtIdxRange {
                 HirEagerStmtData::Assert { ref condition } => VmirStmtData::Assert,
                 HirEagerStmtData::Break => VmirStmtData::Break,
                 HirEagerStmtData::Eval {
-                    expr_idx,
+                    expr,
                     coersion,
                     discarded,
-                } => VmirStmtData::Eval,
+                } => VmirStmtData::Eval {
+                    expr: expr.to_vmir(builder),
+                    coersion: coersion.to_vmir(builder),
+                    discarded,
+                },
                 HirEagerStmtData::ForBetween {
                     ref particulars,
                     block,
