@@ -241,10 +241,9 @@
             data: LinkageData::AssocRitchie {
                 path: AssocItemPath::TraitForTypeItem(
                     TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 147,
-                            },
+                        `<malamute::OneVsAll as core::default::Default(0)>::default`,
+                        TraitItemKind::AssocRitchie(
+                            RitchieItemKind::Fn,
                         ),
                     ),
                 ),
@@ -262,10 +261,9 @@
                     data: LinkageData::AssocRitchie {
                         path: AssocItemPath::TraitForTypeItem(
                             TraitForTypeItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 147,
-                                    },
+                                `<malamute::OneVsAll as core::default::Default(0)>::default`,
+                                TraitItemKind::AssocRitchie(
+                                    RitchieItemKind::Fn,
                                 ),
                             ),
                         ),
@@ -310,10 +308,9 @@
             data: LinkageData::AssocRitchie {
                 path: AssocItemPath::TraitForTypeItem(
                     TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 151,
-                            },
+                        `<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`,
+                        TraitItemKind::AssocRitchie(
+                            RitchieItemKind::Fn,
                         ),
                     ),
                 ),
@@ -331,10 +328,9 @@
                     data: LinkageData::AssocRitchie {
                         path: AssocItemPath::TraitForTypeItem(
                             TraitForTypeItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 151,
-                                    },
+                                `<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`,
+                                TraitItemKind::AssocRitchie(
+                                    RitchieItemKind::Fn,
                                 ),
                             ),
                         ),
@@ -371,10 +367,9 @@
         Linkage {
             data: LinkageData::UnveilAssocFn {
                 path: TraitForTypeItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 151,
-                        },
+                    `<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`,
+                    TraitItemKind::AssocRitchie(
+                        RitchieItemKind::Fn,
                     ),
                 ),
                 instantiation: LinInstantiation {
@@ -390,10 +385,9 @@
                 linkage: Linkage {
                     data: LinkageData::UnveilAssocFn {
                         path: TraitForTypeItemPath(
-                            ItemPathId(
-                                Id {
-                                    value: 151,
-                                },
+                            `<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`,
+                            TraitItemKind::AssocRitchie(
+                                RitchieItemKind::Fn,
                             ),
                         ),
                         instantiation: LinInstantiation {

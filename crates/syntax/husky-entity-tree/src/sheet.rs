@@ -1,5 +1,6 @@
 use crate::*;
 
+use husky_entity_path::trai_for_ty_impl_block::TraitForTypeImplBlockPath;
 use salsa::DebugWithDb;
 use vec_like::VecPairMap;
 

@@ -1,4 +1,5 @@
 use super::*;
+use husky_entity_path::ty_impl_block::TypeImplBlockPath;
 use husky_hir_decl::decl::TypeImplBlockHirDecl;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]

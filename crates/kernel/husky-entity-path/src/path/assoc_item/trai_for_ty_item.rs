@@ -1,4 +1,5 @@
 use super::*;
+use crate::trai_for_ty_impl_block::TraitForTypeImplBlockPath;
 
 #[salsa::as_id]
 #[salsa::deref_id]
@@ -90,17 +91,7 @@ impl salsa::DebugWithDb for TraitForTypeItemPath {
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
     ) -> std::fmt::Result {
-        let data = self.data(db);
-        f.debug_tuple("TraitForTypeItemPath")
-            .field_with(|f| {
-                f.write_str("`")?;
-                data.show_aux(f, db)?;
-                f.write_str("`")
-            })
-            .field(&data.item_kind.debug(db))
-            .finish()?;
-        // this is due to rustc borrow checker's wierdness
-        Ok(())
+        debug_with_db_fmt!(self, f, db, "TraitForTypeItemPath")
     }
 }
 

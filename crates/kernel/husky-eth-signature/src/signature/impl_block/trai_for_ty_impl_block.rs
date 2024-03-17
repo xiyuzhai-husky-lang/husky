@@ -1,4 +1,5 @@
 use super::*;
+use husky_entity_path::trai_for_ty_impl_block::TraitForTypeImplBlockPath;
 use husky_entity_tree::HasAssocItemPaths;
 use husky_eth_term::term::svar::EthSvar;
 use husky_term_prelude::TypeFinalDestinationExpectation;

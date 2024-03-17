@@ -6,7 +6,7 @@ pub use trai_for_ty_item::*;
 pub use trai_item::*;
 pub use ty_item::*;
 
-use crate::*;
+use super::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::derive_debug_with_db]
