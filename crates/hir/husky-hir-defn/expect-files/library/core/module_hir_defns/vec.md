@@ -344,7 +344,7 @@
                             },
                             pattern_expr_arena: Arena {
                                 data: [
-                                    HirEagerPatternExpr::Ident {
+                                    HirEagerPatternData::Ident {
                                         symbol_modifier: Some(
                                             Owned,
                                         ),
@@ -960,11 +960,11 @@
                             },
                             pattern_expr_arena: Arena {
                                 data: [
-                                    HirEagerPatternExpr::Ident {
+                                    HirEagerPatternData::Ident {
                                         symbol_modifier: None,
                                         ident: `start`,
                                     },
-                                    HirEagerPatternExpr::Ident {
+                                    HirEagerPatternData::Ident {
                                         symbol_modifier: None,
                                         ident: `end`,
                                     },
@@ -1134,7 +1134,7 @@
                             },
                             pattern_expr_arena: Arena {
                                 data: [
-                                    HirEagerPatternExpr::Ident {
+                                    HirEagerPatternData::Ident {
                                         symbol_modifier: None,
                                         ident: `f`,
                                     },

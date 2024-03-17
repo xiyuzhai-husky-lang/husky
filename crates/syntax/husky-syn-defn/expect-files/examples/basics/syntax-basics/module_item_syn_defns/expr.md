@@ -155,7 +155,7 @@
                         pattern_expr_region: SynPatternExprRegion {
                             pattern_expr_arena: Arena {
                                 data: [
-                                    SynPatternExprData::Ident {
+                                    SynPatternData::Ident {
                                         symbol_modifier_tokens: None,
                                         ident_token: IdentRegionalToken {
                                             ident: `t`,
@@ -222,7 +222,7 @@
                             pattern_ty_constraints: [],
                         },
                         syn_pattern_expr_roots: [
-                            SynPatternExprRoot {
+                            SynPatternRoot {
                                 kind: SynPatternExprRootKind::Let,
                                 syn_pattern_expr_idx: 1,
                             },
@@ -473,7 +473,7 @@
                         pattern_expr_region: SynPatternExprRegion {
                             pattern_expr_arena: Arena {
                                 data: [
-                                    SynPatternExprData::Ident {
+                                    SynPatternData::Ident {
                                         symbol_modifier_tokens: None,
                                         ident_token: IdentRegionalToken {
                                             ident: `t`,
@@ -482,7 +482,7 @@
                                             ),
                                         },
                                     },
-                                    SynPatternExprData::Ident {
+                                    SynPatternData::Ident {
                                         symbol_modifier_tokens: None,
                                         ident_token: IdentRegionalToken {
                                             ident: `x`,
@@ -589,11 +589,11 @@
                             ],
                         },
                         syn_pattern_expr_roots: [
-                            SynPatternExprRoot {
+                            SynPatternRoot {
                                 kind: SynPatternExprRootKind::Let,
                                 syn_pattern_expr_idx: 1,
                             },
-                            SynPatternExprRoot {
+                            SynPatternRoot {
                                 kind: SynPatternExprRootKind::Closure,
                                 syn_pattern_expr_idx: 2,
                             },
@@ -863,7 +863,7 @@
                         pattern_expr_region: SynPatternExprRegion {
                             pattern_expr_arena: Arena {
                                 data: [
-                                    SynPatternExprData::Ident {
+                                    SynPatternData::Ident {
                                         symbol_modifier_tokens: None,
                                         ident_token: IdentRegionalToken {
                                             ident: `t`,
@@ -872,7 +872,7 @@
                                             ),
                                         },
                                     },
-                                    SynPatternExprData::Ident {
+                                    SynPatternData::Ident {
                                         symbol_modifier_tokens: None,
                                         ident_token: IdentRegionalToken {
                                             ident: `x`,
@@ -979,11 +979,11 @@
                             ],
                         },
                         syn_pattern_expr_roots: [
-                            SynPatternExprRoot {
+                            SynPatternRoot {
                                 kind: SynPatternExprRootKind::Let,
                                 syn_pattern_expr_idx: 1,
                             },
-                            SynPatternExprRoot {
+                            SynPatternRoot {
                                 kind: SynPatternExprRootKind::Closure,
                                 syn_pattern_expr_idx: 2,
                             },

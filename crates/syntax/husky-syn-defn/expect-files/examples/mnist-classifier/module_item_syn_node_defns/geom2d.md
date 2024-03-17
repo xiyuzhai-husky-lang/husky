@@ -434,7 +434,7 @@
                                     pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [
-                                                SynPatternExprData::Ident {
+                                                SynPatternData::Ident {
                                                     symbol_modifier_tokens: None,
                                                     ident_token: IdentRegionalToken {
                                                         ident: `i`,
@@ -443,7 +443,7 @@
                                                         ),
                                                     },
                                                 },
-                                                SynPatternExprData::Ident {
+                                                SynPatternData::Ident {
                                                     symbol_modifier_tokens: None,
                                                     ident_token: IdentRegionalToken {
                                                         ident: `shift`,
@@ -549,11 +549,11 @@
                                         ],
                                     },
                                     syn_pattern_expr_roots: [
-                                        SynPatternExprRoot {
+                                        SynPatternRoot {
                                             kind: SynPatternExprRootKind::Parenate,
                                             syn_pattern_expr_idx: 1,
                                         },
-                                        SynPatternExprRoot {
+                                        SynPatternRoot {
                                             kind: SynPatternExprRootKind::Parenate,
                                             syn_pattern_expr_idx: 2,
                                         },
@@ -1507,7 +1507,7 @@
                                     pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [
-                                                SynPatternExprData::Ident {
+                                                SynPatternData::Ident {
                                                     symbol_modifier_tokens: None,
                                                     ident_token: IdentRegionalToken {
                                                         ident: `other`,
@@ -1580,7 +1580,7 @@
                                         ],
                                     },
                                     syn_pattern_expr_roots: [
-                                        SynPatternExprRoot {
+                                        SynPatternRoot {
                                             kind: SynPatternExprRootKind::Parenate,
                                             syn_pattern_expr_idx: 1,
                                         },
@@ -2514,7 +2514,7 @@
                                     pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [
-                                                SynPatternExprData::Ident {
+                                                SynPatternData::Ident {
                                                     symbol_modifier_tokens: None,
                                                     ident_token: IdentRegionalToken {
                                                         ident: `other`,
@@ -2587,7 +2587,7 @@
                                         ],
                                     },
                                     syn_pattern_expr_roots: [
-                                        SynPatternExprRoot {
+                                        SynPatternRoot {
                                             kind: SynPatternExprRootKind::Parenate,
                                             syn_pattern_expr_idx: 1,
                                         },
@@ -3414,7 +3414,7 @@
                                     pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [
-                                                SynPatternExprData::Ident {
+                                                SynPatternData::Ident {
                                                     symbol_modifier_tokens: None,
                                                     ident_token: IdentRegionalToken {
                                                         ident: `other`,
@@ -3487,7 +3487,7 @@
                                         ],
                                     },
                                     syn_pattern_expr_roots: [
-                                        SynPatternExprRoot {
+                                        SynPatternRoot {
                                             kind: SynPatternExprRootKind::Parenate,
                                             syn_pattern_expr_idx: 1,
                                         },
@@ -4421,7 +4421,7 @@
                                     pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [
-                                                SynPatternExprData::Ident {
+                                                SynPatternData::Ident {
                                                     symbol_modifier_tokens: None,
                                                     ident_token: IdentRegionalToken {
                                                         ident: `other`,
@@ -4494,7 +4494,7 @@
                                         ],
                                     },
                                     syn_pattern_expr_roots: [
-                                        SynPatternExprRoot {
+                                        SynPatternRoot {
                                             kind: SynPatternExprRootKind::Parenate,
                                             syn_pattern_expr_idx: 1,
                                         },
@@ -4944,7 +4944,7 @@
                                     pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [
-                                                SynPatternExprData::Ident {
+                                                SynPatternData::Ident {
                                                     symbol_modifier_tokens: None,
                                                     ident_token: IdentRegionalToken {
                                                         ident: `other`,
@@ -5017,7 +5017,7 @@
                                         ],
                                     },
                                     syn_pattern_expr_roots: [
-                                        SynPatternExprRoot {
+                                        SynPatternRoot {
                                             kind: SynPatternExprRootKind::Parenate,
                                             syn_pattern_expr_idx: 1,
                                         },
@@ -5467,7 +5467,7 @@
                                     pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [
-                                                SynPatternExprData::Ident {
+                                                SynPatternData::Ident {
                                                     symbol_modifier_tokens: None,
                                                     ident_token: IdentRegionalToken {
                                                         ident: `is_branch_cut_positive`,
@@ -5540,7 +5540,7 @@
                                         ],
                                     },
                                     syn_pattern_expr_roots: [
-                                        SynPatternExprRoot {
+                                        SynPatternRoot {
                                             kind: SynPatternExprRootKind::Parenate,
                                             syn_pattern_expr_idx: 1,
                                         },
@@ -6109,7 +6109,7 @@
                         pattern_expr_region: SynPatternExprRegion {
                             pattern_expr_arena: Arena {
                                 data: [
-                                    SynPatternExprData::Ident {
+                                    SynPatternData::Ident {
                                         symbol_modifier_tokens: None,
                                         ident_token: IdentRegionalToken {
                                             ident: `cos_value`,
@@ -6186,7 +6186,7 @@
                             pattern_ty_constraints: [],
                         },
                         syn_pattern_expr_roots: [
-                            SynPatternExprRoot {
+                            SynPatternRoot {
                                 kind: SynPatternExprRootKind::Let,
                                 syn_pattern_expr_idx: 1,
                             },
@@ -6443,7 +6443,7 @@
                                     pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [
-                                                SynPatternExprData::Ident {
+                                                SynPatternData::Ident {
                                                     symbol_modifier_tokens: None,
                                                     ident_token: IdentRegionalToken {
                                                         ident: `other`,
@@ -6516,7 +6516,7 @@
                                         ],
                                     },
                                     syn_pattern_expr_roots: [
-                                        SynPatternExprRoot {
+                                        SynPatternRoot {
                                             kind: SynPatternExprRootKind::Parenate,
                                             syn_pattern_expr_idx: 1,
                                         },
@@ -6943,7 +6943,7 @@
                                     pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [
-                                                SynPatternExprData::Ident {
+                                                SynPatternData::Ident {
                                                     symbol_modifier_tokens: None,
                                                     ident_token: IdentRegionalToken {
                                                         ident: `other`,
@@ -6952,7 +6952,7 @@
                                                         ),
                                                     },
                                                 },
-                                                SynPatternExprData::Ident {
+                                                SynPatternData::Ident {
                                                     symbol_modifier_tokens: None,
                                                     ident_token: IdentRegionalToken {
                                                         ident: `is_branch_cut_positive`,
@@ -7058,11 +7058,11 @@
                                         ],
                                     },
                                     syn_pattern_expr_roots: [
-                                        SynPatternExprRoot {
+                                        SynPatternRoot {
                                             kind: SynPatternExprRootKind::Parenate,
                                             syn_pattern_expr_idx: 1,
                                         },
-                                        SynPatternExprRoot {
+                                        SynPatternRoot {
                                             kind: SynPatternExprRootKind::Parenate,
                                             syn_pattern_expr_idx: 2,
                                         },
@@ -7915,7 +7915,7 @@
                         pattern_expr_region: SynPatternExprRegion {
                             pattern_expr_arena: Arena {
                                 data: [
-                                    SynPatternExprData::Ident {
+                                    SynPatternData::Ident {
                                         symbol_modifier_tokens: None,
                                         ident_token: IdentRegionalToken {
                                             ident: `self_norm`,
@@ -7924,7 +7924,7 @@
                                             ),
                                         },
                                     },
-                                    SynPatternExprData::Ident {
+                                    SynPatternData::Ident {
                                         symbol_modifier_tokens: None,
                                         ident_token: IdentRegionalToken {
                                             ident: `other_norm`,
@@ -7933,7 +7933,7 @@
                                             ),
                                         },
                                     },
-                                    SynPatternExprData::Ident {
+                                    SynPatternData::Ident {
                                         symbol_modifier_tokens: None,
                                         ident_token: IdentRegionalToken {
                                             ident: `cos_value`,
@@ -7942,7 +7942,7 @@
                                             ),
                                         },
                                     },
-                                    SynPatternExprData::Ident {
+                                    SynPatternData::Ident {
                                         symbol_modifier_tokens: None,
                                         ident_token: IdentRegionalToken {
                                             ident: `arc_angle`,
@@ -8112,19 +8112,19 @@
                             pattern_ty_constraints: [],
                         },
                         syn_pattern_expr_roots: [
-                            SynPatternExprRoot {
+                            SynPatternRoot {
                                 kind: SynPatternExprRootKind::Let,
                                 syn_pattern_expr_idx: 1,
                             },
-                            SynPatternExprRoot {
+                            SynPatternRoot {
                                 kind: SynPatternExprRootKind::Let,
                                 syn_pattern_expr_idx: 2,
                             },
-                            SynPatternExprRoot {
+                            SynPatternRoot {
                                 kind: SynPatternExprRootKind::Let,
                                 syn_pattern_expr_idx: 3,
                             },
-                            SynPatternExprRoot {
+                            SynPatternRoot {
                                 kind: SynPatternExprRootKind::Let,
                                 syn_pattern_expr_idx: 4,
                             },
@@ -8437,7 +8437,7 @@
                                     pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [
-                                                SynPatternExprData::Ident {
+                                                SynPatternData::Ident {
                                                     symbol_modifier_tokens: None,
                                                     ident_token: IdentRegionalToken {
                                                         ident: `other`,
@@ -8510,7 +8510,7 @@
                                         ],
                                     },
                                     syn_pattern_expr_roots: [
-                                        SynPatternExprRoot {
+                                        SynPatternRoot {
                                             kind: SynPatternExprRootKind::Parenate,
                                             syn_pattern_expr_idx: 1,
                                         },
@@ -8996,7 +8996,7 @@
                         pattern_expr_region: SynPatternExprRegion {
                             pattern_expr_arena: Arena {
                                 data: [
-                                    SynPatternExprData::Ident {
+                                    SynPatternData::Ident {
                                         symbol_modifier_tokens: None,
                                         ident_token: IdentRegionalToken {
                                             ident: `span`,
@@ -9005,7 +9005,7 @@
                                             ),
                                         },
                                     },
-                                    SynPatternExprData::Ident {
+                                    SynPatternData::Ident {
                                         symbol_modifier_tokens: None,
                                         ident_token: IdentRegionalToken {
                                             ident: `rel_min`,
@@ -9014,7 +9014,7 @@
                                             ),
                                         },
                                     },
-                                    SynPatternExprData::Ident {
+                                    SynPatternData::Ident {
                                         symbol_modifier_tokens: None,
                                         ident_token: IdentRegionalToken {
                                             ident: `rel_max`,
@@ -9147,15 +9147,15 @@
                             pattern_ty_constraints: [],
                         },
                         syn_pattern_expr_roots: [
-                            SynPatternExprRoot {
+                            SynPatternRoot {
                                 kind: SynPatternExprRootKind::Let,
                                 syn_pattern_expr_idx: 1,
                             },
-                            SynPatternExprRoot {
+                            SynPatternRoot {
                                 kind: SynPatternExprRootKind::Let,
                                 syn_pattern_expr_idx: 2,
                             },
-                            SynPatternExprRoot {
+                            SynPatternRoot {
                                 kind: SynPatternExprRootKind::Let,
                                 syn_pattern_expr_idx: 3,
                             },
@@ -9424,7 +9424,7 @@
                                     pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [
-                                                SynPatternExprData::Ident {
+                                                SynPatternData::Ident {
                                                     symbol_modifier_tokens: None,
                                                     ident_token: IdentRegionalToken {
                                                         ident: `v`,
@@ -9497,7 +9497,7 @@
                                         ],
                                     },
                                     syn_pattern_expr_roots: [
-                                        SynPatternExprRoot {
+                                        SynPatternRoot {
                                             kind: SynPatternExprRootKind::Parenate,
                                             syn_pattern_expr_idx: 1,
                                         },
@@ -9709,7 +9709,7 @@
                         pattern_expr_region: SynPatternExprRegion {
                             pattern_expr_arena: Arena {
                                 data: [
-                                    SynPatternExprData::Ident {
+                                    SynPatternData::Ident {
                                         symbol_modifier_tokens: None,
                                         ident_token: IdentRegionalToken {
                                             ident: `span`,
@@ -9786,7 +9786,7 @@
                             pattern_ty_constraints: [],
                         },
                         syn_pattern_expr_roots: [
-                            SynPatternExprRoot {
+                            SynPatternRoot {
                                 kind: SynPatternExprRootKind::Let,
                                 syn_pattern_expr_idx: 1,
                             },
@@ -10059,7 +10059,7 @@
                                     pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [
-                                                SynPatternExprData::Ident {
+                                                SynPatternData::Ident {
                                                     symbol_modifier_tokens: None,
                                                     ident_token: IdentRegionalToken {
                                                         ident: `other`,
@@ -10132,7 +10132,7 @@
                                         ],
                                     },
                                     syn_pattern_expr_roots: [
-                                        SynPatternExprRoot {
+                                        SynPatternRoot {
                                             kind: SynPatternExprRootKind::Parenate,
                                             syn_pattern_expr_idx: 1,
                                         },
@@ -10656,7 +10656,7 @@
                                     pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [
-                                                SynPatternExprData::Ident {
+                                                SynPatternData::Ident {
                                                     symbol_modifier_tokens: None,
                                                     ident_token: IdentRegionalToken {
                                                         ident: `point`,
@@ -10729,7 +10729,7 @@
                                         ],
                                     },
                                     syn_pattern_expr_roots: [
-                                        SynPatternExprRoot {
+                                        SynPatternRoot {
                                             kind: SynPatternExprRootKind::Parenate,
                                             syn_pattern_expr_idx: 1,
                                         },

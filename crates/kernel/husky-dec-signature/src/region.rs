@@ -11,7 +11,7 @@ use crate::*;
 
 use husky_entity_tree::SynNodeRegionPath;
 use husky_syn_expr::{
-    CurrentSynSymbolIdx, SynExprIdx, SynExprMap, SynPatternExprMap, SynPatternSymbolMap,
+    CurrentSynSymbolIdx, SynExprIdx, SynExprMap, SynPatternMap, SynPatternSymbolMap,
 };
 
 /// preparation for generating signature
@@ -24,7 +24,7 @@ pub struct SynExprDecTermRegion {
     path: SynNodeRegionPath,
     term_symbol_region: DecSvarRegion,
     expr_terms: SynExprMap<DecTermResult2<DecTerm>>,
-    pattern_expr_ty_infos: SynPatternExprMap<PatternExprDeclarativeTypeInfo>,
+    pattern_expr_ty_infos: SynPatternMap<PatternExprDeclarativeTypeInfo>,
     pattern_symbol_ty_infos: SynPatternSymbolMap<PatternSymbolDeclarativeTypeInfo>,
 }
 
@@ -33,7 +33,7 @@ impl SynExprDecTermRegion {
         path: SynNodeRegionPath,
         term_symbol_region: DecSvarRegion,
         expr_terms: SynExprMap<DecTermResult2<DecTerm>>,
-        pattern_expr_ty_infos: SynPatternExprMap<PatternExprDeclarativeTypeInfo>,
+        pattern_expr_ty_infos: SynPatternMap<PatternExprDeclarativeTypeInfo>,
         pattern_symbol_ty_infos: SynPatternSymbolMap<PatternSymbolDeclarativeTypeInfo>,
     ) -> Self {
         Self {

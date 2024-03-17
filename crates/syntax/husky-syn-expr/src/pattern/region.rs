@@ -3,16 +3,16 @@ use super::*;
 #[derive(Debug, Default, PartialEq, Eq)]
 #[salsa::derive_debug_with_db]
 pub struct SynPatternExprRegion {
-    pattern_expr_arena: SynPatternExprArena,
+    pattern_expr_arena: SynPatternArena,
     /// the contract of pattern expressions are computed when they are created
-    pattern_expr_contracts: SynPatternExprOrderedMap<Contract>,
+    pattern_expr_contracts: SynPatternOrderedMap<Contract>,
     pattern_symbol_arena: SynPatternSymbolArena,
-    pattern_symbol_maps: SynPatternExprOrderedMap<IdentPairMap<SynPatternSymbolIdx>>,
+    pattern_symbol_maps: SynPatternOrderedMap<IdentPairMap<SynPatternSymbolIdx>>,
     pattern_symbol_modifiers: SynPatternSymbolOrderedMap<SvarModifier>,
 }
 
 impl SynPatternExprRegion {
-    pub fn alloc_one_pattern_expr(&mut self, expr: SynPatternExprData) -> SynPatternIdx {
+    pub fn alloc_one_pattern_expr(&mut self, expr: SynPatternData) -> SynPatternIdx {
         // order matters
         let contract = expr.contract();
         let idx = self.pattern_expr_arena.alloc_one(expr);
@@ -31,31 +31,30 @@ impl SynPatternExprRegion {
         let symbols: IdentPairMap<SynPatternSymbolIdx> = match self.pattern_expr_arena
             [pattern_expr_idx]
         {
-            SynPatternExprData::Literal { .. } => Default::default(),
-            SynPatternExprData::Ident { ident_token, .. } => IdentPairMap::new_one_element_map((
+            SynPatternData::Literal { .. } => Default::default(),
+            SynPatternData::Ident { ident_token, .. } => IdentPairMap::new_one_element_map((
                 ident_token.ident(),
                 self.alloc_new_symbol(SynPatternSymbol::Atom(pattern_expr_idx)),
             )),
-            SynPatternExprData::UnitTypeVariant { .. } => Default::default(),
-            SynPatternExprData::Tuple { .. } => todo!(),
-            SynPatternExprData::TupleStruct { .. } => todo!(),
+            SynPatternData::UnitTypeVariant { .. } => Default::default(),
+            SynPatternData::Tuple { .. } => todo!(),
+            SynPatternData::TupleStruct { .. } => todo!(),
             // ad hoc
-            SynPatternExprData::TupleTypeVariant { .. } => Default::default(),
-            SynPatternExprData::Props { .. } => todo!(),
-            SynPatternExprData::OneOf { ref options } => {
+            SynPatternData::TupleTypeVariant { .. } => Default::default(),
+            SynPatternData::Props { .. } => todo!(),
+            SynPatternData::OneOf { ref options } => {
                 debug_assert!(options.elements().len() > 1);
-                let symbols =
-                    self.pattern_symbol_maps[options.elements()[0].syn_pattern_expr_idx()].clone();
+                let symbols = self.pattern_symbol_maps[options.elements()[0].syn_pattern()].clone();
                 for option in &options.elements()[1..] {
-                    let option_symbols = &self.pattern_symbol_maps[option.syn_pattern_expr_idx()];
+                    let option_symbols = &self.pattern_symbol_maps[option.syn_pattern()];
                     if option_symbols != &symbols {
                         todo!()
                     }
                 }
                 symbols
             }
-            SynPatternExprData::Binding { .. } => todo!(),
-            SynPatternExprData::Range { .. } => todo!(),
+            SynPatternData::Binding { .. } => todo!(),
+            SynPatternData::Range { .. } => todo!(),
         };
         symbols
     }
@@ -69,7 +68,7 @@ impl SynPatternExprRegion {
 
     pub fn pattern_exprs<'a>(
         &'a self,
-    ) -> impl Iterator<Item = (SynPatternIdx, &'a SynPatternExprData)> + 'a {
+    ) -> impl Iterator<Item = (SynPatternIdx, &'a SynPatternData)> + 'a {
         self.pattern_expr_arena.indexed_iter()
     }
 
@@ -80,7 +79,7 @@ impl SynPatternExprRegion {
         &self.pattern_symbol_maps[syn_pattern_expr_idx]
     }
 
-    pub fn pattern_expr_arena(&self) -> &SynPatternExprArena {
+    pub fn pattern_expr_arena(&self) -> &SynPatternArena {
         &self.pattern_expr_arena
     }
 
@@ -90,7 +89,7 @@ impl SynPatternExprRegion {
 }
 
 impl std::ops::Index<SynPatternIdx> for SynPatternExprRegion {
-    type Output = SynPatternExprData;
+    type Output = SynPatternData;
 
     fn index(&self, index: SynPatternIdx) -> &Self::Output {
         &self.pattern_expr_arena[index]

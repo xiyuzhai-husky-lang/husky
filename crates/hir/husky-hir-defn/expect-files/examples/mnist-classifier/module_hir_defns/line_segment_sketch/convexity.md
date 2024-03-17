@@ -65,11 +65,11 @@
                             },
                             pattern_expr_arena: Arena {
                                 data: [
-                                    HirEagerPatternExpr::Ident {
+                                    HirEagerPatternData::Ident {
                                         symbol_modifier: None,
                                         ident: `line_segment_sketch`,
                                     },
-                                    HirEagerPatternExpr::Ident {
+                                    HirEagerPatternData::Ident {
                                         symbol_modifier: None,
                                         ident: `index`,
                                     },
@@ -2640,47 +2640,47 @@
                                 },
                                 pattern_expr_arena: Arena {
                                     data: [
-                                        HirEagerPatternExpr::Ident {
+                                        HirEagerPatternData::Ident {
                                             symbol_modifier: None,
                                             ident: `L`,
                                         },
-                                        HirEagerPatternExpr::Ident {
+                                        HirEagerPatternData::Ident {
                                             symbol_modifier: None,
                                             ident: `current_displacement`,
                                         },
-                                        HirEagerPatternExpr::Ident {
+                                        HirEagerPatternData::Ident {
                                             symbol_modifier: None,
                                             ident: `previous_displacement`,
                                         },
-                                        HirEagerPatternExpr::Ident {
+                                        HirEagerPatternData::Ident {
                                             symbol_modifier: None,
                                             ident: `is_rotation_counterclockwise_result`,
                                         },
-                                        HirEagerPatternExpr::Ident {
+                                        HirEagerPatternData::Ident {
                                             symbol_modifier: Some(
                                                 Mut,
                                             ),
                                             ident: `previous_raw_cross`,
                                         },
-                                        HirEagerPatternExpr::Ident {
+                                        HirEagerPatternData::Ident {
                                             symbol_modifier: None,
                                             ident: `previous_interval`,
                                         },
-                                        HirEagerPatternExpr::Ident {
+                                        HirEagerPatternData::Ident {
                                             symbol_modifier: None,
                                             ident: `displacement`,
                                         },
-                                        HirEagerPatternExpr::Ident {
+                                        HirEagerPatternData::Ident {
                                             symbol_modifier: Some(
                                                 Mut,
                                             ),
                                             ident: `current_raw_cross`,
                                         },
-                                        HirEagerPatternExpr::Ident {
+                                        HirEagerPatternData::Ident {
                                             symbol_modifier: None,
                                             ident: `current_interval`,
                                         },
-                                        HirEagerPatternExpr::Ident {
+                                        HirEagerPatternData::Ident {
                                             symbol_modifier: None,
                                             ident: `displacement`,
                                         },

@@ -79,7 +79,7 @@ impl SemaExprRegion {
         sema_expr_arena: SemaExprArena,
         sema_stmt_arena: SemaStmtArena,
         sema_expr_roots: VecPairMap<SynExprIdx, (SemaExprIdx, SynExprRootKind)>,
-        pattern_expr_ty_infos: SynPatternExprMap<PatternExprTypeInfo>,
+        pattern_expr_ty_infos: SynPatternMap<PatternExprTypeInfo>,
         pattern_symbol_ty_infos: SynPatternSymbolMap<PatternSymbolTypeInfo>,
         sema_expr_terms: VecPairMap<SemaExprIdx, SemaExprTermResult<FlyTerm>>,
         symbol_tys: SymbolMap<SymbolType>,
@@ -120,7 +120,7 @@ pub struct SemaExprRegionData {
     sema_expr_arena: SemaExprArena,
     sema_stmt_arena: SemaStmtArena,
     sema_expr_roots: VecPairMap<SynExprIdx, (SemaExprIdx, SynExprRootKind)>,
-    syn_pattern_expr_ty_infos: SynPatternExprMap<PatternExprTypeInfo>,
+    syn_pattern_expr_ty_infos: SynPatternMap<PatternExprTypeInfo>,
     syn_pattern_symbol_ty_infos: SynPatternSymbolMap<PatternSymbolTypeInfo>,
     sema_expr_terms: VecPairMap<SemaExprIdx, SemaExprTermResult<FlyTerm>>,
     symbol_tys: SymbolMap<SymbolType>,
@@ -193,9 +193,9 @@ impl SemaExprRegionData {
         &self.sema_expr_terms
     }
 
-    pub fn syn_pattern_expr_ty(
+    pub fn syn_pattern_ty(
         &self,
-        syn_pattern_expr_idx: idx_arena::ArenaIdx<SynPatternExprData>,
+        syn_pattern_expr_idx: idx_arena::ArenaIdx<SynPatternData>,
         db: &::salsa::Db,
     ) -> EthTerm {
         match self.syn_pattern_expr_ty_infos[syn_pattern_expr_idx].ty {

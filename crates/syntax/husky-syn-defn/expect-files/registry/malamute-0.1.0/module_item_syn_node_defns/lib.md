@@ -1401,7 +1401,7 @@
                                     pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [
-                                                SynPatternExprData::Ident {
+                                                SynPatternData::Ident {
                                                     symbol_modifier_tokens: None,
                                                     ident_token: IdentRegionalToken {
                                                         ident: `one_vs_all`,
@@ -1497,7 +1497,7 @@
                                         ],
                                     },
                                     syn_pattern_expr_roots: [
-                                        SynPatternExprRoot {
+                                        SynPatternRoot {
                                             kind: SynPatternExprRootKind::Parenate,
                                             syn_pattern_expr_idx: 1,
                                         },
@@ -2071,7 +2071,7 @@
                         pattern_expr_region: SynPatternExprRegion {
                             pattern_expr_arena: Arena {
                                 data: [
-                                    SynPatternExprData::UnitTypeVariant {
+                                    SynPatternData::UnitTypeVariant {
                                         path_expr_idx: 2,
                                         path: TypeVariantPath(
                                             ItemPathId(
@@ -2081,7 +2081,7 @@
                                             ),
                                         ),
                                     },
-                                    SynPatternExprData::UnitTypeVariant {
+                                    SynPatternData::UnitTypeVariant {
                                         path_expr_idx: 10,
                                         path: TypeVariantPath(
                                             ItemPathId(
@@ -2154,11 +2154,11 @@
                             pattern_ty_constraints: [],
                         },
                         syn_pattern_expr_roots: [
-                            SynPatternExprRoot {
+                            SynPatternRoot {
                                 kind: SynPatternExprRootKind::Case,
                                 syn_pattern_expr_idx: 1,
                             },
-                            SynPatternExprRoot {
+                            SynPatternRoot {
                                 kind: SynPatternExprRootKind::Case,
                                 syn_pattern_expr_idx: 2,
                             },
@@ -2826,7 +2826,7 @@
                                     pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [
-                                                SynPatternExprData::Ident {
+                                                SynPatternData::Ident {
                                                     symbol_modifier_tokens: None,
                                                     ident_token: IdentRegionalToken {
                                                         ident: `one_vs_all_result`,
@@ -2922,7 +2922,7 @@
                                         ],
                                     },
                                     syn_pattern_expr_roots: [
-                                        SynPatternExprRoot {
+                                        SynPatternRoot {
                                             kind: SynPatternExprRootKind::Parenate,
                                             syn_pattern_expr_idx: 1,
                                         },
@@ -3715,7 +3715,7 @@
                         pattern_expr_region: SynPatternExprRegion {
                             pattern_expr_arena: Arena {
                                 data: [
-                                    SynPatternExprData::UnitTypeVariant {
+                                    SynPatternData::UnitTypeVariant {
                                         path_expr_idx: 2,
                                         path: TypeVariantPath(
                                             ItemPathId(
@@ -3725,7 +3725,7 @@
                                             ),
                                         ),
                                     },
-                                    SynPatternExprData::UnitTypeVariant {
+                                    SynPatternData::UnitTypeVariant {
                                         path_expr_idx: 10,
                                         path: TypeVariantPath(
                                             ItemPathId(
@@ -3735,7 +3735,7 @@
                                             ),
                                         ),
                                     },
-                                    SynPatternExprData::UnitTypeVariant {
+                                    SynPatternData::UnitTypeVariant {
                                         path_expr_idx: 18,
                                         path: TypeVariantPath(
                                             ItemPathId(
@@ -3810,15 +3810,15 @@
                             pattern_ty_constraints: [],
                         },
                         syn_pattern_expr_roots: [
-                            SynPatternExprRoot {
+                            SynPatternRoot {
                                 kind: SynPatternExprRootKind::Case,
                                 syn_pattern_expr_idx: 1,
                             },
-                            SynPatternExprRoot {
+                            SynPatternRoot {
                                 kind: SynPatternExprRootKind::Case,
                                 syn_pattern_expr_idx: 2,
                             },
-                            SynPatternExprRoot {
+                            SynPatternRoot {
                                 kind: SynPatternExprRootKind::Case,
                                 syn_pattern_expr_idx: 3,
                             },

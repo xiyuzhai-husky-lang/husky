@@ -16,7 +16,7 @@ use parsec::{IsStreamParser, PunctuatedSmallList, TryParseOptionFromStream};
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
-pub enum SynPatternExprData {
+pub enum SynPatternData {
     /// example: `1`
     Literal {
         regional_token_idx: RegionalTokenIdx,
@@ -90,18 +90,18 @@ pub struct FieldSynPatternExprData {
     pattern: SynPatternComponent,
 }
 
-pub type SynPatternExprArena = Arena<SynPatternExprData>;
-pub type SynPatternIdx = ArenaIdx<SynPatternExprData>;
-pub type SynPatternExprIdxRange = ArenaIdxRange<SynPatternExprData>;
-pub type SynPatternExprMap<V> = ArenaMap<SynPatternExprData, V>;
-pub type SynPatternExprOrderedMap<V> = ArenaOrderedMap<SynPatternExprData, V>;
+pub type SynPatternArena = Arena<SynPatternData>;
+pub type SynPatternIdx = ArenaIdx<SynPatternData>;
+pub type SynPatternIdxRange = ArenaIdxRange<SynPatternData>;
+pub type SynPatternMap<V> = ArenaMap<SynPatternData, V>;
+pub type SynPatternOrderedMap<V> = ArenaOrderedMap<SynPatternData, V>;
 
 /// irreducible against `|`
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct SynPatternComponent(SynPatternIdx);
 
 impl SynPatternComponent {
-    pub fn syn_pattern_expr_idx(self) -> SynPatternIdx {
+    pub fn syn_pattern(self) -> SynPatternIdx {
         self.0
     }
 }
@@ -125,7 +125,7 @@ where
             ControlFlow::Continue(resolved_token) => {
                 match resolved_token {
                     DisambiguatedTokenData::Literal(regional_token_idx, literal) => {
-                        Some(SynPatternExprData::Literal {
+                        Some(SynPatternData::Literal {
                             regional_token_idx,
                             literal,
                         })
@@ -168,7 +168,7 @@ where
                                         let rpar = parser.try_parse_expected(
                                             OriginalSynExprError::ExpectedRpar,
                                         )?;
-                                        Some(SynPatternExprData::TupleTypeVariant {
+                                        Some(SynPatternData::TupleTypeVariant {
                                             path_expr_idx,
                                             path,
                                             lpar,
@@ -183,7 +183,7 @@ where
                                         if symbol_modifier_tokens.is_some() {
                                             todo!()
                                         }
-                                        Some(SynPatternExprData::UnitTypeVariant {
+                                        Some(SynPatternData::UnitTypeVariant {
                                             path_expr_idx,
                                             path,
                                         })
@@ -207,7 +207,7 @@ where
                     | DisambiguatedTokenData::UnrecognizedIdent {
                         regional_token_idx,
                         ident,
-                    } => Some(SynPatternExprData::Ident {
+                    } => Some(SynPatternData::Ident {
                         symbol_modifier_tokens,
                         ident_token: IdentRegionalToken::new(ident, regional_token_idx),
                     }),
@@ -236,7 +236,7 @@ fn parse_overriding_ident_pattern<'a, C>(
     parser: &mut SynExprParser<'a, C>,
     path_expr_idx: PrincipalEntityPathSynExprIdx,
     symbol_modifier_tokens: Option<EphemSymbolModifierRegionalTokens>,
-) -> Option<SynPatternExprData>
+) -> Option<SynPatternData>
 where
     C: IsSynExprContext<'a>,
 {
@@ -244,7 +244,7 @@ where
         SynPrincipalEntityPathExpr::Root {
             path_name_token, ..
         } => match path_name_token {
-            PathNameRegionalToken::Ident(ident_token) => Some(SynPatternExprData::Ident {
+            PathNameRegionalToken::Ident(ident_token) => Some(SynPatternData::Ident {
                 symbol_modifier_tokens,
                 ident_token,
             }),
@@ -279,7 +279,7 @@ where
                 self.context_mut(),
             ))),
             _ => {
-                let expr = SynPatternExprData::OneOf {
+                let expr = SynPatternData::OneOf {
                     options: punctuated_patterns,
                 };
                 Ok(Some(SynPatternRoot::new(

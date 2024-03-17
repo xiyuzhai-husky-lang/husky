@@ -9,11 +9,11 @@ pub enum SynPatternSymbol {
 impl SynPatternSymbol {
     pub(super) fn pattern_symbol_modifier(
         &self,
-        pattern_expr_arena: &SynPatternExprArena,
+        pattern_expr_arena: &SynPatternArena,
     ) -> SvarModifier {
         match self {
             SynPatternSymbol::Atom(expr_idx) => match pattern_expr_arena[*expr_idx] {
-                SynPatternExprData::Ident {
+                SynPatternData::Ident {
                     symbol_modifier_tokens: symbol_modifier_keyword_group,
                     ident_token: _,
                 } => SvarModifier::new(symbol_modifier_keyword_group),

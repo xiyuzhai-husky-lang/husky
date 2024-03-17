@@ -115,7 +115,7 @@
                         },
                         pattern_expr_arena: Arena {
                             data: [
-                                HirEagerPatternExpr::Ident {
+                                HirEagerPatternData::Ident {
                                     symbol_modifier: None,
                                     ident: `cc`,
                                 },
@@ -214,7 +214,7 @@
                         },
                         pattern_expr_arena: Arena {
                             data: [
-                                HirEagerPatternExpr::Ident {
+                                HirEagerPatternData::Ident {
                                     symbol_modifier: None,
                                     ident: `cc`,
                                 },
@@ -313,7 +313,7 @@
                         },
                         pattern_expr_arena: Arena {
                             data: [
-                                HirEagerPatternExpr::Ident {
+                                HirEagerPatternData::Ident {
                                     symbol_modifier: None,
                                     ident: `cc`,
                                 },
