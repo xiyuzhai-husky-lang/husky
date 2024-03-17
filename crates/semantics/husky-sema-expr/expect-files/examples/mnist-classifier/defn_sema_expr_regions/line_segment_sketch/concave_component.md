@@ -7304,7 +7304,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::ImplBlock(
                                                         ImplBlockPath::TraitForTypeImplBlock(
-                                                            #derive _ as core::visual::Visualize(0),
+                                                            TraitForTypeImplBlockPath(`#derive _ as core::visual::Visualize(0)`),
                                                         ),
                                                     ),
                                                     env: MethodFn {
@@ -24247,7 +24247,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::ImplBlock(
                                                         ImplBlockPath::TraitForTypeImplBlock(
-                                                            #derive _ as core::clone::Clone(0),
+                                                            TraitForTypeImplBlockPath(`#derive _ as core::clone::Clone(0)`),
                                                         ),
                                                     ),
                                                     env: MethodFn {
@@ -24684,7 +24684,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::ImplBlock(
                                                         ImplBlockPath::TraitForTypeImplBlock(
-                                                            #derive _ as core::clone::Clone(0),
+                                                            TraitForTypeImplBlockPath(`#derive _ as core::clone::Clone(0)`),
                                                         ),
                                                     ),
                                                     env: MethodFn {
@@ -25863,7 +25863,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::ImplBlock(
                                                         ImplBlockPath::TraitForTypeImplBlock(
-                                                            #derive _ as core::clone::Clone(0),
+                                                            TraitForTypeImplBlockPath(`#derive _ as core::clone::Clone(0)`),
                                                         ),
                                                     ),
                                                     env: MethodFn {
@@ -26666,7 +26666,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::ImplBlock(
                                                         ImplBlockPath::TraitForTypeImplBlock(
-                                                            #derive _ as core::clone::Clone(0),
+                                                            TraitForTypeImplBlockPath(`#derive _ as core::clone::Clone(0)`),
                                                         ),
                                                     ),
                                                     env: MethodFn {

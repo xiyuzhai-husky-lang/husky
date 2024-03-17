@@ -2402,7 +2402,7 @@ SynNodeDeclSheet {
                             data: ItemSynNodePathData::ImplBlock(
                                 ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                     TraitForTypeImplBlockSynNodePathData {
-                                        path: core::num::i8 as core::ops::Add(0),
+                                        path: TraitForTypeImplBlockPath(`core::num::i8 as core::ops::Add(0)`),
                                     },
                                 ),
                             ),
@@ -2418,7 +2418,7 @@ SynNodeDeclSheet {
                                 data: ItemSynNodePathData::ImplBlock(
                                     ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                         TraitForTypeImplBlockSynNodePathData {
-                                            path: core::num::i8 as core::ops::Add(0),
+                                            path: TraitForTypeImplBlockPath(`core::num::i8 as core::ops::Add(0)`),
                                         },
                                     ),
                                 ),
@@ -2465,7 +2465,7 @@ SynNodeDeclSheet {
                                                     data: ItemSynNodePathData::ImplBlock(
                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                path: core::num::i8 as core::ops::Add(0),
+                                                                path: TraitForTypeImplBlockPath(`core::num::i8 as core::ops::Add(0)`),
                                                             },
                                                         ),
                                                     ),
@@ -2726,7 +2726,7 @@ SynNodeDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                                path: core::num::i8 as core::ops::Add(0),
+                                                                                path: TraitForTypeImplBlockPath(`core::num::i8 as core::ops::Add(0)`),
                                                                             },
                                                                         ),
                                                                     ),
@@ -3918,7 +3918,7 @@ SynNodeDeclSheet {
                             data: ItemSynNodePathData::ImplBlock(
                                 ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                     TraitForTypeImplBlockSynNodePathData {
-                                        path: core::num::i16 as core::ops::Add(0),
+                                        path: TraitForTypeImplBlockPath(`core::num::i16 as core::ops::Add(0)`),
                                     },
                                 ),
                             ),
@@ -3934,7 +3934,7 @@ SynNodeDeclSheet {
                                 data: ItemSynNodePathData::ImplBlock(
                                     ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                         TraitForTypeImplBlockSynNodePathData {
-                                            path: core::num::i16 as core::ops::Add(0),
+                                            path: TraitForTypeImplBlockPath(`core::num::i16 as core::ops::Add(0)`),
                                         },
                                     ),
                                 ),
@@ -3981,7 +3981,7 @@ SynNodeDeclSheet {
                                                     data: ItemSynNodePathData::ImplBlock(
                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                path: core::num::i16 as core::ops::Add(0),
+                                                                path: TraitForTypeImplBlockPath(`core::num::i16 as core::ops::Add(0)`),
                                                             },
                                                         ),
                                                     ),
@@ -4242,7 +4242,7 @@ SynNodeDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                                path: core::num::i16 as core::ops::Add(0),
+                                                                                path: TraitForTypeImplBlockPath(`core::num::i16 as core::ops::Add(0)`),
                                                                             },
                                                                         ),
                                                                     ),
@@ -5829,7 +5829,7 @@ SynNodeDeclSheet {
                             data: ItemSynNodePathData::ImplBlock(
                                 ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                     TraitForTypeImplBlockSynNodePathData {
-                                        path: core::num::i32 as core::ops::Add(0),
+                                        path: TraitForTypeImplBlockPath(`core::num::i32 as core::ops::Add(0)`),
                                     },
                                 ),
                             ),
@@ -5845,7 +5845,7 @@ SynNodeDeclSheet {
                                 data: ItemSynNodePathData::ImplBlock(
                                     ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                         TraitForTypeImplBlockSynNodePathData {
-                                            path: core::num::i32 as core::ops::Add(0),
+                                            path: TraitForTypeImplBlockPath(`core::num::i32 as core::ops::Add(0)`),
                                         },
                                     ),
                                 ),
@@ -5892,7 +5892,7 @@ SynNodeDeclSheet {
                                                     data: ItemSynNodePathData::ImplBlock(
                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                path: core::num::i32 as core::ops::Add(0),
+                                                                path: TraitForTypeImplBlockPath(`core::num::i32 as core::ops::Add(0)`),
                                                             },
                                                         ),
                                                     ),
@@ -6153,7 +6153,7 @@ SynNodeDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                                path: core::num::i32 as core::ops::Add(0),
+                                                                                path: TraitForTypeImplBlockPath(`core::num::i32 as core::ops::Add(0)`),
                                                                             },
                                                                         ),
                                                                     ),
@@ -6950,7 +6950,7 @@ SynNodeDeclSheet {
                             data: ItemSynNodePathData::ImplBlock(
                                 ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                     TraitForTypeImplBlockSynNodePathData {
-                                        path: core::num::i64 as core::ops::Add(0),
+                                        path: TraitForTypeImplBlockPath(`core::num::i64 as core::ops::Add(0)`),
                                     },
                                 ),
                             ),
@@ -6966,7 +6966,7 @@ SynNodeDeclSheet {
                                 data: ItemSynNodePathData::ImplBlock(
                                     ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                         TraitForTypeImplBlockSynNodePathData {
-                                            path: core::num::i64 as core::ops::Add(0),
+                                            path: TraitForTypeImplBlockPath(`core::num::i64 as core::ops::Add(0)`),
                                         },
                                     ),
                                 ),
@@ -7013,7 +7013,7 @@ SynNodeDeclSheet {
                                                     data: ItemSynNodePathData::ImplBlock(
                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                path: core::num::i64 as core::ops::Add(0),
+                                                                path: TraitForTypeImplBlockPath(`core::num::i64 as core::ops::Add(0)`),
                                                             },
                                                         ),
                                                     ),
@@ -7274,7 +7274,7 @@ SynNodeDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                                path: core::num::i64 as core::ops::Add(0),
+                                                                                path: TraitForTypeImplBlockPath(`core::num::i64 as core::ops::Add(0)`),
                                                                             },
                                                                         ),
                                                                     ),
@@ -8071,7 +8071,7 @@ SynNodeDeclSheet {
                             data: ItemSynNodePathData::ImplBlock(
                                 ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                     TraitForTypeImplBlockSynNodePathData {
-                                        path: core::num::i128 as core::ops::Add(0),
+                                        path: TraitForTypeImplBlockPath(`core::num::i128 as core::ops::Add(0)`),
                                     },
                                 ),
                             ),
@@ -8087,7 +8087,7 @@ SynNodeDeclSheet {
                                 data: ItemSynNodePathData::ImplBlock(
                                     ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                         TraitForTypeImplBlockSynNodePathData {
-                                            path: core::num::i128 as core::ops::Add(0),
+                                            path: TraitForTypeImplBlockPath(`core::num::i128 as core::ops::Add(0)`),
                                         },
                                     ),
                                 ),
@@ -8134,7 +8134,7 @@ SynNodeDeclSheet {
                                                     data: ItemSynNodePathData::ImplBlock(
                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                path: core::num::i128 as core::ops::Add(0),
+                                                                path: TraitForTypeImplBlockPath(`core::num::i128 as core::ops::Add(0)`),
                                                             },
                                                         ),
                                                     ),
@@ -8395,7 +8395,7 @@ SynNodeDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                                path: core::num::i128 as core::ops::Add(0),
+                                                                                path: TraitForTypeImplBlockPath(`core::num::i128 as core::ops::Add(0)`),
                                                                             },
                                                                         ),
                                                                     ),
@@ -9192,7 +9192,7 @@ SynNodeDeclSheet {
                             data: ItemSynNodePathData::ImplBlock(
                                 ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                     TraitForTypeImplBlockSynNodePathData {
-                                        path: core::num::isize as core::ops::Add(0),
+                                        path: TraitForTypeImplBlockPath(`core::num::isize as core::ops::Add(0)`),
                                     },
                                 ),
                             ),
@@ -9208,7 +9208,7 @@ SynNodeDeclSheet {
                                 data: ItemSynNodePathData::ImplBlock(
                                     ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                         TraitForTypeImplBlockSynNodePathData {
-                                            path: core::num::isize as core::ops::Add(0),
+                                            path: TraitForTypeImplBlockPath(`core::num::isize as core::ops::Add(0)`),
                                         },
                                     ),
                                 ),
@@ -9255,7 +9255,7 @@ SynNodeDeclSheet {
                                                     data: ItemSynNodePathData::ImplBlock(
                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                path: core::num::isize as core::ops::Add(0),
+                                                                path: TraitForTypeImplBlockPath(`core::num::isize as core::ops::Add(0)`),
                                                             },
                                                         ),
                                                     ),
@@ -9516,7 +9516,7 @@ SynNodeDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                                path: core::num::isize as core::ops::Add(0),
+                                                                                path: TraitForTypeImplBlockPath(`core::num::isize as core::ops::Add(0)`),
                                                                             },
                                                                         ),
                                                                     ),
@@ -10313,7 +10313,7 @@ SynNodeDeclSheet {
                             data: ItemSynNodePathData::ImplBlock(
                                 ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                     TraitForTypeImplBlockSynNodePathData {
-                                        path: core::num::u8 as core::ops::Add(0),
+                                        path: TraitForTypeImplBlockPath(`core::num::u8 as core::ops::Add(0)`),
                                     },
                                 ),
                             ),
@@ -10329,7 +10329,7 @@ SynNodeDeclSheet {
                                 data: ItemSynNodePathData::ImplBlock(
                                     ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                         TraitForTypeImplBlockSynNodePathData {
-                                            path: core::num::u8 as core::ops::Add(0),
+                                            path: TraitForTypeImplBlockPath(`core::num::u8 as core::ops::Add(0)`),
                                         },
                                     ),
                                 ),
@@ -10376,7 +10376,7 @@ SynNodeDeclSheet {
                                                     data: ItemSynNodePathData::ImplBlock(
                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                path: core::num::u8 as core::ops::Add(0),
+                                                                path: TraitForTypeImplBlockPath(`core::num::u8 as core::ops::Add(0)`),
                                                             },
                                                         ),
                                                     ),
@@ -10637,7 +10637,7 @@ SynNodeDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                                path: core::num::u8 as core::ops::Add(0),
+                                                                                path: TraitForTypeImplBlockPath(`core::num::u8 as core::ops::Add(0)`),
                                                                             },
                                                                         ),
                                                                     ),
@@ -11434,7 +11434,7 @@ SynNodeDeclSheet {
                             data: ItemSynNodePathData::ImplBlock(
                                 ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                     TraitForTypeImplBlockSynNodePathData {
-                                        path: core::num::u16 as core::ops::Add(0),
+                                        path: TraitForTypeImplBlockPath(`core::num::u16 as core::ops::Add(0)`),
                                     },
                                 ),
                             ),
@@ -11450,7 +11450,7 @@ SynNodeDeclSheet {
                                 data: ItemSynNodePathData::ImplBlock(
                                     ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                         TraitForTypeImplBlockSynNodePathData {
-                                            path: core::num::u16 as core::ops::Add(0),
+                                            path: TraitForTypeImplBlockPath(`core::num::u16 as core::ops::Add(0)`),
                                         },
                                     ),
                                 ),
@@ -11497,7 +11497,7 @@ SynNodeDeclSheet {
                                                     data: ItemSynNodePathData::ImplBlock(
                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                path: core::num::u16 as core::ops::Add(0),
+                                                                path: TraitForTypeImplBlockPath(`core::num::u16 as core::ops::Add(0)`),
                                                             },
                                                         ),
                                                     ),
@@ -11758,7 +11758,7 @@ SynNodeDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                                path: core::num::u16 as core::ops::Add(0),
+                                                                                path: TraitForTypeImplBlockPath(`core::num::u16 as core::ops::Add(0)`),
                                                                             },
                                                                         ),
                                                                     ),
@@ -12555,7 +12555,7 @@ SynNodeDeclSheet {
                             data: ItemSynNodePathData::ImplBlock(
                                 ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                     TraitForTypeImplBlockSynNodePathData {
-                                        path: core::num::u32 as core::ops::Add(0),
+                                        path: TraitForTypeImplBlockPath(`core::num::u32 as core::ops::Add(0)`),
                                     },
                                 ),
                             ),
@@ -12571,7 +12571,7 @@ SynNodeDeclSheet {
                                 data: ItemSynNodePathData::ImplBlock(
                                     ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                         TraitForTypeImplBlockSynNodePathData {
-                                            path: core::num::u32 as core::ops::Add(0),
+                                            path: TraitForTypeImplBlockPath(`core::num::u32 as core::ops::Add(0)`),
                                         },
                                     ),
                                 ),
@@ -12618,7 +12618,7 @@ SynNodeDeclSheet {
                                                     data: ItemSynNodePathData::ImplBlock(
                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                path: core::num::u32 as core::ops::Add(0),
+                                                                path: TraitForTypeImplBlockPath(`core::num::u32 as core::ops::Add(0)`),
                                                             },
                                                         ),
                                                     ),
@@ -12879,7 +12879,7 @@ SynNodeDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                                path: core::num::u32 as core::ops::Add(0),
+                                                                                path: TraitForTypeImplBlockPath(`core::num::u32 as core::ops::Add(0)`),
                                                                             },
                                                                         ),
                                                                     ),
@@ -13676,7 +13676,7 @@ SynNodeDeclSheet {
                             data: ItemSynNodePathData::ImplBlock(
                                 ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                     TraitForTypeImplBlockSynNodePathData {
-                                        path: core::num::u64 as core::ops::Add(0),
+                                        path: TraitForTypeImplBlockPath(`core::num::u64 as core::ops::Add(0)`),
                                     },
                                 ),
                             ),
@@ -13692,7 +13692,7 @@ SynNodeDeclSheet {
                                 data: ItemSynNodePathData::ImplBlock(
                                     ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                         TraitForTypeImplBlockSynNodePathData {
-                                            path: core::num::u64 as core::ops::Add(0),
+                                            path: TraitForTypeImplBlockPath(`core::num::u64 as core::ops::Add(0)`),
                                         },
                                     ),
                                 ),
@@ -13739,7 +13739,7 @@ SynNodeDeclSheet {
                                                     data: ItemSynNodePathData::ImplBlock(
                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                path: core::num::u64 as core::ops::Add(0),
+                                                                path: TraitForTypeImplBlockPath(`core::num::u64 as core::ops::Add(0)`),
                                                             },
                                                         ),
                                                     ),
@@ -14000,7 +14000,7 @@ SynNodeDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                                path: core::num::u64 as core::ops::Add(0),
+                                                                                path: TraitForTypeImplBlockPath(`core::num::u64 as core::ops::Add(0)`),
                                                                             },
                                                                         ),
                                                                     ),
@@ -14797,7 +14797,7 @@ SynNodeDeclSheet {
                             data: ItemSynNodePathData::ImplBlock(
                                 ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                     TraitForTypeImplBlockSynNodePathData {
-                                        path: core::num::u128 as core::ops::Add(0),
+                                        path: TraitForTypeImplBlockPath(`core::num::u128 as core::ops::Add(0)`),
                                     },
                                 ),
                             ),
@@ -14813,7 +14813,7 @@ SynNodeDeclSheet {
                                 data: ItemSynNodePathData::ImplBlock(
                                     ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                         TraitForTypeImplBlockSynNodePathData {
-                                            path: core::num::u128 as core::ops::Add(0),
+                                            path: TraitForTypeImplBlockPath(`core::num::u128 as core::ops::Add(0)`),
                                         },
                                     ),
                                 ),
@@ -14860,7 +14860,7 @@ SynNodeDeclSheet {
                                                     data: ItemSynNodePathData::ImplBlock(
                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                path: core::num::u128 as core::ops::Add(0),
+                                                                path: TraitForTypeImplBlockPath(`core::num::u128 as core::ops::Add(0)`),
                                                             },
                                                         ),
                                                     ),
@@ -15121,7 +15121,7 @@ SynNodeDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                                path: core::num::u128 as core::ops::Add(0),
+                                                                                path: TraitForTypeImplBlockPath(`core::num::u128 as core::ops::Add(0)`),
                                                                             },
                                                                         ),
                                                                     ),
@@ -15918,7 +15918,7 @@ SynNodeDeclSheet {
                             data: ItemSynNodePathData::ImplBlock(
                                 ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                     TraitForTypeImplBlockSynNodePathData {
-                                        path: core::num::usize as core::ops::Add(0),
+                                        path: TraitForTypeImplBlockPath(`core::num::usize as core::ops::Add(0)`),
                                     },
                                 ),
                             ),
@@ -15934,7 +15934,7 @@ SynNodeDeclSheet {
                                 data: ItemSynNodePathData::ImplBlock(
                                     ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                         TraitForTypeImplBlockSynNodePathData {
-                                            path: core::num::usize as core::ops::Add(0),
+                                            path: TraitForTypeImplBlockPath(`core::num::usize as core::ops::Add(0)`),
                                         },
                                     ),
                                 ),
@@ -15981,7 +15981,7 @@ SynNodeDeclSheet {
                                                     data: ItemSynNodePathData::ImplBlock(
                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                path: core::num::usize as core::ops::Add(0),
+                                                                path: TraitForTypeImplBlockPath(`core::num::usize as core::ops::Add(0)`),
                                                             },
                                                         ),
                                                     ),
@@ -16242,7 +16242,7 @@ SynNodeDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                                path: core::num::usize as core::ops::Add(0),
+                                                                                path: TraitForTypeImplBlockPath(`core::num::usize as core::ops::Add(0)`),
                                                                             },
                                                                         ),
                                                                     ),
@@ -19289,7 +19289,7 @@ SynNodeDeclSheet {
                             data: ItemSynNodePathData::ImplBlock(
                                 ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                     TraitForTypeImplBlockSynNodePathData {
-                                        path: core::num::f32 as core::ops::Add(0),
+                                        path: TraitForTypeImplBlockPath(`core::num::f32 as core::ops::Add(0)`),
                                     },
                                 ),
                             ),
@@ -19305,7 +19305,7 @@ SynNodeDeclSheet {
                                 data: ItemSynNodePathData::ImplBlock(
                                     ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                         TraitForTypeImplBlockSynNodePathData {
-                                            path: core::num::f32 as core::ops::Add(0),
+                                            path: TraitForTypeImplBlockPath(`core::num::f32 as core::ops::Add(0)`),
                                         },
                                     ),
                                 ),
@@ -19352,7 +19352,7 @@ SynNodeDeclSheet {
                                                     data: ItemSynNodePathData::ImplBlock(
                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                path: core::num::f32 as core::ops::Add(0),
+                                                                path: TraitForTypeImplBlockPath(`core::num::f32 as core::ops::Add(0)`),
                                                             },
                                                         ),
                                                     ),
@@ -19613,7 +19613,7 @@ SynNodeDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                                path: core::num::f32 as core::ops::Add(0),
+                                                                                path: TraitForTypeImplBlockPath(`core::num::f32 as core::ops::Add(0)`),
                                                                             },
                                                                         ),
                                                                     ),
@@ -20702,7 +20702,7 @@ SynNodeDeclSheet {
                             data: ItemSynNodePathData::ImplBlock(
                                 ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                     TraitForTypeImplBlockSynNodePathData {
-                                        path: core::num::f64 as core::ops::Add(0),
+                                        path: TraitForTypeImplBlockPath(`core::num::f64 as core::ops::Add(0)`),
                                     },
                                 ),
                             ),
@@ -20718,7 +20718,7 @@ SynNodeDeclSheet {
                                 data: ItemSynNodePathData::ImplBlock(
                                     ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                         TraitForTypeImplBlockSynNodePathData {
-                                            path: core::num::f64 as core::ops::Add(0),
+                                            path: TraitForTypeImplBlockPath(`core::num::f64 as core::ops::Add(0)`),
                                         },
                                     ),
                                 ),
@@ -20765,7 +20765,7 @@ SynNodeDeclSheet {
                                                     data: ItemSynNodePathData::ImplBlock(
                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                path: core::num::f64 as core::ops::Add(0),
+                                                                path: TraitForTypeImplBlockPath(`core::num::f64 as core::ops::Add(0)`),
                                                             },
                                                         ),
                                                     ),
@@ -21026,7 +21026,7 @@ SynNodeDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                                path: core::num::f64 as core::ops::Add(0),
+                                                                                path: TraitForTypeImplBlockPath(`core::num::f64 as core::ops::Add(0)`),
                                                                             },
                                                                         ),
                                                                     ),

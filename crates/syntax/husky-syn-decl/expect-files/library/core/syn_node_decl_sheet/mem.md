@@ -908,7 +908,7 @@ SynNodeDeclSheet {
                             data: ItemSynNodePathData::ImplBlock(
                                 ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                     TraitForTypeImplBlockSynNodePathData {
-                                        path: core::mem::Leash as core::marker::Copy(0),
+                                        path: TraitForTypeImplBlockPath(`core::mem::Leash as core::marker::Copy(0)`),
                                     },
                                 ),
                             ),
@@ -924,7 +924,7 @@ SynNodeDeclSheet {
                                 data: ItemSynNodePathData::ImplBlock(
                                     ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                         TraitForTypeImplBlockSynNodePathData {
-                                            path: core::mem::Leash as core::marker::Copy(0),
+                                            path: TraitForTypeImplBlockPath(`core::mem::Leash as core::marker::Copy(0)`),
                                         },
                                     ),
                                 ),
@@ -1003,7 +1003,7 @@ SynNodeDeclSheet {
                                                     data: ItemSynNodePathData::ImplBlock(
                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                path: core::mem::Leash as core::marker::Copy(0),
+                                                                path: TraitForTypeImplBlockPath(`core::mem::Leash as core::marker::Copy(0)`),
                                                             },
                                                         ),
                                                     ),

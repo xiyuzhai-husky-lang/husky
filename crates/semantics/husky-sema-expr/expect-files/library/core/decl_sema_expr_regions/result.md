@@ -107,7 +107,7 @@
         path: RegionPath::Decl(
             ItemPath::ImplBlock(
                 ImplBlockPath::TraitForTypeImplBlock(
-                    core::result::Result as core::ops::Unveil(0),
+                    TraitForTypeImplBlockPath(`core::result::Result as core::ops::Unveil(0)`),
                 ),
             ),
         ),
@@ -115,7 +115,7 @@
             path: RegionPath::Decl(
                 ItemPath::ImplBlock(
                     ImplBlockPath::TraitForTypeImplBlock(
-                        core::result::Result as core::ops::Unveil(0),
+                        TraitForTypeImplBlockPath(`core::result::Result as core::ops::Unveil(0)`),
                     ),
                 ),
             ),

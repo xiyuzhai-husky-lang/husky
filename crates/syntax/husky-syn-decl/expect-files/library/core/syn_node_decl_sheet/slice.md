@@ -1531,7 +1531,7 @@ SynNodeDeclSheet {
                             data: ItemSynNodePathData::ImplBlock(
                                 ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                     TraitForTypeImplBlockSynNodePathData {
-                                        path: core::slice::CyclicSlice as core::ops::IntIndex(0),
+                                        path: TraitForTypeImplBlockPath(`core::slice::CyclicSlice as core::ops::IntIndex(0)`),
                                     },
                                 ),
                             ),
@@ -1547,7 +1547,7 @@ SynNodeDeclSheet {
                                 data: ItemSynNodePathData::ImplBlock(
                                     ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                         TraitForTypeImplBlockSynNodePathData {
-                                            path: core::slice::CyclicSlice as core::ops::IntIndex(0),
+                                            path: TraitForTypeImplBlockPath(`core::slice::CyclicSlice as core::ops::IntIndex(0)`),
                                         },
                                     ),
                                 ),
@@ -1626,7 +1626,7 @@ SynNodeDeclSheet {
                                                     data: ItemSynNodePathData::ImplBlock(
                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                path: core::slice::CyclicSlice as core::ops::IntIndex(0),
+                                                                path: TraitForTypeImplBlockPath(`core::slice::CyclicSlice as core::ops::IntIndex(0)`),
                                                             },
                                                         ),
                                                     ),
@@ -1895,7 +1895,7 @@ SynNodeDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                                path: core::slice::CyclicSlice as core::ops::IntIndex(0),
+                                                                                path: TraitForTypeImplBlockPath(`core::slice::CyclicSlice as core::ops::IntIndex(0)`),
                                                                             },
                                                                         ),
                                                                     ),

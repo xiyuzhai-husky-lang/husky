@@ -1584,7 +1584,7 @@
         path: RegionPath::Decl(
             ItemPath::ImplBlock(
                 ImplBlockPath::TraitForTypeImplBlock(
-                    core::num::i8 as core::ops::Add(0),
+                    TraitForTypeImplBlockPath(`core::num::i8 as core::ops::Add(0)`),
                 ),
             ),
         ),
@@ -1592,7 +1592,7 @@
             path: RegionPath::Decl(
                 ItemPath::ImplBlock(
                     ImplBlockPath::TraitForTypeImplBlock(
-                        core::num::i8 as core::ops::Add(0),
+                        TraitForTypeImplBlockPath(`core::num::i8 as core::ops::Add(0)`),
                     ),
                 ),
             ),
@@ -2881,7 +2881,7 @@
         path: RegionPath::Decl(
             ItemPath::ImplBlock(
                 ImplBlockPath::TraitForTypeImplBlock(
-                    core::num::i16 as core::ops::Add(0),
+                    TraitForTypeImplBlockPath(`core::num::i16 as core::ops::Add(0)`),
                 ),
             ),
         ),
@@ -2889,7 +2889,7 @@
             path: RegionPath::Decl(
                 ItemPath::ImplBlock(
                     ImplBlockPath::TraitForTypeImplBlock(
-                        core::num::i16 as core::ops::Add(0),
+                        TraitForTypeImplBlockPath(`core::num::i16 as core::ops::Add(0)`),
                     ),
                 ),
             ),
@@ -4456,7 +4456,7 @@
         path: RegionPath::Decl(
             ItemPath::ImplBlock(
                 ImplBlockPath::TraitForTypeImplBlock(
-                    core::num::i32 as core::ops::Add(0),
+                    TraitForTypeImplBlockPath(`core::num::i32 as core::ops::Add(0)`),
                 ),
             ),
         ),
@@ -4464,7 +4464,7 @@
             path: RegionPath::Decl(
                 ItemPath::ImplBlock(
                     ImplBlockPath::TraitForTypeImplBlock(
-                        core::num::i32 as core::ops::Add(0),
+                        TraitForTypeImplBlockPath(`core::num::i32 as core::ops::Add(0)`),
                     ),
                 ),
             ),
@@ -5475,7 +5475,7 @@
         path: RegionPath::Decl(
             ItemPath::ImplBlock(
                 ImplBlockPath::TraitForTypeImplBlock(
-                    core::num::i64 as core::ops::Add(0),
+                    TraitForTypeImplBlockPath(`core::num::i64 as core::ops::Add(0)`),
                 ),
             ),
         ),
@@ -5483,7 +5483,7 @@
             path: RegionPath::Decl(
                 ItemPath::ImplBlock(
                     ImplBlockPath::TraitForTypeImplBlock(
-                        core::num::i64 as core::ops::Add(0),
+                        TraitForTypeImplBlockPath(`core::num::i64 as core::ops::Add(0)`),
                     ),
                 ),
             ),
@@ -6494,7 +6494,7 @@
         path: RegionPath::Decl(
             ItemPath::ImplBlock(
                 ImplBlockPath::TraitForTypeImplBlock(
-                    core::num::i128 as core::ops::Add(0),
+                    TraitForTypeImplBlockPath(`core::num::i128 as core::ops::Add(0)`),
                 ),
             ),
         ),
@@ -6502,7 +6502,7 @@
             path: RegionPath::Decl(
                 ItemPath::ImplBlock(
                     ImplBlockPath::TraitForTypeImplBlock(
-                        core::num::i128 as core::ops::Add(0),
+                        TraitForTypeImplBlockPath(`core::num::i128 as core::ops::Add(0)`),
                     ),
                 ),
             ),
@@ -7513,7 +7513,7 @@
         path: RegionPath::Decl(
             ItemPath::ImplBlock(
                 ImplBlockPath::TraitForTypeImplBlock(
-                    core::num::isize as core::ops::Add(0),
+                    TraitForTypeImplBlockPath(`core::num::isize as core::ops::Add(0)`),
                 ),
             ),
         ),
@@ -7521,7 +7521,7 @@
             path: RegionPath::Decl(
                 ItemPath::ImplBlock(
                     ImplBlockPath::TraitForTypeImplBlock(
-                        core::num::isize as core::ops::Add(0),
+                        TraitForTypeImplBlockPath(`core::num::isize as core::ops::Add(0)`),
                     ),
                 ),
             ),
@@ -8532,7 +8532,7 @@
         path: RegionPath::Decl(
             ItemPath::ImplBlock(
                 ImplBlockPath::TraitForTypeImplBlock(
-                    core::num::u8 as core::ops::Add(0),
+                    TraitForTypeImplBlockPath(`core::num::u8 as core::ops::Add(0)`),
                 ),
             ),
         ),
@@ -8540,7 +8540,7 @@
             path: RegionPath::Decl(
                 ItemPath::ImplBlock(
                     ImplBlockPath::TraitForTypeImplBlock(
-                        core::num::u8 as core::ops::Add(0),
+                        TraitForTypeImplBlockPath(`core::num::u8 as core::ops::Add(0)`),
                     ),
                 ),
             ),
@@ -9551,7 +9551,7 @@
         path: RegionPath::Decl(
             ItemPath::ImplBlock(
                 ImplBlockPath::TraitForTypeImplBlock(
-                    core::num::u16 as core::ops::Add(0),
+                    TraitForTypeImplBlockPath(`core::num::u16 as core::ops::Add(0)`),
                 ),
             ),
         ),
@@ -9559,7 +9559,7 @@
             path: RegionPath::Decl(
                 ItemPath::ImplBlock(
                     ImplBlockPath::TraitForTypeImplBlock(
-                        core::num::u16 as core::ops::Add(0),
+                        TraitForTypeImplBlockPath(`core::num::u16 as core::ops::Add(0)`),
                     ),
                 ),
             ),
@@ -10570,7 +10570,7 @@
         path: RegionPath::Decl(
             ItemPath::ImplBlock(
                 ImplBlockPath::TraitForTypeImplBlock(
-                    core::num::u32 as core::ops::Add(0),
+                    TraitForTypeImplBlockPath(`core::num::u32 as core::ops::Add(0)`),
                 ),
             ),
         ),
@@ -10578,7 +10578,7 @@
             path: RegionPath::Decl(
                 ItemPath::ImplBlock(
                     ImplBlockPath::TraitForTypeImplBlock(
-                        core::num::u32 as core::ops::Add(0),
+                        TraitForTypeImplBlockPath(`core::num::u32 as core::ops::Add(0)`),
                     ),
                 ),
             ),
@@ -11589,7 +11589,7 @@
         path: RegionPath::Decl(
             ItemPath::ImplBlock(
                 ImplBlockPath::TraitForTypeImplBlock(
-                    core::num::u64 as core::ops::Add(0),
+                    TraitForTypeImplBlockPath(`core::num::u64 as core::ops::Add(0)`),
                 ),
             ),
         ),
@@ -11597,7 +11597,7 @@
             path: RegionPath::Decl(
                 ItemPath::ImplBlock(
                     ImplBlockPath::TraitForTypeImplBlock(
-                        core::num::u64 as core::ops::Add(0),
+                        TraitForTypeImplBlockPath(`core::num::u64 as core::ops::Add(0)`),
                     ),
                 ),
             ),
@@ -12608,7 +12608,7 @@
         path: RegionPath::Decl(
             ItemPath::ImplBlock(
                 ImplBlockPath::TraitForTypeImplBlock(
-                    core::num::u128 as core::ops::Add(0),
+                    TraitForTypeImplBlockPath(`core::num::u128 as core::ops::Add(0)`),
                 ),
             ),
         ),
@@ -12616,7 +12616,7 @@
             path: RegionPath::Decl(
                 ItemPath::ImplBlock(
                     ImplBlockPath::TraitForTypeImplBlock(
-                        core::num::u128 as core::ops::Add(0),
+                        TraitForTypeImplBlockPath(`core::num::u128 as core::ops::Add(0)`),
                     ),
                 ),
             ),
@@ -13627,7 +13627,7 @@
         path: RegionPath::Decl(
             ItemPath::ImplBlock(
                 ImplBlockPath::TraitForTypeImplBlock(
-                    core::num::usize as core::ops::Add(0),
+                    TraitForTypeImplBlockPath(`core::num::usize as core::ops::Add(0)`),
                 ),
             ),
         ),
@@ -13635,7 +13635,7 @@
             path: RegionPath::Decl(
                 ItemPath::ImplBlock(
                     ImplBlockPath::TraitForTypeImplBlock(
-                        core::num::usize as core::ops::Add(0),
+                        TraitForTypeImplBlockPath(`core::num::usize as core::ops::Add(0)`),
                     ),
                 ),
             ),
@@ -16027,7 +16027,7 @@
         path: RegionPath::Decl(
             ItemPath::ImplBlock(
                 ImplBlockPath::TraitForTypeImplBlock(
-                    core::num::f32 as core::ops::Add(0),
+                    TraitForTypeImplBlockPath(`core::num::f32 as core::ops::Add(0)`),
                 ),
             ),
         ),
@@ -16035,7 +16035,7 @@
             path: RegionPath::Decl(
                 ItemPath::ImplBlock(
                     ImplBlockPath::TraitForTypeImplBlock(
-                        core::num::f32 as core::ops::Add(0),
+                        TraitForTypeImplBlockPath(`core::num::f32 as core::ops::Add(0)`),
                     ),
                 ),
             ),
@@ -17211,7 +17211,7 @@
         path: RegionPath::Decl(
             ItemPath::ImplBlock(
                 ImplBlockPath::TraitForTypeImplBlock(
-                    core::num::f64 as core::ops::Add(0),
+                    TraitForTypeImplBlockPath(`core::num::f64 as core::ops::Add(0)`),
                 ),
             ),
         ),
@@ -17219,7 +17219,7 @@
             path: RegionPath::Decl(
                 ItemPath::ImplBlock(
                     ImplBlockPath::TraitForTypeImplBlock(
-                        core::num::f64 as core::ops::Add(0),
+                        TraitForTypeImplBlockPath(`core::num::f64 as core::ops::Add(0)`),
                     ),
                 ),
             ),

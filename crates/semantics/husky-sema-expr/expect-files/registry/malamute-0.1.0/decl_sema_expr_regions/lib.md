@@ -1487,7 +1487,7 @@
         path: RegionPath::Decl(
             ItemPath::ImplBlock(
                 ImplBlockPath::TraitForTypeImplBlock(
-                    malamute::OneVsAll as core::default::Default(0),
+                    TraitForTypeImplBlockPath(`malamute::OneVsAll as core::default::Default(0)`),
                 ),
             ),
         ),
@@ -1495,7 +1495,7 @@
             path: RegionPath::Decl(
                 ItemPath::ImplBlock(
                     ImplBlockPath::TraitForTypeImplBlock(
-                        malamute::OneVsAll as core::default::Default(0),
+                        TraitForTypeImplBlockPath(`malamute::OneVsAll as core::default::Default(0)`),
                     ),
                 ),
             ),
@@ -2424,7 +2424,7 @@
         path: RegionPath::Decl(
             ItemPath::ImplBlock(
                 ImplBlockPath::TraitForTypeImplBlock(
-                    malamute::Class as core::ops::Unveil(0),
+                    TraitForTypeImplBlockPath(`malamute::Class as core::ops::Unveil(0)`),
                 ),
             ),
         ),
@@ -2432,7 +2432,7 @@
             path: RegionPath::Decl(
                 ItemPath::ImplBlock(
                     ImplBlockPath::TraitForTypeImplBlock(
-                        malamute::Class as core::ops::Unveil(0),
+                        TraitForTypeImplBlockPath(`malamute::Class as core::ops::Unveil(0)`),
                     ),
                 ),
             ),
@@ -4695,7 +4695,7 @@
         path: RegionPath::Decl(
             ItemPath::ImplBlock(
                 ImplBlockPath::TraitForTypeImplBlock(
-                    malamute::OneVsAll as core::ops::Unveil(0),
+                    TraitForTypeImplBlockPath(`malamute::OneVsAll as core::ops::Unveil(0)`),
                 ),
             ),
         ),
@@ -4703,7 +4703,7 @@
             path: RegionPath::Decl(
                 ItemPath::ImplBlock(
                     ImplBlockPath::TraitForTypeImplBlock(
-                        malamute::OneVsAll as core::ops::Unveil(0),
+                        TraitForTypeImplBlockPath(`malamute::OneVsAll as core::ops::Unveil(0)`),
                     ),
                 ),
             ),

@@ -169,13 +169,13 @@ SynDeclSheet {
         (
             ItemPath::ImplBlock(
                 ImplBlockPath::TraitForTypeImplBlock(
-                    core::result::Result as core::ops::Unveil(0),
+                    TraitForTypeImplBlockPath(`core::result::Result as core::ops::Unveil(0)`),
                 ),
             ),
             SynDecl::ImplBlock(
                 ImplBlockSynDecl::TraitForType(
                     TraitForTypeImplBlockSynDecl {
-                        path: core::result::Result as core::ops::Unveil(0),
+                        path: TraitForTypeImplBlockPath(`core::result::Result as core::ops::Unveil(0)`),
                         template_parameters: [
                             TemplateSynParameterData {
                                 annotated_variance_token: None,
@@ -249,7 +249,7 @@ SynDeclSheet {
                                                     data: ItemSynNodePathData::ImplBlock(
                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                path: core::result::Result as core::ops::Unveil(0),
+                                                                path: TraitForTypeImplBlockPath(`core::result::Result as core::ops::Unveil(0)`),
                                                             },
                                                         ),
                                                     ),
@@ -656,7 +656,7 @@ SynDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                                path: core::result::Result as core::ops::Unveil(0),
+                                                                                path: TraitForTypeImplBlockPath(`core::result::Result as core::ops::Unveil(0)`),
                                                                             },
                                                                         ),
                                                                     ),
@@ -1214,7 +1214,7 @@ SynDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                                path: core::result::Result as core::ops::Unveil(0),
+                                                                                path: TraitForTypeImplBlockPath(`core::result::Result as core::ops::Unveil(0)`),
                                                                             },
                                                                         ),
                                                                     ),

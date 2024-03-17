@@ -164,13 +164,13 @@ SynDeclSheet {
         (
             ItemPath::ImplBlock(
                 ImplBlockPath::TraitForTypeImplBlock(
-                    #derive _ as core::marker::Copy(0),
+                    TraitForTypeImplBlockPath(`#derive _ as core::marker::Copy(0)`),
                 ),
             ),
             SynDecl::ImplBlock(
                 ImplBlockSynDecl::TraitForType(
                     TraitForTypeImplBlockSynDecl {
-                        path: #derive _ as core::marker::Copy(0),
+                        path: TraitForTypeImplBlockPath(`#derive _ as core::marker::Copy(0)`),
                         template_parameters: [],
                         trai_expr: TraitSyndicate {
                             syn_expr_idx: 1,
@@ -203,7 +203,7 @@ SynDeclSheet {
                                                     data: ItemSynNodePathData::ImplBlock(
                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                path: #derive _ as core::marker::Copy(0),
+                                                                path: TraitForTypeImplBlockPath(`#derive _ as core::marker::Copy(0)`),
                                                             },
                                                         ),
                                                     ),
