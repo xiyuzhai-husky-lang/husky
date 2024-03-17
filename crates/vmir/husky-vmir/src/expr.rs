@@ -1,10 +1,10 @@
 use crate::{destroyer::VmirDestroyerIdxRange, stmt::VmirStmtIdxRange, *};
 use husky_hir_eager_expr::{HirEagerExprData, HirEagerExprIdx, HirEagerRitchieArgument};
+use husky_hir_opr::{prefix::HirPrefixOpr, suffix::HirSuffixOpr};
 use husky_lifetime_utils::capture::Captures;
 use husky_linkage::linkage::Linkage;
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
-use smallvec::smallvec;
-use smallvec::SmallVec;
+use smallvec::{smallvec, SmallVec};
 
 use self::coersion::VmirCoersion;
 
@@ -15,9 +15,18 @@ pub enum VmirExprData<LinkageImpl: IsLinkageImpl> {
     Variable,
     Binary,
     Be,
-    Prefix,
-    Suffix,
-    Unveil,
+    Prefix {
+        opr: HirPrefixOpr,
+        opd: VmirExprIdx<LinkageImpl>,
+    },
+    Suffix {
+        opd: VmirExprIdx<LinkageImpl>,
+        opr: HirSuffixOpr,
+    },
+    Unveil {
+        linkage_impl: LinkageImpl,
+        opd: VmirExprIdx<LinkageImpl>,
+    },
     Linkage {
         linkage_impl: LinkageImpl,
         arguments: VmirArguments<LinkageImpl>,
@@ -77,14 +86,28 @@ impl<'db, Linktime: IsLinktime> VmirExprBuilder<'db, Linktime> {
             HirEagerExprData::Variable(_) => VmirExprData::Variable,
             HirEagerExprData::Binary { lopd, opr, ropd } => VmirExprData::Binary,
             HirEagerExprData::Be { src, ref target } => VmirExprData::Be,
-            HirEagerExprData::Prefix { opr, opd } => VmirExprData::Prefix,
-            HirEagerExprData::Suffix { opd, opr } => VmirExprData::Suffix,
+            HirEagerExprData::Prefix { opr, opd } => VmirExprData::Prefix {
+                opr,
+                opd: opd.to_vmir(self),
+            },
+            HirEagerExprData::Suffix { opd, opr } => VmirExprData::Suffix {
+                opd: opd.to_vmir(self),
+                opr,
+            },
             HirEagerExprData::Unveil {
                 unveil_assoc_fn_path,
                 ref instantiation,
                 return_ty,
                 opd,
-            } => VmirExprData::Unveil,
+            } => VmirExprData::Unveil {
+                linkage_impl: self.linkage_impl(Linkage::new_unveil_assoc_fn(
+                    unveil_assoc_fn_path,
+                    instantiation,
+                    self.lin_instantiation(),
+                    self.db(),
+                )),
+                opd: opd.to_vmir(self),
+            },
             HirEagerExprData::Unwrap { opd } => VmirExprData::Unwrap,
             HirEagerExprData::As { opd, ty } => VmirExprData::As,
             HirEagerExprData::TypeConstructorFnCall {

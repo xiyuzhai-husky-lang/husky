@@ -21,18 +21,45 @@
                         },
                     },
                 },
-                root_expr: 11,
+                root_expr: 20,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Unveil,
-                        VmirExprData::Unveil,
-                        VmirExprData::Unveil,
-                        VmirExprData::Unveil,
-                        VmirExprData::Unveil,
-                        VmirExprData::Unveil,
-                        VmirExprData::Unveil,
-                        VmirExprData::Unveil,
-                        VmirExprData::Unveil,
+                        VmirExprData::PrincipalEntityPath,
+                        VmirExprData::Unveil {
+                            opd: 1,
+                        },
+                        VmirExprData::PrincipalEntityPath,
+                        VmirExprData::Unveil {
+                            opd: 3,
+                        },
+                        VmirExprData::PrincipalEntityPath,
+                        VmirExprData::Unveil {
+                            opd: 5,
+                        },
+                        VmirExprData::PrincipalEntityPath,
+                        VmirExprData::Unveil {
+                            opd: 7,
+                        },
+                        VmirExprData::PrincipalEntityPath,
+                        VmirExprData::Unveil {
+                            opd: 9,
+                        },
+                        VmirExprData::PrincipalEntityPath,
+                        VmirExprData::Unveil {
+                            opd: 11,
+                        },
+                        VmirExprData::PrincipalEntityPath,
+                        VmirExprData::Unveil {
+                            opd: 13,
+                        },
+                        VmirExprData::PrincipalEntityPath,
+                        VmirExprData::Unveil {
+                            opd: 15,
+                        },
+                        VmirExprData::PrincipalEntityPath,
+                        VmirExprData::Unveil {
+                            opd: 17,
+                        },
                         VmirExprData::PrincipalEntityPath,
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
@@ -47,21 +74,7 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 1,
-                            coersion: Some(
-                                VmirCoersion::Trivial,
-                            ),
-                            discarded: false,
-                        },
-                        VmirStmtData::Eval {
                             expr: 2,
-                            coersion: Some(
-                                VmirCoersion::Trivial,
-                            ),
-                            discarded: false,
-                        },
-                        VmirStmtData::Eval {
-                            expr: 3,
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -75,21 +88,7 @@
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 5,
-                            coersion: Some(
-                                VmirCoersion::Trivial,
-                            ),
-                            discarded: false,
-                        },
-                        VmirStmtData::Eval {
                             expr: 6,
-                            coersion: Some(
-                                VmirCoersion::Trivial,
-                            ),
-                            discarded: false,
-                        },
-                        VmirStmtData::Eval {
-                            expr: 7,
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -103,14 +102,42 @@
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 9,
+                            expr: 10,
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 10,
+                            expr: 12,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 14,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 16,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 18,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 19,
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
