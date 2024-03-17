@@ -6,7 +6,7 @@ use super::*;
 #[salsa::derive_debug_with_db]
 pub enum HirEagerParenateParameter {
     Simple {
-        pattern_expr_idx: HirEagerPatternExprIdx,
+        pattern_expr_idx: HirEagerPatternIdx,
         contract: HirEagerContract,
         ty: HirType,
     },

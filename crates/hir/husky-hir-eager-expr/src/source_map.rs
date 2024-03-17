@@ -1,9 +1,9 @@
 use crate::{
-    jar::HirEagerExprJar, var::rvar::HirEagerRvarIdx, HirEagerExprIdx, HirEagerPatternExprIdx,
+    jar::HirEagerExprJar, var::rvar::HirEagerRvarIdx, HirEagerExprIdx, HirEagerPatternIdx,
     HirEagerStmtIdx,
 };
 use husky_sema_expr::{SemaExprIdx, SemaExprMap, SemaStmtIdx, SemaStmtMap};
-use husky_syn_expr::{CurrentSynSymbolIdx, SynPatternExprMap, SynPatternExprRoot, SynSymbolMap};
+use husky_syn_expr::{CurrentSynSymbolIdx, SynPatternExprMap, SynPatternRoot, SynSymbolMap};
 
 #[salsa::tracked(db = HirEagerExprDb, jar = HirEagerExprJar, constructor = new_inner)]
 pub struct HirEagerExprSourceMap {
@@ -14,7 +14,7 @@ pub struct HirEagerExprSourceMap {
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub struct HirEagerExprSourceMapData {
-    syn_to_hir_eager_pattern_expr_idx_map: SynPatternExprMap<HirEagerPatternExprIdx>,
+    syn_to_hir_eager_pattern_expr_idx_map: SynPatternExprMap<HirEagerPatternIdx>,
     sema_to_hir_eager_expr_idx_map: SemaExprMap<HirEagerExprIdx>,
     sema_to_hir_eager_stmt_idx_map: SemaStmtMap<HirEagerStmtIdx>,
     syn_symbol_to_hir_eager_runtime_symbol_map: SynSymbolMap<HirEagerRvarIdx>,
@@ -23,7 +23,7 @@ pub struct HirEagerExprSourceMapData {
 impl HirEagerExprSourceMap {
     pub fn new(
         db: &::salsa::Db,
-        syn_to_hir_eager_pattern_expr_idx_map: SynPatternExprMap<HirEagerPatternExprIdx>,
+        syn_to_hir_eager_pattern_expr_idx_map: SynPatternExprMap<HirEagerPatternIdx>,
         sema_to_hir_eager_expr_idx_map: SemaExprMap<HirEagerExprIdx>,
         sema_to_hir_eager_stmt_idx_map: SemaStmtMap<HirEagerStmtIdx>,
         syn_symbol_to_hir_eager_runtime_symbol_map: SynSymbolMap<HirEagerRvarIdx>,
@@ -43,8 +43,8 @@ impl HirEagerExprSourceMap {
 impl HirEagerExprSourceMapData {
     pub fn syn_pattern_root_to_sema_expr_idx(
         &self,
-        syn_pattern_root: impl Into<SynPatternExprRoot>,
-    ) -> HirEagerPatternExprIdx {
+        syn_pattern_root: impl Into<SynPatternRoot>,
+    ) -> HirEagerPatternIdx {
         self.syn_to_hir_eager_pattern_expr_idx_map[syn_pattern_root.into().syn_pattern_expr_idx()]
     }
 

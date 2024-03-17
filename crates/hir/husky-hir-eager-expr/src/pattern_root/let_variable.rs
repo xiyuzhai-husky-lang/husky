@@ -3,13 +3,13 @@ use super::*;
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub struct HirEagerLetVariablesPattern {
-    pub pattern_expr_idx: HirEagerPatternExprIdx,
+    pub pattern_expr_idx: HirEagerPatternIdx,
     // variables: CurrentHirEagerSymbolIdxRange,
     pub ty: Option<HirType>,
 }
 
 impl HirEagerLetVariablesPattern {
-    pub fn pattern_expr_idx(self) -> HirEagerPatternExprIdx {
+    pub fn pattern_expr_idx(self) -> HirEagerPatternIdx {
         self.pattern_expr_idx
     }
 
@@ -24,7 +24,7 @@ impl<'a> HirEagerExprBuilder<'a> {
         let_pattern_sema_obelisk: &LetVariableObelisk,
     ) -> HirEagerLetVariablesPattern {
         HirEagerLetVariablesPattern {
-            pattern_expr_idx: self.new_pattern_expr(let_pattern_sema_obelisk.syn_pattern_root()),
+            pattern_expr_idx: self.new_pattern(let_pattern_sema_obelisk.syn_pattern_root()),
             ty: let_pattern_sema_obelisk
                 .ty_sema_expr_idx()
                 .map(|ty_sema_expr_idx| {

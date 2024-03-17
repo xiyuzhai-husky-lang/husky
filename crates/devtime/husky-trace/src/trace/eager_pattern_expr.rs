@@ -26,7 +26,7 @@ pub struct EagerPatternExprTrace(Trace);
 pub struct EagerPatternExprTraceData {
     path: TracePath,
     biological_parent: Trace,
-    syn_pattern_expr_idx: PatternSynExprIdx,
+    syn_pattern_expr_idx: SynPatternIdx,
     hir_eager_runtime_symbol_idxs: IdentPairMap<Option<HirEagerRvarIdx>>,
     #[skip_fmt]
     sema_expr_region: SemaExprRegion,
@@ -36,7 +36,7 @@ impl Trace {
     pub(crate) fn new_eager_pattern_expr(
         biological_parent_path: TracePath,
         biological_parent: Trace,
-        syn_pattern_expr_idx: PatternSynExprIdx,
+        syn_pattern_expr_idx: SynPatternIdx,
         hir_eager_runtime_symbol_idxs: IdentPairMap<Option<HirEagerRvarIdx>>,
         sema_expr_region: SemaExprRegion,
         eager_pattern_expr_trace_path_registry: &mut TracePathRegistry<EagerPatternExprEssence>,

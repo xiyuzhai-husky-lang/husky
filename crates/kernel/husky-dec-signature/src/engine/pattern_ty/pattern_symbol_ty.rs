@@ -24,7 +24,7 @@ impl PatternSymbolDeclarativeTypeInfo {
 impl<'a> DecTermEngine<'a> {
     pub(super) fn infer_pattern_symbol_tys(
         &mut self,
-        syn_pattern_expr_root: impl Into<SynPatternExprRoot>,
+        syn_pattern_expr_root: impl Into<SynPatternRoot>,
     ) {
         let syn_pattern_expr_root = syn_pattern_expr_root.into();
         for (_, pattern_symbol) in self

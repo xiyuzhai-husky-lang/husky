@@ -75,7 +75,7 @@ pub enum HirEagerExprData {
     },
     Be {
         src: HirEagerExprIdx,
-        target: HirEagerBeVariablesPattern,
+        pattern: HirEagerBeVariablesPattern,
     },
     Prefix {
         opr: HirPrefixOpr,
@@ -248,7 +248,7 @@ impl ToHirEager for SemaExprIdx {
                 src, ref target, ..
             } => HirEagerExprData::Be {
                 src: src.to_hir_eager(builder),
-                target: target.to_hir_eager(builder),
+                pattern: target.to_hir_eager(builder),
             },
             SemaExprData::Prefix {
                 opr,

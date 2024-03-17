@@ -1,6 +1,6 @@
 use husky_eth_term::term::EthTerm;
 use husky_fly_term::FlyTermBase;
-use husky_hir_eager_expr::{HirEagerExprIdx, HirEagerPatternExprIdx};
+use husky_hir_eager_expr::{HirEagerExprIdx, HirEagerPatternIdx};
 use husky_hir_expr::{
     helpers::hir_expr_region_with_source_map, source_map::HirExprSourceMap, HirExprRegion,
 };
@@ -9,7 +9,7 @@ use husky_hir_ty::{db::HirTypeDb, menu::HirTypeMenu, trai::HirTrait, HirType};
 use husky_sema_expr::{SemaExprDb, SemaExprRegionData};
 use husky_syn_expr::{
     CurrentSynSymbolIdx, ReturnTypeBeforeColonSyndicate, ReturnTypeBeforeEqSyndicate, SynExprIdx,
-    SynExprRegion, SynExprRegionData, SynPatternExprRoot,
+    SynExprRegion, SynExprRegionData, SynPatternRoot,
 };
 
 pub(crate) struct HirDeclBuilder<'a> {
@@ -130,8 +130,8 @@ impl<'a> HirDeclBuilder<'a> {
 
     pub(crate) fn hir_eager_pattern_expr_idx(
         &self,
-        syn_pattern_root: impl Into<SynPatternExprRoot>,
-    ) -> HirEagerPatternExprIdx {
+        syn_pattern_root: impl Into<SynPatternRoot>,
+    ) -> HirEagerPatternIdx {
         let HirExprSourceMap::Eager(source_map) = self.hir_expr_source_map else {
             unreachable!()
         };
@@ -143,7 +143,7 @@ impl<'a> HirDeclBuilder<'a> {
 
     pub(crate) fn hir_lazy_pattern_expr_idx(
         &self,
-        syn_pattern_root: impl Into<SynPatternExprRoot>,
+        syn_pattern_root: impl Into<SynPatternRoot>,
     ) -> HirLazyPatternExprIdx {
         let HirExprSourceMap::Lazy(source_map) = self.hir_expr_source_map else {
             unreachable!()

@@ -56,7 +56,7 @@ impl ToHirEager for SemaElseBranch {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub struct HirEagerCaseBranch {
-    pub pattern: HirEagerPatternExprIdx,
+    pub pattern: HirEagerPatternIdx,
     pub stmts: HirEagerStmtIdxRange,
 }
 
@@ -65,7 +65,7 @@ impl ToHirEager for SemaCaseBranch {
 
     fn to_hir_eager(&self, builder: &mut HirEagerExprBuilder) -> Self::Output {
         HirEagerCaseBranch {
-            pattern: builder.new_pattern_expr(self.case_pattern_sema_obelisk.syn_pattern_root()),
+            pattern: builder.new_pattern(self.case_pattern_sema_obelisk.syn_pattern_root()),
             stmts: self.stmts.to_hir_eager(builder),
         }
     }

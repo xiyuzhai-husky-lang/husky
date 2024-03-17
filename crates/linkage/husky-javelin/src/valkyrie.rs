@@ -144,7 +144,7 @@ impl ValkyrieRides {
                     },
                     PrincipalEntityPath::TypeVariant(_path) => (),
                 },
-                HirEagerExprData::Be { src: _, target: _ } => (),
+                HirEagerExprData::Be { src: _, pattern: _ } => (),
                 HirEagerExprData::TypeConstructorFnCall {
                     path,
                     ref instantiation,

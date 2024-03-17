@@ -311,7 +311,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for &HirEagerCondition {
         match *self {
             HirEagerCondition::Be { src, ref target } => {
                 builder.keyword(RustKeyword::Let);
-                target.pattern_expr_idx.transpile_to_rust(builder);
+                target.pattern.transpile_to_rust(builder);
                 builder.punctuation(RustPunctuation::Assign);
                 (src, HirEagerExprSite::new_root(None)).transpile_to_rust(builder)
             }

@@ -18,7 +18,7 @@ pub struct SynExprRegionData {
     stmt_arena: SynStmtArena,
     pattern_expr_region: SynPatternExprRegion,
     symbol_region: VariableRegionData,
-    syn_pattern_expr_roots: Vec<SynPatternExprRoot>,
+    syn_pattern_expr_roots: Vec<SynPatternRoot>,
     syn_expr_roots: Vec<SynExprRoot>,
     has_self_lifetime: bool,
     has_self_place: bool,
@@ -34,7 +34,7 @@ impl SynExprRegionData {
         stmt_arena: SynStmtArena,
         pattern_expr_region: SynPatternExprRegion,
         symbol_region: VariableRegionData,
-        syn_pattern_expr_roots: Vec<SynPatternExprRoot>,
+        syn_pattern_expr_roots: Vec<SynPatternRoot>,
         syn_expr_roots: Vec<SynExprRoot>,
         has_self_lifetime: bool,
         has_self_place: bool,
@@ -126,7 +126,7 @@ impl SynExprRegionData {
         })
     }
 
-    pub fn syn_pattern_expr_roots(&self) -> &[SynPatternExprRoot] {
+    pub fn syn_pattern_expr_roots(&self) -> &[SynPatternRoot] {
         self.syn_pattern_expr_roots.as_ref()
     }
 
@@ -148,7 +148,7 @@ impl SynExprRegionData {
 
     pub fn syn_pattern_expr_current_syn_symbols_mapped<R>(
         &self,
-        syn_pattern_expr_idx: PatternSynExprIdx,
+        syn_pattern_expr_idx: SynPatternIdx,
         f: impl Fn(CurrentSynSymbolIdx) -> R,
     ) -> IdentPairMap<R> {
         unsafe {
@@ -203,10 +203,10 @@ impl std::ops::Index<SynPatternSymbolIdx> for SynExprRegionData {
         &self.pattern_expr_region[index]
     }
 }
-impl std::ops::Index<PatternSynExprIdx> for SynExprRegionData {
+impl std::ops::Index<SynPatternIdx> for SynExprRegionData {
     type Output = SynPatternExprData;
 
-    fn index(&self, index: PatternSynExprIdx) -> &Self::Output {
+    fn index(&self, index: SynPatternIdx) -> &Self::Output {
         &self.pattern_expr_region[index]
     }
 }

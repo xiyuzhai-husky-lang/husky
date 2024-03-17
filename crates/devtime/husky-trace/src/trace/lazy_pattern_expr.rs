@@ -27,7 +27,7 @@ pub enum LazyPatternExprEssence {
 pub struct LazyPatternExprTraceData {
     path: TracePath,
     biological_parent: Trace,
-    syn_pattern_expr_idx: PatternSynExprIdx,
+    syn_pattern_expr_idx: SynPatternIdx,
     hir_lazy_pattern_expr_idx: Option<HirLazyPatternExprIdx>,
     hir_lazy_variable_idxs: IdentPairMap<Option<HirLazyVariableIdx>>,
     #[skip_fmt]
@@ -40,7 +40,7 @@ impl Trace {
     pub(crate) fn new_lazy_pattern_expr(
         biological_parent_path: TracePath,
         biological_parent: Trace,
-        syn_pattern_expr_idx: PatternSynExprIdx,
+        syn_pattern_expr_idx: SynPatternIdx,
         hir_lazy_pattern_expr_idx: Option<HirLazyPatternExprIdx>,
         hir_lazy_variable_idxs: IdentPairMap<Option<HirLazyVariableIdx>>,
         sema_expr_region: SemaExprRegion,
