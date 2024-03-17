@@ -5176,6 +5176,10 @@ dependencies = [
 ]
 
 [[package]]
+name = "husky-lifetime-utils"
+version = "0.1.0"
+
+[[package]]
 name = "husky-linkage"
 version = "0.1.0"
 dependencies = [
@@ -6489,6 +6493,7 @@ dependencies = [
  "husky-hir-opr",
  "husky-hir-ty",
  "husky-javelin",
+ "husky-lifetime-utils",
  "husky-linkage",
  "husky-literal-value",
  "husky-manifest",

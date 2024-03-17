@@ -281,7 +281,7 @@ husky-manifest-ast = { path = "crates/toml/husky-manifest-ast" }
 husky-toml-ast = { path = "crates/toml/husky-toml-ast" }
 husky-toml-token = { path = "crates/toml/husky-toml-token" }
 husky-toolchain-config-ast = { path = "crates/toml/husky-toolchain-config-ast" }
-# utls
+# utils
 husky-cargo-utils = { path = "crates/utils/husky-cargo-utils" }
 husky-check-utils = { path = "crates/utils/husky-check-utils" }
 husky-cli-utils = { path = "crates/utils/husky-cli-utils" }
@@ -291,6 +291,7 @@ husky-error-utils = { path = "crates/utils/husky-error-utils" }
 husky-git-utils = { path = "crates/utils/husky-git-utils" }
 husky-io-utils = { path = "crates/utils/husky-io-utils" }
 husky-iter-utils = { path = "crates/utils/husky-iter-utils" }
+husky-lifetime-utils = { path = "crates/utils/husky-lifetime-utils" }
 husky-proc-macro-utils = { path = "crates/utils/husky-proc-macro-utils" }
 husky-path-utils = { path = "crates/utils/husky-path-utils" }
 husky-print-utils = { path = "crates/utils/husky-print-utils" }

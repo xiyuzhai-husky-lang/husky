@@ -1,5 +1,8 @@
 use crate::{destroyer::VmirDestroyerIdxRange, stmt::VmirStmtIdxRange, *};
-use husky_hir_eager_expr::{HirEagerExprData, HirEagerExprIdx};
+use husky_hir_eager_expr::{
+    HirEagerExprData, HirEagerExprIdx, HirEagerRitchieParameterArgumentMatch,
+};
+use husky_lifetime_utils::capture::Captures;
 use husky_linkage::linkage::Linkage;
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
 
@@ -13,7 +16,10 @@ pub enum VmirExprData<LinkageImpl: IsLinkageImpl> {
     Prefix,
     Suffix,
     Unveil,
-    Linkage(LinkageImpl),
+    Linkage {
+        linkage_impl: LinkageImpl,
+        opds: VmirExprIdxRange<LinkageImpl>,
+    },
     Block {
         stmts: VmirStmtIdxRange<LinkageImpl>,
         destroyers: VmirDestroyerIdxRange,
@@ -36,7 +42,14 @@ impl<LinkageImpl: IsLinkageImpl> ToVmir<LinkageImpl> for HirEagerExprIdx {
         self,
         builder: &mut VmirExprBuilder<Linktime>,
     ) -> Self::Output {
-        let expr_data = match *builder.hir_eager_expr_arena()[self].data() {
+        let expr_data = builder.build_vmir_expr(self);
+        builder.alloc_expr(expr_data)
+    }
+}
+
+impl<'db, Linktime: IsLinktime> VmirExprBuilder<'db, Linktime> {
+    fn build_vmir_expr(&mut self, expr: HirEagerExprIdx) -> VmirExprData<Linktime::LinkageImpl> {
+        match *self.hir_eager_expr_arena()[expr].data() {
             HirEagerExprData::Literal(_) => VmirExprData::Literal,
             HirEagerExprData::PrincipalEntityPath(_) => todo!(),
             HirEagerExprData::AssocFn { assoc_item_path } => todo!(),
@@ -62,10 +75,13 @@ impl<LinkageImpl: IsLinkageImpl> ToVmir<LinkageImpl> for HirEagerExprIdx {
                 let linkage = Linkage::new_ty_constructor_fn(
                     path,
                     instantiation,
-                    builder.lin_instantiation(),
-                    builder.db(),
+                    self.lin_instantiation(),
+                    self.db(),
                 );
-                VmirExprData::Linkage(builder.linkage_impl(linkage))
+                let linkage_impl = self.linkage_impl(linkage);
+                let opds = self.build_item_groups(item_groups).collect();
+                let opds = self.alloc_exprs(opds);
+                VmirExprData::Linkage { linkage_impl, opds }
             }
             HirEagerExprData::TypeVariantConstructorCall {
                 path,
@@ -75,10 +91,13 @@ impl<LinkageImpl: IsLinkageImpl> ToVmir<LinkageImpl> for HirEagerExprIdx {
                 let linkage = Linkage::new_ty_variant_constructor_fn(
                     path,
                     instantiation,
-                    builder.lin_instantiation(),
-                    builder.db(),
+                    self.lin_instantiation(),
+                    self.db(),
                 );
-                VmirExprData::Linkage(builder.linkage_impl(linkage))
+                let linkage_impl = self.linkage_impl(linkage);
+                let opds = self.build_item_groups(item_groups).collect();
+                let opds = self.alloc_exprs(opds);
+                VmirExprData::Linkage { linkage_impl, opds }
             }
             HirEagerExprData::FunctionFnCall {
                 path,
@@ -88,10 +107,13 @@ impl<LinkageImpl: IsLinkageImpl> ToVmir<LinkageImpl> for HirEagerExprIdx {
                 let linkage = Linkage::new_function_fn_item(
                     path,
                     instantiation,
-                    builder.lin_instantiation(),
-                    builder.db(),
+                    self.lin_instantiation(),
+                    self.db(),
                 );
-                VmirExprData::Linkage(builder.linkage_impl(linkage))
+                VmirExprData::Linkage {
+                    linkage_impl: self.linkage_impl(linkage),
+                    opds: todo!(),
+                }
             }
             HirEagerExprData::AssocFunctionFnCall {
                 path,
@@ -101,10 +123,13 @@ impl<LinkageImpl: IsLinkageImpl> ToVmir<LinkageImpl> for HirEagerExprIdx {
                 let linkage = Linkage::new_assoc_function_fn_item(
                     path,
                     instantiation,
-                    builder.lin_instantiation(),
-                    builder.db(),
+                    self.lin_instantiation(),
+                    self.db(),
                 );
-                VmirExprData::Linkage(builder.linkage_impl(linkage))
+                VmirExprData::Linkage {
+                    linkage_impl: self.linkage_impl(linkage),
+                    opds: todo!(),
+                }
             }
             HirEagerExprData::PropsStructField {
                 owner_base_ty,
@@ -114,16 +139,22 @@ impl<LinkageImpl: IsLinkageImpl> ToVmir<LinkageImpl> for HirEagerExprIdx {
                 let linkage = Linkage::new_props_struct_field(
                     owner_base_ty,
                     ident,
-                    builder.lin_instantiation(),
-                    builder.db(),
+                    self.lin_instantiation(),
+                    self.db(),
                 );
-                VmirExprData::Linkage(builder.linkage_impl(linkage))
+                VmirExprData::Linkage {
+                    linkage_impl: self.linkage_impl(linkage),
+                    opds: todo!(),
+                }
             }
             HirEagerExprData::MemoizedField {
                 owner_hir_expr_idx,
                 ident,
                 path,
-            } => VmirExprData::Linkage(todo!()),
+            } => VmirExprData::Linkage {
+                linkage_impl: todo!(),
+                opds: todo!(),
+            },
             HirEagerExprData::MethodFnCall {
                 self_argument,
                 self_contract,
@@ -131,18 +162,27 @@ impl<LinkageImpl: IsLinkageImpl> ToVmir<LinkageImpl> for HirEagerExprIdx {
                 path,
                 ref instantiation,
                 ref item_groups,
-            } => VmirExprData::Linkage(todo!()),
-            HirEagerExprData::NewTuple { .. } => VmirExprData::Linkage(todo!()),
+            } => VmirExprData::Linkage {
+                linkage_impl: todo!(),
+                opds: todo!(),
+            },
+            HirEagerExprData::NewTuple { .. } => VmirExprData::Linkage {
+                linkage_impl: todo!(),
+                opds: todo!(),
+            },
             HirEagerExprData::Index { owner, ref items } => VmirExprData::Index,
             HirEagerExprData::NewList {
                 ref items,
                 element_ty,
-            } => VmirExprData::Linkage(todo!()),
+            } => VmirExprData::Linkage {
+                linkage_impl: todo!(),
+                opds: todo!(),
+            },
             HirEagerExprData::Block { stmts } => {
                 VmirExprData::Block {
-                    stmts: stmts.to_vmir(builder),
+                    stmts: stmts.to_vmir(self),
                     // ad hoc, todo: find destroyers
-                    destroyers: builder.alloc_destroyers(vec![]),
+                    destroyers: self.alloc_destroyers(vec![]),
                 }
             }
             HirEagerExprData::Closure {
@@ -153,10 +193,28 @@ impl<LinkageImpl: IsLinkageImpl> ToVmir<LinkageImpl> for HirEagerExprIdx {
             HirEagerExprData::EmptyHtmlTag {
                 function_ident,
                 ref arguments,
-            } => VmirExprData::Linkage(todo!()),
+            } => {
+                let opds = todo!();
+                VmirExprData::Linkage {
+                    linkage_impl: todo!(),
+                    opds,
+                }
+            }
             HirEagerExprData::Todo => VmirExprData::Todo,
             HirEagerExprData::Unreachable => VmirExprData::Unreachable,
-        };
-        builder.alloc_expr(expr_data)
+        }
+    }
+
+    fn build_item_groups<'a>(
+        &'a mut self,
+        item_groups: &'db [HirEagerRitchieParameterArgumentMatch],
+    ) -> impl Iterator<Item = VmirExprData<Linktime::LinkageImpl>> + Captures<&'db ()> + 'a {
+        item_groups.iter().map(move |m| match m {
+            HirEagerRitchieParameterArgumentMatch::Regular(_, arg, _) => self.build_vmir_expr(*arg),
+            HirEagerRitchieParameterArgumentMatch::Variadic => {
+                todo!()
+            }
+            HirEagerRitchieParameterArgumentMatch::Keyed => todo!(),
+        })
     }
 }
