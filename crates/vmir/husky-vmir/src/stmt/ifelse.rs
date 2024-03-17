@@ -4,6 +4,7 @@ use husky_hir_eager_expr::{HirEagerElifBranch, HirEagerElseBranch, HirEagerIfBra
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub struct VmirIfBranch<LinkageImpl: IsLinkageImpl> {
+    condition: VmirCondition<LinkageImpl>,
     stmts: VmirStmtIdxRange<LinkageImpl>,
 }
 
@@ -22,6 +23,7 @@ impl<LinkageImpl: IsLinkageImpl> ToVmir<LinkageImpl> for &HirEagerIfBranch {
         Linktime: IsLinktime<LinkageImpl = LinkageImpl>,
     {
         VmirIfBranch {
+            condition: self.condition.to_vmir(builder),
             stmts: self.stmts.to_vmir(builder),
         }
     }
@@ -30,6 +32,7 @@ impl<LinkageImpl: IsLinkageImpl> ToVmir<LinkageImpl> for &HirEagerIfBranch {
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub struct VmirElifBranch<LinkageImpl: IsLinkageImpl> {
+    condition: VmirCondition<LinkageImpl>,
     stmts: VmirStmtIdxRange<LinkageImpl>,
 }
 
@@ -50,6 +53,7 @@ impl<LinkageImpl: IsLinkageImpl> ToVmir<LinkageImpl> for &HirEagerElifBranch {
         Linktime: IsLinktime<LinkageImpl = LinkageImpl>,
     {
         VmirElifBranch {
+            condition: self.condition.to_vmir(builder),
             stmts: self.stmts.to_vmir(builder),
         }
     }
