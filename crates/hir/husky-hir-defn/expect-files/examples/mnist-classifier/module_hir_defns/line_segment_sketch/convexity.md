@@ -2620,7 +2620,7 @@
                                         IfElse {
                                             if_branch: HirEagerIfBranch {
                                                 condition: Other {
-                                                    hir_eager_expr_idx: 25,
+                                                    opd: 25,
                                                     conversion: None,
                                                 },
                                                 stmts: ArenaIdxRange(

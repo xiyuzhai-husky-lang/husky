@@ -670,10 +670,18 @@
                         },
                     },
                 },
-                root_expr: 2,
+                root_expr: 4,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Binary,
+                        VmirExprData::Variable,
+                        VmirExprData::Literal,
+                        VmirExprData::Binary {
+                            lopd: 1,
+                            opr: Closed(
+                                Add,
+                            ),
+                            ropd: 2,
+                        },
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
                                 1..4,
@@ -689,7 +697,7 @@
                         VmirStmtData::Let,
                         VmirStmtData::Require,
                         VmirStmtData::Eval {
-                            expr: 1,
+                            expr: 3,
                             coersion: Some(
                                 VmirCoersion::WrapInSome,
                             ),
@@ -2077,10 +2085,34 @@
                         },
                     },
                 },
-                root_expr: 2,
+                root_expr: 8,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Binary,
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Literal,
+                        VmirExprData::Binary {
+                            lopd: 2,
+                            opr: Closed(
+                                Sub,
+                            ),
+                            ropd: 3,
+                        },
+                        VmirExprData::Binary {
+                            lopd: 1,
+                            opr: Shift(
+                                Shr,
+                            ),
+                            ropd: 4,
+                        },
+                        VmirExprData::Literal,
+                        VmirExprData::Binary {
+                            lopd: 5,
+                            opr: Closed(
+                                BitAnd,
+                            ),
+                            ropd: 6,
+                        },
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
                                 1..2,
@@ -2094,7 +2126,7 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 1,
+                            expr: 7,
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -2130,10 +2162,26 @@
                         },
                     },
                 },
-                root_expr: 2,
+                root_expr: 6,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Binary,
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Binary {
+                            lopd: 1,
+                            opr: Shift(
+                                Shr,
+                            ),
+                            ropd: 2,
+                        },
+                        VmirExprData::Literal,
+                        VmirExprData::Binary {
+                            lopd: 3,
+                            opr: Closed(
+                                BitAnd,
+                            ),
+                            ropd: 4,
+                        },
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
                                 1..2,
@@ -2147,7 +2195,7 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 1,
+                            expr: 5,
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -2183,10 +2231,34 @@
                         },
                     },
                 },
-                root_expr: 2,
+                root_expr: 8,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Binary,
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Literal,
+                        VmirExprData::Binary {
+                            lopd: 2,
+                            opr: Closed(
+                                Sub,
+                            ),
+                            ropd: 3,
+                        },
+                        VmirExprData::Binary {
+                            lopd: 1,
+                            opr: Shift(
+                                Shr,
+                            ),
+                            ropd: 4,
+                        },
+                        VmirExprData::Literal,
+                        VmirExprData::Binary {
+                            lopd: 5,
+                            opr: Closed(
+                                BitAnd,
+                            ),
+                            ropd: 6,
+                        },
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
                                 1..2,
@@ -2200,7 +2272,7 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 1,
+                            expr: 7,
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -2442,11 +2514,139 @@
                         },
                     },
                 },
-                root_expr: 4,
+                root_expr: 16,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Binary,
-                        VmirExprData::Binary,
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::StructField {
+                                    self_ty: LinTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                        template_arguments: [],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 74,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 1,
+                                },
+                            ],
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::StructField {
+                                    self_ty: LinTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                        template_arguments: [],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 74,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 3,
+                                },
+                            ],
+                        },
+                        VmirExprData::Binary {
+                            lopd: 2,
+                            opr: Closed(
+                                Add,
+                            ),
+                            ropd: 4,
+                        },
+                        VmirExprData::Literal,
+                        VmirExprData::Binary {
+                            lopd: 5,
+                            opr: Closed(
+                                Div,
+                            ),
+                            ropd: 6,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::StructField {
+                                    self_ty: LinTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                        template_arguments: [],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 75,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 8,
+                                },
+                            ],
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::StructField {
+                                    self_ty: LinTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                        template_arguments: [],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 75,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 10,
+                                },
+                            ],
+                        },
+                        VmirExprData::Binary {
+                            lopd: 9,
+                            opr: Closed(
+                                Add,
+                            ),
+                            ropd: 11,
+                        },
+                        VmirExprData::Literal,
+                        VmirExprData::Binary {
+                            lopd: 12,
+                            opr: Closed(
+                                Div,
+                            ),
+                            ropd: 13,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructConstructor {
@@ -2459,11 +2659,11 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 1,
+                                    expr: 7,
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 2,
+                                    expr: 14,
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -2484,7 +2684,7 @@
                         VmirStmtData::Let,
                         VmirStmtData::Let,
                         VmirStmtData::Eval {
-                            expr: 3,
+                            expr: 15,
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -2913,10 +3113,182 @@
                         },
                     },
                 },
-                root_expr: 3,
+                root_expr: 17,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Binary,
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::StructField {
+                                    self_ty: LinTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                        template_arguments: [],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 74,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 2,
+                                },
+                            ],
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::StructField {
+                                    self_ty: LinTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                        template_arguments: [],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 74,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 4,
+                                },
+                            ],
+                        },
+                        VmirExprData::Binary {
+                            lopd: 3,
+                            opr: Closed(
+                                Sub,
+                            ),
+                            ropd: 5,
+                        },
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MethodRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<core::num::f32(0)>::abs`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 6,
+                                },
+                            ],
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::StructField {
+                                    self_ty: LinTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                        template_arguments: [],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 75,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 8,
+                                },
+                            ],
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::StructField {
+                                    self_ty: LinTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                        template_arguments: [],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 75,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 10,
+                                },
+                            ],
+                        },
+                        VmirExprData::Binary {
+                            lopd: 9,
+                            opr: Closed(
+                                Sub,
+                            ),
+                            ropd: 11,
+                        },
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MethodRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<core::num::f32(0)>::abs`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 12,
+                                },
+                            ],
+                        },
+                        VmirExprData::Binary {
+                            lopd: 7,
+                            opr: Closed(
+                                Add,
+                            ),
+                            ropd: 13,
+                        },
+                        VmirExprData::Binary {
+                            lopd: 1,
+                            opr: AssignClosed(
+                                Add,
+                            ),
+                            ropd: 14,
+                        },
                         VmirExprData::Variable,
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
@@ -2935,14 +3307,14 @@
                         VmirStmtData::Let,
                         VmirStmtData::Let,
                         VmirStmtData::Eval {
-                            expr: 1,
+                            expr: 15,
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Return {
-                            result: 2,
+                            result: 16,
                             coersion: VmirCoersion::Trivial,
                         },
                     ],
@@ -3666,11 +4038,123 @@
                         },
                     },
                 },
-                root_expr: 4,
+                root_expr: 12,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Binary,
-                        VmirExprData::Binary,
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::StructField {
+                                    self_ty: LinTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                        template_arguments: [],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 74,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 1,
+                                },
+                            ],
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::StructField {
+                                    self_ty: LinTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                        template_arguments: [],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 74,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 3,
+                                },
+                            ],
+                        },
+                        VmirExprData::Binary {
+                            lopd: 2,
+                            opr: Closed(
+                                Sub,
+                            ),
+                            ropd: 4,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::StructField {
+                                    self_ty: LinTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                        template_arguments: [],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 75,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 6,
+                                },
+                            ],
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::StructField {
+                                    self_ty: LinTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                        template_arguments: [],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 75,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 8,
+                                },
+                            ],
+                        },
+                        VmirExprData::Binary {
+                            lopd: 7,
+                            opr: Closed(
+                                Sub,
+                            ),
+                            ropd: 9,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructConstructor {
@@ -3683,11 +4167,11 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 1,
+                                    expr: 5,
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 2,
+                                    expr: 10,
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -3705,7 +4189,7 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 3,
+                            expr: 11,
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -3749,10 +4233,130 @@
                         },
                     },
                 },
-                root_expr: 3,
+                root_expr: 13,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Binary,
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::StructField {
+                                    self_ty: LinTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                        template_arguments: [],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 74,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 1,
+                                },
+                            ],
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::StructField {
+                                    self_ty: LinTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                        template_arguments: [],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 74,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 3,
+                                },
+                            ],
+                        },
+                        VmirExprData::Binary {
+                            lopd: 2,
+                            opr: Closed(
+                                Mul,
+                            ),
+                            ropd: 4,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::StructField {
+                                    self_ty: LinTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                        template_arguments: [],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 75,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 6,
+                                },
+                            ],
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::StructField {
+                                    self_ty: LinTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                        template_arguments: [],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 75,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 8,
+                                },
+                            ],
+                        },
+                        VmirExprData::Binary {
+                            lopd: 7,
+                            opr: Closed(
+                                Mul,
+                            ),
+                            ropd: 9,
+                        },
+                        VmirExprData::Binary {
+                            lopd: 5,
+                            opr: Closed(
+                                Add,
+                            ),
+                            ropd: 10,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MethodRitchie {
@@ -3771,7 +4375,7 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 1,
+                                    expr: 11,
                                 },
                             ],
                         },
@@ -3788,7 +4392,7 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 2,
+                            expr: 12,
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -4073,11 +4677,123 @@
                         },
                     },
                 },
-                root_expr: 4,
+                root_expr: 12,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Binary,
-                        VmirExprData::Binary,
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::StructField {
+                                    self_ty: LinTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                        template_arguments: [],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 74,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 1,
+                                },
+                            ],
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::StructField {
+                                    self_ty: LinTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                        template_arguments: [],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 74,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 3,
+                                },
+                            ],
+                        },
+                        VmirExprData::Binary {
+                            lopd: 2,
+                            opr: Closed(
+                                Sub,
+                            ),
+                            ropd: 4,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::StructField {
+                                    self_ty: LinTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                        template_arguments: [],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 75,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 6,
+                                },
+                            ],
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::StructField {
+                                    self_ty: LinTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                        template_arguments: [],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 75,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 8,
+                                },
+                            ],
+                        },
+                        VmirExprData::Binary {
+                            lopd: 7,
+                            opr: Closed(
+                                Sub,
+                            ),
+                            ropd: 9,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructConstructor {
@@ -4090,11 +4806,11 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 1,
+                                    expr: 5,
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 2,
+                                    expr: 10,
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -4112,7 +4828,7 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 3,
+                            expr: 11,
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -4156,10 +4872,130 @@
                         },
                     },
                 },
-                root_expr: 3,
+                root_expr: 13,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Binary,
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::StructField {
+                                    self_ty: LinTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                        template_arguments: [],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 74,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 1,
+                                },
+                            ],
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::StructField {
+                                    self_ty: LinTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                        template_arguments: [],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 74,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 3,
+                                },
+                            ],
+                        },
+                        VmirExprData::Binary {
+                            lopd: 2,
+                            opr: Closed(
+                                Mul,
+                            ),
+                            ropd: 4,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::StructField {
+                                    self_ty: LinTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                        template_arguments: [],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 75,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 6,
+                                },
+                            ],
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::StructField {
+                                    self_ty: LinTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                        template_arguments: [],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 75,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 8,
+                                },
+                            ],
+                        },
+                        VmirExprData::Binary {
+                            lopd: 7,
+                            opr: Closed(
+                                Mul,
+                            ),
+                            ropd: 9,
+                        },
+                        VmirExprData::Binary {
+                            lopd: 5,
+                            opr: Closed(
+                                Add,
+                            ),
+                            ropd: 10,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MethodRitchie {
@@ -4178,7 +5014,7 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 1,
+                                    expr: 11,
                                 },
                             ],
                         },
@@ -4195,7 +5031,7 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 2,
+                            expr: 12,
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -4239,10 +5075,130 @@
                         },
                     },
                 },
-                root_expr: 2,
+                root_expr: 12,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Binary,
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::StructField {
+                                    self_ty: LinTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                        template_arguments: [],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 74,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 1,
+                                },
+                            ],
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::StructField {
+                                    self_ty: LinTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                        template_arguments: [],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 74,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 3,
+                                },
+                            ],
+                        },
+                        VmirExprData::Binary {
+                            lopd: 2,
+                            opr: Closed(
+                                Mul,
+                            ),
+                            ropd: 4,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::StructField {
+                                    self_ty: LinTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                        template_arguments: [],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 75,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 6,
+                                },
+                            ],
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::StructField {
+                                    self_ty: LinTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                        template_arguments: [],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 75,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 8,
+                                },
+                            ],
+                        },
+                        VmirExprData::Binary {
+                            lopd: 7,
+                            opr: Closed(
+                                Mul,
+                            ),
+                            ropd: 9,
+                        },
+                        VmirExprData::Binary {
+                            lopd: 5,
+                            opr: Closed(
+                                Add,
+                            ),
+                            ropd: 10,
+                        },
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
                                 1..2,
@@ -4256,7 +5212,7 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 1,
+                            expr: 11,
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -4300,10 +5256,130 @@
                         },
                     },
                 },
-                root_expr: 2,
+                root_expr: 12,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Binary,
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::StructField {
+                                    self_ty: LinTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                        template_arguments: [],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 74,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 1,
+                                },
+                            ],
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::StructField {
+                                    self_ty: LinTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                        template_arguments: [],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 75,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 3,
+                                },
+                            ],
+                        },
+                        VmirExprData::Binary {
+                            lopd: 2,
+                            opr: Closed(
+                                Mul,
+                            ),
+                            ropd: 4,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::StructField {
+                                    self_ty: LinTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                        template_arguments: [],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 75,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 6,
+                                },
+                            ],
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::StructField {
+                                    self_ty: LinTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                        template_arguments: [],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 74,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 8,
+                                },
+                            ],
+                        },
+                        VmirExprData::Binary {
+                            lopd: 7,
+                            opr: Closed(
+                                Mul,
+                            ),
+                            ropd: 9,
+                        },
+                        VmirExprData::Binary {
+                            lopd: 5,
+                            opr: Closed(
+                                Sub,
+                            ),
+                            ropd: 10,
+                        },
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
                                 1..2,
@@ -4317,7 +5393,7 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 1,
+                            expr: 11,
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -4672,10 +5748,50 @@
                         },
                     },
                 },
-                root_expr: 2,
+                root_expr: 7,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Binary,
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::StructField {
+                                    self_ty: LinTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                        template_arguments: [],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 101,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 2,
+                                },
+                            ],
+                        },
+                        VmirExprData::Binary {
+                            lopd: 1,
+                            opr: Closed(
+                                Sub,
+                            ),
+                            ropd: 3,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Binary {
+                            lopd: 4,
+                            opr: Closed(
+                                Div,
+                            ),
+                            ropd: 5,
+                        },
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
                                 1..3,
@@ -4690,7 +5806,7 @@
                     data: [
                         VmirStmtData::Let,
                         VmirStmtData::Eval {
-                            expr: 1,
+                            expr: 6,
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -6210,11 +7326,75 @@
                         },
                     },
                 },
-                root_expr: 4,
+                root_expr: 10,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Binary,
-                        VmirExprData::Binary,
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::StructField {
+                                    self_ty: LinTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                        template_arguments: [],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 74,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 1,
+                                },
+                            ],
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Binary {
+                            lopd: 2,
+                            opr: Closed(
+                                Add,
+                            ),
+                            ropd: 3,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::StructField {
+                                    self_ty: LinTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                        template_arguments: [],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 75,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 5,
+                                },
+                            ],
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Binary {
+                            lopd: 6,
+                            opr: Closed(
+                                Add,
+                            ),
+                            ropd: 7,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructConstructor {
@@ -6227,11 +7407,11 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 1,
+                                    expr: 4,
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 2,
+                                    expr: 8,
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -6254,7 +7434,7 @@
                         VmirStmtData::Let,
                         VmirStmtData::Let,
                         VmirStmtData::Eval {
-                            expr: 3,
+                            expr: 9,
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -6290,11 +7470,75 @@
                         },
                     },
                 },
-                root_expr: 4,
+                root_expr: 10,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Binary,
-                        VmirExprData::Binary,
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::StructField {
+                                    self_ty: LinTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                        template_arguments: [],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 74,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 1,
+                                },
+                            ],
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Binary {
+                            lopd: 2,
+                            opr: Closed(
+                                Add,
+                            ),
+                            ropd: 3,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::StructField {
+                                    self_ty: LinTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                        template_arguments: [],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 75,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 5,
+                                },
+                            ],
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Binary {
+                            lopd: 6,
+                            opr: Closed(
+                                Add,
+                            ),
+                            ropd: 7,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructConstructor {
@@ -6307,11 +7551,11 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 1,
+                                    expr: 4,
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 2,
+                                    expr: 8,
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -6334,7 +7578,7 @@
                         VmirStmtData::Let,
                         VmirStmtData::Let,
                         VmirStmtData::Eval {
-                            expr: 3,
+                            expr: 9,
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -6556,7 +7800,7 @@
                         },
                     },
                 },
-                root_expr: 7,
+                root_expr: 9,
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable,
@@ -6594,7 +7838,15 @@
                             ],
                         },
                         VmirExprData::Variable,
-                        VmirExprData::Binary,
+                        VmirExprData::Variable,
+                        VmirExprData::Literal,
+                        VmirExprData::Binary {
+                            lopd: 4,
+                            opr: Closed(
+                                Add,
+                            ),
+                            ropd: 5,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MethodRitchie {
@@ -6643,7 +7895,7 @@
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 4,
+                                    expr: 6,
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -6660,7 +7912,7 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 5,
+                                    expr: 7,
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -6679,7 +7931,7 @@
                     data: [
                         VmirStmtData::Assert,
                         VmirStmtData::Eval {
-                            expr: 6,
+                            expr: 8,
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -7361,10 +8613,82 @@
                         },
                     },
                 },
-                root_expr: 2,
+                root_expr: 7,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Binary,
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MemoizedField {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::norm`, `MemoizedField`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 1,
+                                },
+                            ],
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MethodRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::displacement`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 3,
+                                },
+                            ],
+                        },
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MethodRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::norm`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 4,
+                                },
+                            ],
+                        },
+                        VmirExprData::Binary {
+                            lopd: 2,
+                            opr: Closed(
+                                Div,
+                            ),
+                            ropd: 5,
+                        },
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
                                 1..2,
@@ -7378,7 +8702,7 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 1,
+                            expr: 6,
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -9371,10 +10695,42 @@
                         },
                     },
                 },
-                root_expr: 2,
+                root_expr: 6,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Binary,
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MemoizedField {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::angle_change`, `MemoizedField`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 1,
+                                },
+                            ],
+                        },
+                        VmirExprData::Prefix {
+                            opr: Minus,
+                            opd: 2,
+                        },
+                        VmirExprData::Literal,
+                        VmirExprData::Binary {
+                            lopd: 3,
+                            opr: Closed(
+                                Add,
+                            ),
+                            ropd: 4,
+                        },
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
                                 1..3,
@@ -9389,7 +10745,7 @@
                     data: [
                         VmirStmtData::Require,
                         VmirStmtData::Eval {
-                            expr: 1,
+                            expr: 5,
                             coersion: Some(
                                 VmirCoersion::WrapInSome,
                             ),
@@ -9752,10 +11108,70 @@
                         },
                     },
                 },
-                root_expr: 2,
+                root_expr: 7,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Binary,
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::StructField {
+                                    self_ty: LinTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                        template_arguments: [],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 75,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 1,
+                                },
+                            ],
+                        },
+                        VmirExprData::Prefix {
+                            opr: Minus,
+                            opd: 2,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::StructField {
+                                    self_ty: LinTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                        template_arguments: [],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 74,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 4,
+                                },
+                            ],
+                        },
+                        VmirExprData::Binary {
+                            lopd: 3,
+                            opr: Closed(
+                                Sub,
+                            ),
+                            ropd: 5,
+                        },
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
                                 1..5,
@@ -9772,7 +11188,7 @@
                         VmirStmtData::Require,
                         VmirStmtData::Require,
                         VmirStmtData::Eval {
-                            expr: 1,
+                            expr: 6,
                             coersion: Some(
                                 VmirCoersion::WrapInSome,
                             ),
@@ -13433,10 +14849,38 @@
                         },
                     },
                 },
-                root_expr: 2,
+                root_expr: 5,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Binary,
+                        VmirExprData::Variable,
+                        VmirExprData::PrincipalEntityPath,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MemoizedField {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::row_span_sum`, `MemoizedField`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 2,
+                                },
+                            ],
+                        },
+                        VmirExprData::Binary {
+                            lopd: 1,
+                            opr: Closed(
+                                Sub,
+                            ),
+                            ropd: 3,
+                        },
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
                                 1..4,
@@ -13452,7 +14896,7 @@
                         VmirStmtData::Let,
                         VmirStmtData::ForBetween,
                         VmirStmtData::Return {
-                            result: 1,
+                            result: 4,
                             coersion: VmirCoersion::Trivial,
                         },
                     ],

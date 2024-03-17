@@ -6485,6 +6485,7 @@ dependencies = [
  "husky-entity-tree",
  "husky-eth-signature",
  "husky-eth-term",
+ "husky-expr",
  "husky-fly-term",
  "husky-hir-decl",
  "husky-hir-defn",

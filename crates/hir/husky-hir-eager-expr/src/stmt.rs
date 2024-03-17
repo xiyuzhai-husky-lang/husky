@@ -203,11 +203,11 @@ impl ToHirEager for SemaStmtIdxRange {
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub enum HirEagerCondition {
     Be {
-        src: HirEagerExprIdx,
-        target: HirEagerBeVariablesPattern,
+        opd: HirEagerExprIdx,
+        pattern: HirEagerBeVariablesPattern,
     },
     Other {
-        hir_eager_expr_idx: HirEagerExprIdx,
+        opd: HirEagerExprIdx,
         conversion: ConditionConversion,
     },
 }
@@ -223,14 +223,14 @@ impl ToHirEager for SemaCondition {
                 be_regional_token_idx: _,
                 target,
             } => HirEagerCondition::Be {
-                src: src.to_hir_eager(builder),
-                target: target.to_hir_eager(builder),
+                opd: src.to_hir_eager(builder),
+                pattern: target.to_hir_eager(builder),
             },
             SemaCondition::Other {
                 sema_expr_idx,
                 conversion,
             } => HirEagerCondition::Other {
-                hir_eager_expr_idx: sema_expr_idx.to_hir_eager(builder),
+                opd: sema_expr_idx.to_hir_eager(builder),
                 conversion,
             },
         }

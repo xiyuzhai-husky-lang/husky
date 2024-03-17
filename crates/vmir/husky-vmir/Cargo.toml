@@ -22,11 +22,12 @@ husky-hir-eager-expr.workspace = true
 husky-hir-expr.workspace = true
 husky-hir-defn.workspace = true
 # kernel
+husky-coword.workspace = true
 husky-entity-path.workspace = true
 husky-eth-term.workspace = true
 husky-eth-signature.workspace = true
+husky-expr.workspace = true
 husky-hir-ty.workspace = true
-husky-coword.workspace = true
 husky-place.workspace = true
 husky-standard-value = { workspace = true, features = ["constant"] }
 # linkage

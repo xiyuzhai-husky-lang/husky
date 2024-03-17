@@ -11279,7 +11279,7 @@
                                         IfElse {
                                             if_branch: HirEagerIfBranch {
                                                 condition: Other {
-                                                    hir_eager_expr_idx: 132,
+                                                    opd: 132,
                                                     conversion: None,
                                                 },
                                                 stmts: ArenaIdxRange(
@@ -11289,7 +11289,7 @@
                                             elif_branches: [
                                                 HirEagerElifBranch {
                                                     condition: Other {
-                                                        hir_eager_expr_idx: 163,
+                                                        opd: 163,
                                                         conversion: None,
                                                     },
                                                     stmts: ArenaIdxRange(
@@ -11298,7 +11298,7 @@
                                                 },
                                                 HirEagerElifBranch {
                                                     condition: Other {
-                                                        hir_eager_expr_idx: 192,
+                                                        opd: 192,
                                                         conversion: None,
                                                     },
                                                     stmts: ArenaIdxRange(
@@ -11478,7 +11478,7 @@
                                         IfElse {
                                             if_branch: HirEagerIfBranch {
                                                 condition: Other {
-                                                    hir_eager_expr_idx: 110,
+                                                    opd: 110,
                                                     conversion: IntToBool(
                                                         I32,
                                                     ),
@@ -11533,7 +11533,7 @@
                                         IfElse {
                                             if_branch: HirEagerIfBranch {
                                                 condition: Other {
-                                                    hir_eager_expr_idx: 275,
+                                                    opd: 275,
                                                     conversion: None,
                                                 },
                                                 stmts: ArenaIdxRange(
@@ -11699,7 +11699,7 @@
                                         },
                                         DoWhile {
                                             condition: Other {
-                                                hir_eager_expr_idx: 89,
+                                                opd: 89,
                                                 conversion: None,
                                             },
                                             block: ArenaIdxRange(
@@ -11709,7 +11709,7 @@
                                         IfElse {
                                             if_branch: HirEagerIfBranch {
                                                 condition: Other {
-                                                    hir_eager_expr_idx: 289,
+                                                    opd: 289,
                                                     conversion: None,
                                                 },
                                                 stmts: ArenaIdxRange(
@@ -11732,7 +11732,7 @@
                                         },
                                         While {
                                             condition: Other {
-                                                hir_eager_expr_idx: 45,
+                                                opd: 45,
                                                 conversion: IntToBool(
                                                     R32,
                                                 ),

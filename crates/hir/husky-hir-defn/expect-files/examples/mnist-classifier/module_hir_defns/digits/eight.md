@@ -852,14 +852,14 @@
                                     data: [
                                         Require {
                                             condition: Other {
-                                                hir_eager_expr_idx: 18,
+                                                opd: 18,
                                                 conversion: None,
                                             },
                                         },
                                         IfElse {
                                             if_branch: HirEagerIfBranch {
                                                 condition: Other {
-                                                    hir_eager_expr_idx: 5,
+                                                    opd: 5,
                                                     conversion: None,
                                                 },
                                                 stmts: ArenaIdxRange(

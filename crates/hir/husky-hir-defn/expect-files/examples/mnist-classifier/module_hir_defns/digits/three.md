@@ -555,7 +555,7 @@
                                         },
                                         Require {
                                             condition: Other {
-                                                hir_eager_expr_idx: 6,
+                                                opd: 6,
                                                 conversion: None,
                                             },
                                         },
@@ -1042,7 +1042,7 @@
                                         },
                                         Require {
                                             condition: Other {
-                                                hir_eager_expr_idx: 6,
+                                                opd: 6,
                                                 conversion: None,
                                             },
                                         },
@@ -1529,7 +1529,7 @@
                                         },
                                         Require {
                                             condition: Other {
-                                                hir_eager_expr_idx: 6,
+                                                opd: 6,
                                                 conversion: None,
                                             },
                                         },

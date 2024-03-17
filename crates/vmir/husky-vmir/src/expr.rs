@@ -1,21 +1,25 @@
+use self::coersion::VmirCoersion;
 use crate::{destroyer::VmirDestroyerIdxRange, pattern::VmirPatternIdx, stmt::VmirStmtIdxRange, *};
 use husky_hir_eager_expr::{HirEagerExprData, HirEagerExprIdx, HirEagerRitchieArgument};
-use husky_hir_opr::{prefix::HirPrefixOpr, suffix::HirSuffixOpr};
+use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
 use husky_lifetime_utils::capture::Captures;
 use husky_linkage::linkage::Linkage;
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
 use smallvec::{smallvec, SmallVec};
-
-use self::coersion::VmirCoersion;
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub enum VmirExprData<LinkageImpl: IsLinkageImpl> {
     Literal,
     Variable,
-    Binary,
+    Binary {
+        lopd: VmirExprIdx<LinkageImpl>,
+        opr: HirBinaryOpr,
+        ropd: VmirExprIdx<LinkageImpl>,
+    },
     Be {
-        pattern: VmirPatternIdx,
+        opd: VmirExprIdx<LinkageImpl>,
+        pattern: VmirPatternIdx<LinkageImpl>,
     },
     Prefix {
         opr: HirPrefixOpr,
@@ -40,10 +44,14 @@ pub enum VmirExprData<LinkageImpl: IsLinkageImpl> {
     Closure,
     Todo,
     Unreachable,
-    As,
+    As {
+        opd: VmirExprIdx<LinkageImpl>,
+    },
     Index,
     PrincipalEntityPath,
-    Unwrap,
+    Unwrap {
+        opd: VmirExprIdx<LinkageImpl>,
+    },
 }
 
 pub type VmirExprArena<LinkageImpl> = Arena<VmirExprData<LinkageImpl>>;
@@ -86,8 +94,13 @@ impl<'comptime, Linktime: IsLinktime> VmirExprBuilder<'comptime, Linktime> {
             HirEagerExprData::AssocFn { assoc_item_path } => todo!(),
             HirEagerExprData::ConstSvar { ident } => todo!(),
             HirEagerExprData::Variable(_) => VmirExprData::Variable,
-            HirEagerExprData::Binary { lopd, opr, ropd } => VmirExprData::Binary,
+            HirEagerExprData::Binary { lopd, opr, ropd } => VmirExprData::Binary {
+                lopd: lopd.to_vmir(self),
+                opr,
+                ropd: ropd.to_vmir(self),
+            },
             HirEagerExprData::Be { src, ref pattern } => VmirExprData::Be {
+                opd: src.to_vmir(self),
                 pattern: pattern.pattern.to_vmir(self),
             },
             HirEagerExprData::Prefix { opr, opd } => VmirExprData::Prefix {
@@ -101,8 +114,8 @@ impl<'comptime, Linktime: IsLinktime> VmirExprBuilder<'comptime, Linktime> {
             HirEagerExprData::Unveil {
                 unveil_assoc_fn_path,
                 ref instantiation,
-                return_ty,
                 opd,
+                ..
             } => VmirExprData::Unveil {
                 linkage_impl: self.linkage_impl(Linkage::new_unveil_assoc_fn(
                     unveil_assoc_fn_path,
@@ -112,8 +125,12 @@ impl<'comptime, Linktime: IsLinktime> VmirExprBuilder<'comptime, Linktime> {
                 )),
                 opd: opd.to_vmir(self),
             },
-            HirEagerExprData::Unwrap { opd } => VmirExprData::Unwrap,
-            HirEagerExprData::As { opd, ty } => VmirExprData::As,
+            HirEagerExprData::Unwrap { opd } => VmirExprData::Unwrap {
+                opd: opd.to_vmir(self),
+            },
+            HirEagerExprData::As { opd, ty } => VmirExprData::As {
+                opd: opd.to_vmir(self),
+            },
             HirEagerExprData::TypeConstructorFnCall {
                 path,
                 ref instantiation,
