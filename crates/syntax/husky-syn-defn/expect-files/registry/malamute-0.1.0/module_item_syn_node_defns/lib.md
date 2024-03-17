@@ -207,7 +207,7 @@
                         data: ItemSynNodePathData::ImplBlock(
                             ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                 TraitForTypeImplBlockSynNodePathData {
-                                    path: malamute::OneVsAll as core::default::Default(0),
+                                    path: TraitForTypeImplBlockPath(`malamute::OneVsAll as core::default::Default(0)`),
                                 },
                             ),
                         ),
@@ -258,7 +258,7 @@
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                                path: malamute::OneVsAll as core::default::Default(0),
+                                                                                path: TraitForTypeImplBlockPath(`malamute::OneVsAll as core::default::Default(0)`),
                                                                             },
                                                                         ),
                                                                     ),
@@ -793,7 +793,7 @@
                         data: ItemSynNodePathData::ImplBlock(
                             ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                 TraitForTypeImplBlockSynNodePathData {
-                                    path: malamute::Class as core::ops::Unveil(0),
+                                    path: TraitForTypeImplBlockPath(`malamute::Class as core::ops::Unveil(0)`),
                                 },
                             ),
                         ),
@@ -865,7 +865,7 @@
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                                path: malamute::Class as core::ops::Unveil(0),
+                                                                                path: TraitForTypeImplBlockPath(`malamute::Class as core::ops::Unveil(0)`),
                                                                             },
                                                                         ),
                                                                     ),
@@ -2172,7 +2172,7 @@
                         data: ItemSynNodePathData::ImplBlock(
                             ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                 TraitForTypeImplBlockSynNodePathData {
-                                    path: malamute::OneVsAll as core::ops::Unveil(0),
+                                    path: TraitForTypeImplBlockPath(`malamute::OneVsAll as core::ops::Unveil(0)`),
                                 },
                             ),
                         ),
@@ -2244,7 +2244,7 @@
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                                path: malamute::OneVsAll as core::ops::Unveil(0),
+                                                                                path: TraitForTypeImplBlockPath(`malamute::OneVsAll as core::ops::Unveil(0)`),
                                                                             },
                                                                         ),
                                                                     ),

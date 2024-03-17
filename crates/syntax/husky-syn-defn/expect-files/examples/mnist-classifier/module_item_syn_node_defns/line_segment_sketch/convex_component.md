@@ -29,7 +29,7 @@
                         data: ItemSynNodePathData::ImplBlock(
                             ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                 TraitForTypeImplBlockSynNodePathData {
-                                    path: mnist_classifier::line_segment_sketch::convex_component::ConvexComponent as core::visual::Visualize(0),
+                                    path: TraitForTypeImplBlockPath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent as core::visual::Visualize(0)`),
                                 },
                             ),
                         ),
@@ -80,7 +80,7 @@
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                                path: mnist_classifier::line_segment_sketch::convex_component::ConvexComponent as core::visual::Visualize(0),
+                                                                                path: TraitForTypeImplBlockPath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent as core::visual::Visualize(0)`),
                                                                             },
                                                                         ),
                                                                     ),

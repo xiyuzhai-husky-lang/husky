@@ -35,7 +35,7 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TraitForTypeImplBlock(
-                mnist::BinaryImage28 as core::visual::Visualize(0),
+                TraitForTypeImplBlockPath(`mnist::BinaryImage28 as core::visual::Visualize(0)`),
             ),
         ),
         None,
@@ -77,7 +77,7 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TraitForTypeImplBlock(
-                mnist::BinaryImage28 as core::ops::IntIndex(0),
+                TraitForTypeImplBlockPath(`mnist::BinaryImage28 as core::ops::IntIndex(0)`),
             ),
         ),
         None,
@@ -93,7 +93,7 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TraitForTypeImplBlock(
-                mnist::BinaryGrid28 as core::visual::Visualize(0),
+                TraitForTypeImplBlockPath(`mnist::BinaryGrid28 as core::visual::Visualize(0)`),
             ),
         ),
         None,
@@ -135,7 +135,7 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TraitForTypeImplBlock(
-                mnist::BinaryGrid28 as core::ops::IntIndex(0),
+                TraitForTypeImplBlockPath(`mnist::BinaryGrid28 as core::ops::IntIndex(0)`),
             ),
         ),
         None,
