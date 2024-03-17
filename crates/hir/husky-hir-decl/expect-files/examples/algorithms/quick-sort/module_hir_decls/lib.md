@@ -83,7 +83,7 @@
                         },
                         pattern_expr_arena: Arena {
                             data: [
-                                HirEagerPatternExpr::Ident {
+                                HirEagerPatternData::Ident {
                                     symbol_modifier: Some(
                                         RefMut,
                                     ),
@@ -235,17 +235,17 @@
                         },
                         pattern_expr_arena: Arena {
                             data: [
-                                HirEagerPatternExpr::Ident {
+                                HirEagerPatternData::Ident {
                                     symbol_modifier: Some(
                                         RefMut,
                                     ),
                                     ident: `arr`,
                                 },
-                                HirEagerPatternExpr::Ident {
+                                HirEagerPatternData::Ident {
                                     symbol_modifier: None,
                                     ident: `low`,
                                 },
-                                HirEagerPatternExpr::Ident {
+                                HirEagerPatternData::Ident {
                                     symbol_modifier: None,
                                     ident: `high`,
                                 },
@@ -407,17 +407,17 @@
                         },
                         pattern_expr_arena: Arena {
                             data: [
-                                HirEagerPatternExpr::Ident {
+                                HirEagerPatternData::Ident {
                                     symbol_modifier: Some(
                                         RefMut,
                                     ),
                                     ident: `arr`,
                                 },
-                                HirEagerPatternExpr::Ident {
+                                HirEagerPatternData::Ident {
                                     symbol_modifier: None,
                                     ident: `low`,
                                 },
-                                HirEagerPatternExpr::Ident {
+                                HirEagerPatternData::Ident {
                                     symbol_modifier: None,
                                     ident: `high`,
                                 },

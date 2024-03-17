@@ -26,30 +26,30 @@ impl<'a> SemaExprBuilder<'a> {
     /// subpattern expressions get its type from its parent
     fn infer_subpattern_tys(&mut self, pattern_expr_idx: SynPatternIdx, ty: FlyTerm) {
         match self.syn_expr_region_data[pattern_expr_idx] {
-            SynPatternExprData::Literal { .. } => (), // there is no subpattern to infer
-            SynPatternExprData::Ident { .. } => (),   // there is no subpattern to infer
-            SynPatternExprData::UnitTypeVariant { .. } => (), // there is no subpattern to infer
-            SynPatternExprData::Tuple { .. } => todo!(),
-            SynPatternExprData::TupleStruct { .. } => todo!(),
-            SynPatternExprData::TupleTypeVariant { .. } =>
+            SynPatternData::Literal { .. } => (), // there is no subpattern to infer
+            SynPatternData::Ident { .. } => (),   // there is no subpattern to infer
+            SynPatternData::UnitTypeVariant { .. } => (), // there is no subpattern to infer
+            SynPatternData::Tuple { .. } => todo!(),
+            SynPatternData::TupleStruct { .. } => todo!(),
+            SynPatternData::TupleTypeVariant { .. } =>
             /* ad hoc */
             {
                 ()
             }
-            SynPatternExprData::TupleStruct { .. } => todo!(),
-            SynPatternExprData::TupleTypeVariant { .. } => todo!(),
-            SynPatternExprData::Props { name, ref fields } => todo!(),
-            SynPatternExprData::OneOf { ref options } => {
+            SynPatternData::TupleStruct { .. } => todo!(),
+            SynPatternData::TupleTypeVariant { .. } => todo!(),
+            SynPatternData::Props { name, ref fields } => todo!(),
+            SynPatternData::OneOf { ref options } => {
                 for option in options.elements() {
-                    self.infer_pattern_ty(option.syn_pattern_expr_idx(), ty)
+                    self.infer_pattern_ty(option.syn_pattern(), ty)
                 }
             }
-            SynPatternExprData::Binding {
+            SynPatternData::Binding {
                 ident_token,
                 asperand_token,
                 src,
             } => todo!(),
-            SynPatternExprData::Range {
+            SynPatternData::Range {
                 start,
                 dot_dot_token,
                 end,

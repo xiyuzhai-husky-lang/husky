@@ -264,12 +264,12 @@ impl<'a> SemaExprRangeCalculator<'a> {
         }
     }
 
-    fn calc_pattern_expr_range(&self, expr: &SynPatternExprData) -> RegionalTokenIdxRange {
+    fn calc_pattern_expr_range(&self, expr: &SynPatternData) -> RegionalTokenIdxRange {
         match expr {
-            SynPatternExprData::Literal {
+            SynPatternData::Literal {
                 regional_token_idx, ..
             } => RegionalTokenIdxRange::new_single(*regional_token_idx),
-            SynPatternExprData::Ident {
+            SynPatternData::Ident {
                 symbol_modifier_tokens,
                 ident_token,
             } => match symbol_modifier_tokens {
@@ -294,34 +294,34 @@ impl<'a> SemaExprRangeCalculator<'a> {
                 Some(_) => todo!(),
                 None => RegionalTokenIdxRange::new_single(ident_token.regional_token_idx()),
             },
-            SynPatternExprData::UnitTypeVariant { path_expr_idx, .. } => {
+            SynPatternData::UnitTypeVariant { path_expr_idx, .. } => {
                 self.principal_entity_path_expr_ranges[path_expr_idx.index()]
             }
-            SynPatternExprData::Tuple { .. } => todo!(),
-            SynPatternExprData::TupleStruct { .. } => todo!(),
-            SynPatternExprData::TupleTypeVariant {
+            SynPatternData::Tuple { .. } => todo!(),
+            SynPatternData::TupleStruct { .. } => todo!(),
+            SynPatternData::TupleTypeVariant {
                 path_expr_idx,
                 rpar,
                 ..
             } => self.principal_entity_path_expr_ranges[path_expr_idx.index()].to(
                 RegionalTokenIdxRangeEnd::new_after(rpar.regional_token_idx()),
             ),
-            SynPatternExprData::TupleStruct { .. } => todo!(),
-            SynPatternExprData::TupleTypeVariant { .. } => todo!(),
-            SynPatternExprData::Props { name, ref fields } => todo!(),
-            SynPatternExprData::OneOf { options } => {
-                let fst = options.elements().first().unwrap().syn_pattern_expr_idx();
-                let lst = options.elements().last().unwrap().syn_pattern_expr_idx();
+            SynPatternData::TupleStruct { .. } => todo!(),
+            SynPatternData::TupleTypeVariant { .. } => todo!(),
+            SynPatternData::Props { name, ref fields } => todo!(),
+            SynPatternData::OneOf { options } => {
+                let fst = options.elements().first().unwrap().syn_pattern();
+                let lst = options.elements().last().unwrap().syn_pattern();
                 let fst_range = self.pattern_expr_ranges[fst.index()];
                 let lst_range = self.pattern_expr_ranges[lst.index()];
                 fst_range.join(lst_range)
             }
-            SynPatternExprData::Binding {
+            SynPatternData::Binding {
                 ident_token,
                 asperand_token,
                 src,
             } => todo!(),
-            SynPatternExprData::Range {
+            SynPatternData::Range {
                 start,
                 dot_dot_token,
                 end,

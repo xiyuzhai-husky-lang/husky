@@ -181,7 +181,7 @@ impl<'a> SynExprContext<'a> {
         self.syn_stmt_arena.alloc_batch(syn_stmts)
     }
 
-    pub(crate) fn alloc_pattern_expr(&mut self, expr: SynPatternExprData) -> SynPatternIdx {
+    pub(crate) fn alloc_pattern_expr(&mut self, expr: SynPatternData) -> SynPatternIdx {
         self.syn_pattern_expr_region.alloc_one_pattern_expr(expr)
     }
 

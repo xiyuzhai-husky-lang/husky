@@ -758,7 +758,7 @@
                         },
                         pattern_expr_arena: Arena {
                             data: [
-                                HirEagerPatternExpr::Ident {
+                                HirEagerPatternData::Ident {
                                     symbol_modifier: None,
                                     ident: `one_vs_all`,
                                 },
@@ -1023,7 +1023,7 @@
                         },
                         pattern_expr_arena: Arena {
                             data: [
-                                HirEagerPatternExpr::Ident {
+                                HirEagerPatternData::Ident {
                                     symbol_modifier: None,
                                     ident: `one_vs_all_result`,
                                 },

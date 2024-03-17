@@ -22,7 +22,7 @@ use husky_hir_eager_expr::{
         cvar::HirEagerComptimeSvarName,
         rvar::{HirEagerRuntimeSvarName, HirEagerRvarIdx},
     },
-    HirEagerExprArena, HirEagerExprIdx, HirEagerExprRegion, HirEagerPatternExprArena,
+    HirEagerExprArena, HirEagerExprIdx, HirEagerExprRegion, HirEagerPatternArena,
     HirEagerStmtArena,
 };
 use husky_hir_lazy_expr::{HirLazyExprArena, HirLazyExprRegion, HirLazyStmtArena};
@@ -393,7 +393,7 @@ impl<'a, 'b> RustTranspilationBuilder<'a, 'b, HirEagerExprRegion> {
     }
 
     // todo: there is room for optimization
-    pub(crate) fn hir_eager_pattern_expr_arena(&self) -> &'a HirEagerPatternExprArena {
+    pub(crate) fn hir_eager_pattern_expr_arena(&self) -> &'a HirEagerPatternArena {
         self.extension.pattern_expr_arena(self.db)
     }
 

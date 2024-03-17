@@ -18,7 +18,7 @@ pub(super) struct DecTermEngine<'a> {
     symbol_declarative_term_region: DecSvarRegion,
     expr_terms: SynExprMap<DecTermResult2<DecTerm>>,
     /// todo: change this to ordered
-    pattern_expr_ty_infos: SynPatternExprMap<PatternExprDeclarativeTypeInfo>,
+    pattern_expr_ty_infos: SynPatternMap<PatternExprDeclarativeTypeInfo>,
     pattern_symbol_ty_infos: SynPatternSymbolMap<PatternSymbolDeclarativeTypeInfo>,
 }
 
@@ -60,9 +60,7 @@ impl<'a> DecTermEngine<'a> {
                 dec_term_menu,
             ),
             expr_terms: SynExprMap::new(syn_expr_region_data.expr_arena()),
-            pattern_expr_ty_infos: SynPatternExprMap::new(
-                syn_expr_region_data.pattern_expr_arena(),
-            ),
+            pattern_expr_ty_infos: SynPatternMap::new(syn_expr_region_data.pattern_expr_arena()),
             pattern_symbol_ty_infos: SynPatternSymbolMap::new(
                 syn_expr_region_data
                     .pattern_expr_region()

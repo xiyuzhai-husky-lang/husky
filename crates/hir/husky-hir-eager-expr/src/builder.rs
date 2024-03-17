@@ -15,7 +15,7 @@ use husky_sema_expr::{
 use husky_sema_place_contract::region::{sema_place_contract_region, SemaPlaceContractRegion};
 use husky_syn_expr::{
     CurrentSynSymbolIdx, InheritedSynSymbolIdx, SynExprRegionData, SynExprRootKind,
-    SynPatternExprMap, SynPatternExprRootKind, SynPatternIdx, SynSymbolMap,
+    SynPatternExprRootKind, SynPatternIdx, SynPatternMap, SynSymbolMap,
 };
 
 pub(crate) struct HirEagerExprBuilder<'a> {
@@ -25,8 +25,8 @@ pub(crate) struct HirEagerExprBuilder<'a> {
     sema_place_contract_region: &'a SemaPlaceContractRegion,
     hir_eager_expr_arena: HirEagerExprArena,
     hir_eager_stmt_arena: HirEagerStmtArena,
-    hir_eager_pattern_expr_arena: HirEagerPatternExprArena,
-    syn_to_hir_eager_pattern_expr_idx_map: SynPatternExprMap<HirEagerPatternIdx>,
+    hir_eager_pattern_arena: HirEagerPatternArena,
+    syn_to_hir_eager_pattern_idx_map: SynPatternMap<HirEagerPatternIdx>,
     sema_to_hir_eager_expr_idx_map: SemaExprMap<HirEagerExprIdx>,
     sema_to_hir_eager_stmt_idx_map: SemaStmtMap<HirEagerStmtIdx>,
     hir_eager_comptime_symbol_region_data: HirEagerComptimeSvarRegionData,
@@ -39,7 +39,7 @@ impl<'a> HirEagerExprBuilder<'a> {
         let syn_expr_region_data = sema_expr_region.syn_expr_region(db).data(db);
         let sema_expr_region_data = sema_expr_region.data(db);
         let syn_to_hir_eager_pattern_expr_idx_map =
-            SynPatternExprMap::new(syn_expr_region_data.pattern_expr_arena());
+            SynPatternMap::new(syn_expr_region_data.pattern_expr_arena());
         let sema_to_hir_eager_expr_idx_map =
             SemaExprMap::new(sema_expr_region_data.sema_expr_arena());
         let sema_to_hir_eager_stmt_idx_map =
@@ -57,9 +57,9 @@ impl<'a> HirEagerExprBuilder<'a> {
             sema_expr_region_data,
             sema_place_contract_region: sema_place_contract_region(db, sema_expr_region),
             hir_eager_expr_arena: Default::default(),
-            hir_eager_pattern_expr_arena: Default::default(),
+            hir_eager_pattern_arena: Default::default(),
             hir_eager_stmt_arena: Default::default(),
-            syn_to_hir_eager_pattern_expr_idx_map,
+            syn_to_hir_eager_pattern_idx_map: syn_to_hir_eager_pattern_expr_idx_map,
             sema_to_hir_eager_expr_idx_map,
             sema_to_hir_eager_stmt_idx_map,
             hir_eager_comptime_symbol_region_data,
@@ -147,25 +147,23 @@ impl<'a> HirEagerExprBuilder<'a> {
         pattern: HirEagerPatternData,
         syn_pattern: SynPatternIdx,
     ) -> HirEagerPatternIdx {
-        let pattern = self.hir_eager_pattern_expr_arena.alloc_one(pattern);
-        self.syn_to_hir_eager_pattern_expr_idx_map
+        let pattern = self.hir_eager_pattern_arena.alloc_one(pattern);
+        self.syn_to_hir_eager_pattern_idx_map
             .insert_new(syn_pattern, pattern);
         pattern
     }
 
     pub(crate) fn alloc_pattern_exprs(
         &mut self,
-        pattern_exprs: Vec<HirEagerPatternData>,
-        syn_pattern_expr_idxs: impl Iterator<Item = SynPatternIdx>,
-    ) -> HirEagerPatternExprIdxRange {
-        let pattern_expr_idx_range = self.hir_eager_pattern_expr_arena.alloc_batch(pattern_exprs);
-        for (pattern_expr_idx, syn_pattern_expr_idx) in
-            std::iter::zip(pattern_expr_idx_range, syn_pattern_expr_idxs)
-        {
-            self.syn_to_hir_eager_pattern_expr_idx_map
-                .insert_new(syn_pattern_expr_idx, pattern_expr_idx);
+        patterns: Vec<HirEagerPatternData>,
+        syn_patterns: impl Iterator<Item = SynPatternIdx>,
+    ) -> HirEagerPatternIdxRange {
+        let patterns = self.hir_eager_pattern_arena.alloc_batch(patterns);
+        for (pattern, syn_pattern) in std::iter::zip(patterns, syn_patterns) {
+            self.syn_to_hir_eager_pattern_idx_map
+                .insert_new(syn_pattern, pattern);
         }
-        pattern_expr_idx_range
+        patterns
     }
 
     pub(crate) fn path(&self) -> String {
@@ -227,13 +225,13 @@ impl<'a> HirEagerExprBuilder<'a> {
                 self.sema_expr_region_data.region_path(),
                 self.hir_eager_expr_arena,
                 self.hir_eager_stmt_arena,
-                self.hir_eager_pattern_expr_arena,
+                self.hir_eager_pattern_arena,
                 self.hir_eager_comptime_symbol_region_data,
                 self.hir_eager_runtime_symbol_region_data,
             ),
             HirEagerExprSourceMap::new(
                 self.db,
-                self.syn_to_hir_eager_pattern_expr_idx_map,
+                self.syn_to_hir_eager_pattern_idx_map,
                 self.sema_to_hir_eager_expr_idx_map,
                 self.sema_to_hir_eager_stmt_idx_map,
                 self.syn_symbol_to_hir_eager_runtime_symbol_map,
@@ -250,12 +248,12 @@ impl<'a> HirEagerExprBuilder<'a> {
         &self.hir_eager_expr_arena
     }
 
-    pub(crate) fn syn_pattern_expr_ty(
+    pub(crate) fn syn_pattern_ty(
         &self,
-        syn_pattern_expr_idx: ArenaIdx<husky_syn_expr::SynPatternExprData>,
+        syn_pattern: ArenaIdx<husky_syn_expr::SynPatternData>,
     ) -> EthTerm {
         self.sema_expr_region_data
-            .syn_pattern_expr_ty(syn_pattern_expr_idx, self.db)
+            .syn_pattern_ty(syn_pattern, self.db)
     }
 
     pub(crate) fn fly_terms(&self) -> &FlyTerms {
@@ -275,11 +273,3 @@ pub fn hir_eager_expr_region_with_source_map(
     let builder = HirEagerExprBuilder::new(db, sema_expr_region);
     builder.build_all_then_finish()
 }
-
-// #[salsa::tracked(jar = HirEagerExprJar)]
-// pub fn hir_eager_expr_region(
-//     db: &::salsa::Db,
-//     sema_expr_region: SemaExprRegion,
-// ) -> HirEagerExprRegion {
-//     hir_eager_expr_region_with_source_map(db, sema_expr_region).0
-// }

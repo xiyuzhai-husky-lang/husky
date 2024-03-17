@@ -1,6 +1,6 @@
 use husky_hir_ty::HirType;
 use husky_sema_expr::LetVariableObelisk;
-use husky_syn_expr::{BePatternSyndicate, SynPatternExprData};
+use husky_syn_expr::{BePatternSyndicate, SynPatternData};
 
 use crate::*;
 
@@ -57,15 +57,15 @@ impl ToHirLazy for BePatternSyndicate {
         let db = builder.db();
         let pattern_expr_arena = builder.syn_expr_region_data().pattern_expr_arena();
         match pattern_expr_arena[self.syn_pattern_root().syn_pattern_expr_idx()] {
-            SynPatternExprData::Literal {
+            SynPatternData::Literal {
                 regional_token_idx: _,
                 literal: _,
             } => todo!(),
-            SynPatternExprData::Ident {
+            SynPatternData::Ident {
                 symbol_modifier_tokens: _,
                 ident_token: _,
             } => todo!(),
-            SynPatternExprData::UnitTypeVariant {
+            SynPatternData::UnitTypeVariant {
                 path_expr_idx: _,
                 path,
             } => {
@@ -76,9 +76,9 @@ impl ToHirLazy for BePatternSyndicate {
                     todo!()
                 }
             }
-            SynPatternExprData::Tuple { .. } => todo!(),
-            SynPatternExprData::TupleStruct { .. } => todo!(),
-            SynPatternExprData::TupleTypeVariant { path, .. } => {
+            SynPatternData::Tuple { .. } => todo!(),
+            SynPatternData::TupleStruct { .. } => todo!(),
+            SynPatternData::TupleTypeVariant { path, .. } => {
                 // ad hoc
                 if path.ident(db).data(db) == "Some" {
                     HirLazyBeVariablesPattern::Some
@@ -86,14 +86,14 @@ impl ToHirLazy for BePatternSyndicate {
                     todo!()
                 }
             }
-            SynPatternExprData::Props { name: _, fields: _ } => todo!(),
-            SynPatternExprData::OneOf { options: _ } => todo!(),
-            SynPatternExprData::Binding {
+            SynPatternData::Props { name: _, fields: _ } => todo!(),
+            SynPatternData::OneOf { options: _ } => todo!(),
+            SynPatternData::Binding {
                 ident_token: _,
                 asperand_token: _,
                 src: _,
             } => todo!(),
-            SynPatternExprData::Range {
+            SynPatternData::Range {
                 start: _,
                 dot_dot_token: _,
                 end: _,

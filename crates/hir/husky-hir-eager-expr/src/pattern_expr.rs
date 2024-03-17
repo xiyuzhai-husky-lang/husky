@@ -1,6 +1,6 @@
 use crate::*;
 use husky_eth_term::term::EthTerm;
-use husky_syn_expr::{SynPatternExprData, SynPatternIdx, SynPatternRoot};
+use husky_syn_expr::{SynPatternData, SynPatternIdx, SynPatternRoot};
 use husky_term_prelude::literal::{
     int::{
         I128Literal, I64Literal, ISizeLiteral, R128Literal, R64Literal, RSizeLiteral, U128Literal,
@@ -25,17 +25,17 @@ pub enum HirEagerPatternData {
     /// example: `(a, b)`
     Tuple {
         path: Option<PatternPath>,
-        fields: HirEagerPatternExprIdxRange,
+        fields: HirEagerPatternIdxRange,
     },
     /// example: `C { .. }`
     Props {
         path: Option<PatternPath>,
         // todo: change to punctuated
-        fields: HirEagerPatternExprIdxRange,
+        fields: HirEagerPatternIdxRange,
     },
     /// example: `A | B | C { .. }`
     OneOf {
-        options: HirEagerPatternExprIdxRange,
+        options: HirEagerPatternIdxRange,
     },
     /// example: `x @ 1..9`
     Binding {
@@ -51,11 +51,11 @@ pub enum HirEagerPatternData {
     Some,
 }
 
-pub type HirEagerPatternExprArena = Arena<HirEagerPatternData>;
+pub type HirEagerPatternArena = Arena<HirEagerPatternData>;
 pub type HirEagerPatternIdx = ArenaIdx<HirEagerPatternData>;
-pub type HirEagerPatternExprIdxRange = ArenaIdxRange<HirEagerPatternData>;
-pub type HirEagerPatternExprMap<V> = ArenaMap<HirEagerPatternData, V>;
-pub type HirEagerPatternExprOrderedMap<V> = ArenaOrderedMap<HirEagerPatternData, V>;
+pub type HirEagerPatternIdxRange = ArenaIdxRange<HirEagerPatternData>;
+pub type HirEagerPatternMap<V> = ArenaMap<HirEagerPatternData, V>;
+pub type HirEagerPatternOrderedMap<V> = ArenaOrderedMap<HirEagerPatternData, V>;
 
 impl<'a> HirEagerExprBuilder<'a> {
     pub(super) fn new_pattern(
@@ -70,7 +70,7 @@ impl<'a> HirEagerExprBuilder<'a> {
     fn new_pattern_aux(&mut self, syn_pattern: SynPatternIdx) -> HirEagerPatternData {
         let db = self.db();
         match self.syn_expr_region_data()[syn_pattern] {
-            SynPatternExprData::Literal { literal, .. } => {
+            SynPatternData::Literal { literal, .. } => {
                 HirEagerPatternData::Literal(match literal {
                     LiteralTokenData::Unit => Literal::Unit(()),
                     LiteralTokenData::Char(_) => todo!(),
@@ -78,7 +78,7 @@ impl<'a> HirEagerExprBuilder<'a> {
                     LiteralTokenData::Integer(literal) => match literal {
                         IntegerLikeLiteralTokenData::UnspecifiedRegular(value) => {
                             let EthTerm::EntityPath(ItemPathTerm::TypeOntology(path)) =
-                                self.syn_pattern_expr_ty(syn_pattern)
+                                self.syn_pattern_ty(syn_pattern)
                             else {
                                 unreachable!()
                             };
@@ -131,19 +131,17 @@ impl<'a> HirEagerExprBuilder<'a> {
                     LiteralTokenData::Bool(_) => todo!(),
                 })
             }
-            SynPatternExprData::Ident {
+            SynPatternData::Ident {
                 symbol_modifier_tokens,
                 ident_token,
             } => HirEagerPatternData::Ident {
                 ident: ident_token.ident(),
                 symbol_modifier: symbol_modifier_tokens.map(Into::into),
             },
-            SynPatternExprData::UnitTypeVariant { path, .. } => {
-                HirEagerPatternData::Unit(path.into())
-            }
-            SynPatternExprData::Tuple { .. } => todo!(),
-            SynPatternExprData::TupleStruct { .. } => todo!(),
-            SynPatternExprData::TupleTypeVariant { path, .. } => {
+            SynPatternData::UnitTypeVariant { path, .. } => HirEagerPatternData::Unit(path.into()),
+            SynPatternData::Tuple { .. } => todo!(),
+            SynPatternData::TupleStruct { .. } => todo!(),
+            SynPatternData::TupleTypeVariant { path, .. } => {
                 // ad hoc
                 if path.ident(db).data(db) == "Some" {
                     HirEagerPatternData::Some
@@ -151,29 +149,26 @@ impl<'a> HirEagerExprBuilder<'a> {
                     todo!()
                 }
             }
-            SynPatternExprData::Props { name: _, fields: _ } => todo!(),
-            SynPatternExprData::OneOf { ref options } => {
+            SynPatternData::Props { name: _, fields: _ } => todo!(),
+            SynPatternData::OneOf { ref options } => {
                 let hir_eager_options = options
                     .elements()
                     .iter()
-                    .map(|option| self.new_pattern_aux(option.syn_pattern_expr_idx()))
+                    .map(|option| self.new_pattern_aux(option.syn_pattern()))
                     .collect();
                 HirEagerPatternData::OneOf {
                     options: self.alloc_pattern_exprs(
                         hir_eager_options,
-                        options
-                            .elements()
-                            .iter()
-                            .map(|option| option.syn_pattern_expr_idx()),
+                        options.elements().iter().map(|option| option.syn_pattern()),
                     ),
                 }
             }
-            SynPatternExprData::Binding {
+            SynPatternData::Binding {
                 ident_token: _,
                 asperand_token: _,
                 src: _,
             } => todo!(),
-            SynPatternExprData::Range {
+            SynPatternData::Range {
                 start: _,
                 dot_dot_token: _,
                 end: _,

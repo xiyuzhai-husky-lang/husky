@@ -100,7 +100,7 @@ impl SynExprRegionData {
         &self.principal_item_path_expr_arena
     }
 
-    pub fn pattern_expr_arena(&self) -> &SynPatternExprArena {
+    pub fn pattern_expr_arena(&self) -> &SynPatternArena {
         self.pattern_expr_region.pattern_expr_arena()
     }
 
@@ -204,7 +204,7 @@ impl std::ops::Index<SynPatternSymbolIdx> for SynExprRegionData {
     }
 }
 impl std::ops::Index<SynPatternIdx> for SynExprRegionData {
-    type Output = SynPatternExprData;
+    type Output = SynPatternData;
 
     fn index(&self, index: SynPatternIdx) -> &Self::Output {
         &self.pattern_expr_region[index]

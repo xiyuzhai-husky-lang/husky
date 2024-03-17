@@ -43,9 +43,9 @@ pub(crate) struct SemaExprBuilder<'a> {
     sema_expr_term_results: VecPairMap<SemaExprIdx, SemaExprTermResult<FlyTerm>>,
     symbol_terms: SymbolMap<FlyTerm>,
     symbol_tys: SymbolMap<SymbolType>,
-    pattern_expr_ty_infos: SynPatternExprMap<PatternExprTypeInfo>,
+    pattern_expr_ty_infos: SynPatternMap<PatternExprTypeInfo>,
     pattern_symbol_ty_infos: SynPatternSymbolMap<PatternSymbolTypeInfo>,
-    pattern_expr_contracts: SynPatternExprMap<Contract>,
+    pattern_expr_contracts: SynPatternMap<Contract>,
     return_ty: Option<EthTerm>,
     pub(crate) unveiler: Unveiler,
     self_ty: Option<EthTerm>,
@@ -183,7 +183,7 @@ impl<'a> SemaExprBuilder<'a> {
                     .map(|parent_sema_expr_region| parent_sema_expr_region.data(db).symbol_tys()),
                 syn_expr_region_data.symbol_region(),
             ),
-            pattern_expr_ty_infos: SynPatternExprMap::new(pattern_expr_region.pattern_expr_arena()),
+            pattern_expr_ty_infos: SynPatternMap::new(pattern_expr_region.pattern_expr_arena()),
             pattern_symbol_ty_infos: SynPatternSymbolMap::new(
                 pattern_expr_region.pattern_symbol_arena(),
             ),
@@ -194,9 +194,7 @@ impl<'a> SemaExprBuilder<'a> {
             self_value_ty,
             self_lifetime,
             self_place,
-            pattern_expr_contracts: SynPatternExprMap::new(
-                pattern_expr_region.pattern_expr_arena(),
-            ),
+            pattern_expr_contracts: SynPatternMap::new(pattern_expr_region.pattern_expr_arena()),
             trai_in_use_items_table: TraitInUseItemsTable::query(db, module_path),
             regional_tokens_data,
         }

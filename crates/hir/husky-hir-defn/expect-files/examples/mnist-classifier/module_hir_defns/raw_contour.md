@@ -210,11 +210,11 @@
                             },
                             pattern_expr_arena: Arena {
                                 data: [
-                                    HirEagerPatternExpr::Ident {
+                                    HirEagerPatternData::Ident {
                                         symbol_modifier: None,
                                         ident: `row`,
                                     },
-                                    HirEagerPatternExpr::Ident {
+                                    HirEagerPatternData::Ident {
                                         symbol_modifier: None,
                                         ident: `j`,
                                     },
@@ -508,11 +508,11 @@
                             },
                             pattern_expr_arena: Arena {
                                 data: [
-                                    HirEagerPatternExpr::Ident {
+                                    HirEagerPatternData::Ident {
                                         symbol_modifier: None,
                                         ident: `row`,
                                     },
-                                    HirEagerPatternExpr::Ident {
+                                    HirEagerPatternData::Ident {
                                         symbol_modifier: None,
                                         ident: `j`,
                                     },
@@ -780,11 +780,11 @@
                             },
                             pattern_expr_arena: Arena {
                                 data: [
-                                    HirEagerPatternExpr::Ident {
+                                    HirEagerPatternData::Ident {
                                         symbol_modifier: None,
                                         ident: `row`,
                                     },
-                                    HirEagerPatternExpr::Ident {
+                                    HirEagerPatternData::Ident {
                                         symbol_modifier: None,
                                         ident: `j`,
                                     },
@@ -1089,15 +1089,15 @@
                             },
                             pattern_expr_arena: Arena {
                                 data: [
-                                    HirEagerPatternExpr::Ident {
+                                    HirEagerPatternData::Ident {
                                         symbol_modifier: None,
                                         ident: `row_above`,
                                     },
-                                    HirEagerPatternExpr::Ident {
+                                    HirEagerPatternData::Ident {
                                         symbol_modifier: None,
                                         ident: `row_below`,
                                     },
-                                    HirEagerPatternExpr::Ident {
+                                    HirEagerPatternData::Ident {
                                         symbol_modifier: None,
                                         ident: `j`,
                                     },
@@ -1882,112 +1882,112 @@
                                 },
                                 pattern_expr_arena: Arena {
                                     data: [
-                                        HirEagerPatternExpr::Ident {
+                                        HirEagerPatternData::Ident {
                                             symbol_modifier: None,
                                             ident: `pixel_pair_above`,
                                         },
-                                        HirEagerPatternExpr::Ident {
+                                        HirEagerPatternData::Ident {
                                             symbol_modifier: None,
                                             ident: `pixel_pair_below`,
                                         },
-                                        HirEagerPatternExpr::Literal(
+                                        HirEagerPatternData::Literal(
                                             Literal::R32(
                                                 0,
                                             ),
                                         ),
-                                        HirEagerPatternExpr::Literal(
+                                        HirEagerPatternData::Literal(
                                             Literal::R32(
                                                 1,
                                             ),
                                         ),
-                                        HirEagerPatternExpr::Literal(
+                                        HirEagerPatternData::Literal(
                                             Literal::R32(
                                                 3,
                                             ),
                                         ),
-                                        HirEagerPatternExpr::OneOf {
+                                        HirEagerPatternData::OneOf {
                                             options: ArenaIdxRange(
                                                 4..6,
                                             ),
                                         },
-                                        HirEagerPatternExpr::Literal(
+                                        HirEagerPatternData::Literal(
                                             Literal::R32(
                                                 2,
                                             ),
                                         ),
-                                        HirEagerPatternExpr::Ident {
+                                        HirEagerPatternData::Ident {
                                             symbol_modifier: None,
                                             ident: `_`,
                                         },
-                                        HirEagerPatternExpr::Literal(
+                                        HirEagerPatternData::Literal(
                                             Literal::R32(
                                                 1,
                                             ),
                                         ),
-                                        HirEagerPatternExpr::Literal(
+                                        HirEagerPatternData::Literal(
                                             Literal::R32(
                                                 2,
                                             ),
                                         ),
-                                        HirEagerPatternExpr::Literal(
+                                        HirEagerPatternData::Literal(
                                             Literal::R32(
                                                 0,
                                             ),
                                         ),
-                                        HirEagerPatternExpr::Literal(
+                                        HirEagerPatternData::Literal(
                                             Literal::R32(
                                                 1,
                                             ),
                                         ),
-                                        HirEagerPatternExpr::Literal(
+                                        HirEagerPatternData::Literal(
                                             Literal::R32(
                                                 3,
                                             ),
                                         ),
-                                        HirEagerPatternExpr::OneOf {
+                                        HirEagerPatternData::OneOf {
                                             options: ArenaIdxRange(
                                                 12..14,
                                             ),
                                         },
-                                        HirEagerPatternExpr::Literal(
+                                        HirEagerPatternData::Literal(
                                             Literal::R32(
                                                 2,
                                             ),
                                         ),
-                                        HirEagerPatternExpr::Ident {
+                                        HirEagerPatternData::Ident {
                                             symbol_modifier: None,
                                             ident: `_`,
                                         },
-                                        HirEagerPatternExpr::Literal(
+                                        HirEagerPatternData::Literal(
                                             Literal::R32(
                                                 3,
                                             ),
                                         ),
-                                        HirEagerPatternExpr::Literal(
+                                        HirEagerPatternData::Literal(
                                             Literal::R32(
                                                 0,
                                             ),
                                         ),
-                                        HirEagerPatternExpr::Literal(
+                                        HirEagerPatternData::Literal(
                                             Literal::R32(
                                                 1,
                                             ),
                                         ),
-                                        HirEagerPatternExpr::OneOf {
+                                        HirEagerPatternData::OneOf {
                                             options: ArenaIdxRange(
                                                 18..20,
                                             ),
                                         },
-                                        HirEagerPatternExpr::Literal(
+                                        HirEagerPatternData::Literal(
                                             Literal::R32(
                                                 2,
                                             ),
                                         ),
-                                        HirEagerPatternExpr::Ident {
+                                        HirEagerPatternData::Ident {
                                             symbol_modifier: None,
                                             ident: `_`,
                                         },
-                                        HirEagerPatternExpr::Ident {
+                                        HirEagerPatternData::Ident {
                                             symbol_modifier: None,
                                             ident: `_`,
                                         },
@@ -2131,11 +2131,11 @@
                             },
                             pattern_expr_arena: Arena {
                                 data: [
-                                    HirEagerPatternExpr::Ident {
+                                    HirEagerPatternData::Ident {
                                         symbol_modifier: None,
                                         ident: `inward`,
                                     },
-                                    HirEagerPatternExpr::Ident {
+                                    HirEagerPatternData::Ident {
                                         symbol_modifier: None,
                                         ident: `outward`,
                                     },
@@ -2515,36 +2515,36 @@
                                 },
                                 pattern_expr_arena: Arena {
                                     data: [
-                                        HirEagerPatternExpr::Ident {
+                                        HirEagerPatternData::Ident {
                                             symbol_modifier: None,
                                             ident: `raw_angle_change`,
                                         },
-                                        HirEagerPatternExpr::Literal(
+                                        HirEagerPatternData::Literal(
                                             Literal::R32(
                                                 0,
                                             ),
                                         ),
-                                        HirEagerPatternExpr::Literal(
+                                        HirEagerPatternData::Literal(
                                             Literal::R32(
                                                 1,
                                             ),
                                         ),
-                                        HirEagerPatternExpr::Literal(
+                                        HirEagerPatternData::Literal(
                                             Literal::R32(
                                                 2,
                                             ),
                                         ),
-                                        HirEagerPatternExpr::OneOf {
+                                        HirEagerPatternData::OneOf {
                                             options: ArenaIdxRange(
                                                 2..5,
                                             ),
                                         },
-                                        HirEagerPatternExpr::Literal(
+                                        HirEagerPatternData::Literal(
                                             Literal::R32(
                                                 3,
                                             ),
                                         ),
-                                        HirEagerPatternExpr::Ident {
+                                        HirEagerPatternData::Ident {
                                             symbol_modifier: None,
                                             ident: `_`,
                                         },
@@ -2680,19 +2680,19 @@
                             },
                             pattern_expr_arena: Arena {
                                 data: [
-                                    HirEagerPatternExpr::Ident {
+                                    HirEagerPatternData::Ident {
                                         symbol_modifier: None,
                                         ident: `row_above`,
                                     },
-                                    HirEagerPatternExpr::Ident {
+                                    HirEagerPatternData::Ident {
                                         symbol_modifier: None,
                                         ident: `row_below`,
                                     },
-                                    HirEagerPatternExpr::Ident {
+                                    HirEagerPatternData::Ident {
                                         symbol_modifier: None,
                                         ident: `j`,
                                     },
-                                    HirEagerPatternExpr::Ident {
+                                    HirEagerPatternData::Ident {
                                         symbol_modifier: None,
                                         ident: `inward_direction`,
                                     },
@@ -3782,64 +3782,64 @@
                                 },
                                 pattern_expr_arena: Arena {
                                     data: [
-                                        HirEagerPatternExpr::Ident {
+                                        HirEagerPatternData::Ident {
                                             symbol_modifier: None,
                                             ident: `pixel_pair_above`,
                                         },
-                                        HirEagerPatternExpr::Ident {
+                                        HirEagerPatternData::Ident {
                                             symbol_modifier: None,
                                             ident: `pixel_pair_below`,
                                         },
-                                        HirEagerPatternExpr::Literal(
+                                        HirEagerPatternData::Literal(
                                             Literal::R32(
                                                 0,
                                             ),
                                         ),
-                                        HirEagerPatternExpr::Literal(
+                                        HirEagerPatternData::Literal(
                                             Literal::R32(
                                                 1,
                                             ),
                                         ),
-                                        HirEagerPatternExpr::Literal(
+                                        HirEagerPatternData::Literal(
                                             Literal::R32(
                                                 2,
                                             ),
                                         ),
-                                        HirEagerPatternExpr::Literal(
+                                        HirEagerPatternData::Literal(
                                             Literal::R32(
                                                 3,
                                             ),
                                         ),
-                                        HirEagerPatternExpr::OneOf {
+                                        HirEagerPatternData::OneOf {
                                             options: ArenaIdxRange(
                                                 5..7,
                                             ),
                                         },
-                                        HirEagerPatternExpr::Ident {
+                                        HirEagerPatternData::Ident {
                                             symbol_modifier: None,
                                             ident: `_`,
                                         },
-                                        HirEagerPatternExpr::Literal(
+                                        HirEagerPatternData::Literal(
                                             Literal::R32(
                                                 1,
                                             ),
                                         ),
-                                        HirEagerPatternExpr::Literal(
+                                        HirEagerPatternData::Literal(
                                             Literal::R32(
                                                 0,
                                             ),
                                         ),
-                                        HirEagerPatternExpr::Literal(
+                                        HirEagerPatternData::Literal(
                                             Literal::R32(
                                                 1,
                                             ),
                                         ),
-                                        HirEagerPatternExpr::Literal(
+                                        HirEagerPatternData::Literal(
                                             Literal::R32(
                                                 2,
                                             ),
                                         ),
-                                        HirEagerPatternExpr::Unit(
+                                        HirEagerPatternData::Unit(
                                             PatternPath::TypeVariant(
                                                 TypeVariantPath(
                                                     ItemPathId(
@@ -3850,7 +3850,7 @@
                                                 ),
                                             ),
                                         ),
-                                        HirEagerPatternExpr::Unit(
+                                        HirEagerPatternData::Unit(
                                             PatternPath::TypeVariant(
                                                 TypeVariantPath(
                                                     ItemPathId(
@@ -3861,50 +3861,50 @@
                                                 ),
                                             ),
                                         ),
-                                        HirEagerPatternExpr::Ident {
+                                        HirEagerPatternData::Ident {
                                             symbol_modifier: None,
                                             ident: `_`,
                                         },
-                                        HirEagerPatternExpr::Literal(
+                                        HirEagerPatternData::Literal(
                                             Literal::R32(
                                                 3,
                                             ),
                                         ),
-                                        HirEagerPatternExpr::Ident {
+                                        HirEagerPatternData::Ident {
                                             symbol_modifier: None,
                                             ident: `_`,
                                         },
-                                        HirEagerPatternExpr::Literal(
+                                        HirEagerPatternData::Literal(
                                             Literal::R32(
                                                 2,
                                             ),
                                         ),
-                                        HirEagerPatternExpr::Literal(
+                                        HirEagerPatternData::Literal(
                                             Literal::R32(
                                                 0,
                                             ),
                                         ),
-                                        HirEagerPatternExpr::Literal(
+                                        HirEagerPatternData::Literal(
                                             Literal::R32(
                                                 2,
                                             ),
                                         ),
-                                        HirEagerPatternExpr::Literal(
+                                        HirEagerPatternData::Literal(
                                             Literal::R32(
                                                 3,
                                             ),
                                         ),
-                                        HirEagerPatternExpr::OneOf {
+                                        HirEagerPatternData::OneOf {
                                             options: ArenaIdxRange(
                                                 19..22,
                                             ),
                                         },
-                                        HirEagerPatternExpr::Literal(
+                                        HirEagerPatternData::Literal(
                                             Literal::R32(
                                                 1,
                                             ),
                                         ),
-                                        HirEagerPatternExpr::Unit(
+                                        HirEagerPatternData::Unit(
                                             PatternPath::TypeVariant(
                                                 TypeVariantPath(
                                                     ItemPathId(
@@ -3915,7 +3915,7 @@
                                                 ),
                                             ),
                                         ),
-                                        HirEagerPatternExpr::Unit(
+                                        HirEagerPatternData::Unit(
                                             PatternPath::TypeVariant(
                                                 TypeVariantPath(
                                                     ItemPathId(
@@ -3926,44 +3926,44 @@
                                                 ),
                                             ),
                                         ),
-                                        HirEagerPatternExpr::Ident {
+                                        HirEagerPatternData::Ident {
                                             symbol_modifier: None,
                                             ident: `_`,
                                         },
-                                        HirEagerPatternExpr::Ident {
+                                        HirEagerPatternData::Ident {
                                             symbol_modifier: None,
                                             ident: `_`,
                                         },
-                                        HirEagerPatternExpr::Literal(
+                                        HirEagerPatternData::Literal(
                                             Literal::R32(
                                                 3,
                                             ),
                                         ),
-                                        HirEagerPatternExpr::Literal(
+                                        HirEagerPatternData::Literal(
                                             Literal::R32(
                                                 0,
                                             ),
                                         ),
-                                        HirEagerPatternExpr::Literal(
+                                        HirEagerPatternData::Literal(
                                             Literal::R32(
                                                 2,
                                             ),
                                         ),
-                                        HirEagerPatternExpr::OneOf {
+                                        HirEagerPatternData::OneOf {
                                             options: ArenaIdxRange(
                                                 29..31,
                                             ),
                                         },
-                                        HirEagerPatternExpr::Literal(
+                                        HirEagerPatternData::Literal(
                                             Literal::R32(
                                                 1,
                                             ),
                                         ),
-                                        HirEagerPatternExpr::Ident {
+                                        HirEagerPatternData::Ident {
                                             symbol_modifier: None,
                                             ident: `_`,
                                         },
-                                        HirEagerPatternExpr::Ident {
+                                        HirEagerPatternData::Ident {
                                             symbol_modifier: None,
                                             ident: `_`,
                                         },
@@ -4211,7 +4211,7 @@
                             },
                             pattern_expr_arena: Arena {
                                 data: [
-                                    HirEagerPatternExpr::Ident {
+                                    HirEagerPatternData::Ident {
                                         symbol_modifier: None,
                                         ident: `points`,
                                     },
@@ -4948,15 +4948,15 @@
                                 },
                                 pattern_expr_arena: Arena {
                                     data: [
-                                        HirEagerPatternExpr::Ident {
+                                        HirEagerPatternData::Ident {
                                             symbol_modifier: None,
                                             ident: `N`,
                                         },
-                                        HirEagerPatternExpr::Ident {
+                                        HirEagerPatternData::Ident {
                                             symbol_modifier: None,
                                             ident: `p0`,
                                         },
-                                        HirEagerPatternExpr::Ident {
+                                        HirEagerPatternData::Ident {
                                             symbol_modifier: None,
                                             ident: `p2`,
                                         },
@@ -5079,7 +5079,7 @@
                             },
                             pattern_expr_arena: Arena {
                                 data: [
-                                    HirEagerPatternExpr::Ident {
+                                    HirEagerPatternData::Ident {
                                         symbol_modifier: None,
                                         ident: `cc`,
                                     },
@@ -11851,127 +11851,127 @@
                                 },
                                 pattern_expr_arena: Arena {
                                     data: [
-                                        HirEagerPatternExpr::Ident {
+                                        HirEagerPatternData::Ident {
                                             symbol_modifier: Some(
                                                 Mut,
                                             ),
                                             ident: `result`,
                                         },
-                                        HirEagerPatternExpr::Ident {
+                                        HirEagerPatternData::Ident {
                                             symbol_modifier: Some(
                                                 Mut,
                                             ),
                                             ident: `boundary_unsearched`,
                                         },
-                                        HirEagerPatternExpr::Ident {
+                                        HirEagerPatternData::Ident {
                                             symbol_modifier: None,
                                             ident: `r_ur`,
                                         },
-                                        HirEagerPatternExpr::Ident {
+                                        HirEagerPatternData::Ident {
                                             symbol_modifier: None,
                                             ident: `r_dr`,
                                         },
-                                        HirEagerPatternExpr::Ident {
+                                        HirEagerPatternData::Ident {
                                             symbol_modifier: None,
                                             ident: `r_ul`,
                                         },
-                                        HirEagerPatternExpr::Ident {
+                                        HirEagerPatternData::Ident {
                                             symbol_modifier: None,
                                             ident: `r_dl`,
                                         },
-                                        HirEagerPatternExpr::Ident {
+                                        HirEagerPatternData::Ident {
                                             symbol_modifier: Some(
                                                 Mut,
                                             ),
                                             ident: `contour`,
                                         },
-                                        HirEagerPatternExpr::Ident {
+                                        HirEagerPatternData::Ident {
                                             symbol_modifier: Some(
                                                 Mut,
                                             ),
                                             ident: `i`,
                                         },
-                                        HirEagerPatternExpr::Ident {
+                                        HirEagerPatternData::Ident {
                                             symbol_modifier: Some(
                                                 Mut,
                                             ),
                                             ident: `j`,
                                         },
-                                        HirEagerPatternExpr::Ident {
+                                        HirEagerPatternData::Ident {
                                             symbol_modifier: Some(
                                                 Mut,
                                             ),
                                             ident: `row_above`,
                                         },
-                                        HirEagerPatternExpr::Ident {
+                                        HirEagerPatternData::Ident {
                                             symbol_modifier: Some(
                                                 Mut,
                                             ),
                                             ident: `row_below`,
                                         },
-                                        HirEagerPatternExpr::Ident {
+                                        HirEagerPatternData::Ident {
                                             symbol_modifier: Some(
                                                 Mut,
                                             ),
                                             ident: `inward_direction`,
                                         },
-                                        HirEagerPatternExpr::Ident {
+                                        HirEagerPatternData::Ident {
                                             symbol_modifier: None,
                                             ident: `i0`,
                                         },
-                                        HirEagerPatternExpr::Ident {
+                                        HirEagerPatternData::Ident {
                                             symbol_modifier: None,
                                             ident: `j0`,
                                         },
-                                        HirEagerPatternExpr::Ident {
+                                        HirEagerPatternData::Ident {
                                             symbol_modifier: None,
                                             ident: `dir0`,
                                         },
-                                        HirEagerPatternExpr::Ident {
+                                        HirEagerPatternData::Ident {
                                             symbol_modifier: Some(
                                                 Mut,
                                             ),
                                             ident: `prev_angle_change1`,
                                         },
-                                        HirEagerPatternExpr::Ident {
+                                        HirEagerPatternData::Ident {
                                             symbol_modifier: Some(
                                                 Mut,
                                             ),
                                             ident: `prev_angle_change2`,
                                         },
-                                        HirEagerPatternExpr::Ident {
+                                        HirEagerPatternData::Ident {
                                             symbol_modifier: Some(
                                                 Mut,
                                             ),
                                             ident: `total_angle_change`,
                                         },
-                                        HirEagerPatternExpr::Ident {
+                                        HirEagerPatternData::Ident {
                                             symbol_modifier: Some(
                                                 Mut,
                                             ),
                                             ident: `prev_streak1`,
                                         },
-                                        HirEagerPatternExpr::Ident {
+                                        HirEagerPatternData::Ident {
                                             symbol_modifier: Some(
                                                 Mut,
                                             ),
                                             ident: `prev_streak2`,
                                         },
-                                        HirEagerPatternExpr::Ident {
+                                        HirEagerPatternData::Ident {
                                             symbol_modifier: Some(
                                                 Mut,
                                             ),
                                             ident: `current_streak`,
                                         },
-                                        HirEagerPatternExpr::Ident {
+                                        HirEagerPatternData::Ident {
                                             symbol_modifier: None,
                                             ident: `outward_direction`,
                                         },
-                                        HirEagerPatternExpr::Ident {
+                                        HirEagerPatternData::Ident {
                                             symbol_modifier: None,
                                             ident: `angle_change`,
                                         },
-                                        HirEagerPatternExpr::Unit(
+                                        HirEagerPatternData::Unit(
                                             PatternPath::TypeVariant(
                                                 TypeVariantPath(
                                                     ItemPathId(
@@ -11982,7 +11982,7 @@
                                                 ),
                                             ),
                                         ),
-                                        HirEagerPatternExpr::Unit(
+                                        HirEagerPatternData::Unit(
                                             PatternPath::TypeVariant(
                                                 TypeVariantPath(
                                                     ItemPathId(
@@ -11993,7 +11993,7 @@
                                                 ),
                                             ),
                                         ),
-                                        HirEagerPatternExpr::Unit(
+                                        HirEagerPatternData::Unit(
                                             PatternPath::TypeVariant(
                                                 TypeVariantPath(
                                                     ItemPathId(
@@ -12004,7 +12004,7 @@
                                                 ),
                                             ),
                                         ),
-                                        HirEagerPatternExpr::Unit(
+                                        HirEagerPatternData::Unit(
                                             PatternPath::TypeVariant(
                                                 TypeVariantPath(
                                                     ItemPathId(
@@ -14138,35 +14138,35 @@
                                 },
                                 pattern_expr_arena: Arena {
                                     data: [
-                                        HirEagerPatternExpr::Ident {
+                                        HirEagerPatternData::Ident {
                                             symbol_modifier: None,
                                             ident: `start_point`,
                                         },
-                                        HirEagerPatternExpr::Ident {
+                                        HirEagerPatternData::Ident {
                                             symbol_modifier: Some(
                                                 Mut,
                                             ),
                                             ident: `xmin`,
                                         },
-                                        HirEagerPatternExpr::Ident {
+                                        HirEagerPatternData::Ident {
                                             symbol_modifier: Some(
                                                 Mut,
                                             ),
                                             ident: `xmax`,
                                         },
-                                        HirEagerPatternExpr::Ident {
+                                        HirEagerPatternData::Ident {
                                             symbol_modifier: Some(
                                                 Mut,
                                             ),
                                             ident: `ymin`,
                                         },
-                                        HirEagerPatternExpr::Ident {
+                                        HirEagerPatternData::Ident {
                                             symbol_modifier: Some(
                                                 Mut,
                                             ),
                                             ident: `ymax`,
                                         },
-                                        HirEagerPatternExpr::Ident {
+                                        HirEagerPatternData::Ident {
                                             symbol_modifier: None,
                                             ident: `point`,
                                         },
@@ -15874,25 +15874,25 @@
                                 },
                                 pattern_expr_arena: Arena {
                                     data: [
-                                        HirEagerPatternExpr::Ident {
+                                        HirEagerPatternData::Ident {
                                             symbol_modifier: Some(
                                                 Mut,
                                             ),
                                             ident: `contour_len`,
                                         },
-                                        HirEagerPatternExpr::Ident {
+                                        HirEagerPatternData::Ident {
                                             symbol_modifier: None,
                                             ident: `a`,
                                         },
-                                        HirEagerPatternExpr::Ident {
+                                        HirEagerPatternData::Ident {
                                             symbol_modifier: None,
                                             ident: `b`,
                                         },
-                                        HirEagerPatternExpr::Ident {
+                                        HirEagerPatternData::Ident {
                                             symbol_modifier: None,
                                             ident: `a`,
                                         },
-                                        HirEagerPatternExpr::Ident {
+                                        HirEagerPatternData::Ident {
                                             symbol_modifier: None,
                                             ident: `b`,
                                         },
@@ -16034,11 +16034,11 @@
                             },
                             pattern_expr_arena: Arena {
                                 data: [
-                                    HirEagerPatternExpr::Ident {
+                                    HirEagerPatternData::Ident {
                                         symbol_modifier: None,
                                         ident: `start`,
                                     },
-                                    HirEagerPatternExpr::Ident {
+                                    HirEagerPatternData::Ident {
                                         symbol_modifier: None,
                                         ident: `end`,
                                     },
@@ -16652,15 +16652,15 @@
                                 },
                                 pattern_expr_arena: Arena {
                                     data: [
-                                        HirEagerPatternExpr::Ident {
+                                        HirEagerPatternData::Ident {
                                             symbol_modifier: None,
                                             ident: `N`,
                                         },
-                                        HirEagerPatternExpr::Ident {
+                                        HirEagerPatternData::Ident {
                                             symbol_modifier: None,
                                             ident: `ct_start`,
                                         },
-                                        HirEagerPatternExpr::Ident {
+                                        HirEagerPatternData::Ident {
                                             symbol_modifier: None,
                                             ident: `ct_end`,
                                         },
