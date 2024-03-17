@@ -19,7 +19,7 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TraitForTypeImplBlock(
-                #derive _ as core::marker::Copy(0),
+                TraitForTypeImplBlockPath(`#derive _ as core::marker::Copy(0)`),
             ),
         ),
         None,

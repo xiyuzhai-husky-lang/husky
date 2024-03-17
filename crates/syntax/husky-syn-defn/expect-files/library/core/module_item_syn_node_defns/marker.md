@@ -50,7 +50,7 @@
                         data: ItemSynNodePathData::ImplBlock(
                             ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                 TraitForTypeImplBlockSynNodePathData {
-                                    path: #derive _ as core::marker::Copy(0),
+                                    path: TraitForTypeImplBlockPath(`#derive _ as core::marker::Copy(0)`),
                                 },
                             ),
                         ),

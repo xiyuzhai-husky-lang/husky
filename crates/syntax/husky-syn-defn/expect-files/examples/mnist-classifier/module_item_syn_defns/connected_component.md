@@ -4656,7 +4656,7 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TraitForTypeImplBlock(
-                mnist_classifier::connected_component::ConnectedComponent as core::visual::Visualize(0),
+                TraitForTypeImplBlockPath(`mnist_classifier::connected_component::ConnectedComponent as core::visual::Visualize(0)`),
             ),
         ),
         None,
@@ -4689,7 +4689,7 @@
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                                path: mnist_classifier::connected_component::ConnectedComponent as core::visual::Visualize(0),
+                                                                                path: TraitForTypeImplBlockPath(`mnist_classifier::connected_component::ConnectedComponent as core::visual::Visualize(0)`),
                                                                             },
                                                                         ),
                                                                     ),

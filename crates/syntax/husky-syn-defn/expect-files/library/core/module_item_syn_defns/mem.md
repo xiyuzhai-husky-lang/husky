@@ -35,7 +35,7 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TraitForTypeImplBlock(
-                core::mem::Leash as core::marker::Copy(0),
+                TraitForTypeImplBlockPath(`core::mem::Leash as core::marker::Copy(0)`),
             ),
         ),
         None,

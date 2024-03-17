@@ -50,7 +50,7 @@
                         data: ItemSynNodePathData::ImplBlock(
                             ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                 TraitForTypeImplBlockSynNodePathData {
-                                    path: #derive _ as core::visual::Visualize(0),
+                                    path: TraitForTypeImplBlockPath(`#derive _ as core::visual::Visualize(0)`),
                                 },
                             ),
                         ),
