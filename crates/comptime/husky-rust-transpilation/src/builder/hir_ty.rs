@@ -91,7 +91,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for HirTemplateArgument {
             HirTemplateArgument::Type(hir_ty) => hir_ty.transpile_to_rust(builder),
             HirTemplateArgument::Constant(hir_constant) => hir_constant.transpile_to_rust(builder),
             HirTemplateArgument::Lifetime(_) => todo!(),
-            HirTemplateArgument::Quary(_) => todo!(),
+            HirTemplateArgument::ContractedQuary(_) => todo!(),
         }
     }
 }
@@ -101,7 +101,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for HirTermSvarResolution {
         match self {
             HirTermSvarResolution::Explicit(arg) => arg.transpile_to_rust(builder),
             HirTermSvarResolution::SelfLifetime => todo!(),
-            HirTermSvarResolution::SelfPlace(_) => todo!(),
+            HirTermSvarResolution::SelfContractedQuary(_) => todo!(),
         }
     }
 }

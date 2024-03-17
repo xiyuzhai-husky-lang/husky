@@ -160,7 +160,7 @@
                                             ExpectCoersionOutcome {
                                                 coersion: Trivial(
                                                     TrivialFlyCoersion {
-                                                        expectee_place: Transient,
+                                                        expectee_quary: Transient,
                                                     },
                                                 ),
                                             },
@@ -342,7 +342,7 @@
                                                 ExpectCoersionOutcome {
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
-                                                            expectee_place: Transient,
+                                                            expectee_quary: Transient,
                                                         },
                                                     ),
                                                 },
@@ -455,7 +455,7 @@
                                                 ExpectCoersionOutcome {
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
-                                                            expectee_place: Transient,
+                                                            expectee_quary: Transient,
                                                         },
                                                     ),
                                                 },

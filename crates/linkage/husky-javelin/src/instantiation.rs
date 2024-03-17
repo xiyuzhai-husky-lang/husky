@@ -106,7 +106,7 @@ impl JavTermSymbolResolution {
                 ))
             }
             HirTermSvarResolution::SelfLifetime => JavTermSymbolResolution::SelfLifetime,
-            HirTermSvarResolution::SelfPlace(_) => JavTermSymbolResolution::SelfPlace,
+            HirTermSvarResolution::SelfContractedQuary(_) => JavTermSymbolResolution::SelfPlace,
         }
     }
 

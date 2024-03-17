@@ -57,7 +57,7 @@ impl<'a> SemaExprBuilder<'a> {
         (
             Ok(SemaStmtData::Match {
                 match_token,
-                match_target,
+                match_opd: match_target,
                 match_contract,
                 eol_with_token,
                 case_branches: sema_case_branches,

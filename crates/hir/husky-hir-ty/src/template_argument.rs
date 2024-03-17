@@ -1,4 +1,6 @@
-use crate::{path_leading::HirTypePathLeading, quary::HirQuary, ritchie::HirRitchieType, *};
+use crate::{
+    path_leading::HirTypePathLeading, quary::HirContractedQuary, ritchie::HirRitchieType, *,
+};
 use husky_eth_signature::helpers::trai_for_ty::is_ty_term_always_copyable;
 use husky_eth_term::term::EthTerm;
 use husky_fly_term::{FlyTerm, FlyTermBase, FlyTerms};
@@ -22,7 +24,7 @@ pub enum HirTemplateArgument {
     Type(HirType),
     Constant(HirConstant),
     Lifetime(HirLifetimeSvar),
-    Quary(HirQuary),
+    ContractedQuary(HirContractedQuary),
 }
 
 impl From<HirTemplateSvar> for HirTemplateArgument {
@@ -31,7 +33,8 @@ impl From<HirTemplateSvar> for HirTemplateArgument {
             HirTemplateSvar::Type(symbol) => HirTemplateArgument::Type(symbol.into()),
             HirTemplateSvar::Const(symbol) => HirTemplateArgument::Constant(symbol.into()),
             HirTemplateSvar::Lifetime(symbol) => HirTemplateArgument::Lifetime(symbol.into()),
-            HirTemplateSvar::Quary(symbol) => HirTemplateArgument::Quary(symbol.into()),
+            HirTemplateSvar::Quary(symbol) => todo!(),
+            // HirTemplateArgument::ContractedQuary(symbol.into()),
         }
     }
 }

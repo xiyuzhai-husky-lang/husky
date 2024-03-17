@@ -1150,7 +1150,7 @@
                                                 ExpectCoersionOutcome {
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
-                                                            expectee_place: Const,
+                                                            expectee_quary: Const,
                                                         },
                                                     ),
                                                 },
@@ -2009,7 +2009,7 @@
                                                 ExpectCoersionOutcome {
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
-                                                            expectee_place: Const,
+                                                            expectee_quary: Const,
                                                         },
                                                     ),
                                                 },

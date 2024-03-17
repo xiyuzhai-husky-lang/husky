@@ -40,15 +40,15 @@ pub enum HirEagerStmtData {
     ForBetween {
         particulars: HirEagerForBetweenParticulars,
         // frame_var_symbol_idx: CurrentHirEagerSymbolIdx,
-        block: HirEagerStmtIdxRange,
+        stmts: HirEagerStmtIdxRange,
     },
     Forext {
         particulars: HirEagerForExtParticulars,
-        block: HirEagerStmtIdxRange,
+        stmts: HirEagerStmtIdxRange,
     },
     ForIn {
         condition: HirEagerExprIdx,
-        block: HirEagerStmtIdxRange,
+        stmts: HirEagerStmtIdxRange,
     },
     While {
         condition: HirEagerCondition,
@@ -56,7 +56,7 @@ pub enum HirEagerStmtData {
     },
     DoWhile {
         condition: HirEagerCondition,
-        block: HirEagerStmtIdxRange,
+        stmts: HirEagerStmtIdxRange,
     },
     IfElse {
         if_branch: HirEagerIfBranch,
@@ -64,8 +64,8 @@ pub enum HirEagerStmtData {
         else_branch: Option<HirEagerElseBranch>,
     },
     Match {
+        opd: HirEagerExprIdx,
         case_branches: Vec<HirEagerCaseBranch>,
-        match_target: HirEagerExprIdx,
     },
 }
 
@@ -133,7 +133,7 @@ impl ToHirEager for SemaStmtIdx {
                 ..
             } => HirEagerStmtData::ForBetween {
                 particulars: particulars.to_hir_eager(builder),
-                block: block.to_hir_eager(builder),
+                stmts: block.to_hir_eager(builder),
             },
             SemaStmtData::ForIn { .. } => todo!(),
             SemaStmtData::Forext {
@@ -142,7 +142,7 @@ impl ToHirEager for SemaStmtIdx {
                 ..
             } => HirEagerStmtData::Forext {
                 particulars: particulars.to_hir_eager(builder),
-                block: block.to_hir_eager(builder),
+                stmts: block.to_hir_eager(builder),
             },
             SemaStmtData::While {
                 condition,
@@ -158,7 +158,7 @@ impl ToHirEager for SemaStmtIdx {
                 ..
             } => HirEagerStmtData::DoWhile {
                 condition: condition.to_hir_eager(builder),
-                block: block.to_hir_eager(builder),
+                stmts: block.to_hir_eager(builder),
             },
             SemaStmtData::IfElse {
                 ref if_branch,
@@ -170,11 +170,11 @@ impl ToHirEager for SemaStmtIdx {
                 else_branch: else_branch.to_hir_eager(builder),
             },
             SemaStmtData::Match {
-                match_target,
+                match_opd,
                 case_branches,
                 ..
             } => HirEagerStmtData::Match {
-                match_target: match_target.to_hir_eager(builder),
+                opd: match_opd.to_hir_eager(builder),
                 case_branches: case_branches.to_hir_eager(builder),
             },
         })

@@ -214,7 +214,7 @@ impl<'a> HirDefnDependenciesBuilder<'a> {
             HirTemplateArgument::Type(hir_ty) => self.add_hir_ty(hir_ty),
             HirTemplateArgument::Constant(_) => (),
             HirTemplateArgument::Lifetime(_) => (),
-            HirTemplateArgument::Quary(_) => (),
+            HirTemplateArgument::ContractedQuary(_) => (),
         }
     }
 
@@ -266,7 +266,7 @@ impl<'a> HirDefnDependenciesBuilder<'a> {
                     self.add_hir_template_argument(hir_template_argument)
                 }
                 HirTermSvarResolution::SelfLifetime => (),
-                HirTermSvarResolution::SelfPlace(_) => (),
+                HirTermSvarResolution::SelfContractedQuary(_) => (),
             }
         }
     }

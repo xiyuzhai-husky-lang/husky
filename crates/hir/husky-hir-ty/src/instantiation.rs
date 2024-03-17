@@ -1,5 +1,6 @@
 use super::*;
-use crate::quary::HirQuary;
+use crate::place_contract_site::HirPlaceContractSite;
+use crate::quary::HirContractedQuary;
 use husky_eth_term::instantiation::EthInstantiation;
 use husky_fly_term::{
     instantiation::{FlyInstantiation, FlyTermSymbolResolution},
@@ -31,7 +32,7 @@ pub enum HirTermSvarResolution {
     Explicit(HirTemplateArgument),
     /// means we don't care about it now
     SelfLifetime,
-    SelfPlace(HirQuary),
+    SelfContractedQuary(HirContractedQuary),
 }
 impl HirTermSvarResolution {
     fn is_univalent_for_javelin(&self) -> bool {
@@ -41,16 +42,21 @@ impl HirTermSvarResolution {
                 HirTemplateArgument::Type(_) => false,
                 HirTemplateArgument::Constant(_) => false,
                 HirTemplateArgument::Lifetime(_) => true,
-                HirTemplateArgument::Quary(_) => true,
+                HirTemplateArgument::ContractedQuary(_) => true,
             },
             HirTermSvarResolution::SelfLifetime => true,
-            HirTermSvarResolution::SelfPlace(_) => true,
+            HirTermSvarResolution::SelfContractedQuary(_) => true,
         }
     }
 }
 
 impl HirInstantiation {
-    pub fn from_fly(instantiation: &FlyInstantiation, db: &::salsa::Db, terms: &FlyTerms) -> Self {
+    pub fn from_fly(
+        instantiation: &FlyInstantiation,
+        place_contract_site: &HirPlaceContractSite,
+        db: &::salsa::Db,
+        terms: &FlyTerms,
+    ) -> Self {
         let (symbol_map0, symbol_map1) = &instantiation.symbol_map_splitted();
         let t = |&(symbol, resolution)| match HirTemplateSvar::from_eth(symbol, db) {
             Some(symbol) => Some((
@@ -60,8 +66,11 @@ impl HirInstantiation {
                         HirTemplateArgument::from_fly(term, db, terms).expect("some"),
                     ),
                     FlyTermSymbolResolution::SelfLifetime => HirTermSvarResolution::SelfLifetime,
-                    FlyTermSymbolResolution::SelfPlace(place) => {
-                        HirTermSvarResolution::SelfPlace(HirQuary::from_fly(place))
+                    FlyTermSymbolResolution::SelfQuary(quary) => {
+                        HirTermSvarResolution::SelfContractedQuary(HirContractedQuary::from_fly(
+                            quary,
+                            place_contract_site,
+                        ))
                     }
                 },
             )),
@@ -114,13 +123,13 @@ impl HirInstantiation {
         self.symbol_map.as_ref()
     }
 
-    pub fn places(&self) -> SmallVec<[HirQuary; 2]> {
+    pub fn contracted_quaries(&self) -> SmallVec<[HirContractedQuary; 2]> {
         self.symbol_map
             .iter()
             .filter_map(|&(_, res)| match res {
                 HirTermSvarResolution::Explicit(_) => None,
                 HirTermSvarResolution::SelfLifetime => None,
-                HirTermSvarResolution::SelfPlace(place) => Some(place),
+                HirTermSvarResolution::SelfContractedQuary(quary) => Some(quary),
             })
             .collect()
     }

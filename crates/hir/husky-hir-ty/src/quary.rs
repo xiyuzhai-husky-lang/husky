@@ -1,8 +1,10 @@
+use crate::{
+    lifetime::HirLifetime, place_contract_site::HirPlaceContractSite, ritchie::HirContract,
+    HirQuarySvar,
+};
 use either::*;
 use husky_fly_term::{term::quary::FlyQuary, FlyLifetime};
 use husky_place::place::EthPlace;
-
-use crate::{lifetime::HirLifetime, HirQuarySvar};
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum HirQuary {
@@ -83,6 +85,35 @@ pub enum HirQuary {
     Svar(HirQuarySvar),
 }
 
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+pub struct HirContractedQuary {
+    contract: Option<HirContract>,
+    quary: HirQuary,
+}
+
+/// # constructor
+impl HirContractedQuary {
+    pub fn from_fly(fly_quary: FlyQuary, place_contract_site: &HirPlaceContractSite) -> Self {
+        let place = fly_quary.place();
+        let contract = place.map(|place| place_contract_site[place]);
+        Self {
+            contract,
+            quary: HirQuary::from_fly(fly_quary),
+        }
+    }
+}
+
+/// # getters
+impl HirContractedQuary {
+    pub fn contract(self) -> Option<HirContract> {
+        self.contract
+    }
+
+    pub fn quary(self) -> HirQuary {
+        self.quary
+    }
+}
+
 impl From<HirQuarySvar> for HirQuary {
     fn from(svar: HirQuarySvar) -> Self {
         HirQuary::Svar(svar)
@@ -90,8 +121,8 @@ impl From<HirQuarySvar> for HirQuary {
 }
 
 impl HirQuary {
-    pub fn from_fly(place: FlyQuary) -> HirQuary {
-        match place {
+    pub fn from_fly(fly_quary: FlyQuary) -> HirQuary {
+        match fly_quary {
             FlyQuary::Const => HirQuary::Const,
             FlyQuary::StackPure { place } => HirQuary::StackPure { place },
             FlyQuary::ImmutableOnStack { place } => HirQuary::ImmutableOnStack { place },

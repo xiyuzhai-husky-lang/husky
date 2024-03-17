@@ -5,6 +5,7 @@ use husky_sema_expr::{
     SemaExprArenaRef, SemaExprIdx, SemaExprMap, SemaExprRegion, SemaExprRegionData,
     SemaStmtArenaRef, SemaStmtIdx, SemaStmtMap,
 };
+use husky_sema_place_contract::region::{sema_place_contract_region, SemaPlaceContractRegion};
 use husky_syn_expr::{
     CurrentSynSymbolIdx, InheritedSynSymbolIdx, SynExprRegionData, SynExprRootKind, SynPatternMap,
     SynSymbolMap,
@@ -15,6 +16,7 @@ pub(crate) struct HirLazyExprBuilder<'a> {
     db: &'a ::salsa::Db,
     syn_expr_region_data: &'a SynExprRegionData,
     sema_expr_region_data: &'a SemaExprRegionData,
+    sema_place_contract_region: &'a SemaPlaceContractRegion,
     hir_lazy_expr_arena: HirLazyExprArena,
     hir_lazy_stmt_arena: HirLazyStmtArena,
     hir_lazy_pattern_expr_arena: HirLazyPatternExprArena,
@@ -37,6 +39,7 @@ impl<'a> HirLazyExprBuilder<'a> {
             db,
             syn_expr_region_data,
             sema_expr_region_data,
+            sema_place_contract_region: sema_place_contract_region(db, sema_expr_region),
             hir_lazy_expr_arena: Default::default(),
             hir_lazy_stmt_arena: Default::default(),
             hir_lazy_pattern_expr_arena: Default::default(),
@@ -62,6 +65,10 @@ impl<'a> HirLazyExprBuilder<'a> {
 
     pub(crate) fn sema_stmt_arena_ref(&self) -> SemaStmtArenaRef<'a> {
         self.sema_expr_region_data.sema_stmt_arena()
+    }
+
+    pub(crate) fn sema_place_contract_region(&self) -> &'a SemaPlaceContractRegion {
+        self.sema_place_contract_region
     }
 
     pub(crate) fn alloc_stmts(

@@ -758,12 +758,12 @@ fn runtime_constants(
                             HirConstant::StaticLifetime => todo!(),
                         },
                         HirTemplateArgument::Lifetime(_) => todo!(),
-                        HirTemplateArgument::Quary(_) => todo!(),
+                        HirTemplateArgument::ContractedQuary(_) => todo!(),
                     },
                     HirTermSvarResolution::SelfLifetime => {
                         todo!()
                     }
-                    HirTermSvarResolution::SelfPlace(_) => {
+                    HirTermSvarResolution::SelfContractedQuary(_) => {
                         todo!()
                     }
                 })

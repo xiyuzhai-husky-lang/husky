@@ -49,7 +49,7 @@ pub enum FlyTermSymbolResolution {
     Explicit(FlyTerm),
     /// means we don't care about it now
     SelfLifetime,
-    SelfPlace(FlyQuary),
+    SelfQuary(FlyQuary),
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -226,7 +226,7 @@ impl FlyTermInstantiationBuilder {
                             EthTermSymbolIndexImpl::SelfPlace => Some(match env {
                                 FlyInstantiationEnvironment::AssocFn => todo!(),
                                 FlyInstantiationEnvironment::MethodFn { self_place } => {
-                                    FlyTermSymbolResolution::SelfPlace(self_place)
+                                    FlyTermSymbolResolution::SelfQuary(self_place)
                                 }
                                 FlyInstantiationEnvironment::MemoizedField => todo!(),
                                 FlyInstantiationEnvironment::TypeOntologyConstructor => todo!(),
@@ -266,7 +266,7 @@ impl FlyTermInstantiationBuilder {
                             }
                         }
                         FlyTermSymbolResolution::SelfLifetime => todo!(),
-                        FlyTermSymbolResolution::SelfPlace(_) => todo!(),
+                        FlyTermSymbolResolution::SelfQuary(_) => todo!(),
                     },
                     None => *dst0 = Some(FlyTermSymbolResolution::Explicit(dst)),
                 }
@@ -317,7 +317,7 @@ impl FlyInstantiate for EthTerm {
                 resolution => match resolution {
                     FlyTermSymbolResolution::Explicit(term) => term,
                     FlyTermSymbolResolution::SelfLifetime => todo!(),
-                    FlyTermSymbolResolution::SelfPlace(place) => place.into(),
+                    FlyTermSymbolResolution::SelfQuary(place) => place.into(),
                 },
             },
             EthTerm::Hvar(_) => todo!(),

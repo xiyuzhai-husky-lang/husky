@@ -473,11 +473,69 @@
                                     HirTemplateSvar::Type(
                                         HirTypeSvar::SelfPlace,
                                     ),
-                                    HirTermSvarResolution::SelfPlace(
-                                        MutableOnStack {
-                                            place: Idx(
-                                                PlaceIdx(0),
+                                    HirTermSvarResolution::SelfContractedQuary(
+                                        HirContractedQuary {
+                                            contract: Some(
+                                                Pure,
                                             ),
+                                            quary: MutableOnStack {
+                                                place: Idx(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                ),
+                            ],
+                            separator: Some(
+                                1,
+                            ),
+                        },
+                    },
+                    ValkyrieRide::PathLeading {
+                        javelin_item_path: JavPath::TypeItem(
+                            TypeItemPath(`<core::vec::Vec(0)>::last`, `MethodRitchie(
+                                Fn,
+                            )`),
+                        ),
+                        hir_instantiation: HirInstantiation {
+                            symbol_map: [
+                                (
+                                    HirTemplateSvar::Type(
+                                        HirTypeSvar::Type {
+                                            attrs: HirTemplateSvarAttrs {
+                                                class: Comptime,
+                                            },
+                                            variance: None,
+                                            disambiguator: 0,
+                                        },
+                                    ),
+                                    HirTermSvarResolution::Explicit(
+                                        HirTemplateArgument::Type(
+                                            HirType::PathLeading(
+                                                HirTypePathLeading {
+                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                    template_arguments: [],
+                                                    always_copyable: false,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                                (
+                                    HirTemplateSvar::Type(
+                                        HirTypeSvar::SelfPlace,
+                                    ),
+                                    HirTermSvarResolution::SelfContractedQuary(
+                                        HirContractedQuary {
+                                            contract: Some(
+                                                BorrowMut,
+                                            ),
+                                            quary: MutableOnStack {
+                                                place: Idx(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         },
                                     ),
                                 ),
@@ -677,11 +735,69 @@
                                     HirTemplateSvar::Type(
                                         HirTypeSvar::SelfPlace,
                                     ),
-                                    HirTermSvarResolution::SelfPlace(
-                                        MutableOnStack {
-                                            place: Idx(
-                                                PlaceIdx(0),
+                                    HirTermSvarResolution::SelfContractedQuary(
+                                        HirContractedQuary {
+                                            contract: Some(
+                                                Pure,
                                             ),
+                                            quary: MutableOnStack {
+                                                place: Idx(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                ),
+                            ],
+                            separator: Some(
+                                1,
+                            ),
+                        },
+                    },
+                    ValkyrieRide::PathLeading {
+                        javelin_item_path: JavPath::TypeItem(
+                            TypeItemPath(`<core::vec::Vec(0)>::first`, `MethodRitchie(
+                                Fn,
+                            )`),
+                        ),
+                        hir_instantiation: HirInstantiation {
+                            symbol_map: [
+                                (
+                                    HirTemplateSvar::Type(
+                                        HirTypeSvar::Type {
+                                            attrs: HirTemplateSvarAttrs {
+                                                class: Comptime,
+                                            },
+                                            variance: None,
+                                            disambiguator: 0,
+                                        },
+                                    ),
+                                    HirTermSvarResolution::Explicit(
+                                        HirTemplateArgument::Type(
+                                            HirType::PathLeading(
+                                                HirTypePathLeading {
+                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                    template_arguments: [],
+                                                    always_copyable: false,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                                (
+                                    HirTemplateSvar::Type(
+                                        HirTypeSvar::SelfPlace,
+                                    ),
+                                    HirTermSvarResolution::SelfContractedQuary(
+                                        HirContractedQuary {
+                                            contract: Some(
+                                                BorrowMut,
+                                            ),
+                                            quary: MutableOnStack {
+                                                place: Idx(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         },
                                     ),
                                 ),

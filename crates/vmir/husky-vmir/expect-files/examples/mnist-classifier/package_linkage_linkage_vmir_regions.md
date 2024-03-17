@@ -790,13 +790,67 @@
                         },
                     },
                 },
-                root_expr: 2,
+                root_expr: 18,
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Binary {
+                            lopd: 1,
+                            opr: Assign,
+                            ropd: 2,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Literal,
+                        VmirExprData::Binary {
+                            lopd: 7,
+                            opr: Shift(
+                                Shl,
+                            ),
+                            ropd: 8,
+                        },
+                        VmirExprData::Binary {
+                            lopd: 6,
+                            opr: Closed(
+                                BitOr,
+                            ),
+                            ropd: 9,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Literal,
+                        VmirExprData::Binary {
+                            lopd: 11,
+                            opr: Shift(
+                                Shr,
+                            ),
+                            ropd: 12,
+                        },
+                        VmirExprData::Binary {
+                            lopd: 10,
+                            opr: Closed(
+                                BitOr,
+                            ),
+                            ropd: 13,
+                        },
+                        VmirExprData::Binary {
+                            lopd: 5,
+                            opr: Closed(
+                                BitAnd,
+                            ),
+                            ropd: 14,
+                        },
+                        VmirExprData::Binary {
+                            lopd: 4,
+                            opr: Assign,
+                            ropd: 15,
+                        },
+                        VmirExprData::Variable,
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
-                                1..5,
+                                3..7,
                             ),
                             destroyers: ArenaIdxRange(
                                 1..1,
@@ -806,11 +860,29 @@
                 },
                 vmir_stmt_arena: Arena {
                     data: [
+                        VmirStmtData::Eval {
+                            expr: 3,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 16,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
                         VmirStmtData::Let,
                         VmirStmtData::Let,
-                        VmirStmtData::While,
+                        VmirStmtData::While {
+                            stmts: ArenaIdxRange(
+                                1..3,
+                            ),
+                        },
                         VmirStmtData::Return {
-                            result: 1,
+                            result: 17,
                             coersion: VmirCoersion::Trivial,
                         },
                     ],
@@ -843,13 +915,174 @@
                         },
                     },
                 },
-                root_expr: 2,
+                root_expr: 32,
                 vmir_expr_arena: Arena {
                     data: [
+                        VmirExprData::Index,
+                        VmirExprData::Variable,
+                        VmirExprData::Literal,
+                        VmirExprData::Variable,
+                        VmirExprData::Binary {
+                            lopd: 3,
+                            opr: Shift(
+                                Shl,
+                            ),
+                            ropd: 4,
+                        },
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MajorRitchieEager {
+                                    path: FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
+                                        Fn,
+                                    )`),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: None,
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::Simple {
+                                    expr: 2,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                                VmirArgument::Simple {
+                                    expr: 5,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                            ],
+                        },
+                        VmirExprData::Binary {
+                            lopd: 1,
+                            opr: Assign,
+                            ropd: 6,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Literal,
+                        VmirExprData::Binary {
+                            lopd: 8,
+                            opr: Assign,
+                            ropd: 9,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Literal,
+                        VmirExprData::Binary {
+                            lopd: 11,
+                            opr: Assign,
+                            ropd: 12,
+                        },
+                        VmirExprData::Index,
+                        VmirExprData::Variable,
+                        VmirExprData::Binary {
+                            lopd: 14,
+                            opr: Assign,
+                            ropd: 15,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Literal,
+                        VmirExprData::Binary {
+                            lopd: 17,
+                            opr: Assign,
+                            ropd: 18,
+                        },
+                        VmirExprData::Index,
+                        VmirExprData::Variable,
+                        VmirExprData::Binary {
+                            lopd: 20,
+                            opr: Assign,
+                            ropd: 21,
+                        },
+                        VmirExprData::Index,
+                        VmirExprData::Index,
+                        VmirExprData::Prefix {
+                            opr: BitNot,
+                            opd: 24,
+                        },
+                        VmirExprData::Binary {
+                            lopd: 23,
+                            opr: AssignClosed(
+                                BitAnd,
+                            ),
+                            ropd: 25,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::StructConstructor {
+                                    path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: None,
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::Simple {
+                                    expr: 28,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                            ],
+                        },
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MethodRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<core::vec::Vec(0)>::push`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [
+                                            (
+                                                Type(
+                                                    Type {
+                                                        attrs: HirTemplateSvarAttrs {
+                                                            class: Comptime,
+                                                        },
+                                                        variance: None,
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                                Explicit(
+                                                    Type(
+                                                        PathLeading(
+                                                            LinTypePathLeading(
+                                                                Id {
+                                                                    value: 3,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                            (
+                                                Type(
+                                                    SelfLifetime,
+                                                ),
+                                                SelfLifetime,
+                                            ),
+                                        ],
+                                        separator: Some(
+                                            1,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 27,
+                                },
+                                VmirArgument::Simple {
+                                    expr: 29,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                            ],
+                        },
                         VmirExprData::Variable,
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
-                                1..5,
+                                27..31,
                             ),
                             destroyers: ArenaIdxRange(
                                 1..1,
@@ -859,11 +1092,133 @@
                 },
                 vmir_stmt_arena: Arena {
                     data: [
+                        VmirStmtData::Break,
+                        VmirStmtData::Eval {
+                            expr: 13,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 16,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
                         VmirStmtData::Let,
                         VmirStmtData::Let,
-                        VmirStmtData::ForBetween,
+                        VmirStmtData::IfElse {
+                            if_branch: VmirIfBranch {
+                                stmts: ArenaIdxRange(
+                                    1..2,
+                                ),
+                            },
+                            elif_branches: [],
+                            else_branch: None,
+                        },
+                        VmirStmtData::IfElse {
+                            if_branch: VmirIfBranch {
+                                stmts: ArenaIdxRange(
+                                    2..4,
+                                ),
+                            },
+                            elif_branches: [],
+                            else_branch: None,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 19,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 22,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::IfElse {
+                            if_branch: VmirIfBranch {
+                                stmts: ArenaIdxRange(
+                                    8..10,
+                                ),
+                            },
+                            elif_branches: [],
+                            else_branch: None,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 10,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Let,
+                        VmirStmtData::Forext {
+                            stmts: ArenaIdxRange(
+                                4..8,
+                            ),
+                        },
+                        VmirStmtData::Forext {
+                            stmts: ArenaIdxRange(
+                                10..13,
+                            ),
+                        },
+                        VmirStmtData::Eval {
+                            expr: 26,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::Eval {
+                            expr: 7,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Let,
+                        VmirStmtData::While {
+                            stmts: ArenaIdxRange(
+                                13..17,
+                            ),
+                        },
+                        VmirStmtData::ForBetween {
+                            stmts: ArenaIdxRange(
+                                17..18,
+                            ),
+                        },
+                        VmirStmtData::Eval {
+                            expr: 30,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::While {
+                            stmts: ArenaIdxRange(
+                                18..26,
+                            ),
+                        },
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::ForBetween {
+                            stmts: ArenaIdxRange(
+                                26..27,
+                            ),
+                        },
                         VmirStmtData::Return {
-                            result: 1,
+                            result: 31,
                             coersion: VmirCoersion::Trivial,
                         },
                     ],
@@ -1351,16 +1706,23 @@
                         },
                     },
                 },
-                root_expr: 3,
+                root_expr: 6,
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Binary {
+                            lopd: 1,
+                            opr: Assign,
+                            ropd: 2,
+                        },
+                        VmirExprData::Variable,
                         VmirExprData::As {
-                            opd: 1,
+                            opd: 4,
                         },
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
-                                1..5,
+                                4..8,
                             ),
                             destroyers: ArenaIdxRange(
                                 1..1,
@@ -1370,11 +1732,32 @@
                 },
                 vmir_stmt_arena: Arena {
                     data: [
+                        VmirStmtData::Eval {
+                            expr: 3,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Let,
+                        VmirStmtData::IfElse {
+                            if_branch: VmirIfBranch {
+                                stmts: ArenaIdxRange(
+                                    1..2,
+                                ),
+                            },
+                            elif_branches: [],
+                            else_branch: None,
+                        },
                         VmirStmtData::Let,
                         VmirStmtData::Let,
-                        VmirStmtData::ForBetween,
+                        VmirStmtData::ForBetween {
+                            stmts: ArenaIdxRange(
+                                2..4,
+                            ),
+                        },
                         VmirStmtData::Return {
-                            result: 2,
+                            result: 5,
                             coersion: VmirCoersion::Trivial,
                         },
                     ],
@@ -1411,16 +1794,72 @@
                         },
                     },
                 },
-                root_expr: 3,
+                root_expr: 9,
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Index,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MethodRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<core::raw_bits::r32(0)>::span`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 3,
+                                },
+                            ],
+                        },
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MethodRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<core::num::i32(0)>::max`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 2,
+                                },
+                                VmirArgument::Simple {
+                                    expr: 4,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                            ],
+                        },
+                        VmirExprData::Binary {
+                            lopd: 1,
+                            opr: Assign,
+                            ropd: 5,
+                        },
+                        VmirExprData::Variable,
                         VmirExprData::As {
-                            opd: 1,
+                            opd: 7,
                         },
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
-                                1..4,
+                                2..5,
                             ),
                             destroyers: ArenaIdxRange(
                                 1..1,
@@ -1430,10 +1869,21 @@
                 },
                 vmir_stmt_arena: Arena {
                     data: [
+                        VmirStmtData::Eval {
+                            expr: 6,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
                         VmirStmtData::Let,
-                        VmirStmtData::ForBetween,
+                        VmirStmtData::ForBetween {
+                            stmts: ArenaIdxRange(
+                                1..2,
+                            ),
+                        },
                         VmirStmtData::Return {
-                            result: 2,
+                            result: 8,
                             coersion: VmirCoersion::Trivial,
                         },
                     ],
@@ -1470,16 +1920,47 @@
                         },
                     },
                 },
-                root_expr: 3,
+                root_expr: 7,
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable,
+                        VmirExprData::Index,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MethodRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<core::raw_bits::r32(0)>::span`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 2,
+                                },
+                            ],
+                        },
+                        VmirExprData::Binary {
+                            lopd: 1,
+                            opr: AssignClosed(
+                                Add,
+                            ),
+                            ropd: 3,
+                        },
+                        VmirExprData::Variable,
                         VmirExprData::As {
-                            opd: 1,
+                            opd: 5,
                         },
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
-                                1..4,
+                                2..5,
                             ),
                             destroyers: ArenaIdxRange(
                                 1..1,
@@ -1489,10 +1970,21 @@
                 },
                 vmir_stmt_arena: Arena {
                     data: [
+                        VmirStmtData::Eval {
+                            expr: 4,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
                         VmirStmtData::Let,
-                        VmirStmtData::ForBetween,
+                        VmirStmtData::ForBetween {
+                            stmts: ArenaIdxRange(
+                                1..2,
+                            ),
+                        },
                         VmirStmtData::Return {
-                            result: 2,
+                            result: 6,
                             coersion: VmirCoersion::Trivial,
                         },
                     ],
@@ -1529,9 +2021,71 @@
                         },
                     },
                 },
-                root_expr: 6,
+                root_expr: 14,
                 vmir_expr_arena: Arena {
                     data: [
+                        VmirExprData::Variable,
+                        VmirExprData::Index,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MethodRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<core::raw_bits::r32(0)>::co`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 2,
+                                },
+                            ],
+                        },
+                        VmirExprData::Binary {
+                            lopd: 1,
+                            opr: AssignClosed(
+                                Add,
+                            ),
+                            ropd: 3,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Index,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MethodRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<core::raw_bits::r32(0)>::co`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 6,
+                                },
+                            ],
+                        },
+                        VmirExprData::Binary {
+                            lopd: 5,
+                            opr: AssignClosed(
+                                Add,
+                            ),
+                            ropd: 7,
+                        },
                         VmirExprData::Variable,
                         VmirExprData::Variable,
                         VmirExprData::Variable,
@@ -1548,26 +2102,26 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 1,
+                                    expr: 9,
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 2,
+                                    expr: 10,
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 3,
+                                    expr: 11,
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 4,
+                                    expr: 12,
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
                         },
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
-                                1..12,
+                                7..18,
                             ),
                             destroyers: ArenaIdxRange(
                                 1..1,
@@ -1577,18 +2131,68 @@
                 },
                 vmir_stmt_arena: Arena {
                     data: [
+                        VmirStmtData::Break,
+                        VmirStmtData::IfElse {
+                            if_branch: VmirIfBranch {
+                                stmts: ArenaIdxRange(
+                                    1..2,
+                                ),
+                            },
+                            elif_branches: [],
+                            else_branch: None,
+                        },
+                        VmirStmtData::Break,
+                        VmirStmtData::IfElse {
+                            if_branch: VmirIfBranch {
+                                stmts: ArenaIdxRange(
+                                    3..4,
+                                ),
+                            },
+                            elif_branches: [],
+                            else_branch: None,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 4,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 8,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
                         VmirStmtData::Let,
-                        VmirStmtData::Forext,
+                        VmirStmtData::Forext {
+                            stmts: ArenaIdxRange(
+                                2..3,
+                            ),
+                        },
                         VmirStmtData::Let,
-                        VmirStmtData::Forext,
+                        VmirStmtData::Forext {
+                            stmts: ArenaIdxRange(
+                                4..5,
+                            ),
+                        },
                         VmirStmtData::Let,
                         VmirStmtData::Let,
                         VmirStmtData::Let,
-                        VmirStmtData::ForBetween,
+                        VmirStmtData::ForBetween {
+                            stmts: ArenaIdxRange(
+                                5..6,
+                            ),
+                        },
                         VmirStmtData::Let,
-                        VmirStmtData::ForBetween,
+                        VmirStmtData::ForBetween {
+                            stmts: ArenaIdxRange(
+                                6..7,
+                            ),
+                        },
                         VmirStmtData::Return {
-                            result: 5,
+                            result: 13,
                             coersion: VmirCoersion::Trivial,
                         },
                     ],
@@ -1837,16 +2441,47 @@
                         },
                     },
                 },
-                root_expr: 3,
+                root_expr: 7,
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable,
+                        VmirExprData::Index,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MethodRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<core::raw_bits::r32(0)>::span`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 2,
+                                },
+                            ],
+                        },
+                        VmirExprData::Binary {
+                            lopd: 1,
+                            opr: AssignClosed(
+                                Add,
+                            ),
+                            ropd: 3,
+                        },
+                        VmirExprData::Variable,
                         VmirExprData::As {
-                            opd: 1,
+                            opd: 5,
                         },
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
-                                1..7,
+                                4..10,
                             ),
                             destroyers: ArenaIdxRange(
                                 1..1,
@@ -1856,13 +2491,38 @@
                 },
                 vmir_stmt_arena: Arena {
                     data: [
+                        VmirStmtData::Break,
+                        VmirStmtData::IfElse {
+                            if_branch: VmirIfBranch {
+                                stmts: ArenaIdxRange(
+                                    1..2,
+                                ),
+                            },
+                            elif_branches: [],
+                            else_branch: None,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 4,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
                         VmirStmtData::Let,
                         VmirStmtData::Assert,
                         VmirStmtData::Let,
-                        VmirStmtData::Forext,
-                        VmirStmtData::ForBetween,
+                        VmirStmtData::Forext {
+                            stmts: ArenaIdxRange(
+                                2..3,
+                            ),
+                        },
+                        VmirStmtData::ForBetween {
+                            stmts: ArenaIdxRange(
+                                3..4,
+                            ),
+                        },
                         VmirStmtData::Return {
-                            result: 2,
+                            result: 6,
                             coersion: VmirCoersion::Trivial,
                         },
                     ],
@@ -1903,16 +2563,47 @@
                         },
                     },
                 },
-                root_expr: 3,
+                root_expr: 7,
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable,
+                        VmirExprData::Index,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MethodRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<core::raw_bits::r32(0)>::right_mass`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 2,
+                                },
+                            ],
+                        },
+                        VmirExprData::Binary {
+                            lopd: 1,
+                            opr: AssignClosed(
+                                Add,
+                            ),
+                            ropd: 3,
+                        },
+                        VmirExprData::Variable,
                         VmirExprData::As {
-                            opd: 1,
+                            opd: 5,
                         },
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
-                                1..7,
+                                4..10,
                             ),
                             destroyers: ArenaIdxRange(
                                 1..1,
@@ -1922,13 +2613,38 @@
                 },
                 vmir_stmt_arena: Arena {
                     data: [
+                        VmirStmtData::Break,
+                        VmirStmtData::IfElse {
+                            if_branch: VmirIfBranch {
+                                stmts: ArenaIdxRange(
+                                    1..2,
+                                ),
+                            },
+                            elif_branches: [],
+                            else_branch: None,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 4,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
                         VmirStmtData::Let,
                         VmirStmtData::Assert,
                         VmirStmtData::Let,
-                        VmirStmtData::Forext,
-                        VmirStmtData::ForBetween,
+                        VmirStmtData::Forext {
+                            stmts: ArenaIdxRange(
+                                2..3,
+                            ),
+                        },
+                        VmirStmtData::ForBetween {
+                            stmts: ArenaIdxRange(
+                                3..4,
+                            ),
+                        },
                         VmirStmtData::Return {
-                            result: 2,
+                            result: 6,
                             coersion: VmirCoersion::Trivial,
                         },
                     ],
@@ -2431,12 +3147,28 @@
                         },
                     },
                 },
-                root_expr: 1,
+                root_expr: 17,
                 vmir_expr_arena: Arena {
                     data: [
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::PrincipalEntityPath,
+                        VmirExprData::PrincipalEntityPath,
+                        VmirExprData::Unreachable,
+                        VmirExprData::PrincipalEntityPath,
+                        VmirExprData::Variable,
+                        VmirExprData::PrincipalEntityPath,
+                        VmirExprData::PrincipalEntityPath,
+                        VmirExprData::PrincipalEntityPath,
+                        VmirExprData::Unreachable,
+                        VmirExprData::Variable,
+                        VmirExprData::PrincipalEntityPath,
+                        VmirExprData::PrincipalEntityPath,
+                        VmirExprData::Unreachable,
+                        VmirExprData::Unreachable,
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
-                                1..4,
+                                16..19,
                             ),
                             destroyers: ArenaIdxRange(
                                 1..1,
@@ -2446,9 +3178,187 @@
                 },
                 vmir_stmt_arena: Arena {
                     data: [
+                        VmirStmtData::Eval {
+                            expr: 3,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 4,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 5,
+                            coersion: Some(
+                                VmirCoersion::Never,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Match {
+                            opd: 2,
+                            case_branches: [
+                                VmirCaseBranch {
+                                    stmts: ArenaIdxRange(
+                                        1..2,
+                                    ),
+                                },
+                                VmirCaseBranch {
+                                    stmts: ArenaIdxRange(
+                                        2..3,
+                                    ),
+                                },
+                                VmirCaseBranch {
+                                    stmts: ArenaIdxRange(
+                                        3..4,
+                                    ),
+                                },
+                            ],
+                        },
+                        VmirStmtData::Eval {
+                            expr: 6,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 8,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 9,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 10,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 11,
+                            coersion: Some(
+                                VmirCoersion::Never,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Match {
+                            opd: 7,
+                            case_branches: [
+                                VmirCaseBranch {
+                                    stmts: ArenaIdxRange(
+                                        6..7,
+                                    ),
+                                },
+                                VmirCaseBranch {
+                                    stmts: ArenaIdxRange(
+                                        7..8,
+                                    ),
+                                },
+                                VmirCaseBranch {
+                                    stmts: ArenaIdxRange(
+                                        8..9,
+                                    ),
+                                },
+                                VmirCaseBranch {
+                                    stmts: ArenaIdxRange(
+                                        9..10,
+                                    ),
+                                },
+                            ],
+                        },
+                        VmirStmtData::Eval {
+                            expr: 13,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 14,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 15,
+                            coersion: Some(
+                                VmirCoersion::Never,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Match {
+                            opd: 12,
+                            case_branches: [
+                                VmirCaseBranch {
+                                    stmts: ArenaIdxRange(
+                                        11..12,
+                                    ),
+                                },
+                                VmirCaseBranch {
+                                    stmts: ArenaIdxRange(
+                                        12..13,
+                                    ),
+                                },
+                                VmirCaseBranch {
+                                    stmts: ArenaIdxRange(
+                                        13..14,
+                                    ),
+                                },
+                            ],
+                        },
+                        VmirStmtData::Eval {
+                            expr: 16,
+                            coersion: Some(
+                                VmirCoersion::Never,
+                            ),
+                            discarded: false,
+                        },
                         VmirStmtData::Let,
                         VmirStmtData::Let,
-                        VmirStmtData::Match,
+                        VmirStmtData::Match {
+                            opd: 1,
+                            case_branches: [
+                                VmirCaseBranch {
+                                    stmts: ArenaIdxRange(
+                                        4..5,
+                                    ),
+                                },
+                                VmirCaseBranch {
+                                    stmts: ArenaIdxRange(
+                                        5..6,
+                                    ),
+                                },
+                                VmirCaseBranch {
+                                    stmts: ArenaIdxRange(
+                                        10..11,
+                                    ),
+                                },
+                                VmirCaseBranch {
+                                    stmts: ArenaIdxRange(
+                                        14..15,
+                                    ),
+                                },
+                                VmirCaseBranch {
+                                    stmts: ArenaIdxRange(
+                                        15..16,
+                                    ),
+                                },
+                            ],
+                        },
                     ],
                 },
             },
@@ -2479,12 +3389,23 @@
                         },
                     },
                 },
-                root_expr: 1,
+                root_expr: 7,
                 vmir_expr_arena: Arena {
                     data: [
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::As {
+                            opd: 2,
+                        },
+                        VmirExprData::Literal,
+                        VmirExprData::Prefix {
+                            opr: Minus,
+                            opd: 4,
+                        },
+                        VmirExprData::Unreachable,
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
-                                1..3,
+                                4..6,
                             ),
                             destroyers: ArenaIdxRange(
                                 1..1,
@@ -2494,8 +3415,48 @@
                 },
                 vmir_stmt_arena: Arena {
                     data: [
+                        VmirStmtData::Eval {
+                            expr: 3,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 5,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 6,
+                            coersion: Some(
+                                VmirCoersion::Never,
+                            ),
+                            discarded: false,
+                        },
                         VmirStmtData::Let,
-                        VmirStmtData::Match,
+                        VmirStmtData::Match {
+                            opd: 1,
+                            case_branches: [
+                                VmirCaseBranch {
+                                    stmts: ArenaIdxRange(
+                                        1..2,
+                                    ),
+                                },
+                                VmirCaseBranch {
+                                    stmts: ArenaIdxRange(
+                                        2..3,
+                                    ),
+                                },
+                                VmirCaseBranch {
+                                    stmts: ArenaIdxRange(
+                                        3..4,
+                                    ),
+                                },
+                            ],
+                        },
                     ],
                 },
             },
@@ -2526,12 +3487,38 @@
                         },
                     },
                 },
-                root_expr: 1,
+                root_expr: 27,
                 vmir_expr_arena: Arena {
                     data: [
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::PrincipalEntityPath,
+                        VmirExprData::PrincipalEntityPath,
+                        VmirExprData::Unreachable,
+                        VmirExprData::Variable,
+                        VmirExprData::PrincipalEntityPath,
+                        VmirExprData::PrincipalEntityPath,
+                        VmirExprData::Variable,
+                        VmirExprData::PrincipalEntityPath,
+                        VmirExprData::PrincipalEntityPath,
+                        VmirExprData::Unreachable,
+                        VmirExprData::PrincipalEntityPath,
+                        VmirExprData::Unreachable,
+                        VmirExprData::Variable,
+                        VmirExprData::PrincipalEntityPath,
+                        VmirExprData::Variable,
+                        VmirExprData::PrincipalEntityPath,
+                        VmirExprData::PrincipalEntityPath,
+                        VmirExprData::Unreachable,
+                        VmirExprData::Unreachable,
+                        VmirExprData::Variable,
+                        VmirExprData::PrincipalEntityPath,
+                        VmirExprData::PrincipalEntityPath,
+                        VmirExprData::Unreachable,
+                        VmirExprData::Unreachable,
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
-                                1..4,
+                                26..29,
                             ),
                             destroyers: ArenaIdxRange(
                                 1..1,
@@ -2541,9 +3528,301 @@
                 },
                 vmir_stmt_arena: Arena {
                     data: [
+                        VmirStmtData::Eval {
+                            expr: 3,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 4,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 5,
+                            coersion: Some(
+                                VmirCoersion::Never,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Match {
+                            opd: 2,
+                            case_branches: [
+                                VmirCaseBranch {
+                                    stmts: ArenaIdxRange(
+                                        1..2,
+                                    ),
+                                },
+                                VmirCaseBranch {
+                                    stmts: ArenaIdxRange(
+                                        2..3,
+                                    ),
+                                },
+                                VmirCaseBranch {
+                                    stmts: ArenaIdxRange(
+                                        3..4,
+                                    ),
+                                },
+                            ],
+                        },
+                        VmirStmtData::Eval {
+                            expr: 7,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 8,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 10,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 11,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 12,
+                            coersion: Some(
+                                VmirCoersion::Never,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Match {
+                            opd: 9,
+                            case_branches: [
+                                VmirCaseBranch {
+                                    stmts: ArenaIdxRange(
+                                        7..8,
+                                    ),
+                                },
+                                VmirCaseBranch {
+                                    stmts: ArenaIdxRange(
+                                        8..9,
+                                    ),
+                                },
+                                VmirCaseBranch {
+                                    stmts: ArenaIdxRange(
+                                        9..10,
+                                    ),
+                                },
+                            ],
+                        },
+                        VmirStmtData::Eval {
+                            expr: 13,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 14,
+                            coersion: Some(
+                                VmirCoersion::Never,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Match {
+                            opd: 6,
+                            case_branches: [
+                                VmirCaseBranch {
+                                    stmts: ArenaIdxRange(
+                                        5..6,
+                                    ),
+                                },
+                                VmirCaseBranch {
+                                    stmts: ArenaIdxRange(
+                                        6..7,
+                                    ),
+                                },
+                                VmirCaseBranch {
+                                    stmts: ArenaIdxRange(
+                                        10..11,
+                                    ),
+                                },
+                                VmirCaseBranch {
+                                    stmts: ArenaIdxRange(
+                                        11..12,
+                                    ),
+                                },
+                                VmirCaseBranch {
+                                    stmts: ArenaIdxRange(
+                                        12..13,
+                                    ),
+                                },
+                            ],
+                        },
+                        VmirStmtData::Eval {
+                            expr: 16,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 18,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 19,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 20,
+                            coersion: Some(
+                                VmirCoersion::Never,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Match {
+                            opd: 17,
+                            case_branches: [
+                                VmirCaseBranch {
+                                    stmts: ArenaIdxRange(
+                                        15..16,
+                                    ),
+                                },
+                                VmirCaseBranch {
+                                    stmts: ArenaIdxRange(
+                                        16..17,
+                                    ),
+                                },
+                                VmirCaseBranch {
+                                    stmts: ArenaIdxRange(
+                                        17..18,
+                                    ),
+                                },
+                            ],
+                        },
+                        VmirStmtData::Eval {
+                            expr: 21,
+                            coersion: Some(
+                                VmirCoersion::Never,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Match {
+                            opd: 15,
+                            case_branches: [
+                                VmirCaseBranch {
+                                    stmts: ArenaIdxRange(
+                                        14..15,
+                                    ),
+                                },
+                                VmirCaseBranch {
+                                    stmts: ArenaIdxRange(
+                                        18..19,
+                                    ),
+                                },
+                                VmirCaseBranch {
+                                    stmts: ArenaIdxRange(
+                                        19..20,
+                                    ),
+                                },
+                            ],
+                        },
+                        VmirStmtData::Eval {
+                            expr: 23,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 24,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 25,
+                            coersion: Some(
+                                VmirCoersion::Never,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Match {
+                            opd: 22,
+                            case_branches: [
+                                VmirCaseBranch {
+                                    stmts: ArenaIdxRange(
+                                        21..22,
+                                    ),
+                                },
+                                VmirCaseBranch {
+                                    stmts: ArenaIdxRange(
+                                        22..23,
+                                    ),
+                                },
+                                VmirCaseBranch {
+                                    stmts: ArenaIdxRange(
+                                        23..24,
+                                    ),
+                                },
+                            ],
+                        },
+                        VmirStmtData::Eval {
+                            expr: 26,
+                            coersion: Some(
+                                VmirCoersion::Never,
+                            ),
+                            discarded: false,
+                        },
                         VmirStmtData::Let,
                         VmirStmtData::Let,
-                        VmirStmtData::Match,
+                        VmirStmtData::Match {
+                            opd: 1,
+                            case_branches: [
+                                VmirCaseBranch {
+                                    stmts: ArenaIdxRange(
+                                        4..5,
+                                    ),
+                                },
+                                VmirCaseBranch {
+                                    stmts: ArenaIdxRange(
+                                        13..14,
+                                    ),
+                                },
+                                VmirCaseBranch {
+                                    stmts: ArenaIdxRange(
+                                        20..21,
+                                    ),
+                                },
+                                VmirCaseBranch {
+                                    stmts: ArenaIdxRange(
+                                        24..25,
+                                    ),
+                                },
+                                VmirCaseBranch {
+                                    stmts: ArenaIdxRange(
+                                        25..26,
+                                    ),
+                                },
+                            ],
+                        },
                     ],
                 },
             },
@@ -2843,13 +4122,866 @@
                         },
                     },
                 },
-                root_expr: 2,
+                root_expr: 140,
                 vmir_expr_arena: Arena {
                     data: [
+                        VmirExprData::Index,
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Binary {
+                            lopd: 2,
+                            opr: Closed(
+                                BitOr,
+                            ),
+                            ropd: 3,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Binary {
+                            lopd: 4,
+                            opr: Closed(
+                                BitOr,
+                            ),
+                            ropd: 5,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Binary {
+                            lopd: 6,
+                            opr: Closed(
+                                BitOr,
+                            ),
+                            ropd: 7,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Binary {
+                            lopd: 9,
+                            opr: Closed(
+                                BitAnd,
+                            ),
+                            ropd: 10,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Binary {
+                            lopd: 11,
+                            opr: Closed(
+                                BitAnd,
+                            ),
+                            ropd: 12,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Binary {
+                            lopd: 13,
+                            opr: Closed(
+                                BitAnd,
+                            ),
+                            ropd: 14,
+                        },
+                        VmirExprData::Prefix {
+                            opr: BitNot,
+                            opd: 15,
+                        },
+                        VmirExprData::Binary {
+                            lopd: 8,
+                            opr: Closed(
+                                BitAnd,
+                            ),
+                            ropd: 16,
+                        },
+                        VmirExprData::Binary {
+                            lopd: 1,
+                            opr: Assign,
+                            ropd: 17,
+                        },
+                        VmirExprData::Index,
+                        VmirExprData::Index,
+                        VmirExprData::Literal,
+                        VmirExprData::Variable,
+                        VmirExprData::Binary {
+                            lopd: 21,
+                            opr: Shift(
+                                Shl,
+                            ),
+                            ropd: 22,
+                        },
+                        VmirExprData::Prefix {
+                            opr: BitNot,
+                            opd: 23,
+                        },
+                        VmirExprData::Binary {
+                            lopd: 20,
+                            opr: Closed(
+                                BitAnd,
+                            ),
+                            ropd: 24,
+                        },
+                        VmirExprData::Binary {
+                            lopd: 19,
+                            opr: Assign,
+                            ropd: 25,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MethodRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<core::vec::Vec(0)>::last`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [
+                                            (
+                                                Type(
+                                                    Type {
+                                                        attrs: HirTemplateSvarAttrs {
+                                                            class: Comptime,
+                                                        },
+                                                        variance: None,
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                                Explicit(
+                                                    Type(
+                                                        PathLeading(
+                                                            LinTypePathLeading(
+                                                                Id {
+                                                                    value: 7,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                            (
+                                                Type(
+                                                    SelfPlace,
+                                                ),
+                                                SelfQual(
+                                                    RefMut,
+                                                ),
+                                            ),
+                                        ],
+                                        separator: Some(
+                                            1,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 27,
+                                },
+                            ],
+                        },
+                        VmirExprData::Unwrap {
+                            opd: 28,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MajorRitchieEager {
+                                    path: FugitivePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Ritchie(
+                                        Fn,
+                                    )`),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: None,
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::Simple {
+                                    expr: 30,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                            ],
+                        },
+                        VmirExprData::Binary {
+                            lopd: 29,
+                            opr: Assign,
+                            ropd: 31,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::AssocRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<mnist_classifier::geom2d::Point2d(0)>::from_i_shift28`, `AssocRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::Simple {
+                                    expr: 34,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                                VmirArgument::Simple {
+                                    expr: 35,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                            ],
+                        },
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MethodRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<core::vec::Vec(0)>::push`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [
+                                            (
+                                                Type(
+                                                    Type {
+                                                        attrs: HirTemplateSvarAttrs {
+                                                            class: Comptime,
+                                                        },
+                                                        variance: None,
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                                Explicit(
+                                                    Type(
+                                                        PathLeading(
+                                                            LinTypePathLeading(
+                                                                Id {
+                                                                    value: 7,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                            (
+                                                Type(
+                                                    SelfLifetime,
+                                                ),
+                                                SelfLifetime,
+                                            ),
+                                        ],
+                                        separator: Some(
+                                            1,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 33,
+                                },
+                                VmirArgument::Simple {
+                                    expr: 36,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                            ],
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Literal,
+                        VmirExprData::Prefix {
+                            opr: Minus,
+                            opd: 39,
+                        },
+                        VmirExprData::Binary {
+                            lopd: 38,
+                            opr: Assign,
+                            ropd: 40,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Literal,
+                        VmirExprData::Prefix {
+                            opr: Minus,
+                            opd: 43,
+                        },
+                        VmirExprData::Binary {
+                            lopd: 42,
+                            opr: Assign,
+                            ropd: 44,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MethodRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<core::vec::Vec(0)>::last`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [
+                                            (
+                                                Type(
+                                                    Type {
+                                                        attrs: HirTemplateSvarAttrs {
+                                                            class: Comptime,
+                                                        },
+                                                        variance: None,
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                                Explicit(
+                                                    Type(
+                                                        PathLeading(
+                                                            LinTypePathLeading(
+                                                                Id {
+                                                                    value: 7,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                            (
+                                                Type(
+                                                    SelfPlace,
+                                                ),
+                                                SelfQual(
+                                                    RefMut,
+                                                ),
+                                            ),
+                                        ],
+                                        separator: Some(
+                                            1,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 46,
+                                },
+                            ],
+                        },
+                        VmirExprData::Unwrap {
+                            opd: 47,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::AssocRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<mnist_classifier::geom2d::Point2d(0)>::from_i_shift28`, `AssocRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::Simple {
+                                    expr: 49,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                                VmirArgument::Simple {
+                                    expr: 50,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                            ],
+                        },
+                        VmirExprData::Binary {
+                            lopd: 48,
+                            opr: Assign,
+                            ropd: 51,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Binary {
+                            lopd: 53,
+                            opr: Assign,
+                            ropd: 54,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Binary {
+                            lopd: 56,
+                            opr: Assign,
+                            ropd: 57,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MethodRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<core::vec::Vec(0)>::last`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [
+                                            (
+                                                Type(
+                                                    Type {
+                                                        attrs: HirTemplateSvarAttrs {
+                                                            class: Comptime,
+                                                        },
+                                                        variance: None,
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                                Explicit(
+                                                    Type(
+                                                        PathLeading(
+                                                            LinTypePathLeading(
+                                                                Id {
+                                                                    value: 7,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                            (
+                                                Type(
+                                                    SelfPlace,
+                                                ),
+                                                SelfQual(
+                                                    RefMut,
+                                                ),
+                                            ),
+                                        ],
+                                        separator: Some(
+                                            1,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 59,
+                                },
+                            ],
+                        },
+                        VmirExprData::Unwrap {
+                            opd: 60,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::AssocRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<mnist_classifier::geom2d::Point2d(0)>::from_i_shift28`, `AssocRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::Simple {
+                                    expr: 62,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                                VmirArgument::Simple {
+                                    expr: 63,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                            ],
+                        },
+                        VmirExprData::Binary {
+                            lopd: 61,
+                            opr: Assign,
+                            ropd: 64,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Literal,
+                        VmirExprData::Prefix {
+                            opr: Minus,
+                            opd: 67,
+                        },
+                        VmirExprData::Binary {
+                            lopd: 66,
+                            opr: Assign,
+                            ropd: 68,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Literal,
+                        VmirExprData::Prefix {
+                            opr: Minus,
+                            opd: 71,
+                        },
+                        VmirExprData::Binary {
+                            lopd: 70,
+                            opr: Assign,
+                            ropd: 72,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::AssocRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<mnist_classifier::geom2d::Point2d(0)>::from_i_shift28`, `AssocRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::Simple {
+                                    expr: 75,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                                VmirArgument::Simple {
+                                    expr: 76,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                            ],
+                        },
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MethodRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<core::vec::Vec(0)>::push`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [
+                                            (
+                                                Type(
+                                                    Type {
+                                                        attrs: HirTemplateSvarAttrs {
+                                                            class: Comptime,
+                                                        },
+                                                        variance: None,
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                                Explicit(
+                                                    Type(
+                                                        PathLeading(
+                                                            LinTypePathLeading(
+                                                                Id {
+                                                                    value: 7,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                            (
+                                                Type(
+                                                    SelfLifetime,
+                                                ),
+                                                SelfLifetime,
+                                            ),
+                                        ],
+                                        separator: Some(
+                                            1,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 74,
+                                },
+                                VmirArgument::Simple {
+                                    expr: 77,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                            ],
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Binary {
+                            lopd: 79,
+                            opr: Assign,
+                            ropd: 80,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Binary {
+                            lopd: 82,
+                            opr: Assign,
+                            ropd: 83,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Literal,
+                        VmirExprData::Binary {
+                            lopd: 85,
+                            opr: Assign,
+                            ropd: 86,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Binary {
+                            lopd: 88,
+                            opr: Assign,
+                            ropd: 89,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Binary {
+                            lopd: 91,
+                            opr: Assign,
+                            ropd: 92,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Literal,
+                        VmirExprData::Binary {
+                            lopd: 96,
+                            opr: Closed(
+                                Sub,
+                            ),
+                            ropd: 97,
+                        },
+                        VmirExprData::Binary {
+                            lopd: 95,
+                            opr: Assign,
+                            ropd: 98,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Binary {
+                            lopd: 100,
+                            opr: Assign,
+                            ropd: 101,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Index,
+                        VmirExprData::Binary {
+                            lopd: 103,
+                            opr: Assign,
+                            ropd: 104,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Literal,
+                        VmirExprData::Binary {
+                            lopd: 107,
+                            opr: Closed(
+                                Add,
+                            ),
+                            ropd: 108,
+                        },
+                        VmirExprData::Binary {
+                            lopd: 106,
+                            opr: Assign,
+                            ropd: 109,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Binary {
+                            lopd: 111,
+                            opr: Assign,
+                            ropd: 112,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Index,
+                        VmirExprData::Binary {
+                            lopd: 114,
+                            opr: Assign,
+                            ropd: 115,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Literal,
+                        VmirExprData::Binary {
+                            lopd: 118,
+                            opr: Closed(
+                                Add,
+                            ),
+                            ropd: 119,
+                        },
+                        VmirExprData::Binary {
+                            lopd: 117,
+                            opr: Assign,
+                            ropd: 120,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Literal,
+                        VmirExprData::Binary {
+                            lopd: 123,
+                            opr: Closed(
+                                Sub,
+                            ),
+                            ropd: 124,
+                        },
+                        VmirExprData::Binary {
+                            lopd: 122,
+                            opr: Assign,
+                            ropd: 125,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Binary {
+                            lopd: 127,
+                            opr: Assign,
+                            ropd: 128,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Suffix {
+                            opd: 130,
+                            opr: Incr,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MethodRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<core::vec::Vec(0)>::pop`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [
+                                            (
+                                                Type(
+                                                    Type {
+                                                        attrs: HirTemplateSvarAttrs {
+                                                            class: Comptime,
+                                                        },
+                                                        variance: None,
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                                Explicit(
+                                                    Type(
+                                                        PathLeading(
+                                                            LinTypePathLeading(
+                                                                Id {
+                                                                    value: 7,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                            (
+                                                Type(
+                                                    SelfLifetime,
+                                                ),
+                                                SelfLifetime,
+                                            ),
+                                        ],
+                                        separator: Some(
+                                            1,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 132,
+                                },
+                            ],
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::StructConstructor {
+                                    path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: None,
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::Simple {
+                                    expr: 135,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                                VmirArgument::Simple {
+                                    expr: 136,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                            ],
+                        },
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MethodRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<core::vec::Vec(0)>::push`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [
+                                            (
+                                                Type(
+                                                    Type {
+                                                        attrs: HirTemplateSvarAttrs {
+                                                            class: Comptime,
+                                                        },
+                                                        variance: None,
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                                Explicit(
+                                                    Type(
+                                                        PathLeading(
+                                                            LinTypePathLeading(
+                                                                Id {
+                                                                    value: 4,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                            (
+                                                Type(
+                                                    SelfLifetime,
+                                                ),
+                                                SelfLifetime,
+                                            ),
+                                        ],
+                                        separator: Some(
+                                            1,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 134,
+                                },
+                                VmirArgument::Simple {
+                                    expr: 137,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                            ],
+                        },
                         VmirExprData::Variable,
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
-                                1..6,
+                                59..64,
                             ),
                             destroyers: ArenaIdxRange(
                                 1..1,
@@ -2861,10 +4993,335 @@
                     data: [
                         VmirStmtData::Let,
                         VmirStmtData::Let,
-                        VmirStmtData::ForBetween,
-                        VmirStmtData::ForBetween,
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::Eval {
+                            expr: 18,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 32,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 37,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 41,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 45,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 52,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 55,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 58,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 65,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 69,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 73,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 78,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 81,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 84,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::IfElse {
+                            if_branch: VmirIfBranch {
+                                stmts: ArenaIdxRange(
+                                    6..10,
+                                ),
+                            },
+                            elif_branches: [
+                                VmirElifBranch {
+                                    stmts: ArenaIdxRange(
+                                        10..13,
+                                    ),
+                                },
+                                VmirElifBranch {
+                                    stmts: ArenaIdxRange(
+                                        13..16,
+                                    ),
+                                },
+                            ],
+                            else_branch: Some(
+                                VmirElseBranch {
+                                    stmts: ArenaIdxRange(
+                                        16..19,
+                                    ),
+                                },
+                            ),
+                        },
+                        VmirStmtData::Eval {
+                            expr: 87,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 90,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 93,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 99,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 102,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 105,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 110,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 113,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 116,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 121,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 126,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 131,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::Eval {
+                            expr: 26,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::IfElse {
+                            if_branch: VmirIfBranch {
+                                stmts: ArenaIdxRange(
+                                    19..23,
+                                ),
+                            },
+                            elif_branches: [],
+                            else_branch: None,
+                        },
+                        VmirStmtData::Match {
+                            opd: 94,
+                            case_branches: [
+                                VmirCaseBranch {
+                                    stmts: ArenaIdxRange(
+                                        23..26,
+                                    ),
+                                },
+                                VmirCaseBranch {
+                                    stmts: ArenaIdxRange(
+                                        26..29,
+                                    ),
+                                },
+                                VmirCaseBranch {
+                                    stmts: ArenaIdxRange(
+                                        29..30,
+                                    ),
+                                },
+                                VmirCaseBranch {
+                                    stmts: ArenaIdxRange(
+                                        30..31,
+                                    ),
+                                },
+                            ],
+                        },
+                        VmirStmtData::Eval {
+                            expr: 129,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::IfElse {
+                            if_branch: VmirIfBranch {
+                                stmts: ArenaIdxRange(
+                                    31..32,
+                                ),
+                            },
+                            elif_branches: [],
+                            else_branch: None,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 133,
+                            coersion: None,
+                            discarded: true,
+                        },
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::DoWhile {
+                            stmts: ArenaIdxRange(
+                                32..39,
+                            ),
+                        },
+                        VmirStmtData::IfElse {
+                            if_branch: VmirIfBranch {
+                                stmts: ArenaIdxRange(
+                                    39..40,
+                                ),
+                            },
+                            elif_branches: [],
+                            else_branch: None,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 138,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::While {
+                            stmts: ArenaIdxRange(
+                                40..58,
+                            ),
+                        },
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::ForBetween {
+                            stmts: ArenaIdxRange(
+                                1..6,
+                            ),
+                        },
+                        VmirStmtData::ForBetween {
+                            stmts: ArenaIdxRange(
+                                58..59,
+                            ),
+                        },
                         VmirStmtData::Return {
-                            result: 1,
+                            result: 139,
                             coersion: VmirCoersion::Trivial,
                         },
                     ],
@@ -2986,9 +5443,241 @@
                         },
                     },
                 },
-                root_expr: 8,
+                root_expr: 32,
                 vmir_expr_arena: Arena {
                     data: [
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::StructField {
+                                    self_ty: LinTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                        template_arguments: [],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 74,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 3,
+                                },
+                            ],
+                        },
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MethodRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<core::num::f32(0)>::min`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 2,
+                                },
+                                VmirArgument::Simple {
+                                    expr: 4,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                            ],
+                        },
+                        VmirExprData::Binary {
+                            lopd: 1,
+                            opr: Assign,
+                            ropd: 5,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::StructField {
+                                    self_ty: LinTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                        template_arguments: [],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 74,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 9,
+                                },
+                            ],
+                        },
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MethodRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<core::num::f32(0)>::max`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 8,
+                                },
+                                VmirArgument::Simple {
+                                    expr: 10,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                            ],
+                        },
+                        VmirExprData::Binary {
+                            lopd: 7,
+                            opr: Assign,
+                            ropd: 11,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::StructField {
+                                    self_ty: LinTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                        template_arguments: [],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 75,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 15,
+                                },
+                            ],
+                        },
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MethodRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<core::num::f32(0)>::min`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 14,
+                                },
+                                VmirArgument::Simple {
+                                    expr: 16,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                            ],
+                        },
+                        VmirExprData::Binary {
+                            lopd: 13,
+                            opr: Assign,
+                            ropd: 17,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::StructField {
+                                    self_ty: LinTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                        template_arguments: [],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 75,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 21,
+                                },
+                            ],
+                        },
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MethodRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<core::num::f32(0)>::max`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 20,
+                                },
+                                VmirArgument::Simple {
+                                    expr: 22,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                            ],
+                        },
+                        VmirExprData::Binary {
+                            lopd: 19,
+                            opr: Assign,
+                            ropd: 23,
+                        },
                         VmirExprData::Variable,
                         VmirExprData::Variable,
                         VmirExprData::Linkage {
@@ -3003,11 +5692,11 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 1,
+                                    expr: 25,
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 2,
+                                    expr: 26,
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -3026,11 +5715,11 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 4,
+                                    expr: 28,
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 5,
+                                    expr: 29,
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -3047,18 +5736,18 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 3,
+                                    expr: 27,
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 6,
+                                    expr: 30,
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
                         },
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
-                                1..8,
+                                6..13,
                             ),
                             destroyers: ArenaIdxRange(
                                 1..1,
@@ -3069,13 +5758,46 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Let,
+                        VmirStmtData::Eval {
+                            expr: 6,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 12,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 18,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 24,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
                         VmirStmtData::Let,
                         VmirStmtData::Let,
                         VmirStmtData::Let,
                         VmirStmtData::Let,
-                        VmirStmtData::ForBetween,
+                        VmirStmtData::Let,
+                        VmirStmtData::ForBetween {
+                            stmts: ArenaIdxRange(
+                                1..6,
+                            ),
+                        },
                         VmirStmtData::Return {
-                            result: 7,
+                            result: 31,
                             coersion: VmirCoersion::Trivial,
                         },
                     ],
@@ -3236,7 +5958,7 @@
                         },
                     },
                 },
-                root_expr: 17,
+                root_expr: 32,
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable,
@@ -3413,9 +6135,182 @@
                             ropd: 14,
                         },
                         VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::StructField {
+                                    self_ty: LinTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                        template_arguments: [],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 74,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 17,
+                                },
+                            ],
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::StructField {
+                                    self_ty: LinTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                        template_arguments: [],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 74,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 19,
+                                },
+                            ],
+                        },
+                        VmirExprData::Binary {
+                            lopd: 18,
+                            opr: Closed(
+                                Sub,
+                            ),
+                            ropd: 20,
+                        },
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MethodRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<core::num::f32(0)>::abs`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 21,
+                                },
+                            ],
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::StructField {
+                                    self_ty: LinTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                        template_arguments: [],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 75,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 23,
+                                },
+                            ],
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::StructField {
+                                    self_ty: LinTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                        template_arguments: [],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 75,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 25,
+                                },
+                            ],
+                        },
+                        VmirExprData::Binary {
+                            lopd: 24,
+                            opr: Closed(
+                                Sub,
+                            ),
+                            ropd: 26,
+                        },
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MethodRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<core::num::f32(0)>::abs`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 27,
+                                },
+                            ],
+                        },
+                        VmirExprData::Binary {
+                            lopd: 22,
+                            opr: Closed(
+                                Add,
+                            ),
+                            ropd: 28,
+                        },
+                        VmirExprData::Binary {
+                            lopd: 16,
+                            opr: AssignClosed(
+                                Add,
+                            ),
+                            ropd: 29,
+                        },
+                        VmirExprData::Variable,
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
-                                1..7,
+                                4..10,
                             ),
                             destroyers: ArenaIdxRange(
                                 1..1,
@@ -3426,8 +6321,6 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Let,
-                        VmirStmtData::ForBetween,
-                        VmirStmtData::Let,
                         VmirStmtData::Let,
                         VmirStmtData::Eval {
                             expr: 15,
@@ -3436,8 +6329,23 @@
                             ),
                             discarded: false,
                         },
+                        VmirStmtData::Let,
+                        VmirStmtData::ForBetween {
+                            stmts: ArenaIdxRange(
+                                1..4,
+                            ),
+                        },
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::Eval {
+                            expr: 30,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
                         VmirStmtData::Return {
-                            result: 16,
+                            result: 31,
                             coersion: VmirCoersion::Trivial,
                         },
                     ],
@@ -5582,12 +8490,114 @@
                         },
                     },
                 },
-                root_expr: 1,
+                root_expr: 15,
                 vmir_expr_arena: Arena {
                     data: [
+                        VmirExprData::Literal,
+                        VmirExprData::Literal,
+                        VmirExprData::Prefix {
+                            opr: Minus,
+                            opd: 2,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::StructField {
+                                    self_ty: LinTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                        template_arguments: [],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 75,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 4,
+                                },
+                            ],
+                        },
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MethodRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<core::num::f32(0)>::sgnx`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 5,
+                                },
+                            ],
+                        },
+                        VmirExprData::As {
+                            opd: 6,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MethodRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<core::num::f32(0)>::acos`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 8,
+                                },
+                            ],
+                        },
+                        VmirExprData::Binary {
+                            lopd: 7,
+                            opr: Closed(
+                                Mul,
+                            ),
+                            ropd: 9,
+                        },
+                        VmirExprData::Literal,
+                        VmirExprData::Binary {
+                            lopd: 10,
+                            opr: Closed(
+                                Mul,
+                            ),
+                            ropd: 11,
+                        },
+                        VmirExprData::Literal,
+                        VmirExprData::Binary {
+                            lopd: 12,
+                            opr: Closed(
+                                Div,
+                            ),
+                            ropd: 13,
+                        },
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
-                                1..3,
+                                5..7,
                             ),
                             destroyers: ArenaIdxRange(
                                 1..1,
@@ -5597,8 +8607,58 @@
                 },
                 vmir_stmt_arena: Arena {
                     data: [
+                        VmirStmtData::Eval {
+                            expr: 1,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 3,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::IfElse {
+                            if_branch: VmirIfBranch {
+                                stmts: ArenaIdxRange(
+                                    1..2,
+                                ),
+                            },
+                            elif_branches: [],
+                            else_branch: Some(
+                                VmirElseBranch {
+                                    stmts: ArenaIdxRange(
+                                        2..3,
+                                    ),
+                                },
+                            ),
+                        },
+                        VmirStmtData::Eval {
+                            expr: 14,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
                         VmirStmtData::Let,
-                        VmirStmtData::IfElse,
+                        VmirStmtData::IfElse {
+                            if_branch: VmirIfBranch {
+                                stmts: ArenaIdxRange(
+                                    3..4,
+                                ),
+                            },
+                            elif_branches: [],
+                            else_branch: Some(
+                                VmirElseBranch {
+                                    stmts: ArenaIdxRange(
+                                        4..5,
+                                    ),
+                                },
+                            ),
+                        },
                     ],
                 },
             },
@@ -5747,12 +8807,35 @@
                         },
                     },
                 },
-                root_expr: 1,
+                root_expr: 9,
                 vmir_expr_arena: Arena {
                     data: [
+                        VmirExprData::Literal,
+                        VmirExprData::Literal,
+                        VmirExprData::Prefix {
+                            opr: Minus,
+                            opd: 2,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Literal,
+                        VmirExprData::Binary {
+                            lopd: 4,
+                            opr: Closed(
+                                Mul,
+                            ),
+                            ropd: 5,
+                        },
+                        VmirExprData::Literal,
+                        VmirExprData::Binary {
+                            lopd: 6,
+                            opr: Closed(
+                                Div,
+                            ),
+                            ropd: 7,
+                        },
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
-                                1..7,
+                                6..12,
                             ),
                             destroyers: ArenaIdxRange(
                                 1..1,
@@ -5762,12 +8845,63 @@
                 },
                 vmir_stmt_arena: Arena {
                     data: [
+                        VmirStmtData::Eval {
+                            expr: 1,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 3,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::IfElse {
+                            if_branch: VmirIfBranch {
+                                stmts: ArenaIdxRange(
+                                    1..2,
+                                ),
+                            },
+                            elif_branches: [],
+                            else_branch: Some(
+                                VmirElseBranch {
+                                    stmts: ArenaIdxRange(
+                                        2..3,
+                                    ),
+                                },
+                            ),
+                        },
+                        VmirStmtData::Let,
+                        VmirStmtData::Eval {
+                            expr: 8,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
                         VmirStmtData::Let,
                         VmirStmtData::Assert,
                         VmirStmtData::Let,
                         VmirStmtData::Assert,
                         VmirStmtData::Let,
-                        VmirStmtData::IfElse,
+                        VmirStmtData::IfElse {
+                            if_branch: VmirIfBranch {
+                                stmts: ArenaIdxRange(
+                                    3..4,
+                                ),
+                            },
+                            elif_branches: [],
+                            else_branch: Some(
+                                VmirElseBranch {
+                                    stmts: ArenaIdxRange(
+                                        4..6,
+                                    ),
+                                },
+                            ),
+                        },
                     ],
                 },
             },
@@ -7759,13 +10893,139 @@
                         },
                     },
                 },
-                root_expr: 2,
+                root_expr: 32,
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable,
+                        VmirExprData::Suffix {
+                            opd: 1,
+                            opr: Incr,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Literal,
+                        VmirExprData::Binary {
+                            lopd: 6,
+                            opr: Closed(
+                                Add,
+                            ),
+                            ropd: 7,
+                        },
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MethodRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::displacement`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 4,
+                                },
+                                VmirArgument::Simple {
+                                    expr: 5,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                                VmirArgument::Simple {
+                                    expr: 8,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                            ],
+                        },
+                        VmirExprData::Binary {
+                            lopd: 3,
+                            opr: Assign,
+                            ropd: 9,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Binary {
+                            lopd: 12,
+                            opr: Assign,
+                            ropd: 13,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Binary {
+                            lopd: 15,
+                            opr: Assign,
+                            ropd: 16,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Binary {
+                            lopd: 18,
+                            opr: Assign,
+                            ropd: 19,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Suffix {
+                            opd: 21,
+                            opr: Incr,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Literal,
+                        VmirExprData::Binary {
+                            lopd: 26,
+                            opr: Closed(
+                                Add,
+                            ),
+                            ropd: 27,
+                        },
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MethodRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::displacement`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 24,
+                                },
+                                VmirArgument::Simple {
+                                    expr: 25,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                                VmirArgument::Simple {
+                                    expr: 28,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                            ],
+                        },
+                        VmirExprData::Binary {
+                            lopd: 23,
+                            opr: Assign,
+                            ropd: 29,
+                        },
+                        VmirExprData::Variable,
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
-                                1..13,
+                                17..29,
                             ),
                             destroyers: ArenaIdxRange(
                                 1..1,
@@ -7775,19 +11035,134 @@
                 },
                 vmir_stmt_arena: Arena {
                     data: [
+                        VmirStmtData::Eval {
+                            expr: 2,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 10,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Return {
+                            result: 11,
+                            coersion: VmirCoersion::Trivial,
+                        },
+                        VmirStmtData::Break,
+                        VmirStmtData::Eval {
+                            expr: 14,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 17,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 20,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::IfElse {
+                            if_branch: VmirIfBranch {
+                                stmts: ArenaIdxRange(
+                                    6..7,
+                                ),
+                            },
+                            elif_branches: [],
+                            else_branch: None,
+                        },
+                        VmirStmtData::IfElse {
+                            if_branch: VmirIfBranch {
+                                stmts: ArenaIdxRange(
+                                    7..8,
+                                ),
+                            },
+                            elif_branches: [],
+                            else_branch: None,
+                        },
+                        VmirStmtData::Let,
+                        VmirStmtData::IfElse {
+                            if_branch: VmirIfBranch {
+                                stmts: ArenaIdxRange(
+                                    4..5,
+                                ),
+                            },
+                            elif_branches: [
+                                VmirElifBranch {
+                                    stmts: ArenaIdxRange(
+                                        5..6,
+                                    ),
+                                },
+                            ],
+                            else_branch: None,
+                        },
+                        VmirStmtData::IfElse {
+                            if_branch: VmirIfBranch {
+                                stmts: ArenaIdxRange(
+                                    8..12,
+                                ),
+                            },
+                            elif_branches: [],
+                            else_branch: None,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 22,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 30,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
                         VmirStmtData::Let,
                         VmirStmtData::Let,
                         VmirStmtData::Let,
                         VmirStmtData::Let,
-                        VmirStmtData::While,
-                        VmirStmtData::IfElse,
+                        VmirStmtData::While {
+                            stmts: ArenaIdxRange(
+                                1..3,
+                            ),
+                        },
+                        VmirStmtData::IfElse {
+                            if_branch: VmirIfBranch {
+                                stmts: ArenaIdxRange(
+                                    3..4,
+                                ),
+                            },
+                            elif_branches: [],
+                            else_branch: None,
+                        },
                         VmirStmtData::Let,
                         VmirStmtData::Let,
                         VmirStmtData::Let,
-                        VmirStmtData::While,
+                        VmirStmtData::While {
+                            stmts: ArenaIdxRange(
+                                12..17,
+                            ),
+                        },
                         VmirStmtData::Assert,
                         VmirStmtData::Return {
-                            result: 1,
+                            result: 31,
                             coersion: VmirCoersion::Trivial,
                         },
                     ],
@@ -7820,12 +11195,120 @@
                         },
                     },
                 },
-                root_expr: 1,
+                root_expr: 27,
                 vmir_expr_arena: Arena {
                     data: [
+                        VmirExprData::Variable,
+                        VmirExprData::Suffix {
+                            opd: 1,
+                            opr: Decr,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Literal,
+                        VmirExprData::Binary {
+                            lopd: 6,
+                            opr: Closed(
+                                Sub,
+                            ),
+                            ropd: 7,
+                        },
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MethodRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::displacement`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 4,
+                                },
+                                VmirArgument::Simple {
+                                    expr: 5,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                                VmirArgument::Simple {
+                                    expr: 8,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                            ],
+                        },
+                        VmirExprData::Binary {
+                            lopd: 3,
+                            opr: Assign,
+                            ropd: 9,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MethodRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<core::num::i32(0)>::min`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 11,
+                                },
+                                VmirArgument::Simple {
+                                    expr: 12,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                            ],
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Binary {
+                            lopd: 14,
+                            opr: Assign,
+                            ropd: 15,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Binary {
+                            lopd: 17,
+                            opr: Assign,
+                            ropd: 18,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Binary {
+                            lopd: 20,
+                            opr: Assign,
+                            ropd: 21,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Suffix {
+                            opd: 23,
+                            opr: Decr,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
-                                1..11,
+                                23..33,
                             ),
                             destroyers: ArenaIdxRange(
                                 1..1,
@@ -7835,16 +11318,173 @@
                 },
                 vmir_stmt_arena: Arena {
                     data: [
+                        VmirStmtData::Eval {
+                            expr: 2,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 10,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Return {
+                            result: 13,
+                            coersion: VmirCoersion::Trivial,
+                        },
+                        VmirStmtData::Break,
+                        VmirStmtData::Eval {
+                            expr: 16,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 19,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 22,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::IfElse {
+                            if_branch: VmirIfBranch {
+                                stmts: ArenaIdxRange(
+                                    6..7,
+                                ),
+                            },
+                            elif_branches: [],
+                            else_branch: None,
+                        },
+                        VmirStmtData::IfElse {
+                            if_branch: VmirIfBranch {
+                                stmts: ArenaIdxRange(
+                                    7..8,
+                                ),
+                            },
+                            elif_branches: [],
+                            else_branch: None,
+                        },
+                        VmirStmtData::Break,
+                        VmirStmtData::IfElse {
+                            if_branch: VmirIfBranch {
+                                stmts: ArenaIdxRange(
+                                    12..13,
+                                ),
+                            },
+                            elif_branches: [],
+                            else_branch: None,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 24,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Break,
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::IfElse {
+                            if_branch: VmirIfBranch {
+                                stmts: ArenaIdxRange(
+                                    4..5,
+                                ),
+                            },
+                            elif_branches: [
+                                VmirElifBranch {
+                                    stmts: ArenaIdxRange(
+                                        5..6,
+                                    ),
+                                },
+                            ],
+                            else_branch: None,
+                        },
+                        VmirStmtData::IfElse {
+                            if_branch: VmirIfBranch {
+                                stmts: ArenaIdxRange(
+                                    8..12,
+                                ),
+                            },
+                            elif_branches: [],
+                            else_branch: None,
+                        },
+                        VmirStmtData::IfElse {
+                            if_branch: VmirIfBranch {
+                                stmts: ArenaIdxRange(
+                                    13..15,
+                                ),
+                            },
+                            elif_branches: [],
+                            else_branch: Some(
+                                VmirElseBranch {
+                                    stmts: ArenaIdxRange(
+                                        15..16,
+                                    ),
+                                },
+                            ),
+                        },
+                        VmirStmtData::Return {
+                            result: 25,
+                            coersion: VmirCoersion::Trivial,
+                        },
+                        VmirStmtData::Return {
+                            result: 26,
+                            coersion: VmirCoersion::Trivial,
+                        },
                         VmirStmtData::Let,
                         VmirStmtData::Let,
                         VmirStmtData::Let,
-                        VmirStmtData::While,
-                        VmirStmtData::IfElse,
+                        VmirStmtData::While {
+                            stmts: ArenaIdxRange(
+                                1..3,
+                            ),
+                        },
+                        VmirStmtData::IfElse {
+                            if_branch: VmirIfBranch {
+                                stmts: ArenaIdxRange(
+                                    3..4,
+                                ),
+                            },
+                            elif_branches: [],
+                            else_branch: None,
+                        },
                         VmirStmtData::Let,
                         VmirStmtData::Let,
                         VmirStmtData::Let,
-                        VmirStmtData::While,
-                        VmirStmtData::IfElse,
+                        VmirStmtData::While {
+                            stmts: ArenaIdxRange(
+                                16..21,
+                            ),
+                        },
+                        VmirStmtData::IfElse {
+                            if_branch: VmirIfBranch {
+                                stmts: ArenaIdxRange(
+                                    21..22,
+                                ),
+                            },
+                            elif_branches: [],
+                            else_branch: Some(
+                                VmirElseBranch {
+                                    stmts: ArenaIdxRange(
+                                        22..23,
+                                    ),
+                                },
+                            ),
+                        },
                     ],
                 },
             },
@@ -7875,13 +11515,974 @@
                         },
                     },
                 },
-                root_expr: 2,
+                root_expr: 76,
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MajorRitchieEager {
+                                    path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Ritchie(
+                                        Fn,
+                                    )`),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: None,
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::Simple {
+                                    expr: 2,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                                VmirArgument::Simple {
+                                    expr: 3,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                                VmirArgument::Simple {
+                                    expr: 4,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                            ],
+                        },
+                        VmirExprData::Binary {
+                            lopd: 1,
+                            opr: Assign,
+                            ropd: 5,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MethodRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<core::vec::Vec(0)>::last`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [
+                                            (
+                                                Type(
+                                                    Type {
+                                                        attrs: HirTemplateSvarAttrs {
+                                                            class: Comptime,
+                                                        },
+                                                        variance: None,
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                                Explicit(
+                                                    Type(
+                                                        PathLeading(
+                                                            LinTypePathLeading(
+                                                                Id {
+                                                                    value: 13,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                            (
+                                                Type(
+                                                    SelfPlace,
+                                                ),
+                                                SelfQual(
+                                                    RefMut,
+                                                ),
+                                            ),
+                                        ],
+                                        separator: Some(
+                                            1,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 7,
+                                },
+                            ],
+                        },
+                        VmirExprData::Unwrap {
+                            opd: 8,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MethodRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<core::vec::Vec(0)>::last`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [
+                                            (
+                                                Type(
+                                                    Type {
+                                                        attrs: HirTemplateSvarAttrs {
+                                                            class: Comptime,
+                                                        },
+                                                        variance: None,
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                                Explicit(
+                                                    Type(
+                                                        PathLeading(
+                                                            LinTypePathLeading(
+                                                                Id {
+                                                                    value: 13,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                            (
+                                                Type(
+                                                    SelfPlace,
+                                                ),
+                                                SelfQual(
+                                                    Ref,
+                                                ),
+                                            ),
+                                        ],
+                                        separator: Some(
+                                            1,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 11,
+                                },
+                            ],
+                        },
+                        VmirExprData::Unwrap {
+                            opd: 12,
+                        },
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::StructField {
+                                    self_ty: LinTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                        template_arguments: [],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 54,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 13,
+                                },
+                            ],
+                        },
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MethodRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<core::slice::CyclicSlice(0)>::start`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [
+                                            (
+                                                Type(
+                                                    Type {
+                                                        attrs: HirTemplateSvarAttrs {
+                                                            class: Comptime,
+                                                        },
+                                                        variance: None,
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                                Explicit(
+                                                    Type(
+                                                        PathLeading(
+                                                            LinTypePathLeading(
+                                                                Id {
+                                                                    value: 7,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        ],
+                                        separator: Some(
+                                            1,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 14,
+                                },
+                            ],
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::AssocRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke(0)>::new`, `AssocRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::Simple {
+                                    expr: 10,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                                VmirArgument::Simple {
+                                    expr: 15,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                                VmirArgument::Simple {
+                                    expr: 16,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                            ],
+                        },
+                        VmirExprData::Binary {
+                            lopd: 9,
+                            opr: Assign,
+                            ropd: 17,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Literal,
+                        VmirExprData::Binary {
+                            lopd: 19,
+                            opr: Assign,
+                            ropd: 20,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MajorRitchieEager {
+                                    path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Ritchie(
+                                        Fn,
+                                    )`),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: None,
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::Simple {
+                                    expr: 23,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                                VmirArgument::Simple {
+                                    expr: 24,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                                VmirArgument::Simple {
+                                    expr: 25,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                                VmirArgument::Simple {
+                                    expr: 26,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                            ],
+                        },
+                        VmirExprData::Binary {
+                            lopd: 22,
+                            opr: Assign,
+                            ropd: 27,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::StructField {
+                                    self_ty: LinTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                        template_arguments: [],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 54,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 31,
+                                },
+                            ],
+                        },
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MethodRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<core::slice::CyclicSlice(0)>::start`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [
+                                            (
+                                                Type(
+                                                    Type {
+                                                        attrs: HirTemplateSvarAttrs {
+                                                            class: Comptime,
+                                                        },
+                                                        variance: None,
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                                Explicit(
+                                                    Type(
+                                                        PathLeading(
+                                                            LinTypePathLeading(
+                                                                Id {
+                                                                    value: 7,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        ],
+                                        separator: Some(
+                                            1,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 32,
+                                },
+                            ],
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::StructField {
+                                    self_ty: LinTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                        template_arguments: [],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 54,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 34,
+                                },
+                            ],
+                        },
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MethodRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<core::slice::CyclicSlice(0)>::end`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [
+                                            (
+                                                Type(
+                                                    Type {
+                                                        attrs: HirTemplateSvarAttrs {
+                                                            class: Comptime,
+                                                        },
+                                                        variance: None,
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                                Explicit(
+                                                    Type(
+                                                        PathLeading(
+                                                            LinTypePathLeading(
+                                                                Id {
+                                                                    value: 7,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        ],
+                                        separator: Some(
+                                            1,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 35,
+                                },
+                            ],
+                        },
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::AssocRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke(0)>::new`, `AssocRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::Simple {
+                                    expr: 30,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                                VmirArgument::Simple {
+                                    expr: 33,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                                VmirArgument::Simple {
+                                    expr: 36,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                            ],
+                        },
+                        VmirExprData::Binary {
+                            lopd: 29,
+                            opr: Assign,
+                            ropd: 37,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::StructField {
+                                    self_ty: LinTypePathLeading {
+                                        ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                        template_arguments: [
+                                            LinTemplateArgument::Type(
+                                                LinType::PathLeading(
+                                                    LinTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                        template_arguments: [],
+                                                    },
+                                                ),
+                                            ),
+                                        ],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 54,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 41,
+                                },
+                            ],
+                        },
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MethodRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [
+                                            (
+                                                Type(
+                                                    Type {
+                                                        attrs: HirTemplateSvarAttrs {
+                                                            class: Comptime,
+                                                        },
+                                                        variance: None,
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                                Explicit(
+                                                    Type(
+                                                        PathLeading(
+                                                            LinTypePathLeading(
+                                                                Id {
+                                                                    value: 7,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        ],
+                                        separator: Some(
+                                            1,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 42,
+                                },
+                            ],
+                        },
+                        VmirExprData::Binary {
+                            lopd: 40,
+                            opr: Closed(
+                                Add,
+                            ),
+                            ropd: 43,
+                        },
+                        VmirExprData::Binary {
+                            lopd: 39,
+                            opr: Assign,
+                            ropd: 44,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MethodRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<core::vec::Vec(0)>::push`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [
+                                            (
+                                                Type(
+                                                    Type {
+                                                        attrs: HirTemplateSvarAttrs {
+                                                            class: Comptime,
+                                                        },
+                                                        variance: None,
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                                Explicit(
+                                                    Type(
+                                                        PathLeading(
+                                                            LinTypePathLeading(
+                                                                Id {
+                                                                    value: 13,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                            (
+                                                Type(
+                                                    SelfLifetime,
+                                                ),
+                                                SelfLifetime,
+                                            ),
+                                        ],
+                                        separator: Some(
+                                            1,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 46,
+                                },
+                                VmirArgument::Simple {
+                                    expr: 47,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                            ],
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Binary {
+                            lopd: 49,
+                            opr: Assign,
+                            ropd: 50,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Literal,
+                        VmirExprData::Binary {
+                            lopd: 53,
+                            opr: Closed(
+                                Add,
+                            ),
+                            ropd: 54,
+                        },
+                        VmirExprData::Binary {
+                            lopd: 52,
+                            opr: Assign,
+                            ropd: 55,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MethodRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<core::vec::Vec(0)>::first`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [
+                                            (
+                                                Type(
+                                                    Type {
+                                                        attrs: HirTemplateSvarAttrs {
+                                                            class: Comptime,
+                                                        },
+                                                        variance: None,
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                                Explicit(
+                                                    Type(
+                                                        PathLeading(
+                                                            LinTypePathLeading(
+                                                                Id {
+                                                                    value: 13,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                            (
+                                                Type(
+                                                    SelfPlace,
+                                                ),
+                                                SelfQual(
+                                                    RefMut,
+                                                ),
+                                            ),
+                                        ],
+                                        separator: Some(
+                                            1,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 57,
+                                },
+                            ],
+                        },
+                        VmirExprData::Unwrap {
+                            opd: 58,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::StructField {
+                                    self_ty: LinTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                        template_arguments: [],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 54,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 61,
+                                },
+                            ],
+                        },
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MethodRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<core::slice::CyclicSlice(0)>::start`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [
+                                            (
+                                                Type(
+                                                    Type {
+                                                        attrs: HirTemplateSvarAttrs {
+                                                            class: Comptime,
+                                                        },
+                                                        variance: None,
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                                Explicit(
+                                                    Type(
+                                                        PathLeading(
+                                                            LinTypePathLeading(
+                                                                Id {
+                                                                    value: 7,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        ],
+                                        separator: Some(
+                                            1,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 62,
+                                },
+                            ],
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Binary {
+                            lopd: 63,
+                            opr: Closed(
+                                Sub,
+                            ),
+                            ropd: 64,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MethodRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<core::vec::Vec(0)>::first`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [
+                                            (
+                                                Type(
+                                                    Type {
+                                                        attrs: HirTemplateSvarAttrs {
+                                                            class: Comptime,
+                                                        },
+                                                        variance: None,
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                                Explicit(
+                                                    Type(
+                                                        PathLeading(
+                                                            LinTypePathLeading(
+                                                                Id {
+                                                                    value: 13,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                            (
+                                                Type(
+                                                    SelfPlace,
+                                                ),
+                                                SelfQual(
+                                                    Ref,
+                                                ),
+                                            ),
+                                        ],
+                                        separator: Some(
+                                            1,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 66,
+                                },
+                            ],
+                        },
+                        VmirExprData::Unwrap {
+                            opd: 67,
+                        },
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::StructField {
+                                    self_ty: LinTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                        template_arguments: [],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 54,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 68,
+                                },
+                            ],
+                        },
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MethodRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<core::slice::CyclicSlice(0)>::end`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [
+                                            (
+                                                Type(
+                                                    Type {
+                                                        attrs: HirTemplateSvarAttrs {
+                                                            class: Comptime,
+                                                        },
+                                                        variance: None,
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                                Explicit(
+                                                    Type(
+                                                        PathLeading(
+                                                            LinTypePathLeading(
+                                                                Id {
+                                                                    value: 7,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        ],
+                                        separator: Some(
+                                            1,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 69,
+                                },
+                            ],
+                        },
+                        VmirExprData::Literal,
+                        VmirExprData::Binary {
+                            lopd: 70,
+                            opr: Closed(
+                                Sub,
+                            ),
+                            ropd: 71,
+                        },
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::AssocRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke(0)>::new`, `AssocRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::Simple {
+                                    expr: 60,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                                VmirArgument::Simple {
+                                    expr: 65,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                                VmirArgument::Simple {
+                                    expr: 72,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                            ],
+                        },
+                        VmirExprData::Binary {
+                            lopd: 59,
+                            opr: Assign,
+                            ropd: 73,
+                        },
+                        VmirExprData::Variable,
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
-                                1..11,
+                                28..38,
                             ),
                             destroyers: ArenaIdxRange(
                                 1..1,
@@ -7892,16 +12493,161 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Let,
-                        VmirStmtData::Let,
-                        VmirStmtData::Let,
-                        VmirStmtData::Let,
-                        VmirStmtData::While,
-                        VmirStmtData::Let,
-                        VmirStmtData::Let,
-                        VmirStmtData::Let,
-                        VmirStmtData::IfElse,
                         VmirStmtData::Eval {
-                            expr: 1,
+                            expr: 18,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 21,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::IfElse {
+                            if_branch: VmirIfBranch {
+                                stmts: ArenaIdxRange(
+                                    1..4,
+                                ),
+                            },
+                            elif_branches: [],
+                            else_branch: None,
+                        },
+                        VmirStmtData::Let,
+                        VmirStmtData::Eval {
+                            expr: 38,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::IfElse {
+                            if_branch: VmirIfBranch {
+                                stmts: ArenaIdxRange(
+                                    7..9,
+                                ),
+                            },
+                            elif_branches: [],
+                            else_branch: None,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 45,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 28,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Let,
+                        VmirStmtData::IfElse {
+                            if_branch: VmirIfBranch {
+                                stmts: ArenaIdxRange(
+                                    9..14,
+                                ),
+                            },
+                            elif_branches: [],
+                            else_branch: Some(
+                                VmirElseBranch {
+                                    stmts: ArenaIdxRange(
+                                        14..15,
+                                    ),
+                                },
+                            ),
+                        },
+                        VmirStmtData::Eval {
+                            expr: 48,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 6,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::IfElse {
+                            if_branch: VmirIfBranch {
+                                stmts: ArenaIdxRange(
+                                    4..7,
+                                ),
+                            },
+                            elif_branches: [],
+                            else_branch: None,
+                        },
+                        VmirStmtData::IfElse {
+                            if_branch: VmirIfBranch {
+                                stmts: ArenaIdxRange(
+                                    15..19,
+                                ),
+                            },
+                            elif_branches: [],
+                            else_branch: None,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 51,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 56,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Let,
+                        VmirStmtData::Eval {
+                            expr: 74,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::While {
+                            stmts: ArenaIdxRange(
+                                19..26,
+                            ),
+                        },
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::IfElse {
+                            if_branch: VmirIfBranch {
+                                stmts: ArenaIdxRange(
+                                    26..28,
+                                ),
+                            },
+                            elif_branches: [],
+                            else_branch: None,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 75,
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -8328,9 +13074,241 @@
                         },
                     },
                 },
-                root_expr: 8,
+                root_expr: 32,
                 vmir_expr_arena: Arena {
                     data: [
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::StructField {
+                                    self_ty: LinTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                        template_arguments: [],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 74,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 3,
+                                },
+                            ],
+                        },
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MethodRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<core::num::f32(0)>::min`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 2,
+                                },
+                                VmirArgument::Simple {
+                                    expr: 4,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                            ],
+                        },
+                        VmirExprData::Binary {
+                            lopd: 1,
+                            opr: Assign,
+                            ropd: 5,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::StructField {
+                                    self_ty: LinTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                        template_arguments: [],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 74,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 9,
+                                },
+                            ],
+                        },
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MethodRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<core::num::f32(0)>::max`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 8,
+                                },
+                                VmirArgument::Simple {
+                                    expr: 10,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                            ],
+                        },
+                        VmirExprData::Binary {
+                            lopd: 7,
+                            opr: Assign,
+                            ropd: 11,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::StructField {
+                                    self_ty: LinTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                        template_arguments: [],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 75,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 15,
+                                },
+                            ],
+                        },
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MethodRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<core::num::f32(0)>::min`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 14,
+                                },
+                                VmirArgument::Simple {
+                                    expr: 16,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                            ],
+                        },
+                        VmirExprData::Binary {
+                            lopd: 13,
+                            opr: Assign,
+                            ropd: 17,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::StructField {
+                                    self_ty: LinTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                        template_arguments: [],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 75,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 21,
+                                },
+                            ],
+                        },
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MethodRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<core::num::f32(0)>::max`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 20,
+                                },
+                                VmirArgument::Simple {
+                                    expr: 22,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                            ],
+                        },
+                        VmirExprData::Binary {
+                            lopd: 19,
+                            opr: Assign,
+                            ropd: 23,
+                        },
                         VmirExprData::Variable,
                         VmirExprData::Variable,
                         VmirExprData::Linkage {
@@ -8345,11 +13323,11 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 1,
+                                    expr: 25,
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 2,
+                                    expr: 26,
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -8368,11 +13346,11 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 4,
+                                    expr: 28,
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 5,
+                                    expr: 29,
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -8389,18 +13367,18 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 3,
+                                    expr: 27,
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 6,
+                                    expr: 30,
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
                         },
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
-                                1..8,
+                                6..13,
                             ),
                             destroyers: ArenaIdxRange(
                                 1..1,
@@ -8411,13 +13389,46 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Let,
+                        VmirStmtData::Eval {
+                            expr: 6,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 12,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 18,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 24,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
                         VmirStmtData::Let,
                         VmirStmtData::Let,
                         VmirStmtData::Let,
                         VmirStmtData::Let,
-                        VmirStmtData::ForBetween,
+                        VmirStmtData::Let,
+                        VmirStmtData::ForBetween {
+                            stmts: ArenaIdxRange(
+                                1..6,
+                            ),
+                        },
                         VmirStmtData::Return {
-                            result: 7,
+                            result: 31,
                             coersion: VmirCoersion::Trivial,
                         },
                     ],
@@ -8620,13 +13631,212 @@
                         },
                     },
                 },
-                root_expr: 2,
+                root_expr: 23,
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable,
+                        VmirExprData::Suffix {
+                            opd: 1,
+                            opr: Decr,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Suffix {
+                            opd: 3,
+                            opr: Incr,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::StructField {
+                                    self_ty: LinTypePathLeading {
+                                        ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                        template_arguments: [
+                                            LinTemplateArgument::Type(
+                                                LinType::PathLeading(
+                                                    LinTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                        template_arguments: [],
+                                                    },
+                                                ),
+                                            ),
+                                        ],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 206,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 7,
+                                },
+                            ],
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MethodRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<core::vec::Vec(0)>::cyclic_slice_leashed`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [
+                                            (
+                                                Type(
+                                                    Type {
+                                                        attrs: HirTemplateSvarAttrs {
+                                                            class: Comptime,
+                                                        },
+                                                        variance: None,
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                                Explicit(
+                                                    Type(
+                                                        PathLeading(
+                                                            LinTypePathLeading(
+                                                                Id {
+                                                                    value: 13,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        ],
+                                        separator: Some(
+                                            1,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 8,
+                                },
+                                VmirArgument::Simple {
+                                    expr: 9,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                                VmirArgument::Simple {
+                                    expr: 10,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                            ],
+                        },
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::StructConstructor {
+                                    path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: None,
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::Simple {
+                                    expr: 6,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                                VmirArgument::Simple {
+                                    expr: 11,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                            ],
+                        },
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MethodRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<core::vec::Vec(0)>::push`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [
+                                            (
+                                                Type(
+                                                    Type {
+                                                        attrs: HirTemplateSvarAttrs {
+                                                            class: Comptime,
+                                                        },
+                                                        variance: None,
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                                Explicit(
+                                                    Type(
+                                                        PathLeading(
+                                                            LinTypePathLeading(
+                                                                Id {
+                                                                    value: 15,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                            (
+                                                Type(
+                                                    SelfLifetime,
+                                                ),
+                                                SelfLifetime,
+                                            ),
+                                        ],
+                                        separator: Some(
+                                            1,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 5,
+                                },
+                                VmirArgument::Simple {
+                                    expr: 12,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                            ],
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Binary {
+                            lopd: 14,
+                            opr: Assign,
+                            ropd: 15,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Literal,
+                        VmirExprData::Binary {
+                            lopd: 18,
+                            opr: Closed(
+                                Add,
+                            ),
+                            ropd: 19,
+                        },
+                        VmirExprData::Binary {
+                            lopd: 17,
+                            opr: Assign,
+                            ropd: 20,
+                        },
+                        VmirExprData::Variable,
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
-                                1..9,
+                                8..16,
                             ),
                             destroyers: ArenaIdxRange(
                                 1..1,
@@ -8636,15 +13846,72 @@
                 },
                 vmir_stmt_arena: Arena {
                     data: [
+                        VmirStmtData::Eval {
+                            expr: 2,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 4,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 13,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::While {
+                            stmts: ArenaIdxRange(
+                                2..3,
+                            ),
+                        },
+                        VmirStmtData::IfElse {
+                            if_branch: VmirIfBranch {
+                                stmts: ArenaIdxRange(
+                                    3..4,
+                                ),
+                            },
+                            elif_branches: [],
+                            else_branch: None,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 16,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 21,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
                         VmirStmtData::Let,
                         VmirStmtData::Let,
                         VmirStmtData::Let,
                         VmirStmtData::Let,
-                        VmirStmtData::While,
+                        VmirStmtData::While {
+                            stmts: ArenaIdxRange(
+                                1..2,
+                            ),
+                        },
                         VmirStmtData::Let,
-                        VmirStmtData::While,
+                        VmirStmtData::While {
+                            stmts: ArenaIdxRange(
+                                4..8,
+                            ),
+                        },
                         VmirStmtData::Return {
-                            result: 1,
+                            result: 22,
                             coersion: VmirCoersion::Trivial,
                         },
                     ],
@@ -8887,13 +14154,20 @@
                         },
                     },
                 },
-                root_expr: 2,
+                root_expr: 5,
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Binary {
+                            lopd: 1,
+                            opr: Assign,
+                            ropd: 2,
+                        },
+                        VmirExprData::Variable,
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
-                                1..7,
+                                5..11,
                             ),
                             destroyers: ArenaIdxRange(
                                 1..1,
@@ -8903,13 +14177,35 @@
                 },
                 vmir_stmt_arena: Arena {
                     data: [
+                        VmirStmtData::Eval {
+                            expr: 3,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::IfElse {
+                            if_branch: VmirIfBranch {
+                                stmts: ArenaIdxRange(
+                                    1..2,
+                                ),
+                            },
+                            elif_branches: [],
+                            else_branch: None,
+                        },
                         VmirStmtData::Let,
                         VmirStmtData::Let,
                         VmirStmtData::Let,
                         VmirStmtData::Let,
-                        VmirStmtData::ForBetween,
+                        VmirStmtData::ForBetween {
+                            stmts: ArenaIdxRange(
+                                2..5,
+                            ),
+                        },
                         VmirStmtData::Return {
-                            result: 1,
+                            result: 4,
                             coersion: VmirCoersion::Trivial,
                         },
                     ],
@@ -8946,13 +14242,61 @@
                         },
                     },
                 },
-                root_expr: 2,
+                root_expr: 11,
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Literal,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MethodRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::angle_to`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 2,
+                                },
+                                VmirArgument::Simple {
+                                    expr: 3,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                                VmirArgument::Simple {
+                                    expr: 4,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                            ],
+                        },
+                        VmirExprData::Binary {
+                            lopd: 1,
+                            opr: AssignClosed(
+                                Add,
+                            ),
+                            ropd: 5,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Binary {
+                            lopd: 7,
+                            opr: Assign,
+                            ropd: 8,
+                        },
+                        VmirExprData::Variable,
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
-                                1..5,
+                                4..8,
                             ),
                             destroyers: ArenaIdxRange(
                                 1..1,
@@ -8963,10 +14307,29 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Let,
+                        VmirStmtData::Eval {
+                            expr: 6,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 9,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
                         VmirStmtData::Let,
-                        VmirStmtData::ForBetween,
+                        VmirStmtData::Let,
+                        VmirStmtData::ForBetween {
+                            stmts: ArenaIdxRange(
+                                1..4,
+                            ),
+                        },
                         VmirStmtData::Return {
-                            result: 1,
+                            result: 10,
                             coersion: VmirCoersion::Trivial,
                         },
                     ],
@@ -9003,9 +14366,241 @@
                         },
                     },
                 },
-                root_expr: 8,
+                root_expr: 32,
                 vmir_expr_arena: Arena {
                     data: [
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::StructField {
+                                    self_ty: LinTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                        template_arguments: [],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 74,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 3,
+                                },
+                            ],
+                        },
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MethodRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<core::num::f32(0)>::min`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 2,
+                                },
+                                VmirArgument::Simple {
+                                    expr: 4,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                            ],
+                        },
+                        VmirExprData::Binary {
+                            lopd: 1,
+                            opr: Assign,
+                            ropd: 5,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::StructField {
+                                    self_ty: LinTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                        template_arguments: [],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 74,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 9,
+                                },
+                            ],
+                        },
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MethodRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<core::num::f32(0)>::max`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 8,
+                                },
+                                VmirArgument::Simple {
+                                    expr: 10,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                            ],
+                        },
+                        VmirExprData::Binary {
+                            lopd: 7,
+                            opr: Assign,
+                            ropd: 11,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::StructField {
+                                    self_ty: LinTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                        template_arguments: [],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 75,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 15,
+                                },
+                            ],
+                        },
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MethodRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<core::num::f32(0)>::min`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 14,
+                                },
+                                VmirArgument::Simple {
+                                    expr: 16,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                            ],
+                        },
+                        VmirExprData::Binary {
+                            lopd: 13,
+                            opr: Assign,
+                            ropd: 17,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::StructField {
+                                    self_ty: LinTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                        template_arguments: [],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 75,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 21,
+                                },
+                            ],
+                        },
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MethodRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<core::num::f32(0)>::max`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 20,
+                                },
+                                VmirArgument::Simple {
+                                    expr: 22,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                            ],
+                        },
+                        VmirExprData::Binary {
+                            lopd: 19,
+                            opr: Assign,
+                            ropd: 23,
+                        },
                         VmirExprData::Variable,
                         VmirExprData::Variable,
                         VmirExprData::Linkage {
@@ -9020,11 +14615,11 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 1,
+                                    expr: 25,
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 2,
+                                    expr: 26,
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -9043,11 +14638,11 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 4,
+                                    expr: 28,
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 5,
+                                    expr: 29,
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -9064,18 +14659,18 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 3,
+                                    expr: 27,
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 6,
+                                    expr: 30,
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
                         },
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
-                                1..8,
+                                6..13,
                             ),
                             destroyers: ArenaIdxRange(
                                 1..1,
@@ -9086,13 +14681,46 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Let,
+                        VmirStmtData::Eval {
+                            expr: 6,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 12,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 18,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 24,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
                         VmirStmtData::Let,
                         VmirStmtData::Let,
                         VmirStmtData::Let,
                         VmirStmtData::Let,
-                        VmirStmtData::ForBetween,
+                        VmirStmtData::Let,
+                        VmirStmtData::ForBetween {
+                            stmts: ArenaIdxRange(
+                                1..6,
+                            ),
+                        },
                         VmirStmtData::Return {
-                            result: 7,
+                            result: 31,
                             coersion: VmirCoersion::Trivial,
                         },
                     ],
@@ -10544,12 +16172,152 @@
                         },
                     },
                 },
-                root_expr: 1,
+                root_expr: 21,
                 vmir_expr_arena: Arena {
                     data: [
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MethodRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::cross`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 3,
+                                },
+                                VmirArgument::Simple {
+                                    expr: 4,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                            ],
+                        },
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MethodRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<core::num::f32(0)>::max`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 2,
+                                },
+                                VmirArgument::Simple {
+                                    expr: 5,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                            ],
+                        },
+                        VmirExprData::Binary {
+                            lopd: 1,
+                            opr: Assign,
+                            ropd: 6,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MethodRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::cross`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 10,
+                                },
+                                VmirArgument::Simple {
+                                    expr: 11,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                            ],
+                        },
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MethodRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<core::num::f32(0)>::max`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 9,
+                                },
+                                VmirArgument::Simple {
+                                    expr: 12,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                            ],
+                        },
+                        VmirExprData::Binary {
+                            lopd: 8,
+                            opr: Assign,
+                            ropd: 13,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Binary {
+                            lopd: 15,
+                            opr: Comparison(
+                                Less,
+                            ),
+                            ropd: 16,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Literal,
+                        VmirExprData::Binary {
+                            lopd: 18,
+                            opr: Comparison(
+                                Greater,
+                            ),
+                            ropd: 19,
+                        },
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
-                                1..6,
+                                13..18,
                             ),
                             destroyers: ArenaIdxRange(
                                 1..1,
@@ -10560,10 +16328,62 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Let,
+                        VmirStmtData::Eval {
+                            expr: 7,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Let,
+                        VmirStmtData::Eval {
+                            expr: 14,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::ForBetween {
+                            stmts: ArenaIdxRange(
+                                1..3,
+                            ),
+                        },
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::ForBetween {
+                            stmts: ArenaIdxRange(
+                                3..5,
+                            ),
+                        },
+                        VmirStmtData::Return {
+                            result: 17,
+                            coersion: VmirCoersion::Trivial,
+                        },
+                        VmirStmtData::Return {
+                            result: 20,
+                            coersion: VmirCoersion::Trivial,
+                        },
                         VmirStmtData::Let,
                         VmirStmtData::Let,
                         VmirStmtData::Let,
-                        VmirStmtData::IfElse,
+                        VmirStmtData::Let,
+                        VmirStmtData::IfElse {
+                            if_branch: VmirIfBranch {
+                                stmts: ArenaIdxRange(
+                                    5..12,
+                                ),
+                            },
+                            elif_branches: [],
+                            else_branch: Some(
+                                VmirElseBranch {
+                                    stmts: ArenaIdxRange(
+                                        12..13,
+                                    ),
+                                },
+                            ),
+                        },
                     ],
                 },
             },
@@ -10801,12 +16621,138 @@
                         },
                     },
                 },
-                root_expr: 1,
+                root_expr: 12,
                 vmir_expr_arena: Arena {
                     data: [
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MethodRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::norm`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 1,
+                                },
+                            ],
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MethodRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::norm`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 3,
+                                },
+                            ],
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MethodRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::cross`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 5,
+                                },
+                                VmirArgument::Simple {
+                                    expr: 6,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                            ],
+                        },
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MethodRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<core::num::f32(0)>::abs`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 7,
+                                },
+                            ],
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MethodRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::norm`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 9,
+                                },
+                            ],
+                        },
+                        VmirExprData::Binary {
+                            lopd: 8,
+                            opr: Closed(
+                                Div,
+                            ),
+                            ropd: 10,
+                        },
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
-                                1..4,
+                                6..9,
                             ),
                             destroyers: ArenaIdxRange(
                                 1..1,
@@ -10816,9 +16762,60 @@
                 },
                 vmir_stmt_arena: Arena {
                     data: [
+                        VmirStmtData::Eval {
+                            expr: 2,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 4,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 11,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Let,
+                        VmirStmtData::IfElse {
+                            if_branch: VmirIfBranch {
+                                stmts: ArenaIdxRange(
+                                    2..3,
+                                ),
+                            },
+                            elif_branches: [],
+                            else_branch: Some(
+                                VmirElseBranch {
+                                    stmts: ArenaIdxRange(
+                                        3..4,
+                                    ),
+                                },
+                            ),
+                        },
                         VmirStmtData::Let,
                         VmirStmtData::Let,
-                        VmirStmtData::IfElse,
+                        VmirStmtData::IfElse {
+                            if_branch: VmirIfBranch {
+                                stmts: ArenaIdxRange(
+                                    1..2,
+                                ),
+                            },
+                            elif_branches: [],
+                            else_branch: Some(
+                                VmirElseBranch {
+                                    stmts: ArenaIdxRange(
+                                        4..6,
+                                    ),
+                                },
+                            ),
+                        },
                     ],
                 },
             },
@@ -10912,9 +16909,122 @@
                         },
                     },
                 },
-                root_expr: 4,
+                root_expr: 9,
                 vmir_expr_arena: Arena {
                     data: [
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MethodRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<core::vec::Vec(0)>::pop_with_largest_opt_f32`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [
+                                            (
+                                                Type(
+                                                    Type {
+                                                        attrs: HirTemplateSvarAttrs {
+                                                            class: Comptime,
+                                                        },
+                                                        variance: None,
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                                Explicit(
+                                                    Type(
+                                                        PathLeading(
+                                                            LinTypePathLeading(
+                                                                Id {
+                                                                    value: 23,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                            (
+                                                Type(
+                                                    SelfLifetime,
+                                                ),
+                                                SelfLifetime,
+                                            ),
+                                        ],
+                                        separator: Some(
+                                            1,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 2,
+                                },
+                                VmirArgument::Simple {
+                                    expr: 3,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                            ],
+                        },
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MethodRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<core::vec::Vec(0)>::push`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [
+                                            (
+                                                Type(
+                                                    Type {
+                                                        attrs: HirTemplateSvarAttrs {
+                                                            class: Comptime,
+                                                        },
+                                                        variance: None,
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                                Explicit(
+                                                    Type(
+                                                        PathLeading(
+                                                            LinTypePathLeading(
+                                                                Id {
+                                                                    value: 24,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                            (
+                                                Type(
+                                                    SelfLifetime,
+                                                ),
+                                                SelfLifetime,
+                                            ),
+                                        ],
+                                        separator: Some(
+                                            1,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 1,
+                                },
+                                VmirArgument::Simple {
+                                    expr: 4,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                            ],
+                        },
                         VmirExprData::Variable,
                         VmirExprData::Variable,
                         VmirExprData::Linkage {
@@ -10929,18 +17039,18 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 1,
+                                    expr: 6,
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 2,
+                                    expr: 7,
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
                         },
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
-                                1..5,
+                                3..7,
                             ),
                             destroyers: ArenaIdxRange(
                                 1..1,
@@ -10951,10 +17061,22 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Let,
+                        VmirStmtData::Eval {
+                            expr: 5,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
                         VmirStmtData::Let,
-                        VmirStmtData::ForBetween,
+                        VmirStmtData::Let,
+                        VmirStmtData::ForBetween {
+                            stmts: ArenaIdxRange(
+                                1..3,
+                            ),
+                        },
                         VmirStmtData::Return {
-                            result: 3,
+                            result: 8,
                             coersion: VmirCoersion::Trivial,
                         },
                     ],
@@ -10991,13 +17113,67 @@
                         },
                     },
                 },
-                root_expr: 2,
+                root_expr: 8,
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Index,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MemoizedField {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::norm`, `MemoizedField`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 3,
+                                },
+                            ],
+                        },
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MethodRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<core::num::f32(0)>::max`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 2,
+                                },
+                                VmirArgument::Simple {
+                                    expr: 4,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                            ],
+                        },
+                        VmirExprData::Binary {
+                            lopd: 1,
+                            opr: Assign,
+                            ropd: 5,
+                        },
+                        VmirExprData::Variable,
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
-                                1..4,
+                                2..5,
                             ),
                             destroyers: ArenaIdxRange(
                                 1..1,
@@ -11007,10 +17183,21 @@
                 },
                 vmir_stmt_arena: Arena {
                     data: [
+                        VmirStmtData::Eval {
+                            expr: 6,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
                         VmirStmtData::Let,
-                        VmirStmtData::ForBetween,
+                        VmirStmtData::ForBetween {
+                            stmts: ArenaIdxRange(
+                                1..2,
+                            ),
+                        },
                         VmirStmtData::Return {
-                            result: 1,
+                            result: 7,
                             coersion: VmirCoersion::Trivial,
                         },
                     ],
@@ -11047,13 +17234,67 @@
                         },
                     },
                 },
-                root_expr: 2,
+                root_expr: 8,
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Index,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MemoizedField {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::rel_norm`, `MemoizedField`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 3,
+                                },
+                            ],
+                        },
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MethodRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<core::num::f32(0)>::max`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 2,
+                                },
+                                VmirArgument::Simple {
+                                    expr: 4,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                            ],
+                        },
+                        VmirExprData::Binary {
+                            lopd: 1,
+                            opr: Assign,
+                            ropd: 5,
+                        },
+                        VmirExprData::Variable,
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
-                                1..4,
+                                2..5,
                             ),
                             destroyers: ArenaIdxRange(
                                 1..1,
@@ -11063,10 +17304,21 @@
                 },
                 vmir_stmt_arena: Arena {
                     data: [
+                        VmirStmtData::Eval {
+                            expr: 6,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
                         VmirStmtData::Let,
-                        VmirStmtData::ForBetween,
+                        VmirStmtData::ForBetween {
+                            stmts: ArenaIdxRange(
+                                1..2,
+                            ),
+                        },
                         VmirStmtData::Return {
-                            result: 1,
+                            result: 7,
                             coersion: VmirCoersion::Trivial,
                         },
                     ],
@@ -11103,13 +17355,89 @@
                         },
                     },
                 },
-                root_expr: 2,
+                root_expr: 9,
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Index,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MemoizedField {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::angle_change`, `MemoizedField`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 3,
+                                },
+                            ],
+                        },
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MethodRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<core::num::f32(0)>::abs`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 4,
+                                },
+                            ],
+                        },
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MethodRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<core::num::f32(0)>::max`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 2,
+                                },
+                                VmirArgument::Simple {
+                                    expr: 5,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                            ],
+                        },
+                        VmirExprData::Binary {
+                            lopd: 1,
+                            opr: Assign,
+                            ropd: 6,
+                        },
+                        VmirExprData::Variable,
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
-                                1..4,
+                                2..5,
                             ),
                             destroyers: ArenaIdxRange(
                                 1..1,
@@ -11119,10 +17447,21 @@
                 },
                 vmir_stmt_arena: Arena {
                     data: [
+                        VmirStmtData::Eval {
+                            expr: 7,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
                         VmirStmtData::Let,
-                        VmirStmtData::ForBetween,
+                        VmirStmtData::ForBetween {
+                            stmts: ArenaIdxRange(
+                                1..2,
+                            ),
+                        },
                         VmirStmtData::Return {
-                            result: 1,
+                            result: 8,
                             coersion: VmirCoersion::Trivial,
                         },
                     ],
@@ -12363,9 +18702,96 @@
                         },
                     },
                 },
-                root_expr: 14,
+                root_expr: 22,
                 vmir_expr_arena: Arena {
                     data: [
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::StructField {
+                                    self_ty: LinTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                        template_arguments: [],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 74,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 1,
+                                },
+                            ],
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::StructField {
+                                    self_ty: LinTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                        template_arguments: [],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 75,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 3,
+                                },
+                            ],
+                        },
+                        VmirExprData::Binary {
+                            lopd: 2,
+                            opr: Closed(
+                                Div,
+                            ),
+                            ropd: 4,
+                        },
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MethodRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<core::num::f32(0)>::abs`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 5,
+                                },
+                            ],
+                        },
+                        VmirExprData::Literal,
+                        VmirExprData::Binary {
+                            lopd: 6,
+                            opr: Comparison(
+                                Greater,
+                            ),
+                            ropd: 7,
+                        },
                         VmirExprData::Variable,
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
@@ -12383,7 +18809,7 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 1,
+                                    expr: 9,
                                 },
                             ],
                         },
@@ -12405,17 +18831,17 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 2,
+                                    expr: 10,
                                 },
                             ],
                         },
                         VmirExprData::Literal,
                         VmirExprData::Binary {
-                            lopd: 3,
+                            lopd: 11,
                             opr: Comparison(
                                 Less,
                             ),
-                            ropd: 4,
+                            ropd: 12,
                         },
                         VmirExprData::Variable,
                         VmirExprData::Linkage {
@@ -12438,17 +18864,17 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 6,
+                                    expr: 14,
                                 },
                             ],
                         },
                         VmirExprData::Literal,
                         VmirExprData::Binary {
-                            lopd: 7,
+                            lopd: 15,
                             opr: Comparison(
                                 Greater,
                             ),
-                            ropd: 8,
+                            ropd: 16,
                         },
                         VmirExprData::Variable,
                         VmirExprData::Linkage {
@@ -12469,7 +18895,7 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 10,
+                                    expr: 18,
                                 },
                             ],
                         },
@@ -12493,17 +18919,17 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 11,
+                                    expr: 19,
                                 },
                             ],
                         },
                         VmirExprData::Prefix {
                             opr: Minus,
-                            opd: 12,
+                            opd: 20,
                         },
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
-                                1..7,
+                                2..8,
                             ),
                             destroyers: ArenaIdxRange(
                                 1..1,
@@ -12513,23 +18939,37 @@
                 },
                 vmir_stmt_arena: Arena {
                     data: [
-                        VmirStmtData::Let,
-                        VmirStmtData::IfElse,
                         VmirStmtData::Require {
                             condition: VmirCondition::Other {
-                                opd: 5,
+                                opd: 8,
+                                conversion: VmirConditionConversion::None,
+                            },
+                        },
+                        VmirStmtData::Let,
+                        VmirStmtData::IfElse {
+                            if_branch: VmirIfBranch {
+                                stmts: ArenaIdxRange(
+                                    1..2,
+                                ),
+                            },
+                            elif_branches: [],
+                            else_branch: None,
+                        },
+                        VmirStmtData::Require {
+                            condition: VmirCondition::Other {
+                                opd: 13,
                                 conversion: VmirConditionConversion::None,
                             },
                         },
                         VmirStmtData::Let,
                         VmirStmtData::Require {
                             condition: VmirCondition::Other {
-                                opd: 9,
+                                opd: 17,
                                 conversion: VmirConditionConversion::None,
                             },
                         },
                         VmirStmtData::Eval {
-                            expr: 13,
+                            expr: 21,
                             coersion: Some(
                                 VmirCoersion::WrapInSome,
                             ),
@@ -14082,7 +20522,7 @@
                         },
                     },
                 },
-                root_expr: 9,
+                root_expr: 42,
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Index,
@@ -14099,9 +20539,236 @@
                             ropd: 6,
                         },
                         VmirExprData::PrincipalEntityPath,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MethodRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [
+                                            (
+                                                Type(
+                                                    Type {
+                                                        attrs: HirTemplateSvarAttrs {
+                                                            class: Comptime,
+                                                        },
+                                                        variance: None,
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                                Explicit(
+                                                    Type(
+                                                        PathLeading(
+                                                            LinTypePathLeading(
+                                                                Id {
+                                                                    value: 15,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        ],
+                                        separator: Some(
+                                            1,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 8,
+                                },
+                            ],
+                        },
+                        VmirExprData::Literal,
+                        VmirExprData::Binary {
+                            lopd: 9,
+                            opr: Comparison(
+                                Geq,
+                            ),
+                            ropd: 10,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::PrincipalEntityPath,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MemoizedField {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<mnist_classifier::fermi::FermiMatchResult(0)>::norm`, `MemoizedField`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 13,
+                                },
+                            ],
+                        },
+                        VmirExprData::Literal,
+                        VmirExprData::Binary {
+                            lopd: 14,
+                            opr: Comparison(
+                                Less,
+                            ),
+                            ropd: 15,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Unwrap {
+                            opd: 18,
+                        },
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MethodRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::displacement`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 19,
+                                },
+                            ],
+                        },
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::StructField {
+                                    self_ty: LinTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                        template_arguments: [],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 75,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 20,
+                                },
+                            ],
+                        },
+                        VmirExprData::Literal,
+                        VmirExprData::Binary {
+                            lopd: 21,
+                            opr: Comparison(
+                                Greater,
+                            ),
+                            ropd: 22,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Unwrap {
+                            opd: 24,
+                        },
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MemoizedField {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::angle_change`, `MemoizedField`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 25,
+                                },
+                            ],
+                        },
+                        VmirExprData::Literal,
+                        VmirExprData::Prefix {
+                            opr: Minus,
+                            opd: 27,
+                        },
+                        VmirExprData::Binary {
+                            lopd: 26,
+                            opr: Comparison(
+                                Less,
+                            ),
+                            ropd: 28,
+                        },
+                        VmirExprData::PrincipalEntityPath,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MemoizedField {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<mnist_classifier::fermi::FermiMatchResult(0)>::norm`, `MemoizedField`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 30,
+                                },
+                            ],
+                        },
+                        VmirExprData::Literal,
+                        VmirExprData::Binary {
+                            lopd: 31,
+                            opr: Comparison(
+                                Less,
+                            ),
+                            ropd: 32,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Literal,
+                        VmirExprData::Binary {
+                            lopd: 34,
+                            opr: Comparison(
+                                Less,
+                            ),
+                            ropd: 35,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Literal,
+                        VmirExprData::Binary {
+                            lopd: 37,
+                            opr: Comparison(
+                                Greater,
+                            ),
+                            ropd: 38,
+                        },
+                        VmirExprData::PrincipalEntityPath,
+                        VmirExprData::PrincipalEntityPath,
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
-                                1..12,
+                                15..26,
                             ),
                             destroyers: ArenaIdxRange(
                                 1..1,
@@ -14111,6 +20778,74 @@
                 },
                 vmir_stmt_arena: Arena {
                     data: [
+                        VmirStmtData::Require {
+                            condition: VmirCondition::Other {
+                                opd: 11,
+                                conversion: VmirConditionConversion::None,
+                            },
+                        },
+                        VmirStmtData::Let,
+                        VmirStmtData::Require {
+                            condition: VmirCondition::Be {
+                                opd: 12,
+                                pattern: VmirPatternIdx {
+                                    restructive_pattern: 5,
+                                    destructive_pattern: None,
+                                },
+                            },
+                        },
+                        VmirStmtData::Require {
+                            condition: VmirCondition::Other {
+                                opd: 16,
+                                conversion: VmirConditionConversion::None,
+                            },
+                        },
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::Require {
+                            condition: VmirCondition::Be {
+                                opd: 17,
+                                pattern: VmirPatternIdx {
+                                    restructive_pattern: 6,
+                                    destructive_pattern: None,
+                                },
+                            },
+                        },
+                        VmirStmtData::Require {
+                            condition: VmirCondition::Other {
+                                opd: 23,
+                                conversion: VmirConditionConversion::None,
+                            },
+                        },
+                        VmirStmtData::Require {
+                            condition: VmirCondition::Other {
+                                opd: 29,
+                                conversion: VmirConditionConversion::None,
+                            },
+                        },
+                        VmirStmtData::Require {
+                            condition: VmirCondition::Other {
+                                opd: 33,
+                                conversion: VmirConditionConversion::None,
+                            },
+                        },
+                        VmirStmtData::Let,
+                        VmirStmtData::Require {
+                            condition: VmirCondition::Other {
+                                opd: 36,
+                                conversion: VmirConditionConversion::None,
+                            },
+                        },
+                        VmirStmtData::Require {
+                            condition: VmirCondition::Other {
+                                opd: 39,
+                                conversion: VmirConditionConversion::None,
+                            },
+                        },
+                        VmirStmtData::Return {
+                            result: 40,
+                            coersion: VmirCoersion::Trivial,
+                        },
                         VmirStmtData::Require {
                             condition: VmirCondition::Be {
                                 opd: 1,
@@ -14157,9 +20892,17 @@
                                 conversion: VmirConditionConversion::None,
                             },
                         },
-                        VmirStmtData::IfElse,
+                        VmirStmtData::IfElse {
+                            if_branch: VmirIfBranch {
+                                stmts: ArenaIdxRange(
+                                    1..15,
+                                ),
+                            },
+                            elif_branches: [],
+                            else_branch: None,
+                        },
                         VmirStmtData::Eval {
-                            expr: 8,
+                            expr: 41,
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -15267,7 +22010,7 @@
                         },
                     },
                 },
-                root_expr: 8,
+                root_expr: 18,
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::PrincipalEntityPath,
@@ -15300,11 +22043,36 @@
                             ropd: 3,
                         },
                         VmirExprData::Index,
+                        VmirExprData::Variable,
+                        VmirExprData::Literal,
+                        VmirExprData::Prefix {
+                            opr: Minus,
+                            opd: 7,
+                        },
+                        VmirExprData::Binary {
+                            lopd: 6,
+                            opr: Comparison(
+                                Less,
+                            ),
+                            ropd: 8,
+                        },
+                        VmirExprData::PrincipalEntityPath,
+                        VmirExprData::Variable,
+                        VmirExprData::Literal,
+                        VmirExprData::Binary {
+                            lopd: 11,
+                            opr: Comparison(
+                                Greater,
+                            ),
+                            ropd: 12,
+                        },
+                        VmirExprData::PrincipalEntityPath,
+                        VmirExprData::Index,
                         VmirExprData::Literal,
                         VmirExprData::PrincipalEntityPath,
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
-                                1..9,
+                                11..19,
                             ),
                             destroyers: ArenaIdxRange(
                                 1..1,
@@ -15314,15 +22082,14 @@
                 },
                 vmir_stmt_arena: Arena {
                     data: [
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
                         VmirStmtData::Require {
                             condition: VmirCondition::Other {
-                                opd: 4,
+                                opd: 9,
                                 conversion: VmirConditionConversion::None,
                             },
                         },
-                        VmirStmtData::Let,
-                        VmirStmtData::IfElse,
-                        VmirStmtData::IfElse,
                         VmirStmtData::Require {
                             condition: VmirCondition::Be {
                                 opd: 5,
@@ -15333,14 +22100,73 @@
                             },
                         },
                         VmirStmtData::Let,
+                        VmirStmtData::IfElse {
+                            if_branch: VmirIfBranch {
+                                stmts: ArenaIdxRange(
+                                    1..4,
+                                ),
+                            },
+                            elif_branches: [],
+                            else_branch: None,
+                        },
+                        VmirStmtData::Return {
+                            result: 10,
+                            coersion: VmirCoersion::Trivial,
+                        },
+                        VmirStmtData::Let,
                         VmirStmtData::Require {
                             condition: VmirCondition::Other {
-                                opd: 6,
+                                opd: 13,
+                                conversion: VmirConditionConversion::None,
+                            },
+                        },
+                        VmirStmtData::Return {
+                            result: 14,
+                            coersion: VmirCoersion::Trivial,
+                        },
+                        VmirStmtData::Require {
+                            condition: VmirCondition::Other {
+                                opd: 4,
+                                conversion: VmirConditionConversion::None,
+                            },
+                        },
+                        VmirStmtData::Let,
+                        VmirStmtData::IfElse {
+                            if_branch: VmirIfBranch {
+                                stmts: ArenaIdxRange(
+                                    4..8,
+                                ),
+                            },
+                            elif_branches: [],
+                            else_branch: None,
+                        },
+                        VmirStmtData::IfElse {
+                            if_branch: VmirIfBranch {
+                                stmts: ArenaIdxRange(
+                                    8..11,
+                                ),
+                            },
+                            elif_branches: [],
+                            else_branch: None,
+                        },
+                        VmirStmtData::Require {
+                            condition: VmirCondition::Be {
+                                opd: 15,
+                                pattern: VmirPatternIdx {
+                                    restructive_pattern: 2,
+                                    destructive_pattern: None,
+                                },
+                            },
+                        },
+                        VmirStmtData::Let,
+                        VmirStmtData::Require {
+                            condition: VmirCondition::Other {
+                                opd: 16,
                                 conversion: VmirConditionConversion::None,
                             },
                         },
                         VmirStmtData::Eval {
-                            expr: 7,
+                            expr: 17,
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -15489,13 +22315,15 @@
                         },
                     },
                 },
-                root_expr: 2,
+                root_expr: 4,
                 vmir_expr_arena: Arena {
                     data: [
+                        VmirExprData::Literal,
+                        VmirExprData::Literal,
                         VmirExprData::PrincipalEntityPath,
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
-                                1..4,
+                                4..7,
                             ),
                             destroyers: ArenaIdxRange(
                                 1..1,
@@ -15505,10 +22333,39 @@
                 },
                 vmir_stmt_arena: Arena {
                     data: [
+                        VmirStmtData::Require {
+                            condition: VmirCondition::Other {
+                                opd: 1,
+                                conversion: VmirConditionConversion::None,
+                            },
+                        },
+                        VmirStmtData::IfElse {
+                            if_branch: VmirIfBranch {
+                                stmts: ArenaIdxRange(
+                                    1..2,
+                                ),
+                            },
+                            elif_branches: [],
+                            else_branch: None,
+                        },
+                        VmirStmtData::Require {
+                            condition: VmirCondition::Other {
+                                opd: 2,
+                                conversion: VmirConditionConversion::None,
+                            },
+                        },
                         VmirStmtData::Let,
-                        VmirStmtData::IfElse,
+                        VmirStmtData::IfElse {
+                            if_branch: VmirIfBranch {
+                                stmts: ArenaIdxRange(
+                                    2..4,
+                                ),
+                            },
+                            elif_branches: [],
+                            else_branch: None,
+                        },
                         VmirStmtData::Eval {
-                            expr: 1,
+                            expr: 3,
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -15544,9 +22401,294 @@
                         },
                     },
                 },
-                root_expr: 4,
+                root_expr: 17,
                 vmir_expr_arena: Arena {
                     data: [
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::StructField {
+                                    self_ty: LinTypePathLeading {
+                                        ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                        template_arguments: [
+                                            LinTemplateArgument::Type(
+                                                LinType::PathLeading(
+                                                    LinTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                        template_arguments: [],
+                                                    },
+                                                ),
+                                            ),
+                                        ],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 206,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 1,
+                                },
+                            ],
+                        },
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MethodRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<core::slice::CyclicSlice(0)>::first`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [
+                                            (
+                                                Type(
+                                                    Type {
+                                                        attrs: HirTemplateSvarAttrs {
+                                                            class: Comptime,
+                                                        },
+                                                        variance: None,
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                                Explicit(
+                                                    Type(
+                                                        PathLeading(
+                                                            LinTypePathLeading(
+                                                                Id {
+                                                                    value: 13,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        ],
+                                        separator: Some(
+                                            1,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 2,
+                                },
+                            ],
+                        },
+                        VmirExprData::Unwrap {
+                            opd: 3,
+                        },
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::StructField {
+                                    self_ty: LinTypePathLeading {
+                                        ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                        template_arguments: [
+                                            LinTemplateArgument::Type(
+                                                LinType::PathLeading(
+                                                    LinTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                        template_arguments: [],
+                                                    },
+                                                ),
+                                            ),
+                                        ],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 108,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 4,
+                                },
+                            ],
+                        },
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::StructField {
+                                    self_ty: LinTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                        template_arguments: [],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 74,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 5,
+                                },
+                            ],
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::StructField {
+                                    self_ty: LinTypePathLeading {
+                                        ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                        template_arguments: [
+                                            LinTemplateArgument::Type(
+                                                LinType::PathLeading(
+                                                    LinTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                        template_arguments: [],
+                                                    },
+                                                ),
+                                            ),
+                                        ],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 206,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 7,
+                                },
+                            ],
+                        },
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MethodRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<core::slice::CyclicSlice(0)>::first`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [
+                                            (
+                                                Type(
+                                                    Type {
+                                                        attrs: HirTemplateSvarAttrs {
+                                                            class: Comptime,
+                                                        },
+                                                        variance: None,
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                                Explicit(
+                                                    Type(
+                                                        PathLeading(
+                                                            LinTypePathLeading(
+                                                                Id {
+                                                                    value: 13,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        ],
+                                        separator: Some(
+                                            1,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 8,
+                                },
+                            ],
+                        },
+                        VmirExprData::Unwrap {
+                            opd: 9,
+                        },
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::StructField {
+                                    self_ty: LinTypePathLeading {
+                                        ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                        template_arguments: [
+                                            LinTemplateArgument::Type(
+                                                LinType::PathLeading(
+                                                    LinTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                        template_arguments: [],
+                                                    },
+                                                ),
+                                            ),
+                                        ],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 109,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 10,
+                                },
+                            ],
+                        },
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::StructField {
+                                    self_ty: LinTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                        template_arguments: [],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 74,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 11,
+                                },
+                            ],
+                        },
+                        VmirExprData::Binary {
+                            lopd: 6,
+                            opr: Comparison(
+                                Greater,
+                            ),
+                            ropd: 12,
+                        },
                         VmirExprData::Variable,
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
@@ -15564,7 +22706,7 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 1,
+                                    expr: 14,
                                 },
                             ],
                         },
@@ -15586,13 +22728,13 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 2,
+                                    expr: 15,
                                 },
                             ],
                         },
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
-                                1..3,
+                                2..4,
                             ),
                             destroyers: ArenaIdxRange(
                                 1..1,
@@ -15602,9 +22744,23 @@
                 },
                 vmir_stmt_arena: Arena {
                     data: [
-                        VmirStmtData::IfElse,
+                        VmirStmtData::Require {
+                            condition: VmirCondition::Other {
+                                opd: 13,
+                                conversion: VmirConditionConversion::None,
+                            },
+                        },
+                        VmirStmtData::IfElse {
+                            if_branch: VmirIfBranch {
+                                stmts: ArenaIdxRange(
+                                    1..2,
+                                ),
+                            },
+                            elif_branches: [],
+                            else_branch: None,
+                        },
                         VmirStmtData::Eval {
-                            expr: 3,
+                            expr: 16,
                             coersion: Some(
                                 VmirCoersion::WrapInSome,
                             ),
@@ -15870,7 +23026,7 @@
                         },
                     },
                 },
-                root_expr: 7,
+                root_expr: 40,
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Index,
@@ -15885,9 +23041,236 @@
                             ropd: 4,
                         },
                         VmirExprData::PrincipalEntityPath,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MethodRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [
+                                            (
+                                                Type(
+                                                    Type {
+                                                        attrs: HirTemplateSvarAttrs {
+                                                            class: Comptime,
+                                                        },
+                                                        variance: None,
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                                Explicit(
+                                                    Type(
+                                                        PathLeading(
+                                                            LinTypePathLeading(
+                                                                Id {
+                                                                    value: 15,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        ],
+                                        separator: Some(
+                                            1,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 6,
+                                },
+                            ],
+                        },
+                        VmirExprData::Literal,
+                        VmirExprData::Binary {
+                            lopd: 7,
+                            opr: Comparison(
+                                Geq,
+                            ),
+                            ropd: 8,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::PrincipalEntityPath,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MemoizedField {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<mnist_classifier::fermi::FermiMatchResult(0)>::norm`, `MemoizedField`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 11,
+                                },
+                            ],
+                        },
+                        VmirExprData::Literal,
+                        VmirExprData::Binary {
+                            lopd: 12,
+                            opr: Comparison(
+                                Less,
+                            ),
+                            ropd: 13,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Unwrap {
+                            opd: 16,
+                        },
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MethodRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::displacement`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 17,
+                                },
+                            ],
+                        },
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::StructField {
+                                    self_ty: LinTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                        template_arguments: [],
+                                    },
+                                    field: Props {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 75,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 18,
+                                },
+                            ],
+                        },
+                        VmirExprData::Literal,
+                        VmirExprData::Binary {
+                            lopd: 19,
+                            opr: Comparison(
+                                Greater,
+                            ),
+                            ropd: 20,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Unwrap {
+                            opd: 22,
+                        },
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MemoizedField {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::angle_change`, `MemoizedField`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 23,
+                                },
+                            ],
+                        },
+                        VmirExprData::Literal,
+                        VmirExprData::Prefix {
+                            opr: Minus,
+                            opd: 25,
+                        },
+                        VmirExprData::Binary {
+                            lopd: 24,
+                            opr: Comparison(
+                                Less,
+                            ),
+                            ropd: 26,
+                        },
+                        VmirExprData::PrincipalEntityPath,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MemoizedField {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<mnist_classifier::fermi::FermiMatchResult(0)>::norm`, `MemoizedField`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 28,
+                                },
+                            ],
+                        },
+                        VmirExprData::Literal,
+                        VmirExprData::Binary {
+                            lopd: 29,
+                            opr: Comparison(
+                                Less,
+                            ),
+                            ropd: 30,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Literal,
+                        VmirExprData::Binary {
+                            lopd: 32,
+                            opr: Comparison(
+                                Less,
+                            ),
+                            ropd: 33,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Literal,
+                        VmirExprData::Binary {
+                            lopd: 35,
+                            opr: Comparison(
+                                Greater,
+                            ),
+                            ropd: 36,
+                        },
+                        VmirExprData::PrincipalEntityPath,
+                        VmirExprData::PrincipalEntityPath,
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
-                                1..10,
+                                15..24,
                             ),
                             destroyers: ArenaIdxRange(
                                 1..1,
@@ -15897,6 +23280,74 @@
                 },
                 vmir_stmt_arena: Arena {
                     data: [
+                        VmirStmtData::Require {
+                            condition: VmirCondition::Other {
+                                opd: 9,
+                                conversion: VmirConditionConversion::None,
+                            },
+                        },
+                        VmirStmtData::Let,
+                        VmirStmtData::Require {
+                            condition: VmirCondition::Be {
+                                opd: 10,
+                                pattern: VmirPatternIdx {
+                                    restructive_pattern: 3,
+                                    destructive_pattern: None,
+                                },
+                            },
+                        },
+                        VmirStmtData::Require {
+                            condition: VmirCondition::Other {
+                                opd: 14,
+                                conversion: VmirConditionConversion::None,
+                            },
+                        },
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::Require {
+                            condition: VmirCondition::Be {
+                                opd: 15,
+                                pattern: VmirPatternIdx {
+                                    restructive_pattern: 4,
+                                    destructive_pattern: None,
+                                },
+                            },
+                        },
+                        VmirStmtData::Require {
+                            condition: VmirCondition::Other {
+                                opd: 21,
+                                conversion: VmirConditionConversion::None,
+                            },
+                        },
+                        VmirStmtData::Require {
+                            condition: VmirCondition::Other {
+                                opd: 27,
+                                conversion: VmirConditionConversion::None,
+                            },
+                        },
+                        VmirStmtData::Require {
+                            condition: VmirCondition::Other {
+                                opd: 31,
+                                conversion: VmirConditionConversion::None,
+                            },
+                        },
+                        VmirStmtData::Let,
+                        VmirStmtData::Require {
+                            condition: VmirCondition::Other {
+                                opd: 34,
+                                conversion: VmirConditionConversion::None,
+                            },
+                        },
+                        VmirStmtData::Require {
+                            condition: VmirCondition::Other {
+                                opd: 37,
+                                conversion: VmirConditionConversion::None,
+                            },
+                        },
+                        VmirStmtData::Return {
+                            result: 38,
+                            coersion: VmirCoersion::Trivial,
+                        },
                         VmirStmtData::Let,
                         VmirStmtData::Require {
                             condition: VmirCondition::Be {
@@ -15925,9 +23376,17 @@
                                 conversion: VmirConditionConversion::None,
                             },
                         },
-                        VmirStmtData::IfElse,
+                        VmirStmtData::IfElse {
+                            if_branch: VmirIfBranch {
+                                stmts: ArenaIdxRange(
+                                    1..15,
+                                ),
+                            },
+                            elif_branches: [],
+                            else_branch: None,
+                        },
                         VmirStmtData::Eval {
-                            expr: 6,
+                            expr: 39,
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -16738,7 +24197,7 @@
                         },
                     },
                 },
-                root_expr: 9,
+                root_expr: 27,
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Index,
@@ -16760,10 +24219,91 @@
                             ),
                             ropd: 6,
                         },
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Literal,
+                        VmirExprData::Prefix {
+                            opr: Minus,
+                            opd: 11,
+                        },
+                        VmirExprData::Binary {
+                            lopd: 10,
+                            opr: Comparison(
+                                Greater,
+                            ),
+                            ropd: 12,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Binary {
+                            lopd: 14,
+                            opr: Comparison(
+                                Geq,
+                            ),
+                            ropd: 15,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Unwrap {
+                            opd: 20,
+                        },
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MemoizedField {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::relative_bounding_box`, `MemoizedField`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 21,
+                                },
+                            ],
+                        },
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MethodRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<mnist_classifier::geom2d::RelativeBoundingBox(0)>::ymin`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 22,
+                                },
+                            ],
+                        },
+                        VmirExprData::Literal,
+                        VmirExprData::Binary {
+                            lopd: 23,
+                            opr: Comparison(
+                                Less,
+                            ),
+                            ropd: 24,
+                        },
                         VmirExprData::PrincipalEntityPath,
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
-                                1..13,
+                                20..32,
                             ),
                             destroyers: ArenaIdxRange(
                                 1..1,
@@ -16773,6 +24313,80 @@
                 },
                 vmir_stmt_arena: Arena {
                     data: [
+                        VmirStmtData::Require {
+                            condition: VmirCondition::Be {
+                                opd: 8,
+                                pattern: VmirPatternIdx {
+                                    restructive_pattern: 2,
+                                    destructive_pattern: None,
+                                },
+                            },
+                        },
+                        VmirStmtData::Require {
+                            condition: VmirCondition::Be {
+                                opd: 9,
+                                pattern: VmirPatternIdx {
+                                    restructive_pattern: 3,
+                                    destructive_pattern: None,
+                                },
+                            },
+                        },
+                        VmirStmtData::Let,
+                        VmirStmtData::Require {
+                            condition: VmirCondition::Other {
+                                opd: 13,
+                                conversion: VmirConditionConversion::None,
+                            },
+                        },
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::Require {
+                            condition: VmirCondition::Other {
+                                opd: 16,
+                                conversion: VmirConditionConversion::None,
+                            },
+                        },
+                        VmirStmtData::Require {
+                            condition: VmirCondition::Be {
+                                opd: 17,
+                                pattern: VmirPatternIdx {
+                                    restructive_pattern: 4,
+                                    destructive_pattern: None,
+                                },
+                            },
+                        },
+                        VmirStmtData::Require {
+                            condition: VmirCondition::Be {
+                                opd: 18,
+                                pattern: VmirPatternIdx {
+                                    restructive_pattern: 5,
+                                    destructive_pattern: None,
+                                },
+                            },
+                        },
+                        VmirStmtData::Require {
+                            condition: VmirCondition::Be {
+                                opd: 19,
+                                pattern: VmirPatternIdx {
+                                    restructive_pattern: 6,
+                                    destructive_pattern: None,
+                                },
+                            },
+                        },
+                        VmirStmtData::Require {
+                            condition: VmirCondition::Other {
+                                opd: 25,
+                                conversion: VmirConditionConversion::None,
+                            },
+                        },
+                        VmirStmtData::Let,
                         VmirStmtData::Let,
                         VmirStmtData::Let,
                         VmirStmtData::Require {
@@ -16800,10 +24414,26 @@
                                 conversion: VmirConditionConversion::None,
                             },
                         },
-                        VmirStmtData::IfElse,
-                        VmirStmtData::IfElse,
+                        VmirStmtData::IfElse {
+                            if_branch: VmirIfBranch {
+                                stmts: ArenaIdxRange(
+                                    1..15,
+                                ),
+                            },
+                            elif_branches: [],
+                            else_branch: None,
+                        },
+                        VmirStmtData::IfElse {
+                            if_branch: VmirIfBranch {
+                                stmts: ArenaIdxRange(
+                                    15..20,
+                                ),
+                            },
+                            elif_branches: [],
+                            else_branch: None,
+                        },
                         VmirStmtData::Eval {
-                            expr: 8,
+                            expr: 26,
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -16903,13 +24533,27 @@
                         },
                     },
                 },
-                root_expr: 2,
+                root_expr: 8,
                 vmir_expr_arena: Arena {
                     data: [
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Binary {
+                            lopd: 1,
+                            opr: Assign,
+                            ropd: 2,
+                        },
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
+                        VmirExprData::Binary {
+                            lopd: 4,
+                            opr: Assign,
+                            ropd: 5,
+                        },
                         VmirExprData::Index,
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
-                                1..5,
+                                5..9,
                             ),
                             destroyers: ArenaIdxRange(
                                 1..1,
@@ -16919,11 +24563,39 @@
                 },
                 vmir_stmt_arena: Arena {
                     data: [
+                        VmirStmtData::Eval {
+                            expr: 3,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 6,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Let,
+                        VmirStmtData::IfElse {
+                            if_branch: VmirIfBranch {
+                                stmts: ArenaIdxRange(
+                                    1..3,
+                                ),
+                            },
+                            elif_branches: [],
+                            else_branch: None,
+                        },
                         VmirStmtData::Let,
                         VmirStmtData::Let,
-                        VmirStmtData::ForBetween,
+                        VmirStmtData::ForBetween {
+                            stmts: ArenaIdxRange(
+                                3..5,
+                            ),
+                        },
                         VmirStmtData::Return {
-                            result: 1,
+                            result: 7,
                             coersion: VmirCoersion::PlaceToLeash,
                         },
                     ],
@@ -16952,11 +24624,11 @@
                         },
                     },
                 },
-                root_expr: 5,
+                root_expr: 9,
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable,
-                        VmirExprData::PrincipalEntityPath,
+                        VmirExprData::Index,
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MemoizedField {
@@ -16979,14 +24651,43 @@
                         },
                         VmirExprData::Binary {
                             lopd: 1,
-                            opr: Closed(
-                                Sub,
+                            opr: AssignClosed(
+                                Add,
                             ),
                             ropd: 3,
                         },
+                        VmirExprData::Variable,
+                        VmirExprData::PrincipalEntityPath,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::MemoizedField {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::row_span_sum`, `MemoizedField`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::SelfValue {
+                                    expr: 6,
+                                },
+                            ],
+                        },
+                        VmirExprData::Binary {
+                            lopd: 5,
+                            opr: Closed(
+                                Sub,
+                            ),
+                            ropd: 7,
+                        },
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
-                                1..4,
+                                2..5,
                             ),
                             destroyers: ArenaIdxRange(
                                 1..1,
@@ -16996,10 +24697,21 @@
                 },
                 vmir_stmt_arena: Arena {
                     data: [
+                        VmirStmtData::Eval {
+                            expr: 4,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
                         VmirStmtData::Let,
-                        VmirStmtData::ForBetween,
+                        VmirStmtData::ForBetween {
+                            stmts: ArenaIdxRange(
+                                1..2,
+                            ),
+                        },
                         VmirStmtData::Return {
-                            result: 4,
+                            result: 8,
                             coersion: VmirCoersion::Trivial,
                         },
                     ],
@@ -17348,12 +25060,270 @@
                         },
                     },
                 },
-                root_expr: 1,
+                root_expr: 7,
                 vmir_expr_arena: Arena {
                     data: [
+                        VmirExprData::Variable,
+                        VmirExprData::ConstSvar,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::EnumVariantConstructor {
+                                    self_ty: LinTypePathLeading {
+                                        ty_path: TypePath(`malamute::Class`, `Enum`),
+                                        template_arguments: [
+                                            LinTemplateArgument::Type(
+                                                LinType::PathLeading(
+                                                    LinTypePathLeading {
+                                                        ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                        template_arguments: [],
+                                                    },
+                                                ),
+                                            ),
+                                        ],
+                                    },
+                                    path: TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 249,
+                                            },
+                                        ),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [
+                                            (
+                                                Type(
+                                                    Type {
+                                                        attrs: HirTemplateSvarAttrs {
+                                                            class: Comptime,
+                                                        },
+                                                        variance: None,
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                                Explicit(
+                                                    Type(
+                                                        PathLeading(
+                                                            LinTypePathLeading(
+                                                                Id {
+                                                                    value: 19,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        ],
+                                        separator: None,
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::Simple {
+                                    expr: 2,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                            ],
+                        },
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::EnumVariantConstructor {
+                                    self_ty: LinTypePathLeading {
+                                        ty_path: TypePath(`core::ops::ControlFlow`, `Enum`),
+                                        template_arguments: [
+                                            LinTemplateArgument::Type(
+                                                LinType::PathLeading(
+                                                    LinTypePathLeading {
+                                                        ty_path: TypePath(`malamute::Class`, `Enum`),
+                                                        template_arguments: [
+                                                            LinTemplateArgument::Type(
+                                                                LinType::PathLeading(
+                                                                    LinTypePathLeading {
+                                                                        ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                                        template_arguments: [],
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ],
+                                                    },
+                                                ),
+                                            ),
+                                            LinTemplateArgument::Type(
+                                                LinType::PathLeading(
+                                                    LinTypePathLeading {
+                                                        ty_path: TypePath(`core::basic::unit`, `Extern`),
+                                                        template_arguments: [],
+                                                    },
+                                                ),
+                                            ),
+                                        ],
+                                    },
+                                    path: TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 205,
+                                            },
+                                        ),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [
+                                            (
+                                                Type(
+                                                    Type {
+                                                        attrs: HirTemplateSvarAttrs {
+                                                            class: Comptime,
+                                                        },
+                                                        variance: None,
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                                Explicit(
+                                                    Type(
+                                                        PathLeading(
+                                                            LinTypePathLeading(
+                                                                Id {
+                                                                    value: 28,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                            (
+                                                Type(
+                                                    Type {
+                                                        attrs: HirTemplateSvarAttrs {
+                                                            class: Comptime,
+                                                        },
+                                                        variance: None,
+                                                        disambiguator: 1,
+                                                    },
+                                                ),
+                                                Explicit(
+                                                    Type(
+                                                        PathLeading(
+                                                            LinTypePathLeading(
+                                                                Id {
+                                                                    value: 29,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        ],
+                                        separator: None,
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::Simple {
+                                    expr: 3,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                            ],
+                        },
+                        VmirExprData::Literal,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::EnumVariantConstructor {
+                                    self_ty: LinTypePathLeading {
+                                        ty_path: TypePath(`core::ops::ControlFlow`, `Enum`),
+                                        template_arguments: [
+                                            LinTemplateArgument::Type(
+                                                LinType::PathLeading(
+                                                    LinTypePathLeading {
+                                                        ty_path: TypePath(`malamute::Class`, `Enum`),
+                                                        template_arguments: [
+                                                            LinTemplateArgument::Type(
+                                                                LinType::PathLeading(
+                                                                    LinTypePathLeading {
+                                                                        ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                                        template_arguments: [],
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ],
+                                                    },
+                                                ),
+                                            ),
+                                            LinTemplateArgument::Type(
+                                                LinType::PathLeading(
+                                                    LinTypePathLeading {
+                                                        ty_path: TypePath(`core::basic::unit`, `Extern`),
+                                                        template_arguments: [],
+                                                    },
+                                                ),
+                                            ),
+                                        ],
+                                    },
+                                    path: TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 204,
+                                            },
+                                        ),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [
+                                            (
+                                                Type(
+                                                    Type {
+                                                        attrs: HirTemplateSvarAttrs {
+                                                            class: Comptime,
+                                                        },
+                                                        variance: None,
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                                Explicit(
+                                                    Type(
+                                                        PathLeading(
+                                                            LinTypePathLeading(
+                                                                Id {
+                                                                    value: 28,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                            (
+                                                Type(
+                                                    Type {
+                                                        attrs: HirTemplateSvarAttrs {
+                                                            class: Comptime,
+                                                        },
+                                                        variance: None,
+                                                        disambiguator: 1,
+                                                    },
+                                                ),
+                                                Explicit(
+                                                    Type(
+                                                        PathLeading(
+                                                            LinTypePathLeading(
+                                                                Id {
+                                                                    value: 29,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        ],
+                                        separator: None,
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::Simple {
+                                    expr: 5,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                            ],
+                        },
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
-                                1..2,
+                                3..4,
                             ),
                             destroyers: ArenaIdxRange(
                                 1..1,
@@ -17363,7 +25333,35 @@
                 },
                 vmir_stmt_arena: Arena {
                     data: [
-                        VmirStmtData::Match,
+                        VmirStmtData::Eval {
+                            expr: 4,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 6,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Match {
+                            opd: 1,
+                            case_branches: [
+                                VmirCaseBranch {
+                                    stmts: ArenaIdxRange(
+                                        1..2,
+                                    ),
+                                },
+                                VmirCaseBranch {
+                                    stmts: ArenaIdxRange(
+                                        2..3,
+                                    ),
+                                },
+                            ],
+                        },
                     ],
                 },
             },
@@ -17450,12 +25448,270 @@
                         },
                     },
                 },
-                root_expr: 1,
+                root_expr: 7,
                 vmir_expr_arena: Arena {
                     data: [
+                        VmirExprData::Variable,
+                        VmirExprData::ConstSvar,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::EnumVariantConstructor {
+                                    self_ty: LinTypePathLeading {
+                                        ty_path: TypePath(`malamute::Class`, `Enum`),
+                                        template_arguments: [
+                                            LinTemplateArgument::Type(
+                                                LinType::PathLeading(
+                                                    LinTypePathLeading {
+                                                        ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                        template_arguments: [],
+                                                    },
+                                                ),
+                                            ),
+                                        ],
+                                    },
+                                    path: TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 249,
+                                            },
+                                        ),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [
+                                            (
+                                                Type(
+                                                    Type {
+                                                        attrs: HirTemplateSvarAttrs {
+                                                            class: Comptime,
+                                                        },
+                                                        variance: None,
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                                Explicit(
+                                                    Type(
+                                                        PathLeading(
+                                                            LinTypePathLeading(
+                                                                Id {
+                                                                    value: 19,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        ],
+                                        separator: None,
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::Simple {
+                                    expr: 2,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                            ],
+                        },
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::EnumVariantConstructor {
+                                    self_ty: LinTypePathLeading {
+                                        ty_path: TypePath(`core::ops::ControlFlow`, `Enum`),
+                                        template_arguments: [
+                                            LinTemplateArgument::Type(
+                                                LinType::PathLeading(
+                                                    LinTypePathLeading {
+                                                        ty_path: TypePath(`malamute::Class`, `Enum`),
+                                                        template_arguments: [
+                                                            LinTemplateArgument::Type(
+                                                                LinType::PathLeading(
+                                                                    LinTypePathLeading {
+                                                                        ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                                        template_arguments: [],
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ],
+                                                    },
+                                                ),
+                                            ),
+                                            LinTemplateArgument::Type(
+                                                LinType::PathLeading(
+                                                    LinTypePathLeading {
+                                                        ty_path: TypePath(`core::basic::unit`, `Extern`),
+                                                        template_arguments: [],
+                                                    },
+                                                ),
+                                            ),
+                                        ],
+                                    },
+                                    path: TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 205,
+                                            },
+                                        ),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [
+                                            (
+                                                Type(
+                                                    Type {
+                                                        attrs: HirTemplateSvarAttrs {
+                                                            class: Comptime,
+                                                        },
+                                                        variance: None,
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                                Explicit(
+                                                    Type(
+                                                        PathLeading(
+                                                            LinTypePathLeading(
+                                                                Id {
+                                                                    value: 28,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                            (
+                                                Type(
+                                                    Type {
+                                                        attrs: HirTemplateSvarAttrs {
+                                                            class: Comptime,
+                                                        },
+                                                        variance: None,
+                                                        disambiguator: 1,
+                                                    },
+                                                ),
+                                                Explicit(
+                                                    Type(
+                                                        PathLeading(
+                                                            LinTypePathLeading(
+                                                                Id {
+                                                                    value: 29,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        ],
+                                        separator: None,
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::Simple {
+                                    expr: 3,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                            ],
+                        },
+                        VmirExprData::Literal,
+                        VmirExprData::Linkage {
+                            linkage_impl: Linkage {
+                                data: LinkageData::EnumVariantConstructor {
+                                    self_ty: LinTypePathLeading {
+                                        ty_path: TypePath(`core::ops::ControlFlow`, `Enum`),
+                                        template_arguments: [
+                                            LinTemplateArgument::Type(
+                                                LinType::PathLeading(
+                                                    LinTypePathLeading {
+                                                        ty_path: TypePath(`malamute::Class`, `Enum`),
+                                                        template_arguments: [
+                                                            LinTemplateArgument::Type(
+                                                                LinType::PathLeading(
+                                                                    LinTypePathLeading {
+                                                                        ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                                        template_arguments: [],
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ],
+                                                    },
+                                                ),
+                                            ),
+                                            LinTemplateArgument::Type(
+                                                LinType::PathLeading(
+                                                    LinTypePathLeading {
+                                                        ty_path: TypePath(`core::basic::unit`, `Extern`),
+                                                        template_arguments: [],
+                                                    },
+                                                ),
+                                            ),
+                                        ],
+                                    },
+                                    path: TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 204,
+                                            },
+                                        ),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [
+                                            (
+                                                Type(
+                                                    Type {
+                                                        attrs: HirTemplateSvarAttrs {
+                                                            class: Comptime,
+                                                        },
+                                                        variance: None,
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                                Explicit(
+                                                    Type(
+                                                        PathLeading(
+                                                            LinTypePathLeading(
+                                                                Id {
+                                                                    value: 28,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                            (
+                                                Type(
+                                                    Type {
+                                                        attrs: HirTemplateSvarAttrs {
+                                                            class: Comptime,
+                                                        },
+                                                        variance: None,
+                                                        disambiguator: 1,
+                                                    },
+                                                ),
+                                                Explicit(
+                                                    Type(
+                                                        PathLeading(
+                                                            LinTypePathLeading(
+                                                                Id {
+                                                                    value: 29,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        ],
+                                        separator: None,
+                                    },
+                                },
+                            },
+                            arguments: [
+                                VmirArgument::Simple {
+                                    expr: 5,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                            ],
+                        },
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
-                                1..2,
+                                3..4,
                             ),
                             destroyers: ArenaIdxRange(
                                 1..1,
@@ -17465,7 +25721,35 @@
                 },
                 vmir_stmt_arena: Arena {
                     data: [
-                        VmirStmtData::Match,
+                        VmirStmtData::Eval {
+                            expr: 4,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Eval {
+                            expr: 6,
+                            coersion: Some(
+                                VmirCoersion::Trivial,
+                            ),
+                            discarded: false,
+                        },
+                        VmirStmtData::Match {
+                            opd: 1,
+                            case_branches: [
+                                VmirCaseBranch {
+                                    stmts: ArenaIdxRange(
+                                        1..2,
+                                    ),
+                                },
+                                VmirCaseBranch {
+                                    stmts: ArenaIdxRange(
+                                        2..3,
+                                    ),
+                                },
+                            ],
+                        },
                     ],
                 },
             },
@@ -17879,7 +26163,7 @@
                             Type(
                                 SelfPlace,
                             ),
-                            SelfQuary(
+                            SelfQual(
                                 Ref,
                             ),
                         ),
@@ -17928,7 +26212,7 @@
                             Type(
                                 SelfPlace,
                             ),
-                            SelfQuary(
+                            SelfQual(
                                 RefMut,
                             ),
                         ),
@@ -18292,7 +26576,7 @@
                             Type(
                                 SelfPlace,
                             ),
-                            SelfQuary(
+                            SelfQual(
                                 Ref,
                             ),
                         ),
@@ -18341,7 +26625,7 @@
                             Type(
                                 SelfPlace,
                             ),
-                            SelfQuary(
+                            SelfQual(
                                 RefMut,
                             ),
                         ),
@@ -18566,7 +26850,7 @@
                             Type(
                                 SelfPlace,
                             ),
-                            SelfQuary(
+                            SelfQual(
                                 Ref,
                             ),
                         ),
@@ -18615,7 +26899,7 @@
                             Type(
                                 SelfPlace,
                             ),
-                            SelfQuary(
+                            SelfQual(
                                 RefMut,
                             ),
                         ),

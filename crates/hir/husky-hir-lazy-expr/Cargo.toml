@@ -26,6 +26,7 @@ husky-fly-term.workspace = true
 # semantics
 husky-sema-expr.workspace = true
 husky-sema-opr = { path = "../../semantics/husky-sema-opr" }
+husky-sema-place-contract.workspace = true
 # syntax
 husky-syn-expr.workspace = true
 husky-syn-defn.workspace = true

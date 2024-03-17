@@ -77,7 +77,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
             },
             HirEagerStmtData::ForBetween {
                 ref particulars,
-                block,
+                stmts: block,
             } => builder.on_fresh_line(|builder| {
                 builder.keyword(RustKeyword::StmtFor);
                 particulars.frame_var_ident.transpile_to_rust(builder);
@@ -189,7 +189,10 @@ impl TranspileToRustWith<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
                 }
                 block.transpile_to_rust(builder)
             }),
-            HirEagerStmtData::Forext { particulars, block } => builder.on_fresh_line(|builder| {
+            HirEagerStmtData::Forext {
+                particulars,
+                stmts: block,
+            } => builder.on_fresh_line(|builder| {
                 builder.keyword(RustKeyword::While);
                 particulars.forext_loop_var_ident.transpile_to_rust(builder);
                 match particulars.boundary_kind {
@@ -222,7 +225,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
             }),
             HirEagerStmtData::ForIn {
                 condition: _,
-                block: _,
+                stmts: _,
             } => todo!(),
             HirEagerStmtData::While {
                 ref condition,
@@ -234,7 +237,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
             }),
             HirEagerStmtData::DoWhile {
                 ref condition,
-                block,
+                stmts: block,
             } => {
                 builder.on_fresh_line(|builder| {
                     builder.keyword(RustKeyword::Loop);
@@ -295,7 +298,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
                 else_branch.transpile_to_rust(builder)
             }),
             HirEagerStmtData::Match {
-                match_target,
+                opd: match_target,
                 ref case_branches,
             } => builder.on_fresh_line(|builder| {
                 builder.keyword(RustKeyword::Match);
