@@ -286,6 +286,9 @@ dependencies = [
 [[package]]
 name = "husky-literal-value"
 version = "0.1.0"
+dependencies = [
+ "ordered-float",
+]
 
 [[package]]
 name = "husky-minimal-toml-utils"

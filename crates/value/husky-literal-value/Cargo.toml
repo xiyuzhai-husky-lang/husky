@@ -12,6 +12,7 @@ categories.workspace = true
 keywords.workspace = true
 
 [dependencies]
+ordered-float.workspace = true
 
 [lints]
 workspace = true
