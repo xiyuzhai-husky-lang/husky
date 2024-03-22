@@ -205,7 +205,7 @@
                             place_contracts: [
                                 (
                                     Idx(
-                                        PlaceIdx(0),
+                                        PlaceIdx(1),
                                     ),
                                     BorrowMut,
                                 ),
@@ -217,7 +217,7 @@
                             place_contracts: [
                                 (
                                     Idx(
-                                        PlaceIdx(0),
+                                        PlaceIdx(1),
                                     ),
                                     Pure,
                                 ),
@@ -239,7 +239,7 @@
                             place_contracts: [
                                 (
                                     Idx(
-                                        PlaceIdx(1),
+                                        PlaceIdx(2),
                                     ),
                                     Leash,
                                 ),
@@ -271,7 +271,7 @@
                             place_contracts: [
                                 (
                                     Idx(
-                                        PlaceIdx(0),
+                                        PlaceIdx(1),
                                     ),
                                     Move,
                                 ),
@@ -318,7 +318,7 @@
                             place_contracts: [
                                 (
                                     Idx(
-                                        PlaceIdx(0),
+                                        PlaceIdx(1),
                                     ),
                                     BorrowMut,
                                 ),
@@ -330,7 +330,7 @@
                             place_contracts: [
                                 (
                                     Idx(
-                                        PlaceIdx(0),
+                                        PlaceIdx(1),
                                     ),
                                     Pure,
                                 ),
@@ -352,7 +352,7 @@
                             place_contracts: [
                                 (
                                     Idx(
-                                        PlaceIdx(1),
+                                        PlaceIdx(2),
                                     ),
                                     Leash,
                                 ),
@@ -384,7 +384,7 @@
                             place_contracts: [
                                 (
                                     Idx(
-                                        PlaceIdx(0),
+                                        PlaceIdx(1),
                                     ),
                                     Move,
                                 ),
@@ -431,7 +431,7 @@
                             place_contracts: [
                                 (
                                     Idx(
-                                        PlaceIdx(0),
+                                        PlaceIdx(1),
                                     ),
                                     BorrowMut,
                                 ),
@@ -443,7 +443,7 @@
                             place_contracts: [
                                 (
                                     Idx(
-                                        PlaceIdx(0),
+                                        PlaceIdx(1),
                                     ),
                                     Pure,
                                 ),
@@ -465,7 +465,7 @@
                             place_contracts: [
                                 (
                                     Idx(
-                                        PlaceIdx(1),
+                                        PlaceIdx(2),
                                     ),
                                     Leash,
                                 ),
@@ -502,7 +502,7 @@
                             place_contracts: [
                                 (
                                     Idx(
-                                        PlaceIdx(0),
+                                        PlaceIdx(1),
                                     ),
                                     Move,
                                 ),

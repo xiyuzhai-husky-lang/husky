@@ -4,7 +4,7 @@ use crate::{
 };
 use either::*;
 use husky_fly_term::{term::quary::FlyQuary, FlyLifetime};
-use husky_place::place::EthPlace;
+use husky_place::place::{idx::PlaceIdx, EthPlace};
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum HirQuary {
@@ -80,7 +80,9 @@ pub enum HirQuary {
     },
     /// stored in database
     /// always immutable
-    Leashed,
+    Leashed {
+        place_idx: Option<PlaceIdx>,
+    },
     Todo,
     Svar(HirQuarySvar),
 }
@@ -91,11 +93,20 @@ pub struct HirContractedQuary {
     quary: HirQuary,
 }
 
+impl Default for HirContractedQuary {
+    fn default() -> Self {
+        Self {
+            contract: Default::default(),
+            quary: HirQuary::Transient,
+        }
+    }
+}
+
 /// # constructor
 impl HirContractedQuary {
     pub fn from_fly(fly_quary: FlyQuary, place_contract_site: &HirPlaceContractSite) -> Self {
         let place = fly_quary.place();
-        let contract = place.map(|place| place_contract_site[place]);
+        let contract = place.map(|place| place_contract_site.get(place)).flatten();
         Self {
             contract,
             quary: HirQuary::from_fly(fly_quary),
@@ -135,7 +146,7 @@ impl HirQuary {
                 place,
                 lifetime: lifetime.map(HirLifetime::from_fly),
             },
-            FlyQuary::Leashed => HirQuary::Leashed,
+            FlyQuary::Leashed { place_idx } => HirQuary::Leashed { place_idx },
             FlyQuary::Todo => HirQuary::Todo,
             FlyQuary::EtherealSymbol(_) => todo!(),
         }
@@ -148,6 +159,7 @@ impl HirQuary {
             | HirQuary::MutableOnStack { place }
             | HirQuary::Ref { guard: Left(place) }
             | HirQuary::RefMut { place, .. } => Some(place),
+            HirQuary::Leashed { place_idx } => place_idx.map(Into::into),
             _ => None,
         }
     }

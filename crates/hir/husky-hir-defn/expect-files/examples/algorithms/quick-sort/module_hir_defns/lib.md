@@ -153,11 +153,16 @@
                                             data: HirEagerExprData::Variable(
                                                 1,
                                             ),
-                                            quary: RefMut {
-                                                place: Idx(
-                                                    PlaceIdx(0),
+                                            contracted_quary: HirContractedQuary {
+                                                contract: Some(
+                                                    Pure,
                                                 ),
-                                                lifetime: None,
+                                                quary: RefMut {
+                                                    place: Idx(
+                                                        PlaceIdx(0),
+                                                    ),
+                                                    lifetime: None,
+                                                },
                                             },
                                             is_always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
@@ -214,7 +219,10 @@
                                                 },
                                                 arguments: [],
                                             },
-                                            quary: Transient,
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Transient,
+                                            },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
@@ -224,11 +232,16 @@
                                             data: HirEagerExprData::Variable(
                                                 1,
                                             ),
-                                            quary: RefMut {
-                                                place: Idx(
-                                                    PlaceIdx(0),
+                                            contracted_quary: HirContractedQuary {
+                                                contract: Some(
+                                                    BorrowMut,
                                                 ),
-                                                lifetime: None,
+                                                quary: RefMut {
+                                                    place: Idx(
+                                                        PlaceIdx(0),
+                                                    ),
+                                                    lifetime: None,
+                                                },
                                             },
                                             is_always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
@@ -250,7 +263,10 @@
                                                     },
                                                 ),
                                             ),
-                                            quary: Const,
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Const,
+                                            },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
@@ -260,10 +276,15 @@
                                             data: HirEagerExprData::Variable(
                                                 2,
                                             ),
-                                            quary: ImmutableOnStack {
-                                                place: Idx(
-                                                    PlaceIdx(0),
+                                            contracted_quary: HirContractedQuary {
+                                                contract: Some(
+                                                    Pure,
                                                 ),
+                                                quary: ImmutableOnStack {
+                                                    place: Idx(
+                                                        PlaceIdx(0),
+                                                    ),
+                                                },
                                             },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
@@ -285,7 +306,10 @@
                                                     },
                                                 ),
                                             ),
-                                            quary: Const,
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Const,
+                                            },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
@@ -299,7 +323,10 @@
                                                 ),
                                                 ropd: 6,
                                             },
-                                            quary: Transient,
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Transient,
+                                            },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
@@ -316,7 +343,10 @@
                                                     },
                                                 ),
                                             },
-                                            quary: Transient,
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Transient,
+                                            },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
@@ -418,7 +448,10 @@
                                                     ),
                                                 ],
                                             },
-                                            quary: Transient,
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Transient,
+                                            },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
@@ -430,7 +463,10 @@
                                                     1..3,
                                                 ),
                                             },
-                                            quary: Transient,
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Transient,
+                                            },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
@@ -715,10 +751,15 @@
                                             data: HirEagerExprData::Variable(
                                                 2,
                                             ),
-                                            quary: StackPure {
-                                                place: Idx(
-                                                    PlaceIdx(1),
+                                            contracted_quary: HirContractedQuary {
+                                                contract: Some(
+                                                    Pure,
                                                 ),
+                                                quary: StackPure {
+                                                    place: Idx(
+                                                        PlaceIdx(1),
+                                                    ),
+                                                },
                                             },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
@@ -736,10 +777,15 @@
                                             data: HirEagerExprData::Variable(
                                                 3,
                                             ),
-                                            quary: StackPure {
-                                                place: Idx(
-                                                    PlaceIdx(2),
+                                            contracted_quary: HirContractedQuary {
+                                                contract: Some(
+                                                    Pure,
                                                 ),
+                                                quary: StackPure {
+                                                    place: Idx(
+                                                        PlaceIdx(2),
+                                                    ),
+                                                },
                                             },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
@@ -761,7 +807,10 @@
                                                 ),
                                                 ropd: 2,
                                             },
-                                            quary: Transient,
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Transient,
+                                            },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
@@ -771,11 +820,16 @@
                                             data: HirEagerExprData::Variable(
                                                 1,
                                             ),
-                                            quary: RefMut {
-                                                place: Idx(
-                                                    PlaceIdx(0),
+                                            contracted_quary: HirContractedQuary {
+                                                contract: Some(
+                                                    BorrowMut,
                                                 ),
-                                                lifetime: None,
+                                                quary: RefMut {
+                                                    place: Idx(
+                                                        PlaceIdx(0),
+                                                    ),
+                                                    lifetime: None,
+                                                },
                                             },
                                             is_always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
@@ -793,10 +847,15 @@
                                             data: HirEagerExprData::Variable(
                                                 2,
                                             ),
-                                            quary: StackPure {
-                                                place: Idx(
-                                                    PlaceIdx(1),
+                                            contracted_quary: HirContractedQuary {
+                                                contract: Some(
+                                                    Pure,
                                                 ),
+                                                quary: StackPure {
+                                                    place: Idx(
+                                                        PlaceIdx(1),
+                                                    ),
+                                                },
                                             },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
@@ -814,10 +873,15 @@
                                             data: HirEagerExprData::Variable(
                                                 3,
                                             ),
-                                            quary: StackPure {
-                                                place: Idx(
-                                                    PlaceIdx(2),
+                                            contracted_quary: HirContractedQuary {
+                                                contract: Some(
+                                                    Pure,
                                                 ),
+                                                quary: StackPure {
+                                                    place: Idx(
+                                                        PlaceIdx(2),
+                                                    ),
+                                                },
                                             },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
@@ -935,7 +999,10 @@
                                                     ),
                                                 ],
                                             },
-                                            quary: Transient,
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Transient,
+                                            },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
@@ -945,11 +1012,16 @@
                                             data: HirEagerExprData::Variable(
                                                 1,
                                             ),
-                                            quary: RefMut {
-                                                place: Idx(
-                                                    PlaceIdx(0),
+                                            contracted_quary: HirContractedQuary {
+                                                contract: Some(
+                                                    BorrowMut,
                                                 ),
-                                                lifetime: None,
+                                                quary: RefMut {
+                                                    place: Idx(
+                                                        PlaceIdx(0),
+                                                    ),
+                                                    lifetime: None,
+                                                },
                                             },
                                             is_always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
@@ -967,10 +1039,15 @@
                                             data: HirEagerExprData::Variable(
                                                 2,
                                             ),
-                                            quary: StackPure {
-                                                place: Idx(
-                                                    PlaceIdx(1),
+                                            contracted_quary: HirContractedQuary {
+                                                contract: Some(
+                                                    Pure,
                                                 ),
+                                                quary: StackPure {
+                                                    place: Idx(
+                                                        PlaceIdx(1),
+                                                    ),
+                                                },
                                             },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
@@ -988,10 +1065,15 @@
                                             data: HirEagerExprData::Variable(
                                                 4,
                                             ),
-                                            quary: ImmutableOnStack {
-                                                place: Idx(
-                                                    PlaceIdx(0),
+                                            contracted_quary: HirContractedQuary {
+                                                contract: Some(
+                                                    Pure,
                                                 ),
+                                                quary: ImmutableOnStack {
+                                                    place: Idx(
+                                                        PlaceIdx(0),
+                                                    ),
+                                                },
                                             },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
@@ -1013,7 +1095,10 @@
                                                     },
                                                 ),
                                             ),
-                                            quary: Const,
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Const,
+                                            },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
@@ -1027,7 +1112,10 @@
                                                 ),
                                                 ropd: 11,
                                             },
-                                            quary: Transient,
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Transient,
+                                            },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
@@ -1133,7 +1221,10 @@
                                                     ),
                                                 ],
                                             },
-                                            quary: Transient,
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Transient,
+                                            },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
@@ -1143,11 +1234,16 @@
                                             data: HirEagerExprData::Variable(
                                                 1,
                                             ),
-                                            quary: RefMut {
-                                                place: Idx(
-                                                    PlaceIdx(0),
+                                            contracted_quary: HirContractedQuary {
+                                                contract: Some(
+                                                    BorrowMut,
                                                 ),
-                                                lifetime: None,
+                                                quary: RefMut {
+                                                    place: Idx(
+                                                        PlaceIdx(0),
+                                                    ),
+                                                    lifetime: None,
+                                                },
                                             },
                                             is_always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
@@ -1165,10 +1261,15 @@
                                             data: HirEagerExprData::Variable(
                                                 4,
                                             ),
-                                            quary: ImmutableOnStack {
-                                                place: Idx(
-                                                    PlaceIdx(0),
+                                            contracted_quary: HirContractedQuary {
+                                                contract: Some(
+                                                    Pure,
                                                 ),
+                                                quary: ImmutableOnStack {
+                                                    place: Idx(
+                                                        PlaceIdx(0),
+                                                    ),
+                                                },
                                             },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
@@ -1190,7 +1291,10 @@
                                                     },
                                                 ),
                                             ),
-                                            quary: Const,
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Const,
+                                            },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
@@ -1204,7 +1308,10 @@
                                                 ),
                                                 ropd: 16,
                                             },
-                                            quary: Transient,
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Transient,
+                                            },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
@@ -1214,10 +1321,15 @@
                                             data: HirEagerExprData::Variable(
                                                 3,
                                             ),
-                                            quary: StackPure {
-                                                place: Idx(
-                                                    PlaceIdx(2),
+                                            contracted_quary: HirContractedQuary {
+                                                contract: Some(
+                                                    Pure,
                                                 ),
+                                                quary: StackPure {
+                                                    place: Idx(
+                                                        PlaceIdx(2),
+                                                    ),
+                                                },
                                             },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
@@ -1331,7 +1443,10 @@
                                                     ),
                                                 ],
                                             },
-                                            quary: Transient,
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Transient,
+                                            },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
@@ -1343,7 +1458,10 @@
                                                     4..5,
                                                 ),
                                             },
-                                            quary: Transient,
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Transient,
+                                            },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
@@ -1664,10 +1782,15 @@
                                             data: HirEagerExprData::Variable(
                                                 3,
                                             ),
-                                            quary: StackPure {
-                                                place: Idx(
-                                                    PlaceIdx(2),
+                                            contracted_quary: HirContractedQuary {
+                                                contract: Some(
+                                                    Pure,
                                                 ),
+                                                quary: StackPure {
+                                                    place: Idx(
+                                                        PlaceIdx(2),
+                                                    ),
+                                                },
                                             },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
@@ -1692,7 +1815,10 @@
                                                     },
                                                 ),
                                             },
-                                            quary: Transient,
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Transient,
+                                            },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
@@ -1702,10 +1828,15 @@
                                             data: HirEagerExprData::Variable(
                                                 2,
                                             ),
-                                            quary: StackPure {
-                                                place: Idx(
-                                                    PlaceIdx(1),
+                                            contracted_quary: HirContractedQuary {
+                                                contract: Some(
+                                                    Pure,
                                                 ),
+                                                quary: StackPure {
+                                                    place: Idx(
+                                                        PlaceIdx(1),
+                                                    ),
+                                                },
                                             },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
@@ -1727,7 +1858,10 @@
                                                     },
                                                 ),
                                             ),
-                                            quary: Const,
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Const,
+                                            },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
@@ -1741,7 +1875,10 @@
                                                 ),
                                                 ropd: 4,
                                             },
-                                            quary: Transient,
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Transient,
+                                            },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
@@ -1751,10 +1888,15 @@
                                             data: HirEagerExprData::Variable(
                                                 3,
                                             ),
-                                            quary: StackPure {
-                                                place: Idx(
-                                                    PlaceIdx(2),
+                                            contracted_quary: HirContractedQuary {
+                                                contract: Some(
+                                                    Move,
                                                 ),
+                                                quary: StackPure {
+                                                    place: Idx(
+                                                        PlaceIdx(2),
+                                                    ),
+                                                },
                                             },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
@@ -1774,7 +1916,10 @@
                                                     true,
                                                 ),
                                             ),
-                                            quary: Const,
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Const,
+                                            },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
@@ -1784,10 +1929,15 @@
                                             data: HirEagerExprData::Variable(
                                                 5,
                                             ),
-                                            quary: MutableOnStack {
-                                                place: Idx(
-                                                    PlaceIdx(1),
+                                            contracted_quary: HirContractedQuary {
+                                                contract: Some(
+                                                    BorrowMut,
                                                 ),
+                                                quary: MutableOnStack {
+                                                    place: Idx(
+                                                        PlaceIdx(1),
+                                                    ),
+                                                },
                                             },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
@@ -1809,7 +1959,10 @@
                                                     },
                                                 ),
                                             ),
-                                            quary: Const,
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Const,
+                                            },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
@@ -1823,7 +1976,10 @@
                                                 ),
                                                 ropd: 9,
                                             },
-                                            quary: Transient,
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Transient,
+                                            },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
@@ -1833,11 +1989,16 @@
                                             data: HirEagerExprData::Variable(
                                                 1,
                                             ),
-                                            quary: RefMut {
-                                                place: Idx(
-                                                    PlaceIdx(0),
+                                            contracted_quary: HirContractedQuary {
+                                                contract: Some(
+                                                    Pure,
                                                 ),
-                                                lifetime: None,
+                                                quary: RefMut {
+                                                    place: Idx(
+                                                        PlaceIdx(0),
+                                                    ),
+                                                    lifetime: None,
+                                                },
                                             },
                                             is_always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
@@ -1855,10 +2016,15 @@
                                             data: HirEagerExprData::Variable(
                                                 5,
                                             ),
-                                            quary: MutableOnStack {
-                                                place: Idx(
-                                                    PlaceIdx(1),
+                                            contracted_quary: HirContractedQuary {
+                                                contract: Some(
+                                                    Pure,
                                                 ),
+                                                quary: MutableOnStack {
+                                                    place: Idx(
+                                                        PlaceIdx(1),
+                                                    ),
+                                                },
                                             },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
@@ -1883,7 +2049,10 @@
                                                     },
                                                 ),
                                             },
-                                            quary: Transient,
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Transient,
+                                            },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
@@ -1896,11 +2065,16 @@
                                                     13,
                                                 ],
                                             },
-                                            quary: RefMut {
-                                                place: Idx(
-                                                    PlaceIdx(0),
+                                            contracted_quary: HirContractedQuary {
+                                                contract: Some(
+                                                    Pure,
                                                 ),
-                                                lifetime: None,
+                                                quary: RefMut {
+                                                    place: Idx(
+                                                        PlaceIdx(0),
+                                                    ),
+                                                    lifetime: None,
+                                                },
                                             },
                                             is_always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
@@ -1918,11 +2092,16 @@
                                             data: HirEagerExprData::Variable(
                                                 1,
                                             ),
-                                            quary: RefMut {
-                                                place: Idx(
-                                                    PlaceIdx(0),
+                                            contracted_quary: HirContractedQuary {
+                                                contract: Some(
+                                                    Pure,
                                                 ),
-                                                lifetime: None,
+                                                quary: RefMut {
+                                                    place: Idx(
+                                                        PlaceIdx(0),
+                                                    ),
+                                                    lifetime: None,
+                                                },
                                             },
                                             is_always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
@@ -1940,10 +2119,15 @@
                                             data: HirEagerExprData::Variable(
                                                 4,
                                             ),
-                                            quary: ImmutableOnStack {
-                                                place: Idx(
-                                                    PlaceIdx(0),
+                                            contracted_quary: HirContractedQuary {
+                                                contract: Some(
+                                                    Pure,
                                                 ),
+                                                quary: ImmutableOnStack {
+                                                    place: Idx(
+                                                        PlaceIdx(0),
+                                                    ),
+                                                },
                                             },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
@@ -1964,11 +2148,16 @@
                                                     16,
                                                 ],
                                             },
-                                            quary: RefMut {
-                                                place: Idx(
-                                                    PlaceIdx(0),
+                                            contracted_quary: HirContractedQuary {
+                                                contract: Some(
+                                                    Pure,
                                                 ),
-                                                lifetime: None,
+                                                quary: RefMut {
+                                                    place: Idx(
+                                                        PlaceIdx(0),
+                                                    ),
+                                                    lifetime: None,
+                                                },
                                             },
                                             is_always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
@@ -1990,7 +2179,10 @@
                                                 ),
                                                 ropd: 17,
                                             },
-                                            quary: Transient,
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Transient,
+                                            },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
@@ -2000,10 +2192,15 @@
                                             data: HirEagerExprData::Variable(
                                                 5,
                                             ),
-                                            quary: MutableOnStack {
-                                                place: Idx(
-                                                    PlaceIdx(1),
+                                            contracted_quary: HirContractedQuary {
+                                                contract: Some(
+                                                    BorrowMut,
                                                 ),
+                                                quary: MutableOnStack {
+                                                    place: Idx(
+                                                        PlaceIdx(1),
+                                                    ),
+                                                },
                                             },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
@@ -2025,7 +2222,10 @@
                                                     },
                                                 ),
                                             ),
-                                            quary: Const,
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Const,
+                                            },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
@@ -2039,7 +2239,10 @@
                                                 ),
                                                 ropd: 20,
                                             },
-                                            quary: Transient,
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Transient,
+                                            },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
@@ -2049,10 +2252,15 @@
                                             data: HirEagerExprData::Variable(
                                                 6,
                                             ),
-                                            quary: MutableOnStack {
-                                                place: Idx(
-                                                    PlaceIdx(2),
+                                            contracted_quary: HirContractedQuary {
+                                                contract: Some(
+                                                    BorrowMut,
                                                 ),
+                                                quary: MutableOnStack {
+                                                    place: Idx(
+                                                        PlaceIdx(2),
+                                                    ),
+                                                },
                                             },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
@@ -2074,7 +2282,10 @@
                                                     },
                                                 ),
                                             ),
-                                            quary: Const,
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Const,
+                                            },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
@@ -2088,7 +2299,10 @@
                                                 ),
                                                 ropd: 23,
                                             },
-                                            quary: Transient,
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Transient,
+                                            },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
@@ -2098,10 +2312,15 @@
                                             data: HirEagerExprData::Variable(
                                                 6,
                                             ),
-                                            quary: MutableOnStack {
-                                                place: Idx(
-                                                    PlaceIdx(2),
+                                            contracted_quary: HirContractedQuary {
+                                                contract: Some(
+                                                    Pure,
                                                 ),
+                                                quary: MutableOnStack {
+                                                    place: Idx(
+                                                        PlaceIdx(2),
+                                                    ),
+                                                },
                                             },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
@@ -2123,7 +2342,10 @@
                                                     },
                                                 ),
                                             ),
-                                            quary: Const,
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Const,
+                                            },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
@@ -2137,7 +2359,10 @@
                                                 ),
                                                 ropd: 26,
                                             },
-                                            quary: Transient,
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Transient,
+                                            },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
@@ -2147,11 +2372,16 @@
                                             data: HirEagerExprData::Variable(
                                                 1,
                                             ),
-                                            quary: RefMut {
-                                                place: Idx(
-                                                    PlaceIdx(0),
+                                            contracted_quary: HirContractedQuary {
+                                                contract: Some(
+                                                    Pure,
                                                 ),
-                                                lifetime: None,
+                                                quary: RefMut {
+                                                    place: Idx(
+                                                        PlaceIdx(0),
+                                                    ),
+                                                    lifetime: None,
+                                                },
                                             },
                                             is_always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
@@ -2169,10 +2399,15 @@
                                             data: HirEagerExprData::Variable(
                                                 6,
                                             ),
-                                            quary: MutableOnStack {
-                                                place: Idx(
-                                                    PlaceIdx(2),
+                                            contracted_quary: HirContractedQuary {
+                                                contract: Some(
+                                                    Pure,
                                                 ),
+                                                quary: MutableOnStack {
+                                                    place: Idx(
+                                                        PlaceIdx(2),
+                                                    ),
+                                                },
                                             },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
@@ -2197,7 +2432,10 @@
                                                     },
                                                 ),
                                             },
-                                            quary: Transient,
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Transient,
+                                            },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
@@ -2210,11 +2448,16 @@
                                                     30,
                                                 ],
                                             },
-                                            quary: RefMut {
-                                                place: Idx(
-                                                    PlaceIdx(0),
+                                            contracted_quary: HirContractedQuary {
+                                                contract: Some(
+                                                    Pure,
                                                 ),
-                                                lifetime: None,
+                                                quary: RefMut {
+                                                    place: Idx(
+                                                        PlaceIdx(0),
+                                                    ),
+                                                    lifetime: None,
+                                                },
                                             },
                                             is_always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
@@ -2232,11 +2475,16 @@
                                             data: HirEagerExprData::Variable(
                                                 1,
                                             ),
-                                            quary: RefMut {
-                                                place: Idx(
-                                                    PlaceIdx(0),
+                                            contracted_quary: HirContractedQuary {
+                                                contract: Some(
+                                                    Pure,
                                                 ),
-                                                lifetime: None,
+                                                quary: RefMut {
+                                                    place: Idx(
+                                                        PlaceIdx(0),
+                                                    ),
+                                                    lifetime: None,
+                                                },
                                             },
                                             is_always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
@@ -2254,10 +2502,15 @@
                                             data: HirEagerExprData::Variable(
                                                 4,
                                             ),
-                                            quary: ImmutableOnStack {
-                                                place: Idx(
-                                                    PlaceIdx(0),
+                                            contracted_quary: HirContractedQuary {
+                                                contract: Some(
+                                                    Pure,
                                                 ),
+                                                quary: ImmutableOnStack {
+                                                    place: Idx(
+                                                        PlaceIdx(0),
+                                                    ),
+                                                },
                                             },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
@@ -2278,11 +2531,16 @@
                                                     33,
                                                 ],
                                             },
-                                            quary: RefMut {
-                                                place: Idx(
-                                                    PlaceIdx(0),
+                                            contracted_quary: HirContractedQuary {
+                                                contract: Some(
+                                                    Pure,
                                                 ),
-                                                lifetime: None,
+                                                quary: RefMut {
+                                                    place: Idx(
+                                                        PlaceIdx(0),
+                                                    ),
+                                                    lifetime: None,
+                                                },
                                             },
                                             is_always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
@@ -2304,7 +2562,10 @@
                                                 ),
                                                 ropd: 34,
                                             },
-                                            quary: Transient,
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Transient,
+                                            },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
@@ -2318,7 +2579,10 @@
                                                 ),
                                                 ropd: 35,
                                             },
-                                            quary: Transient,
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Transient,
+                                            },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
@@ -2328,10 +2592,15 @@
                                             data: HirEagerExprData::Variable(
                                                 6,
                                             ),
-                                            quary: MutableOnStack {
-                                                place: Idx(
-                                                    PlaceIdx(2),
+                                            contracted_quary: HirContractedQuary {
+                                                contract: Some(
+                                                    BorrowMut,
                                                 ),
+                                                quary: MutableOnStack {
+                                                    place: Idx(
+                                                        PlaceIdx(2),
+                                                    ),
+                                                },
                                             },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
@@ -2353,7 +2622,10 @@
                                                     },
                                                 ),
                                             ),
-                                            quary: Const,
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Const,
+                                            },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
@@ -2367,7 +2639,10 @@
                                                 ),
                                                 ropd: 38,
                                             },
-                                            quary: Transient,
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Transient,
+                                            },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
@@ -2377,10 +2652,15 @@
                                             data: HirEagerExprData::Variable(
                                                 5,
                                             ),
-                                            quary: MutableOnStack {
-                                                place: Idx(
-                                                    PlaceIdx(1),
+                                            contracted_quary: HirContractedQuary {
+                                                contract: Some(
+                                                    Pure,
                                                 ),
+                                                quary: MutableOnStack {
+                                                    place: Idx(
+                                                        PlaceIdx(1),
+                                                    ),
+                                                },
                                             },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
@@ -2398,10 +2678,15 @@
                                             data: HirEagerExprData::Variable(
                                                 6,
                                             ),
-                                            quary: MutableOnStack {
-                                                place: Idx(
-                                                    PlaceIdx(2),
+                                            contracted_quary: HirContractedQuary {
+                                                contract: Some(
+                                                    Pure,
                                                 ),
+                                                quary: MutableOnStack {
+                                                    place: Idx(
+                                                        PlaceIdx(2),
+                                                    ),
+                                                },
                                             },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
@@ -2423,7 +2708,10 @@
                                                 ),
                                                 ropd: 41,
                                             },
-                                            quary: Transient,
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Transient,
+                                            },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
@@ -2433,11 +2721,16 @@
                                             data: HirEagerExprData::Variable(
                                                 1,
                                             ),
-                                            quary: RefMut {
-                                                place: Idx(
-                                                    PlaceIdx(0),
+                                            contracted_quary: HirContractedQuary {
+                                                contract: Some(
+                                                    BorrowMut,
                                                 ),
-                                                lifetime: None,
+                                                quary: RefMut {
+                                                    place: Idx(
+                                                        PlaceIdx(0),
+                                                    ),
+                                                    lifetime: None,
+                                                },
                                             },
                                             is_always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
@@ -2455,10 +2748,15 @@
                                             data: HirEagerExprData::Variable(
                                                 5,
                                             ),
-                                            quary: MutableOnStack {
-                                                place: Idx(
-                                                    PlaceIdx(1),
+                                            contracted_quary: HirContractedQuary {
+                                                contract: Some(
+                                                    Pure,
                                                 ),
+                                                quary: MutableOnStack {
+                                                    place: Idx(
+                                                        PlaceIdx(1),
+                                                    ),
+                                                },
                                             },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
@@ -2483,7 +2781,10 @@
                                                     },
                                                 ),
                                             },
-                                            quary: Transient,
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Transient,
+                                            },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
@@ -2493,10 +2794,15 @@
                                             data: HirEagerExprData::Variable(
                                                 6,
                                             ),
-                                            quary: MutableOnStack {
-                                                place: Idx(
-                                                    PlaceIdx(2),
+                                            contracted_quary: HirContractedQuary {
+                                                contract: Some(
+                                                    Pure,
                                                 ),
+                                                quary: MutableOnStack {
+                                                    place: Idx(
+                                                        PlaceIdx(2),
+                                                    ),
+                                                },
                                             },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
@@ -2521,7 +2827,10 @@
                                                     },
                                                 ),
                                             },
-                                            quary: Transient,
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Transient,
+                                            },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
@@ -2613,7 +2922,10 @@
                                                     ),
                                                 ],
                                             },
-                                            quary: Transient,
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Transient,
+                                            },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
@@ -2623,11 +2935,16 @@
                                             data: HirEagerExprData::Variable(
                                                 1,
                                             ),
-                                            quary: RefMut {
-                                                place: Idx(
-                                                    PlaceIdx(0),
+                                            contracted_quary: HirContractedQuary {
+                                                contract: Some(
+                                                    BorrowMut,
                                                 ),
-                                                lifetime: None,
+                                                quary: RefMut {
+                                                    place: Idx(
+                                                        PlaceIdx(0),
+                                                    ),
+                                                    lifetime: None,
+                                                },
                                             },
                                             is_always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
@@ -2645,10 +2962,15 @@
                                             data: HirEagerExprData::Variable(
                                                 5,
                                             ),
-                                            quary: MutableOnStack {
-                                                place: Idx(
-                                                    PlaceIdx(1),
+                                            contracted_quary: HirContractedQuary {
+                                                contract: Some(
+                                                    Pure,
                                                 ),
+                                                quary: MutableOnStack {
+                                                    place: Idx(
+                                                        PlaceIdx(1),
+                                                    ),
+                                                },
                                             },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
@@ -2673,7 +2995,10 @@
                                                     },
                                                 ),
                                             },
-                                            quary: Transient,
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Transient,
+                                            },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
@@ -2683,10 +3008,15 @@
                                             data: HirEagerExprData::Variable(
                                                 4,
                                             ),
-                                            quary: ImmutableOnStack {
-                                                place: Idx(
-                                                    PlaceIdx(0),
+                                            contracted_quary: HirContractedQuary {
+                                                contract: Some(
+                                                    Pure,
                                                 ),
+                                                quary: ImmutableOnStack {
+                                                    place: Idx(
+                                                        PlaceIdx(0),
+                                                    ),
+                                                },
                                             },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
@@ -2711,7 +3041,10 @@
                                                     },
                                                 ),
                                             },
-                                            quary: Transient,
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Transient,
+                                            },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
@@ -2803,7 +3136,10 @@
                                                     ),
                                                 ],
                                             },
-                                            quary: Transient,
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Transient,
+                                            },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
@@ -2813,10 +3149,15 @@
                                             data: HirEagerExprData::Variable(
                                                 5,
                                             ),
-                                            quary: MutableOnStack {
-                                                place: Idx(
-                                                    PlaceIdx(1),
+                                            contracted_quary: HirContractedQuary {
+                                                contract: Some(
+                                                    Move,
                                                 ),
+                                                quary: MutableOnStack {
+                                                    place: Idx(
+                                                        PlaceIdx(1),
+                                                    ),
+                                                },
                                             },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
@@ -2836,10 +3177,15 @@
                                                     10..16,
                                                 ),
                                             },
-                                            quary: MutableOnStack {
-                                                place: Idx(
-                                                    PlaceIdx(1),
+                                            contracted_quary: HirContractedQuary {
+                                                contract: Some(
+                                                    Move,
                                                 ),
+                                                quary: MutableOnStack {
+                                                    place: Idx(
+                                                        PlaceIdx(1),
+                                                    ),
+                                                },
                                             },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
@@ -3191,7 +3537,10 @@
                                                     4,
                                                 ),
                                             ),
-                                            quary: Const,
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Const,
+                                            },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
@@ -3203,7 +3552,10 @@
                                                     65,
                                                 ),
                                             ),
-                                            quary: Const,
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Const,
+                                            },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
@@ -3215,7 +3567,10 @@
                                                     2,
                                                 ),
                                             ),
-                                            quary: Const,
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Const,
+                                            },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
@@ -3227,7 +3582,10 @@
                                                     31,
                                                 ),
                                             ),
-                                            quary: Const,
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Const,
+                                            },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
@@ -3238,7 +3596,10 @@
                                                 opr: Minus,
                                                 opd: 4,
                                             },
-                                            quary: Const,
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Const,
+                                            },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
@@ -3250,7 +3611,10 @@
                                                     0,
                                                 ),
                                             ),
-                                            quary: Const,
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Const,
+                                            },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
@@ -3262,7 +3626,10 @@
                                                     99,
                                                 ),
                                             ),
-                                            quary: Const,
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Const,
+                                            },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
@@ -3274,7 +3641,10 @@
                                                     2,
                                                 ),
                                             ),
-                                            quary: Const,
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Const,
+                                            },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
@@ -3286,7 +3656,10 @@
                                                     83,
                                                 ),
                                             ),
-                                            quary: Const,
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Const,
+                                            },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
@@ -3298,7 +3671,10 @@
                                                     782,
                                                 ),
                                             ),
-                                            quary: Const,
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Const,
+                                            },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
@@ -3310,7 +3686,10 @@
                                                     1,
                                                 ),
                                             ),
-                                            quary: Const,
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Const,
+                                            },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
@@ -3338,7 +3717,10 @@
                                                     },
                                                 ),
                                             },
-                                            quary: Transient,
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Transient,
+                                            },
                                             is_always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
@@ -3350,7 +3732,10 @@
                                                     1..2,
                                                 ),
                                             },
-                                            quary: Transient,
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Transient,
+                                            },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
@@ -3502,7 +3887,10 @@
                                                     },
                                                 ),
                                             ),
-                                            quary: Const,
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Const,
+                                            },
                                             is_always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
@@ -3516,7 +3904,10 @@
                                                     },
                                                 ),
                                             ),
-                                            quary: Const,
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Const,
+                                            },
                                             is_always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
@@ -3530,7 +3921,10 @@
                                                     },
                                                 ),
                                             ),
-                                            quary: Const,
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Const,
+                                            },
                                             is_always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
@@ -3544,7 +3938,10 @@
                                                     },
                                                 ),
                                             ),
-                                            quary: Const,
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Const,
+                                            },
                                             is_always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
@@ -3558,7 +3955,10 @@
                                                     },
                                                 ),
                                             ),
-                                            quary: Const,
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Const,
+                                            },
                                             is_always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
@@ -3572,7 +3972,10 @@
                                                     },
                                                 ),
                                             ),
-                                            quary: Const,
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Const,
+                                            },
                                             is_always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
@@ -3609,7 +4012,10 @@
                                                     },
                                                 ),
                                             },
-                                            quary: Transient,
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Transient,
+                                            },
                                             is_always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
@@ -3621,7 +4027,10 @@
                                                     1..2,
                                                 ),
                                             },
-                                            quary: Transient,
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Transient,
+                                            },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],

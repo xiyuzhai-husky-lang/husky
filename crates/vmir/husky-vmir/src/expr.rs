@@ -3,7 +3,8 @@ use crate::{destroyer::VmirDestroyerIdxRange, pattern::VmirPatternIdx, stmt::Vmi
 use husky_hir_eager_expr::{HirEagerExprData, HirEagerExprIdx, HirEagerRitchieArgument};
 use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
 use husky_lifetime_utils::capture::Captures;
-use husky_linkage::linkage::Linkage;
+use husky_linkage::{linkage::Linkage, template_argument::qual::LinQual};
+use husky_place::place::{idx::PlaceIdx, EthPlace};
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
 use smallvec::{smallvec, SmallVec};
 
@@ -11,7 +12,10 @@ use smallvec::{smallvec, SmallVec};
 #[derive(Debug, PartialEq, Eq)]
 pub enum VmirExprData<LinkageImpl: IsLinkageImpl> {
     Literal,
-    Variable,
+    Variable {
+        place_idx: PlaceIdx,
+        qual: LinQual,
+    },
     Binary {
         lopd: VmirExprIdx<LinkageImpl>,
         opr: HirBinaryOpr,
@@ -89,12 +93,29 @@ impl<LinkageImpl: IsLinkageImpl> ToVmir<LinkageImpl> for HirEagerExprIdx {
 
 impl<'comptime, Linktime: IsLinktime> VmirBuilder<'comptime, Linktime> {
     fn build_vmir_expr(&mut self, expr: HirEagerExprIdx) -> VmirExprData<Linktime::LinkageImpl> {
-        match *self.hir_eager_expr_arena()[expr].data() {
+        let entry = &self.hir_eager_expr_arena()[expr];
+        match *entry.data() {
             HirEagerExprData::Literal(_) => VmirExprData::Literal,
             HirEagerExprData::PrincipalEntityPath(_) => VmirExprData::PrincipalEntityPath,
             HirEagerExprData::AssocFn { assoc_item_path } => todo!(),
             HirEagerExprData::ConstSvar { ident } => VmirExprData::ConstSvar,
-            HirEagerExprData::Variable(_) => VmirExprData::Variable,
+            HirEagerExprData::Variable(_) => {
+                let place_idx = match entry.quary().place() {
+                    Some(place) => match place {
+                        EthPlace::Idx(place_idx) => place_idx,
+                        EthPlace::Svar(_) => todo!(),
+                        EthPlace::Field(_) => todo!(),
+                    },
+                    None => {
+                        use husky_print_utils::p;
+
+                        p!(entry.contracted_quary());
+                        todo!()
+                    }
+                };
+                let qual = LinQual::from_hir(entry.contracted_quary());
+                VmirExprData::Variable { place_idx, qual }
+            }
             HirEagerExprData::Binary { lopd, opr, ropd } => VmirExprData::Binary {
                 lopd: lopd.to_vmir(self),
                 opr,

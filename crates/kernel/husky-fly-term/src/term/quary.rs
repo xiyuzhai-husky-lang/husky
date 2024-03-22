@@ -1,6 +1,6 @@
 use either::*;
 use husky_eth_term::term::svar::EthSvar;
-use husky_place::place::EthPlace;
+use husky_place::place::{idx::PlaceIdx, EthPlace};
 use husky_term_prelude::Contract;
 use thiserror::Error;
 
@@ -81,7 +81,9 @@ pub enum FlyQuary {
     },
     /// stored in database
     /// always immutable
-    Leashed,
+    Leashed {
+        place_idx: Option<PlaceIdx>,
+    },
     Todo,
     #[deprecated(note = "consider more carefully")]
     EtherealSymbol(EthSvar),
@@ -100,7 +102,7 @@ impl FlyQuary {
         match (contract, self) {
             (Contract::Const, FlyQuary::Const) => Ok(()),
             (Contract::Const, _) => Err(FlyPlaceError::CannotConvertToConst),
-            (Contract::Leash, FlyQuary::Leashed) => Ok(()),
+            (Contract::Leash, FlyQuary::Leashed { .. }) => Ok(()),
             (Contract::Leash, _) => todo!("error"),
             (Contract::Pure, _) => Ok(()),
             (Contract::Move, FlyQuary::Const) => Ok(()),
@@ -110,7 +112,7 @@ impl FlyQuary {
             (Contract::Move, FlyQuary::Transient) => Ok(()),
             (Contract::Move, FlyQuary::Ref { guard }) => Ok(()), // ad hoc
             (Contract::Move, FlyQuary::RefMut { .. }) => todo!(),
-            (Contract::Move, FlyQuary::Leashed) => Ok(()),
+            (Contract::Move, FlyQuary::Leashed { .. }) => Ok(()),
             (Contract::Move, FlyQuary::Todo) => todo!(),
             (Contract::Borrow, FlyQuary::Const) => todo!(),
             (Contract::Borrow, FlyQuary::StackPure { place }) => todo!(),
@@ -119,7 +121,7 @@ impl FlyQuary {
             (Contract::Borrow, FlyQuary::Transient) => todo!(),
             (Contract::Borrow, FlyQuary::Ref { guard }) => todo!(),
             (Contract::Borrow, FlyQuary::RefMut { .. }) => todo!(),
-            (Contract::Borrow, FlyQuary::Leashed) => todo!(),
+            (Contract::Borrow, FlyQuary::Leashed { .. }) => todo!(),
             (Contract::Borrow, FlyQuary::Todo) => todo!(),
             (Contract::BorrowMut, FlyQuary::Const) => todo!(),
             (Contract::BorrowMut, FlyQuary::StackPure { place }) => todo!(),
@@ -128,7 +130,7 @@ impl FlyQuary {
             (Contract::BorrowMut, FlyQuary::Transient) => Ok(()),
             (Contract::BorrowMut, FlyQuary::Ref { guard }) => todo!(),
             (Contract::BorrowMut, FlyQuary::RefMut { .. }) => Ok(()),
-            (Contract::BorrowMut, FlyQuary::Leashed) => todo!(),
+            (Contract::BorrowMut, FlyQuary::Leashed { .. }) => todo!(),
             (Contract::BorrowMut, FlyQuary::Todo) => todo!(),
             (Contract::At, FlyQuary::Const) => todo!(),
             (Contract::At, FlyQuary::StackPure { place }) => todo!(),
@@ -137,7 +139,7 @@ impl FlyQuary {
             (Contract::At, FlyQuary::Transient) => todo!(),
             (Contract::At, FlyQuary::Ref { guard }) => todo!(),
             (Contract::At, FlyQuary::RefMut { .. }) => todo!(),
-            (Contract::At, FlyQuary::Leashed) => todo!(),
+            (Contract::At, FlyQuary::Leashed { .. }) => todo!(),
             (Contract::At, FlyQuary::Todo) => todo!(),
             (Contract::Move, FlyQuary::EtherealSymbol(_)) => todo!(),
             (Contract::Borrow, FlyQuary::EtherealSymbol(_)) => todo!(),
@@ -156,7 +158,7 @@ impl FlyQuary {
             FlyQuary::EtherealSymbol(svar) => Some(svar.into()),
             FlyQuary::Const
             | FlyQuary::Transient
-            | FlyQuary::Leashed
+            | FlyQuary::Leashed { .. }
             | FlyQuary::Todo
             | FlyQuary::Ref { guard: Right(_) } => None,
         }

@@ -381,8 +381,12 @@ fn calc_self_value_ty(
             place: registry.issue_new(place_data).into(),
             lifetime: None,
         },
-        SvarModifier::Le => FlyQuary::Leashed,
-        SvarModifier::Tilde => FlyQuary::Leashed,
+        SvarModifier::Le => FlyQuary::Leashed {
+            place_idx: Some(registry.issue_new(place_data)),
+        },
+        SvarModifier::Tilde => FlyQuary::Leashed {
+            place_idx: Some(registry.issue_new(place_data)),
+        },
         SvarModifier::At => FlyQuary::EtherealSymbol(self_place?),
     };
     Some(self_ty.with_quary(place))

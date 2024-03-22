@@ -2268,9 +2268,11 @@
                 ),
             ),
             place_registry: PlaceRegistry {
-                infos: [],
+                infos: [
+                    SelfValue,
+                ],
                 next: ShiftedU32(
-                    1,
+                    2,
                 ),
             },
             sema_expr_arena: SemaExprArena(
@@ -2693,6 +2695,7 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [
+                    SelfValue,
                     Parameter {
                         current_syn_symbol_idx: 1,
                         ident: Ident(
@@ -2715,7 +2718,7 @@
                     },
                 ],
                 next: ShiftedU32(
-                    3,
+                    4,
                 ),
             },
             sema_expr_arena: SemaExprArena(
@@ -3065,7 +3068,7 @@
                             place: Some(
                                 StackPure {
                                     place: Idx(
-                                        PlaceIdx(0),
+                                        PlaceIdx(1),
                                     ),
                                 },
                             ),
@@ -3079,7 +3082,7 @@
                             place: Some(
                                 StackPure {
                                     place: Idx(
-                                        PlaceIdx(1),
+                                        PlaceIdx(2),
                                     ),
                                 },
                             ),

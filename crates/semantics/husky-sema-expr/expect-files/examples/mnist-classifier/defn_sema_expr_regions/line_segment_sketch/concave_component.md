@@ -295,7 +295,9 @@
                                             indirections: [
                                                 Leash,
                                             ],
-                                            final_place: Leashed,
+                                            final_place: Leashed {
+                                                place_idx: None,
+                                            },
                                         },
                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                         signature: FlyFieldSignature::PropsStruct {
@@ -312,7 +314,9 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Leashed,
+                                        Leashed {
+                                            place_idx: None,
+                                        },
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Vec LineSegmentStroke`),
@@ -324,7 +328,9 @@
                                     6,
                                     FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: None,
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Vec LineSegmentStroke`),
@@ -351,9 +357,13 @@
                                     },
                                     dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
-                                            initial_place: Leashed,
+                                            initial_place: Leashed {
+                                                place_idx: None,
+                                            },
                                             indirections: [],
-                                            final_place: Leashed,
+                                            final_place: Leashed {
+                                                place_idx: None,
+                                            },
                                         },
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
@@ -387,7 +397,9 @@
                                                         ),
                                                     ),
                                                     env: MethodFn {
-                                                        self_place: Leashed,
+                                                        self_place: Leashed {
+                                                            place_idx: None,
+                                                        },
                                                     },
                                                     symbol_map: [
                                                         (
@@ -2456,7 +2468,9 @@
                                             indirections: [
                                                 Leash,
                                             ],
-                                            final_place: Leashed,
+                                            final_place: Leashed {
+                                                place_idx: None,
+                                            },
                                         },
                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                         signature: FlyFieldSignature::PropsStruct {
@@ -2473,7 +2487,9 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Leashed,
+                                        Leashed {
+                                            place_idx: None,
+                                        },
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Vec LineSegmentStroke`),
@@ -2485,7 +2501,9 @@
                                     50,
                                     FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: None,
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Vec LineSegmentStroke`),
@@ -2610,9 +2628,13 @@
                                     },
                                     dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
-                                            initial_place: Leashed,
+                                            initial_place: Leashed {
+                                                place_idx: None,
+                                            },
                                             indirections: [],
-                                            final_place: Leashed,
+                                            final_place: Leashed {
+                                                place_idx: None,
+                                            },
                                         },
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
@@ -2669,7 +2691,9 @@
                                                         ),
                                                     ),
                                                     env: MethodFn {
-                                                        self_place: Leashed,
+                                                        self_place: Leashed {
+                                                            place_idx: None,
+                                                        },
                                                     },
                                                     symbol_map: [
                                                         (
@@ -4695,7 +4719,9 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: None,
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Vec LineSegmentStroke`),
@@ -6441,7 +6467,9 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: None,
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Vec LineSegmentStroke`),
@@ -7282,7 +7310,9 @@
                                             indirections: [
                                                 Leash,
                                             ],
-                                            final_place: Leashed,
+                                            final_place: Leashed {
+                                                place_idx: None,
+                                            },
                                         },
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
@@ -7317,7 +7347,9 @@
                                                         ),
                                                     ),
                                                     env: MethodFn {
-                                                        self_place: Leashed,
+                                                        self_place: Leashed {
+                                                            place_idx: None,
+                                                        },
                                                     },
                                                     symbol_map: [
                                                         (
@@ -7644,9 +7676,11 @@
                 ),
             ),
             place_registry: PlaceRegistry {
-                infos: [],
+                infos: [
+                    SelfValue,
+                ],
                 next: ShiftedU32(
-                    1,
+                    2,
                 ),
             },
             sema_expr_arena: SemaExprArena(
@@ -7663,7 +7697,11 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Leashed,
+                                        Leashed {
+                                            place_idx: Some(
+                                                PlaceIdx(0),
+                                            ),
+                                        },
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`ConcaveComponent`),
@@ -7675,7 +7713,11 @@
                                     1,
                                     FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`ConcaveComponent`),
@@ -7692,7 +7734,11 @@
                                     ),
                                     self_ty: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`ConcaveComponent`),
@@ -7709,9 +7755,17 @@
                                     },
                                     dispatch: FlyFieldDyanmicDispatch {
                                         indirections: FlyIndirections {
-                                            initial_place: Leashed,
+                                            initial_place: Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                             indirections: [],
-                                            final_place: Leashed,
+                                            final_place: Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         },
                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                         signature: FlyFieldSignature::Memoized {
@@ -7743,7 +7797,11 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Leashed,
+                                        Leashed {
+                                            place_idx: Some(
+                                                PlaceIdx(0),
+                                            ),
+                                        },
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
@@ -7755,7 +7813,11 @@
                                     2,
                                     FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
@@ -7777,7 +7839,11 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Leashed,
+                                        Leashed {
+                                            place_idx: Some(
+                                                PlaceIdx(0),
+                                            ),
+                                        },
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
@@ -7789,7 +7855,11 @@
                                     3,
                                     FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
@@ -7815,7 +7885,11 @@
                                             ExpectCoersionOutcome {
                                                 coersion: Trivial(
                                                     TrivialFlyCoersion {
-                                                        expectee_quary: Leashed,
+                                                        expectee_quary: Leashed {
+                                                            place_idx: Some(
+                                                                PlaceIdx(0),
+                                                            ),
+                                                        },
                                                     },
                                                 ),
                                             },
@@ -7827,7 +7901,11 @@
                             ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Leashed,
+                                        Leashed {
+                                            place_idx: Some(
+                                                PlaceIdx(0),
+                                            ),
+                                        },
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
@@ -7887,7 +7965,11 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`ConcaveComponent`),
@@ -7922,7 +8004,11 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
@@ -7934,7 +8020,11 @@
                                                 ExpectCoersionOutcome {
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
-                                                            expectee_quary: Leashed,
+                                                            expectee_quary: Leashed {
+                                                                place_idx: Some(
+                                                                    PlaceIdx(0),
+                                                                ),
+                                                            },
                                                         },
                                                     ),
                                                 },
@@ -7963,7 +8053,11 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
@@ -7975,7 +8069,11 @@
                                                 ExpectCoersionOutcome {
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
-                                                            expectee_quary: Leashed,
+                                                            expectee_quary: Leashed {
+                                                                place_idx: Some(
+                                                                    PlaceIdx(0),
+                                                                ),
+                                                            },
                                                         },
                                                     ),
                                                 },
@@ -8014,9 +8112,11 @@
                 ),
             ),
             place_registry: PlaceRegistry {
-                infos: [],
+                infos: [
+                    SelfValue,
+                ],
                 next: ShiftedU32(
-                    1,
+                    2,
                 ),
             },
             sema_expr_arena: SemaExprArena(
@@ -8033,7 +8133,11 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Leashed,
+                                        Leashed {
+                                            place_idx: Some(
+                                                PlaceIdx(0),
+                                            ),
+                                        },
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`ConcaveComponent`),
@@ -8045,7 +8149,11 @@
                                     1,
                                     FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`ConcaveComponent`),
@@ -8062,7 +8170,11 @@
                                     ),
                                     self_ty: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`ConcaveComponent`),
@@ -8079,9 +8191,17 @@
                                     },
                                     dispatch: FlyFieldDyanmicDispatch {
                                         indirections: FlyIndirections {
-                                            initial_place: Leashed,
+                                            initial_place: Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                             indirections: [],
-                                            final_place: Leashed,
+                                            final_place: Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         },
                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                         signature: FlyFieldSignature::Memoized {
@@ -8113,7 +8233,11 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Leashed,
+                                        Leashed {
+                                            place_idx: Some(
+                                                PlaceIdx(0),
+                                            ),
+                                        },
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
@@ -8125,7 +8249,11 @@
                                     2,
                                     FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
@@ -8145,7 +8273,11 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Leashed,
+                                        Leashed {
+                                            place_idx: Some(
+                                                PlaceIdx(0),
+                                            ),
+                                        },
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`ConcaveComponent`),
@@ -8157,7 +8289,11 @@
                                     3,
                                     FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`ConcaveComponent`),
@@ -8184,9 +8320,17 @@
                                     },
                                     dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
-                                            initial_place: Leashed,
+                                            initial_place: Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                             indirections: [],
-                                            final_place: Leashed,
+                                            final_place: Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         },
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
@@ -8220,7 +8364,11 @@
                                                         ),
                                                     ),
                                                     env: MethodFn {
-                                                        self_place: Leashed,
+                                                        self_place: Leashed {
+                                                            place_idx: Some(
+                                                                PlaceIdx(0),
+                                                            ),
+                                                        },
                                                     },
                                                     symbol_map: [],
                                                     separator: Some(
@@ -8516,7 +8664,11 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`ConcaveComponent`),
@@ -8543,7 +8695,11 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
@@ -8570,7 +8726,11 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`ConcaveComponent`),
@@ -8616,7 +8776,11 @@
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: Some(
-                                                Leashed,
+                                                Leashed {
+                                                    place_idx: Some(
+                                                        PlaceIdx(0),
+                                                    ),
+                                                },
                                             ),
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`f32`),
@@ -8760,12 +8924,23 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [
+                    SelfValue,
                     Variable {
                         current_syn_symbol_idx: 1,
                         ident: Ident(
                             Coword(
                                 Id {
                                     value: 253,
+                                },
+                            ),
+                        ),
+                    },
+                    Variable {
+                        current_syn_symbol_idx: 2,
+                        ident: Ident(
+                            Coword(
+                                Id {
+                                    value: 255,
                                 },
                             ),
                         ),
@@ -8801,6 +8976,16 @@
                         ),
                     },
                     Variable {
+                        current_syn_symbol_idx: 6,
+                        ident: Ident(
+                            Coword(
+                                Id {
+                                    value: 114,
+                                },
+                            ),
+                        ),
+                    },
+                    Variable {
                         current_syn_symbol_idx: 7,
                         ident: Ident(
                             Coword(
@@ -8812,7 +8997,7 @@
                     },
                 ],
                 next: ShiftedU32(
-                    6,
+                    9,
                 ),
             },
             sema_expr_arena: SemaExprArena(
@@ -8874,7 +9059,11 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Leashed,
+                                        Leashed {
+                                            place_idx: Some(
+                                                PlaceIdx(0),
+                                            ),
+                                        },
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`ConcaveComponent`),
@@ -8886,7 +9075,11 @@
                                     2,
                                     FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`ConcaveComponent`),
@@ -8903,7 +9096,11 @@
                                     ),
                                     self_ty: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`ConcaveComponent`),
@@ -8920,9 +9117,17 @@
                                     },
                                     dispatch: FlyFieldDyanmicDispatch {
                                         indirections: FlyIndirections {
-                                            initial_place: Leashed,
+                                            initial_place: Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                             indirections: [],
-                                            final_place: Leashed,
+                                            final_place: Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         },
                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                         signature: FlyFieldSignature::PropsStruct {
@@ -8939,7 +9144,11 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Leashed,
+                                        Leashed {
+                                            place_idx: Some(
+                                                PlaceIdx(0),
+                                            ),
+                                        },
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Leash CyclicSlice LineSegmentStroke`),
@@ -8951,7 +9160,11 @@
                                     3,
                                     FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Leash CyclicSlice LineSegmentStroke`),
@@ -8978,11 +9191,17 @@
                                     },
                                     dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
-                                            initial_place: Leashed,
+                                            initial_place: Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                             indirections: [
                                                 Leash,
                                             ],
-                                            final_place: Leashed,
+                                            final_place: Leashed {
+                                                place_idx: None,
+                                            },
                                         },
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
@@ -9016,7 +9235,9 @@
                                                         ),
                                                     ),
                                                     env: MethodFn {
-                                                        self_place: Leashed,
+                                                        self_place: Leashed {
+                                                            place_idx: None,
+                                                        },
                                                     },
                                                     symbol_map: [
                                                         (
@@ -9126,7 +9347,9 @@
                                             indirections: [
                                                 Leash,
                                             ],
-                                            final_place: Leashed,
+                                            final_place: Leashed {
+                                                place_idx: None,
+                                            },
                                         },
                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                         signature: FlyFieldSignature::PropsStruct {
@@ -9143,7 +9366,9 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Leashed,
+                                        Leashed {
+                                            place_idx: None,
+                                        },
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Point2d`),
@@ -9155,7 +9380,9 @@
                                     6,
                                     FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: None,
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Point2d`),
@@ -9175,7 +9402,11 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Leashed,
+                                        Leashed {
+                                            place_idx: Some(
+                                                PlaceIdx(0),
+                                            ),
+                                        },
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`ConcaveComponent`),
@@ -9187,7 +9418,11 @@
                                     7,
                                     FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`ConcaveComponent`),
@@ -9214,9 +9449,17 @@
                                     },
                                     dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
-                                            initial_place: Leashed,
+                                            initial_place: Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                             indirections: [],
-                                            final_place: Leashed,
+                                            final_place: Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         },
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
@@ -9250,7 +9493,11 @@
                                                         ),
                                                     ),
                                                     env: MethodFn {
-                                                        self_place: Leashed,
+                                                        self_place: Leashed {
+                                                            place_idx: Some(
+                                                                PlaceIdx(0),
+                                                            ),
+                                                        },
                                                     },
                                                     symbol_map: [],
                                                     separator: Some(
@@ -9308,7 +9555,7 @@
                                     place: Some(
                                         ImmutableOnStack {
                                             place: Idx(
-                                                PlaceIdx(1),
+                                                PlaceIdx(3),
                                             ),
                                         },
                                     ),
@@ -9324,7 +9571,7 @@
                                         place: Some(
                                             ImmutableOnStack {
                                                 place: Idx(
-                                                    PlaceIdx(1),
+                                                    PlaceIdx(3),
                                                 ),
                                             },
                                         ),
@@ -9355,13 +9602,13 @@
                                         indirections: FlyIndirections {
                                             initial_place: ImmutableOnStack {
                                                 place: Idx(
-                                                    PlaceIdx(1),
+                                                    PlaceIdx(3),
                                                 ),
                                             },
                                             indirections: [],
                                             final_place: ImmutableOnStack {
                                                 place: Idx(
-                                                    PlaceIdx(1),
+                                                    PlaceIdx(3),
                                                 ),
                                             },
                                         },
@@ -9399,7 +9646,7 @@
                                                     env: MethodFn {
                                                         self_place: ImmutableOnStack {
                                                             place: Idx(
-                                                                PlaceIdx(1),
+                                                                PlaceIdx(3),
                                                             ),
                                                         },
                                                     },
@@ -9546,7 +9793,11 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Leashed,
+                                        Leashed {
+                                            place_idx: Some(
+                                                PlaceIdx(0),
+                                            ),
+                                        },
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`ConcaveComponent`),
@@ -9558,7 +9809,11 @@
                                     12,
                                     FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`ConcaveComponent`),
@@ -9575,7 +9830,11 @@
                                     ),
                                     self_ty: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`ConcaveComponent`),
@@ -9592,9 +9851,17 @@
                                     },
                                     dispatch: FlyFieldDyanmicDispatch {
                                         indirections: FlyIndirections {
-                                            initial_place: Leashed,
+                                            initial_place: Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                             indirections: [],
-                                            final_place: Leashed,
+                                            final_place: Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         },
                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                         signature: FlyFieldSignature::PropsStruct {
@@ -9611,7 +9878,11 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Leashed,
+                                        Leashed {
+                                            place_idx: Some(
+                                                PlaceIdx(0),
+                                            ),
+                                        },
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Leash CyclicSlice LineSegmentStroke`),
@@ -9623,7 +9894,11 @@
                                     13,
                                     FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Leash CyclicSlice LineSegmentStroke`),
@@ -9650,11 +9925,17 @@
                                     },
                                     dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
-                                            initial_place: Leashed,
+                                            initial_place: Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                             indirections: [
                                                 Leash,
                                             ],
-                                            final_place: Leashed,
+                                            final_place: Leashed {
+                                                place_idx: None,
+                                            },
                                         },
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
@@ -9688,7 +9969,9 @@
                                                         ),
                                                     ),
                                                     env: MethodFn {
-                                                        self_place: Leashed,
+                                                        self_place: Leashed {
+                                                            place_idx: None,
+                                                        },
                                                     },
                                                     symbol_map: [
                                                         (
@@ -9751,7 +10034,11 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Leashed,
+                                        Leashed {
+                                            place_idx: Some(
+                                                PlaceIdx(0),
+                                            ),
+                                        },
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`ConcaveComponent`),
@@ -9763,7 +10050,11 @@
                                     15,
                                     FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`ConcaveComponent`),
@@ -9780,7 +10071,11 @@
                                     ),
                                     self_ty: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`ConcaveComponent`),
@@ -9797,9 +10092,17 @@
                                     },
                                     dispatch: FlyFieldDyanmicDispatch {
                                         indirections: FlyIndirections {
-                                            initial_place: Leashed,
+                                            initial_place: Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                             indirections: [],
-                                            final_place: Leashed,
+                                            final_place: Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         },
                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                         signature: FlyFieldSignature::PropsStruct {
@@ -9816,7 +10119,11 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Leashed,
+                                        Leashed {
+                                            place_idx: Some(
+                                                PlaceIdx(0),
+                                            ),
+                                        },
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Leash CyclicSlice LineSegmentStroke`),
@@ -9828,7 +10135,11 @@
                                     16,
                                     FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Leash CyclicSlice LineSegmentStroke`),
@@ -9855,11 +10166,17 @@
                                     },
                                     dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
-                                            initial_place: Leashed,
+                                            initial_place: Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                             indirections: [
                                                 Leash,
                                             ],
-                                            final_place: Leashed,
+                                            final_place: Leashed {
+                                                place_idx: None,
+                                            },
                                         },
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
@@ -9893,7 +10210,9 @@
                                                         ),
                                                     ),
                                                     env: MethodFn {
-                                                        self_place: Leashed,
+                                                        self_place: Leashed {
+                                                            place_idx: None,
+                                                        },
                                                     },
                                                     symbol_map: [
                                                         (
@@ -9963,7 +10282,7 @@
                                     place: Some(
                                         ImmutableOnStack {
                                             place: Idx(
-                                                PlaceIdx(3),
+                                                PlaceIdx(5),
                                             ),
                                         },
                                     ),
@@ -9979,7 +10298,7 @@
                                         place: Some(
                                             ImmutableOnStack {
                                                 place: Idx(
-                                                    PlaceIdx(3),
+                                                    PlaceIdx(5),
                                                 ),
                                             },
                                         ),
@@ -10001,7 +10320,11 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Leashed,
+                                        Leashed {
+                                            place_idx: Some(
+                                                PlaceIdx(0),
+                                            ),
+                                        },
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`ConcaveComponent`),
@@ -10013,7 +10336,11 @@
                                     19,
                                     FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`ConcaveComponent`),
@@ -10030,7 +10357,11 @@
                                     ),
                                     self_ty: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`ConcaveComponent`),
@@ -10047,9 +10378,17 @@
                                     },
                                     dispatch: FlyFieldDyanmicDispatch {
                                         indirections: FlyIndirections {
-                                            initial_place: Leashed,
+                                            initial_place: Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                             indirections: [],
-                                            final_place: Leashed,
+                                            final_place: Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         },
                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                         signature: FlyFieldSignature::PropsStruct {
@@ -10066,7 +10405,11 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Leashed,
+                                        Leashed {
+                                            place_idx: Some(
+                                                PlaceIdx(0),
+                                            ),
+                                        },
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Leash CyclicSlice LineSegmentStroke`),
@@ -10078,7 +10421,11 @@
                                     20,
                                     FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Leash CyclicSlice LineSegmentStroke`),
@@ -10105,7 +10452,7 @@
                                     place: Some(
                                         ImmutableOnStack {
                                             place: Idx(
-                                                PlaceIdx(3),
+                                                PlaceIdx(5),
                                             ),
                                         },
                                     ),
@@ -10121,7 +10468,7 @@
                                         place: Some(
                                             ImmutableOnStack {
                                                 place: Idx(
-                                                    PlaceIdx(3),
+                                                    PlaceIdx(5),
                                                 ),
                                             },
                                         ),
@@ -10154,11 +10501,17 @@
                                     ),
                                     index_dynamic_dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
-                                            initial_place: Leashed,
+                                            initial_place: Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                             indirections: [
                                                 Leash,
                                             ],
-                                            final_place: Leashed,
+                                            final_place: Leashed {
+                                                place_idx: None,
+                                            },
                                         },
                                         signature: FlyIndexSignature::Int {
                                             element_ty: FlyTerm {
@@ -10174,7 +10527,9 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Leashed,
+                                        Leashed {
+                                            place_idx: None,
+                                        },
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`LineSegmentStroke`),
@@ -10186,7 +10541,9 @@
                                     22,
                                     FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: None,
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`LineSegmentStroke`),
@@ -10203,7 +10560,9 @@
                                     ),
                                     self_ty: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: None,
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`LineSegmentStroke`),
@@ -10220,9 +10579,13 @@
                                     },
                                     dispatch: FlyFieldDyanmicDispatch {
                                         indirections: FlyIndirections {
-                                            initial_place: Leashed,
+                                            initial_place: Leashed {
+                                                place_idx: None,
+                                            },
                                             indirections: [],
-                                            final_place: Leashed,
+                                            final_place: Leashed {
+                                                place_idx: None,
+                                            },
                                         },
                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                         signature: FlyFieldSignature::PropsStruct {
@@ -10239,7 +10602,9 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Leashed,
+                                        Leashed {
+                                            place_idx: None,
+                                        },
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Point2d`),
@@ -10251,7 +10616,9 @@
                                     23,
                                     FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: None,
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Point2d`),
@@ -10278,7 +10645,7 @@
                                     place: Some(
                                         ImmutableOnStack {
                                             place: Idx(
-                                                PlaceIdx(1),
+                                                PlaceIdx(3),
                                             ),
                                         },
                                     ),
@@ -10294,7 +10661,7 @@
                                         place: Some(
                                             ImmutableOnStack {
                                                 place: Idx(
-                                                    PlaceIdx(1),
+                                                    PlaceIdx(3),
                                                 ),
                                             },
                                         ),
@@ -10321,7 +10688,11 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Leashed,
+                                        Leashed {
+                                            place_idx: Some(
+                                                PlaceIdx(6),
+                                            ),
+                                        },
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Point2d`),
@@ -10333,7 +10704,11 @@
                                     25,
                                     FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(6),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Point2d`),
@@ -10362,13 +10737,13 @@
                                         indirections: FlyIndirections {
                                             initial_place: ImmutableOnStack {
                                                 place: Idx(
-                                                    PlaceIdx(1),
+                                                    PlaceIdx(3),
                                                 ),
                                             },
                                             indirections: [],
                                             final_place: ImmutableOnStack {
                                                 place: Idx(
-                                                    PlaceIdx(1),
+                                                    PlaceIdx(3),
                                                 ),
                                             },
                                         },
@@ -10418,7 +10793,7 @@
                                                     env: MethodFn {
                                                         self_place: ImmutableOnStack {
                                                             place: Idx(
-                                                                PlaceIdx(1),
+                                                                PlaceIdx(3),
                                                             ),
                                                         },
                                                     },
@@ -10453,7 +10828,11 @@
                                                     ExpectCoersionOutcome {
                                                         coersion: Trivial(
                                                             TrivialFlyCoersion {
-                                                                expectee_quary: Leashed,
+                                                                expectee_quary: Leashed {
+                                                                    place_idx: Some(
+                                                                        PlaceIdx(6),
+                                                                    ),
+                                                                },
                                                             },
                                                         ),
                                                     },
@@ -10505,7 +10884,7 @@
                                     place: Some(
                                         ImmutableOnStack {
                                             place: Idx(
-                                                PlaceIdx(4),
+                                                PlaceIdx(7),
                                             ),
                                         },
                                     ),
@@ -10521,7 +10900,7 @@
                                         place: Some(
                                             ImmutableOnStack {
                                                 place: Idx(
-                                                    PlaceIdx(4),
+                                                    PlaceIdx(7),
                                                 ),
                                             },
                                         ),
@@ -10550,7 +10929,7 @@
                                     place: Some(
                                         MutableOnStack {
                                             place: Idx(
-                                                PlaceIdx(0),
+                                                PlaceIdx(1),
                                             ),
                                         },
                                     ),
@@ -10568,7 +10947,7 @@
                                         place: Some(
                                             MutableOnStack {
                                                 place: Idx(
-                                                    PlaceIdx(0),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                         ),
@@ -10644,7 +11023,7 @@
                                     place: Some(
                                         MutableOnStack {
                                             place: Idx(
-                                                PlaceIdx(0),
+                                                PlaceIdx(1),
                                             ),
                                         },
                                     ),
@@ -10662,7 +11041,7 @@
                                         place: Some(
                                             MutableOnStack {
                                                 place: Idx(
-                                                    PlaceIdx(0),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                         ),
@@ -10693,7 +11072,7 @@
                                     place: Some(
                                         ImmutableOnStack {
                                             place: Idx(
-                                                PlaceIdx(4),
+                                                PlaceIdx(7),
                                             ),
                                         },
                                     ),
@@ -10709,7 +11088,7 @@
                                         place: Some(
                                             ImmutableOnStack {
                                                 place: Idx(
-                                                    PlaceIdx(4),
+                                                    PlaceIdx(7),
                                                 ),
                                             },
                                         ),
@@ -10781,7 +11160,7 @@
                                     place: Some(
                                         MutableOnStack {
                                             place: Idx(
-                                                PlaceIdx(0),
+                                                PlaceIdx(1),
                                             ),
                                         },
                                     ),
@@ -10799,7 +11178,7 @@
                                         place: Some(
                                             MutableOnStack {
                                                 place: Idx(
-                                                    PlaceIdx(0),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                         ),
@@ -11229,7 +11608,7 @@
                                                 TrivialFlyCoersion {
                                                     expectee_quary: MutableOnStack {
                                                         place: Idx(
-                                                            PlaceIdx(0),
+                                                            PlaceIdx(1),
                                                         ),
                                                     },
                                                 },
@@ -11280,7 +11659,9 @@
                     ty: Ok(
                         FlyTerm {
                             place: Some(
-                                Leashed,
+                                Leashed {
+                                    place_idx: None,
+                                },
                             ),
                             base: Eth(
                                 EntityPath(
@@ -11342,7 +11723,9 @@
                     ty: Ok(
                         FlyTerm {
                             place: Some(
-                                Leashed,
+                                Leashed {
+                                    place_idx: None,
+                                },
                             ),
                             base: Eth(
                                 EntityPath(
@@ -11404,7 +11787,9 @@
                             ty: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Leashed,
+                                        Leashed {
+                                            place_idx: None,
+                                        },
                                     ),
                                     base: Eth(
                                         EntityPath(
@@ -11472,7 +11857,9 @@
                             ty: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Leashed,
+                                        Leashed {
+                                            place_idx: None,
+                                        },
                                     ),
                                     base: Eth(
                                         EntityPath(
@@ -11538,7 +11925,7 @@
                             place: Some(
                                 MutableOnStack {
                                     place: Idx(
-                                        PlaceIdx(0),
+                                        PlaceIdx(1),
                                     ),
                                 },
                             ),
@@ -11552,38 +11939,14 @@
                     SymbolType(
                         FlyTerm {
                             place: Some(
-                                Leashed,
-                            ),
-                            base: FlyTermBase::Eth(
-                                EthTerm(`Point2d`),
-                            ),
-                        },
-                    ),
-                    SymbolType(
-                        FlyTerm {
-                            place: Some(
-                                ImmutableOnStack {
-                                    place: Idx(
-                                        PlaceIdx(1),
-                                    ),
-                                },
-                            ),
-                            base: FlyTermBase::Eth(
-                                EthTerm(`LineSegment`),
-                            ),
-                        },
-                    ),
-                    SymbolType(
-                        FlyTerm {
-                            place: Some(
-                                ImmutableOnStack {
-                                    place: Idx(
+                                Leashed {
+                                    place_idx: Some(
                                         PlaceIdx(2),
                                     ),
                                 },
                             ),
                             base: FlyTermBase::Eth(
-                                EthTerm(`f32`),
+                                EthTerm(`Point2d`),
                             ),
                         },
                     ),
@@ -11597,6 +11960,34 @@
                                 },
                             ),
                             base: FlyTermBase::Eth(
+                                EthTerm(`LineSegment`),
+                            ),
+                        },
+                    ),
+                    SymbolType(
+                        FlyTerm {
+                            place: Some(
+                                ImmutableOnStack {
+                                    place: Idx(
+                                        PlaceIdx(4),
+                                    ),
+                                },
+                            ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`f32`),
+                            ),
+                        },
+                    ),
+                    SymbolType(
+                        FlyTerm {
+                            place: Some(
+                                ImmutableOnStack {
+                                    place: Idx(
+                                        PlaceIdx(5),
+                                    ),
+                                },
+                            ),
+                            base: FlyTermBase::Eth(
                                 EthTerm(`i32`),
                             ),
                         },
@@ -11604,7 +11995,11 @@
                     SymbolType(
                         FlyTerm {
                             place: Some(
-                                Leashed,
+                                Leashed {
+                                    place_idx: Some(
+                                        PlaceIdx(6),
+                                    ),
+                                },
                             ),
                             base: FlyTermBase::Eth(
                                 EthTerm(`Point2d`),
@@ -11616,7 +12011,7 @@
                             place: Some(
                                 ImmutableOnStack {
                                     place: Idx(
-                                        PlaceIdx(4),
+                                        PlaceIdx(7),
                                     ),
                                 },
                             ),
@@ -11649,7 +12044,7 @@
                                             place: Some(
                                                 ImmutableOnStack {
                                                     place: Idx(
-                                                        PlaceIdx(4),
+                                                        PlaceIdx(7),
                                                     ),
                                                 },
                                             ),
@@ -11664,7 +12059,7 @@
                                                 place: Some(
                                                     ImmutableOnStack {
                                                         place: Idx(
-                                                            PlaceIdx(4),
+                                                            PlaceIdx(7),
                                                         ),
                                                     },
                                                 ),
@@ -11727,7 +12122,11 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`ConcaveComponent`),
@@ -11754,7 +12153,11 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Leash CyclicSlice LineSegmentStroke`),
@@ -11831,7 +12234,9 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: None,
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Point2d`),
@@ -11858,7 +12263,11 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`ConcaveComponent`),
@@ -11912,7 +12321,7 @@
                                         place: Some(
                                             ImmutableOnStack {
                                                 place: Idx(
-                                                    PlaceIdx(1),
+                                                    PlaceIdx(3),
                                                 ),
                                             },
                                         ),
@@ -11991,7 +12400,11 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`ConcaveComponent`),
@@ -12018,7 +12431,11 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Leash CyclicSlice LineSegmentStroke`),
@@ -12087,7 +12504,11 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`ConcaveComponent`),
@@ -12114,7 +12535,11 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Leash CyclicSlice LineSegmentStroke`),
@@ -12176,7 +12601,7 @@
                                             place: Some(
                                                 ImmutableOnStack {
                                                     place: Idx(
-                                                        PlaceIdx(3),
+                                                        PlaceIdx(5),
                                                     ),
                                                 },
                                             ),
@@ -12196,7 +12621,7 @@
                                         place: Some(
                                             ImmutableOnStack {
                                                 place: Idx(
-                                                    PlaceIdx(3),
+                                                    PlaceIdx(5),
                                                 ),
                                             },
                                         ),
@@ -12212,7 +12637,7 @@
                                                         TrivialFlyCoersion {
                                                             expectee_quary: ImmutableOnStack {
                                                                 place: Idx(
-                                                                    PlaceIdx(3),
+                                                                    PlaceIdx(5),
                                                                 ),
                                                             },
                                                         },
@@ -12235,7 +12660,11 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`ConcaveComponent`),
@@ -12262,7 +12691,11 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Leash CyclicSlice LineSegmentStroke`),
@@ -12291,7 +12724,7 @@
                                         place: Some(
                                             ImmutableOnStack {
                                                 place: Idx(
-                                                    PlaceIdx(3),
+                                                    PlaceIdx(5),
                                                 ),
                                             },
                                         ),
@@ -12320,7 +12753,9 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: None,
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`LineSegmentStroke`),
@@ -12347,7 +12782,9 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: None,
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Point2d`),
@@ -12376,7 +12813,7 @@
                                         place: Some(
                                             ImmutableOnStack {
                                                 place: Idx(
-                                                    PlaceIdx(1),
+                                                    PlaceIdx(3),
                                                 ),
                                             },
                                         ),
@@ -12413,7 +12850,11 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(6),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Point2d`),
@@ -12425,7 +12866,11 @@
                                                 ExpectCoersionOutcome {
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
-                                                            expectee_quary: Leashed,
+                                                            expectee_quary: Leashed {
+                                                                place_idx: Some(
+                                                                    PlaceIdx(6),
+                                                                ),
+                                                            },
                                                         },
                                                     ),
                                                 },
@@ -12473,7 +12918,7 @@
                                         place: Some(
                                             ImmutableOnStack {
                                                 place: Idx(
-                                                    PlaceIdx(4),
+                                                    PlaceIdx(7),
                                                 ),
                                             },
                                         ),
@@ -12498,7 +12943,7 @@
                                             place: Some(
                                                 ImmutableOnStack {
                                                     place: Idx(
-                                                        PlaceIdx(4),
+                                                        PlaceIdx(7),
                                                     ),
                                                 },
                                             ),
@@ -12518,7 +12963,7 @@
                                         place: Some(
                                             MutableOnStack {
                                                 place: Idx(
-                                                    PlaceIdx(0),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                         ),
@@ -12536,7 +12981,7 @@
                                                         TrivialFlyCoersion {
                                                             expectee_quary: MutableOnStack {
                                                                 place: Idx(
-                                                                    PlaceIdx(0),
+                                                                    PlaceIdx(1),
                                                                 ),
                                                             },
                                                         },
@@ -12588,7 +13033,7 @@
                                         place: Some(
                                             MutableOnStack {
                                                 place: Idx(
-                                                    PlaceIdx(0),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                         ),
@@ -12633,7 +13078,7 @@
                                         place: Some(
                                             ImmutableOnStack {
                                                 place: Idx(
-                                                    PlaceIdx(4),
+                                                    PlaceIdx(7),
                                                 ),
                                             },
                                         ),
@@ -12649,7 +13094,7 @@
                                                         TrivialFlyCoersion {
                                                             expectee_quary: ImmutableOnStack {
                                                                 place: Idx(
-                                                                    PlaceIdx(4),
+                                                                    PlaceIdx(7),
                                                                 ),
                                                             },
                                                         },
@@ -12721,7 +13166,7 @@
                                         place: Some(
                                             MutableOnStack {
                                                 place: Idx(
-                                                    PlaceIdx(0),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                         ),
@@ -12739,7 +13184,7 @@
                                                         TrivialFlyCoersion {
                                                             expectee_quary: MutableOnStack {
                                                                 place: Idx(
-                                                                    PlaceIdx(0),
+                                                                    PlaceIdx(1),
                                                                 ),
                                                             },
                                                         },
@@ -12816,6 +13261,7 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [
+                    SelfValue,
                     Variable {
                         current_syn_symbol_idx: 1,
                         ident: Ident(
@@ -12858,7 +13304,7 @@
                     },
                 ],
                 next: ShiftedU32(
-                    5,
+                    6,
                 ),
             },
             sema_expr_arena: SemaExprArena(
@@ -12920,7 +13366,11 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Leashed,
+                                        Leashed {
+                                            place_idx: Some(
+                                                PlaceIdx(0),
+                                            ),
+                                        },
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`ConcaveComponent`),
@@ -12932,7 +13382,11 @@
                                     2,
                                     FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`ConcaveComponent`),
@@ -12949,7 +13403,11 @@
                                     ),
                                     self_ty: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`ConcaveComponent`),
@@ -12966,9 +13424,17 @@
                                     },
                                     dispatch: FlyFieldDyanmicDispatch {
                                         indirections: FlyIndirections {
-                                            initial_place: Leashed,
+                                            initial_place: Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                             indirections: [],
-                                            final_place: Leashed,
+                                            final_place: Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         },
                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                         signature: FlyFieldSignature::PropsStruct {
@@ -12985,7 +13451,11 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Leashed,
+                                        Leashed {
+                                            place_idx: Some(
+                                                PlaceIdx(0),
+                                            ),
+                                        },
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Leash CyclicSlice LineSegmentStroke`),
@@ -12997,7 +13467,11 @@
                                     3,
                                     FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Leash CyclicSlice LineSegmentStroke`),
@@ -13017,7 +13491,11 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Leashed,
+                                        Leashed {
+                                            place_idx: Some(
+                                                PlaceIdx(0),
+                                            ),
+                                        },
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`ConcaveComponent`),
@@ -13029,7 +13507,11 @@
                                     4,
                                     FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`ConcaveComponent`),
@@ -13046,7 +13528,11 @@
                                     ),
                                     self_ty: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`ConcaveComponent`),
@@ -13063,9 +13549,17 @@
                                     },
                                     dispatch: FlyFieldDyanmicDispatch {
                                         indirections: FlyIndirections {
-                                            initial_place: Leashed,
+                                            initial_place: Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                             indirections: [],
-                                            final_place: Leashed,
+                                            final_place: Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         },
                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                         signature: FlyFieldSignature::PropsStruct {
@@ -13082,7 +13576,11 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Leashed,
+                                        Leashed {
+                                            place_idx: Some(
+                                                PlaceIdx(0),
+                                            ),
+                                        },
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Leash CyclicSlice LineSegmentStroke`),
@@ -13094,7 +13592,11 @@
                                     5,
                                     FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Leash CyclicSlice LineSegmentStroke`),
@@ -13121,11 +13623,17 @@
                                     },
                                     dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
-                                            initial_place: Leashed,
+                                            initial_place: Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                             indirections: [
                                                 Leash,
                                             ],
-                                            final_place: Leashed,
+                                            final_place: Leashed {
+                                                place_idx: None,
+                                            },
                                         },
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
@@ -13159,7 +13667,9 @@
                                                         ),
                                                     ),
                                                     env: MethodFn {
-                                                        self_place: Leashed,
+                                                        self_place: Leashed {
+                                                            place_idx: None,
+                                                        },
                                                     },
                                                     symbol_map: [
                                                         (
@@ -13233,11 +13743,17 @@
                                     ),
                                     index_dynamic_dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
-                                            initial_place: Leashed,
+                                            initial_place: Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                             indirections: [
                                                 Leash,
                                             ],
-                                            final_place: Leashed,
+                                            final_place: Leashed {
+                                                place_idx: None,
+                                            },
                                         },
                                         signature: FlyIndexSignature::Int {
                                             element_ty: FlyTerm {
@@ -13253,7 +13769,9 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Leashed,
+                                        Leashed {
+                                            place_idx: None,
+                                        },
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`LineSegmentStroke`),
@@ -13265,7 +13783,9 @@
                                     7,
                                     FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: None,
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`LineSegmentStroke`),
@@ -13292,9 +13812,13 @@
                                     },
                                     dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
-                                            initial_place: Leashed,
+                                            initial_place: Leashed {
+                                                place_idx: None,
+                                            },
                                             indirections: [],
-                                            final_place: Leashed,
+                                            final_place: Leashed {
+                                                place_idx: None,
+                                            },
                                         },
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
@@ -13328,7 +13852,9 @@
                                                         ),
                                                     ),
                                                     env: MethodFn {
-                                                        self_place: Leashed,
+                                                        self_place: Leashed {
+                                                            place_idx: None,
+                                                        },
                                                     },
                                                     symbol_map: [],
                                                     separator: Some(
@@ -13379,7 +13905,11 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Leashed,
+                                        Leashed {
+                                            place_idx: Some(
+                                                PlaceIdx(0),
+                                            ),
+                                        },
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`ConcaveComponent`),
@@ -13391,7 +13921,11 @@
                                     9,
                                     FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`ConcaveComponent`),
@@ -13408,7 +13942,11 @@
                                     ),
                                     self_ty: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`ConcaveComponent`),
@@ -13425,9 +13963,17 @@
                                     },
                                     dispatch: FlyFieldDyanmicDispatch {
                                         indirections: FlyIndirections {
-                                            initial_place: Leashed,
+                                            initial_place: Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                             indirections: [],
-                                            final_place: Leashed,
+                                            final_place: Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         },
                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                         signature: FlyFieldSignature::PropsStruct {
@@ -13444,7 +13990,11 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Leashed,
+                                        Leashed {
+                                            place_idx: Some(
+                                                PlaceIdx(0),
+                                            ),
+                                        },
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Leash CyclicSlice LineSegmentStroke`),
@@ -13456,7 +14006,11 @@
                                     10,
                                     FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Leash CyclicSlice LineSegmentStroke`),
@@ -13483,11 +14037,17 @@
                                     },
                                     dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
-                                            initial_place: Leashed,
+                                            initial_place: Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                             indirections: [
                                                 Leash,
                                             ],
-                                            final_place: Leashed,
+                                            final_place: Leashed {
+                                                place_idx: None,
+                                            },
                                         },
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
@@ -13521,7 +14081,9 @@
                                                         ),
                                                     ),
                                                     env: MethodFn {
-                                                        self_place: Leashed,
+                                                        self_place: Leashed {
+                                                            place_idx: None,
+                                                        },
                                                     },
                                                     symbol_map: [
                                                         (
@@ -13584,7 +14146,11 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Leashed,
+                                        Leashed {
+                                            place_idx: Some(
+                                                PlaceIdx(0),
+                                            ),
+                                        },
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`ConcaveComponent`),
@@ -13596,7 +14162,11 @@
                                     12,
                                     FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`ConcaveComponent`),
@@ -13613,7 +14183,11 @@
                                     ),
                                     self_ty: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`ConcaveComponent`),
@@ -13630,9 +14204,17 @@
                                     },
                                     dispatch: FlyFieldDyanmicDispatch {
                                         indirections: FlyIndirections {
-                                            initial_place: Leashed,
+                                            initial_place: Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                             indirections: [],
-                                            final_place: Leashed,
+                                            final_place: Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         },
                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                         signature: FlyFieldSignature::PropsStruct {
@@ -13649,7 +14231,11 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Leashed,
+                                        Leashed {
+                                            place_idx: Some(
+                                                PlaceIdx(0),
+                                            ),
+                                        },
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Leash CyclicSlice LineSegmentStroke`),
@@ -13661,7 +14247,11 @@
                                     13,
                                     FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Leash CyclicSlice LineSegmentStroke`),
@@ -13688,11 +14278,17 @@
                                     },
                                     dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
-                                            initial_place: Leashed,
+                                            initial_place: Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                             indirections: [
                                                 Leash,
                                             ],
-                                            final_place: Leashed,
+                                            final_place: Leashed {
+                                                place_idx: None,
+                                            },
                                         },
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
@@ -13726,7 +14322,9 @@
                                                         ),
                                                     ),
                                                     env: MethodFn {
-                                                        self_place: Leashed,
+                                                        self_place: Leashed {
+                                                            place_idx: None,
+                                                        },
                                                     },
                                                     symbol_map: [
                                                         (
@@ -13796,7 +14394,7 @@
                                     place: Some(
                                         ImmutableOnStack {
                                             place: Idx(
-                                                PlaceIdx(2),
+                                                PlaceIdx(3),
                                             ),
                                         },
                                     ),
@@ -13812,7 +14410,7 @@
                                         place: Some(
                                             ImmutableOnStack {
                                                 place: Idx(
-                                                    PlaceIdx(2),
+                                                    PlaceIdx(3),
                                                 ),
                                             },
                                         ),
@@ -13834,7 +14432,11 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Leashed,
+                                        Leashed {
+                                            place_idx: Some(
+                                                PlaceIdx(0),
+                                            ),
+                                        },
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`ConcaveComponent`),
@@ -13846,7 +14448,11 @@
                                     16,
                                     FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`ConcaveComponent`),
@@ -13863,7 +14469,11 @@
                                     ),
                                     self_ty: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`ConcaveComponent`),
@@ -13880,9 +14490,17 @@
                                     },
                                     dispatch: FlyFieldDyanmicDispatch {
                                         indirections: FlyIndirections {
-                                            initial_place: Leashed,
+                                            initial_place: Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                             indirections: [],
-                                            final_place: Leashed,
+                                            final_place: Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         },
                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                         signature: FlyFieldSignature::PropsStruct {
@@ -13899,7 +14517,11 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Leashed,
+                                        Leashed {
+                                            place_idx: Some(
+                                                PlaceIdx(0),
+                                            ),
+                                        },
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Leash CyclicSlice LineSegmentStroke`),
@@ -13911,7 +14533,11 @@
                                     17,
                                     FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Leash CyclicSlice LineSegmentStroke`),
@@ -13938,7 +14564,7 @@
                                     place: Some(
                                         ImmutableOnStack {
                                             place: Idx(
-                                                PlaceIdx(2),
+                                                PlaceIdx(3),
                                             ),
                                         },
                                     ),
@@ -13954,7 +14580,7 @@
                                         place: Some(
                                             ImmutableOnStack {
                                                 place: Idx(
-                                                    PlaceIdx(2),
+                                                    PlaceIdx(3),
                                                 ),
                                             },
                                         ),
@@ -13987,11 +14613,17 @@
                                     ),
                                     index_dynamic_dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
-                                            initial_place: Leashed,
+                                            initial_place: Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                             indirections: [
                                                 Leash,
                                             ],
-                                            final_place: Leashed,
+                                            final_place: Leashed {
+                                                place_idx: None,
+                                            },
                                         },
                                         signature: FlyIndexSignature::Int {
                                             element_ty: FlyTerm {
@@ -14007,7 +14639,9 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Leashed,
+                                        Leashed {
+                                            place_idx: None,
+                                        },
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`LineSegmentStroke`),
@@ -14019,7 +14653,9 @@
                                     19,
                                     FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: None,
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`LineSegmentStroke`),
@@ -14046,9 +14682,13 @@
                                     },
                                     dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
-                                            initial_place: Leashed,
+                                            initial_place: Leashed {
+                                                place_idx: None,
+                                            },
                                             indirections: [],
-                                            final_place: Leashed,
+                                            final_place: Leashed {
+                                                place_idx: None,
+                                            },
                                         },
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
@@ -14082,7 +14722,9 @@
                                                         ),
                                                     ),
                                                     env: MethodFn {
-                                                        self_place: Leashed,
+                                                        self_place: Leashed {
+                                                            place_idx: None,
+                                                        },
                                                     },
                                                     symbol_map: [],
                                                     separator: Some(
@@ -14140,7 +14782,7 @@
                                     place: Some(
                                         MutableOnStack {
                                             place: Idx(
-                                                PlaceIdx(0),
+                                                PlaceIdx(1),
                                             ),
                                         },
                                     ),
@@ -14158,7 +14800,7 @@
                                         place: Some(
                                             MutableOnStack {
                                                 place: Idx(
-                                                    PlaceIdx(0),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                         ),
@@ -14189,7 +14831,7 @@
                                     place: Some(
                                         MutableOnStack {
                                             place: Idx(
-                                                PlaceIdx(1),
+                                                PlaceIdx(2),
                                             ),
                                         },
                                     ),
@@ -14205,7 +14847,7 @@
                                         place: Some(
                                             MutableOnStack {
                                                 place: Idx(
-                                                    PlaceIdx(1),
+                                                    PlaceIdx(2),
                                                 ),
                                             },
                                         ),
@@ -14234,7 +14876,7 @@
                                     place: Some(
                                         ImmutableOnStack {
                                             place: Idx(
-                                                PlaceIdx(3),
+                                                PlaceIdx(4),
                                             ),
                                         },
                                     ),
@@ -14250,7 +14892,7 @@
                                         place: Some(
                                             ImmutableOnStack {
                                                 place: Idx(
-                                                    PlaceIdx(3),
+                                                    PlaceIdx(4),
                                                 ),
                                             },
                                         ),
@@ -14316,13 +14958,13 @@
                                         indirections: FlyIndirections {
                                             initial_place: MutableOnStack {
                                                 place: Idx(
-                                                    PlaceIdx(1),
+                                                    PlaceIdx(2),
                                                 ),
                                             },
                                             indirections: [],
                                             final_place: MutableOnStack {
                                                 place: Idx(
-                                                    PlaceIdx(1),
+                                                    PlaceIdx(2),
                                                 ),
                                             },
                                         },
@@ -14383,7 +15025,7 @@
                                                     env: MethodFn {
                                                         self_place: MutableOnStack {
                                                             place: Idx(
-                                                                PlaceIdx(1),
+                                                                PlaceIdx(2),
                                                             ),
                                                         },
                                                     },
@@ -14420,7 +15062,7 @@
                                                             TrivialFlyCoersion {
                                                                 expectee_quary: ImmutableOnStack {
                                                                     place: Idx(
-                                                                        PlaceIdx(3),
+                                                                        PlaceIdx(4),
                                                                     ),
                                                                 },
                                                             },
@@ -14549,7 +15191,7 @@
                                     place: Some(
                                         MutableOnStack {
                                             place: Idx(
-                                                PlaceIdx(1),
+                                                PlaceIdx(2),
                                             ),
                                         },
                                     ),
@@ -14565,7 +15207,7 @@
                                         place: Some(
                                             MutableOnStack {
                                                 place: Idx(
-                                                    PlaceIdx(1),
+                                                    PlaceIdx(2),
                                                 ),
                                             },
                                         ),
@@ -14594,7 +15236,7 @@
                                     place: Some(
                                         ImmutableOnStack {
                                             place: Idx(
-                                                PlaceIdx(3),
+                                                PlaceIdx(4),
                                             ),
                                         },
                                     ),
@@ -14610,7 +15252,7 @@
                                         place: Some(
                                             ImmutableOnStack {
                                                 place: Idx(
-                                                    PlaceIdx(3),
+                                                    PlaceIdx(4),
                                                 ),
                                             },
                                         ),
@@ -14682,7 +15324,7 @@
                                     place: Some(
                                         MutableOnStack {
                                             place: Idx(
-                                                PlaceIdx(0),
+                                                PlaceIdx(1),
                                             ),
                                         },
                                     ),
@@ -14700,7 +15342,7 @@
                                         place: Some(
                                             MutableOnStack {
                                                 place: Idx(
-                                                    PlaceIdx(0),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                         ),
@@ -15003,7 +15645,7 @@
                                                 TrivialFlyCoersion {
                                                     expectee_quary: MutableOnStack {
                                                         place: Idx(
-                                                            PlaceIdx(0),
+                                                            PlaceIdx(1),
                                                         ),
                                                     },
                                                 },
@@ -15191,7 +15833,7 @@
                             place: Some(
                                 MutableOnStack {
                                     place: Idx(
-                                        PlaceIdx(0),
+                                        PlaceIdx(1),
                                     ),
                                 },
                             ),
@@ -15207,7 +15849,7 @@
                             place: Some(
                                 MutableOnStack {
                                     place: Idx(
-                                        PlaceIdx(1),
+                                        PlaceIdx(2),
                                     ),
                                 },
                             ),
@@ -15221,7 +15863,7 @@
                             place: Some(
                                 ImmutableOnStack {
                                     place: Idx(
-                                        PlaceIdx(2),
+                                        PlaceIdx(3),
                                     ),
                                 },
                             ),
@@ -15235,7 +15877,7 @@
                             place: Some(
                                 ImmutableOnStack {
                                     place: Idx(
-                                        PlaceIdx(3),
+                                        PlaceIdx(4),
                                     ),
                                 },
                             ),
@@ -15334,7 +15976,11 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`ConcaveComponent`),
@@ -15361,7 +16007,11 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Leash CyclicSlice LineSegmentStroke`),
@@ -15388,7 +16038,11 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`ConcaveComponent`),
@@ -15415,7 +16069,11 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Leash CyclicSlice LineSegmentStroke`),
@@ -15467,7 +16125,9 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: None,
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`LineSegmentStroke`),
@@ -15519,7 +16179,11 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`ConcaveComponent`),
@@ -15546,7 +16210,11 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Leash CyclicSlice LineSegmentStroke`),
@@ -15615,7 +16283,11 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`ConcaveComponent`),
@@ -15642,7 +16314,11 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Leash CyclicSlice LineSegmentStroke`),
@@ -15704,7 +16380,7 @@
                                             place: Some(
                                                 ImmutableOnStack {
                                                     place: Idx(
-                                                        PlaceIdx(2),
+                                                        PlaceIdx(3),
                                                     ),
                                                 },
                                             ),
@@ -15724,7 +16400,7 @@
                                         place: Some(
                                             ImmutableOnStack {
                                                 place: Idx(
-                                                    PlaceIdx(2),
+                                                    PlaceIdx(3),
                                                 ),
                                             },
                                         ),
@@ -15740,7 +16416,7 @@
                                                         TrivialFlyCoersion {
                                                             expectee_quary: ImmutableOnStack {
                                                                 place: Idx(
-                                                                    PlaceIdx(2),
+                                                                    PlaceIdx(3),
                                                                 ),
                                                             },
                                                         },
@@ -15763,7 +16439,11 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`ConcaveComponent`),
@@ -15790,7 +16470,11 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Leash CyclicSlice LineSegmentStroke`),
@@ -15819,7 +16503,7 @@
                                         place: Some(
                                             ImmutableOnStack {
                                                 place: Idx(
-                                                    PlaceIdx(2),
+                                                    PlaceIdx(3),
                                                 ),
                                             },
                                         ),
@@ -15848,7 +16532,9 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: None,
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`LineSegmentStroke`),
@@ -15902,7 +16588,7 @@
                                         place: Some(
                                             MutableOnStack {
                                                 place: Idx(
-                                                    PlaceIdx(0),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                         ),
@@ -15935,7 +16621,7 @@
                                         place: Some(
                                             MutableOnStack {
                                                 place: Idx(
-                                                    PlaceIdx(1),
+                                                    PlaceIdx(2),
                                                 ),
                                             },
                                         ),
@@ -15974,7 +16660,7 @@
                                         place: Some(
                                             ImmutableOnStack {
                                                 place: Idx(
-                                                    PlaceIdx(3),
+                                                    PlaceIdx(4),
                                                 ),
                                             },
                                         ),
@@ -15990,7 +16676,7 @@
                                                         TrivialFlyCoersion {
                                                             expectee_quary: ImmutableOnStack {
                                                                 place: Idx(
-                                                                    PlaceIdx(3),
+                                                                    PlaceIdx(4),
                                                                 ),
                                                             },
                                                         },
@@ -16050,7 +16736,7 @@
                                             place: Some(
                                                 MutableOnStack {
                                                     place: Idx(
-                                                        PlaceIdx(0),
+                                                        PlaceIdx(1),
                                                     ),
                                                 },
                                             ),
@@ -16142,7 +16828,7 @@
                                         place: Some(
                                             MutableOnStack {
                                                 place: Idx(
-                                                    PlaceIdx(1),
+                                                    PlaceIdx(2),
                                                 ),
                                             },
                                         ),
@@ -16183,7 +16869,7 @@
                                         place: Some(
                                             ImmutableOnStack {
                                                 place: Idx(
-                                                    PlaceIdx(3),
+                                                    PlaceIdx(4),
                                                 ),
                                             },
                                         ),
@@ -16199,7 +16885,7 @@
                                                         TrivialFlyCoersion {
                                                             expectee_quary: ImmutableOnStack {
                                                                 place: Idx(
-                                                                    PlaceIdx(3),
+                                                                    PlaceIdx(4),
                                                                 ),
                                                             },
                                                         },
@@ -16271,7 +16957,7 @@
                                         place: Some(
                                             MutableOnStack {
                                                 place: Idx(
-                                                    PlaceIdx(0),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                         ),
@@ -16289,7 +16975,7 @@
                                                         TrivialFlyCoersion {
                                                             expectee_quary: MutableOnStack {
                                                                 place: Idx(
-                                                                    PlaceIdx(0),
+                                                                    PlaceIdx(1),
                                                                 ),
                                                             },
                                                         },
@@ -16366,6 +17052,17 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [
+                    SelfValue,
+                    Variable {
+                        current_syn_symbol_idx: 1,
+                        ident: Ident(
+                            Coword(
+                                Id {
+                                    value: 109,
+                                },
+                            ),
+                        ),
+                    },
                     Variable {
                         current_syn_symbol_idx: 2,
                         ident: Ident(
@@ -16416,9 +17113,19 @@
                             ),
                         ),
                     },
+                    Variable {
+                        current_syn_symbol_idx: 7,
+                        ident: Ident(
+                            Coword(
+                                Id {
+                                    value: 114,
+                                },
+                            ),
+                        ),
+                    },
                 ],
                 next: ShiftedU32(
-                    6,
+                    9,
                 ),
             },
             sema_expr_arena: SemaExprArena(
@@ -16435,7 +17142,11 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Leashed,
+                                        Leashed {
+                                            place_idx: Some(
+                                                PlaceIdx(0),
+                                            ),
+                                        },
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`ConcaveComponent`),
@@ -16447,7 +17158,11 @@
                                     1,
                                     FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`ConcaveComponent`),
@@ -16464,7 +17179,11 @@
                                     ),
                                     self_ty: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`ConcaveComponent`),
@@ -16481,9 +17200,17 @@
                                     },
                                     dispatch: FlyFieldDyanmicDispatch {
                                         indirections: FlyIndirections {
-                                            initial_place: Leashed,
+                                            initial_place: Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                             indirections: [],
-                                            final_place: Leashed,
+                                            final_place: Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         },
                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                         signature: FlyFieldSignature::PropsStruct {
@@ -16500,7 +17227,11 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Leashed,
+                                        Leashed {
+                                            place_idx: Some(
+                                                PlaceIdx(0),
+                                            ),
+                                        },
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Leash CyclicSlice LineSegmentStroke`),
@@ -16512,7 +17243,11 @@
                                     2,
                                     FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Leash CyclicSlice LineSegmentStroke`),
@@ -16539,11 +17274,17 @@
                                     },
                                     dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
-                                            initial_place: Leashed,
+                                            initial_place: Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                             indirections: [
                                                 Leash,
                                             ],
-                                            final_place: Leashed,
+                                            final_place: Leashed {
+                                                place_idx: None,
+                                            },
                                         },
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
@@ -16577,7 +17318,9 @@
                                                         ),
                                                     ),
                                                     env: MethodFn {
-                                                        self_place: Leashed,
+                                                        self_place: Leashed {
+                                                            place_idx: None,
+                                                        },
                                                     },
                                                     symbol_map: [
                                                         (
@@ -16687,7 +17430,9 @@
                                             indirections: [
                                                 Leash,
                                             ],
-                                            final_place: Leashed,
+                                            final_place: Leashed {
+                                                place_idx: None,
+                                            },
                                         },
                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                         signature: FlyFieldSignature::PropsStruct {
@@ -16704,7 +17449,9 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Leashed,
+                                        Leashed {
+                                            place_idx: None,
+                                        },
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Point2d`),
@@ -16716,7 +17463,9 @@
                                     5,
                                     FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: None,
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Point2d`),
@@ -16741,7 +17490,11 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Leashed,
+                                        Leashed {
+                                            place_idx: Some(
+                                                PlaceIdx(1),
+                                            ),
+                                        },
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Point2d`),
@@ -16753,7 +17506,11 @@
                                     6,
                                     FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(1),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Point2d`),
@@ -16770,7 +17527,11 @@
                                     ),
                                     self_ty: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(1),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Point2d`),
@@ -16787,9 +17548,17 @@
                                     },
                                     dispatch: FlyFieldDyanmicDispatch {
                                         indirections: FlyIndirections {
-                                            initial_place: Leashed,
+                                            initial_place: Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(1),
+                                                ),
+                                            },
                                             indirections: [],
-                                            final_place: Leashed,
+                                            final_place: Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(1),
+                                                ),
+                                            },
                                         },
                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                         signature: FlyFieldSignature::PropsStruct {
@@ -16806,7 +17575,11 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Leashed,
+                                        Leashed {
+                                            place_idx: Some(
+                                                PlaceIdx(1),
+                                            ),
+                                        },
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
@@ -16818,7 +17591,11 @@
                                     7,
                                     FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(1),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
@@ -16843,7 +17620,11 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Leashed,
+                                        Leashed {
+                                            place_idx: Some(
+                                                PlaceIdx(1),
+                                            ),
+                                        },
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Point2d`),
@@ -16855,7 +17636,11 @@
                                     8,
                                     FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(1),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Point2d`),
@@ -16872,7 +17657,11 @@
                                     ),
                                     self_ty: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(1),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Point2d`),
@@ -16889,9 +17678,17 @@
                                     },
                                     dispatch: FlyFieldDyanmicDispatch {
                                         indirections: FlyIndirections {
-                                            initial_place: Leashed,
+                                            initial_place: Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(1),
+                                                ),
+                                            },
                                             indirections: [],
-                                            final_place: Leashed,
+                                            final_place: Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(1),
+                                                ),
+                                            },
                                         },
                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                         signature: FlyFieldSignature::PropsStruct {
@@ -16908,7 +17705,11 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Leashed,
+                                        Leashed {
+                                            place_idx: Some(
+                                                PlaceIdx(1),
+                                            ),
+                                        },
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
@@ -16920,7 +17721,11 @@
                                     9,
                                     FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(1),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
@@ -16945,7 +17750,11 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Leashed,
+                                        Leashed {
+                                            place_idx: Some(
+                                                PlaceIdx(1),
+                                            ),
+                                        },
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Point2d`),
@@ -16957,7 +17766,11 @@
                                     10,
                                     FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(1),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Point2d`),
@@ -16974,7 +17787,11 @@
                                     ),
                                     self_ty: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(1),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Point2d`),
@@ -16991,9 +17808,17 @@
                                     },
                                     dispatch: FlyFieldDyanmicDispatch {
                                         indirections: FlyIndirections {
-                                            initial_place: Leashed,
+                                            initial_place: Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(1),
+                                                ),
+                                            },
                                             indirections: [],
-                                            final_place: Leashed,
+                                            final_place: Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(1),
+                                                ),
+                                            },
                                         },
                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                         signature: FlyFieldSignature::PropsStruct {
@@ -17010,7 +17835,11 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Leashed,
+                                        Leashed {
+                                            place_idx: Some(
+                                                PlaceIdx(1),
+                                            ),
+                                        },
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
@@ -17022,7 +17851,11 @@
                                     11,
                                     FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(1),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
@@ -17047,7 +17880,11 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Leashed,
+                                        Leashed {
+                                            place_idx: Some(
+                                                PlaceIdx(1),
+                                            ),
+                                        },
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Point2d`),
@@ -17059,7 +17896,11 @@
                                     12,
                                     FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(1),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Point2d`),
@@ -17076,7 +17917,11 @@
                                     ),
                                     self_ty: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(1),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Point2d`),
@@ -17093,9 +17938,17 @@
                                     },
                                     dispatch: FlyFieldDyanmicDispatch {
                                         indirections: FlyIndirections {
-                                            initial_place: Leashed,
+                                            initial_place: Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(1),
+                                                ),
+                                            },
                                             indirections: [],
-                                            final_place: Leashed,
+                                            final_place: Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(1),
+                                                ),
+                                            },
                                         },
                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                         signature: FlyFieldSignature::PropsStruct {
@@ -17112,7 +17965,11 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Leashed,
+                                        Leashed {
+                                            place_idx: Some(
+                                                PlaceIdx(1),
+                                            ),
+                                        },
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
@@ -17124,7 +17981,11 @@
                                     13,
                                     FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(1),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
@@ -17144,7 +18005,11 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Leashed,
+                                        Leashed {
+                                            place_idx: Some(
+                                                PlaceIdx(0),
+                                            ),
+                                        },
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`ConcaveComponent`),
@@ -17156,7 +18021,11 @@
                                     14,
                                     FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`ConcaveComponent`),
@@ -17173,7 +18042,11 @@
                                     ),
                                     self_ty: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`ConcaveComponent`),
@@ -17190,9 +18063,17 @@
                                     },
                                     dispatch: FlyFieldDyanmicDispatch {
                                         indirections: FlyIndirections {
-                                            initial_place: Leashed,
+                                            initial_place: Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                             indirections: [],
-                                            final_place: Leashed,
+                                            final_place: Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         },
                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                         signature: FlyFieldSignature::PropsStruct {
@@ -17209,7 +18090,11 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Leashed,
+                                        Leashed {
+                                            place_idx: Some(
+                                                PlaceIdx(0),
+                                            ),
+                                        },
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Leash CyclicSlice LineSegmentStroke`),
@@ -17221,7 +18106,11 @@
                                     15,
                                     FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Leash CyclicSlice LineSegmentStroke`),
@@ -17248,11 +18137,17 @@
                                     },
                                     dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
-                                            initial_place: Leashed,
+                                            initial_place: Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                             indirections: [
                                                 Leash,
                                             ],
-                                            final_place: Leashed,
+                                            final_place: Leashed {
+                                                place_idx: None,
+                                            },
                                         },
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
@@ -17286,7 +18181,9 @@
                                                         ),
                                                     ),
                                                     env: MethodFn {
-                                                        self_place: Leashed,
+                                                        self_place: Leashed {
+                                                            place_idx: None,
+                                                        },
                                                     },
                                                     symbol_map: [
                                                         (
@@ -17349,7 +18246,11 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Leashed,
+                                        Leashed {
+                                            place_idx: Some(
+                                                PlaceIdx(0),
+                                            ),
+                                        },
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`ConcaveComponent`),
@@ -17361,7 +18262,11 @@
                                     17,
                                     FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`ConcaveComponent`),
@@ -17378,7 +18283,11 @@
                                     ),
                                     self_ty: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`ConcaveComponent`),
@@ -17395,9 +18304,17 @@
                                     },
                                     dispatch: FlyFieldDyanmicDispatch {
                                         indirections: FlyIndirections {
-                                            initial_place: Leashed,
+                                            initial_place: Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                             indirections: [],
-                                            final_place: Leashed,
+                                            final_place: Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         },
                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                         signature: FlyFieldSignature::PropsStruct {
@@ -17414,7 +18331,11 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Leashed,
+                                        Leashed {
+                                            place_idx: Some(
+                                                PlaceIdx(0),
+                                            ),
+                                        },
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Leash CyclicSlice LineSegmentStroke`),
@@ -17426,7 +18347,11 @@
                                     18,
                                     FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Leash CyclicSlice LineSegmentStroke`),
@@ -17453,11 +18378,17 @@
                                     },
                                     dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
-                                            initial_place: Leashed,
+                                            initial_place: Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                             indirections: [
                                                 Leash,
                                             ],
-                                            final_place: Leashed,
+                                            final_place: Leashed {
+                                                place_idx: None,
+                                            },
                                         },
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
@@ -17491,7 +18422,9 @@
                                                         ),
                                                     ),
                                                     env: MethodFn {
-                                                        self_place: Leashed,
+                                                        self_place: Leashed {
+                                                            place_idx: None,
+                                                        },
                                                     },
                                                     symbol_map: [
                                                         (
@@ -17561,7 +18494,7 @@
                                     place: Some(
                                         ImmutableOnStack {
                                             place: Idx(
-                                                PlaceIdx(4),
+                                                PlaceIdx(6),
                                             ),
                                         },
                                     ),
@@ -17577,7 +18510,7 @@
                                         place: Some(
                                             ImmutableOnStack {
                                                 place: Idx(
-                                                    PlaceIdx(4),
+                                                    PlaceIdx(6),
                                                 ),
                                             },
                                         ),
@@ -17599,7 +18532,11 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Leashed,
+                                        Leashed {
+                                            place_idx: Some(
+                                                PlaceIdx(0),
+                                            ),
+                                        },
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`ConcaveComponent`),
@@ -17611,7 +18548,11 @@
                                     21,
                                     FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`ConcaveComponent`),
@@ -17628,7 +18569,11 @@
                                     ),
                                     self_ty: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`ConcaveComponent`),
@@ -17645,9 +18590,17 @@
                                     },
                                     dispatch: FlyFieldDyanmicDispatch {
                                         indirections: FlyIndirections {
-                                            initial_place: Leashed,
+                                            initial_place: Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                             indirections: [],
-                                            final_place: Leashed,
+                                            final_place: Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         },
                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                         signature: FlyFieldSignature::PropsStruct {
@@ -17664,7 +18617,11 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Leashed,
+                                        Leashed {
+                                            place_idx: Some(
+                                                PlaceIdx(0),
+                                            ),
+                                        },
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Leash CyclicSlice LineSegmentStroke`),
@@ -17676,7 +18633,11 @@
                                     22,
                                     FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Leash CyclicSlice LineSegmentStroke`),
@@ -17703,7 +18664,7 @@
                                     place: Some(
                                         ImmutableOnStack {
                                             place: Idx(
-                                                PlaceIdx(4),
+                                                PlaceIdx(6),
                                             ),
                                         },
                                     ),
@@ -17719,7 +18680,7 @@
                                         place: Some(
                                             ImmutableOnStack {
                                                 place: Idx(
-                                                    PlaceIdx(4),
+                                                    PlaceIdx(6),
                                                 ),
                                             },
                                         ),
@@ -17752,11 +18713,17 @@
                                     ),
                                     index_dynamic_dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
-                                            initial_place: Leashed,
+                                            initial_place: Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                             indirections: [
                                                 Leash,
                                             ],
-                                            final_place: Leashed,
+                                            final_place: Leashed {
+                                                place_idx: None,
+                                            },
                                         },
                                         signature: FlyIndexSignature::Int {
                                             element_ty: FlyTerm {
@@ -17772,7 +18739,9 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Leashed,
+                                        Leashed {
+                                            place_idx: None,
+                                        },
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`LineSegmentStroke`),
@@ -17784,7 +18753,9 @@
                                     24,
                                     FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: None,
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`LineSegmentStroke`),
@@ -17801,7 +18772,9 @@
                                     ),
                                     self_ty: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: None,
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`LineSegmentStroke`),
@@ -17818,9 +18791,13 @@
                                     },
                                     dispatch: FlyFieldDyanmicDispatch {
                                         indirections: FlyIndirections {
-                                            initial_place: Leashed,
+                                            initial_place: Leashed {
+                                                place_idx: None,
+                                            },
                                             indirections: [],
-                                            final_place: Leashed,
+                                            final_place: Leashed {
+                                                place_idx: None,
+                                            },
                                         },
                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                         signature: FlyFieldSignature::PropsStruct {
@@ -17837,7 +18814,9 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Leashed,
+                                        Leashed {
+                                            place_idx: None,
+                                        },
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Point2d`),
@@ -17849,7 +18828,9 @@
                                     25,
                                     FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: None,
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Point2d`),
@@ -17876,7 +18857,7 @@
                                     place: Some(
                                         MutableOnStack {
                                             place: Idx(
-                                                PlaceIdx(0),
+                                                PlaceIdx(2),
                                             ),
                                         },
                                     ),
@@ -17892,7 +18873,7 @@
                                         place: Some(
                                             MutableOnStack {
                                                 place: Idx(
-                                                    PlaceIdx(0),
+                                                    PlaceIdx(2),
                                                 ),
                                             },
                                         ),
@@ -17921,7 +18902,7 @@
                                     place: Some(
                                         MutableOnStack {
                                             place: Idx(
-                                                PlaceIdx(0),
+                                                PlaceIdx(2),
                                             ),
                                         },
                                     ),
@@ -17937,7 +18918,7 @@
                                         place: Some(
                                             MutableOnStack {
                                                 place: Idx(
-                                                    PlaceIdx(0),
+                                                    PlaceIdx(2),
                                                 ),
                                             },
                                         ),
@@ -17964,7 +18945,11 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Leashed,
+                                        Leashed {
+                                            place_idx: Some(
+                                                PlaceIdx(7),
+                                            ),
+                                        },
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Point2d`),
@@ -17976,7 +18961,11 @@
                                     28,
                                     FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(7),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Point2d`),
@@ -17993,7 +18982,11 @@
                                     ),
                                     self_ty: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(7),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Point2d`),
@@ -18010,9 +19003,17 @@
                                     },
                                     dispatch: FlyFieldDyanmicDispatch {
                                         indirections: FlyIndirections {
-                                            initial_place: Leashed,
+                                            initial_place: Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(7),
+                                                ),
+                                            },
                                             indirections: [],
-                                            final_place: Leashed,
+                                            final_place: Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(7),
+                                                ),
+                                            },
                                         },
                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                         signature: FlyFieldSignature::PropsStruct {
@@ -18029,7 +19030,11 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Leashed,
+                                        Leashed {
+                                            place_idx: Some(
+                                                PlaceIdx(7),
+                                            ),
+                                        },
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
@@ -18041,7 +19046,11 @@
                                     29,
                                     FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(7),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
@@ -18070,13 +19079,13 @@
                                         indirections: FlyIndirections {
                                             initial_place: MutableOnStack {
                                                 place: Idx(
-                                                    PlaceIdx(0),
+                                                    PlaceIdx(2),
                                                 ),
                                             },
                                             indirections: [],
                                             final_place: MutableOnStack {
                                                 place: Idx(
-                                                    PlaceIdx(0),
+                                                    PlaceIdx(2),
                                                 ),
                                             },
                                         },
@@ -18126,7 +19135,7 @@
                                                     env: MethodFn {
                                                         self_place: MutableOnStack {
                                                             place: Idx(
-                                                                PlaceIdx(0),
+                                                                PlaceIdx(2),
                                                             ),
                                                         },
                                                     },
@@ -18161,7 +19170,11 @@
                                                     ExpectCoersionOutcome {
                                                         coersion: Trivial(
                                                             TrivialFlyCoersion {
-                                                                expectee_quary: Leashed,
+                                                                expectee_quary: Leashed {
+                                                                    place_idx: Some(
+                                                                        PlaceIdx(7),
+                                                                    ),
+                                                                },
                                                             },
                                                         ),
                                                     },
@@ -18256,7 +19269,7 @@
                                     place: Some(
                                         MutableOnStack {
                                             place: Idx(
-                                                PlaceIdx(1),
+                                                PlaceIdx(3),
                                             ),
                                         },
                                     ),
@@ -18272,7 +19285,7 @@
                                         place: Some(
                                             MutableOnStack {
                                                 place: Idx(
-                                                    PlaceIdx(1),
+                                                    PlaceIdx(3),
                                                 ),
                                             },
                                         ),
@@ -18301,7 +19314,7 @@
                                     place: Some(
                                         MutableOnStack {
                                             place: Idx(
-                                                PlaceIdx(1),
+                                                PlaceIdx(3),
                                             ),
                                         },
                                     ),
@@ -18317,7 +19330,7 @@
                                         place: Some(
                                             MutableOnStack {
                                                 place: Idx(
-                                                    PlaceIdx(1),
+                                                    PlaceIdx(3),
                                                 ),
                                             },
                                         ),
@@ -18344,7 +19357,11 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Leashed,
+                                        Leashed {
+                                            place_idx: Some(
+                                                PlaceIdx(7),
+                                            ),
+                                        },
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Point2d`),
@@ -18356,7 +19373,11 @@
                                     34,
                                     FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(7),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Point2d`),
@@ -18373,7 +19394,11 @@
                                     ),
                                     self_ty: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(7),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Point2d`),
@@ -18390,9 +19415,17 @@
                                     },
                                     dispatch: FlyFieldDyanmicDispatch {
                                         indirections: FlyIndirections {
-                                            initial_place: Leashed,
+                                            initial_place: Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(7),
+                                                ),
+                                            },
                                             indirections: [],
-                                            final_place: Leashed,
+                                            final_place: Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(7),
+                                                ),
+                                            },
                                         },
                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                         signature: FlyFieldSignature::PropsStruct {
@@ -18409,7 +19442,11 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Leashed,
+                                        Leashed {
+                                            place_idx: Some(
+                                                PlaceIdx(7),
+                                            ),
+                                        },
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
@@ -18421,7 +19458,11 @@
                                     35,
                                     FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(7),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
@@ -18450,13 +19491,13 @@
                                         indirections: FlyIndirections {
                                             initial_place: MutableOnStack {
                                                 place: Idx(
-                                                    PlaceIdx(1),
+                                                    PlaceIdx(3),
                                                 ),
                                             },
                                             indirections: [],
                                             final_place: MutableOnStack {
                                                 place: Idx(
-                                                    PlaceIdx(1),
+                                                    PlaceIdx(3),
                                                 ),
                                             },
                                         },
@@ -18506,7 +19547,7 @@
                                                     env: MethodFn {
                                                         self_place: MutableOnStack {
                                                             place: Idx(
-                                                                PlaceIdx(1),
+                                                                PlaceIdx(3),
                                                             ),
                                                         },
                                                     },
@@ -18541,7 +19582,11 @@
                                                     ExpectCoersionOutcome {
                                                         coersion: Trivial(
                                                             TrivialFlyCoersion {
-                                                                expectee_quary: Leashed,
+                                                                expectee_quary: Leashed {
+                                                                    place_idx: Some(
+                                                                        PlaceIdx(7),
+                                                                    ),
+                                                                },
                                                             },
                                                         ),
                                                     },
@@ -18636,7 +19681,7 @@
                                     place: Some(
                                         MutableOnStack {
                                             place: Idx(
-                                                PlaceIdx(2),
+                                                PlaceIdx(4),
                                             ),
                                         },
                                     ),
@@ -18652,7 +19697,7 @@
                                         place: Some(
                                             MutableOnStack {
                                                 place: Idx(
-                                                    PlaceIdx(2),
+                                                    PlaceIdx(4),
                                                 ),
                                             },
                                         ),
@@ -18681,7 +19726,7 @@
                                     place: Some(
                                         MutableOnStack {
                                             place: Idx(
-                                                PlaceIdx(2),
+                                                PlaceIdx(4),
                                             ),
                                         },
                                     ),
@@ -18697,7 +19742,7 @@
                                         place: Some(
                                             MutableOnStack {
                                                 place: Idx(
-                                                    PlaceIdx(2),
+                                                    PlaceIdx(4),
                                                 ),
                                             },
                                         ),
@@ -18724,7 +19769,11 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Leashed,
+                                        Leashed {
+                                            place_idx: Some(
+                                                PlaceIdx(7),
+                                            ),
+                                        },
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Point2d`),
@@ -18736,7 +19785,11 @@
                                     40,
                                     FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(7),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Point2d`),
@@ -18753,7 +19806,11 @@
                                     ),
                                     self_ty: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(7),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Point2d`),
@@ -18770,9 +19827,17 @@
                                     },
                                     dispatch: FlyFieldDyanmicDispatch {
                                         indirections: FlyIndirections {
-                                            initial_place: Leashed,
+                                            initial_place: Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(7),
+                                                ),
+                                            },
                                             indirections: [],
-                                            final_place: Leashed,
+                                            final_place: Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(7),
+                                                ),
+                                            },
                                         },
                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                         signature: FlyFieldSignature::PropsStruct {
@@ -18789,7 +19854,11 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Leashed,
+                                        Leashed {
+                                            place_idx: Some(
+                                                PlaceIdx(7),
+                                            ),
+                                        },
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
@@ -18801,7 +19870,11 @@
                                     41,
                                     FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(7),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
@@ -18830,13 +19903,13 @@
                                         indirections: FlyIndirections {
                                             initial_place: MutableOnStack {
                                                 place: Idx(
-                                                    PlaceIdx(2),
+                                                    PlaceIdx(4),
                                                 ),
                                             },
                                             indirections: [],
                                             final_place: MutableOnStack {
                                                 place: Idx(
-                                                    PlaceIdx(2),
+                                                    PlaceIdx(4),
                                                 ),
                                             },
                                         },
@@ -18886,7 +19959,7 @@
                                                     env: MethodFn {
                                                         self_place: MutableOnStack {
                                                             place: Idx(
-                                                                PlaceIdx(2),
+                                                                PlaceIdx(4),
                                                             ),
                                                         },
                                                     },
@@ -18921,7 +19994,11 @@
                                                     ExpectCoersionOutcome {
                                                         coersion: Trivial(
                                                             TrivialFlyCoersion {
-                                                                expectee_quary: Leashed,
+                                                                expectee_quary: Leashed {
+                                                                    place_idx: Some(
+                                                                        PlaceIdx(7),
+                                                                    ),
+                                                                },
                                                             },
                                                         ),
                                                     },
@@ -19016,7 +20093,7 @@
                                     place: Some(
                                         MutableOnStack {
                                             place: Idx(
-                                                PlaceIdx(3),
+                                                PlaceIdx(5),
                                             ),
                                         },
                                     ),
@@ -19032,7 +20109,7 @@
                                         place: Some(
                                             MutableOnStack {
                                                 place: Idx(
-                                                    PlaceIdx(3),
+                                                    PlaceIdx(5),
                                                 ),
                                             },
                                         ),
@@ -19061,7 +20138,7 @@
                                     place: Some(
                                         MutableOnStack {
                                             place: Idx(
-                                                PlaceIdx(3),
+                                                PlaceIdx(5),
                                             ),
                                         },
                                     ),
@@ -19077,7 +20154,7 @@
                                         place: Some(
                                             MutableOnStack {
                                                 place: Idx(
-                                                    PlaceIdx(3),
+                                                    PlaceIdx(5),
                                                 ),
                                             },
                                         ),
@@ -19104,7 +20181,11 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Leashed,
+                                        Leashed {
+                                            place_idx: Some(
+                                                PlaceIdx(7),
+                                            ),
+                                        },
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Point2d`),
@@ -19116,7 +20197,11 @@
                                     46,
                                     FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(7),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Point2d`),
@@ -19133,7 +20218,11 @@
                                     ),
                                     self_ty: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(7),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Point2d`),
@@ -19150,9 +20239,17 @@
                                     },
                                     dispatch: FlyFieldDyanmicDispatch {
                                         indirections: FlyIndirections {
-                                            initial_place: Leashed,
+                                            initial_place: Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(7),
+                                                ),
+                                            },
                                             indirections: [],
-                                            final_place: Leashed,
+                                            final_place: Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(7),
+                                                ),
+                                            },
                                         },
                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                         signature: FlyFieldSignature::PropsStruct {
@@ -19169,7 +20266,11 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Leashed,
+                                        Leashed {
+                                            place_idx: Some(
+                                                PlaceIdx(7),
+                                            ),
+                                        },
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
@@ -19181,7 +20282,11 @@
                                     47,
                                     FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(7),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
@@ -19210,13 +20315,13 @@
                                         indirections: FlyIndirections {
                                             initial_place: MutableOnStack {
                                                 place: Idx(
-                                                    PlaceIdx(3),
+                                                    PlaceIdx(5),
                                                 ),
                                             },
                                             indirections: [],
                                             final_place: MutableOnStack {
                                                 place: Idx(
-                                                    PlaceIdx(3),
+                                                    PlaceIdx(5),
                                                 ),
                                             },
                                         },
@@ -19266,7 +20371,7 @@
                                                     env: MethodFn {
                                                         self_place: MutableOnStack {
                                                             place: Idx(
-                                                                PlaceIdx(3),
+                                                                PlaceIdx(5),
                                                             ),
                                                         },
                                                     },
@@ -19301,7 +20406,11 @@
                                                     ExpectCoersionOutcome {
                                                         coersion: Trivial(
                                                             TrivialFlyCoersion {
-                                                                expectee_quary: Leashed,
+                                                                expectee_quary: Leashed {
+                                                                    place_idx: Some(
+                                                                        PlaceIdx(7),
+                                                                    ),
+                                                                },
                                                             },
                                                         ),
                                                     },
@@ -19484,7 +20593,7 @@
                                     place: Some(
                                         MutableOnStack {
                                             place: Idx(
-                                                PlaceIdx(0),
+                                                PlaceIdx(2),
                                             ),
                                         },
                                     ),
@@ -19500,7 +20609,7 @@
                                         place: Some(
                                             MutableOnStack {
                                                 place: Idx(
-                                                    PlaceIdx(0),
+                                                    PlaceIdx(2),
                                                 ),
                                             },
                                         ),
@@ -19529,7 +20638,7 @@
                                     place: Some(
                                         MutableOnStack {
                                             place: Idx(
-                                                PlaceIdx(1),
+                                                PlaceIdx(3),
                                             ),
                                         },
                                     ),
@@ -19545,7 +20654,7 @@
                                         place: Some(
                                             MutableOnStack {
                                                 place: Idx(
-                                                    PlaceIdx(1),
+                                                    PlaceIdx(3),
                                                 ),
                                             },
                                         ),
@@ -19590,7 +20699,7 @@
                                                             TrivialFlyCoersion {
                                                                 expectee_quary: MutableOnStack {
                                                                     place: Idx(
-                                                                        PlaceIdx(0),
+                                                                        PlaceIdx(2),
                                                                     ),
                                                                 },
                                                             },
@@ -19624,7 +20733,7 @@
                                                             TrivialFlyCoersion {
                                                                 expectee_quary: MutableOnStack {
                                                                     place: Idx(
-                                                                        PlaceIdx(1),
+                                                                        PlaceIdx(3),
                                                                     ),
                                                                 },
                                                             },
@@ -19722,7 +20831,7 @@
                                     place: Some(
                                         MutableOnStack {
                                             place: Idx(
-                                                PlaceIdx(2),
+                                                PlaceIdx(4),
                                             ),
                                         },
                                     ),
@@ -19738,7 +20847,7 @@
                                         place: Some(
                                             MutableOnStack {
                                                 place: Idx(
-                                                    PlaceIdx(2),
+                                                    PlaceIdx(4),
                                                 ),
                                             },
                                         ),
@@ -19767,7 +20876,7 @@
                                     place: Some(
                                         MutableOnStack {
                                             place: Idx(
-                                                PlaceIdx(3),
+                                                PlaceIdx(5),
                                             ),
                                         },
                                     ),
@@ -19783,7 +20892,7 @@
                                         place: Some(
                                             MutableOnStack {
                                                 place: Idx(
-                                                    PlaceIdx(3),
+                                                    PlaceIdx(5),
                                                 ),
                                             },
                                         ),
@@ -19828,7 +20937,7 @@
                                                             TrivialFlyCoersion {
                                                                 expectee_quary: MutableOnStack {
                                                                     place: Idx(
-                                                                        PlaceIdx(2),
+                                                                        PlaceIdx(4),
                                                                     ),
                                                                 },
                                                             },
@@ -19862,7 +20971,7 @@
                                                             TrivialFlyCoersion {
                                                                 expectee_quary: MutableOnStack {
                                                                     place: Idx(
-                                                                        PlaceIdx(3),
+                                                                        PlaceIdx(5),
                                                                     ),
                                                                 },
                                                             },
@@ -20496,7 +21605,9 @@
                     ty: Ok(
                         FlyTerm {
                             place: Some(
-                                Leashed,
+                                Leashed {
+                                    place_idx: None,
+                                },
                             ),
                             base: Eth(
                                 EntityPath(
@@ -20518,7 +21629,11 @@
                     ty: Ok(
                         FlyTerm {
                             place: Some(
-                                Leashed,
+                                Leashed {
+                                    place_idx: Some(
+                                        PlaceIdx(1),
+                                    ),
+                                },
                             ),
                             base: Eth(
                                 EntityPath(
@@ -20540,7 +21655,11 @@
                     ty: Ok(
                         FlyTerm {
                             place: Some(
-                                Leashed,
+                                Leashed {
+                                    place_idx: Some(
+                                        PlaceIdx(1),
+                                    ),
+                                },
                             ),
                             base: Eth(
                                 EntityPath(
@@ -20562,7 +21681,11 @@
                     ty: Ok(
                         FlyTerm {
                             place: Some(
-                                Leashed,
+                                Leashed {
+                                    place_idx: Some(
+                                        PlaceIdx(1),
+                                    ),
+                                },
                             ),
                             base: Eth(
                                 EntityPath(
@@ -20584,7 +21707,11 @@
                     ty: Ok(
                         FlyTerm {
                             place: Some(
-                                Leashed,
+                                Leashed {
+                                    place_idx: Some(
+                                        PlaceIdx(1),
+                                    ),
+                                },
                             ),
                             base: Eth(
                                 EntityPath(
@@ -20606,7 +21733,9 @@
                     ty: Ok(
                         FlyTerm {
                             place: Some(
-                                Leashed,
+                                Leashed {
+                                    place_idx: None,
+                                },
                             ),
                             base: Eth(
                                 EntityPath(
@@ -20632,7 +21761,9 @@
                             ty: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Leashed,
+                                        Leashed {
+                                            place_idx: None,
+                                        },
                                     ),
                                     base: Eth(
                                         EntityPath(
@@ -20656,7 +21787,11 @@
                             ty: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Leashed,
+                                        Leashed {
+                                            place_idx: Some(
+                                                PlaceIdx(1),
+                                            ),
+                                        },
                                     ),
                                     base: Eth(
                                         EntityPath(
@@ -20680,7 +21815,11 @@
                             ty: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Leashed,
+                                        Leashed {
+                                            place_idx: Some(
+                                                PlaceIdx(1),
+                                            ),
+                                        },
                                     ),
                                     base: Eth(
                                         EntityPath(
@@ -20704,7 +21843,11 @@
                             ty: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Leashed,
+                                        Leashed {
+                                            place_idx: Some(
+                                                PlaceIdx(1),
+                                            ),
+                                        },
                                     ),
                                     base: Eth(
                                         EntityPath(
@@ -20728,7 +21871,11 @@
                             ty: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Leashed,
+                                        Leashed {
+                                            place_idx: Some(
+                                                PlaceIdx(1),
+                                            ),
+                                        },
                                     ),
                                     base: Eth(
                                         EntityPath(
@@ -20752,7 +21899,9 @@
                             ty: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Leashed,
+                                        Leashed {
+                                            place_idx: None,
+                                        },
                                     ),
                                     base: Eth(
                                         EntityPath(
@@ -20780,38 +21929,14 @@
                     SymbolType(
                         FlyTerm {
                             place: Some(
-                                Leashed,
-                            ),
-                            base: FlyTermBase::Eth(
-                                EthTerm(`Point2d`),
-                            ),
-                        },
-                    ),
-                    SymbolType(
-                        FlyTerm {
-                            place: Some(
-                                MutableOnStack {
-                                    place: Idx(
-                                        PlaceIdx(0),
-                                    ),
-                                },
-                            ),
-                            base: FlyTermBase::Eth(
-                                EthTerm(`f32`),
-                            ),
-                        },
-                    ),
-                    SymbolType(
-                        FlyTerm {
-                            place: Some(
-                                MutableOnStack {
-                                    place: Idx(
+                                Leashed {
+                                    place_idx: Some(
                                         PlaceIdx(1),
                                     ),
                                 },
                             ),
                             base: FlyTermBase::Eth(
-                                EthTerm(`f32`),
+                                EthTerm(`Point2d`),
                             ),
                         },
                     ),
@@ -20846,9 +21971,37 @@
                     SymbolType(
                         FlyTerm {
                             place: Some(
-                                ImmutableOnStack {
+                                MutableOnStack {
                                     place: Idx(
                                         PlaceIdx(4),
+                                    ),
+                                },
+                            ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`f32`),
+                            ),
+                        },
+                    ),
+                    SymbolType(
+                        FlyTerm {
+                            place: Some(
+                                MutableOnStack {
+                                    place: Idx(
+                                        PlaceIdx(5),
+                                    ),
+                                },
+                            ),
+                            base: FlyTermBase::Eth(
+                                EthTerm(`f32`),
+                            ),
+                        },
+                    ),
+                    SymbolType(
+                        FlyTerm {
+                            place: Some(
+                                ImmutableOnStack {
+                                    place: Idx(
+                                        PlaceIdx(6),
                                     ),
                                 },
                             ),
@@ -20860,7 +22013,11 @@
                     SymbolType(
                         FlyTerm {
                             place: Some(
-                                Leashed,
+                                Leashed {
+                                    place_idx: Some(
+                                        PlaceIdx(7),
+                                    ),
+                                },
                             ),
                             base: FlyTermBase::Eth(
                                 EthTerm(`Point2d`),
@@ -20898,7 +22055,11 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`ConcaveComponent`),
@@ -20925,7 +22086,11 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Leash CyclicSlice LineSegmentStroke`),
@@ -21002,7 +22167,9 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: None,
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Point2d`),
@@ -21029,7 +22196,11 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(1),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Point2d`),
@@ -21056,7 +22227,11 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(1),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
@@ -21083,7 +22258,11 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(1),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Point2d`),
@@ -21110,7 +22289,11 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(1),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
@@ -21137,7 +22320,11 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(1),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Point2d`),
@@ -21164,7 +22351,11 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(1),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
@@ -21191,7 +22382,11 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(1),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Point2d`),
@@ -21218,7 +22413,11 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(1),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
@@ -21245,7 +22444,11 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`ConcaveComponent`),
@@ -21272,7 +22475,11 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Leash CyclicSlice LineSegmentStroke`),
@@ -21341,7 +22548,11 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`ConcaveComponent`),
@@ -21368,7 +22579,11 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Leash CyclicSlice LineSegmentStroke`),
@@ -21430,7 +22645,7 @@
                                             place: Some(
                                                 ImmutableOnStack {
                                                     place: Idx(
-                                                        PlaceIdx(4),
+                                                        PlaceIdx(6),
                                                     ),
                                                 },
                                             ),
@@ -21450,7 +22665,7 @@
                                         place: Some(
                                             ImmutableOnStack {
                                                 place: Idx(
-                                                    PlaceIdx(4),
+                                                    PlaceIdx(6),
                                                 ),
                                             },
                                         ),
@@ -21466,7 +22681,7 @@
                                                         TrivialFlyCoersion {
                                                             expectee_quary: ImmutableOnStack {
                                                                 place: Idx(
-                                                                    PlaceIdx(4),
+                                                                    PlaceIdx(6),
                                                                 ),
                                                             },
                                                         },
@@ -21489,7 +22704,11 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`ConcaveComponent`),
@@ -21516,7 +22735,11 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Leash CyclicSlice LineSegmentStroke`),
@@ -21545,7 +22768,7 @@
                                         place: Some(
                                             ImmutableOnStack {
                                                 place: Idx(
-                                                    PlaceIdx(4),
+                                                    PlaceIdx(6),
                                                 ),
                                             },
                                         ),
@@ -21574,7 +22797,9 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: None,
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`LineSegmentStroke`),
@@ -21601,7 +22826,9 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: None,
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Point2d`),
@@ -21630,7 +22857,7 @@
                                         place: Some(
                                             MutableOnStack {
                                                 place: Idx(
-                                                    PlaceIdx(0),
+                                                    PlaceIdx(2),
                                                 ),
                                             },
                                         ),
@@ -21661,7 +22888,7 @@
                                         place: Some(
                                             MutableOnStack {
                                                 place: Idx(
-                                                    PlaceIdx(0),
+                                                    PlaceIdx(2),
                                                 ),
                                             },
                                         ),
@@ -21690,7 +22917,11 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(7),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Point2d`),
@@ -21725,7 +22956,11 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(7),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
@@ -21737,7 +22972,11 @@
                                                 ExpectCoersionOutcome {
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
-                                                            expectee_quary: Leashed,
+                                                            expectee_quary: Leashed {
+                                                                place_idx: Some(
+                                                                    PlaceIdx(7),
+                                                                ),
+                                                            },
                                                         },
                                                     ),
                                                 },
@@ -21840,7 +23079,7 @@
                                         place: Some(
                                             MutableOnStack {
                                                 place: Idx(
-                                                    PlaceIdx(1),
+                                                    PlaceIdx(3),
                                                 ),
                                             },
                                         ),
@@ -21871,7 +23110,7 @@
                                         place: Some(
                                             MutableOnStack {
                                                 place: Idx(
-                                                    PlaceIdx(1),
+                                                    PlaceIdx(3),
                                                 ),
                                             },
                                         ),
@@ -21900,7 +23139,11 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(7),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Point2d`),
@@ -21935,7 +23178,11 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(7),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
@@ -21947,7 +23194,11 @@
                                                 ExpectCoersionOutcome {
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
-                                                            expectee_quary: Leashed,
+                                                            expectee_quary: Leashed {
+                                                                place_idx: Some(
+                                                                    PlaceIdx(7),
+                                                                ),
+                                                            },
                                                         },
                                                     ),
                                                 },
@@ -22050,7 +23301,7 @@
                                         place: Some(
                                             MutableOnStack {
                                                 place: Idx(
-                                                    PlaceIdx(2),
+                                                    PlaceIdx(4),
                                                 ),
                                             },
                                         ),
@@ -22081,7 +23332,7 @@
                                         place: Some(
                                             MutableOnStack {
                                                 place: Idx(
-                                                    PlaceIdx(2),
+                                                    PlaceIdx(4),
                                                 ),
                                             },
                                         ),
@@ -22110,7 +23361,11 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(7),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Point2d`),
@@ -22145,7 +23400,11 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(7),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
@@ -22157,7 +23416,11 @@
                                                 ExpectCoersionOutcome {
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
-                                                            expectee_quary: Leashed,
+                                                            expectee_quary: Leashed {
+                                                                place_idx: Some(
+                                                                    PlaceIdx(7),
+                                                                ),
+                                                            },
                                                         },
                                                     ),
                                                 },
@@ -22260,7 +23523,7 @@
                                         place: Some(
                                             MutableOnStack {
                                                 place: Idx(
-                                                    PlaceIdx(3),
+                                                    PlaceIdx(5),
                                                 ),
                                             },
                                         ),
@@ -22291,7 +23554,7 @@
                                         place: Some(
                                             MutableOnStack {
                                                 place: Idx(
-                                                    PlaceIdx(3),
+                                                    PlaceIdx(5),
                                                 ),
                                             },
                                         ),
@@ -22320,7 +23583,11 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(7),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Point2d`),
@@ -22355,7 +23622,11 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(7),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
@@ -22367,7 +23638,11 @@
                                                 ExpectCoersionOutcome {
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
-                                                            expectee_quary: Leashed,
+                                                            expectee_quary: Leashed {
+                                                                place_idx: Some(
+                                                                    PlaceIdx(7),
+                                                                ),
+                                                            },
                                                         },
                                                     ),
                                                 },
@@ -22604,7 +23879,7 @@
                                         place: Some(
                                             MutableOnStack {
                                                 place: Idx(
-                                                    PlaceIdx(0),
+                                                    PlaceIdx(2),
                                                 ),
                                             },
                                         ),
@@ -22620,7 +23895,7 @@
                                                         TrivialFlyCoersion {
                                                             expectee_quary: MutableOnStack {
                                                                 place: Idx(
-                                                                    PlaceIdx(0),
+                                                                    PlaceIdx(2),
                                                                 ),
                                                             },
                                                         },
@@ -22653,7 +23928,7 @@
                                         place: Some(
                                             MutableOnStack {
                                                 place: Idx(
-                                                    PlaceIdx(1),
+                                                    PlaceIdx(3),
                                                 ),
                                             },
                                         ),
@@ -22669,7 +23944,7 @@
                                                         TrivialFlyCoersion {
                                                             expectee_quary: MutableOnStack {
                                                                 place: Idx(
-                                                                    PlaceIdx(1),
+                                                                    PlaceIdx(3),
                                                                 ),
                                                             },
                                                         },
@@ -22804,7 +24079,7 @@
                                         place: Some(
                                             MutableOnStack {
                                                 place: Idx(
-                                                    PlaceIdx(2),
+                                                    PlaceIdx(4),
                                                 ),
                                             },
                                         ),
@@ -22820,7 +24095,7 @@
                                                         TrivialFlyCoersion {
                                                             expectee_quary: MutableOnStack {
                                                                 place: Idx(
-                                                                    PlaceIdx(2),
+                                                                    PlaceIdx(4),
                                                                 ),
                                                             },
                                                         },
@@ -22853,7 +24128,7 @@
                                         place: Some(
                                             MutableOnStack {
                                                 place: Idx(
-                                                    PlaceIdx(3),
+                                                    PlaceIdx(5),
                                                 ),
                                             },
                                         ),
@@ -22869,7 +24144,7 @@
                                                         TrivialFlyCoersion {
                                                             expectee_quary: MutableOnStack {
                                                                 place: Idx(
-                                                                    PlaceIdx(3),
+                                                                    PlaceIdx(5),
                                                                 ),
                                                             },
                                                         },
@@ -23023,9 +24298,11 @@
                 ),
             ),
             place_registry: PlaceRegistry {
-                infos: [],
+                infos: [
+                    SelfValue,
+                ],
                 next: ShiftedU32(
-                    1,
+                    2,
                 ),
             },
             sema_expr_arena: SemaExprArena(
@@ -23042,7 +24319,11 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Leashed,
+                                        Leashed {
+                                            place_idx: Some(
+                                                PlaceIdx(0),
+                                            ),
+                                        },
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`ConcaveComponent`),
@@ -23054,7 +24335,11 @@
                                     1,
                                     FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`ConcaveComponent`),
@@ -23071,7 +24356,11 @@
                                     ),
                                     self_ty: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`ConcaveComponent`),
@@ -23088,9 +24377,17 @@
                                     },
                                     dispatch: FlyFieldDyanmicDispatch {
                                         indirections: FlyIndirections {
-                                            initial_place: Leashed,
+                                            initial_place: Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                             indirections: [],
-                                            final_place: Leashed,
+                                            final_place: Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         },
                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                         signature: FlyFieldSignature::PropsStruct {
@@ -23107,7 +24404,11 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Leashed,
+                                        Leashed {
+                                            place_idx: Some(
+                                                PlaceIdx(0),
+                                            ),
+                                        },
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Leash LineSegmentSketch`),
@@ -23119,7 +24420,11 @@
                                     2,
                                     FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Leash LineSegmentSketch`),
@@ -23136,7 +24441,11 @@
                                     ),
                                     self_ty: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Leash LineSegmentSketch`),
@@ -23153,11 +24462,17 @@
                                     },
                                     dispatch: FlyFieldDyanmicDispatch {
                                         indirections: FlyIndirections {
-                                            initial_place: Leashed,
+                                            initial_place: Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                             indirections: [
                                                 Leash,
                                             ],
-                                            final_place: Leashed,
+                                            final_place: Leashed {
+                                                place_idx: None,
+                                            },
                                         },
                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                         signature: FlyFieldSignature::Memoized {
@@ -23189,7 +24504,9 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Leashed,
+                                        Leashed {
+                                            place_idx: None,
+                                        },
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`BoundingBox`),
@@ -23201,7 +24518,9 @@
                                     3,
                                     FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: None,
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`BoundingBox`),
@@ -23221,7 +24540,11 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Leashed,
+                                        Leashed {
+                                            place_idx: Some(
+                                                PlaceIdx(0),
+                                            ),
+                                        },
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`ConcaveComponent`),
@@ -23233,7 +24556,11 @@
                                     4,
                                     FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`ConcaveComponent`),
@@ -23250,7 +24577,11 @@
                                     ),
                                     self_ty: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`ConcaveComponent`),
@@ -23267,9 +24598,17 @@
                                     },
                                     dispatch: FlyFieldDyanmicDispatch {
                                         indirections: FlyIndirections {
-                                            initial_place: Leashed,
+                                            initial_place: Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                             indirections: [],
-                                            final_place: Leashed,
+                                            final_place: Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         },
                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                         signature: FlyFieldSignature::Memoized {
@@ -23301,7 +24640,11 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Leashed,
+                                        Leashed {
+                                            place_idx: Some(
+                                                PlaceIdx(0),
+                                            ),
+                                        },
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`BoundingBox`),
@@ -23313,7 +24656,11 @@
                                     5,
                                     FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`BoundingBox`),
@@ -23340,9 +24687,13 @@
                                     },
                                     dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
-                                            initial_place: Leashed,
+                                            initial_place: Leashed {
+                                                place_idx: None,
+                                            },
                                             indirections: [],
-                                            final_place: Leashed,
+                                            final_place: Leashed {
+                                                place_idx: None,
+                                            },
                                         },
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
@@ -23388,7 +24739,9 @@
                                                         ),
                                                     ),
                                                     env: MethodFn {
-                                                        self_place: Leashed,
+                                                        self_place: Leashed {
+                                                            place_idx: None,
+                                                        },
                                                     },
                                                     symbol_map: [],
                                                     separator: Some(
@@ -23421,7 +24774,11 @@
                                                     ExpectCoersionOutcome {
                                                         coersion: Trivial(
                                                             TrivialFlyCoersion {
-                                                                expectee_quary: Leashed,
+                                                                expectee_quary: Leashed {
+                                                                    place_idx: Some(
+                                                                        PlaceIdx(0),
+                                                                    ),
+                                                                },
                                                             },
                                                         ),
                                                     },
@@ -23572,7 +24929,11 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`ConcaveComponent`),
@@ -23599,7 +24960,11 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Leash LineSegmentSketch`),
@@ -23626,7 +24991,9 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: None,
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`BoundingBox`),
@@ -23653,7 +25020,11 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`ConcaveComponent`),
@@ -23688,7 +25059,11 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: Some(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`BoundingBox`),
@@ -23700,7 +25075,11 @@
                                                 ExpectCoersionOutcome {
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
-                                                            expectee_quary: Leashed,
+                                                            expectee_quary: Leashed {
+                                                                place_idx: Some(
+                                                                    PlaceIdx(0),
+                                                                ),
+                                                            },
                                                         },
                                                     ),
                                                 },
@@ -24026,7 +25405,9 @@
                                             indirections: [
                                                 Leash,
                                             ],
-                                            final_place: Leashed,
+                                            final_place: Leashed {
+                                                place_idx: None,
+                                            },
                                         },
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
@@ -24060,7 +25441,9 @@
                                                         ),
                                                     ),
                                                     env: MethodFn {
-                                                        self_place: Leashed,
+                                                        self_place: Leashed {
+                                                            place_idx: None,
+                                                        },
                                                     },
                                                     symbol_map: [
                                                         (
@@ -24170,7 +25553,9 @@
                                             indirections: [
                                                 Leash,
                                             ],
-                                            final_place: Leashed,
+                                            final_place: Leashed {
+                                                place_idx: None,
+                                            },
                                         },
                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                         signature: FlyFieldSignature::PropsStruct {
@@ -24187,7 +25572,9 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Leashed,
+                                        Leashed {
+                                            place_idx: None,
+                                        },
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Point2d`),
@@ -24199,7 +25586,9 @@
                                     6,
                                     FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: None,
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Point2d`),
@@ -24226,9 +25615,13 @@
                                     },
                                     dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
-                                            initial_place: Leashed,
+                                            initial_place: Leashed {
+                                                place_idx: None,
+                                            },
                                             indirections: [],
-                                            final_place: Leashed,
+                                            final_place: Leashed {
+                                                place_idx: None,
+                                            },
                                         },
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
@@ -24263,7 +25656,9 @@
                                                         ),
                                                     ),
                                                     env: MethodFn {
-                                                        self_place: Leashed,
+                                                        self_place: Leashed {
+                                                            place_idx: None,
+                                                        },
                                                     },
                                                     symbol_map: [
                                                         (
@@ -24466,7 +25861,9 @@
                                             indirections: [
                                                 Leash,
                                             ],
-                                            final_place: Leashed,
+                                            final_place: Leashed {
+                                                place_idx: None,
+                                            },
                                         },
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
@@ -24500,7 +25897,9 @@
                                                         ),
                                                     ),
                                                     env: MethodFn {
-                                                        self_place: Leashed,
+                                                        self_place: Leashed {
+                                                            place_idx: None,
+                                                        },
                                                     },
                                                     symbol_map: [
                                                         (
@@ -24610,7 +26009,9 @@
                                             indirections: [
                                                 Leash,
                                             ],
-                                            final_place: Leashed,
+                                            final_place: Leashed {
+                                                place_idx: None,
+                                            },
                                         },
                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                         signature: FlyFieldSignature::PropsStruct {
@@ -24627,7 +26028,9 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Leashed,
+                                        Leashed {
+                                            place_idx: None,
+                                        },
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Point2d`),
@@ -24639,7 +26042,9 @@
                                     12,
                                     FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: None,
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Point2d`),
@@ -24666,9 +26071,13 @@
                                     },
                                     dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
-                                            initial_place: Leashed,
+                                            initial_place: Leashed {
+                                                place_idx: None,
+                                            },
                                             indirections: [],
-                                            final_place: Leashed,
+                                            final_place: Leashed {
+                                                place_idx: None,
+                                            },
                                         },
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
@@ -24703,7 +26112,9 @@
                                                         ),
                                                     ),
                                                     env: MethodFn {
-                                                        self_place: Leashed,
+                                                        self_place: Leashed {
+                                                            place_idx: None,
+                                                        },
                                                     },
                                                     symbol_map: [
                                                         (
@@ -25143,7 +26554,9 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: None,
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Point2d`),
@@ -25321,7 +26734,9 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: None,
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Point2d`),
@@ -25648,7 +27063,9 @@
                                             indirections: [
                                                 Leash,
                                             ],
-                                            final_place: Leashed,
+                                            final_place: Leashed {
+                                                place_idx: None,
+                                            },
                                         },
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
@@ -25682,7 +27099,9 @@
                                                         ),
                                                     ),
                                                     env: MethodFn {
-                                                        self_place: Leashed,
+                                                        self_place: Leashed {
+                                                            place_idx: None,
+                                                        },
                                                     },
                                                     symbol_map: [
                                                         (
@@ -25792,7 +27211,9 @@
                                             indirections: [
                                                 Leash,
                                             ],
-                                            final_place: Leashed,
+                                            final_place: Leashed {
+                                                place_idx: None,
+                                            },
                                         },
                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                         signature: FlyFieldSignature::PropsStruct {
@@ -25809,7 +27230,9 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Leashed,
+                                        Leashed {
+                                            place_idx: None,
+                                        },
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Point2d`),
@@ -25821,7 +27244,9 @@
                                     5,
                                     FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: None,
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Point2d`),
@@ -25848,9 +27273,13 @@
                                     },
                                     dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
-                                            initial_place: Leashed,
+                                            initial_place: Leashed {
+                                                place_idx: None,
+                                            },
                                             indirections: [],
-                                            final_place: Leashed,
+                                            final_place: Leashed {
+                                                place_idx: None,
+                                            },
                                         },
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
@@ -25885,7 +27314,9 @@
                                                         ),
                                                     ),
                                                     env: MethodFn {
-                                                        self_place: Leashed,
+                                                        self_place: Leashed {
+                                                            place_idx: None,
+                                                        },
                                                     },
                                                     symbol_map: [
                                                         (
@@ -26166,7 +27597,9 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: None,
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Point2d`),
@@ -26454,7 +27887,9 @@
                                             indirections: [
                                                 Leash,
                                             ],
-                                            final_place: Leashed,
+                                            final_place: Leashed {
+                                                place_idx: None,
+                                            },
                                         },
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
@@ -26488,7 +27923,9 @@
                                                         ),
                                                     ),
                                                     env: MethodFn {
-                                                        self_place: Leashed,
+                                                        self_place: Leashed {
+                                                            place_idx: None,
+                                                        },
                                                     },
                                                     symbol_map: [
                                                         (
@@ -26598,7 +28035,9 @@
                                             indirections: [
                                                 Leash,
                                             ],
-                                            final_place: Leashed,
+                                            final_place: Leashed {
+                                                place_idx: None,
+                                            },
                                         },
                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                         signature: FlyFieldSignature::PropsStruct {
@@ -26615,7 +28054,9 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Leashed,
+                                        Leashed {
+                                            place_idx: None,
+                                        },
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Point2d`),
@@ -26627,7 +28068,9 @@
                                     5,
                                     FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: None,
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Point2d`),
@@ -26654,9 +28097,13 @@
                                     },
                                     dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
-                                            initial_place: Leashed,
+                                            initial_place: Leashed {
+                                                place_idx: None,
+                                            },
                                             indirections: [],
-                                            final_place: Leashed,
+                                            final_place: Leashed {
+                                                place_idx: None,
+                                            },
                                         },
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
@@ -26691,7 +28138,9 @@
                                                         ),
                                                     ),
                                                     env: MethodFn {
-                                                        self_place: Leashed,
+                                                        self_place: Leashed {
+                                                            place_idx: None,
+                                                        },
                                                     },
                                                     symbol_map: [
                                                         (
@@ -26972,7 +28421,9 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Leashed,
+                                            Leashed {
+                                                place_idx: None,
+                                            },
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Point2d`),
@@ -27783,7 +29234,9 @@
                                             indirections: [
                                                 Leash,
                                             ],
-                                            final_place: Leashed,
+                                            final_place: Leashed {
+                                                place_idx: None,
+                                            },
                                         },
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
@@ -27817,7 +29270,9 @@
                                                         ),
                                                     ),
                                                     env: MethodFn {
-                                                        self_place: Leashed,
+                                                        self_place: Leashed {
+                                                            place_idx: None,
+                                                        },
                                                     },
                                                     symbol_map: [
                                                         (
@@ -27922,7 +29377,9 @@
                                             indirections: [
                                                 Leash,
                                             ],
-                                            final_place: Leashed,
+                                            final_place: Leashed {
+                                                place_idx: None,
+                                            },
                                         },
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
@@ -27956,7 +29413,9 @@
                                                         ),
                                                     ),
                                                     env: MethodFn {
-                                                        self_place: Leashed,
+                                                        self_place: Leashed {
+                                                            place_idx: None,
+                                                        },
                                                     },
                                                     symbol_map: [],
                                                     separator: Some(
@@ -28486,7 +29945,9 @@
                                             indirections: [
                                                 Leash,
                                             ],
-                                            final_place: Leashed,
+                                            final_place: Leashed {
+                                                place_idx: None,
+                                            },
                                         },
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
@@ -28520,7 +29981,9 @@
                                                         ),
                                                     ),
                                                     env: MethodFn {
-                                                        self_place: Leashed,
+                                                        self_place: Leashed {
+                                                            place_idx: None,
+                                                        },
                                                     },
                                                     symbol_map: [
                                                         (
@@ -28625,7 +30088,9 @@
                                             indirections: [
                                                 Leash,
                                             ],
-                                            final_place: Leashed,
+                                            final_place: Leashed {
+                                                place_idx: None,
+                                            },
                                         },
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
@@ -28659,7 +30124,9 @@
                                                         ),
                                                     ),
                                                     env: MethodFn {
-                                                        self_place: Leashed,
+                                                        self_place: Leashed {
+                                                            place_idx: None,
+                                                        },
                                                     },
                                                     symbol_map: [],
                                                     separator: Some(

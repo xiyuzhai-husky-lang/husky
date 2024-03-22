@@ -61,11 +61,11 @@ impl FlyIndirection {
                 FlyQuary::Transient => todo!(),
                 FlyQuary::Ref { guard } => todo!(),
                 FlyQuary::RefMut { .. } => todo!(),
-                FlyQuary::Leashed => todo!(),
+                FlyQuary::Leashed { .. } => todo!(),
                 FlyQuary::Todo => todo!(),
                 FlyQuary::EtherealSymbol(_) => todo!(),
             },
-            FlyIndirection::Leash => FlyQuary::Leashed,
+            FlyIndirection::Leash => FlyQuary::Leashed { place_idx: None },
         }
     }
 }
