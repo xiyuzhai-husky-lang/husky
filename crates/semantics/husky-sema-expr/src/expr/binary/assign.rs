@@ -27,7 +27,7 @@ impl<'a> SemaExprBuilder<'a> {
                         FlyQuary::Transient => todo!(),
                         FlyQuary::Ref { guard } => todo!(),
                         FlyQuary::RefMut { place, lifetime } => todo!(),
-                        FlyQuary::Leashed => todo!(),
+                        FlyQuary::Leashed { .. } => todo!(),
                         FlyQuary::Todo => todo!(),
                         FlyQuary::EtherealSymbol(_) => todo!(),
                     },

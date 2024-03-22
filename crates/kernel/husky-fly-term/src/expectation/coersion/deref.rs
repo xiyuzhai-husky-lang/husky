@@ -10,7 +10,7 @@ pub enum DerefFlyCoersion {
 impl DerefFlyCoersion {
     pub fn place_after_coersion(self) -> FlyQuary {
         match self {
-            DerefFlyCoersion::Leash => FlyQuary::Leashed,
+            DerefFlyCoersion::Leash => FlyQuary::Leashed { place_idx: None },
             DerefFlyCoersion::Ref { lifetime } => FlyQuary::Ref {
                 guard: Right(lifetime),
             },

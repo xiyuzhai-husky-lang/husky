@@ -15,8 +15,11 @@ use husky_fly_term::{
 };
 use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
 use husky_hir_ty::{
-    instantiation::HirInstantiation, place_contract_site::HirPlaceContractSite, quary::HirQuary,
-    ritchie::HirContract, HirType,
+    instantiation::HirInstantiation,
+    place_contract_site::HirPlaceContractSite,
+    quary::{HirContractedQuary, HirQuary},
+    ritchie::HirContract,
+    HirType,
 };
 use husky_sema_expr::{SemaExprData, SemaExprIdx, SemaRitchieArgument};
 use husky_sema_opr::{binary::SemaBinaryOpr, suffix::SemaSuffixOpr};
@@ -33,7 +36,7 @@ pub type HirEagerExprMap<V> = ArenaMap<HirEagerExprEntry, V>;
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct HirEagerExprEntry {
     data: HirEagerExprData,
-    quary: HirQuary,
+    contracted_quary: HirContractedQuary,
     is_always_copyable: bool,
     place_contract_site: HirPlaceContractSite,
 }
@@ -44,8 +47,12 @@ impl HirEagerExprEntry {
         &self.data
     }
 
+    pub fn contracted_quary(&self) -> HirContractedQuary {
+        self.contracted_quary
+    }
+
     pub fn quary(&self) -> HirQuary {
-        self.quary
+        self.contracted_quary.quary()
     }
 
     pub fn is_always_copyable(&self) -> bool {
@@ -524,13 +531,13 @@ impl ToHirEager for SemaExprIdx {
             },
         };
         let ty = self.ty(builder.sema_expr_arena_ref2());
-        let quary = ty
+        let contracted_quary = ty
             .quary()
-            .map(|place| HirQuary::from_fly(place))
-            .unwrap_or(HirQuary::Transient);
+            .map(|quary| HirContractedQuary::from_fly(quary, &place_contract_site))
+            .unwrap_or_default();
         let entry = HirEagerExprEntry {
             data,
-            quary,
+            contracted_quary,
             is_always_copyable: ty
                 .is_always_copyable(builder.db(), builder.fly_terms())
                 .unwrap()

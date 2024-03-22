@@ -345,7 +345,10 @@
                 root_expr: 8,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::PrincipalEntityPath,
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
@@ -724,7 +727,10 @@
                 root_expr: 8,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::PrincipalEntityPath,
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {

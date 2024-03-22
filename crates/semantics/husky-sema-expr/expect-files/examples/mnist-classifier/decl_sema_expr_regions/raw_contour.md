@@ -5118,9 +5118,11 @@
                 ),
             ),
             place_registry: PlaceRegistry {
-                infos: [],
+                infos: [
+                    SelfValue,
+                ],
                 next: ShiftedU32(
-                    1,
+                    2,
                 ),
             },
             sema_expr_arena: SemaExprArena(
@@ -5277,9 +5279,11 @@
                 ),
             ),
             place_registry: PlaceRegistry {
-                infos: [],
+                infos: [
+                    SelfValue,
+                ],
                 next: ShiftedU32(
-                    1,
+                    2,
                 ),
             },
             sema_expr_arena: SemaExprArena(
@@ -5436,9 +5440,11 @@
                 ),
             ),
             place_registry: PlaceRegistry {
-                infos: [],
+                infos: [
+                    SelfValue,
+                ],
                 next: ShiftedU32(
-                    1,
+                    2,
                 ),
             },
             sema_expr_arena: SemaExprArena(
@@ -5595,9 +5601,11 @@
                 ),
             ),
             place_registry: PlaceRegistry {
-                infos: [],
+                infos: [
+                    SelfValue,
+                ],
                 next: ShiftedU32(
-                    1,
+                    2,
                 ),
             },
             sema_expr_arena: SemaExprArena(

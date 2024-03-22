@@ -40,7 +40,7 @@ impl<'a> SemaExprBuilder<'a> {
                         }
                         FlyQuary::Ref { guard } => todo!(),
                         FlyQuary::RefMut { .. } => todo!(),
-                        FlyQuary::Leashed => todo!(),
+                        FlyQuary::Leashed { .. } => todo!(),
                         FlyQuary::Todo => todo!(),
                         FlyQuary::EtherealSymbol(_) => todo!(),
                     },

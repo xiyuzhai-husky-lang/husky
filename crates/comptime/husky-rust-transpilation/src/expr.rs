@@ -414,13 +414,16 @@ impl HirEagerExprSite {
             | HirEagerExprData::Unwrap { .. } => match entry.quary() {
                 HirQuary::Const | HirQuary::StackPure { .. } => !entry.is_always_copyable(),
                 quary => match quary.place() {
-                    Some(place) => match entry.place_contract_site()[place] {
-                        HirContract::Pure | HirContract::Const => !entry.is_always_copyable(),
-                        HirContract::Move => false,
-                        HirContract::Borrow => true,
-                        HirContract::BorrowMut => true,
-                        HirContract::Leash => todo!(),
-                        HirContract::At => todo!(),
+                    Some(place) => match entry.place_contract_site().get(place) {
+                        Some(contract) => match contract {
+                            HirContract::Pure | HirContract::Const => !entry.is_always_copyable(),
+                            HirContract::Move => false,
+                            HirContract::Borrow => true,
+                            HirContract::BorrowMut => true,
+                            HirContract::Leash => todo!(),
+                            HirContract::At => todo!(),
+                        },
+                        None => false,
                     },
                     None => false,
                 },

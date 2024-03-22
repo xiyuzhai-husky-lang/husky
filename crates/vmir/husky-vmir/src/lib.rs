@@ -10,7 +10,6 @@ pub mod stmt;
 pub mod storage;
 #[cfg(test)]
 mod tests;
-mod variable;
 pub mod version_stamp;
 
 use self::builder::VmirBuilder;

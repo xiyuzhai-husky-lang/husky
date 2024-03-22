@@ -31,6 +31,10 @@ impl HirPlaceContractSite {
     pub fn place_contracts(&self) -> &[(EthPlace, HirContract)] {
         &self.place_contracts
     }
+
+    pub fn get(&self, place: EthPlace) -> Option<HirContract> {
+        self.place_contracts.get_value(place).copied()
+    }
 }
 
 impl std::ops::Index<EthPlace> for HirPlaceContractSite {

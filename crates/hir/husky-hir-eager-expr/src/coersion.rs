@@ -47,7 +47,7 @@ pub enum DerefHirEagerCoersion {
 impl DerefHirEagerCoersion {
     fn place_after_coersion(self) -> HirQuary {
         match self {
-            DerefHirEagerCoersion::Leash => HirQuary::Leashed,
+            DerefHirEagerCoersion::Leash => HirQuary::Leashed { place_idx: None },
             DerefHirEagerCoersion::Ref { lifetime } => HirQuary::Ref {
                 guard: Right(lifetime),
             },

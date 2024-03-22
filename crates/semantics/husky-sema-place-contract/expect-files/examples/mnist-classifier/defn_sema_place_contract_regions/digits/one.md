@@ -847,7 +847,7 @@
                             place_contracts: [
                                 (
                                     Idx(
-                                        PlaceIdx(5),
+                                        PlaceIdx(6),
                                     ),
                                     Pure,
                                 ),
@@ -859,7 +859,7 @@
                             place_contracts: [
                                 (
                                     Idx(
-                                        PlaceIdx(5),
+                                        PlaceIdx(6),
                                     ),
                                     Pure,
                                 ),
@@ -977,7 +977,7 @@
                             place_contracts: [
                                 (
                                     Idx(
-                                        PlaceIdx(5),
+                                        PlaceIdx(6),
                                     ),
                                     Pure,
                                 ),
@@ -994,7 +994,7 @@
                             place_contracts: [
                                 (
                                     Idx(
-                                        PlaceIdx(5),
+                                        PlaceIdx(6),
                                     ),
                                     Pure,
                                 ),
@@ -1006,7 +1006,7 @@
                             place_contracts: [
                                 (
                                     Idx(
-                                        PlaceIdx(5),
+                                        PlaceIdx(6),
                                     ),
                                     Pure,
                                 ),
@@ -1018,7 +1018,7 @@
                             place_contracts: [
                                 (
                                     Idx(
-                                        PlaceIdx(5),
+                                        PlaceIdx(6),
                                     ),
                                     Pure,
                                 ),
@@ -1030,7 +1030,7 @@
                             place_contracts: [
                                 (
                                     Idx(
-                                        PlaceIdx(5),
+                                        PlaceIdx(6),
                                     ),
                                     Pure,
                                 ),
@@ -1355,7 +1355,7 @@
                             place_contracts: [
                                 (
                                     Idx(
-                                        PlaceIdx(6),
+                                        PlaceIdx(8),
                                     ),
                                     Pure,
                                 ),
@@ -1367,7 +1367,7 @@
                             place_contracts: [
                                 (
                                     Idx(
-                                        PlaceIdx(6),
+                                        PlaceIdx(8),
                                     ),
                                     Pure,
                                 ),
@@ -1379,7 +1379,7 @@
                             place_contracts: [
                                 (
                                     Idx(
-                                        PlaceIdx(7),
+                                        PlaceIdx(10),
                                     ),
                                     Pure,
                                 ),
@@ -1391,7 +1391,7 @@
                             place_contracts: [
                                 (
                                     Idx(
-                                        PlaceIdx(7),
+                                        PlaceIdx(10),
                                     ),
                                     Pure,
                                 ),
@@ -1460,7 +1460,7 @@
                             place_contracts: [
                                 (
                                     Idx(
-                                        PlaceIdx(8),
+                                        PlaceIdx(11),
                                     ),
                                     Pure,
                                 ),
@@ -1472,36 +1472,7 @@
                             place_contracts: [
                                 (
                                     Idx(
-                                        PlaceIdx(9),
-                                    ),
-                                    Pure,
-                                ),
-                            ],
-                        },
-                    ),
-                    Some(
-                        SemaPlaceContractSite {
-                            place_contracts: [],
-                        },
-                    ),
-                    Some(
-                        SemaPlaceContractSite {
-                            place_contracts: [
-                                (
-                                    Idx(
-                                        PlaceIdx(10),
-                                    ),
-                                    Pure,
-                                ),
-                            ],
-                        },
-                    ),
-                    Some(
-                        SemaPlaceContractSite {
-                            place_contracts: [
-                                (
-                                    Idx(
-                                        PlaceIdx(8),
+                                        PlaceIdx(12),
                                     ),
                                     Pure,
                                 ),
@@ -1518,7 +1489,36 @@
                             place_contracts: [
                                 (
                                     Idx(
-                                        PlaceIdx(10),
+                                        PlaceIdx(13),
+                                    ),
+                                    Pure,
+                                ),
+                            ],
+                        },
+                    ),
+                    Some(
+                        SemaPlaceContractSite {
+                            place_contracts: [
+                                (
+                                    Idx(
+                                        PlaceIdx(11),
+                                    ),
+                                    Pure,
+                                ),
+                            ],
+                        },
+                    ),
+                    Some(
+                        SemaPlaceContractSite {
+                            place_contracts: [],
+                        },
+                    ),
+                    Some(
+                        SemaPlaceContractSite {
+                            place_contracts: [
+                                (
+                                    Idx(
+                                        PlaceIdx(13),
                                     ),
                                     Pure,
                                 ),
@@ -1545,7 +1545,7 @@
                             place_contracts: [
                                 (
                                     Idx(
-                                        PlaceIdx(10),
+                                        PlaceIdx(13),
                                     ),
                                     Pure,
                                 ),

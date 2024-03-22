@@ -673,7 +673,10 @@
                 root_expr: 7,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Literal,
                         VmirExprData::Binary {
                             lopd: 1,
@@ -682,7 +685,10 @@
                             ),
                             ropd: 2,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Literal,
                         VmirExprData::Binary {
                             lopd: 4,
@@ -793,8 +799,14 @@
                 root_expr: 21,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Binary {
                             lopd: 1,
                             opr: Comparison(
@@ -802,17 +814,35 @@
                             ),
                             ropd: 2,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: RefMut,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Transient,
+                        },
                         VmirExprData::Binary {
                             lopd: 4,
                             opr: Assign,
                             ropd: 5,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: RefMut,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Literal,
                         VmirExprData::Binary {
                             lopd: 10,
@@ -828,7 +858,10 @@
                             ),
                             ropd: 12,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Literal,
                         VmirExprData::Binary {
                             lopd: 14,
@@ -856,7 +889,10 @@
                             opr: Assign,
                             ropd: 18,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Transient,
+                        },
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
                                 3..7,
@@ -933,9 +969,15 @@
                     data: [
                         VmirExprData::Index,
                         VmirExprData::Index,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(3),
+                            qual: Ref,
+                        },
                         VmirExprData::Literal,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(4),
+                            qual: Ref,
+                        },
                         VmirExprData::Binary {
                             lopd: 4,
                             opr: Shift(
@@ -971,25 +1013,40 @@
                             opr: Assign,
                             ropd: 7,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(6),
+                            qual: Ref,
+                        },
                         VmirExprData::Prefix {
                             opr: NotBool,
                             opd: 9,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(6),
+                            qual: RefMut,
+                        },
                         VmirExprData::Literal,
                         VmirExprData::Binary {
                             lopd: 11,
                             opr: Assign,
                             ropd: 12,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(9),
+                            qual: Ref,
+                        },
                         VmirExprData::Prefix {
                             opr: NotInt,
                             opd: 14,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(8),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(9),
+                            qual: Ref,
+                        },
                         VmirExprData::Binary {
                             lopd: 16,
                             opr: Comparison(
@@ -997,7 +1054,10 @@
                             ),
                             ropd: 17,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(6),
+                            qual: RefMut,
+                        },
                         VmirExprData::Literal,
                         VmirExprData::Binary {
                             lopd: 19,
@@ -1005,14 +1065,23 @@
                             ropd: 20,
                         },
                         VmirExprData::Index,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(9),
+                            qual: Transient,
+                        },
                         VmirExprData::Binary {
                             lopd: 22,
                             opr: Assign,
                             ropd: 23,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(10),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(11),
+                            qual: Ref,
+                        },
                         VmirExprData::Binary {
                             lopd: 25,
                             opr: Comparison(
@@ -1020,7 +1089,10 @@
                             ),
                             ropd: 26,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(6),
+                            qual: RefMut,
+                        },
                         VmirExprData::Literal,
                         VmirExprData::Binary {
                             lopd: 28,
@@ -1028,7 +1100,10 @@
                             ropd: 29,
                         },
                         VmirExprData::Index,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(11),
+                            qual: Transient,
+                        },
                         VmirExprData::Binary {
                             lopd: 31,
                             opr: Assign,
@@ -1047,8 +1122,14 @@
                             ),
                             ropd: 36,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: RefMut,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(5),
+                            qual: Transient,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructConstructor {
@@ -1121,7 +1202,10 @@
                                 },
                             ],
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Transient,
+                        },
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
                                 27..31,
@@ -1320,7 +1404,10 @@
                 root_expr: 3,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MajorRitchieEager {
@@ -1396,7 +1483,10 @@
                 root_expr: 16,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: RefMut,
+                        },
                         VmirExprData::PrincipalEntityPath,
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
@@ -1453,8 +1543,14 @@
                                 },
                             ],
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(2),
+                            qual: RefMut,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: RefMut,
+                        },
                         VmirExprData::PrincipalEntityPath,
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
@@ -1566,8 +1662,14 @@
                                 },
                             ],
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(2),
+                            qual: RefMut,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: RefMut,
+                        },
                         VmirExprData::PrincipalEntityPath,
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
@@ -1679,7 +1781,10 @@
                                 },
                             ],
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(2),
+                            qual: Transient,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructConstructor {
@@ -1771,8 +1876,14 @@
                 root_expr: 9,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(4),
+                            qual: Ref,
+                        },
                         VmirExprData::Binary {
                             lopd: 1,
                             opr: Comparison(
@@ -1780,14 +1891,23 @@
                             ),
                             ropd: 2,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: RefMut,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(4),
+                            qual: Transient,
+                        },
                         VmirExprData::Binary {
                             lopd: 4,
                             opr: Assign,
                             ropd: 5,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
                         VmirExprData::As {
                             opd: 7,
                         },
@@ -1872,8 +1992,14 @@
                 root_expr: 9,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: RefMut,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
                         VmirExprData::Index,
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
@@ -1928,7 +2054,10 @@
                             opr: Assign,
                             ropd: 5,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
                         VmirExprData::As {
                             opd: 7,
                         },
@@ -1998,7 +2127,10 @@
                 root_expr: 7,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: RefMut,
+                        },
                         VmirExprData::Index,
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
@@ -2029,7 +2161,10 @@
                             ),
                             ropd: 3,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
                         VmirExprData::As {
                             opd: 5,
                         },
@@ -2105,7 +2240,10 @@
                             opr: NotInt,
                             opd: 2,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(5),
+                            qual: RefMut,
+                        },
                         VmirExprData::Index,
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
@@ -2136,7 +2274,10 @@
                             ),
                             ropd: 6,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(7),
+                            qual: RefMut,
+                        },
                         VmirExprData::Index,
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
@@ -2167,10 +2308,22 @@
                             ),
                             ropd: 10,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Transient,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(2),
+                            qual: Transient,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(5),
+                            qual: Transient,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(7),
+                            qual: Transient,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructConstructor {
@@ -2321,7 +2474,10 @@
                 root_expr: 5,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MemoizedField {
@@ -2425,7 +2581,10 @@
                 root_expr: 5,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MemoizedField {
@@ -2533,7 +2692,10 @@
                 root_expr: 11,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
                         VmirExprData::Literal,
                         VmirExprData::Binary {
                             lopd: 1,
@@ -2543,7 +2705,10 @@
                             ropd: 2,
                         },
                         VmirExprData::Index,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: RefMut,
+                        },
                         VmirExprData::Index,
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
@@ -2574,7 +2739,10 @@
                             ),
                             ropd: 7,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
                         VmirExprData::As {
                             opd: 9,
                         },
@@ -2674,7 +2842,10 @@
                 root_expr: 11,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
                         VmirExprData::Literal,
                         VmirExprData::Binary {
                             lopd: 1,
@@ -2684,7 +2855,10 @@
                             ropd: 2,
                         },
                         VmirExprData::Index,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: RefMut,
+                        },
                         VmirExprData::Index,
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
@@ -2715,7 +2889,10 @@
                             ),
                             ropd: 7,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
                         VmirExprData::As {
                             opd: 9,
                         },
@@ -3054,8 +3231,14 @@
                 root_expr: 8,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
                         VmirExprData::Literal,
                         VmirExprData::Binary {
                             lopd: 2,
@@ -3131,8 +3314,14 @@
                 root_expr: 6,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
                         VmirExprData::Binary {
                             lopd: 1,
                             opr: Shift(
@@ -3200,8 +3389,14 @@
                 root_expr: 8,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
                         VmirExprData::Literal,
                         VmirExprData::Binary {
                             lopd: 2,
@@ -3277,18 +3472,30 @@
                 root_expr: 17,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
                         VmirExprData::PrincipalEntityPath,
                         VmirExprData::PrincipalEntityPath,
                         VmirExprData::Unreachable,
                         VmirExprData::PrincipalEntityPath,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
                         VmirExprData::PrincipalEntityPath,
                         VmirExprData::PrincipalEntityPath,
                         VmirExprData::PrincipalEntityPath,
                         VmirExprData::Unreachable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
                         VmirExprData::PrincipalEntityPath,
                         VmirExprData::PrincipalEntityPath,
                         VmirExprData::Unreachable,
@@ -3579,8 +3786,14 @@
                 root_expr: 7,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::As {
                             opd: 2,
                         },
@@ -3689,28 +3902,49 @@
                 root_expr: 27,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
                         VmirExprData::PrincipalEntityPath,
                         VmirExprData::PrincipalEntityPath,
                         VmirExprData::Unreachable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
                         VmirExprData::PrincipalEntityPath,
                         VmirExprData::PrincipalEntityPath,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(3),
+                            qual: Ref,
+                        },
                         VmirExprData::PrincipalEntityPath,
                         VmirExprData::PrincipalEntityPath,
                         VmirExprData::Unreachable,
                         VmirExprData::PrincipalEntityPath,
                         VmirExprData::Unreachable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
                         VmirExprData::PrincipalEntityPath,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(3),
+                            qual: Ref,
+                        },
                         VmirExprData::PrincipalEntityPath,
                         VmirExprData::PrincipalEntityPath,
                         VmirExprData::Unreachable,
                         VmirExprData::Unreachable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
                         VmirExprData::PrincipalEntityPath,
                         VmirExprData::PrincipalEntityPath,
                         VmirExprData::Unreachable,
@@ -4218,7 +4452,10 @@
                 root_expr: 16,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -4243,7 +4480,10 @@
                                 },
                             ],
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -4283,7 +4523,10 @@
                             ),
                             ropd: 6,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -4308,7 +4551,10 @@
                                 },
                             ],
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -4425,8 +4671,14 @@
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Index,
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(3),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(4),
+                            qual: Ref,
+                        },
                         VmirExprData::Binary {
                             lopd: 2,
                             opr: Closed(
@@ -4434,7 +4686,10 @@
                             ),
                             ropd: 3,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(5),
+                            qual: Ref,
+                        },
                         VmirExprData::Binary {
                             lopd: 4,
                             opr: Closed(
@@ -4442,7 +4697,10 @@
                             ),
                             ropd: 5,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(6),
+                            qual: Ref,
+                        },
                         VmirExprData::Binary {
                             lopd: 6,
                             opr: Closed(
@@ -4450,8 +4708,14 @@
                             ),
                             ropd: 7,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(3),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(4),
+                            qual: Ref,
+                        },
                         VmirExprData::Binary {
                             lopd: 9,
                             opr: Closed(
@@ -4459,7 +4723,10 @@
                             ),
                             ropd: 10,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(5),
+                            qual: Ref,
+                        },
                         VmirExprData::Binary {
                             lopd: 11,
                             opr: Closed(
@@ -4467,7 +4734,10 @@
                             ),
                             ropd: 12,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(6),
+                            qual: Ref,
+                        },
                         VmirExprData::Binary {
                             lopd: 13,
                             opr: Closed(
@@ -4492,8 +4762,14 @@
                             ropd: 17,
                         },
                         VmirExprData::Index,
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(9),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(14),
+                            qual: Ref,
+                        },
                         VmirExprData::Binary {
                             lopd: 20,
                             opr: Comparison(
@@ -4501,8 +4777,14 @@
                             ),
                             ropd: 21,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(10),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(15),
+                            qual: Ref,
+                        },
                         VmirExprData::Binary {
                             lopd: 23,
                             opr: Comparison(
@@ -4517,8 +4799,14 @@
                             ),
                             ropd: 25,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(13),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(16),
+                            qual: Ref,
+                        },
                         VmirExprData::Binary {
                             lopd: 27,
                             opr: Comparison(
@@ -4540,7 +4828,10 @@
                         VmirExprData::Index,
                         VmirExprData::Index,
                         VmirExprData::Literal,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(10),
+                            qual: Ref,
+                        },
                         VmirExprData::Binary {
                             lopd: 34,
                             opr: Shift(
@@ -4564,8 +4855,14 @@
                             opr: Assign,
                             ropd: 38,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(24),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(17),
+                            qual: Ref,
+                        },
                         VmirExprData::Literal,
                         VmirExprData::Prefix {
                             opr: Minus,
@@ -4578,7 +4875,10 @@
                             ),
                             ropd: 43,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(18),
+                            qual: Ref,
+                        },
                         VmirExprData::Literal,
                         VmirExprData::Prefix {
                             opr: Minus,
@@ -4598,7 +4898,10 @@
                             ),
                             ropd: 48,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(22),
+                            qual: Ref,
+                        },
                         VmirExprData::Literal,
                         VmirExprData::Binary {
                             lopd: 50,
@@ -4614,7 +4917,10 @@
                             ),
                             ropd: 52,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(20),
+                            qual: Ref,
+                        },
                         VmirExprData::Literal,
                         VmirExprData::Prefix {
                             opr: Minus,
@@ -4634,7 +4940,10 @@
                             ),
                             ropd: 57,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(21),
+                            qual: Ref,
+                        },
                         VmirExprData::Literal,
                         VmirExprData::Binary {
                             lopd: 59,
@@ -4650,7 +4959,10 @@
                             ),
                             ropd: 61,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(8),
+                            qual: RefMut,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MethodRitchie {
@@ -4707,7 +5019,10 @@
                         VmirExprData::Unwrap {
                             opd: 64,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(8),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MajorRitchieEager {
@@ -4732,9 +5047,18 @@
                             opr: Assign,
                             ropd: 67,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(8),
+                            qual: RefMut,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(9),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(10),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::AssocRitchie {
@@ -4817,7 +5141,10 @@
                                 },
                             ],
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(21),
+                            qual: RefMut,
+                        },
                         VmirExprData::Literal,
                         VmirExprData::Prefix {
                             opr: Minus,
@@ -4828,7 +5155,10 @@
                             opr: Assign,
                             ropd: 76,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(20),
+                            qual: RefMut,
+                        },
                         VmirExprData::Literal,
                         VmirExprData::Prefix {
                             opr: Minus,
@@ -4839,7 +5169,10 @@
                             opr: Assign,
                             ropd: 80,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(17),
+                            qual: Ref,
+                        },
                         VmirExprData::Literal,
                         VmirExprData::Prefix {
                             opr: Minus,
@@ -4852,7 +5185,10 @@
                             ),
                             ropd: 84,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(20),
+                            qual: Ref,
+                        },
                         VmirExprData::Literal,
                         VmirExprData::Binary {
                             lopd: 86,
@@ -4868,7 +5204,10 @@
                             ),
                             ropd: 88,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(20),
+                            qual: Ref,
+                        },
                         VmirExprData::Literal,
                         VmirExprData::Binary {
                             lopd: 90,
@@ -4884,7 +5223,10 @@
                             ),
                             ropd: 92,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(8),
+                            qual: RefMut,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MethodRitchie {
@@ -4941,8 +5283,14 @@
                         VmirExprData::Unwrap {
                             opd: 95,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(9),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(10),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::AssocRitchie {
@@ -4975,21 +5323,36 @@
                             opr: Assign,
                             ropd: 99,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(21),
+                            qual: RefMut,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(20),
+                            qual: Transient,
+                        },
                         VmirExprData::Binary {
                             lopd: 101,
                             opr: Assign,
                             ropd: 102,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(20),
+                            qual: RefMut,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(22),
+                            qual: Transient,
+                        },
                         VmirExprData::Binary {
                             lopd: 104,
                             opr: Assign,
                             ropd: 105,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(17),
+                            qual: Ref,
+                        },
                         VmirExprData::Literal,
                         VmirExprData::Prefix {
                             opr: Minus,
@@ -5002,7 +5365,10 @@
                             ),
                             ropd: 109,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(20),
+                            qual: Ref,
+                        },
                         VmirExprData::Literal,
                         VmirExprData::Binary {
                             lopd: 111,
@@ -5018,7 +5384,10 @@
                             ),
                             ropd: 113,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(22),
+                            qual: Ref,
+                        },
                         VmirExprData::Literal,
                         VmirExprData::Binary {
                             lopd: 115,
@@ -5034,7 +5403,10 @@
                             ),
                             ropd: 117,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(20),
+                            qual: Ref,
+                        },
                         VmirExprData::Literal,
                         VmirExprData::Binary {
                             lopd: 119,
@@ -5050,7 +5422,10 @@
                             ),
                             ropd: 121,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(8),
+                            qual: RefMut,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MethodRitchie {
@@ -5107,8 +5482,14 @@
                         VmirExprData::Unwrap {
                             opd: 124,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(9),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(10),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::AssocRitchie {
@@ -5141,7 +5522,10 @@
                             opr: Assign,
                             ropd: 128,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(21),
+                            qual: RefMut,
+                        },
                         VmirExprData::Literal,
                         VmirExprData::Prefix {
                             opr: Minus,
@@ -5152,7 +5536,10 @@
                             opr: Assign,
                             ropd: 132,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(20),
+                            qual: RefMut,
+                        },
                         VmirExprData::Literal,
                         VmirExprData::Prefix {
                             opr: Minus,
@@ -5163,9 +5550,18 @@
                             opr: Assign,
                             ropd: 136,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(8),
+                            qual: RefMut,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(9),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(10),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::AssocRitchie {
@@ -5248,44 +5644,80 @@
                                 },
                             ],
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(21),
+                            qual: RefMut,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(20),
+                            qual: Transient,
+                        },
                         VmirExprData::Binary {
                             lopd: 143,
                             opr: Assign,
                             ropd: 144,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(20),
+                            qual: RefMut,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(22),
+                            qual: Transient,
+                        },
                         VmirExprData::Binary {
                             lopd: 146,
                             opr: Assign,
                             ropd: 147,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(22),
+                            qual: RefMut,
+                        },
                         VmirExprData::Literal,
                         VmirExprData::Binary {
                             lopd: 149,
                             opr: Assign,
                             ropd: 150,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(18),
+                            qual: RefMut,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(17),
+                            qual: Transient,
+                        },
                         VmirExprData::Binary {
                             lopd: 152,
                             opr: Assign,
                             ropd: 153,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(17),
+                            qual: RefMut,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(24),
+                            qual: Transient,
+                        },
                         VmirExprData::Binary {
                             lopd: 155,
                             opr: Assign,
                             ropd: 156,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(23),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(9),
+                            qual: RefMut,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(9),
+                            qual: Ref,
+                        },
                         VmirExprData::Literal,
                         VmirExprData::Binary {
                             lopd: 160,
@@ -5299,22 +5731,37 @@
                             opr: Assign,
                             ropd: 162,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(12),
+                            qual: RefMut,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(11),
+                            qual: Transient,
+                        },
                         VmirExprData::Binary {
                             lopd: 164,
                             opr: Assign,
                             ropd: 165,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(11),
+                            qual: RefMut,
+                        },
                         VmirExprData::Index,
                         VmirExprData::Binary {
                             lopd: 167,
                             opr: Assign,
                             ropd: 168,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(9),
+                            qual: RefMut,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(9),
+                            qual: Ref,
+                        },
                         VmirExprData::Literal,
                         VmirExprData::Binary {
                             lopd: 171,
@@ -5328,22 +5775,37 @@
                             opr: Assign,
                             ropd: 173,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(11),
+                            qual: RefMut,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(12),
+                            qual: Transient,
+                        },
                         VmirExprData::Binary {
                             lopd: 175,
                             opr: Assign,
                             ropd: 176,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(12),
+                            qual: RefMut,
+                        },
                         VmirExprData::Index,
                         VmirExprData::Binary {
                             lopd: 178,
                             opr: Assign,
                             ropd: 179,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(10),
+                            qual: RefMut,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(10),
+                            qual: Ref,
+                        },
                         VmirExprData::Literal,
                         VmirExprData::Binary {
                             lopd: 182,
@@ -5357,8 +5819,14 @@
                             opr: Assign,
                             ropd: 184,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(10),
+                            qual: RefMut,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(10),
+                            qual: Ref,
+                        },
                         VmirExprData::Literal,
                         VmirExprData::Binary {
                             lopd: 187,
@@ -5372,14 +5840,23 @@
                             opr: Assign,
                             ropd: 189,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(13),
+                            qual: RefMut,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(23),
+                            qual: Transient,
+                        },
                         VmirExprData::Binary {
                             lopd: 191,
                             opr: Assign,
                             ropd: 192,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(22),
+                            qual: Ref,
+                        },
                         VmirExprData::Literal,
                         VmirExprData::Prefix {
                             opr: Minus,
@@ -5392,12 +5869,18 @@
                             ),
                             ropd: 196,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(22),
+                            qual: RefMut,
+                        },
                         VmirExprData::Suffix {
                             opd: 198,
                             opr: Incr,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(17),
+                            qual: Ref,
+                        },
                         VmirExprData::Literal,
                         VmirExprData::Prefix {
                             opr: Minus,
@@ -5410,7 +5893,10 @@
                             ),
                             ropd: 202,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(22),
+                            qual: Ref,
+                        },
                         VmirExprData::Literal,
                         VmirExprData::Binary {
                             lopd: 204,
@@ -5426,7 +5912,10 @@
                             ),
                             ropd: 206,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(20),
+                            qual: Ref,
+                        },
                         VmirExprData::Literal,
                         VmirExprData::Binary {
                             lopd: 208,
@@ -5442,7 +5931,10 @@
                             ),
                             ropd: 210,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(8),
+                            qual: RefMut,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MethodRitchie {
@@ -5494,9 +5986,18 @@
                                 },
                             ],
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: RefMut,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Transient,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(8),
+                            qual: Transient,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructConstructor {
@@ -5573,7 +6074,10 @@
                                 },
                             ],
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Transient,
+                        },
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
                                 59..64,
@@ -6004,7 +6508,10 @@
                 root_expr: 4,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Literal,
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
@@ -6089,9 +6596,18 @@
                 root_expr: 32,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(2),
+                            qual: RefMut,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(2),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(7),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -6147,9 +6663,18 @@
                             opr: Assign,
                             ropd: 5,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(3),
+                            qual: RefMut,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(3),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(7),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -6205,9 +6730,18 @@
                             opr: Assign,
                             ropd: 11,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(4),
+                            qual: RefMut,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(4),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(7),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -6263,9 +6797,18 @@
                             opr: Assign,
                             ropd: 17,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(5),
+                            qual: RefMut,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(5),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(7),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -6321,8 +6864,14 @@
                             opr: Assign,
                             ropd: 23,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(2),
+                            qual: Transient,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(3),
+                            qual: Transient,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructConstructor {
@@ -6344,8 +6893,14 @@
                                 },
                             ],
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(4),
+                            qual: Transient,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(5),
+                            qual: Transient,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructConstructor {
@@ -6501,7 +7056,10 @@
                                 },
                             ],
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MemoizedField {
@@ -6604,8 +7162,14 @@
                 root_expr: 32,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: RefMut,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(3),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -6630,7 +7194,10 @@
                                 },
                             ],
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(4),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -6684,7 +7251,10 @@
                                 },
                             ],
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(3),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -6709,7 +7279,10 @@
                                 },
                             ],
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(4),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -6777,8 +7350,14 @@
                             ),
                             ropd: 14,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: RefMut,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(5),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -6803,7 +7382,10 @@
                                 },
                             ],
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(6),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -6857,7 +7439,10 @@
                                 },
                             ],
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(5),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -6882,7 +7467,10 @@
                                 },
                             ],
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(6),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -6950,7 +7538,10 @@
                             ),
                             ropd: 29,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Transient,
+                        },
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
                                 4..10,
@@ -7032,8 +7623,14 @@
                 root_expr: 4,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MethodRitchie {
@@ -7502,7 +8099,10 @@
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Literal,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
                         VmirExprData::Binary {
                             lopd: 1,
                             opr: Closed(
@@ -7514,7 +8114,10 @@
                             opd: 3,
                         },
                         VmirExprData::Literal,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Binary {
                             lopd: 5,
                             opr: Closed(
@@ -7606,7 +8209,10 @@
                 root_expr: 6,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Transient,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -7631,7 +8237,10 @@
                                 },
                             ],
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Transient,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -7737,7 +8346,10 @@
                 root_expr: 12,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -7762,7 +8374,10 @@
                                 },
                             ],
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -7794,7 +8409,10 @@
                             ),
                             ropd: 4,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -7819,7 +8437,10 @@
                                 },
                             ],
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -7932,7 +8553,10 @@
                 root_expr: 13,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -7957,7 +8581,10 @@
                                 },
                             ],
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -7989,7 +8616,10 @@
                             ),
                             ropd: 4,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -8014,7 +8644,10 @@
                                 },
                             ],
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -8135,8 +8768,14 @@
                 root_expr: 5,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MethodRitchie {
@@ -8245,7 +8884,10 @@
                 root_expr: 6,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Transient,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -8270,7 +8912,10 @@
                                 },
                             ],
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Transient,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -8376,7 +9021,10 @@
                 root_expr: 12,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -8401,7 +9049,10 @@
                                 },
                             ],
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -8433,7 +9084,10 @@
                             ),
                             ropd: 4,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -8458,7 +9112,10 @@
                                 },
                             ],
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -8571,7 +9228,10 @@
                 root_expr: 13,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -8596,7 +9256,10 @@
                                 },
                             ],
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -8628,7 +9291,10 @@
                             ),
                             ropd: 4,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -8653,7 +9319,10 @@
                                 },
                             ],
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -8774,7 +9443,10 @@
                 root_expr: 12,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -8799,7 +9471,10 @@
                                 },
                             ],
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -8831,7 +9506,10 @@
                             ),
                             ropd: 4,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -8856,7 +9534,10 @@
                                 },
                             ],
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -8955,7 +9636,10 @@
                 root_expr: 12,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -8980,7 +9664,10 @@
                                 },
                             ],
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -9012,7 +9699,10 @@
                             ),
                             ropd: 4,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -9037,7 +9727,10 @@
                                 },
                             ],
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -9136,7 +9829,10 @@
                 root_expr: 21,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
                         VmirExprData::Literal,
                         VmirExprData::Binary {
                             lopd: 1,
@@ -9153,14 +9849,20 @@
                             ),
                             ropd: 4,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
                         VmirExprData::Literal,
                         VmirExprData::Literal,
                         VmirExprData::Prefix {
                             opr: Minus,
                             opd: 8,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -9210,7 +9912,10 @@
                         VmirExprData::As {
                             opd: 12,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MethodRitchie {
@@ -9369,8 +10074,14 @@
                 root_expr: 5,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MethodRitchie {
@@ -9479,7 +10190,10 @@
                 root_expr: 21,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
                         VmirExprData::Literal,
                         VmirExprData::Binary {
                             lopd: 1,
@@ -9488,7 +10202,10 @@
                             ),
                             ropd: 2,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(2),
+                            qual: Ref,
+                        },
                         VmirExprData::Literal,
                         VmirExprData::Binary {
                             lopd: 4,
@@ -9497,7 +10214,10 @@
                             ),
                             ropd: 5,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(3),
+                            qual: Ref,
+                        },
                         VmirExprData::Literal,
                         VmirExprData::Binary {
                             lopd: 7,
@@ -9514,14 +10234,20 @@
                             ),
                             ropd: 10,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(2),
+                            qual: Ref,
+                        },
                         VmirExprData::Literal,
                         VmirExprData::Literal,
                         VmirExprData::Prefix {
                             opr: Minus,
                             opd: 14,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(4),
+                            qual: Ref,
+                        },
                         VmirExprData::Literal,
                         VmirExprData::Binary {
                             lopd: 16,
@@ -9666,7 +10392,10 @@
                 root_expr: 9,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -9691,7 +10420,10 @@
                                 },
                             ],
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -9723,8 +10455,14 @@
                             ),
                             ropd: 4,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(2),
+                            qual: Transient,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(3),
+                            qual: Transient,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructConstructor {
@@ -9815,8 +10553,14 @@
                 root_expr: 7,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -9848,7 +10592,10 @@
                             ),
                             ropd: 3,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
                         VmirExprData::Binary {
                             lopd: 4,
                             opr: Closed(
@@ -9917,7 +10664,10 @@
                 root_expr: 12,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -9942,7 +10692,10 @@
                                 },
                             ],
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -9993,7 +10746,10 @@
                                 },
                             ],
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -10018,7 +10774,10 @@
                                 },
                             ],
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -10150,7 +10909,10 @@
                 root_expr: 12,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -10175,7 +10937,10 @@
                                 },
                             ],
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -10226,7 +10991,10 @@
                                 },
                             ],
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -10251,7 +11019,10 @@
                                 },
                             ],
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -10383,7 +11154,10 @@
                 root_expr: 4,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Transient,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -10492,7 +11266,10 @@
                 root_expr: 4,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Transient,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -10601,7 +11378,10 @@
                 root_expr: 4,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Transient,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -10710,7 +11490,10 @@
                 root_expr: 4,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Transient,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -10819,7 +11602,10 @@
                 root_expr: 4,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Transient,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -10928,7 +11714,10 @@
                 root_expr: 4,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Transient,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -11037,7 +11826,10 @@
                 root_expr: 4,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Transient,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -11146,7 +11938,10 @@
                 root_expr: 4,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Transient,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -11393,8 +12188,14 @@
                 root_expr: 13,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
                         VmirExprData::Binary {
                             lopd: 1,
                             opr: Comparison(
@@ -11402,7 +12203,10 @@
                             ),
                             ropd: 2,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -11427,7 +12231,10 @@
                                 },
                             ],
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(2),
+                            qual: Ref,
+                        },
                         VmirExprData::Binary {
                             lopd: 5,
                             opr: Closed(
@@ -11435,7 +12242,10 @@
                             ),
                             ropd: 6,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -11460,7 +12270,10 @@
                                 },
                             ],
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(3),
+                            qual: Ref,
+                        },
                         VmirExprData::Binary {
                             lopd: 9,
                             opr: Closed(
@@ -11551,8 +12364,14 @@
                 root_expr: 13,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
                         VmirExprData::Binary {
                             lopd: 1,
                             opr: Comparison(
@@ -11560,7 +12379,10 @@
                             ),
                             ropd: 2,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -11585,7 +12407,10 @@
                                 },
                             ],
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(2),
+                            qual: Ref,
+                        },
                         VmirExprData::Binary {
                             lopd: 5,
                             opr: Closed(
@@ -11593,7 +12418,10 @@
                             ),
                             ropd: 6,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -11618,7 +12446,10 @@
                                 },
                             ],
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(3),
+                            qual: Ref,
+                        },
                         VmirExprData::Binary {
                             lopd: 9,
                             opr: Closed(
@@ -11709,8 +12540,14 @@
                 root_expr: 83,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(3),
+                            qual: Ref,
+                        },
                         VmirExprData::Binary {
                             lopd: 1,
                             opr: Comparison(
@@ -11718,7 +12555,10 @@
                             ),
                             ropd: 2,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MethodRitchie {
@@ -11741,7 +12581,10 @@
                                 },
                             ],
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(2),
+                            qual: Ref,
+                        },
                         VmirExprData::Binary {
                             lopd: 5,
                             opr: Comparison(
@@ -11756,15 +12599,30 @@
                             ),
                             ropd: 7,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: RefMut,
+                        },
                         VmirExprData::Suffix {
                             opd: 9,
                             opr: Incr,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: RefMut,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Literal,
                         VmirExprData::Binary {
                             lopd: 14,
@@ -11808,7 +12666,10 @@
                             opr: Assign,
                             ropd: 17,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MethodRitchie {
@@ -11831,7 +12692,10 @@
                                 },
                             ],
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(2),
+                            qual: Ref,
+                        },
                         VmirExprData::Binary {
                             lopd: 20,
                             opr: Comparison(
@@ -11839,9 +12703,18 @@
                             ),
                             ropd: 21,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Transient,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(3),
+                            qual: Ref,
+                        },
                         VmirExprData::Binary {
                             lopd: 24,
                             opr: Comparison(
@@ -11849,8 +12722,14 @@
                             ),
                             ropd: 25,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(4),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MethodRitchie {
@@ -11892,8 +12771,14 @@
                             ),
                             ropd: 31,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(5),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MethodRitchie {
@@ -11935,9 +12820,18 @@
                             ),
                             ropd: 37,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(7),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(6),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(2),
+                            qual: Ref,
+                        },
                         VmirExprData::Binary {
                             lopd: 40,
                             opr: Closed(
@@ -11952,8 +12846,14 @@
                             ),
                             ropd: 42,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(7),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(6),
+                            qual: Ref,
+                        },
                         VmirExprData::Binary {
                             lopd: 44,
                             opr: Comparison(
@@ -11961,15 +12861,27 @@
                             ),
                             ropd: 45,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(6),
+                            qual: RefMut,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(7),
+                            qual: Transient,
+                        },
                         VmirExprData::Binary {
                             lopd: 47,
                             opr: Assign,
                             ropd: 48,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(7),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(2),
+                            qual: Ref,
+                        },
                         VmirExprData::Binary {
                             lopd: 50,
                             opr: Comparison(
@@ -11977,8 +12889,14 @@
                             ),
                             ropd: 51,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(4),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(8),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MethodRitchie {
@@ -12013,15 +12931,27 @@
                             ),
                             ropd: 56,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(4),
+                            qual: RefMut,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(8),
+                            qual: Transient,
+                        },
                         VmirExprData::Binary {
                             lopd: 58,
                             opr: Assign,
                             ropd: 59,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(9),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(5),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MethodRitchie {
@@ -12056,22 +12986,43 @@
                             ),
                             ropd: 64,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(5),
+                            qual: RefMut,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(9),
+                            qual: Transient,
+                        },
                         VmirExprData::Binary {
                             lopd: 66,
                             opr: Assign,
                             ropd: 67,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: RefMut,
+                        },
                         VmirExprData::Suffix {
                             opd: 69,
                             opr: Incr,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: RefMut,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Literal,
                         VmirExprData::Binary {
                             lopd: 74,
@@ -12115,8 +13066,14 @@
                             opr: Assign,
                             ropd: 77,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
                         VmirExprData::Binary {
                             lopd: 79,
                             opr: Comparison(
@@ -12124,7 +13081,10 @@
                             ),
                             ropd: 80,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Transient,
+                        },
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
                                 17..29,
@@ -12337,8 +13297,14 @@
                 root_expr: 87,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(2),
+                            qual: Ref,
+                        },
                         VmirExprData::Binary {
                             lopd: 1,
                             opr: Comparison(
@@ -12346,7 +13312,10 @@
                             ),
                             ropd: 2,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MethodRitchie {
@@ -12369,7 +13338,10 @@
                                 },
                             ],
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(3),
+                            qual: Ref,
+                        },
                         VmirExprData::Binary {
                             lopd: 5,
                             opr: Comparison(
@@ -12384,15 +13356,30 @@
                             ),
                             ropd: 7,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: RefMut,
+                        },
                         VmirExprData::Suffix {
                             opd: 9,
                             opr: Decr,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: RefMut,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(2),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Literal,
                         VmirExprData::Binary {
                             lopd: 14,
@@ -12436,7 +13423,10 @@
                             opr: Assign,
                             ropd: 17,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MethodRitchie {
@@ -12459,7 +13449,10 @@
                                 },
                             ],
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(3),
+                            qual: Ref,
+                        },
                         VmirExprData::Binary {
                             lopd: 20,
                             opr: Comparison(
@@ -12467,8 +13460,14 @@
                             ),
                             ropd: 21,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MethodRitchie {
@@ -12495,8 +13494,14 @@
                                 },
                             ],
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(2),
+                            qual: Ref,
+                        },
                         VmirExprData::Binary {
                             lopd: 26,
                             opr: Comparison(
@@ -12504,9 +13509,18 @@
                             ),
                             ropd: 27,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(7),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(5),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(3),
+                            qual: Ref,
+                        },
                         VmirExprData::Binary {
                             lopd: 30,
                             opr: Closed(
@@ -12521,8 +13535,14 @@
                             ),
                             ropd: 32,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(7),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(5),
+                            qual: Ref,
+                        },
                         VmirExprData::Binary {
                             lopd: 34,
                             opr: Comparison(
@@ -12530,15 +13550,27 @@
                             ),
                             ropd: 35,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(5),
+                            qual: RefMut,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(7),
+                            qual: Transient,
+                        },
                         VmirExprData::Binary {
                             lopd: 37,
                             opr: Assign,
                             ropd: 38,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(7),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(3),
+                            qual: Ref,
+                        },
                         VmirExprData::Binary {
                             lopd: 40,
                             opr: Comparison(
@@ -12546,8 +13578,14 @@
                             ),
                             ropd: 41,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(3),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(8),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MethodRitchie {
@@ -12582,15 +13620,27 @@
                             ),
                             ropd: 46,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(3),
+                            qual: RefMut,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(8),
+                            qual: Transient,
+                        },
                         VmirExprData::Binary {
                             lopd: 48,
                             opr: Assign,
                             ropd: 49,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(9),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(4),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MethodRitchie {
@@ -12625,15 +13675,27 @@
                             ),
                             ropd: 54,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(4),
+                            qual: RefMut,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(9),
+                            qual: Transient,
+                        },
                         VmirExprData::Binary {
                             lopd: 56,
                             opr: Assign,
                             ropd: 57,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(3),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(4),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MethodRitchie {
@@ -12668,8 +13730,14 @@
                             ),
                             ropd: 62,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
                         VmirExprData::Binary {
                             lopd: 64,
                             opr: Comparison(
@@ -12677,8 +13745,14 @@
                             ),
                             ropd: 65,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(3),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(6),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MethodRitchie {
@@ -12713,8 +13787,14 @@
                             ),
                             ropd: 70,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(6),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(4),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MethodRitchie {
@@ -12767,13 +13847,22 @@
                             ),
                             ropd: 78,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: RefMut,
+                        },
                         VmirExprData::Suffix {
                             opd: 80,
                             opr: Decr,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
                         VmirExprData::Binary {
                             lopd: 82,
                             opr: Comparison(
@@ -12781,8 +13870,14 @@
                             ),
                             ropd: 83,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Transient,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Transient,
+                        },
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
                                 23..33,
@@ -13039,8 +14134,14 @@
                 root_expr: 132,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(2),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(3),
+                            qual: Ref,
+                        },
                         VmirExprData::Binary {
                             lopd: 1,
                             opr: Comparison(
@@ -13048,10 +14149,22 @@
                             ),
                             ropd: 2,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(2),
+                            qual: RefMut,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MajorRitchieEager {
@@ -13084,7 +14197,10 @@
                             opr: Assign,
                             ropd: 8,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MethodRitchie {
@@ -13138,8 +14254,14 @@
                             ),
                             ropd: 12,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(6),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(7),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MethodRitchie {
@@ -13196,8 +14318,14 @@
                             ),
                             ropd: 18,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(6),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(7),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MethodRitchie {
@@ -13239,7 +14367,10 @@
                             ),
                             ropd: 24,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: RefMut,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MethodRitchie {
@@ -13296,8 +14427,14 @@
                         VmirExprData::Unwrap {
                             opd: 27,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MethodRitchie {
@@ -13423,7 +14560,10 @@
                                 },
                             ],
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(2),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::AssocRitchie {
@@ -13460,19 +14600,40 @@
                             opr: Assign,
                             ropd: 36,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(5),
+                            qual: RefMut,
+                        },
                         VmirExprData::Literal,
                         VmirExprData::Binary {
                             lopd: 38,
                             opr: Assign,
                             ropd: 39,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(5),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: RefMut,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(2),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MajorRitchieEager {
@@ -13509,7 +14670,10 @@
                             opr: Assign,
                             ropd: 47,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MethodRitchie {
@@ -13563,8 +14727,14 @@
                             ),
                             ropd: 51,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(11),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(10),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MethodRitchie {
@@ -13621,8 +14791,14 @@
                             ),
                             ropd: 57,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(11),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(10),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MethodRitchie {
@@ -13664,8 +14840,14 @@
                             ),
                             ropd: 63,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(11),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(12),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MethodRitchie {
@@ -13729,8 +14911,14 @@
                             ),
                             ropd: 70,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(11),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(12),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MethodRitchie {
@@ -13772,9 +14960,18 @@
                             ),
                             ropd: 76,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(9),
+                            qual: RefMut,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(13),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -13844,7 +15041,10 @@
                                 },
                             ],
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(9),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -13950,9 +15150,18 @@
                             opr: Assign,
                             ropd: 86,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(3),
+                            qual: RefMut,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -14043,8 +15252,14 @@
                             opr: Assign,
                             ropd: 93,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: RefMut,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(9),
+                            qual: Transient,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MethodRitchie {
@@ -14100,15 +15315,27 @@
                                 },
                             ],
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: RefMut,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(2),
+                            qual: Transient,
+                        },
                         VmirExprData::Binary {
                             lopd: 98,
                             opr: Assign,
                             ropd: 99,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(2),
+                            qual: RefMut,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
                         VmirExprData::Literal,
                         VmirExprData::Binary {
                             lopd: 102,
@@ -14122,7 +15349,10 @@
                             opr: Assign,
                             ropd: 104,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -14192,8 +15422,14 @@
                                 },
                             ],
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(15),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(14),
+                            qual: Ref,
+                        },
                         VmirExprData::Binary {
                             lopd: 109,
                             opr: Closed(
@@ -14208,7 +15444,10 @@
                             ),
                             ropd: 111,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: RefMut,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MethodRitchie {
@@ -14265,8 +15504,14 @@
                         VmirExprData::Unwrap {
                             opd: 114,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(16),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -14336,7 +15581,10 @@
                                 },
                             ],
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(14),
+                            qual: Ref,
+                        },
                         VmirExprData::Binary {
                             lopd: 119,
                             opr: Closed(
@@ -14344,7 +15592,10 @@
                             ),
                             ropd: 120,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MethodRitchie {
@@ -14514,7 +15765,10 @@
                             opr: Assign,
                             ropd: 129,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Transient,
+                        },
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
                                 28..38,
@@ -14757,8 +16011,14 @@
                 root_expr: 12,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(2),
+                            qual: Ref,
+                        },
                         VmirExprData::Binary {
                             lopd: 1,
                             opr: Comparison(
@@ -14766,7 +16026,10 @@
                             ),
                             ropd: 2,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -14800,8 +16063,14 @@
                                 },
                             ],
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(2),
+                            qual: Ref,
+                        },
                         VmirExprData::Literal,
                         VmirExprData::Binary {
                             lopd: 7,
@@ -14946,7 +16215,10 @@
                 root_expr: 6,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -14971,7 +16243,10 @@
                                 },
                             ],
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -15078,7 +16353,10 @@
                 root_expr: 3,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MajorRitchieEager {
@@ -15154,9 +16432,18 @@
                 root_expr: 32,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(2),
+                            qual: RefMut,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(2),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(7),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -15212,9 +16499,18 @@
                             opr: Assign,
                             ropd: 5,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(3),
+                            qual: RefMut,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(3),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(7),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -15270,9 +16566,18 @@
                             opr: Assign,
                             ropd: 11,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(4),
+                            qual: RefMut,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(4),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(7),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -15328,9 +16633,18 @@
                             opr: Assign,
                             ropd: 17,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(5),
+                            qual: RefMut,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(5),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(7),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -15386,8 +16700,14 @@
                             opr: Assign,
                             ropd: 23,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(2),
+                            qual: Transient,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(3),
+                            qual: Transient,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructConstructor {
@@ -15409,8 +16729,14 @@
                                 },
                             ],
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(4),
+                            qual: Transient,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(5),
+                            qual: Transient,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructConstructor {
@@ -15549,9 +16875,18 @@
                 root_expr: 6,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Transient,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MajorRitchieEager {
@@ -15711,8 +17046,14 @@
                 root_expr: 52,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(2),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
                         VmirExprData::Prefix {
                             opr: Minus,
                             opd: 2,
@@ -15724,8 +17065,14 @@
                             ),
                             ropd: 3,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(2),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MajorRitchieEager {
@@ -15760,14 +17107,26 @@
                             ),
                             ropd: 8,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(2),
+                            qual: RefMut,
+                        },
                         VmirExprData::Suffix {
                             opd: 10,
                             opr: Decr,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(2),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(4),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
                         VmirExprData::Binary {
                             lopd: 13,
                             opr: Closed(
@@ -15782,9 +17141,18 @@
                             ),
                             ropd: 15,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(3),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(2),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
                         VmirExprData::Binary {
                             lopd: 18,
                             opr: Closed(
@@ -15799,8 +17167,14 @@
                             ),
                             ropd: 20,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(3),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MajorRitchieEager {
@@ -15835,13 +17209,22 @@
                             ),
                             ropd: 25,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(3),
+                            qual: RefMut,
+                        },
                         VmirExprData::Suffix {
                             opd: 27,
                             opr: Incr,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(3),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(2),
+                            qual: Ref,
+                        },
                         VmirExprData::Literal,
                         VmirExprData::Binary {
                             lopd: 30,
@@ -15857,9 +17240,18 @@
                             ),
                             ropd: 32,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: RefMut,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Transient,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -15893,8 +17285,14 @@
                                 },
                             ],
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(2),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(3),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MethodRitchie {
@@ -16024,15 +17422,27 @@
                                 },
                             ],
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(2),
+                            qual: RefMut,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(3),
+                            qual: Transient,
+                        },
                         VmirExprData::Binary {
                             lopd: 43,
                             opr: Assign,
                             ropd: 44,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(3),
+                            qual: RefMut,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(2),
+                            qual: Ref,
+                        },
                         VmirExprData::Literal,
                         VmirExprData::Binary {
                             lopd: 47,
@@ -16046,7 +17456,10 @@
                             opr: Assign,
                             ropd: 49,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Transient,
+                        },
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
                                 8..16,
@@ -16180,7 +17593,10 @@
                 root_expr: 3,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MemoizedField {
@@ -16257,7 +17673,10 @@
                 root_expr: 7,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MemoizedField {
@@ -16278,7 +17697,10 @@
                                 },
                             ],
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MethodRitchie {
@@ -16386,8 +17808,14 @@
                 root_expr: 8,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(7),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
                         VmirExprData::Binary {
                             lopd: 1,
                             opr: Comparison(
@@ -16395,14 +17823,23 @@
                             ),
                             ropd: 2,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: RefMut,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(7),
+                            qual: Transient,
+                        },
                         VmirExprData::Binary {
                             lopd: 4,
                             opr: Assign,
                             ropd: 5,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Transient,
+                        },
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
                                 5..11,
@@ -16487,9 +17924,18 @@
                 root_expr: 11,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: RefMut,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(2),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(4),
+                            qual: Ref,
+                        },
                         VmirExprData::Literal,
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
@@ -16528,14 +17974,23 @@
                             ),
                             ropd: 5,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(2),
+                            qual: RefMut,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(4),
+                            qual: Transient,
+                        },
                         VmirExprData::Binary {
                             lopd: 7,
                             opr: Assign,
                             ropd: 8,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Transient,
+                        },
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
                                 4..8,
@@ -16611,9 +18066,18 @@
                 root_expr: 32,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(2),
+                            qual: RefMut,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(2),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(7),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -16669,9 +18133,18 @@
                             opr: Assign,
                             ropd: 5,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(3),
+                            qual: RefMut,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(3),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(7),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -16727,9 +18200,18 @@
                             opr: Assign,
                             ropd: 11,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(4),
+                            qual: RefMut,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(4),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(7),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -16785,9 +18267,18 @@
                             opr: Assign,
                             ropd: 17,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(5),
+                            qual: RefMut,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(5),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(7),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -16843,8 +18334,14 @@
                             opr: Assign,
                             ropd: 23,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(2),
+                            qual: Transient,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(3),
+                            qual: Transient,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructConstructor {
@@ -16866,8 +18363,14 @@
                                 },
                             ],
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(4),
+                            qual: Transient,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(5),
+                            qual: Transient,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructConstructor {
@@ -17002,7 +18505,10 @@
                 root_expr: 7,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -17047,7 +18553,10 @@
                                 },
                             ],
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MemoizedField {
@@ -17154,7 +18663,10 @@
                 root_expr: 14,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -17302,7 +18814,10 @@
                                 },
                             ],
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -17531,7 +19046,10 @@
                 root_expr: 7,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -17739,7 +19257,10 @@
                 root_expr: 7,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -17947,7 +19468,10 @@
                 root_expr: 4,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MethodRitchie {
@@ -18052,7 +19576,10 @@
                 root_expr: 6,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -18207,7 +19734,10 @@
                 root_expr: 6,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -18417,7 +19947,10 @@
                 root_expr: 24,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(3),
+                            qual: Ref,
+                        },
                         VmirExprData::Literal,
                         VmirExprData::Binary {
                             lopd: 1,
@@ -18426,10 +19959,22 @@
                             ),
                             ropd: 2,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(4),
+                            qual: RefMut,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(4),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(7),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MethodRitchie {
@@ -18487,10 +20032,22 @@
                             opr: Assign,
                             ropd: 9,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(8),
+                            qual: RefMut,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(8),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(11),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MethodRitchie {
@@ -18548,8 +20105,14 @@
                             opr: Assign,
                             ropd: 16,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(8),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(4),
+                            qual: Ref,
+                        },
                         VmirExprData::Binary {
                             lopd: 18,
                             opr: Comparison(
@@ -18557,7 +20120,10 @@
                             ),
                             ropd: 19,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(3),
+                            qual: Ref,
+                        },
                         VmirExprData::Literal,
                         VmirExprData::Binary {
                             lopd: 21,
@@ -18743,7 +20309,10 @@
                 root_expr: 6,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -18768,7 +20337,10 @@
                                 },
                             ],
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -18879,8 +20451,14 @@
                 root_expr: 22,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(2),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MethodRitchie {
@@ -18915,7 +20493,10 @@
                             ),
                             ropd: 4,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(2),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MethodRitchie {
@@ -18938,8 +20519,14 @@
                                 },
                             ],
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(3),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MethodRitchie {
@@ -18974,7 +20561,10 @@
                             ),
                             ropd: 11,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(3),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MethodRitchie {
@@ -18997,8 +20587,14 @@
                                 },
                             ],
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(2),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MethodRitchie {
@@ -19047,7 +20643,10 @@
                                 },
                             ],
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MethodRitchie {
@@ -19247,9 +20846,18 @@
                 root_expr: 9,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: RefMut,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: RefMut,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(3),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MethodRitchie {
@@ -19360,8 +20968,14 @@
                                 },
                             ],
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Transient,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Transient,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructConstructor {
@@ -19451,8 +21065,14 @@
                 root_expr: 8,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: RefMut,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
                         VmirExprData::Index,
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
@@ -19505,7 +21125,10 @@
                             opr: Assign,
                             ropd: 5,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Transient,
+                        },
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
                                 2..5,
@@ -19572,8 +21195,14 @@
                 root_expr: 8,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: RefMut,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
                         VmirExprData::Index,
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
@@ -19626,7 +21255,10 @@
                             opr: Assign,
                             ropd: 5,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Transient,
+                        },
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
                                 2..5,
@@ -19693,8 +21325,14 @@
                 root_expr: 9,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: RefMut,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
                         VmirExprData::Index,
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
@@ -19769,7 +21407,10 @@
                             opr: Assign,
                             ropd: 6,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Transient,
+                        },
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
                                 2..5,
@@ -19949,7 +21590,10 @@
                 root_expr: 13,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MemoizedField {
@@ -19990,7 +21634,10 @@
                             ),
                             ropd: 6,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MemoizedField {
@@ -20224,7 +21871,10 @@
                 root_expr: 7,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -20257,7 +21907,10 @@
                             ),
                             ropd: 3,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Transient,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -20341,7 +21994,10 @@
                 root_expr: 9,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -20374,7 +22030,10 @@
                             ),
                             ropd: 3,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MethodRitchie {
@@ -20484,7 +22143,10 @@
                 root_expr: 15,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -20517,7 +22179,10 @@
                             ),
                             ropd: 3,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -20550,7 +22215,10 @@
                             ),
                             ropd: 7,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -20579,7 +22247,10 @@
                             opr: Minus,
                             opd: 10,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -20923,7 +22594,10 @@
                 root_expr: 7,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -20956,7 +22630,10 @@
                             ),
                             ropd: 3,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Transient,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -21040,7 +22717,10 @@
                 root_expr: 27,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -21077,7 +22757,10 @@
                             ),
                             ropd: 4,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -21102,7 +22785,10 @@
                                 },
                             ],
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -21164,7 +22850,10 @@
                             ),
                             ropd: 12,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MemoizedField {
@@ -21215,7 +22904,10 @@
                             ),
                             ropd: 17,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -21248,7 +22940,10 @@
                             ),
                             ropd: 21,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MethodRitchie {
@@ -21607,8 +23302,14 @@
                             ),
                             ropd: 7,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Unwrap {
                             opd: 10,
                         },
@@ -21640,8 +23341,14 @@
                             ),
                             ropd: 13,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(3),
+                            qual: Ref,
+                        },
                         VmirExprData::Literal,
                         VmirExprData::Binary {
                             lopd: 16,
@@ -21650,7 +23357,10 @@
                             ),
                             ropd: 17,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(3),
+                            qual: Ref,
+                        },
                         VmirExprData::Literal,
                         VmirExprData::Prefix {
                             opr: Minus,
@@ -21670,7 +23380,10 @@
                             ),
                             ropd: 22,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(6),
+                            qual: Ref,
+                        },
                         VmirExprData::Literal,
                         VmirExprData::Binary {
                             lopd: 24,
@@ -21708,7 +23421,10 @@
                             ),
                             ropd: 29,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Unwrap {
                             opd: 31,
                         },
@@ -21864,7 +23580,10 @@
                 root_expr: 10,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -21897,7 +23616,10 @@
                             ),
                             ropd: 3,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MemoizedField {
@@ -22062,7 +23784,10 @@
                 root_expr: 10,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -22095,7 +23820,10 @@
                             ),
                             ropd: 3,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MemoizedField {
@@ -22260,7 +23988,10 @@
                 root_expr: 10,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -22293,7 +24024,10 @@
                             ),
                             ropd: 3,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MemoizedField {
@@ -22576,7 +24310,10 @@
                 root_expr: 4,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MemoizedField {
@@ -22904,8 +24641,14 @@
                         VmirExprData::Index,
                         VmirExprData::Index,
                         VmirExprData::Index,
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(3),
+                            qual: Ref,
+                        },
                         VmirExprData::Literal,
                         VmirExprData::Binary {
                             lopd: 5,
@@ -22969,7 +24712,10 @@
                             ),
                             ropd: 11,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(4),
+                            qual: Ref,
+                        },
                         VmirExprData::PrincipalEntityPath,
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
@@ -22999,8 +24745,14 @@
                             ),
                             ropd: 16,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(6),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(6),
+                            qual: Ref,
+                        },
                         VmirExprData::Unwrap {
                             opd: 19,
                         },
@@ -23058,7 +24810,10 @@
                             ),
                             ropd: 23,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(6),
+                            qual: Ref,
+                        },
                         VmirExprData::Unwrap {
                             opd: 25,
                         },
@@ -23123,7 +24878,10 @@
                             ),
                             ropd: 33,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(7),
+                            qual: Ref,
+                        },
                         VmirExprData::Literal,
                         VmirExprData::Binary {
                             lopd: 35,
@@ -23132,7 +24890,10 @@
                             ),
                             ropd: 36,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(7),
+                            qual: Ref,
+                        },
                         VmirExprData::Literal,
                         VmirExprData::Binary {
                             lopd: 38,
@@ -23325,7 +25086,10 @@
                 root_expr: 7,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -23358,7 +25122,10 @@
                             ),
                             ropd: 3,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Transient,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -23442,7 +25209,10 @@
                 root_expr: 13,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -23475,7 +25245,10 @@
                             ),
                             ropd: 3,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MemoizedField {
@@ -23526,7 +25299,10 @@
                             ),
                             ropd: 8,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MemoizedField {
@@ -23800,7 +25576,10 @@
                 root_expr: 8,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -23833,7 +25612,10 @@
                             ),
                             ropd: 3,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Transient,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -24039,7 +25821,10 @@
                 root_expr: 13,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -24072,7 +25857,10 @@
                             ),
                             ropd: 3,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MemoizedField {
@@ -24123,7 +25911,10 @@
                             ),
                             ropd: 8,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MethodRitchie {
@@ -24235,7 +26026,10 @@
                 root_expr: 14,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -24268,7 +26062,10 @@
                             ),
                             ropd: 3,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MemoizedField {
@@ -24319,7 +26116,10 @@
                             ),
                             ropd: 8,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
                         VmirExprData::Literal,
                         VmirExprData::Binary {
                             lopd: 10,
@@ -24328,7 +26128,10 @@
                             ),
                             ropd: 11,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Transient,
+                        },
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
                                 1..7,
@@ -24426,7 +26229,10 @@
                             ),
                             ropd: 3,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Literal,
                         VmirExprData::Binary {
                             lopd: 5,
@@ -24436,7 +26242,10 @@
                             ropd: 6,
                         },
                         VmirExprData::Index,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
                         VmirExprData::Literal,
                         VmirExprData::Binary {
                             lopd: 9,
@@ -24445,7 +26254,10 @@
                             ),
                             ropd: 10,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(3),
+                            qual: Ref,
+                        },
                         VmirExprData::Literal,
                         VmirExprData::Prefix {
                             opr: Minus,
@@ -24459,7 +26271,10 @@
                             ropd: 14,
                         },
                         VmirExprData::PrincipalEntityPath,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Literal,
                         VmirExprData::Binary {
                             lopd: 17,
@@ -24468,7 +26283,10 @@
                             ),
                             ropd: 18,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(4),
+                            qual: Ref,
+                        },
                         VmirExprData::Literal,
                         VmirExprData::Binary {
                             lopd: 20,
@@ -24843,7 +26661,10 @@
                 root_expr: 22,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MemoizedField {
@@ -24894,7 +26715,10 @@
                             ),
                             ropd: 4,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -25033,7 +26857,10 @@
                                 },
                             ],
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -25179,7 +27006,10 @@
                             ),
                             ropd: 17,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MemoizedField {
@@ -25524,8 +27354,14 @@
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Index,
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(3),
+                            qual: Ref,
+                        },
                         VmirExprData::Literal,
                         VmirExprData::Binary {
                             lopd: 3,
@@ -25589,7 +27425,10 @@
                             ),
                             ropd: 9,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(4),
+                            qual: Ref,
+                        },
                         VmirExprData::PrincipalEntityPath,
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
@@ -25619,8 +27458,14 @@
                             ),
                             ropd: 14,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(6),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(6),
+                            qual: Ref,
+                        },
                         VmirExprData::Unwrap {
                             opd: 17,
                         },
@@ -25678,7 +27523,10 @@
                             ),
                             ropd: 21,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(6),
+                            qual: Ref,
+                        },
                         VmirExprData::Unwrap {
                             opd: 23,
                         },
@@ -25743,7 +27591,10 @@
                             ),
                             ropd: 31,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(7),
+                            qual: Ref,
+                        },
                         VmirExprData::Literal,
                         VmirExprData::Binary {
                             lopd: 33,
@@ -25752,7 +27603,10 @@
                             ),
                             ropd: 34,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(7),
+                            qual: Ref,
+                        },
                         VmirExprData::Literal,
                         VmirExprData::Binary {
                             lopd: 36,
@@ -25927,7 +27781,10 @@
                 root_expr: 7,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -25960,7 +27817,10 @@
                             ),
                             ropd: 3,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Transient,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -26044,7 +27904,10 @@
                 root_expr: 13,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -26077,7 +27940,10 @@
                             ),
                             ropd: 3,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MemoizedField {
@@ -26128,7 +27994,10 @@
                             ),
                             ropd: 8,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MemoizedField {
@@ -26355,7 +28224,10 @@
                 root_expr: 7,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -26388,7 +28260,10 @@
                             ),
                             ropd: 3,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Transient,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -26472,7 +28347,10 @@
                 root_expr: 7,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -26505,7 +28383,10 @@
                             ),
                             ropd: 3,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Transient,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -26589,7 +28470,10 @@
                 root_expr: 7,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -26622,7 +28506,10 @@
                             ),
                             ropd: 3,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Transient,
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructField {
@@ -26703,7 +28590,10 @@
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Index,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Literal,
                         VmirExprData::Binary {
                             lopd: 2,
@@ -26712,7 +28602,10 @@
                             ),
                             ropd: 3,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(5),
+                            qual: Ref,
+                        },
                         VmirExprData::Literal,
                         VmirExprData::Binary {
                             lopd: 5,
@@ -26721,7 +28614,10 @@
                             ),
                             ropd: 6,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Literal,
                         VmirExprData::Binary {
                             lopd: 8,
@@ -26730,9 +28626,18 @@
                             ),
                             ropd: 9,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(2),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(3),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(6),
+                            qual: Ref,
+                        },
                         VmirExprData::Literal,
                         VmirExprData::Prefix {
                             opr: Minus,
@@ -26745,8 +28650,14 @@
                             ),
                             ropd: 15,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(12),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(15),
+                            qual: Ref,
+                        },
                         VmirExprData::Binary {
                             lopd: 17,
                             opr: Comparison(
@@ -26754,7 +28665,10 @@
                             ),
                             ropd: 18,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::Literal,
                         VmirExprData::Binary {
                             lopd: 20,
@@ -26763,10 +28677,22 @@
                             ),
                             ropd: 21,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(2),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(3),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(4),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(4),
+                            qual: Ref,
+                        },
                         VmirExprData::Unwrap {
                             opd: 26,
                         },
@@ -27064,8 +28990,14 @@
                 root_expr: 11,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(3),
+                            qual: Ref,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: Ref,
+                        },
                         VmirExprData::Binary {
                             lopd: 1,
                             opr: Comparison(
@@ -27073,15 +29005,27 @@
                             ),
                             ropd: 2,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(1),
+                            qual: RefMut,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(3),
+                            qual: Transient,
+                        },
                         VmirExprData::Binary {
                             lopd: 4,
                             opr: Assign,
                             ropd: 5,
                         },
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: RefMut,
+                        },
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(2),
+                            qual: Transient,
+                        },
                         VmirExprData::Binary {
                             lopd: 7,
                             opr: Assign,
@@ -27168,7 +29112,10 @@
                 root_expr: 9,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: RefMut,
+                        },
                         VmirExprData::Index,
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
@@ -27197,7 +29144,10 @@
                             ),
                             ropd: 3,
                         },
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::PrincipalEntityPath,
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
@@ -27604,7 +29554,10 @@
                 root_expr: 7,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::ConstSvar,
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
@@ -28000,7 +29953,10 @@
                 root_expr: 7,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable,
+                        VmirExprData::Variable {
+                            place_idx: PlaceIdx(0),
+                            qual: Ref,
+                        },
                         VmirExprData::ConstSvar,
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
