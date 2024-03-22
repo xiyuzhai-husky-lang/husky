@@ -529,7 +529,11 @@
                                 },
                             ],
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: Unit(
+                                (),
+                            ),
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::EnumVariantConstructor {
@@ -911,7 +915,11 @@
                                 },
                             ],
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: Unit(
+                                (),
+                            ),
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::EnumVariantConstructor {

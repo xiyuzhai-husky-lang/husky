@@ -4,6 +4,7 @@ use husky_hir_eager_expr::{HirEagerExprData, HirEagerExprIdx, HirEagerRitchieArg
 use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
 use husky_lifetime_utils::capture::Captures;
 use husky_linkage::{linkage::Linkage, template_argument::qual::LinQual};
+use husky_literal_value::LiteralValue;
 use husky_place::place::{idx::PlaceIdx, EthPlace};
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
 use smallvec::{smallvec, SmallVec};
@@ -11,7 +12,9 @@ use smallvec::{smallvec, SmallVec};
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub enum VmirExprData<LinkageImpl: IsLinkageImpl> {
-    Literal,
+    Literal {
+        value: LiteralValue,
+    },
     Variable {
         place_idx: PlaceIdx,
         qual: LinQual,
@@ -95,7 +98,9 @@ impl<'comptime, Linktime: IsLinktime> VmirBuilder<'comptime, Linktime> {
     fn build_vmir_expr(&mut self, expr: HirEagerExprIdx) -> VmirExprData<Linktime::LinkageImpl> {
         let entry = &self.hir_eager_expr_arena()[expr];
         match *entry.data() {
-            HirEagerExprData::Literal(_) => VmirExprData::Literal,
+            HirEagerExprData::Literal(lit) => VmirExprData::Literal {
+                value: lit.into_value(self.db()),
+            },
             HirEagerExprData::PrincipalEntityPath(_) => VmirExprData::PrincipalEntityPath,
             HirEagerExprData::AssocFn { assoc_item_path } => todo!(),
             HirEagerExprData::ConstSvar { ident } => VmirExprData::ConstSvar,

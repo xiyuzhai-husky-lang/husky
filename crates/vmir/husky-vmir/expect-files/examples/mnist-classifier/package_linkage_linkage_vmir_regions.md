@@ -677,7 +677,13 @@
                             place_idx: PlaceIdx(0),
                             qual: Ref,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    4.0,
+                                ),
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 1,
                             opr: Comparison(
@@ -689,7 +695,13 @@
                             place_idx: PlaceIdx(0),
                             qual: Ref,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    0.0,
+                                ),
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 4,
                             opr: Closed(
@@ -843,7 +855,11 @@
                             place_idx: PlaceIdx(0),
                             qual: Ref,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: I32(
+                                1,
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 10,
                             opr: Shift(
@@ -862,7 +878,11 @@
                             place_idx: PlaceIdx(0),
                             qual: Ref,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: I32(
+                                1,
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 14,
                             opr: Shift(
@@ -973,7 +993,11 @@
                             place_idx: PlaceIdx(3),
                             qual: Ref,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: R32(
+                                1,
+                            ),
+                        },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(4),
                             qual: Ref,
@@ -1025,7 +1049,11 @@
                             place_idx: PlaceIdx(6),
                             qual: RefMut,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: Bool(
+                                true,
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 11,
                             opr: Assign,
@@ -1058,7 +1086,11 @@
                             place_idx: PlaceIdx(6),
                             qual: RefMut,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: Bool(
+                                false,
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 19,
                             opr: Assign,
@@ -1093,7 +1125,11 @@
                             place_idx: PlaceIdx(6),
                             qual: RefMut,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: Bool(
+                                false,
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 28,
                             opr: Assign,
@@ -2696,7 +2732,11 @@
                             place_idx: PlaceIdx(1),
                             qual: Ref,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: I32(
+                                0,
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 1,
                             opr: Comparison(
@@ -2846,7 +2886,11 @@
                             place_idx: PlaceIdx(1),
                             qual: Ref,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: I32(
+                                0,
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 1,
                             opr: Comparison(
@@ -3239,7 +3283,11 @@
                             place_idx: PlaceIdx(1),
                             qual: Ref,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: I32(
+                                1,
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 2,
                             opr: Closed(
@@ -3254,7 +3302,11 @@
                             ),
                             ropd: 4,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: R32(
+                                3,
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 5,
                             opr: Closed(
@@ -3329,7 +3381,11 @@
                             ),
                             ropd: 2,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: R32(
+                                1,
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 3,
                             opr: Closed(
@@ -3397,7 +3453,11 @@
                             place_idx: PlaceIdx(1),
                             qual: Ref,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: I32(
+                                1,
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 2,
                             opr: Closed(
@@ -3412,7 +3472,11 @@
                             ),
                             ropd: 4,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: R32(
+                                1,
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 5,
                             opr: Closed(
@@ -3797,7 +3861,11 @@
                         VmirExprData::As {
                             opd: 2,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: I32(
+                                1,
+                            ),
+                        },
                         VmirExprData::Prefix {
                             opr: Minus,
                             opd: 4,
@@ -4515,7 +4583,13 @@
                             ),
                             ropd: 4,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    2.0,
+                                ),
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 5,
                             opr: Closed(
@@ -4586,7 +4660,13 @@
                             ),
                             ropd: 11,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    2.0,
+                                ),
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 12,
                             opr: Closed(
@@ -4827,7 +4907,11 @@
                         },
                         VmirExprData::Index,
                         VmirExprData::Index,
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: R32(
+                                1,
+                            ),
+                        },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(10),
                             qual: Ref,
@@ -4863,7 +4947,11 @@
                             place_idx: PlaceIdx(17),
                             qual: Ref,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: I32(
+                                1,
+                            ),
+                        },
                         VmirExprData::Prefix {
                             opr: Minus,
                             opd: 42,
@@ -4879,7 +4967,11 @@
                             place_idx: PlaceIdx(18),
                             qual: Ref,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: I32(
+                                1,
+                            ),
+                        },
                         VmirExprData::Prefix {
                             opr: Minus,
                             opd: 46,
@@ -4902,7 +4994,11 @@
                             place_idx: PlaceIdx(22),
                             qual: Ref,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: I32(
+                                1,
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 50,
                             opr: Comparison(
@@ -4921,7 +5017,11 @@
                             place_idx: PlaceIdx(20),
                             qual: Ref,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: I32(
+                                1,
+                            ),
+                        },
                         VmirExprData::Prefix {
                             opr: Minus,
                             opd: 55,
@@ -4944,7 +5044,11 @@
                             place_idx: PlaceIdx(21),
                             qual: Ref,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: I32(
+                                1,
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 59,
                             opr: Comparison(
@@ -5145,7 +5249,11 @@
                             place_idx: PlaceIdx(21),
                             qual: RefMut,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: I32(
+                                1,
+                            ),
+                        },
                         VmirExprData::Prefix {
                             opr: Minus,
                             opd: 75,
@@ -5159,7 +5267,11 @@
                             place_idx: PlaceIdx(20),
                             qual: RefMut,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: I32(
+                                1,
+                            ),
+                        },
                         VmirExprData::Prefix {
                             opr: Minus,
                             opd: 79,
@@ -5173,7 +5285,11 @@
                             place_idx: PlaceIdx(17),
                             qual: Ref,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: I32(
+                                1,
+                            ),
+                        },
                         VmirExprData::Prefix {
                             opr: Minus,
                             opd: 83,
@@ -5189,7 +5305,11 @@
                             place_idx: PlaceIdx(20),
                             qual: Ref,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: I32(
+                                0,
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 86,
                             opr: Comparison(
@@ -5208,7 +5328,11 @@
                             place_idx: PlaceIdx(20),
                             qual: Ref,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: I32(
+                                1,
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 90,
                             opr: Comparison(
@@ -5353,7 +5477,11 @@
                             place_idx: PlaceIdx(17),
                             qual: Ref,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: I32(
+                                1,
+                            ),
+                        },
                         VmirExprData::Prefix {
                             opr: Minus,
                             opd: 108,
@@ -5369,7 +5497,11 @@
                             place_idx: PlaceIdx(20),
                             qual: Ref,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: I32(
+                                0,
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 111,
                             opr: Comparison(
@@ -5388,7 +5520,11 @@
                             place_idx: PlaceIdx(22),
                             qual: Ref,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: I32(
+                                1,
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 115,
                             opr: Comparison(
@@ -5407,7 +5543,11 @@
                             place_idx: PlaceIdx(20),
                             qual: Ref,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: I32(
+                                1,
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 119,
                             opr: Comparison(
@@ -5526,7 +5666,11 @@
                             place_idx: PlaceIdx(21),
                             qual: RefMut,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: I32(
+                                1,
+                            ),
+                        },
                         VmirExprData::Prefix {
                             opr: Minus,
                             opd: 131,
@@ -5540,7 +5684,11 @@
                             place_idx: PlaceIdx(20),
                             qual: RefMut,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: I32(
+                                1,
+                            ),
+                        },
                         VmirExprData::Prefix {
                             opr: Minus,
                             opd: 135,
@@ -5674,7 +5822,11 @@
                             place_idx: PlaceIdx(22),
                             qual: RefMut,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: I32(
+                                0,
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 149,
                             opr: Assign,
@@ -5718,7 +5870,11 @@
                             place_idx: PlaceIdx(9),
                             qual: Ref,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: I32(
+                                1,
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 160,
                             opr: Closed(
@@ -5762,7 +5918,11 @@
                             place_idx: PlaceIdx(9),
                             qual: Ref,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: I32(
+                                1,
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 171,
                             opr: Closed(
@@ -5806,7 +5966,11 @@
                             place_idx: PlaceIdx(10),
                             qual: Ref,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: I32(
+                                1,
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 182,
                             opr: Closed(
@@ -5827,7 +5991,11 @@
                             place_idx: PlaceIdx(10),
                             qual: Ref,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: I32(
+                                1,
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 187,
                             opr: Closed(
@@ -5857,7 +6025,11 @@
                             place_idx: PlaceIdx(22),
                             qual: Ref,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: I32(
+                                1,
+                            ),
+                        },
                         VmirExprData::Prefix {
                             opr: Minus,
                             opd: 195,
@@ -5881,7 +6053,11 @@
                             place_idx: PlaceIdx(17),
                             qual: Ref,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: I32(
+                                1,
+                            ),
+                        },
                         VmirExprData::Prefix {
                             opr: Minus,
                             opd: 201,
@@ -5897,7 +6073,11 @@
                             place_idx: PlaceIdx(22),
                             qual: Ref,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: I32(
+                                1,
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 204,
                             opr: Comparison(
@@ -5916,7 +6096,11 @@
                             place_idx: PlaceIdx(20),
                             qual: Ref,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: I32(
+                                0,
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 208,
                             opr: Comparison(
@@ -6512,7 +6696,13 @@
                             place_idx: PlaceIdx(0),
                             qual: Ref,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    1.4,
+                                ),
+                            ),
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::AssocRitchie {
@@ -8098,7 +8288,11 @@
                 root_expr: 10,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: I32(
+                                29,
+                            ),
+                        },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(1),
                             qual: Ref,
@@ -8113,7 +8307,11 @@
                         VmirExprData::As {
                             opd: 3,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: I32(
+                                29,
+                            ),
+                        },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(0),
                             qual: Ref,
@@ -9833,7 +10031,13 @@
                             place_idx: PlaceIdx(1),
                             qual: Ref,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    1.0,
+                                ),
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 1,
                             opr: Closed(
@@ -9841,7 +10045,13 @@
                             ),
                             ropd: 2,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    0.001,
+                                ),
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 3,
                             opr: Comparison(
@@ -9853,8 +10063,20 @@
                             place_idx: PlaceIdx(1),
                             qual: Ref,
                         },
-                        VmirExprData::Literal,
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    180.0,
+                                ),
+                            ),
+                        },
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    180.0,
+                                ),
+                            ),
+                        },
                         VmirExprData::Prefix {
                             opr: Minus,
                             opd: 8,
@@ -9945,7 +10167,13 @@
                             ),
                             ropd: 15,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    180.0,
+                                ),
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 16,
                             opr: Closed(
@@ -9953,7 +10181,13 @@
                             ),
                             ropd: 17,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    3.1415925,
+                                ),
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 18,
                             opr: Closed(
@@ -10194,7 +10428,13 @@
                             place_idx: PlaceIdx(1),
                             qual: Ref,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    0.0,
+                                ),
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 1,
                             opr: Comparison(
@@ -10206,7 +10446,13 @@
                             place_idx: PlaceIdx(2),
                             qual: Ref,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    0.0,
+                                ),
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 4,
                             opr: Comparison(
@@ -10218,7 +10464,13 @@
                             place_idx: PlaceIdx(3),
                             qual: Ref,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    1.0,
+                                ),
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 7,
                             opr: Closed(
@@ -10226,7 +10478,13 @@
                             ),
                             ropd: 8,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    0.001,
+                                ),
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 9,
                             opr: Comparison(
@@ -10238,8 +10496,20 @@
                             place_idx: PlaceIdx(2),
                             qual: Ref,
                         },
-                        VmirExprData::Literal,
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    180.0,
+                                ),
+                            ),
+                        },
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    180.0,
+                                ),
+                            ),
+                        },
                         VmirExprData::Prefix {
                             opr: Minus,
                             opd: 14,
@@ -10248,7 +10518,13 @@
                             place_idx: PlaceIdx(4),
                             qual: Ref,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    180.0,
+                                ),
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 16,
                             opr: Closed(
@@ -10256,7 +10532,13 @@
                             ),
                             ropd: 17,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    3.1415925,
+                                ),
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 18,
                             opr: Closed(
@@ -12623,7 +12905,11 @@
                             place_idx: PlaceIdx(0),
                             qual: Ref,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: I32(
+                                1,
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 14,
                             opr: Closed(
@@ -12756,7 +13042,11 @@
                                 },
                             ],
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: I32(
+                                0,
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 29,
                             opr: Comparison(
@@ -12805,7 +13095,11 @@
                                 },
                             ],
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: I32(
+                                0,
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 35,
                             opr: Comparison(
@@ -12923,7 +13217,11 @@
                                 },
                             ],
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: I32(
+                                0,
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 55,
                             opr: Comparison(
@@ -12978,7 +13276,11 @@
                                 },
                             ],
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: I32(
+                                0,
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 63,
                             opr: Comparison(
@@ -13023,7 +13325,11 @@
                             place_idx: PlaceIdx(0),
                             qual: Ref,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: I32(
+                                1,
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 74,
                             opr: Closed(
@@ -13380,7 +13686,11 @@
                             place_idx: PlaceIdx(0),
                             qual: Ref,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: I32(
+                                1,
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 14,
                             opr: Closed(
@@ -13612,7 +13922,11 @@
                                 },
                             ],
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: I32(
+                                0,
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 45,
                             opr: Comparison(
@@ -13667,7 +13981,11 @@
                                 },
                             ],
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: I32(
+                                0,
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 53,
                             opr: Comparison(
@@ -13722,7 +14040,11 @@
                                 },
                             ],
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: I32(
+                                0,
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 61,
                             opr: Comparison(
@@ -13779,7 +14101,11 @@
                                 },
                             ],
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: I32(
+                                0,
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 69,
                             opr: Comparison(
@@ -13821,7 +14147,11 @@
                                 },
                             ],
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: I32(
+                                0,
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 74,
                             opr: Comparison(
@@ -14246,7 +14576,11 @@
                                 },
                             ],
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: I32(
+                                0,
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 11,
                             opr: Comparison(
@@ -14310,7 +14644,13 @@
                                 },
                             ],
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    0.01,
+                                ),
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 17,
                             opr: Comparison(
@@ -14352,7 +14692,13 @@
                                 },
                             ],
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    0.0,
+                                ),
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 22,
                             opr: Comparison(
@@ -14604,7 +14950,11 @@
                             place_idx: PlaceIdx(5),
                             qual: RefMut,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: Bool(
+                                false,
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 38,
                             opr: Assign,
@@ -14719,7 +15069,11 @@
                                 },
                             ],
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: I32(
+                                0,
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 50,
                             opr: Comparison(
@@ -14783,7 +15137,13 @@
                                 },
                             ],
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    0.001,
+                                ),
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 56,
                             opr: Comparison(
@@ -14825,7 +15185,13 @@
                                 },
                             ],
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    0.0,
+                                ),
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 61,
                             opr: Comparison(
@@ -14896,7 +15262,13 @@
                                 },
                             ],
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    0.001,
+                                ),
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 68,
                             opr: Comparison(
@@ -14945,7 +15317,13 @@
                                 },
                             ],
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    0.0,
+                                ),
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 74,
                             opr: Comparison(
@@ -15336,7 +15714,11 @@
                             place_idx: PlaceIdx(1),
                             qual: Ref,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: I32(
+                                1,
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 102,
                             opr: Closed(
@@ -15721,7 +16103,11 @@
                                 },
                             ],
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: I32(
+                                1,
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 126,
                             opr: Closed(
@@ -16071,7 +16457,11 @@
                             place_idx: PlaceIdx(2),
                             qual: Ref,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: I32(
+                                1,
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 7,
                             opr: Closed(
@@ -17225,7 +17615,11 @@
                             place_idx: PlaceIdx(2),
                             qual: Ref,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: I32(
+                                1,
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 30,
                             opr: Closed(
@@ -17443,7 +17837,11 @@
                             place_idx: PlaceIdx(2),
                             qual: Ref,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: I32(
+                                1,
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 47,
                             opr: Closed(
@@ -17936,7 +18334,11 @@
                             place_idx: PlaceIdx(4),
                             qual: Ref,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: Bool(
+                                true,
+                            ),
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::MethodRitchie {
@@ -19951,7 +20353,11 @@
                             place_idx: PlaceIdx(3),
                             qual: Ref,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: I32(
+                                0,
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 1,
                             opr: Comparison(
@@ -20124,7 +20530,11 @@
                             place_idx: PlaceIdx(3),
                             qual: Ref,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: I32(
+                                0,
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 21,
                             opr: Comparison(
@@ -20485,7 +20895,13 @@
                                 },
                             ],
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    0.0,
+                                ),
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 3,
                             opr: Comparison(
@@ -20553,7 +20969,13 @@
                                 },
                             ],
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    0.0,
+                                ),
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 10,
                             opr: Comparison(
@@ -21614,7 +22036,13 @@
                                 },
                             ],
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    0.0,
+                                ),
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 2,
                             opr: Closed(
@@ -21622,7 +22050,13 @@
                             ),
                             ropd: 3,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    140.0,
+                                ),
+                            ),
+                        },
                         VmirExprData::Prefix {
                             opr: Minus,
                             opd: 5,
@@ -21662,7 +22096,13 @@
                             opr: Minus,
                             opd: 9,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    0.0,
+                                ),
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 10,
                             opr: Closed(
@@ -21899,7 +22339,13 @@
                                 },
                             ],
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    0.0,
+                                ),
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 2,
                             opr: Comparison(
@@ -22022,7 +22468,13 @@
                                 },
                             ],
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    0.0,
+                                ),
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 2,
                             opr: Comparison(
@@ -22171,7 +22623,13 @@
                                 },
                             ],
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    0.0,
+                                ),
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 2,
                             opr: Comparison(
@@ -22207,7 +22665,13 @@
                                 },
                             ],
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    0.0,
+                                ),
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 6,
                             opr: Comparison(
@@ -22622,7 +23086,13 @@
                                 },
                             ],
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    0.0,
+                                ),
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 2,
                             opr: Comparison(
@@ -22745,7 +23215,13 @@
                                 },
                             ],
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    3.0,
+                                ),
+                            ),
+                        },
                         VmirExprData::Prefix {
                             opr: Minus,
                             opd: 3,
@@ -22842,7 +23318,13 @@
                                 },
                             ],
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    1.4,
+                                ),
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 11,
                             opr: Comparison(
@@ -22896,7 +23378,13 @@
                                 },
                             ],
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    0.6,
+                                ),
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 16,
                             opr: Comparison(
@@ -22932,7 +23420,13 @@
                                 },
                             ],
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    0.5,
+                                ),
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 20,
                             opr: Comparison(
@@ -23240,7 +23734,11 @@
                                 },
                             ],
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: I32(
+                                2,
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 2,
                             opr: Comparison(
@@ -23294,7 +23792,11 @@
                                 },
                             ],
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: I32(
+                                4,
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 6,
                             opr: Comparison(
@@ -23333,7 +23835,13 @@
                                 },
                             ],
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    3.0,
+                                ),
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 12,
                             opr: Comparison(
@@ -23349,7 +23857,13 @@
                             place_idx: PlaceIdx(3),
                             qual: Ref,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    0.0,
+                                ),
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 16,
                             opr: Comparison(
@@ -23361,7 +23875,13 @@
                             place_idx: PlaceIdx(3),
                             qual: Ref,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    100.0,
+                                ),
+                            ),
+                        },
                         VmirExprData::Prefix {
                             opr: Minus,
                             opd: 20,
@@ -23384,7 +23904,13 @@
                             place_idx: PlaceIdx(6),
                             qual: Ref,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    20.0,
+                                ),
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 24,
                             opr: Comparison(
@@ -23413,7 +23939,13 @@
                                 },
                             ],
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    2.5,
+                                ),
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 28,
                             opr: Comparison(
@@ -23448,7 +23980,13 @@
                                 },
                             ],
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    100.0,
+                                ),
+                            ),
+                        },
                         VmirExprData::Prefix {
                             opr: Minus,
                             opd: 34,
@@ -23608,7 +24146,13 @@
                                 },
                             ],
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    0.0,
+                                ),
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 2,
                             opr: Comparison(
@@ -23812,7 +24356,13 @@
                                 },
                             ],
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    0.0,
+                                ),
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 2,
                             opr: Comparison(
@@ -24016,7 +24566,13 @@
                                 },
                             ],
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    0.0,
+                                ),
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 2,
                             opr: Comparison(
@@ -24649,7 +25205,13 @@
                             place_idx: PlaceIdx(3),
                             qual: Ref,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    7.0,
+                                ),
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 5,
                             opr: Comparison(
@@ -24704,7 +25266,11 @@
                                 },
                             ],
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: I32(
+                                2,
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 10,
                             opr: Comparison(
@@ -24737,7 +25303,13 @@
                                 },
                             ],
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    1.0,
+                                ),
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 15,
                             opr: Comparison(
@@ -24802,7 +25374,13 @@
                                 },
                             ],
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    0.0,
+                                ),
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 22,
                             opr: Comparison(
@@ -24837,7 +25415,13 @@
                                 },
                             ],
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    110.0,
+                                ),
+                            ),
+                        },
                         VmirExprData::Prefix {
                             opr: Minus,
                             opd: 28,
@@ -24870,7 +25454,13 @@
                                 },
                             ],
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    9.0,
+                                ),
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 32,
                             opr: Comparison(
@@ -24882,7 +25472,13 @@
                             place_idx: PlaceIdx(7),
                             qual: Ref,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    22.0,
+                                ),
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 35,
                             opr: Comparison(
@@ -24894,7 +25490,13 @@
                             place_idx: PlaceIdx(7),
                             qual: Ref,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    9.0,
+                                ),
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 38,
                             opr: Comparison(
@@ -25114,7 +25716,13 @@
                                 },
                             ],
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    0.0,
+                                ),
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 2,
                             opr: Comparison(
@@ -25237,7 +25845,13 @@
                                 },
                             ],
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    0.0,
+                                ),
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 2,
                             opr: Comparison(
@@ -25291,7 +25905,13 @@
                                 },
                             ],
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    0.4,
+                                ),
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 7,
                             opr: Comparison(
@@ -25604,7 +26224,13 @@
                                 },
                             ],
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    0.0,
+                                ),
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 2,
                             opr: Comparison(
@@ -25849,7 +26475,13 @@
                                 },
                             ],
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    0.0,
+                                ),
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 2,
                             opr: Comparison(
@@ -25903,7 +26535,13 @@
                                 },
                             ],
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    0.6,
+                                ),
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 7,
                             opr: Comparison(
@@ -26054,7 +26692,13 @@
                                 },
                             ],
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    0.0,
+                                ),
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 2,
                             opr: Comparison(
@@ -26108,7 +26752,13 @@
                                 },
                             ],
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    0.3,
+                                ),
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 7,
                             opr: Comparison(
@@ -26120,7 +26770,13 @@
                             place_idx: PlaceIdx(1),
                             qual: Ref,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    30.0,
+                                ),
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 10,
                             opr: Comparison(
@@ -26221,7 +26877,13 @@
                                 },
                             ],
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    0.0,
+                                ),
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 2,
                             opr: Comparison(
@@ -26233,7 +26895,13 @@
                             place_idx: PlaceIdx(0),
                             qual: Ref,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    1.0,
+                                ),
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 5,
                             opr: Comparison(
@@ -26246,7 +26914,13 @@
                             place_idx: PlaceIdx(1),
                             qual: Ref,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    10.0,
+                                ),
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 9,
                             opr: Comparison(
@@ -26258,7 +26932,13 @@
                             place_idx: PlaceIdx(3),
                             qual: Ref,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    7.0,
+                                ),
+                            ),
+                        },
                         VmirExprData::Prefix {
                             opr: Minus,
                             opd: 13,
@@ -26275,7 +26955,13 @@
                             place_idx: PlaceIdx(0),
                             qual: Ref,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    4.0,
+                                ),
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 17,
                             opr: Comparison(
@@ -26287,7 +26973,13 @@
                             place_idx: PlaceIdx(4),
                             qual: Ref,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    10.0,
+                                ),
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 20,
                             opr: Comparison(
@@ -26297,7 +26989,11 @@
                         },
                         VmirExprData::PrincipalEntityPath,
                         VmirExprData::Index,
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: Bool(
+                                false,
+                            ),
+                        },
                         VmirExprData::PrincipalEntityPath,
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
@@ -26561,8 +27257,16 @@
                     data: [
                         VmirExprData::Index,
                         VmirExprData::Index,
-                        VmirExprData::Literal,
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: Bool(
+                                false,
+                            ),
+                        },
+                        VmirExprData::Literal {
+                            value: Bool(
+                                false,
+                            ),
+                        },
                         VmirExprData::PrincipalEntityPath,
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
@@ -26707,7 +27411,13 @@
                                 },
                             ],
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    0.5,
+                                ),
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 3,
                             opr: Comparison(
@@ -27362,7 +28072,13 @@
                             place_idx: PlaceIdx(3),
                             qual: Ref,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    7.0,
+                                ),
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 3,
                             opr: Comparison(
@@ -27417,7 +28133,11 @@
                                 },
                             ],
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: I32(
+                                2,
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 8,
                             opr: Comparison(
@@ -27450,7 +28170,13 @@
                                 },
                             ],
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    1.0,
+                                ),
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 13,
                             opr: Comparison(
@@ -27515,7 +28241,13 @@
                                 },
                             ],
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    0.0,
+                                ),
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 20,
                             opr: Comparison(
@@ -27550,7 +28282,13 @@
                                 },
                             ],
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    110.0,
+                                ),
+                            ),
+                        },
                         VmirExprData::Prefix {
                             opr: Minus,
                             opd: 26,
@@ -27583,7 +28321,13 @@
                                 },
                             ],
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    9.0,
+                                ),
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 30,
                             opr: Comparison(
@@ -27595,7 +28339,13 @@
                             place_idx: PlaceIdx(7),
                             qual: Ref,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    22.0,
+                                ),
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 33,
                             opr: Comparison(
@@ -27607,7 +28357,13 @@
                             place_idx: PlaceIdx(7),
                             qual: Ref,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    9.0,
+                                ),
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 36,
                             opr: Comparison(
@@ -27809,7 +28565,13 @@
                                 },
                             ],
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    0.0,
+                                ),
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 2,
                             opr: Comparison(
@@ -27932,7 +28694,13 @@
                                 },
                             ],
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    0.0,
+                                ),
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 2,
                             opr: Comparison(
@@ -27986,7 +28754,13 @@
                                 },
                             ],
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    0.4,
+                                ),
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 7,
                             opr: Comparison(
@@ -28252,7 +29026,13 @@
                                 },
                             ],
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    0.0,
+                                ),
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 2,
                             opr: Comparison(
@@ -28375,7 +29155,13 @@
                                 },
                             ],
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    0.0,
+                                ),
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 2,
                             opr: Comparison(
@@ -28498,7 +29284,13 @@
                                 },
                             ],
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    0.0,
+                                ),
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 2,
                             opr: Comparison(
@@ -28594,7 +29386,11 @@
                             place_idx: PlaceIdx(0),
                             qual: Ref,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: I32(
+                                3,
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 2,
                             opr: Comparison(
@@ -28606,7 +29402,13 @@
                             place_idx: PlaceIdx(5),
                             qual: Ref,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    10.0,
+                                ),
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 5,
                             opr: Comparison(
@@ -28618,7 +29420,11 @@
                             place_idx: PlaceIdx(0),
                             qual: Ref,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: I32(
+                                2,
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 8,
                             opr: Comparison(
@@ -28638,7 +29444,13 @@
                             place_idx: PlaceIdx(6),
                             qual: Ref,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    180.0,
+                                ),
+                            ),
+                        },
                         VmirExprData::Prefix {
                             opr: Minus,
                             opd: 14,
@@ -28669,7 +29481,11 @@
                             place_idx: PlaceIdx(0),
                             qual: Ref,
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: I32(
+                                3,
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 20,
                             opr: Comparison(
@@ -28738,7 +29554,13 @@
                                 },
                             ],
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: F32(
+                                OrderedFloat(
+                                    0.4,
+                                ),
+                            ),
+                        },
                         VmirExprData::Binary {
                             lopd: 29,
                             opr: Comparison(
@@ -29716,7 +30538,11 @@
                                 },
                             ],
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: Unit(
+                                (),
+                            ),
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::EnumVariantConstructor {
@@ -30115,7 +30941,11 @@
                                 },
                             ],
                         },
-                        VmirExprData::Literal,
+                        VmirExprData::Literal {
+                            value: Unit(
+                                (),
+                            ),
+                        },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::EnumVariantConstructor {

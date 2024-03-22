@@ -4,6 +4,7 @@ pub mod int;
 use self::float::*;
 use self::int::*;
 use crate::*;
+use husky_literal_value::LiteralValue;
 use ordered_float::OrderedFloat;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
@@ -152,6 +153,38 @@ impl salsa::DisplayWithDb for Literal {
             Literal::R64(val) => f.write_fmt(format_args!("{}", val.value(db))),
             Literal::R128(val) => f.write_fmt(format_args!("{}", val.value(db))),
             Literal::RSize(val) => f.write_fmt(format_args!("{}", val.value(db))),
+        }
+    }
+}
+
+impl Literal {
+    pub fn into_value(self, db: &::salsa::Db) -> LiteralValue {
+        match self {
+            Literal::Unit(val) => LiteralValue::Unit(val),
+            Literal::Bool(val) => LiteralValue::Bool(val),
+            Literal::I8(val) => LiteralValue::I8(val),
+            Literal::I16(val) => LiteralValue::I16(val),
+            Literal::I32(val) => LiteralValue::I32(val),
+            Literal::I64(val) => LiteralValue::I64(val.value(db)),
+            Literal::I128(val) => LiteralValue::I128(val.value(db)),
+            Literal::ISize(val) => LiteralValue::ISize(val.value(db)),
+            Literal::U8(val) => LiteralValue::U8(val),
+            Literal::U16(val) => LiteralValue::U16(val),
+            Literal::U32(val) => LiteralValue::U32(val),
+            Literal::U64(val) => LiteralValue::U64(val.value(db)),
+            Literal::U128(val) => LiteralValue::U128(val.value(db)),
+            Literal::USize(val) => LiteralValue::USize(val.value(db)),
+            Literal::R8(val) => LiteralValue::R8(val),
+            Literal::R16(val) => LiteralValue::R16(val),
+            Literal::R32(val) => LiteralValue::R32(val),
+            Literal::R64(val) => LiteralValue::R64(val.value(db)),
+            Literal::R128(val) => LiteralValue::R128(val.value(db)),
+            Literal::RSize(val) => LiteralValue::RSize(val.value(db)),
+            Literal::Nat(_) => todo!(),
+            Literal::F32(val) => LiteralValue::F32(val.value(db)),
+            Literal::F64(val) => LiteralValue::F64(val.value(db)),
+            Literal::String(_) => todo!(),
+            Literal::StaticLifetime => todo!(),
         }
     }
 }

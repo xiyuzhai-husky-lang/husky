@@ -5249,6 +5249,9 @@ dependencies = [
 [[package]]
 name = "husky-literal-value"
 version = "0.1.0"
+dependencies = [
+ "ordered-float 4.2.0",
+]
 
 [[package]]
 name = "husky-log-utils"
@@ -6020,6 +6023,7 @@ dependencies = [
  "husky-coword",
  "husky-entity-kind",
  "husky-entity-path",
+ "husky-literal-value",
  "husky-print-utils",
  "husky-task-interface",
  "husky-term-prelude",
