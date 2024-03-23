@@ -158,7 +158,7 @@ impl salsa::DisplayWithDb for Literal {
 }
 
 impl Literal {
-    pub fn into_value(self, db: &::salsa::Db) -> LiteralValue {
+    pub fn into_literal_value(self, db: &::salsa::Db) -> LiteralValue {
         match self {
             Literal::Unit(val) => LiteralValue::Unit(val),
             Literal::Bool(val) => LiteralValue::Bool(val),

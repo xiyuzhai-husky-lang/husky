@@ -19,6 +19,7 @@ use husky_hir_eager_expr::{
 use husky_hir_expr::{HirExprIdx, HirExprRegion};
 use husky_linkage::{instantiation::LinInstantiation, linkage::Linkage};
 use husky_task::linktime::IsLinktime;
+use idx_arena::ArenaIdx;
 
 pub(crate) struct VmirBuilder<'comptime, Linktime: IsLinktime> {
     db: &'comptime ::salsa::Db,
@@ -101,7 +102,7 @@ impl<'db, Linktime: IsLinktime> VmirBuilder<'db, Linktime> {
     pub(crate) fn alloc_expr(
         &mut self,
         expr: VmirExprData<Linktime::LinkageImpl>,
-    ) -> VmirExprIdx<Linktime::LinkageImpl> {
+    ) -> ArenaIdx<VmirExprData<Linktime::LinkageImpl>> {
         self.vmir_expr_arena.alloc_one(expr)
     }
 

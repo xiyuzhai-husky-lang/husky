@@ -5,10 +5,7 @@ pub mod ki_repr;
 pub mod linkage_impl;
 pub mod pedestal;
 pub mod ugly;
-pub mod value;
 pub mod vm_control_flow;
-
-use std::convert::Infallible;
 
 pub use self::ki_control_flow::KiControlFlow;
 pub use self::linkage_impl::*;
@@ -17,8 +14,10 @@ pub use husky_task_interface_macros::*;
 use self::ki_repr::{
     KiArgumentReprInterface, KiReprInterface, KiRuntimeConstantInterface, ValDomainReprInterface,
 };
+use husky_value_interface::IsValue;
 use once_cell::sync::OnceCell;
 use shifted_unsigned_int::ShiftedU32;
+use std::convert::Infallible;
 
 #[macro_export]
 macro_rules! init_crate {

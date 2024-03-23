@@ -21,7 +21,9 @@
                         },
                     },
                 },
-                root_expr: 20,
+                root_expr: VmirExprIdx(
+                    20,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::PrincipalEntityPath,
@@ -65,7 +67,9 @@
                                     },
                                 },
                             },
-                            opd: 1,
+                            opd: VmirExprIdx(
+                                1,
+                            ),
                         },
                         VmirExprData::PrincipalEntityPath,
                         VmirExprData::Unveil {
@@ -108,7 +112,9 @@
                                     },
                                 },
                             },
-                            opd: 3,
+                            opd: VmirExprIdx(
+                                3,
+                            ),
                         },
                         VmirExprData::PrincipalEntityPath,
                         VmirExprData::Unveil {
@@ -151,7 +157,9 @@
                                     },
                                 },
                             },
-                            opd: 5,
+                            opd: VmirExprIdx(
+                                5,
+                            ),
                         },
                         VmirExprData::PrincipalEntityPath,
                         VmirExprData::Unveil {
@@ -194,7 +202,9 @@
                                     },
                                 },
                             },
-                            opd: 7,
+                            opd: VmirExprIdx(
+                                7,
+                            ),
                         },
                         VmirExprData::PrincipalEntityPath,
                         VmirExprData::Unveil {
@@ -237,7 +247,9 @@
                                     },
                                 },
                             },
-                            opd: 9,
+                            opd: VmirExprIdx(
+                                9,
+                            ),
                         },
                         VmirExprData::PrincipalEntityPath,
                         VmirExprData::Unveil {
@@ -280,7 +292,9 @@
                                     },
                                 },
                             },
-                            opd: 11,
+                            opd: VmirExprIdx(
+                                11,
+                            ),
                         },
                         VmirExprData::PrincipalEntityPath,
                         VmirExprData::Unveil {
@@ -323,7 +337,9 @@
                                     },
                                 },
                             },
-                            opd: 13,
+                            opd: VmirExprIdx(
+                                13,
+                            ),
                         },
                         VmirExprData::PrincipalEntityPath,
                         VmirExprData::Unveil {
@@ -366,7 +382,9 @@
                                     },
                                 },
                             },
-                            opd: 15,
+                            opd: VmirExprIdx(
+                                15,
+                            ),
                         },
                         VmirExprData::PrincipalEntityPath,
                         VmirExprData::Unveil {
@@ -409,7 +427,9 @@
                                     },
                                 },
                             },
-                            opd: 17,
+                            opd: VmirExprIdx(
+                                17,
+                            ),
                         },
                         VmirExprData::PrincipalEntityPath,
                         VmirExprData::Block {
@@ -425,70 +445,90 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 2,
+                            expr: VmirExprIdx(
+                                2,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 4,
+                            expr: VmirExprIdx(
+                                4,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 6,
+                            expr: VmirExprIdx(
+                                6,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 8,
+                            expr: VmirExprIdx(
+                                8,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 10,
+                            expr: VmirExprIdx(
+                                10,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 12,
+                            expr: VmirExprIdx(
+                                12,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 14,
+                            expr: VmirExprIdx(
+                                14,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 16,
+                            expr: VmirExprIdx(
+                                16,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 18,
+                            expr: VmirExprIdx(
+                                18,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 19,
+                            expr: VmirExprIdx(
+                                19,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -670,7 +710,9 @@
                         },
                     },
                 },
-                root_expr: 7,
+                root_expr: VmirExprIdx(
+                    7,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -685,11 +727,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 1,
+                            lopd: VmirExprIdx(
+                                1,
+                            ),
                             opr: Comparison(
                                 Greater,
                             ),
-                            ropd: 2,
+                            ropd: VmirExprIdx(
+                                2,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(0),
@@ -703,11 +749,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 4,
+                            lopd: VmirExprIdx(
+                                4,
+                            ),
                             opr: Closed(
                                 Add,
                             ),
-                            ropd: 5,
+                            ropd: VmirExprIdx(
+                                5,
+                            ),
                         },
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
@@ -724,12 +774,16 @@
                         VmirStmtData::Let,
                         VmirStmtData::Require {
                             condition: VmirCondition::Other {
-                                opd: 3,
+                                opd: VmirExprIdx(
+                                    3,
+                                ),
                                 conversion: VmirConditionConversion::None,
                             },
                         },
                         VmirStmtData::Eval {
-                            expr: 6,
+                            expr: VmirExprIdx(
+                                6,
+                            ),
                             coersion: Some(
                                 VmirCoersion::WrapInSome,
                             ),
@@ -808,7 +862,9 @@
                         },
                     },
                 },
-                root_expr: 21,
+                root_expr: VmirExprIdx(
+                    21,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -820,11 +876,15 @@
                             qual: Ref,
                         },
                         VmirExprData::Binary {
-                            lopd: 1,
+                            lopd: VmirExprIdx(
+                                1,
+                            ),
                             opr: Comparison(
                                 Neq,
                             ),
-                            ropd: 2,
+                            ropd: VmirExprIdx(
+                                2,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(0),
@@ -835,9 +895,13 @@
                             qual: Transient,
                         },
                         VmirExprData::Binary {
-                            lopd: 4,
+                            lopd: VmirExprIdx(
+                                4,
+                            ),
                             opr: Assign,
-                            ropd: 5,
+                            ropd: VmirExprIdx(
+                                5,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(1),
@@ -861,18 +925,26 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 10,
+                            lopd: VmirExprIdx(
+                                10,
+                            ),
                             opr: Shift(
                                 Shl,
                             ),
-                            ropd: 11,
+                            ropd: VmirExprIdx(
+                                11,
+                            ),
                         },
                         VmirExprData::Binary {
-                            lopd: 9,
+                            lopd: VmirExprIdx(
+                                9,
+                            ),
                             opr: Closed(
                                 BitOr,
                             ),
-                            ropd: 12,
+                            ropd: VmirExprIdx(
+                                12,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(0),
@@ -884,30 +956,46 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 14,
+                            lopd: VmirExprIdx(
+                                14,
+                            ),
                             opr: Shift(
                                 Shr,
                             ),
-                            ropd: 15,
+                            ropd: VmirExprIdx(
+                                15,
+                            ),
                         },
                         VmirExprData::Binary {
-                            lopd: 13,
+                            lopd: VmirExprIdx(
+                                13,
+                            ),
                             opr: Closed(
                                 BitOr,
                             ),
-                            ropd: 16,
+                            ropd: VmirExprIdx(
+                                16,
+                            ),
                         },
                         VmirExprData::Binary {
-                            lopd: 8,
+                            lopd: VmirExprIdx(
+                                8,
+                            ),
                             opr: Closed(
                                 BitAnd,
                             ),
-                            ropd: 17,
+                            ropd: VmirExprIdx(
+                                17,
+                            ),
                         },
                         VmirExprData::Binary {
-                            lopd: 7,
+                            lopd: VmirExprIdx(
+                                7,
+                            ),
                             opr: Assign,
-                            ropd: 18,
+                            ropd: VmirExprIdx(
+                                18,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(0),
@@ -926,14 +1014,18 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 6,
+                            expr: VmirExprIdx(
+                                6,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 19,
+                            expr: VmirExprIdx(
+                                19,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -943,7 +1035,9 @@
                         VmirStmtData::Let,
                         VmirStmtData::While {
                             condition: VmirCondition::Other {
-                                opd: 3,
+                                opd: VmirExprIdx(
+                                    3,
+                                ),
                                 conversion: VmirConditionConversion::None,
                             },
                             stmts: ArenaIdxRange(
@@ -951,7 +1045,9 @@
                             ),
                         },
                         VmirStmtData::Return {
-                            result: 20,
+                            result: VmirExprIdx(
+                                20,
+                            ),
                             coersion: VmirCoersion::Trivial,
                         },
                     ],
@@ -984,7 +1080,9 @@
                         },
                     },
                 },
-                root_expr: 43,
+                root_expr: VmirExprIdx(
+                    43,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Index,
@@ -1003,11 +1101,15 @@
                             qual: Ref,
                         },
                         VmirExprData::Binary {
-                            lopd: 4,
+                            lopd: VmirExprIdx(
+                                4,
+                            ),
                             opr: Shift(
                                 Shl,
                             ),
-                            ropd: 5,
+                            ropd: VmirExprIdx(
+                                5,
+                            ),
                         },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
@@ -1023,19 +1125,27 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 3,
+                                    expr: VmirExprIdx(
+                                        3,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 6,
+                                    expr: VmirExprIdx(
+                                        6,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
                         },
                         VmirExprData::Binary {
-                            lopd: 2,
+                            lopd: VmirExprIdx(
+                                2,
+                            ),
                             opr: Assign,
-                            ropd: 7,
+                            ropd: VmirExprIdx(
+                                7,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(6),
@@ -1043,7 +1153,9 @@
                         },
                         VmirExprData::Prefix {
                             opr: NotBool,
-                            opd: 9,
+                            opd: VmirExprIdx(
+                                9,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(6),
@@ -1055,9 +1167,13 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 11,
+                            lopd: VmirExprIdx(
+                                11,
+                            ),
                             opr: Assign,
-                            ropd: 12,
+                            ropd: VmirExprIdx(
+                                12,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(9),
@@ -1065,7 +1181,9 @@
                         },
                         VmirExprData::Prefix {
                             opr: NotInt,
-                            opd: 14,
+                            opd: VmirExprIdx(
+                                14,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(8),
@@ -1076,11 +1194,15 @@
                             qual: Ref,
                         },
                         VmirExprData::Binary {
-                            lopd: 16,
+                            lopd: VmirExprIdx(
+                                16,
+                            ),
                             opr: Comparison(
                                 Neq,
                             ),
-                            ropd: 17,
+                            ropd: VmirExprIdx(
+                                17,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(6),
@@ -1092,9 +1214,13 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 19,
+                            lopd: VmirExprIdx(
+                                19,
+                            ),
                             opr: Assign,
-                            ropd: 20,
+                            ropd: VmirExprIdx(
+                                20,
+                            ),
                         },
                         VmirExprData::Index,
                         VmirExprData::Variable {
@@ -1102,9 +1228,13 @@
                             qual: Transient,
                         },
                         VmirExprData::Binary {
-                            lopd: 22,
+                            lopd: VmirExprIdx(
+                                22,
+                            ),
                             opr: Assign,
-                            ropd: 23,
+                            ropd: VmirExprIdx(
+                                23,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(10),
@@ -1115,11 +1245,15 @@
                             qual: Ref,
                         },
                         VmirExprData::Binary {
-                            lopd: 25,
+                            lopd: VmirExprIdx(
+                                25,
+                            ),
                             opr: Comparison(
                                 Neq,
                             ),
-                            ropd: 26,
+                            ropd: VmirExprIdx(
+                                26,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(6),
@@ -1131,9 +1265,13 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 28,
+                            lopd: VmirExprIdx(
+                                28,
+                            ),
                             opr: Assign,
-                            ropd: 29,
+                            ropd: VmirExprIdx(
+                                29,
+                            ),
                         },
                         VmirExprData::Index,
                         VmirExprData::Variable {
@@ -1141,22 +1279,32 @@
                             qual: Transient,
                         },
                         VmirExprData::Binary {
-                            lopd: 31,
+                            lopd: VmirExprIdx(
+                                31,
+                            ),
                             opr: Assign,
-                            ropd: 32,
+                            ropd: VmirExprIdx(
+                                32,
+                            ),
                         },
                         VmirExprData::Index,
                         VmirExprData::Index,
                         VmirExprData::Prefix {
                             opr: BitNot,
-                            opd: 35,
+                            opd: VmirExprIdx(
+                                35,
+                            ),
                         },
                         VmirExprData::Binary {
-                            lopd: 34,
+                            lopd: VmirExprIdx(
+                                34,
+                            ),
                             opr: AssignClosed(
                                 BitAnd,
                             ),
-                            ropd: 36,
+                            ropd: VmirExprIdx(
+                                36,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(0),
@@ -1178,7 +1326,9 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 39,
+                                    expr: VmirExprIdx(
+                                        39,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -1230,10 +1380,14 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 38,
+                                    expr: VmirExprIdx(
+                                        38,
+                                    ),
                                 },
                                 VmirArgument::Simple {
-                                    expr: 40,
+                                    expr: VmirExprIdx(
+                                        40,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -1256,14 +1410,18 @@
                     data: [
                         VmirStmtData::Break,
                         VmirStmtData::Eval {
-                            expr: 21,
+                            expr: VmirExprIdx(
+                                21,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 24,
+                            expr: VmirExprIdx(
+                                24,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -1274,7 +1432,9 @@
                         VmirStmtData::IfElse {
                             if_branch: VmirIfBranch {
                                 condition: VmirCondition::Other {
-                                    opd: 15,
+                                    opd: VmirExprIdx(
+                                        15,
+                                    ),
                                     conversion: VmirConditionConversion::None,
                                 },
                                 stmts: ArenaIdxRange(
@@ -1287,7 +1447,9 @@
                         VmirStmtData::IfElse {
                             if_branch: VmirIfBranch {
                                 condition: VmirCondition::Other {
-                                    opd: 18,
+                                    opd: VmirExprIdx(
+                                        18,
+                                    ),
                                     conversion: VmirConditionConversion::None,
                                 },
                                 stmts: ArenaIdxRange(
@@ -1298,14 +1460,18 @@
                             else_branch: None,
                         },
                         VmirStmtData::Eval {
-                            expr: 30,
+                            expr: VmirExprIdx(
+                                30,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 33,
+                            expr: VmirExprIdx(
+                                33,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -1316,7 +1482,9 @@
                         VmirStmtData::IfElse {
                             if_branch: VmirIfBranch {
                                 condition: VmirCondition::Other {
-                                    opd: 27,
+                                    opd: VmirExprIdx(
+                                        27,
+                                    ),
                                     conversion: VmirConditionConversion::None,
                                 },
                                 stmts: ArenaIdxRange(
@@ -1327,7 +1495,9 @@
                             else_branch: None,
                         },
                         VmirStmtData::Eval {
-                            expr: 13,
+                            expr: VmirExprIdx(
+                                13,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -1345,7 +1515,9 @@
                             ),
                         },
                         VmirStmtData::Eval {
-                            expr: 37,
+                            expr: VmirExprIdx(
+                                37,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -1355,7 +1527,9 @@
                         VmirStmtData::Let,
                         VmirStmtData::Let,
                         VmirStmtData::Eval {
-                            expr: 8,
+                            expr: VmirExprIdx(
+                                8,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -1364,7 +1538,9 @@
                         VmirStmtData::Let,
                         VmirStmtData::While {
                             condition: VmirCondition::Other {
-                                opd: 10,
+                                opd: VmirExprIdx(
+                                    10,
+                                ),
                                 conversion: VmirConditionConversion::None,
                             },
                             stmts: ArenaIdxRange(
@@ -1377,7 +1553,9 @@
                             ),
                         },
                         VmirStmtData::Eval {
-                            expr: 41,
+                            expr: VmirExprIdx(
+                                41,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -1385,7 +1563,9 @@
                         },
                         VmirStmtData::While {
                             condition: VmirCondition::Other {
-                                opd: 1,
+                                opd: VmirExprIdx(
+                                    1,
+                                ),
                                 conversion: VmirConditionConversion::IntToBool,
                             },
                             stmts: ArenaIdxRange(
@@ -1400,7 +1580,9 @@
                             ),
                         },
                         VmirStmtData::Return {
-                            result: 42,
+                            result: VmirExprIdx(
+                                42,
+                            ),
                             coersion: VmirCoersion::Trivial,
                         },
                     ],
@@ -1437,7 +1619,9 @@
                         },
                     },
                 },
-                root_expr: 3,
+                root_expr: VmirExprIdx(
+                    3,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -1458,7 +1642,9 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                     coersion: VmirCoersion::PlaceToLeash,
                                 },
                             ],
@@ -1476,7 +1662,9 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 2,
+                            expr: VmirExprIdx(
+                                2,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -1516,7 +1704,9 @@
                         },
                     },
                 },
-                root_expr: 16,
+                root_expr: VmirExprIdx(
+                    16,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -1571,10 +1761,14 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                 },
                                 VmirArgument::Simple {
-                                    expr: 2,
+                                    expr: VmirExprIdx(
+                                        2,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -1635,10 +1829,14 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 5,
+                                    expr: VmirExprIdx(
+                                        5,
+                                    ),
                                 },
                                 VmirArgument::Simple {
-                                    expr: 6,
+                                    expr: VmirExprIdx(
+                                        6,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -1690,10 +1888,14 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 4,
+                                    expr: VmirExprIdx(
+                                        4,
+                                    ),
                                 },
                                 VmirArgument::Simple {
-                                    expr: 7,
+                                    expr: VmirExprIdx(
+                                        7,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -1754,10 +1956,14 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 10,
+                                    expr: VmirExprIdx(
+                                        10,
+                                    ),
                                 },
                                 VmirArgument::Simple {
-                                    expr: 11,
+                                    expr: VmirExprIdx(
+                                        11,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -1809,10 +2015,14 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 9,
+                                    expr: VmirExprIdx(
+                                        9,
+                                    ),
                                 },
                                 VmirArgument::Simple {
-                                    expr: 12,
+                                    expr: VmirExprIdx(
+                                        12,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -1833,7 +2043,9 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 14,
+                                    expr: VmirExprIdx(
+                                        14,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -1853,26 +2065,34 @@
                         VmirStmtData::Let,
                         VmirStmtData::Let,
                         VmirStmtData::Eval {
-                            expr: 3,
+                            expr: VmirExprIdx(
+                                3,
+                            ),
                             coersion: None,
                             discarded: true,
                         },
                         VmirStmtData::Eval {
-                            expr: 8,
+                            expr: VmirExprIdx(
+                                8,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 13,
+                            expr: VmirExprIdx(
+                                13,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Return {
-                            result: 15,
+                            result: VmirExprIdx(
+                                15,
+                            ),
                             coersion: VmirCoersion::Trivial,
                         },
                     ],
@@ -1909,7 +2129,9 @@
                         },
                     },
                 },
-                root_expr: 9,
+                root_expr: VmirExprIdx(
+                    9,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -1921,11 +2143,15 @@
                             qual: Ref,
                         },
                         VmirExprData::Binary {
-                            lopd: 1,
+                            lopd: VmirExprIdx(
+                                1,
+                            ),
                             opr: Comparison(
                                 Less,
                             ),
-                            ropd: 2,
+                            ropd: VmirExprIdx(
+                                2,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(1),
@@ -1936,16 +2162,22 @@
                             qual: Transient,
                         },
                         VmirExprData::Binary {
-                            lopd: 4,
+                            lopd: VmirExprIdx(
+                                4,
+                            ),
                             opr: Assign,
-                            ropd: 5,
+                            ropd: VmirExprIdx(
+                                5,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(1),
                             qual: Ref,
                         },
                         VmirExprData::As {
-                            opd: 7,
+                            opd: VmirExprIdx(
+                                7,
+                            ),
                         },
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
@@ -1960,7 +2192,9 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 6,
+                            expr: VmirExprIdx(
+                                6,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -1970,7 +2204,9 @@
                         VmirStmtData::IfElse {
                             if_branch: VmirIfBranch {
                                 condition: VmirCondition::Other {
-                                    opd: 3,
+                                    opd: VmirExprIdx(
+                                        3,
+                                    ),
                                     conversion: VmirConditionConversion::None,
                                 },
                                 stmts: ArenaIdxRange(
@@ -1988,7 +2224,9 @@
                             ),
                         },
                         VmirStmtData::Return {
-                            result: 8,
+                            result: VmirExprIdx(
+                                8,
+                            ),
                             coersion: VmirCoersion::Trivial,
                         },
                     ],
@@ -2025,7 +2263,9 @@
                         },
                     },
                 },
-                root_expr: 9,
+                root_expr: VmirExprIdx(
+                    9,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -2055,7 +2295,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 3,
+                                    expr: VmirExprIdx(
+                                        3,
+                                    ),
                                 },
                             ],
                         },
@@ -2077,25 +2319,35 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 2,
+                                    expr: VmirExprIdx(
+                                        2,
+                                    ),
                                 },
                                 VmirArgument::Simple {
-                                    expr: 4,
+                                    expr: VmirExprIdx(
+                                        4,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
                         },
                         VmirExprData::Binary {
-                            lopd: 1,
+                            lopd: VmirExprIdx(
+                                1,
+                            ),
                             opr: Assign,
-                            ropd: 5,
+                            ropd: VmirExprIdx(
+                                5,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(1),
                             qual: Ref,
                         },
                         VmirExprData::As {
-                            opd: 7,
+                            opd: VmirExprIdx(
+                                7,
+                            ),
                         },
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
@@ -2110,7 +2362,9 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 6,
+                            expr: VmirExprIdx(
+                                6,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -2123,7 +2377,9 @@
                             ),
                         },
                         VmirStmtData::Return {
-                            result: 8,
+                            result: VmirExprIdx(
+                                8,
+                            ),
                             coersion: VmirCoersion::Trivial,
                         },
                     ],
@@ -2160,7 +2416,9 @@
                         },
                     },
                 },
-                root_expr: 7,
+                root_expr: VmirExprIdx(
+                    7,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -2186,23 +2444,31 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 2,
+                                    expr: VmirExprIdx(
+                                        2,
+                                    ),
                                 },
                             ],
                         },
                         VmirExprData::Binary {
-                            lopd: 1,
+                            lopd: VmirExprIdx(
+                                1,
+                            ),
                             opr: AssignClosed(
                                 Add,
                             ),
-                            ropd: 3,
+                            ropd: VmirExprIdx(
+                                3,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(1),
                             qual: Ref,
                         },
                         VmirExprData::As {
-                            opd: 5,
+                            opd: VmirExprIdx(
+                                5,
+                            ),
                         },
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
@@ -2217,7 +2483,9 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 4,
+                            expr: VmirExprIdx(
+                                4,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -2230,7 +2498,9 @@
                             ),
                         },
                         VmirStmtData::Return {
-                            result: 6,
+                            result: VmirExprIdx(
+                                6,
+                            ),
                             coersion: VmirCoersion::Trivial,
                         },
                     ],
@@ -2267,14 +2537,18 @@
                         },
                     },
                 },
-                root_expr: 17,
+                root_expr: VmirExprIdx(
+                    17,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Index,
                         VmirExprData::Index,
                         VmirExprData::Prefix {
                             opr: NotInt,
-                            opd: 2,
+                            opd: VmirExprIdx(
+                                2,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(5),
@@ -2299,16 +2573,22 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 5,
+                                    expr: VmirExprIdx(
+                                        5,
+                                    ),
                                 },
                             ],
                         },
                         VmirExprData::Binary {
-                            lopd: 4,
+                            lopd: VmirExprIdx(
+                                4,
+                            ),
                             opr: AssignClosed(
                                 Add,
                             ),
-                            ropd: 6,
+                            ropd: VmirExprIdx(
+                                6,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(7),
@@ -2333,16 +2613,22 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 9,
+                                    expr: VmirExprIdx(
+                                        9,
+                                    ),
                                 },
                             ],
                         },
                         VmirExprData::Binary {
-                            lopd: 8,
+                            lopd: VmirExprIdx(
+                                8,
+                            ),
                             opr: AssignClosed(
                                 Add,
                             ),
-                            ropd: 10,
+                            ropd: VmirExprIdx(
+                                10,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(1),
@@ -2372,19 +2658,27 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 12,
+                                    expr: VmirExprIdx(
+                                        12,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 13,
+                                    expr: VmirExprIdx(
+                                        13,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 14,
+                                    expr: VmirExprIdx(
+                                        14,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 15,
+                                    expr: VmirExprIdx(
+                                        15,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -2405,7 +2699,9 @@
                         VmirStmtData::IfElse {
                             if_branch: VmirIfBranch {
                                 condition: VmirCondition::Other {
-                                    opd: 1,
+                                    opd: VmirExprIdx(
+                                        1,
+                                    ),
                                     conversion: VmirConditionConversion::IntToBool,
                                 },
                                 stmts: ArenaIdxRange(
@@ -2419,7 +2715,9 @@
                         VmirStmtData::IfElse {
                             if_branch: VmirIfBranch {
                                 condition: VmirCondition::Other {
-                                    opd: 3,
+                                    opd: VmirExprIdx(
+                                        3,
+                                    ),
                                     conversion: VmirConditionConversion::None,
                                 },
                                 stmts: ArenaIdxRange(
@@ -2430,14 +2728,18 @@
                             else_branch: None,
                         },
                         VmirStmtData::Eval {
-                            expr: 7,
+                            expr: VmirExprIdx(
+                                7,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 11,
+                            expr: VmirExprIdx(
+                                11,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -2470,7 +2772,9 @@
                             ),
                         },
                         VmirStmtData::Return {
-                            result: 16,
+                            result: VmirExprIdx(
+                                16,
+                            ),
                             coersion: VmirCoersion::Trivial,
                         },
                     ],
@@ -2507,7 +2811,9 @@
                         },
                     },
                 },
-                root_expr: 5,
+                root_expr: VmirExprIdx(
+                    5,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -2530,7 +2836,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                 },
                             ],
                         },
@@ -2554,12 +2862,16 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 2,
+                                    expr: VmirExprIdx(
+                                        2,
+                                    ),
                                 },
                             ],
                         },
                         VmirExprData::As {
-                            opd: 3,
+                            opd: VmirExprIdx(
+                                3,
+                            ),
                         },
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
@@ -2574,7 +2886,9 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 4,
+                            expr: VmirExprIdx(
+                                4,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -2614,7 +2928,9 @@
                         },
                     },
                 },
-                root_expr: 5,
+                root_expr: VmirExprIdx(
+                    5,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -2637,7 +2953,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                 },
                             ],
                         },
@@ -2661,12 +2979,16 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 2,
+                                    expr: VmirExprIdx(
+                                        2,
+                                    ),
                                 },
                             ],
                         },
                         VmirExprData::As {
-                            opd: 3,
+                            opd: VmirExprIdx(
+                                3,
+                            ),
                         },
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
@@ -2681,7 +3003,9 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 4,
+                            expr: VmirExprIdx(
+                                4,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -2725,7 +3049,9 @@
                         },
                     },
                 },
-                root_expr: 11,
+                root_expr: VmirExprIdx(
+                    11,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -2738,11 +3064,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 1,
+                            lopd: VmirExprIdx(
+                                1,
+                            ),
                             opr: Comparison(
                                 Greater,
                             ),
-                            ropd: 2,
+                            ropd: VmirExprIdx(
+                                2,
+                            ),
                         },
                         VmirExprData::Index,
                         VmirExprData::Variable {
@@ -2768,23 +3098,31 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 6,
+                                    expr: VmirExprIdx(
+                                        6,
+                                    ),
                                 },
                             ],
                         },
                         VmirExprData::Binary {
-                            lopd: 5,
+                            lopd: VmirExprIdx(
+                                5,
+                            ),
                             opr: AssignClosed(
                                 Add,
                             ),
-                            ropd: 7,
+                            ropd: VmirExprIdx(
+                                7,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(1),
                             qual: Ref,
                         },
                         VmirExprData::As {
-                            opd: 9,
+                            opd: VmirExprIdx(
+                                9,
+                            ),
                         },
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
@@ -2802,7 +3140,9 @@
                         VmirStmtData::IfElse {
                             if_branch: VmirIfBranch {
                                 condition: VmirCondition::Other {
-                                    opd: 4,
+                                    opd: VmirExprIdx(
+                                        4,
+                                    ),
                                     conversion: VmirConditionConversion::IntToBool,
                                 },
                                 stmts: ArenaIdxRange(
@@ -2813,7 +3153,9 @@
                             else_branch: None,
                         },
                         VmirStmtData::Eval {
-                            expr: 8,
+                            expr: VmirExprIdx(
+                                8,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -2822,7 +3164,9 @@
                         VmirStmtData::Let,
                         VmirStmtData::Assert {
                             condition: VmirCondition::Other {
-                                opd: 3,
+                                opd: VmirExprIdx(
+                                    3,
+                                ),
                                 conversion: VmirConditionConversion::None,
                             },
                         },
@@ -2838,7 +3182,9 @@
                             ),
                         },
                         VmirStmtData::Return {
-                            result: 10,
+                            result: VmirExprIdx(
+                                10,
+                            ),
                             coersion: VmirCoersion::Trivial,
                         },
                     ],
@@ -2879,7 +3225,9 @@
                         },
                     },
                 },
-                root_expr: 11,
+                root_expr: VmirExprIdx(
+                    11,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -2892,11 +3240,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 1,
+                            lopd: VmirExprIdx(
+                                1,
+                            ),
                             opr: Comparison(
                                 Greater,
                             ),
-                            ropd: 2,
+                            ropd: VmirExprIdx(
+                                2,
+                            ),
                         },
                         VmirExprData::Index,
                         VmirExprData::Variable {
@@ -2922,23 +3274,31 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 6,
+                                    expr: VmirExprIdx(
+                                        6,
+                                    ),
                                 },
                             ],
                         },
                         VmirExprData::Binary {
-                            lopd: 5,
+                            lopd: VmirExprIdx(
+                                5,
+                            ),
                             opr: AssignClosed(
                                 Add,
                             ),
-                            ropd: 7,
+                            ropd: VmirExprIdx(
+                                7,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(1),
                             qual: Ref,
                         },
                         VmirExprData::As {
-                            opd: 9,
+                            opd: VmirExprIdx(
+                                9,
+                            ),
                         },
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
@@ -2956,7 +3316,9 @@
                         VmirStmtData::IfElse {
                             if_branch: VmirIfBranch {
                                 condition: VmirCondition::Other {
-                                    opd: 4,
+                                    opd: VmirExprIdx(
+                                        4,
+                                    ),
                                     conversion: VmirConditionConversion::IntToBool,
                                 },
                                 stmts: ArenaIdxRange(
@@ -2967,7 +3329,9 @@
                             else_branch: None,
                         },
                         VmirStmtData::Eval {
-                            expr: 8,
+                            expr: VmirExprIdx(
+                                8,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -2976,7 +3340,9 @@
                         VmirStmtData::Let,
                         VmirStmtData::Assert {
                             condition: VmirCondition::Other {
-                                opd: 3,
+                                opd: VmirExprIdx(
+                                    3,
+                                ),
                                 conversion: VmirConditionConversion::None,
                             },
                         },
@@ -2992,7 +3358,9 @@
                             ),
                         },
                         VmirStmtData::Return {
-                            result: 10,
+                            result: VmirExprIdx(
+                                10,
+                            ),
                             coersion: VmirCoersion::Trivial,
                         },
                     ],
@@ -3272,7 +3640,9 @@
                         },
                     },
                 },
-                root_expr: 8,
+                root_expr: VmirExprIdx(
+                    8,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -3289,18 +3659,26 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 2,
+                            lopd: VmirExprIdx(
+                                2,
+                            ),
                             opr: Closed(
                                 Sub,
                             ),
-                            ropd: 3,
+                            ropd: VmirExprIdx(
+                                3,
+                            ),
                         },
                         VmirExprData::Binary {
-                            lopd: 1,
+                            lopd: VmirExprIdx(
+                                1,
+                            ),
                             opr: Shift(
                                 Shr,
                             ),
-                            ropd: 4,
+                            ropd: VmirExprIdx(
+                                4,
+                            ),
                         },
                         VmirExprData::Literal {
                             value: R32(
@@ -3308,11 +3686,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 5,
+                            lopd: VmirExprIdx(
+                                5,
+                            ),
                             opr: Closed(
                                 BitAnd,
                             ),
-                            ropd: 6,
+                            ropd: VmirExprIdx(
+                                6,
+                            ),
                         },
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
@@ -3327,7 +3709,9 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 7,
+                            expr: VmirExprIdx(
+                                7,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -3363,7 +3747,9 @@
                         },
                     },
                 },
-                root_expr: 6,
+                root_expr: VmirExprIdx(
+                    6,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -3375,11 +3761,15 @@
                             qual: Ref,
                         },
                         VmirExprData::Binary {
-                            lopd: 1,
+                            lopd: VmirExprIdx(
+                                1,
+                            ),
                             opr: Shift(
                                 Shr,
                             ),
-                            ropd: 2,
+                            ropd: VmirExprIdx(
+                                2,
+                            ),
                         },
                         VmirExprData::Literal {
                             value: R32(
@@ -3387,11 +3777,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 3,
+                            lopd: VmirExprIdx(
+                                3,
+                            ),
                             opr: Closed(
                                 BitAnd,
                             ),
-                            ropd: 4,
+                            ropd: VmirExprIdx(
+                                4,
+                            ),
                         },
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
@@ -3406,7 +3800,9 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 5,
+                            expr: VmirExprIdx(
+                                5,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -3442,7 +3838,9 @@
                         },
                     },
                 },
-                root_expr: 8,
+                root_expr: VmirExprIdx(
+                    8,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -3459,18 +3857,26 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 2,
+                            lopd: VmirExprIdx(
+                                2,
+                            ),
                             opr: Closed(
                                 Sub,
                             ),
-                            ropd: 3,
+                            ropd: VmirExprIdx(
+                                3,
+                            ),
                         },
                         VmirExprData::Binary {
-                            lopd: 1,
+                            lopd: VmirExprIdx(
+                                1,
+                            ),
                             opr: Shift(
                                 Shr,
                             ),
-                            ropd: 4,
+                            ropd: VmirExprIdx(
+                                4,
+                            ),
                         },
                         VmirExprData::Literal {
                             value: R32(
@@ -3478,11 +3884,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 5,
+                            lopd: VmirExprIdx(
+                                5,
+                            ),
                             opr: Closed(
                                 BitAnd,
                             ),
-                            ropd: 6,
+                            ropd: VmirExprIdx(
+                                6,
+                            ),
                         },
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
@@ -3497,7 +3907,9 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 7,
+                            expr: VmirExprIdx(
+                                7,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -3533,7 +3945,9 @@
                         },
                     },
                 },
-                root_expr: 17,
+                root_expr: VmirExprIdx(
+                    17,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -3577,28 +3991,36 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 3,
+                            expr: VmirExprIdx(
+                                3,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 4,
+                            expr: VmirExprIdx(
+                                4,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 5,
+                            expr: VmirExprIdx(
+                                5,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Never,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Match {
-                            opd: 2,
+                            opd: VmirExprIdx(
+                                2,
+                            ),
                             case_branches: [
                                 VmirCaseBranch {
                                     pattern: VmirPatternIdx {
@@ -3630,42 +4052,54 @@
                             ],
                         },
                         VmirStmtData::Eval {
-                            expr: 6,
+                            expr: VmirExprIdx(
+                                6,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 8,
+                            expr: VmirExprIdx(
+                                8,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 9,
+                            expr: VmirExprIdx(
+                                9,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 10,
+                            expr: VmirExprIdx(
+                                10,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 11,
+                            expr: VmirExprIdx(
+                                11,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Never,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Match {
-                            opd: 7,
+                            opd: VmirExprIdx(
+                                7,
+                            ),
                             case_branches: [
                                 VmirCaseBranch {
                                     pattern: VmirPatternIdx {
@@ -3706,28 +4140,36 @@
                             ],
                         },
                         VmirStmtData::Eval {
-                            expr: 13,
+                            expr: VmirExprIdx(
+                                13,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 14,
+                            expr: VmirExprIdx(
+                                14,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 15,
+                            expr: VmirExprIdx(
+                                15,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Never,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Match {
-                            opd: 12,
+                            opd: VmirExprIdx(
+                                12,
+                            ),
                             case_branches: [
                                 VmirCaseBranch {
                                     pattern: VmirPatternIdx {
@@ -3759,7 +4201,9 @@
                             ],
                         },
                         VmirStmtData::Eval {
-                            expr: 16,
+                            expr: VmirExprIdx(
+                                16,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Never,
                             ),
@@ -3768,7 +4212,9 @@
                         VmirStmtData::Let,
                         VmirStmtData::Let,
                         VmirStmtData::Match {
-                            opd: 1,
+                            opd: VmirExprIdx(
+                                1,
+                            ),
                             case_branches: [
                                 VmirCaseBranch {
                                     pattern: VmirPatternIdx {
@@ -3847,7 +4293,9 @@
                         },
                     },
                 },
-                root_expr: 7,
+                root_expr: VmirExprIdx(
+                    7,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -3859,7 +4307,9 @@
                             qual: Ref,
                         },
                         VmirExprData::As {
-                            opd: 2,
+                            opd: VmirExprIdx(
+                                2,
+                            ),
                         },
                         VmirExprData::Literal {
                             value: I32(
@@ -3868,7 +4318,9 @@
                         },
                         VmirExprData::Prefix {
                             opr: Minus,
-                            opd: 4,
+                            opd: VmirExprIdx(
+                                4,
+                            ),
                         },
                         VmirExprData::Unreachable,
                         VmirExprData::Block {
@@ -3884,21 +4336,27 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 3,
+                            expr: VmirExprIdx(
+                                3,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 5,
+                            expr: VmirExprIdx(
+                                5,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 6,
+                            expr: VmirExprIdx(
+                                6,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Never,
                             ),
@@ -3906,7 +4364,9 @@
                         },
                         VmirStmtData::Let,
                         VmirStmtData::Match {
-                            opd: 1,
+                            opd: VmirExprIdx(
+                                1,
+                            ),
                             case_branches: [
                                 VmirCaseBranch {
                                     pattern: VmirPatternIdx {
@@ -3967,7 +4427,9 @@
                         },
                     },
                 },
-                root_expr: 27,
+                root_expr: VmirExprIdx(
+                    27,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -4030,28 +4492,36 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 3,
+                            expr: VmirExprIdx(
+                                3,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 4,
+                            expr: VmirExprIdx(
+                                4,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 5,
+                            expr: VmirExprIdx(
+                                5,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Never,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Match {
-                            opd: 2,
+                            opd: VmirExprIdx(
+                                2,
+                            ),
                             case_branches: [
                                 VmirCaseBranch {
                                     pattern: VmirPatternIdx {
@@ -4083,42 +4553,54 @@
                             ],
                         },
                         VmirStmtData::Eval {
-                            expr: 7,
+                            expr: VmirExprIdx(
+                                7,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 8,
+                            expr: VmirExprIdx(
+                                8,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 10,
+                            expr: VmirExprIdx(
+                                10,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 11,
+                            expr: VmirExprIdx(
+                                11,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 12,
+                            expr: VmirExprIdx(
+                                12,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Never,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Match {
-                            opd: 9,
+                            opd: VmirExprIdx(
+                                9,
+                            ),
                             case_branches: [
                                 VmirCaseBranch {
                                     pattern: VmirPatternIdx {
@@ -4150,21 +4632,27 @@
                             ],
                         },
                         VmirStmtData::Eval {
-                            expr: 13,
+                            expr: VmirExprIdx(
+                                13,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 14,
+                            expr: VmirExprIdx(
+                                14,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Never,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Match {
-                            opd: 6,
+                            opd: VmirExprIdx(
+                                6,
+                            ),
                             case_branches: [
                                 VmirCaseBranch {
                                     pattern: VmirPatternIdx {
@@ -4214,35 +4702,45 @@
                             ],
                         },
                         VmirStmtData::Eval {
-                            expr: 16,
+                            expr: VmirExprIdx(
+                                16,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 18,
+                            expr: VmirExprIdx(
+                                18,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 19,
+                            expr: VmirExprIdx(
+                                19,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 20,
+                            expr: VmirExprIdx(
+                                20,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Never,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Match {
-                            opd: 17,
+                            opd: VmirExprIdx(
+                                17,
+                            ),
                             case_branches: [
                                 VmirCaseBranch {
                                     pattern: VmirPatternIdx {
@@ -4274,14 +4772,18 @@
                             ],
                         },
                         VmirStmtData::Eval {
-                            expr: 21,
+                            expr: VmirExprIdx(
+                                21,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Never,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Match {
-                            opd: 15,
+                            opd: VmirExprIdx(
+                                15,
+                            ),
                             case_branches: [
                                 VmirCaseBranch {
                                     pattern: VmirPatternIdx {
@@ -4313,28 +4815,36 @@
                             ],
                         },
                         VmirStmtData::Eval {
-                            expr: 23,
+                            expr: VmirExprIdx(
+                                23,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 24,
+                            expr: VmirExprIdx(
+                                24,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 25,
+                            expr: VmirExprIdx(
+                                25,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Never,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Match {
-                            opd: 22,
+                            opd: VmirExprIdx(
+                                22,
+                            ),
                             case_branches: [
                                 VmirCaseBranch {
                                     pattern: VmirPatternIdx {
@@ -4366,7 +4876,9 @@
                             ],
                         },
                         VmirStmtData::Eval {
-                            expr: 26,
+                            expr: VmirExprIdx(
+                                26,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Never,
                             ),
@@ -4375,7 +4887,9 @@
                         VmirStmtData::Let,
                         VmirStmtData::Let,
                         VmirStmtData::Match {
-                            opd: 1,
+                            opd: VmirExprIdx(
+                                1,
+                            ),
                             case_branches: [
                                 VmirCaseBranch {
                                     pattern: VmirPatternIdx {
@@ -4517,7 +5031,9 @@
                         },
                     },
                 },
-                root_expr: 16,
+                root_expr: VmirExprIdx(
+                    16,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -4544,7 +5060,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                 },
                             ],
                         },
@@ -4572,16 +5090,22 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 3,
+                                    expr: VmirExprIdx(
+                                        3,
+                                    ),
                                 },
                             ],
                         },
                         VmirExprData::Binary {
-                            lopd: 2,
+                            lopd: VmirExprIdx(
+                                2,
+                            ),
                             opr: Closed(
                                 Add,
                             ),
-                            ropd: 4,
+                            ropd: VmirExprIdx(
+                                4,
+                            ),
                         },
                         VmirExprData::Literal {
                             value: F32(
@@ -4591,11 +5115,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 5,
+                            lopd: VmirExprIdx(
+                                5,
+                            ),
                             opr: Closed(
                                 Div,
                             ),
-                            ropd: 6,
+                            ropd: VmirExprIdx(
+                                6,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(0),
@@ -4621,7 +5149,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 8,
+                                    expr: VmirExprIdx(
+                                        8,
+                                    ),
                                 },
                             ],
                         },
@@ -4649,16 +5179,22 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 10,
+                                    expr: VmirExprIdx(
+                                        10,
+                                    ),
                                 },
                             ],
                         },
                         VmirExprData::Binary {
-                            lopd: 9,
+                            lopd: VmirExprIdx(
+                                9,
+                            ),
                             opr: Closed(
                                 Add,
                             ),
-                            ropd: 11,
+                            ropd: VmirExprIdx(
+                                11,
+                            ),
                         },
                         VmirExprData::Literal {
                             value: F32(
@@ -4668,11 +5204,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 12,
+                            lopd: VmirExprIdx(
+                                12,
+                            ),
                             opr: Closed(
                                 Div,
                             ),
-                            ropd: 13,
+                            ropd: VmirExprIdx(
+                                13,
+                            ),
                         },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
@@ -4686,11 +5226,15 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 7,
+                                    expr: VmirExprIdx(
+                                        7,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 14,
+                                    expr: VmirExprIdx(
+                                        14,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -4711,7 +5255,9 @@
                         VmirStmtData::Let,
                         VmirStmtData::Let,
                         VmirStmtData::Eval {
-                            expr: 15,
+                            expr: VmirExprIdx(
+                                15,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -4747,7 +5293,9 @@
                         },
                     },
                 },
-                root_expr: 220,
+                root_expr: VmirExprIdx(
+                    220,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Index,
@@ -4760,33 +5308,45 @@
                             qual: Ref,
                         },
                         VmirExprData::Binary {
-                            lopd: 2,
+                            lopd: VmirExprIdx(
+                                2,
+                            ),
                             opr: Closed(
                                 BitOr,
                             ),
-                            ropd: 3,
+                            ropd: VmirExprIdx(
+                                3,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(5),
                             qual: Ref,
                         },
                         VmirExprData::Binary {
-                            lopd: 4,
+                            lopd: VmirExprIdx(
+                                4,
+                            ),
                             opr: Closed(
                                 BitOr,
                             ),
-                            ropd: 5,
+                            ropd: VmirExprIdx(
+                                5,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(6),
                             qual: Ref,
                         },
                         VmirExprData::Binary {
-                            lopd: 6,
+                            lopd: VmirExprIdx(
+                                6,
+                            ),
                             opr: Closed(
                                 BitOr,
                             ),
-                            ropd: 7,
+                            ropd: VmirExprIdx(
+                                7,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(3),
@@ -4797,49 +5357,71 @@
                             qual: Ref,
                         },
                         VmirExprData::Binary {
-                            lopd: 9,
+                            lopd: VmirExprIdx(
+                                9,
+                            ),
                             opr: Closed(
                                 BitAnd,
                             ),
-                            ropd: 10,
+                            ropd: VmirExprIdx(
+                                10,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(5),
                             qual: Ref,
                         },
                         VmirExprData::Binary {
-                            lopd: 11,
+                            lopd: VmirExprIdx(
+                                11,
+                            ),
                             opr: Closed(
                                 BitAnd,
                             ),
-                            ropd: 12,
+                            ropd: VmirExprIdx(
+                                12,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(6),
                             qual: Ref,
                         },
                         VmirExprData::Binary {
-                            lopd: 13,
+                            lopd: VmirExprIdx(
+                                13,
+                            ),
                             opr: Closed(
                                 BitAnd,
                             ),
-                            ropd: 14,
+                            ropd: VmirExprIdx(
+                                14,
+                            ),
                         },
                         VmirExprData::Prefix {
                             opr: BitNot,
-                            opd: 15,
+                            opd: VmirExprIdx(
+                                15,
+                            ),
                         },
                         VmirExprData::Binary {
-                            lopd: 8,
+                            lopd: VmirExprIdx(
+                                8,
+                            ),
                             opr: Closed(
                                 BitAnd,
                             ),
-                            ropd: 16,
+                            ropd: VmirExprIdx(
+                                16,
+                            ),
                         },
                         VmirExprData::Binary {
-                            lopd: 1,
+                            lopd: VmirExprIdx(
+                                1,
+                            ),
                             opr: Assign,
-                            ropd: 17,
+                            ropd: VmirExprIdx(
+                                17,
+                            ),
                         },
                         VmirExprData::Index,
                         VmirExprData::Variable {
@@ -4851,11 +5433,15 @@
                             qual: Ref,
                         },
                         VmirExprData::Binary {
-                            lopd: 20,
+                            lopd: VmirExprIdx(
+                                20,
+                            ),
                             opr: Comparison(
                                 Eq,
                             ),
-                            ropd: 21,
+                            ropd: VmirExprIdx(
+                                21,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(10),
@@ -4866,18 +5452,26 @@
                             qual: Ref,
                         },
                         VmirExprData::Binary {
-                            lopd: 23,
+                            lopd: VmirExprIdx(
+                                23,
+                            ),
                             opr: Comparison(
                                 Eq,
                             ),
-                            ropd: 24,
+                            ropd: VmirExprIdx(
+                                24,
+                            ),
                         },
                         VmirExprData::Binary {
-                            lopd: 22,
+                            lopd: VmirExprIdx(
+                                22,
+                            ),
                             opr: ShortCircuitLogic(
                                 And,
                             ),
-                            ropd: 25,
+                            ropd: VmirExprIdx(
+                                25,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(13),
@@ -4888,22 +5482,32 @@
                             qual: Ref,
                         },
                         VmirExprData::Binary {
-                            lopd: 27,
+                            lopd: VmirExprIdx(
+                                27,
+                            ),
                             opr: Comparison(
                                 Eq,
                             ),
-                            ropd: 28,
+                            ropd: VmirExprIdx(
+                                28,
+                            ),
                         },
                         VmirExprData::Binary {
-                            lopd: 26,
+                            lopd: VmirExprIdx(
+                                26,
+                            ),
                             opr: ShortCircuitLogic(
                                 And,
                             ),
-                            ropd: 29,
+                            ropd: VmirExprIdx(
+                                29,
+                            ),
                         },
                         VmirExprData::Prefix {
                             opr: NotBool,
-                            opd: 30,
+                            opd: VmirExprIdx(
+                                30,
+                            ),
                         },
                         VmirExprData::Index,
                         VmirExprData::Index,
@@ -4917,27 +5521,41 @@
                             qual: Ref,
                         },
                         VmirExprData::Binary {
-                            lopd: 34,
+                            lopd: VmirExprIdx(
+                                34,
+                            ),
                             opr: Shift(
                                 Shl,
                             ),
-                            ropd: 35,
+                            ropd: VmirExprIdx(
+                                35,
+                            ),
                         },
                         VmirExprData::Prefix {
                             opr: BitNot,
-                            opd: 36,
+                            opd: VmirExprIdx(
+                                36,
+                            ),
                         },
                         VmirExprData::Binary {
-                            lopd: 33,
+                            lopd: VmirExprIdx(
+                                33,
+                            ),
                             opr: Closed(
                                 BitAnd,
                             ),
-                            ropd: 37,
+                            ropd: VmirExprIdx(
+                                37,
+                            ),
                         },
                         VmirExprData::Binary {
-                            lopd: 32,
+                            lopd: VmirExprIdx(
+                                32,
+                            ),
                             opr: Assign,
-                            ropd: 38,
+                            ropd: VmirExprIdx(
+                                38,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(24),
@@ -4954,14 +5572,20 @@
                         },
                         VmirExprData::Prefix {
                             opr: Minus,
-                            opd: 42,
+                            opd: VmirExprIdx(
+                                42,
+                            ),
                         },
                         VmirExprData::Binary {
-                            lopd: 41,
+                            lopd: VmirExprIdx(
+                                41,
+                            ),
                             opr: Comparison(
                                 Eq,
                             ),
-                            ropd: 43,
+                            ropd: VmirExprIdx(
+                                43,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(18),
@@ -4974,21 +5598,31 @@
                         },
                         VmirExprData::Prefix {
                             opr: Minus,
-                            opd: 46,
+                            opd: VmirExprIdx(
+                                46,
+                            ),
                         },
                         VmirExprData::Binary {
-                            lopd: 45,
+                            lopd: VmirExprIdx(
+                                45,
+                            ),
                             opr: Comparison(
                                 Eq,
                             ),
-                            ropd: 47,
+                            ropd: VmirExprIdx(
+                                47,
+                            ),
                         },
                         VmirExprData::Binary {
-                            lopd: 44,
+                            lopd: VmirExprIdx(
+                                44,
+                            ),
                             opr: ShortCircuitLogic(
                                 And,
                             ),
-                            ropd: 48,
+                            ropd: VmirExprIdx(
+                                48,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(22),
@@ -5000,18 +5634,26 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 50,
+                            lopd: VmirExprIdx(
+                                50,
+                            ),
                             opr: Comparison(
                                 Eq,
                             ),
-                            ropd: 51,
+                            ropd: VmirExprIdx(
+                                51,
+                            ),
                         },
                         VmirExprData::Binary {
-                            lopd: 49,
+                            lopd: VmirExprIdx(
+                                49,
+                            ),
                             opr: ShortCircuitLogic(
                                 And,
                             ),
-                            ropd: 52,
+                            ropd: VmirExprIdx(
+                                52,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(20),
@@ -5024,21 +5666,31 @@
                         },
                         VmirExprData::Prefix {
                             opr: Minus,
-                            opd: 55,
+                            opd: VmirExprIdx(
+                                55,
+                            ),
                         },
                         VmirExprData::Binary {
-                            lopd: 54,
+                            lopd: VmirExprIdx(
+                                54,
+                            ),
                             opr: Comparison(
                                 Neq,
                             ),
-                            ropd: 56,
+                            ropd: VmirExprIdx(
+                                56,
+                            ),
                         },
                         VmirExprData::Binary {
-                            lopd: 53,
+                            lopd: VmirExprIdx(
+                                53,
+                            ),
                             opr: ShortCircuitLogic(
                                 And,
                             ),
-                            ropd: 57,
+                            ropd: VmirExprIdx(
+                                57,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(21),
@@ -5050,18 +5702,26 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 59,
+                            lopd: VmirExprIdx(
+                                59,
+                            ),
                             opr: Comparison(
                                 Eq,
                             ),
-                            ropd: 60,
+                            ropd: VmirExprIdx(
+                                60,
+                            ),
                         },
                         VmirExprData::Binary {
-                            lopd: 58,
+                            lopd: VmirExprIdx(
+                                58,
+                            ),
                             opr: ShortCircuitLogic(
                                 And,
                             ),
-                            ropd: 61,
+                            ropd: VmirExprIdx(
+                                61,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(8),
@@ -5116,12 +5776,16 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 63,
+                                    expr: VmirExprIdx(
+                                        63,
+                                    ),
                                 },
                             ],
                         },
                         VmirExprData::Unwrap {
-                            opd: 64,
+                            opd: VmirExprIdx(
+                                64,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(8),
@@ -5141,15 +5805,21 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 66,
+                                    expr: VmirExprIdx(
+                                        66,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
                         },
                         VmirExprData::Binary {
-                            lopd: 65,
+                            lopd: VmirExprIdx(
+                                65,
+                            ),
                             opr: Assign,
-                            ropd: 67,
+                            ropd: VmirExprIdx(
+                                67,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(8),
@@ -5181,11 +5851,15 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 70,
+                                    expr: VmirExprIdx(
+                                        70,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 71,
+                                    expr: VmirExprIdx(
+                                        71,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -5237,10 +5911,14 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 69,
+                                    expr: VmirExprIdx(
+                                        69,
+                                    ),
                                 },
                                 VmirArgument::Simple {
-                                    expr: 72,
+                                    expr: VmirExprIdx(
+                                        72,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -5256,12 +5934,18 @@
                         },
                         VmirExprData::Prefix {
                             opr: Minus,
-                            opd: 75,
+                            opd: VmirExprIdx(
+                                75,
+                            ),
                         },
                         VmirExprData::Binary {
-                            lopd: 74,
+                            lopd: VmirExprIdx(
+                                74,
+                            ),
                             opr: Assign,
-                            ropd: 76,
+                            ropd: VmirExprIdx(
+                                76,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(20),
@@ -5274,12 +5958,18 @@
                         },
                         VmirExprData::Prefix {
                             opr: Minus,
-                            opd: 79,
+                            opd: VmirExprIdx(
+                                79,
+                            ),
                         },
                         VmirExprData::Binary {
-                            lopd: 78,
+                            lopd: VmirExprIdx(
+                                78,
+                            ),
                             opr: Assign,
-                            ropd: 80,
+                            ropd: VmirExprIdx(
+                                80,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(17),
@@ -5292,14 +5982,20 @@
                         },
                         VmirExprData::Prefix {
                             opr: Minus,
-                            opd: 83,
+                            opd: VmirExprIdx(
+                                83,
+                            ),
                         },
                         VmirExprData::Binary {
-                            lopd: 82,
+                            lopd: VmirExprIdx(
+                                82,
+                            ),
                             opr: Comparison(
                                 Eq,
                             ),
-                            ropd: 84,
+                            ropd: VmirExprIdx(
+                                84,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(20),
@@ -5311,18 +6007,26 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 86,
+                            lopd: VmirExprIdx(
+                                86,
+                            ),
                             opr: Comparison(
                                 Greater,
                             ),
-                            ropd: 87,
+                            ropd: VmirExprIdx(
+                                87,
+                            ),
                         },
                         VmirExprData::Binary {
-                            lopd: 85,
+                            lopd: VmirExprIdx(
+                                85,
+                            ),
                             opr: ShortCircuitLogic(
                                 And,
                             ),
-                            ropd: 88,
+                            ropd: VmirExprIdx(
+                                88,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(20),
@@ -5334,18 +6038,26 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 90,
+                            lopd: VmirExprIdx(
+                                90,
+                            ),
                             opr: Comparison(
                                 Eq,
                             ),
-                            ropd: 91,
+                            ropd: VmirExprIdx(
+                                91,
+                            ),
                         },
                         VmirExprData::Binary {
-                            lopd: 89,
+                            lopd: VmirExprIdx(
+                                89,
+                            ),
                             opr: ShortCircuitLogic(
                                 And,
                             ),
-                            ropd: 92,
+                            ropd: VmirExprIdx(
+                                92,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(8),
@@ -5400,12 +6112,16 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 94,
+                                    expr: VmirExprIdx(
+                                        94,
+                                    ),
                                 },
                             ],
                         },
                         VmirExprData::Unwrap {
-                            opd: 95,
+                            opd: VmirExprIdx(
+                                95,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(9),
@@ -5433,19 +6149,27 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 97,
+                                    expr: VmirExprIdx(
+                                        97,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 98,
+                                    expr: VmirExprIdx(
+                                        98,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
                         },
                         VmirExprData::Binary {
-                            lopd: 96,
+                            lopd: VmirExprIdx(
+                                96,
+                            ),
                             opr: Assign,
-                            ropd: 99,
+                            ropd: VmirExprIdx(
+                                99,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(21),
@@ -5456,9 +6180,13 @@
                             qual: Transient,
                         },
                         VmirExprData::Binary {
-                            lopd: 101,
+                            lopd: VmirExprIdx(
+                                101,
+                            ),
                             opr: Assign,
-                            ropd: 102,
+                            ropd: VmirExprIdx(
+                                102,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(20),
@@ -5469,9 +6197,13 @@
                             qual: Transient,
                         },
                         VmirExprData::Binary {
-                            lopd: 104,
+                            lopd: VmirExprIdx(
+                                104,
+                            ),
                             opr: Assign,
-                            ropd: 105,
+                            ropd: VmirExprIdx(
+                                105,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(17),
@@ -5484,14 +6216,20 @@
                         },
                         VmirExprData::Prefix {
                             opr: Minus,
-                            opd: 108,
+                            opd: VmirExprIdx(
+                                108,
+                            ),
                         },
                         VmirExprData::Binary {
-                            lopd: 107,
+                            lopd: VmirExprIdx(
+                                107,
+                            ),
                             opr: Comparison(
                                 Eq,
                             ),
-                            ropd: 109,
+                            ropd: VmirExprIdx(
+                                109,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(20),
@@ -5503,18 +6241,26 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 111,
+                            lopd: VmirExprIdx(
+                                111,
+                            ),
                             opr: Comparison(
                                 Greater,
                             ),
-                            ropd: 112,
+                            ropd: VmirExprIdx(
+                                112,
+                            ),
                         },
                         VmirExprData::Binary {
-                            lopd: 110,
+                            lopd: VmirExprIdx(
+                                110,
+                            ),
                             opr: ShortCircuitLogic(
                                 And,
                             ),
-                            ropd: 113,
+                            ropd: VmirExprIdx(
+                                113,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(22),
@@ -5526,18 +6272,26 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 115,
+                            lopd: VmirExprIdx(
+                                115,
+                            ),
                             opr: Comparison(
                                 Eq,
                             ),
-                            ropd: 116,
+                            ropd: VmirExprIdx(
+                                116,
+                            ),
                         },
                         VmirExprData::Binary {
-                            lopd: 114,
+                            lopd: VmirExprIdx(
+                                114,
+                            ),
                             opr: ShortCircuitLogic(
                                 And,
                             ),
-                            ropd: 117,
+                            ropd: VmirExprIdx(
+                                117,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(20),
@@ -5549,18 +6303,26 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 119,
+                            lopd: VmirExprIdx(
+                                119,
+                            ),
                             opr: Comparison(
                                 Greater,
                             ),
-                            ropd: 120,
+                            ropd: VmirExprIdx(
+                                120,
+                            ),
                         },
                         VmirExprData::Binary {
-                            lopd: 118,
+                            lopd: VmirExprIdx(
+                                118,
+                            ),
                             opr: ShortCircuitLogic(
                                 And,
                             ),
-                            ropd: 121,
+                            ropd: VmirExprIdx(
+                                121,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(8),
@@ -5615,12 +6377,16 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 123,
+                                    expr: VmirExprIdx(
+                                        123,
+                                    ),
                                 },
                             ],
                         },
                         VmirExprData::Unwrap {
-                            opd: 124,
+                            opd: VmirExprIdx(
+                                124,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(9),
@@ -5648,19 +6414,27 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 126,
+                                    expr: VmirExprIdx(
+                                        126,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 127,
+                                    expr: VmirExprIdx(
+                                        127,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
                         },
                         VmirExprData::Binary {
-                            lopd: 125,
+                            lopd: VmirExprIdx(
+                                125,
+                            ),
                             opr: Assign,
-                            ropd: 128,
+                            ropd: VmirExprIdx(
+                                128,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(21),
@@ -5673,12 +6447,18 @@
                         },
                         VmirExprData::Prefix {
                             opr: Minus,
-                            opd: 131,
+                            opd: VmirExprIdx(
+                                131,
+                            ),
                         },
                         VmirExprData::Binary {
-                            lopd: 130,
+                            lopd: VmirExprIdx(
+                                130,
+                            ),
                             opr: Assign,
-                            ropd: 132,
+                            ropd: VmirExprIdx(
+                                132,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(20),
@@ -5691,12 +6471,18 @@
                         },
                         VmirExprData::Prefix {
                             opr: Minus,
-                            opd: 135,
+                            opd: VmirExprIdx(
+                                135,
+                            ),
                         },
                         VmirExprData::Binary {
-                            lopd: 134,
+                            lopd: VmirExprIdx(
+                                134,
+                            ),
                             opr: Assign,
-                            ropd: 136,
+                            ropd: VmirExprIdx(
+                                136,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(8),
@@ -5728,11 +6514,15 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 139,
+                                    expr: VmirExprIdx(
+                                        139,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 140,
+                                    expr: VmirExprIdx(
+                                        140,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -5784,10 +6574,14 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 138,
+                                    expr: VmirExprIdx(
+                                        138,
+                                    ),
                                 },
                                 VmirArgument::Simple {
-                                    expr: 141,
+                                    expr: VmirExprIdx(
+                                        141,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -5801,9 +6595,13 @@
                             qual: Transient,
                         },
                         VmirExprData::Binary {
-                            lopd: 143,
+                            lopd: VmirExprIdx(
+                                143,
+                            ),
                             opr: Assign,
-                            ropd: 144,
+                            ropd: VmirExprIdx(
+                                144,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(20),
@@ -5814,9 +6612,13 @@
                             qual: Transient,
                         },
                         VmirExprData::Binary {
-                            lopd: 146,
+                            lopd: VmirExprIdx(
+                                146,
+                            ),
                             opr: Assign,
-                            ropd: 147,
+                            ropd: VmirExprIdx(
+                                147,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(22),
@@ -5828,9 +6630,13 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 149,
+                            lopd: VmirExprIdx(
+                                149,
+                            ),
                             opr: Assign,
-                            ropd: 150,
+                            ropd: VmirExprIdx(
+                                150,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(18),
@@ -5841,9 +6647,13 @@
                             qual: Transient,
                         },
                         VmirExprData::Binary {
-                            lopd: 152,
+                            lopd: VmirExprIdx(
+                                152,
+                            ),
                             opr: Assign,
-                            ropd: 153,
+                            ropd: VmirExprIdx(
+                                153,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(17),
@@ -5854,9 +6664,13 @@
                             qual: Transient,
                         },
                         VmirExprData::Binary {
-                            lopd: 155,
+                            lopd: VmirExprIdx(
+                                155,
+                            ),
                             opr: Assign,
-                            ropd: 156,
+                            ropd: VmirExprIdx(
+                                156,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(23),
@@ -5876,16 +6690,24 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 160,
+                            lopd: VmirExprIdx(
+                                160,
+                            ),
                             opr: Closed(
                                 Sub,
                             ),
-                            ropd: 161,
+                            ropd: VmirExprIdx(
+                                161,
+                            ),
                         },
                         VmirExprData::Binary {
-                            lopd: 159,
+                            lopd: VmirExprIdx(
+                                159,
+                            ),
                             opr: Assign,
-                            ropd: 162,
+                            ropd: VmirExprIdx(
+                                162,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(12),
@@ -5896,9 +6718,13 @@
                             qual: Transient,
                         },
                         VmirExprData::Binary {
-                            lopd: 164,
+                            lopd: VmirExprIdx(
+                                164,
+                            ),
                             opr: Assign,
-                            ropd: 165,
+                            ropd: VmirExprIdx(
+                                165,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(11),
@@ -5906,9 +6732,13 @@
                         },
                         VmirExprData::Index,
                         VmirExprData::Binary {
-                            lopd: 167,
+                            lopd: VmirExprIdx(
+                                167,
+                            ),
                             opr: Assign,
-                            ropd: 168,
+                            ropd: VmirExprIdx(
+                                168,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(9),
@@ -5924,16 +6754,24 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 171,
+                            lopd: VmirExprIdx(
+                                171,
+                            ),
                             opr: Closed(
                                 Add,
                             ),
-                            ropd: 172,
+                            ropd: VmirExprIdx(
+                                172,
+                            ),
                         },
                         VmirExprData::Binary {
-                            lopd: 170,
+                            lopd: VmirExprIdx(
+                                170,
+                            ),
                             opr: Assign,
-                            ropd: 173,
+                            ropd: VmirExprIdx(
+                                173,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(11),
@@ -5944,9 +6782,13 @@
                             qual: Transient,
                         },
                         VmirExprData::Binary {
-                            lopd: 175,
+                            lopd: VmirExprIdx(
+                                175,
+                            ),
                             opr: Assign,
-                            ropd: 176,
+                            ropd: VmirExprIdx(
+                                176,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(12),
@@ -5954,9 +6796,13 @@
                         },
                         VmirExprData::Index,
                         VmirExprData::Binary {
-                            lopd: 178,
+                            lopd: VmirExprIdx(
+                                178,
+                            ),
                             opr: Assign,
-                            ropd: 179,
+                            ropd: VmirExprIdx(
+                                179,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(10),
@@ -5972,16 +6818,24 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 182,
+                            lopd: VmirExprIdx(
+                                182,
+                            ),
                             opr: Closed(
                                 Add,
                             ),
-                            ropd: 183,
+                            ropd: VmirExprIdx(
+                                183,
+                            ),
                         },
                         VmirExprData::Binary {
-                            lopd: 181,
+                            lopd: VmirExprIdx(
+                                181,
+                            ),
                             opr: Assign,
-                            ropd: 184,
+                            ropd: VmirExprIdx(
+                                184,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(10),
@@ -5997,16 +6851,24 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 187,
+                            lopd: VmirExprIdx(
+                                187,
+                            ),
                             opr: Closed(
                                 Sub,
                             ),
-                            ropd: 188,
+                            ropd: VmirExprIdx(
+                                188,
+                            ),
                         },
                         VmirExprData::Binary {
-                            lopd: 186,
+                            lopd: VmirExprIdx(
+                                186,
+                            ),
                             opr: Assign,
-                            ropd: 189,
+                            ropd: VmirExprIdx(
+                                189,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(13),
@@ -6017,9 +6879,13 @@
                             qual: Transient,
                         },
                         VmirExprData::Binary {
-                            lopd: 191,
+                            lopd: VmirExprIdx(
+                                191,
+                            ),
                             opr: Assign,
-                            ropd: 192,
+                            ropd: VmirExprIdx(
+                                192,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(22),
@@ -6032,21 +6898,29 @@
                         },
                         VmirExprData::Prefix {
                             opr: Minus,
-                            opd: 195,
+                            opd: VmirExprIdx(
+                                195,
+                            ),
                         },
                         VmirExprData::Binary {
-                            lopd: 194,
+                            lopd: VmirExprIdx(
+                                194,
+                            ),
                             opr: Comparison(
                                 Neq,
                             ),
-                            ropd: 196,
+                            ropd: VmirExprIdx(
+                                196,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(22),
                             qual: RefMut,
                         },
                         VmirExprData::Suffix {
-                            opd: 198,
+                            opd: VmirExprIdx(
+                                198,
+                            ),
                             opr: Incr,
                         },
                         VmirExprData::Variable {
@@ -6060,14 +6934,20 @@
                         },
                         VmirExprData::Prefix {
                             opr: Minus,
-                            opd: 201,
+                            opd: VmirExprIdx(
+                                201,
+                            ),
                         },
                         VmirExprData::Binary {
-                            lopd: 200,
+                            lopd: VmirExprIdx(
+                                200,
+                            ),
                             opr: Comparison(
                                 Eq,
                             ),
-                            ropd: 202,
+                            ropd: VmirExprIdx(
+                                202,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(22),
@@ -6079,18 +6959,26 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 204,
+                            lopd: VmirExprIdx(
+                                204,
+                            ),
                             opr: Comparison(
                                 Eq,
                             ),
-                            ropd: 205,
+                            ropd: VmirExprIdx(
+                                205,
+                            ),
                         },
                         VmirExprData::Binary {
-                            lopd: 203,
+                            lopd: VmirExprIdx(
+                                203,
+                            ),
                             opr: ShortCircuitLogic(
                                 And,
                             ),
-                            ropd: 206,
+                            ropd: VmirExprIdx(
+                                206,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(20),
@@ -6102,18 +6990,26 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 208,
+                            lopd: VmirExprIdx(
+                                208,
+                            ),
                             opr: Comparison(
                                 Greater,
                             ),
-                            ropd: 209,
+                            ropd: VmirExprIdx(
+                                209,
+                            ),
                         },
                         VmirExprData::Binary {
-                            lopd: 207,
+                            lopd: VmirExprIdx(
+                                207,
+                            ),
                             opr: ShortCircuitLogic(
                                 And,
                             ),
-                            ropd: 210,
+                            ropd: VmirExprIdx(
+                                210,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(8),
@@ -6166,7 +7062,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 212,
+                                    expr: VmirExprIdx(
+                                        212,
+                                    ),
                                 },
                             ],
                         },
@@ -6194,11 +7092,15 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 215,
+                                    expr: VmirExprIdx(
+                                        215,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 216,
+                                    expr: VmirExprIdx(
+                                        216,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -6250,10 +7152,14 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 214,
+                                    expr: VmirExprIdx(
+                                        214,
+                                    ),
                                 },
                                 VmirArgument::Simple {
-                                    expr: 217,
+                                    expr: VmirExprIdx(
+                                        217,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -6279,98 +7185,126 @@
                         VmirStmtData::Let,
                         VmirStmtData::Let,
                         VmirStmtData::Eval {
-                            expr: 18,
+                            expr: VmirExprIdx(
+                                18,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 68,
+                            expr: VmirExprIdx(
+                                68,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 73,
+                            expr: VmirExprIdx(
+                                73,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 77,
+                            expr: VmirExprIdx(
+                                77,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 81,
+                            expr: VmirExprIdx(
+                                81,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 100,
+                            expr: VmirExprIdx(
+                                100,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 103,
+                            expr: VmirExprIdx(
+                                103,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 106,
+                            expr: VmirExprIdx(
+                                106,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 129,
+                            expr: VmirExprIdx(
+                                129,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 133,
+                            expr: VmirExprIdx(
+                                133,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 137,
+                            expr: VmirExprIdx(
+                                137,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 142,
+                            expr: VmirExprIdx(
+                                142,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 145,
+                            expr: VmirExprIdx(
+                                145,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 148,
+                            expr: VmirExprIdx(
+                                148,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -6379,7 +7313,9 @@
                         VmirStmtData::IfElse {
                             if_branch: VmirIfBranch {
                                 condition: VmirCondition::Other {
-                                    opd: 62,
+                                    opd: VmirExprIdx(
+                                        62,
+                                    ),
                                     conversion: VmirConditionConversion::None,
                                 },
                                 stmts: ArenaIdxRange(
@@ -6389,7 +7325,9 @@
                             elif_branches: [
                                 VmirElifBranch {
                                     condition: VmirCondition::Other {
-                                        opd: 93,
+                                        opd: VmirExprIdx(
+                                            93,
+                                        ),
                                         conversion: VmirConditionConversion::None,
                                     },
                                     stmts: ArenaIdxRange(
@@ -6398,7 +7336,9 @@
                                 },
                                 VmirElifBranch {
                                     condition: VmirCondition::Other {
-                                        opd: 122,
+                                        opd: VmirExprIdx(
+                                            122,
+                                        ),
                                         conversion: VmirConditionConversion::None,
                                     },
                                     stmts: ArenaIdxRange(
@@ -6415,84 +7355,108 @@
                             ),
                         },
                         VmirStmtData::Eval {
-                            expr: 151,
+                            expr: VmirExprIdx(
+                                151,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 154,
+                            expr: VmirExprIdx(
+                                154,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 157,
+                            expr: VmirExprIdx(
+                                157,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 163,
+                            expr: VmirExprIdx(
+                                163,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 166,
+                            expr: VmirExprIdx(
+                                166,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 169,
+                            expr: VmirExprIdx(
+                                169,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 174,
+                            expr: VmirExprIdx(
+                                174,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 177,
+                            expr: VmirExprIdx(
+                                177,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 180,
+                            expr: VmirExprIdx(
+                                180,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 185,
+                            expr: VmirExprIdx(
+                                185,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 190,
+                            expr: VmirExprIdx(
+                                190,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 199,
+                            expr: VmirExprIdx(
+                                199,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -6501,7 +7465,9 @@
                         VmirStmtData::Let,
                         VmirStmtData::Let,
                         VmirStmtData::Eval {
-                            expr: 39,
+                            expr: VmirExprIdx(
+                                39,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -6510,7 +7476,9 @@
                         VmirStmtData::IfElse {
                             if_branch: VmirIfBranch {
                                 condition: VmirCondition::Other {
-                                    opd: 40,
+                                    opd: VmirExprIdx(
+                                        40,
+                                    ),
                                     conversion: VmirConditionConversion::IntToBool,
                                 },
                                 stmts: ArenaIdxRange(
@@ -6521,7 +7489,9 @@
                             else_branch: None,
                         },
                         VmirStmtData::Match {
-                            opd: 158,
+                            opd: VmirExprIdx(
+                                158,
+                            ),
                             case_branches: [
                                 VmirCaseBranch {
                                     pattern: VmirPatternIdx {
@@ -6562,7 +7532,9 @@
                             ],
                         },
                         VmirStmtData::Eval {
-                            expr: 193,
+                            expr: VmirExprIdx(
+                                193,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -6571,7 +7543,9 @@
                         VmirStmtData::IfElse {
                             if_branch: VmirIfBranch {
                                 condition: VmirCondition::Other {
-                                    opd: 197,
+                                    opd: VmirExprIdx(
+                                        197,
+                                    ),
                                     conversion: VmirConditionConversion::None,
                                 },
                                 stmts: ArenaIdxRange(
@@ -6582,7 +7556,9 @@
                             else_branch: None,
                         },
                         VmirStmtData::Eval {
-                            expr: 213,
+                            expr: VmirExprIdx(
+                                213,
+                            ),
                             coersion: None,
                             discarded: true,
                         },
@@ -6603,7 +7579,9 @@
                         VmirStmtData::Let,
                         VmirStmtData::DoWhile {
                             condition: VmirCondition::Other {
-                                opd: 31,
+                                opd: VmirExprIdx(
+                                    31,
+                                ),
                                 conversion: VmirConditionConversion::None,
                             },
                             stmts: ArenaIdxRange(
@@ -6613,7 +7591,9 @@
                         VmirStmtData::IfElse {
                             if_branch: VmirIfBranch {
                                 condition: VmirCondition::Other {
-                                    opd: 211,
+                                    opd: VmirExprIdx(
+                                        211,
+                                    ),
                                     conversion: VmirConditionConversion::None,
                                 },
                                 stmts: ArenaIdxRange(
@@ -6624,7 +7604,9 @@
                             else_branch: None,
                         },
                         VmirStmtData::Eval {
-                            expr: 218,
+                            expr: VmirExprIdx(
+                                218,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -6632,7 +7614,9 @@
                         },
                         VmirStmtData::While {
                             condition: VmirCondition::Other {
-                                opd: 19,
+                                opd: VmirExprIdx(
+                                    19,
+                                ),
                                 conversion: VmirConditionConversion::IntToBool,
                             },
                             stmts: ArenaIdxRange(
@@ -6652,7 +7636,9 @@
                             ),
                         },
                         VmirStmtData::Return {
-                            result: 219,
+                            result: VmirExprIdx(
+                                219,
+                            ),
                             coersion: VmirCoersion::Trivial,
                         },
                     ],
@@ -6689,7 +7675,9 @@
                         },
                     },
                 },
-                root_expr: 4,
+                root_expr: VmirExprIdx(
+                    4,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -6721,11 +7709,15 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                     coersion: VmirCoersion::PlaceToLeash,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 2,
+                                    expr: VmirExprIdx(
+                                        2,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -6743,7 +7735,9 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 3,
+                            expr: VmirExprIdx(
+                                3,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -6783,7 +7777,9 @@
                         },
                     },
                 },
-                root_expr: 32,
+                root_expr: VmirExprIdx(
+                    32,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -6818,7 +7814,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 3,
+                                    expr: VmirExprIdx(
+                                        3,
+                                    ),
                                 },
                             ],
                         },
@@ -6840,18 +7838,26 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 2,
+                                    expr: VmirExprIdx(
+                                        2,
+                                    ),
                                 },
                                 VmirArgument::Simple {
-                                    expr: 4,
+                                    expr: VmirExprIdx(
+                                        4,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
                         },
                         VmirExprData::Binary {
-                            lopd: 1,
+                            lopd: VmirExprIdx(
+                                1,
+                            ),
                             opr: Assign,
-                            ropd: 5,
+                            ropd: VmirExprIdx(
+                                5,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(3),
@@ -6885,7 +7891,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 9,
+                                    expr: VmirExprIdx(
+                                        9,
+                                    ),
                                 },
                             ],
                         },
@@ -6907,18 +7915,26 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 8,
+                                    expr: VmirExprIdx(
+                                        8,
+                                    ),
                                 },
                                 VmirArgument::Simple {
-                                    expr: 10,
+                                    expr: VmirExprIdx(
+                                        10,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
                         },
                         VmirExprData::Binary {
-                            lopd: 7,
+                            lopd: VmirExprIdx(
+                                7,
+                            ),
                             opr: Assign,
-                            ropd: 11,
+                            ropd: VmirExprIdx(
+                                11,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(4),
@@ -6952,7 +7968,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 15,
+                                    expr: VmirExprIdx(
+                                        15,
+                                    ),
                                 },
                             ],
                         },
@@ -6974,18 +7992,26 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 14,
+                                    expr: VmirExprIdx(
+                                        14,
+                                    ),
                                 },
                                 VmirArgument::Simple {
-                                    expr: 16,
+                                    expr: VmirExprIdx(
+                                        16,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
                         },
                         VmirExprData::Binary {
-                            lopd: 13,
+                            lopd: VmirExprIdx(
+                                13,
+                            ),
                             opr: Assign,
-                            ropd: 17,
+                            ropd: VmirExprIdx(
+                                17,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(5),
@@ -7019,7 +8045,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 21,
+                                    expr: VmirExprIdx(
+                                        21,
+                                    ),
                                 },
                             ],
                         },
@@ -7041,18 +8069,26 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 20,
+                                    expr: VmirExprIdx(
+                                        20,
+                                    ),
                                 },
                                 VmirArgument::Simple {
-                                    expr: 22,
+                                    expr: VmirExprIdx(
+                                        22,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
                         },
                         VmirExprData::Binary {
-                            lopd: 19,
+                            lopd: VmirExprIdx(
+                                19,
+                            ),
                             opr: Assign,
-                            ropd: 23,
+                            ropd: VmirExprIdx(
+                                23,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(2),
@@ -7074,11 +8110,15 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 25,
+                                    expr: VmirExprIdx(
+                                        25,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 26,
+                                    expr: VmirExprIdx(
+                                        26,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -7103,11 +8143,15 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 28,
+                                    expr: VmirExprIdx(
+                                        28,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 29,
+                                    expr: VmirExprIdx(
+                                        29,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -7124,11 +8168,15 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 27,
+                                    expr: VmirExprIdx(
+                                        27,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 30,
+                                    expr: VmirExprIdx(
+                                        30,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -7147,28 +8195,36 @@
                     data: [
                         VmirStmtData::Let,
                         VmirStmtData::Eval {
-                            expr: 6,
+                            expr: VmirExprIdx(
+                                6,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 12,
+                            expr: VmirExprIdx(
+                                12,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 18,
+                            expr: VmirExprIdx(
+                                18,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 24,
+                            expr: VmirExprIdx(
+                                24,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -7185,7 +8241,9 @@
                             ),
                         },
                         VmirStmtData::Return {
-                            result: 31,
+                            result: VmirExprIdx(
+                                31,
+                            ),
                             coersion: VmirCoersion::Trivial,
                         },
                     ],
@@ -7222,7 +8280,9 @@
                         },
                     },
                 },
-                root_expr: 6,
+                root_expr: VmirExprIdx(
+                    6,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Index,
@@ -7242,7 +8302,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                 },
                             ],
                         },
@@ -7266,7 +8328,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 3,
+                                    expr: VmirExprIdx(
+                                        3,
+                                    ),
                                 },
                             ],
                         },
@@ -7288,10 +8352,14 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 2,
+                                    expr: VmirExprIdx(
+                                        2,
+                                    ),
                                 },
                                 VmirArgument::Simple {
-                                    expr: 4,
+                                    expr: VmirExprIdx(
+                                        4,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -7309,7 +8377,9 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 5,
+                            expr: VmirExprIdx(
+                                5,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -7349,7 +8419,9 @@
                         },
                     },
                 },
-                root_expr: 32,
+                root_expr: VmirExprIdx(
+                    32,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -7380,7 +8452,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 2,
+                                    expr: VmirExprIdx(
+                                        2,
+                                    ),
                                 },
                             ],
                         },
@@ -7408,16 +8482,22 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 4,
+                                    expr: VmirExprIdx(
+                                        4,
+                                    ),
                                 },
                             ],
                         },
                         VmirExprData::Binary {
-                            lopd: 3,
+                            lopd: VmirExprIdx(
+                                3,
+                            ),
                             opr: Closed(
                                 Sub,
                             ),
-                            ropd: 5,
+                            ropd: VmirExprIdx(
+                                5,
+                            ),
                         },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
@@ -7437,7 +8517,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 6,
+                                    expr: VmirExprIdx(
+                                        6,
+                                    ),
                                 },
                             ],
                         },
@@ -7465,7 +8547,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 8,
+                                    expr: VmirExprIdx(
+                                        8,
+                                    ),
                                 },
                             ],
                         },
@@ -7493,16 +8577,22 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 10,
+                                    expr: VmirExprIdx(
+                                        10,
+                                    ),
                                 },
                             ],
                         },
                         VmirExprData::Binary {
-                            lopd: 9,
+                            lopd: VmirExprIdx(
+                                9,
+                            ),
                             opr: Closed(
                                 Sub,
                             ),
-                            ropd: 11,
+                            ropd: VmirExprIdx(
+                                11,
+                            ),
                         },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
@@ -7522,23 +8612,33 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 12,
+                                    expr: VmirExprIdx(
+                                        12,
+                                    ),
                                 },
                             ],
                         },
                         VmirExprData::Binary {
-                            lopd: 7,
+                            lopd: VmirExprIdx(
+                                7,
+                            ),
                             opr: Closed(
                                 Add,
                             ),
-                            ropd: 13,
+                            ropd: VmirExprIdx(
+                                13,
+                            ),
                         },
                         VmirExprData::Binary {
-                            lopd: 1,
+                            lopd: VmirExprIdx(
+                                1,
+                            ),
                             opr: AssignClosed(
                                 Add,
                             ),
-                            ropd: 14,
+                            ropd: VmirExprIdx(
+                                14,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(1),
@@ -7568,7 +8668,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 17,
+                                    expr: VmirExprIdx(
+                                        17,
+                                    ),
                                 },
                             ],
                         },
@@ -7596,16 +8698,22 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 19,
+                                    expr: VmirExprIdx(
+                                        19,
+                                    ),
                                 },
                             ],
                         },
                         VmirExprData::Binary {
-                            lopd: 18,
+                            lopd: VmirExprIdx(
+                                18,
+                            ),
                             opr: Closed(
                                 Sub,
                             ),
-                            ropd: 20,
+                            ropd: VmirExprIdx(
+                                20,
+                            ),
                         },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
@@ -7625,7 +8733,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 21,
+                                    expr: VmirExprIdx(
+                                        21,
+                                    ),
                                 },
                             ],
                         },
@@ -7653,7 +8763,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 23,
+                                    expr: VmirExprIdx(
+                                        23,
+                                    ),
                                 },
                             ],
                         },
@@ -7681,16 +8793,22 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 25,
+                                    expr: VmirExprIdx(
+                                        25,
+                                    ),
                                 },
                             ],
                         },
                         VmirExprData::Binary {
-                            lopd: 24,
+                            lopd: VmirExprIdx(
+                                24,
+                            ),
                             opr: Closed(
                                 Sub,
                             ),
-                            ropd: 26,
+                            ropd: VmirExprIdx(
+                                26,
+                            ),
                         },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
@@ -7710,23 +8828,33 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 27,
+                                    expr: VmirExprIdx(
+                                        27,
+                                    ),
                                 },
                             ],
                         },
                         VmirExprData::Binary {
-                            lopd: 22,
+                            lopd: VmirExprIdx(
+                                22,
+                            ),
                             opr: Closed(
                                 Add,
                             ),
-                            ropd: 28,
+                            ropd: VmirExprIdx(
+                                28,
+                            ),
                         },
                         VmirExprData::Binary {
-                            lopd: 16,
+                            lopd: VmirExprIdx(
+                                16,
+                            ),
                             opr: AssignClosed(
                                 Add,
                             ),
-                            ropd: 29,
+                            ropd: VmirExprIdx(
+                                29,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(1),
@@ -7747,7 +8875,9 @@
                         VmirStmtData::Let,
                         VmirStmtData::Let,
                         VmirStmtData::Eval {
-                            expr: 15,
+                            expr: VmirExprIdx(
+                                15,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -7762,14 +8892,18 @@
                         VmirStmtData::Let,
                         VmirStmtData::Let,
                         VmirStmtData::Eval {
-                            expr: 30,
+                            expr: VmirExprIdx(
+                                30,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Return {
-                            result: 31,
+                            result: VmirExprIdx(
+                                31,
+                            ),
                             coersion: VmirCoersion::Trivial,
                         },
                     ],
@@ -7810,7 +8944,9 @@
                         },
                     },
                 },
-                root_expr: 4,
+                root_expr: VmirExprIdx(
+                    4,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -7839,10 +8975,14 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                 },
                                 VmirArgument::Simple {
-                                    expr: 2,
+                                    expr: VmirExprIdx(
+                                        2,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -7863,7 +9003,9 @@
                         VmirStmtData::Let,
                         VmirStmtData::Let,
                         VmirStmtData::Eval {
-                            expr: 3,
+                            expr: VmirExprIdx(
+                                3,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -8285,7 +9427,9 @@
                         },
                     },
                 },
-                root_expr: 10,
+                root_expr: VmirExprIdx(
+                    10,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Literal {
@@ -8298,14 +9442,20 @@
                             qual: Ref,
                         },
                         VmirExprData::Binary {
-                            lopd: 1,
+                            lopd: VmirExprIdx(
+                                1,
+                            ),
                             opr: Closed(
                                 Sub,
                             ),
-                            ropd: 2,
+                            ropd: VmirExprIdx(
+                                2,
+                            ),
                         },
                         VmirExprData::As {
-                            opd: 3,
+                            opd: VmirExprIdx(
+                                3,
+                            ),
                         },
                         VmirExprData::Literal {
                             value: I32(
@@ -8317,14 +9467,20 @@
                             qual: Ref,
                         },
                         VmirExprData::Binary {
-                            lopd: 5,
+                            lopd: VmirExprIdx(
+                                5,
+                            ),
                             opr: Closed(
                                 Sub,
                             ),
-                            ropd: 6,
+                            ropd: VmirExprIdx(
+                                6,
+                            ),
                         },
                         VmirExprData::As {
-                            opd: 7,
+                            opd: VmirExprIdx(
+                                7,
+                            ),
                         },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
@@ -8338,11 +9494,15 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 4,
+                                    expr: VmirExprIdx(
+                                        4,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 8,
+                                    expr: VmirExprIdx(
+                                        8,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -8360,7 +9520,9 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 9,
+                            expr: VmirExprIdx(
+                                9,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -8404,7 +9566,9 @@
                         },
                     },
                 },
-                root_expr: 6,
+                root_expr: VmirExprIdx(
+                    6,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -8431,7 +9595,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                 },
                             ],
                         },
@@ -8459,7 +9625,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 3,
+                                    expr: VmirExprIdx(
+                                        3,
+                                    ),
                                 },
                             ],
                         },
@@ -8475,11 +9643,15 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 2,
+                                    expr: VmirExprIdx(
+                                        2,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 4,
+                                    expr: VmirExprIdx(
+                                        4,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -8497,7 +9669,9 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 5,
+                            expr: VmirExprIdx(
+                                5,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -8541,7 +9715,9 @@
                         },
                     },
                 },
-                root_expr: 12,
+                root_expr: VmirExprIdx(
+                    12,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -8568,7 +9744,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                 },
                             ],
                         },
@@ -8596,16 +9774,22 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 3,
+                                    expr: VmirExprIdx(
+                                        3,
+                                    ),
                                 },
                             ],
                         },
                         VmirExprData::Binary {
-                            lopd: 2,
+                            lopd: VmirExprIdx(
+                                2,
+                            ),
                             opr: Closed(
                                 Sub,
                             ),
-                            ropd: 4,
+                            ropd: VmirExprIdx(
+                                4,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(1),
@@ -8631,7 +9815,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 6,
+                                    expr: VmirExprIdx(
+                                        6,
+                                    ),
                                 },
                             ],
                         },
@@ -8659,16 +9845,22 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 8,
+                                    expr: VmirExprIdx(
+                                        8,
+                                    ),
                                 },
                             ],
                         },
                         VmirExprData::Binary {
-                            lopd: 7,
+                            lopd: VmirExprIdx(
+                                7,
+                            ),
                             opr: Closed(
                                 Sub,
                             ),
-                            ropd: 9,
+                            ropd: VmirExprIdx(
+                                9,
+                            ),
                         },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
@@ -8682,11 +9874,15 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 5,
+                                    expr: VmirExprIdx(
+                                        5,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 10,
+                                    expr: VmirExprIdx(
+                                        10,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -8704,7 +9900,9 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 11,
+                            expr: VmirExprIdx(
+                                11,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -8748,7 +9946,9 @@
                         },
                     },
                 },
-                root_expr: 13,
+                root_expr: VmirExprIdx(
+                    13,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -8775,7 +9975,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                 },
                             ],
                         },
@@ -8803,16 +10005,22 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 3,
+                                    expr: VmirExprIdx(
+                                        3,
+                                    ),
                                 },
                             ],
                         },
                         VmirExprData::Binary {
-                            lopd: 2,
+                            lopd: VmirExprIdx(
+                                2,
+                            ),
                             opr: Closed(
                                 Mul,
                             ),
-                            ropd: 4,
+                            ropd: VmirExprIdx(
+                                4,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(0),
@@ -8838,7 +10046,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 6,
+                                    expr: VmirExprIdx(
+                                        6,
+                                    ),
                                 },
                             ],
                         },
@@ -8866,23 +10076,33 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 8,
+                                    expr: VmirExprIdx(
+                                        8,
+                                    ),
                                 },
                             ],
                         },
                         VmirExprData::Binary {
-                            lopd: 7,
+                            lopd: VmirExprIdx(
+                                7,
+                            ),
                             opr: Closed(
                                 Mul,
                             ),
-                            ropd: 9,
+                            ropd: VmirExprIdx(
+                                9,
+                            ),
                         },
                         VmirExprData::Binary {
-                            lopd: 5,
+                            lopd: VmirExprIdx(
+                                5,
+                            ),
                             opr: Closed(
                                 Add,
                             ),
-                            ropd: 10,
+                            ropd: VmirExprIdx(
+                                10,
+                            ),
                         },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
@@ -8902,7 +10122,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 11,
+                                    expr: VmirExprIdx(
+                                        11,
+                                    ),
                                 },
                             ],
                         },
@@ -8919,7 +10141,9 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 12,
+                            expr: VmirExprIdx(
+                                12,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -8963,7 +10187,9 @@
                         },
                     },
                 },
-                root_expr: 5,
+                root_expr: VmirExprIdx(
+                    5,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -8992,10 +10218,14 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                 },
                                 VmirArgument::Simple {
-                                    expr: 2,
+                                    expr: VmirExprIdx(
+                                        2,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -9018,7 +10248,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 3,
+                                    expr: VmirExprIdx(
+                                        3,
+                                    ),
                                 },
                             ],
                         },
@@ -9035,7 +10267,9 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 4,
+                            expr: VmirExprIdx(
+                                4,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -9079,7 +10313,9 @@
                         },
                     },
                 },
-                root_expr: 6,
+                root_expr: VmirExprIdx(
+                    6,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -9106,7 +10342,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                 },
                             ],
                         },
@@ -9134,7 +10372,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 3,
+                                    expr: VmirExprIdx(
+                                        3,
+                                    ),
                                 },
                             ],
                         },
@@ -9150,11 +10390,15 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 2,
+                                    expr: VmirExprIdx(
+                                        2,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 4,
+                                    expr: VmirExprIdx(
+                                        4,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -9172,7 +10416,9 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 5,
+                            expr: VmirExprIdx(
+                                5,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -9216,7 +10462,9 @@
                         },
                     },
                 },
-                root_expr: 12,
+                root_expr: VmirExprIdx(
+                    12,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -9243,7 +10491,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                 },
                             ],
                         },
@@ -9271,16 +10521,22 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 3,
+                                    expr: VmirExprIdx(
+                                        3,
+                                    ),
                                 },
                             ],
                         },
                         VmirExprData::Binary {
-                            lopd: 2,
+                            lopd: VmirExprIdx(
+                                2,
+                            ),
                             opr: Closed(
                                 Sub,
                             ),
-                            ropd: 4,
+                            ropd: VmirExprIdx(
+                                4,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(1),
@@ -9306,7 +10562,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 6,
+                                    expr: VmirExprIdx(
+                                        6,
+                                    ),
                                 },
                             ],
                         },
@@ -9334,16 +10592,22 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 8,
+                                    expr: VmirExprIdx(
+                                        8,
+                                    ),
                                 },
                             ],
                         },
                         VmirExprData::Binary {
-                            lopd: 7,
+                            lopd: VmirExprIdx(
+                                7,
+                            ),
                             opr: Closed(
                                 Sub,
                             ),
-                            ropd: 9,
+                            ropd: VmirExprIdx(
+                                9,
+                            ),
                         },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
@@ -9357,11 +10621,15 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 5,
+                                    expr: VmirExprIdx(
+                                        5,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 10,
+                                    expr: VmirExprIdx(
+                                        10,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -9379,7 +10647,9 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 11,
+                            expr: VmirExprIdx(
+                                11,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -9423,7 +10693,9 @@
                         },
                     },
                 },
-                root_expr: 13,
+                root_expr: VmirExprIdx(
+                    13,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -9450,7 +10722,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                 },
                             ],
                         },
@@ -9478,16 +10752,22 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 3,
+                                    expr: VmirExprIdx(
+                                        3,
+                                    ),
                                 },
                             ],
                         },
                         VmirExprData::Binary {
-                            lopd: 2,
+                            lopd: VmirExprIdx(
+                                2,
+                            ),
                             opr: Closed(
                                 Mul,
                             ),
-                            ropd: 4,
+                            ropd: VmirExprIdx(
+                                4,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(0),
@@ -9513,7 +10793,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 6,
+                                    expr: VmirExprIdx(
+                                        6,
+                                    ),
                                 },
                             ],
                         },
@@ -9541,23 +10823,33 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 8,
+                                    expr: VmirExprIdx(
+                                        8,
+                                    ),
                                 },
                             ],
                         },
                         VmirExprData::Binary {
-                            lopd: 7,
+                            lopd: VmirExprIdx(
+                                7,
+                            ),
                             opr: Closed(
                                 Mul,
                             ),
-                            ropd: 9,
+                            ropd: VmirExprIdx(
+                                9,
+                            ),
                         },
                         VmirExprData::Binary {
-                            lopd: 5,
+                            lopd: VmirExprIdx(
+                                5,
+                            ),
                             opr: Closed(
                                 Add,
                             ),
-                            ropd: 10,
+                            ropd: VmirExprIdx(
+                                10,
+                            ),
                         },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
@@ -9577,7 +10869,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 11,
+                                    expr: VmirExprIdx(
+                                        11,
+                                    ),
                                 },
                             ],
                         },
@@ -9594,7 +10888,9 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 12,
+                            expr: VmirExprIdx(
+                                12,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -9638,7 +10934,9 @@
                         },
                     },
                 },
-                root_expr: 12,
+                root_expr: VmirExprIdx(
+                    12,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -9665,7 +10963,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                 },
                             ],
                         },
@@ -9693,16 +10993,22 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 3,
+                                    expr: VmirExprIdx(
+                                        3,
+                                    ),
                                 },
                             ],
                         },
                         VmirExprData::Binary {
-                            lopd: 2,
+                            lopd: VmirExprIdx(
+                                2,
+                            ),
                             opr: Closed(
                                 Mul,
                             ),
-                            ropd: 4,
+                            ropd: VmirExprIdx(
+                                4,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(0),
@@ -9728,7 +11034,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 6,
+                                    expr: VmirExprIdx(
+                                        6,
+                                    ),
                                 },
                             ],
                         },
@@ -9756,23 +11064,33 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 8,
+                                    expr: VmirExprIdx(
+                                        8,
+                                    ),
                                 },
                             ],
                         },
                         VmirExprData::Binary {
-                            lopd: 7,
+                            lopd: VmirExprIdx(
+                                7,
+                            ),
                             opr: Closed(
                                 Mul,
                             ),
-                            ropd: 9,
+                            ropd: VmirExprIdx(
+                                9,
+                            ),
                         },
                         VmirExprData::Binary {
-                            lopd: 5,
+                            lopd: VmirExprIdx(
+                                5,
+                            ),
                             opr: Closed(
                                 Add,
                             ),
-                            ropd: 10,
+                            ropd: VmirExprIdx(
+                                10,
+                            ),
                         },
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
@@ -9787,7 +11105,9 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 11,
+                            expr: VmirExprIdx(
+                                11,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -9831,7 +11151,9 @@
                         },
                     },
                 },
-                root_expr: 12,
+                root_expr: VmirExprIdx(
+                    12,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -9858,7 +11180,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                 },
                             ],
                         },
@@ -9886,16 +11210,22 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 3,
+                                    expr: VmirExprIdx(
+                                        3,
+                                    ),
                                 },
                             ],
                         },
                         VmirExprData::Binary {
-                            lopd: 2,
+                            lopd: VmirExprIdx(
+                                2,
+                            ),
                             opr: Closed(
                                 Mul,
                             ),
-                            ropd: 4,
+                            ropd: VmirExprIdx(
+                                4,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(0),
@@ -9921,7 +11251,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 6,
+                                    expr: VmirExprIdx(
+                                        6,
+                                    ),
                                 },
                             ],
                         },
@@ -9949,23 +11281,33 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 8,
+                                    expr: VmirExprIdx(
+                                        8,
+                                    ),
                                 },
                             ],
                         },
                         VmirExprData::Binary {
-                            lopd: 7,
+                            lopd: VmirExprIdx(
+                                7,
+                            ),
                             opr: Closed(
                                 Mul,
                             ),
-                            ropd: 9,
+                            ropd: VmirExprIdx(
+                                9,
+                            ),
                         },
                         VmirExprData::Binary {
-                            lopd: 5,
+                            lopd: VmirExprIdx(
+                                5,
+                            ),
                             opr: Closed(
                                 Sub,
                             ),
-                            ropd: 10,
+                            ropd: VmirExprIdx(
+                                10,
+                            ),
                         },
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
@@ -9980,7 +11322,9 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 11,
+                            expr: VmirExprIdx(
+                                11,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -10024,7 +11368,9 @@
                         },
                     },
                 },
-                root_expr: 21,
+                root_expr: VmirExprIdx(
+                    21,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -10039,11 +11385,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 1,
+                            lopd: VmirExprIdx(
+                                1,
+                            ),
                             opr: Closed(
                                 Add,
                             ),
-                            ropd: 2,
+                            ropd: VmirExprIdx(
+                                2,
+                            ),
                         },
                         VmirExprData::Literal {
                             value: F32(
@@ -10053,11 +11403,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 3,
+                            lopd: VmirExprIdx(
+                                3,
+                            ),
                             opr: Comparison(
                                 Less,
                             ),
-                            ropd: 4,
+                            ropd: VmirExprIdx(
+                                4,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(1),
@@ -10079,7 +11433,9 @@
                         },
                         VmirExprData::Prefix {
                             opr: Minus,
-                            opd: 8,
+                            opd: VmirExprIdx(
+                                8,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(0),
@@ -10105,7 +11461,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 10,
+                                    expr: VmirExprIdx(
+                                        10,
+                                    ),
                                 },
                             ],
                         },
@@ -10127,12 +11485,16 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 11,
+                                    expr: VmirExprIdx(
+                                        11,
+                                    ),
                                 },
                             ],
                         },
                         VmirExprData::As {
-                            opd: 12,
+                            opd: VmirExprIdx(
+                                12,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(1),
@@ -10156,16 +11518,22 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 14,
+                                    expr: VmirExprIdx(
+                                        14,
+                                    ),
                                 },
                             ],
                         },
                         VmirExprData::Binary {
-                            lopd: 13,
+                            lopd: VmirExprIdx(
+                                13,
+                            ),
                             opr: Closed(
                                 Mul,
                             ),
-                            ropd: 15,
+                            ropd: VmirExprIdx(
+                                15,
+                            ),
                         },
                         VmirExprData::Literal {
                             value: F32(
@@ -10175,11 +11543,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 16,
+                            lopd: VmirExprIdx(
+                                16,
+                            ),
                             opr: Closed(
                                 Mul,
                             ),
-                            ropd: 17,
+                            ropd: VmirExprIdx(
+                                17,
+                            ),
                         },
                         VmirExprData::Literal {
                             value: F32(
@@ -10189,11 +11561,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 18,
+                            lopd: VmirExprIdx(
+                                18,
+                            ),
                             opr: Closed(
                                 Div,
                             ),
-                            ropd: 19,
+                            ropd: VmirExprIdx(
+                                19,
+                            ),
                         },
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
@@ -10208,14 +11584,18 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 7,
+                            expr: VmirExprIdx(
+                                7,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 9,
+                            expr: VmirExprIdx(
+                                9,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -10224,7 +11604,9 @@
                         VmirStmtData::IfElse {
                             if_branch: VmirIfBranch {
                                 condition: VmirCondition::Other {
-                                    opd: 6,
+                                    opd: VmirExprIdx(
+                                        6,
+                                    ),
                                     conversion: VmirConditionConversion::None,
                                 },
                                 stmts: ArenaIdxRange(
@@ -10241,7 +11623,9 @@
                             ),
                         },
                         VmirStmtData::Eval {
-                            expr: 20,
+                            expr: VmirExprIdx(
+                                20,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -10251,7 +11635,9 @@
                         VmirStmtData::IfElse {
                             if_branch: VmirIfBranch {
                                 condition: VmirCondition::Other {
-                                    opd: 5,
+                                    opd: VmirExprIdx(
+                                        5,
+                                    ),
                                     conversion: VmirConditionConversion::None,
                                 },
                                 stmts: ArenaIdxRange(
@@ -10305,7 +11691,9 @@
                         },
                     },
                 },
-                root_expr: 5,
+                root_expr: VmirExprIdx(
+                    5,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -10334,10 +11722,14 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                 },
                                 VmirArgument::Simple {
-                                    expr: 2,
+                                    expr: VmirExprIdx(
+                                        2,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -10360,7 +11752,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 3,
+                                    expr: VmirExprIdx(
+                                        3,
+                                    ),
                                 },
                             ],
                         },
@@ -10377,7 +11771,9 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 4,
+                            expr: VmirExprIdx(
+                                4,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -10421,7 +11817,9 @@
                         },
                     },
                 },
-                root_expr: 21,
+                root_expr: VmirExprIdx(
+                    21,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -10436,11 +11834,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 1,
+                            lopd: VmirExprIdx(
+                                1,
+                            ),
                             opr: Comparison(
                                 Greater,
                             ),
-                            ropd: 2,
+                            ropd: VmirExprIdx(
+                                2,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(2),
@@ -10454,11 +11856,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 4,
+                            lopd: VmirExprIdx(
+                                4,
+                            ),
                             opr: Comparison(
                                 Greater,
                             ),
-                            ropd: 5,
+                            ropd: VmirExprIdx(
+                                5,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(3),
@@ -10472,11 +11878,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 7,
+                            lopd: VmirExprIdx(
+                                7,
+                            ),
                             opr: Closed(
                                 Add,
                             ),
-                            ropd: 8,
+                            ropd: VmirExprIdx(
+                                8,
+                            ),
                         },
                         VmirExprData::Literal {
                             value: F32(
@@ -10486,11 +11896,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 9,
+                            lopd: VmirExprIdx(
+                                9,
+                            ),
                             opr: Comparison(
                                 Less,
                             ),
-                            ropd: 10,
+                            ropd: VmirExprIdx(
+                                10,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(2),
@@ -10512,7 +11926,9 @@
                         },
                         VmirExprData::Prefix {
                             opr: Minus,
-                            opd: 14,
+                            opd: VmirExprIdx(
+                                14,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(4),
@@ -10526,11 +11942,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 16,
+                            lopd: VmirExprIdx(
+                                16,
+                            ),
                             opr: Closed(
                                 Mul,
                             ),
-                            ropd: 17,
+                            ropd: VmirExprIdx(
+                                17,
+                            ),
                         },
                         VmirExprData::Literal {
                             value: F32(
@@ -10540,11 +11960,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 18,
+                            lopd: VmirExprIdx(
+                                18,
+                            ),
                             opr: Closed(
                                 Div,
                             ),
-                            ropd: 19,
+                            ropd: VmirExprIdx(
+                                19,
+                            ),
                         },
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
@@ -10559,14 +11983,18 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 13,
+                            expr: VmirExprIdx(
+                                13,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 15,
+                            expr: VmirExprIdx(
+                                15,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -10575,7 +12003,9 @@
                         VmirStmtData::IfElse {
                             if_branch: VmirIfBranch {
                                 condition: VmirCondition::Other {
-                                    opd: 12,
+                                    opd: VmirExprIdx(
+                                        12,
+                                    ),
                                     conversion: VmirConditionConversion::None,
                                 },
                                 stmts: ArenaIdxRange(
@@ -10593,7 +12023,9 @@
                         },
                         VmirStmtData::Let,
                         VmirStmtData::Eval {
-                            expr: 20,
+                            expr: VmirExprIdx(
+                                20,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -10602,14 +12034,18 @@
                         VmirStmtData::Let,
                         VmirStmtData::Assert {
                             condition: VmirCondition::Other {
-                                opd: 3,
+                                opd: VmirExprIdx(
+                                    3,
+                                ),
                                 conversion: VmirConditionConversion::None,
                             },
                         },
                         VmirStmtData::Let,
                         VmirStmtData::Assert {
                             condition: VmirCondition::Other {
-                                opd: 6,
+                                opd: VmirExprIdx(
+                                    6,
+                                ),
                                 conversion: VmirConditionConversion::None,
                             },
                         },
@@ -10617,7 +12053,9 @@
                         VmirStmtData::IfElse {
                             if_branch: VmirIfBranch {
                                 condition: VmirCondition::Other {
-                                    opd: 11,
+                                    opd: VmirExprIdx(
+                                        11,
+                                    ),
                                     conversion: VmirConditionConversion::None,
                                 },
                                 stmts: ArenaIdxRange(
@@ -10671,7 +12109,9 @@
                         },
                     },
                 },
-                root_expr: 9,
+                root_expr: VmirExprIdx(
+                    9,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -10698,7 +12138,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                 },
                             ],
                         },
@@ -10726,16 +12168,22 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 3,
+                                    expr: VmirExprIdx(
+                                        3,
+                                    ),
                                 },
                             ],
                         },
                         VmirExprData::Binary {
-                            lopd: 2,
+                            lopd: VmirExprIdx(
+                                2,
+                            ),
                             opr: Comparison(
                                 Greater,
                             ),
-                            ropd: 4,
+                            ropd: VmirExprIdx(
+                                4,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(2),
@@ -10757,11 +12205,15 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 6,
+                                    expr: VmirExprIdx(
+                                        6,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 7,
+                                    expr: VmirExprIdx(
+                                        7,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -10780,7 +12232,9 @@
                     data: [
                         VmirStmtData::Assert {
                             condition: VmirCondition::Other {
-                                opd: 5,
+                                opd: VmirExprIdx(
+                                    5,
+                                ),
                                 conversion: VmirConditionConversion::None,
                             },
                         },
@@ -10788,7 +12242,9 @@
                         VmirStmtData::Let,
                         VmirStmtData::Let,
                         VmirStmtData::Eval {
-                            expr: 8,
+                            expr: VmirExprIdx(
+                                8,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -10832,7 +12288,9 @@
                         },
                     },
                 },
-                root_expr: 7,
+                root_expr: VmirExprIdx(
+                    7,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -10863,27 +12321,37 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 2,
+                                    expr: VmirExprIdx(
+                                        2,
+                                    ),
                                 },
                             ],
                         },
                         VmirExprData::Binary {
-                            lopd: 1,
+                            lopd: VmirExprIdx(
+                                1,
+                            ),
                             opr: Closed(
                                 Sub,
                             ),
-                            ropd: 3,
+                            ropd: VmirExprIdx(
+                                3,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(1),
                             qual: Ref,
                         },
                         VmirExprData::Binary {
-                            lopd: 4,
+                            lopd: VmirExprIdx(
+                                4,
+                            ),
                             opr: Closed(
                                 Div,
                             ),
-                            ropd: 5,
+                            ropd: VmirExprIdx(
+                                5,
+                            ),
                         },
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
@@ -10899,7 +12367,9 @@
                     data: [
                         VmirStmtData::Let,
                         VmirStmtData::Eval {
-                            expr: 6,
+                            expr: VmirExprIdx(
+                                6,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -10943,7 +12413,9 @@
                         },
                     },
                 },
-                root_expr: 12,
+                root_expr: VmirExprIdx(
+                    12,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -10970,7 +12442,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                 },
                             ],
                         },
@@ -10998,7 +12472,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 3,
+                                    expr: VmirExprIdx(
+                                        3,
+                                    ),
                                 },
                             ],
                         },
@@ -11020,10 +12496,14 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 2,
+                                    expr: VmirExprIdx(
+                                        2,
+                                    ),
                                 },
                                 VmirArgument::Simple {
-                                    expr: 4,
+                                    expr: VmirExprIdx(
+                                        4,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -11052,7 +12532,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 6,
+                                    expr: VmirExprIdx(
+                                        6,
+                                    ),
                                 },
                             ],
                         },
@@ -11080,7 +12562,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 8,
+                                    expr: VmirExprIdx(
+                                        8,
+                                    ),
                                 },
                             ],
                         },
@@ -11102,10 +12586,14 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 7,
+                                    expr: VmirExprIdx(
+                                        7,
+                                    ),
                                 },
                                 VmirArgument::Simple {
-                                    expr: 9,
+                                    expr: VmirExprIdx(
+                                        9,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -11122,11 +12610,15 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 5,
+                                    expr: VmirExprIdx(
+                                        5,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 10,
+                                    expr: VmirExprIdx(
+                                        10,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -11144,7 +12636,9 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 11,
+                            expr: VmirExprIdx(
+                                11,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -11188,7 +12682,9 @@
                         },
                     },
                 },
-                root_expr: 12,
+                root_expr: VmirExprIdx(
+                    12,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -11215,7 +12711,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                 },
                             ],
                         },
@@ -11243,7 +12741,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 3,
+                                    expr: VmirExprIdx(
+                                        3,
+                                    ),
                                 },
                             ],
                         },
@@ -11265,10 +12765,14 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 2,
+                                    expr: VmirExprIdx(
+                                        2,
+                                    ),
                                 },
                                 VmirArgument::Simple {
-                                    expr: 4,
+                                    expr: VmirExprIdx(
+                                        4,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -11297,7 +12801,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 6,
+                                    expr: VmirExprIdx(
+                                        6,
+                                    ),
                                 },
                             ],
                         },
@@ -11325,7 +12831,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 8,
+                                    expr: VmirExprIdx(
+                                        8,
+                                    ),
                                 },
                             ],
                         },
@@ -11347,10 +12855,14 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 7,
+                                    expr: VmirExprIdx(
+                                        7,
+                                    ),
                                 },
                                 VmirArgument::Simple {
-                                    expr: 9,
+                                    expr: VmirExprIdx(
+                                        9,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -11367,11 +12879,15 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 5,
+                                    expr: VmirExprIdx(
+                                        5,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 10,
+                                    expr: VmirExprIdx(
+                                        10,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -11389,7 +12905,9 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 11,
+                            expr: VmirExprIdx(
+                                11,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -11433,7 +12951,9 @@
                         },
                     },
                 },
-                root_expr: 4,
+                root_expr: VmirExprIdx(
+                    4,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -11460,7 +12980,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                 },
                             ],
                         },
@@ -11484,7 +13006,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 2,
+                                    expr: VmirExprIdx(
+                                        2,
+                                    ),
                                 },
                             ],
                         },
@@ -11501,7 +13025,9 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 3,
+                            expr: VmirExprIdx(
+                                3,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -11545,7 +13071,9 @@
                         },
                     },
                 },
-                root_expr: 4,
+                root_expr: VmirExprIdx(
+                    4,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -11572,7 +13100,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                 },
                             ],
                         },
@@ -11596,7 +13126,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 2,
+                                    expr: VmirExprIdx(
+                                        2,
+                                    ),
                                 },
                             ],
                         },
@@ -11613,7 +13145,9 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 3,
+                            expr: VmirExprIdx(
+                                3,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -11657,7 +13191,9 @@
                         },
                     },
                 },
-                root_expr: 4,
+                root_expr: VmirExprIdx(
+                    4,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -11684,7 +13220,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                 },
                             ],
                         },
@@ -11708,7 +13246,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 2,
+                                    expr: VmirExprIdx(
+                                        2,
+                                    ),
                                 },
                             ],
                         },
@@ -11725,7 +13265,9 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 3,
+                            expr: VmirExprIdx(
+                                3,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -11769,7 +13311,9 @@
                         },
                     },
                 },
-                root_expr: 4,
+                root_expr: VmirExprIdx(
+                    4,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -11796,7 +13340,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                 },
                             ],
                         },
@@ -11820,7 +13366,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 2,
+                                    expr: VmirExprIdx(
+                                        2,
+                                    ),
                                 },
                             ],
                         },
@@ -11837,7 +13385,9 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 3,
+                            expr: VmirExprIdx(
+                                3,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -11881,7 +13431,9 @@
                         },
                     },
                 },
-                root_expr: 4,
+                root_expr: VmirExprIdx(
+                    4,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -11908,7 +13460,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                 },
                             ],
                         },
@@ -11932,7 +13486,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 2,
+                                    expr: VmirExprIdx(
+                                        2,
+                                    ),
                                 },
                             ],
                         },
@@ -11949,7 +13505,9 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 3,
+                            expr: VmirExprIdx(
+                                3,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -11993,7 +13551,9 @@
                         },
                     },
                 },
-                root_expr: 4,
+                root_expr: VmirExprIdx(
+                    4,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -12020,7 +13580,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                 },
                             ],
                         },
@@ -12044,7 +13606,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 2,
+                                    expr: VmirExprIdx(
+                                        2,
+                                    ),
                                 },
                             ],
                         },
@@ -12061,7 +13625,9 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 3,
+                            expr: VmirExprIdx(
+                                3,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -12105,7 +13671,9 @@
                         },
                     },
                 },
-                root_expr: 4,
+                root_expr: VmirExprIdx(
+                    4,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -12132,7 +13700,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                 },
                             ],
                         },
@@ -12156,7 +13726,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 2,
+                                    expr: VmirExprIdx(
+                                        2,
+                                    ),
                                 },
                             ],
                         },
@@ -12173,7 +13745,9 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 3,
+                            expr: VmirExprIdx(
+                                3,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -12217,7 +13791,9 @@
                         },
                     },
                 },
-                root_expr: 4,
+                root_expr: VmirExprIdx(
+                    4,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -12244,7 +13820,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                 },
                             ],
                         },
@@ -12268,7 +13846,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 2,
+                                    expr: VmirExprIdx(
+                                        2,
+                                    ),
                                 },
                             ],
                         },
@@ -12285,7 +13865,9 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 3,
+                            expr: VmirExprIdx(
+                                3,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -12467,7 +14049,9 @@
                         },
                     },
                 },
-                root_expr: 13,
+                root_expr: VmirExprIdx(
+                    13,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -12479,11 +14063,15 @@
                             qual: Ref,
                         },
                         VmirExprData::Binary {
-                            lopd: 1,
+                            lopd: VmirExprIdx(
+                                1,
+                            ),
                             opr: Comparison(
                                 Greater,
                             ),
-                            ropd: 2,
+                            ropd: VmirExprIdx(
+                                2,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(0),
@@ -12509,7 +14097,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 4,
+                                    expr: VmirExprIdx(
+                                        4,
+                                    ),
                                 },
                             ],
                         },
@@ -12518,11 +14108,15 @@
                             qual: Ref,
                         },
                         VmirExprData::Binary {
-                            lopd: 5,
+                            lopd: VmirExprIdx(
+                                5,
+                            ),
                             opr: Closed(
                                 Add,
                             ),
-                            ropd: 6,
+                            ropd: VmirExprIdx(
+                                6,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(0),
@@ -12548,7 +14142,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 8,
+                                    expr: VmirExprIdx(
+                                        8,
+                                    ),
                                 },
                             ],
                         },
@@ -12557,11 +14153,15 @@
                             qual: Ref,
                         },
                         VmirExprData::Binary {
-                            lopd: 9,
+                            lopd: VmirExprIdx(
+                                9,
+                            ),
                             opr: Closed(
                                 Add,
                             ),
-                            ropd: 10,
+                            ropd: VmirExprIdx(
+                                10,
+                            ),
                         },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
@@ -12575,11 +14175,15 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 7,
+                                    expr: VmirExprIdx(
+                                        7,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 11,
+                                    expr: VmirExprIdx(
+                                        11,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -12599,7 +14203,9 @@
                         VmirStmtData::Let,
                         VmirStmtData::Assert {
                             condition: VmirCondition::Other {
-                                opd: 3,
+                                opd: VmirExprIdx(
+                                    3,
+                                ),
                                 conversion: VmirConditionConversion::None,
                             },
                         },
@@ -12607,7 +14213,9 @@
                         VmirStmtData::Let,
                         VmirStmtData::Let,
                         VmirStmtData::Eval {
-                            expr: 12,
+                            expr: VmirExprIdx(
+                                12,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -12643,7 +14251,9 @@
                         },
                     },
                 },
-                root_expr: 13,
+                root_expr: VmirExprIdx(
+                    13,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -12655,11 +14265,15 @@
                             qual: Ref,
                         },
                         VmirExprData::Binary {
-                            lopd: 1,
+                            lopd: VmirExprIdx(
+                                1,
+                            ),
                             opr: Comparison(
                                 Greater,
                             ),
-                            ropd: 2,
+                            ropd: VmirExprIdx(
+                                2,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(0),
@@ -12685,7 +14299,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 4,
+                                    expr: VmirExprIdx(
+                                        4,
+                                    ),
                                 },
                             ],
                         },
@@ -12694,11 +14310,15 @@
                             qual: Ref,
                         },
                         VmirExprData::Binary {
-                            lopd: 5,
+                            lopd: VmirExprIdx(
+                                5,
+                            ),
                             opr: Closed(
                                 Add,
                             ),
-                            ropd: 6,
+                            ropd: VmirExprIdx(
+                                6,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(0),
@@ -12724,7 +14344,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 8,
+                                    expr: VmirExprIdx(
+                                        8,
+                                    ),
                                 },
                             ],
                         },
@@ -12733,11 +14355,15 @@
                             qual: Ref,
                         },
                         VmirExprData::Binary {
-                            lopd: 9,
+                            lopd: VmirExprIdx(
+                                9,
+                            ),
                             opr: Closed(
                                 Add,
                             ),
-                            ropd: 10,
+                            ropd: VmirExprIdx(
+                                10,
+                            ),
                         },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
@@ -12751,11 +14377,15 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 7,
+                                    expr: VmirExprIdx(
+                                        7,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 11,
+                                    expr: VmirExprIdx(
+                                        11,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -12775,7 +14405,9 @@
                         VmirStmtData::Let,
                         VmirStmtData::Assert {
                             condition: VmirCondition::Other {
-                                opd: 3,
+                                opd: VmirExprIdx(
+                                    3,
+                                ),
                                 conversion: VmirConditionConversion::None,
                             },
                         },
@@ -12783,7 +14415,9 @@
                         VmirStmtData::Let,
                         VmirStmtData::Let,
                         VmirStmtData::Eval {
-                            expr: 12,
+                            expr: VmirExprIdx(
+                                12,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -12819,7 +14453,9 @@
                         },
                     },
                 },
-                root_expr: 83,
+                root_expr: VmirExprIdx(
+                    83,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -12831,11 +14467,15 @@
                             qual: Ref,
                         },
                         VmirExprData::Binary {
-                            lopd: 1,
+                            lopd: VmirExprIdx(
+                                1,
+                            ),
                             opr: Comparison(
                                 Leq,
                             ),
-                            ropd: 2,
+                            ropd: VmirExprIdx(
+                                2,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(1),
@@ -12859,7 +14499,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 4,
+                                    expr: VmirExprIdx(
+                                        4,
+                                    ),
                                 },
                             ],
                         },
@@ -12868,25 +14510,35 @@
                             qual: Ref,
                         },
                         VmirExprData::Binary {
-                            lopd: 5,
+                            lopd: VmirExprIdx(
+                                5,
+                            ),
                             opr: Comparison(
                                 Less,
                             ),
-                            ropd: 6,
+                            ropd: VmirExprIdx(
+                                6,
+                            ),
                         },
                         VmirExprData::Binary {
-                            lopd: 3,
+                            lopd: VmirExprIdx(
+                                3,
+                            ),
                             opr: ShortCircuitLogic(
                                 And,
                             ),
-                            ropd: 7,
+                            ropd: VmirExprIdx(
+                                7,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(0),
                             qual: RefMut,
                         },
                         VmirExprData::Suffix {
-                            opd: 9,
+                            opd: VmirExprIdx(
+                                9,
+                            ),
                             opr: Incr,
                         },
                         VmirExprData::Variable {
@@ -12911,11 +14563,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 14,
+                            lopd: VmirExprIdx(
+                                14,
+                            ),
                             opr: Closed(
                                 Add,
                             ),
-                            ropd: 15,
+                            ropd: VmirExprIdx(
+                                15,
+                            ),
                         },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
@@ -12935,22 +14591,32 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 12,
+                                    expr: VmirExprIdx(
+                                        12,
+                                    ),
                                 },
                                 VmirArgument::Simple {
-                                    expr: 13,
+                                    expr: VmirExprIdx(
+                                        13,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 16,
+                                    expr: VmirExprIdx(
+                                        16,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
                         },
                         VmirExprData::Binary {
-                            lopd: 11,
+                            lopd: VmirExprIdx(
+                                11,
+                            ),
                             opr: Assign,
-                            ropd: 17,
+                            ropd: VmirExprIdx(
+                                17,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(1),
@@ -12974,7 +14640,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 19,
+                                    expr: VmirExprIdx(
+                                        19,
+                                    ),
                                 },
                             ],
                         },
@@ -12983,11 +14651,15 @@
                             qual: Ref,
                         },
                         VmirExprData::Binary {
-                            lopd: 20,
+                            lopd: VmirExprIdx(
+                                20,
+                            ),
                             opr: Comparison(
                                 Less,
                             ),
-                            ropd: 21,
+                            ropd: VmirExprIdx(
+                                21,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(0),
@@ -13002,11 +14674,15 @@
                             qual: Ref,
                         },
                         VmirExprData::Binary {
-                            lopd: 24,
+                            lopd: VmirExprIdx(
+                                24,
+                            ),
                             opr: Comparison(
                                 Leq,
                             ),
-                            ropd: 25,
+                            ropd: VmirExprIdx(
+                                25,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(4),
@@ -13034,10 +14710,14 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 27,
+                                    expr: VmirExprIdx(
+                                        27,
+                                    ),
                                 },
                                 VmirArgument::Simple {
-                                    expr: 28,
+                                    expr: VmirExprIdx(
+                                        28,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -13048,18 +14728,26 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 29,
+                            lopd: VmirExprIdx(
+                                29,
+                            ),
                             opr: Comparison(
                                 Geq,
                             ),
-                            ropd: 30,
+                            ropd: VmirExprIdx(
+                                30,
+                            ),
                         },
                         VmirExprData::Binary {
-                            lopd: 26,
+                            lopd: VmirExprIdx(
+                                26,
+                            ),
                             opr: ShortCircuitLogic(
                                 And,
                             ),
-                            ropd: 31,
+                            ropd: VmirExprIdx(
+                                31,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(1),
@@ -13087,10 +14775,14 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 33,
+                                    expr: VmirExprIdx(
+                                        33,
+                                    ),
                                 },
                                 VmirArgument::Simple {
-                                    expr: 34,
+                                    expr: VmirExprIdx(
+                                        34,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -13101,18 +14793,26 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 35,
+                            lopd: VmirExprIdx(
+                                35,
+                            ),
                             opr: Comparison(
                                 Geq,
                             ),
-                            ropd: 36,
+                            ropd: VmirExprIdx(
+                                36,
+                            ),
                         },
                         VmirExprData::Binary {
-                            lopd: 32,
+                            lopd: VmirExprIdx(
+                                32,
+                            ),
                             opr: ShortCircuitLogic(
                                 And,
                             ),
-                            ropd: 37,
+                            ropd: VmirExprIdx(
+                                37,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(7),
@@ -13127,18 +14827,26 @@
                             qual: Ref,
                         },
                         VmirExprData::Binary {
-                            lopd: 40,
+                            lopd: VmirExprIdx(
+                                40,
+                            ),
                             opr: Closed(
                                 Sub,
                             ),
-                            ropd: 41,
+                            ropd: VmirExprIdx(
+                                41,
+                            ),
                         },
                         VmirExprData::Binary {
-                            lopd: 39,
+                            lopd: VmirExprIdx(
+                                39,
+                            ),
                             opr: Comparison(
                                 Less,
                             ),
-                            ropd: 42,
+                            ropd: VmirExprIdx(
+                                42,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(7),
@@ -13149,11 +14857,15 @@
                             qual: Ref,
                         },
                         VmirExprData::Binary {
-                            lopd: 44,
+                            lopd: VmirExprIdx(
+                                44,
+                            ),
                             opr: Comparison(
                                 Greater,
                             ),
-                            ropd: 45,
+                            ropd: VmirExprIdx(
+                                45,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(6),
@@ -13164,9 +14876,13 @@
                             qual: Transient,
                         },
                         VmirExprData::Binary {
-                            lopd: 47,
+                            lopd: VmirExprIdx(
+                                47,
+                            ),
                             opr: Assign,
-                            ropd: 48,
+                            ropd: VmirExprIdx(
+                                48,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(7),
@@ -13177,11 +14893,15 @@
                             qual: Ref,
                         },
                         VmirExprData::Binary {
-                            lopd: 50,
+                            lopd: VmirExprIdx(
+                                50,
+                            ),
                             opr: Comparison(
                                 Greater,
                             ),
-                            ropd: 51,
+                            ropd: VmirExprIdx(
+                                51,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(4),
@@ -13209,10 +14929,14 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 53,
+                                    expr: VmirExprIdx(
+                                        53,
+                                    ),
                                 },
                                 VmirArgument::Simple {
-                                    expr: 54,
+                                    expr: VmirExprIdx(
+                                        54,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -13223,11 +14947,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 55,
+                            lopd: VmirExprIdx(
+                                55,
+                            ),
                             opr: Comparison(
                                 Greater,
                             ),
-                            ropd: 56,
+                            ropd: VmirExprIdx(
+                                56,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(4),
@@ -13238,9 +14966,13 @@
                             qual: Transient,
                         },
                         VmirExprData::Binary {
-                            lopd: 58,
+                            lopd: VmirExprIdx(
+                                58,
+                            ),
                             opr: Assign,
-                            ropd: 59,
+                            ropd: VmirExprIdx(
+                                59,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(9),
@@ -13268,10 +15000,14 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 61,
+                                    expr: VmirExprIdx(
+                                        61,
+                                    ),
                                 },
                                 VmirArgument::Simple {
-                                    expr: 62,
+                                    expr: VmirExprIdx(
+                                        62,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -13282,11 +15018,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 63,
+                            lopd: VmirExprIdx(
+                                63,
+                            ),
                             opr: Comparison(
                                 Greater,
                             ),
-                            ropd: 64,
+                            ropd: VmirExprIdx(
+                                64,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(5),
@@ -13297,16 +15037,22 @@
                             qual: Transient,
                         },
                         VmirExprData::Binary {
-                            lopd: 66,
+                            lopd: VmirExprIdx(
+                                66,
+                            ),
                             opr: Assign,
-                            ropd: 67,
+                            ropd: VmirExprIdx(
+                                67,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(0),
                             qual: RefMut,
                         },
                         VmirExprData::Suffix {
-                            opd: 69,
+                            opd: VmirExprIdx(
+                                69,
+                            ),
                             opr: Incr,
                         },
                         VmirExprData::Variable {
@@ -13331,11 +15077,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 74,
+                            lopd: VmirExprIdx(
+                                74,
+                            ),
                             opr: Closed(
                                 Add,
                             ),
-                            ropd: 75,
+                            ropd: VmirExprIdx(
+                                75,
+                            ),
                         },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
@@ -13355,22 +15105,32 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 72,
+                                    expr: VmirExprIdx(
+                                        72,
+                                    ),
                                 },
                                 VmirArgument::Simple {
-                                    expr: 73,
+                                    expr: VmirExprIdx(
+                                        73,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 76,
+                                    expr: VmirExprIdx(
+                                        76,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
                         },
                         VmirExprData::Binary {
-                            lopd: 71,
+                            lopd: VmirExprIdx(
+                                71,
+                            ),
                             opr: Assign,
-                            ropd: 77,
+                            ropd: VmirExprIdx(
+                                77,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(0),
@@ -13381,11 +15141,15 @@
                             qual: Ref,
                         },
                         VmirExprData::Binary {
-                            lopd: 79,
+                            lopd: VmirExprIdx(
+                                79,
+                            ),
                             opr: Comparison(
                                 Greater,
                             ),
-                            ropd: 80,
+                            ropd: VmirExprIdx(
+                                80,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(0),
@@ -13404,40 +15168,52 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 10,
+                            expr: VmirExprIdx(
+                                10,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 18,
+                            expr: VmirExprIdx(
+                                18,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Return {
-                            result: 23,
+                            result: VmirExprIdx(
+                                23,
+                            ),
                             coersion: VmirCoersion::Trivial,
                         },
                         VmirStmtData::Break,
                         VmirStmtData::Eval {
-                            expr: 49,
+                            expr: VmirExprIdx(
+                                49,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 60,
+                            expr: VmirExprIdx(
+                                60,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 68,
+                            expr: VmirExprIdx(
+                                68,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -13448,7 +15224,9 @@
                         VmirStmtData::IfElse {
                             if_branch: VmirIfBranch {
                                 condition: VmirCondition::Other {
-                                    opd: 57,
+                                    opd: VmirExprIdx(
+                                        57,
+                                    ),
                                     conversion: VmirConditionConversion::None,
                                 },
                                 stmts: ArenaIdxRange(
@@ -13461,7 +15239,9 @@
                         VmirStmtData::IfElse {
                             if_branch: VmirIfBranch {
                                 condition: VmirCondition::Other {
-                                    opd: 65,
+                                    opd: VmirExprIdx(
+                                        65,
+                                    ),
                                     conversion: VmirConditionConversion::None,
                                 },
                                 stmts: ArenaIdxRange(
@@ -13475,7 +15255,9 @@
                         VmirStmtData::IfElse {
                             if_branch: VmirIfBranch {
                                 condition: VmirCondition::Other {
-                                    opd: 43,
+                                    opd: VmirExprIdx(
+                                        43,
+                                    ),
                                     conversion: VmirConditionConversion::None,
                                 },
                                 stmts: ArenaIdxRange(
@@ -13485,7 +15267,9 @@
                             elif_branches: [
                                 VmirElifBranch {
                                     condition: VmirCondition::Other {
-                                        opd: 46,
+                                        opd: VmirExprIdx(
+                                            46,
+                                        ),
                                         conversion: VmirConditionConversion::None,
                                     },
                                     stmts: ArenaIdxRange(
@@ -13498,7 +15282,9 @@
                         VmirStmtData::IfElse {
                             if_branch: VmirIfBranch {
                                 condition: VmirCondition::Other {
-                                    opd: 52,
+                                    opd: VmirExprIdx(
+                                        52,
+                                    ),
                                     conversion: VmirConditionConversion::None,
                                 },
                                 stmts: ArenaIdxRange(
@@ -13509,14 +15295,18 @@
                             else_branch: None,
                         },
                         VmirStmtData::Eval {
-                            expr: 70,
+                            expr: VmirExprIdx(
+                                70,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 78,
+                            expr: VmirExprIdx(
+                                78,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -13528,7 +15318,9 @@
                         VmirStmtData::Let,
                         VmirStmtData::While {
                             condition: VmirCondition::Other {
-                                opd: 8,
+                                opd: VmirExprIdx(
+                                    8,
+                                ),
                                 conversion: VmirConditionConversion::None,
                             },
                             stmts: ArenaIdxRange(
@@ -13538,7 +15330,9 @@
                         VmirStmtData::IfElse {
                             if_branch: VmirIfBranch {
                                 condition: VmirCondition::Other {
-                                    opd: 22,
+                                    opd: VmirExprIdx(
+                                        22,
+                                    ),
                                     conversion: VmirConditionConversion::None,
                                 },
                                 stmts: ArenaIdxRange(
@@ -13553,7 +15347,9 @@
                         VmirStmtData::Let,
                         VmirStmtData::While {
                             condition: VmirCondition::Other {
-                                opd: 38,
+                                opd: VmirExprIdx(
+                                    38,
+                                ),
                                 conversion: VmirConditionConversion::None,
                             },
                             stmts: ArenaIdxRange(
@@ -13562,12 +15358,16 @@
                         },
                         VmirStmtData::Assert {
                             condition: VmirCondition::Other {
-                                opd: 81,
+                                opd: VmirExprIdx(
+                                    81,
+                                ),
                                 conversion: VmirConditionConversion::None,
                             },
                         },
                         VmirStmtData::Return {
-                            result: 82,
+                            result: VmirExprIdx(
+                                82,
+                            ),
                             coersion: VmirCoersion::Trivial,
                         },
                     ],
@@ -13600,7 +15400,9 @@
                         },
                     },
                 },
-                root_expr: 87,
+                root_expr: VmirExprIdx(
+                    87,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -13612,11 +15414,15 @@
                             qual: Ref,
                         },
                         VmirExprData::Binary {
-                            lopd: 1,
+                            lopd: VmirExprIdx(
+                                1,
+                            ),
                             opr: Comparison(
                                 Geq,
                             ),
-                            ropd: 2,
+                            ropd: VmirExprIdx(
+                                2,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(1),
@@ -13640,7 +15446,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 4,
+                                    expr: VmirExprIdx(
+                                        4,
+                                    ),
                                 },
                             ],
                         },
@@ -13649,25 +15457,35 @@
                             qual: Ref,
                         },
                         VmirExprData::Binary {
-                            lopd: 5,
+                            lopd: VmirExprIdx(
+                                5,
+                            ),
                             opr: Comparison(
                                 Less,
                             ),
-                            ropd: 6,
+                            ropd: VmirExprIdx(
+                                6,
+                            ),
                         },
                         VmirExprData::Binary {
-                            lopd: 3,
+                            lopd: VmirExprIdx(
+                                3,
+                            ),
                             opr: ShortCircuitLogic(
                                 And,
                             ),
-                            ropd: 7,
+                            ropd: VmirExprIdx(
+                                7,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(0),
                             qual: RefMut,
                         },
                         VmirExprData::Suffix {
-                            opd: 9,
+                            opd: VmirExprIdx(
+                                9,
+                            ),
                             opr: Decr,
                         },
                         VmirExprData::Variable {
@@ -13692,11 +15510,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 14,
+                            lopd: VmirExprIdx(
+                                14,
+                            ),
                             opr: Closed(
                                 Sub,
                             ),
-                            ropd: 15,
+                            ropd: VmirExprIdx(
+                                15,
+                            ),
                         },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
@@ -13716,22 +15538,32 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 12,
+                                    expr: VmirExprIdx(
+                                        12,
+                                    ),
                                 },
                                 VmirArgument::Simple {
-                                    expr: 13,
+                                    expr: VmirExprIdx(
+                                        13,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 16,
+                                    expr: VmirExprIdx(
+                                        16,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
                         },
                         VmirExprData::Binary {
-                            lopd: 11,
+                            lopd: VmirExprIdx(
+                                11,
+                            ),
                             opr: Assign,
-                            ropd: 17,
+                            ropd: VmirExprIdx(
+                                17,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(1),
@@ -13755,7 +15587,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 19,
+                                    expr: VmirExprIdx(
+                                        19,
+                                    ),
                                 },
                             ],
                         },
@@ -13764,11 +15598,15 @@
                             qual: Ref,
                         },
                         VmirExprData::Binary {
-                            lopd: 20,
+                            lopd: VmirExprIdx(
+                                20,
+                            ),
                             opr: Comparison(
                                 Less,
                             ),
-                            ropd: 21,
+                            ropd: VmirExprIdx(
+                                21,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(0),
@@ -13796,10 +15634,14 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 23,
+                                    expr: VmirExprIdx(
+                                        23,
+                                    ),
                                 },
                                 VmirArgument::Simple {
-                                    expr: 24,
+                                    expr: VmirExprIdx(
+                                        24,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -13813,11 +15655,15 @@
                             qual: Ref,
                         },
                         VmirExprData::Binary {
-                            lopd: 26,
+                            lopd: VmirExprIdx(
+                                26,
+                            ),
                             opr: Comparison(
                                 Geq,
                             ),
-                            ropd: 27,
+                            ropd: VmirExprIdx(
+                                27,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(7),
@@ -13832,18 +15678,26 @@
                             qual: Ref,
                         },
                         VmirExprData::Binary {
-                            lopd: 30,
+                            lopd: VmirExprIdx(
+                                30,
+                            ),
                             opr: Closed(
                                 Sub,
                             ),
-                            ropd: 31,
+                            ropd: VmirExprIdx(
+                                31,
+                            ),
                         },
                         VmirExprData::Binary {
-                            lopd: 29,
+                            lopd: VmirExprIdx(
+                                29,
+                            ),
                             opr: Comparison(
                                 Less,
                             ),
-                            ropd: 32,
+                            ropd: VmirExprIdx(
+                                32,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(7),
@@ -13854,11 +15708,15 @@
                             qual: Ref,
                         },
                         VmirExprData::Binary {
-                            lopd: 34,
+                            lopd: VmirExprIdx(
+                                34,
+                            ),
                             opr: Comparison(
                                 Greater,
                             ),
-                            ropd: 35,
+                            ropd: VmirExprIdx(
+                                35,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(5),
@@ -13869,9 +15727,13 @@
                             qual: Transient,
                         },
                         VmirExprData::Binary {
-                            lopd: 37,
+                            lopd: VmirExprIdx(
+                                37,
+                            ),
                             opr: Assign,
-                            ropd: 38,
+                            ropd: VmirExprIdx(
+                                38,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(7),
@@ -13882,11 +15744,15 @@
                             qual: Ref,
                         },
                         VmirExprData::Binary {
-                            lopd: 40,
+                            lopd: VmirExprIdx(
+                                40,
+                            ),
                             opr: Comparison(
                                 Greater,
                             ),
-                            ropd: 41,
+                            ropd: VmirExprIdx(
+                                41,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(3),
@@ -13914,10 +15780,14 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 43,
+                                    expr: VmirExprIdx(
+                                        43,
+                                    ),
                                 },
                                 VmirArgument::Simple {
-                                    expr: 44,
+                                    expr: VmirExprIdx(
+                                        44,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -13928,11 +15798,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 45,
+                            lopd: VmirExprIdx(
+                                45,
+                            ),
                             opr: Comparison(
                                 Greater,
                             ),
-                            ropd: 46,
+                            ropd: VmirExprIdx(
+                                46,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(3),
@@ -13943,9 +15817,13 @@
                             qual: Transient,
                         },
                         VmirExprData::Binary {
-                            lopd: 48,
+                            lopd: VmirExprIdx(
+                                48,
+                            ),
                             opr: Assign,
-                            ropd: 49,
+                            ropd: VmirExprIdx(
+                                49,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(9),
@@ -13973,10 +15851,14 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 51,
+                                    expr: VmirExprIdx(
+                                        51,
+                                    ),
                                 },
                                 VmirArgument::Simple {
-                                    expr: 52,
+                                    expr: VmirExprIdx(
+                                        52,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -13987,11 +15869,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 53,
+                            lopd: VmirExprIdx(
+                                53,
+                            ),
                             opr: Comparison(
                                 Greater,
                             ),
-                            ropd: 54,
+                            ropd: VmirExprIdx(
+                                54,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(4),
@@ -14002,9 +15888,13 @@
                             qual: Transient,
                         },
                         VmirExprData::Binary {
-                            lopd: 56,
+                            lopd: VmirExprIdx(
+                                56,
+                            ),
                             opr: Assign,
-                            ropd: 57,
+                            ropd: VmirExprIdx(
+                                57,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(3),
@@ -14032,10 +15922,14 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 59,
+                                    expr: VmirExprIdx(
+                                        59,
+                                    ),
                                 },
                                 VmirArgument::Simple {
-                                    expr: 60,
+                                    expr: VmirExprIdx(
+                                        60,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -14046,11 +15940,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 61,
+                            lopd: VmirExprIdx(
+                                61,
+                            ),
                             opr: Comparison(
                                 Geq,
                             ),
-                            ropd: 62,
+                            ropd: VmirExprIdx(
+                                62,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(0),
@@ -14061,11 +15959,15 @@
                             qual: Ref,
                         },
                         VmirExprData::Binary {
-                            lopd: 64,
+                            lopd: VmirExprIdx(
+                                64,
+                            ),
                             opr: Comparison(
                                 Leq,
                             ),
-                            ropd: 65,
+                            ropd: VmirExprIdx(
+                                65,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(3),
@@ -14093,10 +15995,14 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 67,
+                                    expr: VmirExprIdx(
+                                        67,
+                                    ),
                                 },
                                 VmirArgument::Simple {
-                                    expr: 68,
+                                    expr: VmirExprIdx(
+                                        68,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -14107,11 +16013,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 69,
+                            lopd: VmirExprIdx(
+                                69,
+                            ),
                             opr: Comparison(
                                 Geq,
                             ),
-                            ropd: 70,
+                            ropd: VmirExprIdx(
+                                70,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(6),
@@ -14139,10 +16049,14 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 72,
+                                    expr: VmirExprIdx(
+                                        72,
+                                    ),
                                 },
                                 VmirArgument::Simple {
-                                    expr: 73,
+                                    expr: VmirExprIdx(
+                                        73,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -14153,36 +16067,52 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 74,
+                            lopd: VmirExprIdx(
+                                74,
+                            ),
                             opr: Comparison(
                                 Geq,
                             ),
-                            ropd: 75,
+                            ropd: VmirExprIdx(
+                                75,
+                            ),
                         },
                         VmirExprData::Binary {
-                            lopd: 71,
+                            lopd: VmirExprIdx(
+                                71,
+                            ),
                             opr: ShortCircuitLogic(
                                 And,
                             ),
-                            ropd: 76,
+                            ropd: VmirExprIdx(
+                                76,
+                            ),
                         },
                         VmirExprData::Prefix {
                             opr: NotBool,
-                            opd: 77,
+                            opd: VmirExprIdx(
+                                77,
+                            ),
                         },
                         VmirExprData::Binary {
-                            lopd: 66,
+                            lopd: VmirExprIdx(
+                                66,
+                            ),
                             opr: ShortCircuitLogic(
                                 And,
                             ),
-                            ropd: 78,
+                            ropd: VmirExprIdx(
+                                78,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(0),
                             qual: RefMut,
                         },
                         VmirExprData::Suffix {
-                            opd: 80,
+                            opd: VmirExprIdx(
+                                80,
+                            ),
                             opr: Decr,
                         },
                         VmirExprData::Variable {
@@ -14194,11 +16124,15 @@
                             qual: Ref,
                         },
                         VmirExprData::Binary {
-                            lopd: 82,
+                            lopd: VmirExprIdx(
+                                82,
+                            ),
                             opr: Comparison(
                                 Leq,
                             ),
-                            ropd: 83,
+                            ropd: VmirExprIdx(
+                                83,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(0),
@@ -14221,40 +16155,52 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 10,
+                            expr: VmirExprIdx(
+                                10,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 18,
+                            expr: VmirExprIdx(
+                                18,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Return {
-                            result: 25,
+                            result: VmirExprIdx(
+                                25,
+                            ),
                             coersion: VmirCoersion::Trivial,
                         },
                         VmirStmtData::Break,
                         VmirStmtData::Eval {
-                            expr: 39,
+                            expr: VmirExprIdx(
+                                39,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 50,
+                            expr: VmirExprIdx(
+                                50,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 58,
+                            expr: VmirExprIdx(
+                                58,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -14265,7 +16211,9 @@
                         VmirStmtData::IfElse {
                             if_branch: VmirIfBranch {
                                 condition: VmirCondition::Other {
-                                    opd: 47,
+                                    opd: VmirExprIdx(
+                                        47,
+                                    ),
                                     conversion: VmirConditionConversion::None,
                                 },
                                 stmts: ArenaIdxRange(
@@ -14278,7 +16226,9 @@
                         VmirStmtData::IfElse {
                             if_branch: VmirIfBranch {
                                 condition: VmirCondition::Other {
-                                    opd: 55,
+                                    opd: VmirExprIdx(
+                                        55,
+                                    ),
                                     conversion: VmirConditionConversion::None,
                                 },
                                 stmts: ArenaIdxRange(
@@ -14292,7 +16242,9 @@
                         VmirStmtData::IfElse {
                             if_branch: VmirIfBranch {
                                 condition: VmirCondition::Other {
-                                    opd: 79,
+                                    opd: VmirExprIdx(
+                                        79,
+                                    ),
                                     conversion: VmirConditionConversion::None,
                                 },
                                 stmts: ArenaIdxRange(
@@ -14303,7 +16255,9 @@
                             else_branch: None,
                         },
                         VmirStmtData::Eval {
-                            expr: 81,
+                            expr: VmirExprIdx(
+                                81,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -14315,7 +16269,9 @@
                         VmirStmtData::IfElse {
                             if_branch: VmirIfBranch {
                                 condition: VmirCondition::Other {
-                                    opd: 33,
+                                    opd: VmirExprIdx(
+                                        33,
+                                    ),
                                     conversion: VmirConditionConversion::None,
                                 },
                                 stmts: ArenaIdxRange(
@@ -14325,7 +16281,9 @@
                             elif_branches: [
                                 VmirElifBranch {
                                     condition: VmirCondition::Other {
-                                        opd: 36,
+                                        opd: VmirExprIdx(
+                                            36,
+                                        ),
                                         conversion: VmirConditionConversion::None,
                                     },
                                     stmts: ArenaIdxRange(
@@ -14338,7 +16296,9 @@
                         VmirStmtData::IfElse {
                             if_branch: VmirIfBranch {
                                 condition: VmirCondition::Other {
-                                    opd: 42,
+                                    opd: VmirExprIdx(
+                                        42,
+                                    ),
                                     conversion: VmirConditionConversion::None,
                                 },
                                 stmts: ArenaIdxRange(
@@ -14351,7 +16311,9 @@
                         VmirStmtData::IfElse {
                             if_branch: VmirIfBranch {
                                 condition: VmirCondition::Other {
-                                    opd: 63,
+                                    opd: VmirExprIdx(
+                                        63,
+                                    ),
                                     conversion: VmirConditionConversion::None,
                                 },
                                 stmts: ArenaIdxRange(
@@ -14368,11 +16330,15 @@
                             ),
                         },
                         VmirStmtData::Return {
-                            result: 85,
+                            result: VmirExprIdx(
+                                85,
+                            ),
                             coersion: VmirCoersion::Trivial,
                         },
                         VmirStmtData::Return {
-                            result: 86,
+                            result: VmirExprIdx(
+                                86,
+                            ),
                             coersion: VmirCoersion::Trivial,
                         },
                         VmirStmtData::Let,
@@ -14380,7 +16346,9 @@
                         VmirStmtData::Let,
                         VmirStmtData::While {
                             condition: VmirCondition::Other {
-                                opd: 8,
+                                opd: VmirExprIdx(
+                                    8,
+                                ),
                                 conversion: VmirConditionConversion::None,
                             },
                             stmts: ArenaIdxRange(
@@ -14390,7 +16358,9 @@
                         VmirStmtData::IfElse {
                             if_branch: VmirIfBranch {
                                 condition: VmirCondition::Other {
-                                    opd: 22,
+                                    opd: VmirExprIdx(
+                                        22,
+                                    ),
                                     conversion: VmirConditionConversion::None,
                                 },
                                 stmts: ArenaIdxRange(
@@ -14405,7 +16375,9 @@
                         VmirStmtData::Let,
                         VmirStmtData::While {
                             condition: VmirCondition::Other {
-                                opd: 28,
+                                opd: VmirExprIdx(
+                                    28,
+                                ),
                                 conversion: VmirConditionConversion::None,
                             },
                             stmts: ArenaIdxRange(
@@ -14415,7 +16387,9 @@
                         VmirStmtData::IfElse {
                             if_branch: VmirIfBranch {
                                 condition: VmirCondition::Other {
-                                    opd: 84,
+                                    opd: VmirExprIdx(
+                                        84,
+                                    ),
                                     conversion: VmirConditionConversion::None,
                                 },
                                 stmts: ArenaIdxRange(
@@ -14461,7 +16435,9 @@
                         },
                     },
                 },
-                root_expr: 132,
+                root_expr: VmirExprIdx(
+                    132,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -14473,11 +16449,15 @@
                             qual: Ref,
                         },
                         VmirExprData::Binary {
-                            lopd: 1,
+                            lopd: VmirExprIdx(
+                                1,
+                            ),
                             opr: Comparison(
                                 Leq,
                             ),
-                            ropd: 2,
+                            ropd: VmirExprIdx(
+                                2,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(2),
@@ -14509,23 +16489,33 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 5,
+                                    expr: VmirExprIdx(
+                                        5,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 6,
+                                    expr: VmirExprIdx(
+                                        6,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 7,
+                                    expr: VmirExprIdx(
+                                        7,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
                         },
                         VmirExprData::Binary {
-                            lopd: 4,
+                            lopd: VmirExprIdx(
+                                4,
+                            ),
                             opr: Assign,
-                            ropd: 8,
+                            ropd: VmirExprIdx(
+                                8,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(0),
@@ -14572,7 +16562,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 10,
+                                    expr: VmirExprIdx(
+                                        10,
+                                    ),
                                 },
                             ],
                         },
@@ -14582,11 +16574,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 11,
+                            lopd: VmirExprIdx(
+                                11,
+                            ),
                             opr: Comparison(
                                 Greater,
                             ),
-                            ropd: 12,
+                            ropd: VmirExprIdx(
+                                12,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(6),
@@ -14614,10 +16610,14 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 14,
+                                    expr: VmirExprIdx(
+                                        14,
+                                    ),
                                 },
                                 VmirArgument::Simple {
-                                    expr: 15,
+                                    expr: VmirExprIdx(
+                                        15,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -14640,7 +16640,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 16,
+                                    expr: VmirExprIdx(
+                                        16,
+                                    ),
                                 },
                             ],
                         },
@@ -14652,11 +16654,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 17,
+                            lopd: VmirExprIdx(
+                                17,
+                            ),
                             opr: Comparison(
                                 Less,
                             ),
-                            ropd: 18,
+                            ropd: VmirExprIdx(
+                                18,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(6),
@@ -14684,10 +16690,14 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 20,
+                                    expr: VmirExprIdx(
+                                        20,
+                                    ),
                                 },
                                 VmirArgument::Simple {
-                                    expr: 21,
+                                    expr: VmirExprIdx(
+                                        21,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -14700,18 +16710,26 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 22,
+                            lopd: VmirExprIdx(
+                                22,
+                            ),
                             opr: Comparison(
                                 Greater,
                             ),
-                            ropd: 23,
+                            ropd: VmirExprIdx(
+                                23,
+                            ),
                         },
                         VmirExprData::Binary {
-                            lopd: 19,
+                            lopd: VmirExprIdx(
+                                19,
+                            ),
                             opr: ShortCircuitLogic(
                                 And,
                             ),
-                            ropd: 24,
+                            ropd: VmirExprIdx(
+                                24,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(0),
@@ -14766,12 +16784,16 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 26,
+                                    expr: VmirExprIdx(
+                                        26,
+                                    ),
                                 },
                             ],
                         },
                         VmirExprData::Unwrap {
-                            opd: 27,
+                            opd: VmirExprIdx(
+                                27,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(0),
@@ -14830,12 +16852,16 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 30,
+                                    expr: VmirExprIdx(
+                                        30,
+                                    ),
                                 },
                             ],
                         },
                         VmirExprData::Unwrap {
-                            opd: 31,
+                            opd: VmirExprIdx(
+                                31,
+                            ),
                         },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
@@ -14857,7 +16883,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 32,
+                                    expr: VmirExprIdx(
+                                        32,
+                                    ),
                                 },
                             ],
                         },
@@ -14902,7 +16930,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 33,
+                                    expr: VmirExprIdx(
+                                        33,
+                                    ),
                                 },
                             ],
                         },
@@ -14928,23 +16958,33 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 29,
+                                    expr: VmirExprIdx(
+                                        29,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 34,
+                                    expr: VmirExprIdx(
+                                        34,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 35,
+                                    expr: VmirExprIdx(
+                                        35,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
                         },
                         VmirExprData::Binary {
-                            lopd: 28,
+                            lopd: VmirExprIdx(
+                                28,
+                            ),
                             opr: Assign,
-                            ropd: 36,
+                            ropd: VmirExprIdx(
+                                36,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(5),
@@ -14956,9 +16996,13 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 38,
+                            lopd: VmirExprIdx(
+                                38,
+                            ),
                             opr: Assign,
-                            ropd: 39,
+                            ropd: VmirExprIdx(
+                                39,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(5),
@@ -14998,27 +17042,39 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 43,
+                                    expr: VmirExprIdx(
+                                        43,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 44,
+                                    expr: VmirExprIdx(
+                                        44,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 45,
+                                    expr: VmirExprIdx(
+                                        45,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 46,
+                                    expr: VmirExprIdx(
+                                        46,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
                         },
                         VmirExprData::Binary {
-                            lopd: 42,
+                            lopd: VmirExprIdx(
+                                42,
+                            ),
                             opr: Assign,
-                            ropd: 47,
+                            ropd: VmirExprIdx(
+                                47,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(0),
@@ -15065,7 +17121,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 49,
+                                    expr: VmirExprIdx(
+                                        49,
+                                    ),
                                 },
                             ],
                         },
@@ -15075,11 +17133,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 50,
+                            lopd: VmirExprIdx(
+                                50,
+                            ),
                             opr: Comparison(
                                 Greater,
                             ),
-                            ropd: 51,
+                            ropd: VmirExprIdx(
+                                51,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(11),
@@ -15107,10 +17169,14 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 53,
+                                    expr: VmirExprIdx(
+                                        53,
+                                    ),
                                 },
                                 VmirArgument::Simple {
-                                    expr: 54,
+                                    expr: VmirExprIdx(
+                                        54,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -15133,7 +17199,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 55,
+                                    expr: VmirExprIdx(
+                                        55,
+                                    ),
                                 },
                             ],
                         },
@@ -15145,11 +17213,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 56,
+                            lopd: VmirExprIdx(
+                                56,
+                            ),
                             opr: Comparison(
                                 Less,
                             ),
-                            ropd: 57,
+                            ropd: VmirExprIdx(
+                                57,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(11),
@@ -15177,10 +17249,14 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 59,
+                                    expr: VmirExprIdx(
+                                        59,
+                                    ),
                                 },
                                 VmirArgument::Simple {
-                                    expr: 60,
+                                    expr: VmirExprIdx(
+                                        60,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -15193,18 +17269,26 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 61,
+                            lopd: VmirExprIdx(
+                                61,
+                            ),
                             opr: Comparison(
                                 Greater,
                             ),
-                            ropd: 62,
+                            ropd: VmirExprIdx(
+                                62,
+                            ),
                         },
                         VmirExprData::Binary {
-                            lopd: 58,
+                            lopd: VmirExprIdx(
+                                58,
+                            ),
                             opr: ShortCircuitLogic(
                                 And,
                             ),
-                            ropd: 63,
+                            ropd: VmirExprIdx(
+                                63,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(11),
@@ -15232,10 +17316,14 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 65,
+                                    expr: VmirExprIdx(
+                                        65,
+                                    ),
                                 },
                                 VmirArgument::Simple {
-                                    expr: 66,
+                                    expr: VmirExprIdx(
+                                        66,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -15258,7 +17346,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 67,
+                                    expr: VmirExprIdx(
+                                        67,
+                                    ),
                                 },
                             ],
                         },
@@ -15270,18 +17360,26 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 68,
+                            lopd: VmirExprIdx(
+                                68,
+                            ),
                             opr: Comparison(
                                 Less,
                             ),
-                            ropd: 69,
+                            ropd: VmirExprIdx(
+                                69,
+                            ),
                         },
                         VmirExprData::Binary {
-                            lopd: 64,
+                            lopd: VmirExprIdx(
+                                64,
+                            ),
                             opr: ShortCircuitLogic(
                                 And,
                             ),
-                            ropd: 70,
+                            ropd: VmirExprIdx(
+                                70,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(11),
@@ -15309,10 +17407,14 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 72,
+                                    expr: VmirExprIdx(
+                                        72,
+                                    ),
                                 },
                                 VmirArgument::Simple {
-                                    expr: 73,
+                                    expr: VmirExprIdx(
+                                        73,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -15325,18 +17427,26 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 74,
+                            lopd: VmirExprIdx(
+                                74,
+                            ),
                             opr: Comparison(
                                 Greater,
                             ),
-                            ropd: 75,
+                            ropd: VmirExprIdx(
+                                75,
+                            ),
                         },
                         VmirExprData::Binary {
-                            lopd: 71,
+                            lopd: VmirExprIdx(
+                                71,
+                            ),
                             opr: ShortCircuitLogic(
                                 And,
                             ),
-                            ropd: 76,
+                            ropd: VmirExprIdx(
+                                76,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(9),
@@ -15370,7 +17480,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 80,
+                                    expr: VmirExprIdx(
+                                        80,
+                                    ),
                                 },
                             ],
                         },
@@ -15415,7 +17527,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 81,
+                                    expr: VmirExprIdx(
+                                        81,
+                                    ),
                                 },
                             ],
                         },
@@ -15443,7 +17557,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 83,
+                                    expr: VmirExprIdx(
+                                        83,
+                                    ),
                                 },
                             ],
                         },
@@ -15488,7 +17604,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 84,
+                                    expr: VmirExprIdx(
+                                        84,
+                                    ),
                                 },
                             ],
                         },
@@ -15510,23 +17628,33 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 79,
+                                    expr: VmirExprIdx(
+                                        79,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 82,
+                                    expr: VmirExprIdx(
+                                        82,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 85,
+                                    expr: VmirExprIdx(
+                                        85,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
                         },
                         VmirExprData::Binary {
-                            lopd: 78,
+                            lopd: VmirExprIdx(
+                                78,
+                            ),
                             opr: Assign,
-                            ropd: 86,
+                            ropd: VmirExprIdx(
+                                86,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(3),
@@ -15569,7 +17697,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 90,
+                                    expr: VmirExprIdx(
+                                        90,
+                                    ),
                                 },
                             ],
                         },
@@ -15614,21 +17744,31 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 91,
+                                    expr: VmirExprIdx(
+                                        91,
+                                    ),
                                 },
                             ],
                         },
                         VmirExprData::Binary {
-                            lopd: 89,
+                            lopd: VmirExprIdx(
+                                89,
+                            ),
                             opr: Closed(
                                 Add,
                             ),
-                            ropd: 92,
+                            ropd: VmirExprIdx(
+                                92,
+                            ),
                         },
                         VmirExprData::Binary {
-                            lopd: 88,
+                            lopd: VmirExprIdx(
+                                88,
+                            ),
                             opr: Assign,
-                            ropd: 93,
+                            ropd: VmirExprIdx(
+                                93,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(0),
@@ -15685,10 +17825,14 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 95,
+                                    expr: VmirExprIdx(
+                                        95,
+                                    ),
                                 },
                                 VmirArgument::Simple {
-                                    expr: 96,
+                                    expr: VmirExprIdx(
+                                        96,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -15702,9 +17846,13 @@
                             qual: Transient,
                         },
                         VmirExprData::Binary {
-                            lopd: 98,
+                            lopd: VmirExprIdx(
+                                98,
+                            ),
                             opr: Assign,
-                            ropd: 99,
+                            ropd: VmirExprIdx(
+                                99,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(2),
@@ -15720,16 +17868,24 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 102,
+                            lopd: VmirExprIdx(
+                                102,
+                            ),
                             opr: Closed(
                                 Add,
                             ),
-                            ropd: 103,
+                            ropd: VmirExprIdx(
+                                103,
+                            ),
                         },
                         VmirExprData::Binary {
-                            lopd: 101,
+                            lopd: VmirExprIdx(
+                                101,
+                            ),
                             opr: Assign,
-                            ropd: 104,
+                            ropd: VmirExprIdx(
+                                104,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(0),
@@ -15755,7 +17911,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 106,
+                                    expr: VmirExprIdx(
+                                        106,
+                                    ),
                                 },
                             ],
                         },
@@ -15800,7 +17958,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 107,
+                                    expr: VmirExprIdx(
+                                        107,
+                                    ),
                                 },
                             ],
                         },
@@ -15813,18 +17973,26 @@
                             qual: Ref,
                         },
                         VmirExprData::Binary {
-                            lopd: 109,
+                            lopd: VmirExprIdx(
+                                109,
+                            ),
                             opr: Closed(
                                 Add,
                             ),
-                            ropd: 110,
+                            ropd: VmirExprIdx(
+                                110,
+                            ),
                         },
                         VmirExprData::Binary {
-                            lopd: 108,
+                            lopd: VmirExprIdx(
+                                108,
+                            ),
                             opr: Comparison(
                                 Geq,
                             ),
-                            ropd: 111,
+                            ropd: VmirExprIdx(
+                                111,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(0),
@@ -15879,12 +18047,16 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 113,
+                                    expr: VmirExprIdx(
+                                        113,
+                                    ),
                                 },
                             ],
                         },
                         VmirExprData::Unwrap {
-                            opd: 114,
+                            opd: VmirExprIdx(
+                                114,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(0),
@@ -15914,7 +18086,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 117,
+                                    expr: VmirExprIdx(
+                                        117,
+                                    ),
                                 },
                             ],
                         },
@@ -15959,7 +18133,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 118,
+                                    expr: VmirExprIdx(
+                                        118,
+                                    ),
                                 },
                             ],
                         },
@@ -15968,11 +18144,15 @@
                             qual: Ref,
                         },
                         VmirExprData::Binary {
-                            lopd: 119,
+                            lopd: VmirExprIdx(
+                                119,
+                            ),
                             opr: Closed(
                                 Sub,
                             ),
-                            ropd: 120,
+                            ropd: VmirExprIdx(
+                                120,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(0),
@@ -16027,12 +18207,16 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 122,
+                                    expr: VmirExprIdx(
+                                        122,
+                                    ),
                                 },
                             ],
                         },
                         VmirExprData::Unwrap {
-                            opd: 123,
+                            opd: VmirExprIdx(
+                                123,
+                            ),
                         },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
@@ -16054,7 +18238,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 124,
+                                    expr: VmirExprIdx(
+                                        124,
+                                    ),
                                 },
                             ],
                         },
@@ -16099,7 +18285,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 125,
+                                    expr: VmirExprIdx(
+                                        125,
+                                    ),
                                 },
                             ],
                         },
@@ -16109,11 +18297,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 126,
+                            lopd: VmirExprIdx(
+                                126,
+                            ),
                             opr: Closed(
                                 Sub,
                             ),
-                            ropd: 127,
+                            ropd: VmirExprIdx(
+                                127,
+                            ),
                         },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
@@ -16133,23 +18325,33 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 116,
+                                    expr: VmirExprIdx(
+                                        116,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 121,
+                                    expr: VmirExprIdx(
+                                        121,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 128,
+                                    expr: VmirExprIdx(
+                                        128,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
                         },
                         VmirExprData::Binary {
-                            lopd: 115,
+                            lopd: VmirExprIdx(
+                                115,
+                            ),
                             opr: Assign,
-                            ropd: 129,
+                            ropd: VmirExprIdx(
+                                129,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(0),
@@ -16169,14 +18371,18 @@
                     data: [
                         VmirStmtData::Let,
                         VmirStmtData::Eval {
-                            expr: 37,
+                            expr: VmirExprIdx(
+                                37,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 40,
+                            expr: VmirExprIdx(
+                                40,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -16187,7 +18393,9 @@
                         VmirStmtData::IfElse {
                             if_branch: VmirIfBranch {
                                 condition: VmirCondition::Other {
-                                    opd: 25,
+                                    opd: VmirExprIdx(
+                                        25,
+                                    ),
                                     conversion: VmirConditionConversion::None,
                                 },
                                 stmts: ArenaIdxRange(
@@ -16199,7 +18407,9 @@
                         },
                         VmirStmtData::Let,
                         VmirStmtData::Eval {
-                            expr: 87,
+                            expr: VmirExprIdx(
+                                87,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -16212,7 +18422,9 @@
                         VmirStmtData::IfElse {
                             if_branch: VmirIfBranch {
                                 condition: VmirCondition::Other {
-                                    opd: 77,
+                                    opd: VmirExprIdx(
+                                        77,
+                                    ),
                                     conversion: VmirConditionConversion::None,
                                 },
                                 stmts: ArenaIdxRange(
@@ -16223,14 +18435,18 @@
                             else_branch: None,
                         },
                         VmirStmtData::Eval {
-                            expr: 94,
+                            expr: VmirExprIdx(
+                                94,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 48,
+                            expr: VmirExprIdx(
+                                48,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -16240,7 +18456,9 @@
                         VmirStmtData::IfElse {
                             if_branch: VmirIfBranch {
                                 condition: VmirCondition::Other {
-                                    opd: 52,
+                                    opd: VmirExprIdx(
+                                        52,
+                                    ),
                                     conversion: VmirConditionConversion::None,
                                 },
                                 stmts: ArenaIdxRange(
@@ -16257,14 +18475,18 @@
                             ),
                         },
                         VmirStmtData::Eval {
-                            expr: 97,
+                            expr: VmirExprIdx(
+                                97,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 9,
+                            expr: VmirExprIdx(
+                                9,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -16275,7 +18497,9 @@
                         VmirStmtData::IfElse {
                             if_branch: VmirIfBranch {
                                 condition: VmirCondition::Other {
-                                    opd: 13,
+                                    opd: VmirExprIdx(
+                                        13,
+                                    ),
                                     conversion: VmirConditionConversion::None,
                                 },
                                 stmts: ArenaIdxRange(
@@ -16288,7 +18512,9 @@
                         VmirStmtData::IfElse {
                             if_branch: VmirIfBranch {
                                 condition: VmirCondition::Other {
-                                    opd: 41,
+                                    opd: VmirExprIdx(
+                                        41,
+                                    ),
                                     conversion: VmirConditionConversion::None,
                                 },
                                 stmts: ArenaIdxRange(
@@ -16299,14 +18525,18 @@
                             else_branch: None,
                         },
                         VmirStmtData::Eval {
-                            expr: 100,
+                            expr: VmirExprIdx(
+                                100,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 105,
+                            expr: VmirExprIdx(
+                                105,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -16314,7 +18544,9 @@
                         },
                         VmirStmtData::Let,
                         VmirStmtData::Eval {
-                            expr: 130,
+                            expr: VmirExprIdx(
+                                130,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -16326,7 +18558,9 @@
                         VmirStmtData::Let,
                         VmirStmtData::While {
                             condition: VmirCondition::Other {
-                                opd: 3,
+                                opd: VmirExprIdx(
+                                    3,
+                                ),
                                 conversion: VmirConditionConversion::None,
                             },
                             stmts: ArenaIdxRange(
@@ -16339,7 +18573,9 @@
                         VmirStmtData::IfElse {
                             if_branch: VmirIfBranch {
                                 condition: VmirCondition::Other {
-                                    opd: 112,
+                                    opd: VmirExprIdx(
+                                        112,
+                                    ),
                                     conversion: VmirConditionConversion::None,
                                 },
                                 stmts: ArenaIdxRange(
@@ -16350,7 +18586,9 @@
                             else_branch: None,
                         },
                         VmirStmtData::Eval {
-                            expr: 131,
+                            expr: VmirExprIdx(
+                                131,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -16394,7 +18632,9 @@
                         },
                     },
                 },
-                root_expr: 12,
+                root_expr: VmirExprIdx(
+                    12,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -16406,11 +18646,15 @@
                             qual: Ref,
                         },
                         VmirExprData::Binary {
-                            lopd: 1,
+                            lopd: VmirExprIdx(
+                                1,
+                            ),
                             opr: Comparison(
                                 Leq,
                             ),
-                            ropd: 2,
+                            ropd: VmirExprIdx(
+                                2,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(0),
@@ -16445,7 +18689,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 4,
+                                    expr: VmirExprIdx(
+                                        4,
+                                    ),
                                 },
                             ],
                         },
@@ -16463,11 +18709,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 7,
+                            lopd: VmirExprIdx(
+                                7,
+                            ),
                             opr: Closed(
                                 Add,
                             ),
-                            ropd: 8,
+                            ropd: VmirExprIdx(
+                                8,
+                            ),
                         },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
@@ -16510,14 +18760,20 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 5,
+                                    expr: VmirExprIdx(
+                                        5,
+                                    ),
                                 },
                                 VmirArgument::Simple {
-                                    expr: 6,
+                                    expr: VmirExprIdx(
+                                        6,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 9,
+                                    expr: VmirExprIdx(
+                                        9,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -16534,7 +18790,9 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 10,
+                                    expr: VmirExprIdx(
+                                        10,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -16553,12 +18811,16 @@
                     data: [
                         VmirStmtData::Assert {
                             condition: VmirCondition::Other {
-                                opd: 3,
+                                opd: VmirExprIdx(
+                                    3,
+                                ),
                                 conversion: VmirConditionConversion::None,
                             },
                         },
                         VmirStmtData::Eval {
-                            expr: 11,
+                            expr: VmirExprIdx(
+                                11,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -16602,7 +18864,9 @@
                         },
                     },
                 },
-                root_expr: 6,
+                root_expr: VmirExprIdx(
+                    6,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -16629,7 +18893,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                 },
                             ],
                         },
@@ -16657,7 +18923,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 3,
+                                    expr: VmirExprIdx(
+                                        3,
+                                    ),
                                 },
                             ],
                         },
@@ -16679,10 +18947,14 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 2,
+                                    expr: VmirExprIdx(
+                                        2,
+                                    ),
                                 },
                                 VmirArgument::Simple {
-                                    expr: 4,
+                                    expr: VmirExprIdx(
+                                        4,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -16700,7 +18972,9 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 5,
+                            expr: VmirExprIdx(
+                                5,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -16740,7 +19014,9 @@
                         },
                     },
                 },
-                root_expr: 3,
+                root_expr: VmirExprIdx(
+                    3,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -16761,7 +19037,9 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                     coersion: VmirCoersion::PlaceToLeash,
                                 },
                             ],
@@ -16779,7 +19057,9 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 2,
+                            expr: VmirExprIdx(
+                                2,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -16819,7 +19099,9 @@
                         },
                     },
                 },
-                root_expr: 32,
+                root_expr: VmirExprIdx(
+                    32,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -16854,7 +19136,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 3,
+                                    expr: VmirExprIdx(
+                                        3,
+                                    ),
                                 },
                             ],
                         },
@@ -16876,18 +19160,26 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 2,
+                                    expr: VmirExprIdx(
+                                        2,
+                                    ),
                                 },
                                 VmirArgument::Simple {
-                                    expr: 4,
+                                    expr: VmirExprIdx(
+                                        4,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
                         },
                         VmirExprData::Binary {
-                            lopd: 1,
+                            lopd: VmirExprIdx(
+                                1,
+                            ),
                             opr: Assign,
-                            ropd: 5,
+                            ropd: VmirExprIdx(
+                                5,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(3),
@@ -16921,7 +19213,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 9,
+                                    expr: VmirExprIdx(
+                                        9,
+                                    ),
                                 },
                             ],
                         },
@@ -16943,18 +19237,26 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 8,
+                                    expr: VmirExprIdx(
+                                        8,
+                                    ),
                                 },
                                 VmirArgument::Simple {
-                                    expr: 10,
+                                    expr: VmirExprIdx(
+                                        10,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
                         },
                         VmirExprData::Binary {
-                            lopd: 7,
+                            lopd: VmirExprIdx(
+                                7,
+                            ),
                             opr: Assign,
-                            ropd: 11,
+                            ropd: VmirExprIdx(
+                                11,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(4),
@@ -16988,7 +19290,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 15,
+                                    expr: VmirExprIdx(
+                                        15,
+                                    ),
                                 },
                             ],
                         },
@@ -17010,18 +19314,26 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 14,
+                                    expr: VmirExprIdx(
+                                        14,
+                                    ),
                                 },
                                 VmirArgument::Simple {
-                                    expr: 16,
+                                    expr: VmirExprIdx(
+                                        16,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
                         },
                         VmirExprData::Binary {
-                            lopd: 13,
+                            lopd: VmirExprIdx(
+                                13,
+                            ),
                             opr: Assign,
-                            ropd: 17,
+                            ropd: VmirExprIdx(
+                                17,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(5),
@@ -17055,7 +19367,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 21,
+                                    expr: VmirExprIdx(
+                                        21,
+                                    ),
                                 },
                             ],
                         },
@@ -17077,18 +19391,26 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 20,
+                                    expr: VmirExprIdx(
+                                        20,
+                                    ),
                                 },
                                 VmirArgument::Simple {
-                                    expr: 22,
+                                    expr: VmirExprIdx(
+                                        22,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
                         },
                         VmirExprData::Binary {
-                            lopd: 19,
+                            lopd: VmirExprIdx(
+                                19,
+                            ),
                             opr: Assign,
-                            ropd: 23,
+                            ropd: VmirExprIdx(
+                                23,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(2),
@@ -17110,11 +19432,15 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 25,
+                                    expr: VmirExprIdx(
+                                        25,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 26,
+                                    expr: VmirExprIdx(
+                                        26,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -17139,11 +19465,15 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 28,
+                                    expr: VmirExprIdx(
+                                        28,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 29,
+                                    expr: VmirExprIdx(
+                                        29,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -17160,11 +19490,15 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 27,
+                                    expr: VmirExprIdx(
+                                        27,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 30,
+                                    expr: VmirExprIdx(
+                                        30,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -17183,28 +19517,36 @@
                     data: [
                         VmirStmtData::Let,
                         VmirStmtData::Eval {
-                            expr: 6,
+                            expr: VmirExprIdx(
+                                6,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 12,
+                            expr: VmirExprIdx(
+                                12,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 18,
+                            expr: VmirExprIdx(
+                                18,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 24,
+                            expr: VmirExprIdx(
+                                24,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -17221,7 +19563,9 @@
                             ),
                         },
                         VmirStmtData::Return {
-                            result: 31,
+                            result: VmirExprIdx(
+                                31,
+                            ),
                             coersion: VmirCoersion::Trivial,
                         },
                     ],
@@ -17262,7 +19606,9 @@
                         },
                     },
                 },
-                root_expr: 6,
+                root_expr: VmirExprIdx(
+                    6,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -17291,11 +19637,15 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 2,
+                                    expr: VmirExprIdx(
+                                        2,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 3,
+                                    expr: VmirExprIdx(
+                                        3,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -17312,11 +19662,15 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 4,
+                                    expr: VmirExprIdx(
+                                        4,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -17334,7 +19688,9 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 5,
+                            expr: VmirExprIdx(
+                                5,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -17433,7 +19789,9 @@
                         },
                     },
                 },
-                root_expr: 52,
+                root_expr: VmirExprIdx(
+                    52,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -17446,14 +19804,20 @@
                         },
                         VmirExprData::Prefix {
                             opr: Minus,
-                            opd: 2,
+                            opd: VmirExprIdx(
+                                2,
+                            ),
                         },
                         VmirExprData::Binary {
-                            lopd: 1,
+                            lopd: VmirExprIdx(
+                                1,
+                            ),
                             opr: Comparison(
                                 Greater,
                             ),
-                            ropd: 3,
+                            ropd: VmirExprIdx(
+                                3,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(0),
@@ -17477,32 +19841,44 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 5,
+                                    expr: VmirExprIdx(
+                                        5,
+                                    ),
                                     coersion: VmirCoersion::Deref,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 6,
+                                    expr: VmirExprIdx(
+                                        6,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
                         },
                         VmirExprData::Prefix {
                             opr: NotBool,
-                            opd: 7,
+                            opd: VmirExprIdx(
+                                7,
+                            ),
                         },
                         VmirExprData::Binary {
-                            lopd: 4,
+                            lopd: VmirExprIdx(
+                                4,
+                            ),
                             opr: ShortCircuitLogic(
                                 And,
                             ),
-                            ropd: 8,
+                            ropd: VmirExprIdx(
+                                8,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(2),
                             qual: RefMut,
                         },
                         VmirExprData::Suffix {
-                            opd: 10,
+                            opd: VmirExprIdx(
+                                10,
+                            ),
                             opr: Decr,
                         },
                         VmirExprData::Variable {
@@ -17518,18 +19894,26 @@
                             qual: Ref,
                         },
                         VmirExprData::Binary {
-                            lopd: 13,
+                            lopd: VmirExprIdx(
+                                13,
+                            ),
                             opr: Closed(
                                 Add,
                             ),
-                            ropd: 14,
+                            ropd: VmirExprIdx(
+                                14,
+                            ),
                         },
                         VmirExprData::Binary {
-                            lopd: 12,
+                            lopd: VmirExprIdx(
+                                12,
+                            ),
                             opr: Comparison(
                                 Less,
                             ),
-                            ropd: 15,
+                            ropd: VmirExprIdx(
+                                15,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(3),
@@ -17544,18 +19928,26 @@
                             qual: Ref,
                         },
                         VmirExprData::Binary {
-                            lopd: 18,
+                            lopd: VmirExprIdx(
+                                18,
+                            ),
                             opr: Closed(
                                 Add,
                             ),
-                            ropd: 19,
+                            ropd: VmirExprIdx(
+                                19,
+                            ),
                         },
                         VmirExprData::Binary {
-                            lopd: 17,
+                            lopd: VmirExprIdx(
+                                17,
+                            ),
                             opr: Comparison(
                                 Leq,
                             ),
-                            ropd: 20,
+                            ropd: VmirExprIdx(
+                                20,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(0),
@@ -17579,32 +19971,44 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 22,
+                                    expr: VmirExprIdx(
+                                        22,
+                                    ),
                                     coersion: VmirCoersion::Deref,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 23,
+                                    expr: VmirExprIdx(
+                                        23,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
                         },
                         VmirExprData::Prefix {
                             opr: NotBool,
-                            opd: 24,
+                            opd: VmirExprIdx(
+                                24,
+                            ),
                         },
                         VmirExprData::Binary {
-                            lopd: 21,
+                            lopd: VmirExprIdx(
+                                21,
+                            ),
                             opr: ShortCircuitLogic(
                                 And,
                             ),
-                            ropd: 25,
+                            ropd: VmirExprIdx(
+                                25,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(3),
                             qual: RefMut,
                         },
                         VmirExprData::Suffix {
-                            opd: 27,
+                            opd: VmirExprIdx(
+                                27,
+                            ),
                             opr: Incr,
                         },
                         VmirExprData::Variable {
@@ -17621,18 +20025,26 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 30,
+                            lopd: VmirExprIdx(
+                                30,
+                            ),
                             opr: Closed(
                                 Add,
                             ),
-                            ropd: 31,
+                            ropd: VmirExprIdx(
+                                31,
+                            ),
                         },
                         VmirExprData::Binary {
-                            lopd: 29,
+                            lopd: VmirExprIdx(
+                                29,
+                            ),
                             opr: Comparison(
                                 Greater,
                             ),
-                            ropd: 32,
+                            ropd: VmirExprIdx(
+                                32,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(0),
@@ -17675,7 +20087,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 36,
+                                    expr: VmirExprIdx(
+                                        36,
+                                    ),
                                 },
                             ],
                         },
@@ -17728,14 +20142,20 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 37,
+                                    expr: VmirExprIdx(
+                                        37,
+                                    ),
                                 },
                                 VmirArgument::Simple {
-                                    expr: 38,
+                                    expr: VmirExprIdx(
+                                        38,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 39,
+                                    expr: VmirExprIdx(
+                                        39,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -17752,11 +20172,15 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 35,
+                                    expr: VmirExprIdx(
+                                        35,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 40,
+                                    expr: VmirExprIdx(
+                                        40,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -17808,10 +20232,14 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 34,
+                                    expr: VmirExprIdx(
+                                        34,
+                                    ),
                                 },
                                 VmirArgument::Simple {
-                                    expr: 41,
+                                    expr: VmirExprIdx(
+                                        41,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -17825,9 +20253,13 @@
                             qual: Transient,
                         },
                         VmirExprData::Binary {
-                            lopd: 43,
+                            lopd: VmirExprIdx(
+                                43,
+                            ),
                             opr: Assign,
-                            ropd: 44,
+                            ropd: VmirExprIdx(
+                                44,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(3),
@@ -17843,16 +20275,24 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 47,
+                            lopd: VmirExprIdx(
+                                47,
+                            ),
                             opr: Closed(
                                 Add,
                             ),
-                            ropd: 48,
+                            ropd: VmirExprIdx(
+                                48,
+                            ),
                         },
                         VmirExprData::Binary {
-                            lopd: 46,
+                            lopd: VmirExprIdx(
+                                46,
+                            ),
                             opr: Assign,
-                            ropd: 49,
+                            ropd: VmirExprIdx(
+                                49,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(0),
@@ -17871,21 +20311,27 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 11,
+                            expr: VmirExprIdx(
+                                11,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 28,
+                            expr: VmirExprIdx(
+                                28,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 42,
+                            expr: VmirExprIdx(
+                                42,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -17893,7 +20339,9 @@
                         },
                         VmirStmtData::While {
                             condition: VmirCondition::Other {
-                                opd: 26,
+                                opd: VmirExprIdx(
+                                    26,
+                                ),
                                 conversion: VmirConditionConversion::None,
                             },
                             stmts: ArenaIdxRange(
@@ -17903,7 +20351,9 @@
                         VmirStmtData::IfElse {
                             if_branch: VmirIfBranch {
                                 condition: VmirCondition::Other {
-                                    opd: 33,
+                                    opd: VmirExprIdx(
+                                        33,
+                                    ),
                                     conversion: VmirConditionConversion::None,
                                 },
                                 stmts: ArenaIdxRange(
@@ -17914,14 +20364,18 @@
                             else_branch: None,
                         },
                         VmirStmtData::Eval {
-                            expr: 45,
+                            expr: VmirExprIdx(
+                                45,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 50,
+                            expr: VmirExprIdx(
+                                50,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -17933,7 +20387,9 @@
                         VmirStmtData::Let,
                         VmirStmtData::While {
                             condition: VmirCondition::Other {
-                                opd: 9,
+                                opd: VmirExprIdx(
+                                    9,
+                                ),
                                 conversion: VmirConditionConversion::None,
                             },
                             stmts: ArenaIdxRange(
@@ -17943,7 +20399,9 @@
                         VmirStmtData::Let,
                         VmirStmtData::While {
                             condition: VmirCondition::Other {
-                                opd: 16,
+                                opd: VmirExprIdx(
+                                    16,
+                                ),
                                 conversion: VmirConditionConversion::None,
                             },
                             stmts: ArenaIdxRange(
@@ -17951,7 +20409,9 @@
                             ),
                         },
                         VmirStmtData::Return {
-                            result: 51,
+                            result: VmirExprIdx(
+                                51,
+                            ),
                             coersion: VmirCoersion::Trivial,
                         },
                     ],
@@ -17988,7 +20448,9 @@
                         },
                     },
                 },
-                root_expr: 3,
+                root_expr: VmirExprIdx(
+                    3,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -18011,7 +20473,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                 },
                             ],
                         },
@@ -18028,7 +20492,9 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 2,
+                            expr: VmirExprIdx(
+                                2,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -18068,7 +20534,9 @@
                         },
                     },
                 },
-                root_expr: 7,
+                root_expr: VmirExprIdx(
+                    7,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -18091,7 +20559,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                 },
                             ],
                         },
@@ -18117,7 +20587,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 3,
+                                    expr: VmirExprIdx(
+                                        3,
+                                    ),
                                 },
                             ],
                         },
@@ -18139,16 +20611,22 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 4,
+                                    expr: VmirExprIdx(
+                                        4,
+                                    ),
                                 },
                             ],
                         },
                         VmirExprData::Binary {
-                            lopd: 2,
+                            lopd: VmirExprIdx(
+                                2,
+                            ),
                             opr: Closed(
                                 Div,
                             ),
-                            ropd: 5,
+                            ropd: VmirExprIdx(
+                                5,
+                            ),
                         },
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
@@ -18163,7 +20641,9 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 6,
+                            expr: VmirExprIdx(
+                                6,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -18203,7 +20683,9 @@
                         },
                     },
                 },
-                root_expr: 8,
+                root_expr: VmirExprIdx(
+                    8,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -18215,11 +20697,15 @@
                             qual: Ref,
                         },
                         VmirExprData::Binary {
-                            lopd: 1,
+                            lopd: VmirExprIdx(
+                                1,
+                            ),
                             opr: Comparison(
                                 Greater,
                             ),
-                            ropd: 2,
+                            ropd: VmirExprIdx(
+                                2,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(1),
@@ -18230,9 +20716,13 @@
                             qual: Transient,
                         },
                         VmirExprData::Binary {
-                            lopd: 4,
+                            lopd: VmirExprIdx(
+                                4,
+                            ),
                             opr: Assign,
-                            ropd: 5,
+                            ropd: VmirExprIdx(
+                                5,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(1),
@@ -18251,7 +20741,9 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 6,
+                            expr: VmirExprIdx(
+                                6,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -18262,7 +20754,9 @@
                         VmirStmtData::IfElse {
                             if_branch: VmirIfBranch {
                                 condition: VmirCondition::Other {
-                                    opd: 3,
+                                    opd: VmirExprIdx(
+                                        3,
+                                    ),
                                     conversion: VmirConditionConversion::None,
                                 },
                                 stmts: ArenaIdxRange(
@@ -18282,7 +20776,9 @@
                             ),
                         },
                         VmirStmtData::Return {
-                            result: 7,
+                            result: VmirExprIdx(
+                                7,
+                            ),
                             coersion: VmirCoersion::Trivial,
                         },
                     ],
@@ -18319,7 +20815,9 @@
                         },
                     },
                 },
-                root_expr: 11,
+                root_expr: VmirExprIdx(
+                    11,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -18357,24 +20855,34 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 2,
+                                    expr: VmirExprIdx(
+                                        2,
+                                    ),
                                 },
                                 VmirArgument::Simple {
-                                    expr: 3,
+                                    expr: VmirExprIdx(
+                                        3,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 4,
+                                    expr: VmirExprIdx(
+                                        4,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
                         },
                         VmirExprData::Binary {
-                            lopd: 1,
+                            lopd: VmirExprIdx(
+                                1,
+                            ),
                             opr: AssignClosed(
                                 Add,
                             ),
-                            ropd: 5,
+                            ropd: VmirExprIdx(
+                                5,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(2),
@@ -18385,9 +20893,13 @@
                             qual: Transient,
                         },
                         VmirExprData::Binary {
-                            lopd: 7,
+                            lopd: VmirExprIdx(
+                                7,
+                            ),
                             opr: Assign,
-                            ropd: 8,
+                            ropd: VmirExprIdx(
+                                8,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(1),
@@ -18407,14 +20919,18 @@
                     data: [
                         VmirStmtData::Let,
                         VmirStmtData::Eval {
-                            expr: 6,
+                            expr: VmirExprIdx(
+                                6,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 9,
+                            expr: VmirExprIdx(
+                                9,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -18428,7 +20944,9 @@
                             ),
                         },
                         VmirStmtData::Return {
-                            result: 10,
+                            result: VmirExprIdx(
+                                10,
+                            ),
                             coersion: VmirCoersion::Trivial,
                         },
                     ],
@@ -18465,7 +20983,9 @@
                         },
                     },
                 },
-                root_expr: 32,
+                root_expr: VmirExprIdx(
+                    32,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -18500,7 +21020,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 3,
+                                    expr: VmirExprIdx(
+                                        3,
+                                    ),
                                 },
                             ],
                         },
@@ -18522,18 +21044,26 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 2,
+                                    expr: VmirExprIdx(
+                                        2,
+                                    ),
                                 },
                                 VmirArgument::Simple {
-                                    expr: 4,
+                                    expr: VmirExprIdx(
+                                        4,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
                         },
                         VmirExprData::Binary {
-                            lopd: 1,
+                            lopd: VmirExprIdx(
+                                1,
+                            ),
                             opr: Assign,
-                            ropd: 5,
+                            ropd: VmirExprIdx(
+                                5,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(3),
@@ -18567,7 +21097,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 9,
+                                    expr: VmirExprIdx(
+                                        9,
+                                    ),
                                 },
                             ],
                         },
@@ -18589,18 +21121,26 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 8,
+                                    expr: VmirExprIdx(
+                                        8,
+                                    ),
                                 },
                                 VmirArgument::Simple {
-                                    expr: 10,
+                                    expr: VmirExprIdx(
+                                        10,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
                         },
                         VmirExprData::Binary {
-                            lopd: 7,
+                            lopd: VmirExprIdx(
+                                7,
+                            ),
                             opr: Assign,
-                            ropd: 11,
+                            ropd: VmirExprIdx(
+                                11,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(4),
@@ -18634,7 +21174,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 15,
+                                    expr: VmirExprIdx(
+                                        15,
+                                    ),
                                 },
                             ],
                         },
@@ -18656,18 +21198,26 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 14,
+                                    expr: VmirExprIdx(
+                                        14,
+                                    ),
                                 },
                                 VmirArgument::Simple {
-                                    expr: 16,
+                                    expr: VmirExprIdx(
+                                        16,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
                         },
                         VmirExprData::Binary {
-                            lopd: 13,
+                            lopd: VmirExprIdx(
+                                13,
+                            ),
                             opr: Assign,
-                            ropd: 17,
+                            ropd: VmirExprIdx(
+                                17,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(5),
@@ -18701,7 +21251,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 21,
+                                    expr: VmirExprIdx(
+                                        21,
+                                    ),
                                 },
                             ],
                         },
@@ -18723,18 +21275,26 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 20,
+                                    expr: VmirExprIdx(
+                                        20,
+                                    ),
                                 },
                                 VmirArgument::Simple {
-                                    expr: 22,
+                                    expr: VmirExprIdx(
+                                        22,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
                         },
                         VmirExprData::Binary {
-                            lopd: 19,
+                            lopd: VmirExprIdx(
+                                19,
+                            ),
                             opr: Assign,
-                            ropd: 23,
+                            ropd: VmirExprIdx(
+                                23,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(2),
@@ -18756,11 +21316,15 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 25,
+                                    expr: VmirExprIdx(
+                                        25,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 26,
+                                    expr: VmirExprIdx(
+                                        26,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -18785,11 +21349,15 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 28,
+                                    expr: VmirExprIdx(
+                                        28,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 29,
+                                    expr: VmirExprIdx(
+                                        29,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -18806,11 +21374,15 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 27,
+                                    expr: VmirExprIdx(
+                                        27,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 30,
+                                    expr: VmirExprIdx(
+                                        30,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -18829,28 +21401,36 @@
                     data: [
                         VmirStmtData::Let,
                         VmirStmtData::Eval {
-                            expr: 6,
+                            expr: VmirExprIdx(
+                                6,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 12,
+                            expr: VmirExprIdx(
+                                12,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 18,
+                            expr: VmirExprIdx(
+                                18,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 24,
+                            expr: VmirExprIdx(
+                                24,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -18867,7 +21447,9 @@
                             ),
                         },
                         VmirStmtData::Return {
-                            result: 31,
+                            result: VmirExprIdx(
+                                31,
+                            ),
                             coersion: VmirCoersion::Trivial,
                         },
                     ],
@@ -18904,7 +21486,9 @@
                         },
                     },
                 },
-                root_expr: 7,
+                root_expr: VmirExprIdx(
+                    7,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -18931,7 +21515,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                 },
                             ],
                         },
@@ -18951,7 +21537,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 2,
+                                    expr: VmirExprIdx(
+                                        2,
+                                    ),
                                 },
                             ],
                         },
@@ -18975,7 +21563,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 4,
+                                    expr: VmirExprIdx(
+                                        4,
+                                    ),
                                 },
                             ],
                         },
@@ -18997,10 +21587,14 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 3,
+                                    expr: VmirExprIdx(
+                                        3,
+                                    ),
                                 },
                                 VmirArgument::Simple {
-                                    expr: 5,
+                                    expr: VmirExprIdx(
+                                        5,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -19018,7 +21612,9 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 6,
+                            expr: VmirExprIdx(
+                                6,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -19062,7 +21658,9 @@
                         },
                     },
                 },
-                root_expr: 14,
+                root_expr: VmirExprIdx(
+                    14,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -19089,7 +21687,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                 },
                             ],
                         },
@@ -19134,12 +21734,16 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 2,
+                                    expr: VmirExprIdx(
+                                        2,
+                                    ),
                                 },
                             ],
                         },
                         VmirExprData::Unwrap {
-                            opd: 3,
+                            opd: VmirExprIdx(
+                                3,
+                            ),
                         },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
@@ -19170,7 +21774,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 4,
+                                    expr: VmirExprIdx(
+                                        4,
+                                    ),
                                 },
                             ],
                         },
@@ -19212,7 +21818,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 5,
+                                    expr: VmirExprIdx(
+                                        5,
+                                    ),
                                 },
                             ],
                         },
@@ -19240,7 +21848,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 7,
+                                    expr: VmirExprIdx(
+                                        7,
+                                    ),
                                 },
                             ],
                         },
@@ -19285,12 +21895,16 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 8,
+                                    expr: VmirExprIdx(
+                                        8,
+                                    ),
                                 },
                             ],
                         },
                         VmirExprData::Unwrap {
-                            opd: 9,
+                            opd: VmirExprIdx(
+                                9,
+                            ),
                         },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
@@ -19321,7 +21935,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 10,
+                                    expr: VmirExprIdx(
+                                        10,
+                                    ),
                                 },
                             ],
                         },
@@ -19363,7 +21979,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 11,
+                                    expr: VmirExprIdx(
+                                        11,
+                                    ),
                                 },
                             ],
                         },
@@ -19379,11 +21997,15 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 6,
+                                    expr: VmirExprIdx(
+                                        6,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 12,
+                                    expr: VmirExprIdx(
+                                        12,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -19401,7 +22023,9 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 13,
+                            expr: VmirExprIdx(
+                                13,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -19445,7 +22069,9 @@
                         },
                     },
                 },
-                root_expr: 7,
+                root_expr: VmirExprIdx(
+                    7,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -19472,7 +22098,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                 },
                             ],
                         },
@@ -19517,12 +22145,16 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 2,
+                                    expr: VmirExprIdx(
+                                        2,
+                                    ),
                                 },
                             ],
                         },
                         VmirExprData::Unwrap {
-                            opd: 3,
+                            opd: VmirExprIdx(
+                                3,
+                            ),
                         },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
@@ -19553,7 +22185,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 4,
+                                    expr: VmirExprIdx(
+                                        4,
+                                    ),
                                 },
                             ],
                         },
@@ -19595,7 +22229,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 5,
+                                    expr: VmirExprIdx(
+                                        5,
+                                    ),
                                 },
                             ],
                         },
@@ -19612,7 +22248,9 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 6,
+                            expr: VmirExprIdx(
+                                6,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -19656,7 +22294,9 @@
                         },
                     },
                 },
-                root_expr: 7,
+                root_expr: VmirExprIdx(
+                    7,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -19683,7 +22323,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                 },
                             ],
                         },
@@ -19728,12 +22370,16 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 2,
+                                    expr: VmirExprIdx(
+                                        2,
+                                    ),
                                 },
                             ],
                         },
                         VmirExprData::Unwrap {
-                            opd: 3,
+                            opd: VmirExprIdx(
+                                3,
+                            ),
                         },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
@@ -19764,7 +22410,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 4,
+                                    expr: VmirExprIdx(
+                                        4,
+                                    ),
                                 },
                             ],
                         },
@@ -19806,7 +22454,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 5,
+                                    expr: VmirExprIdx(
+                                        5,
+                                    ),
                                 },
                             ],
                         },
@@ -19823,7 +22473,9 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 6,
+                            expr: VmirExprIdx(
+                                6,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -19867,7 +22519,9 @@
                         },
                     },
                 },
-                root_expr: 4,
+                root_expr: VmirExprIdx(
+                    4,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -19892,7 +22546,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                 },
                             ],
                         },
@@ -19914,7 +22570,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 2,
+                                    expr: VmirExprIdx(
+                                        2,
+                                    ),
                                 },
                             ],
                         },
@@ -19931,7 +22589,9 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 3,
+                            expr: VmirExprIdx(
+                                3,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -19975,7 +22635,9 @@
                         },
                     },
                 },
-                root_expr: 6,
+                root_expr: VmirExprIdx(
+                    6,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -20002,7 +22664,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                 },
                             ],
                         },
@@ -20047,12 +22711,16 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 2,
+                                    expr: VmirExprIdx(
+                                        2,
+                                    ),
                                 },
                             ],
                         },
                         VmirExprData::Unwrap {
-                            opd: 3,
+                            opd: VmirExprIdx(
+                                3,
+                            ),
                         },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
@@ -20072,7 +22740,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 4,
+                                    expr: VmirExprIdx(
+                                        4,
+                                    ),
                                 },
                             ],
                         },
@@ -20089,7 +22759,9 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 5,
+                            expr: VmirExprIdx(
+                                5,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -20133,7 +22805,9 @@
                         },
                     },
                 },
-                root_expr: 6,
+                root_expr: VmirExprIdx(
+                    6,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -20160,7 +22834,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                 },
                             ],
                         },
@@ -20205,12 +22881,16 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 2,
+                                    expr: VmirExprIdx(
+                                        2,
+                                    ),
                                 },
                             ],
                         },
                         VmirExprData::Unwrap {
-                            opd: 3,
+                            opd: VmirExprIdx(
+                                3,
+                            ),
                         },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
@@ -20230,7 +22910,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 4,
+                                    expr: VmirExprIdx(
+                                        4,
+                                    ),
                                 },
                             ],
                         },
@@ -20247,7 +22929,9 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 5,
+                            expr: VmirExprIdx(
+                                5,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -20346,7 +23030,9 @@
                         },
                     },
                 },
-                root_expr: 24,
+                root_expr: VmirExprIdx(
+                    24,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -20359,11 +23045,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 1,
+                            lopd: VmirExprIdx(
+                                1,
+                            ),
                             opr: Comparison(
                                 Eq,
                             ),
-                            ropd: 2,
+                            ropd: VmirExprIdx(
+                                2,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(4),
@@ -20399,10 +23089,14 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 6,
+                                    expr: VmirExprIdx(
+                                        6,
+                                    ),
                                 },
                                 VmirArgument::Simple {
-                                    expr: 7,
+                                    expr: VmirExprIdx(
+                                        7,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -20425,18 +23119,26 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 5,
+                                    expr: VmirExprIdx(
+                                        5,
+                                    ),
                                 },
                                 VmirArgument::Simple {
-                                    expr: 8,
+                                    expr: VmirExprIdx(
+                                        8,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
                         },
                         VmirExprData::Binary {
-                            lopd: 4,
+                            lopd: VmirExprIdx(
+                                4,
+                            ),
                             opr: Assign,
-                            ropd: 9,
+                            ropd: VmirExprIdx(
+                                9,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(8),
@@ -20472,10 +23174,14 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 13,
+                                    expr: VmirExprIdx(
+                                        13,
+                                    ),
                                 },
                                 VmirArgument::Simple {
-                                    expr: 14,
+                                    expr: VmirExprIdx(
+                                        14,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -20498,18 +23204,26 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 12,
+                                    expr: VmirExprIdx(
+                                        12,
+                                    ),
                                 },
                                 VmirArgument::Simple {
-                                    expr: 15,
+                                    expr: VmirExprIdx(
+                                        15,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
                         },
                         VmirExprData::Binary {
-                            lopd: 11,
+                            lopd: VmirExprIdx(
+                                11,
+                            ),
                             opr: Assign,
-                            ropd: 16,
+                            ropd: VmirExprIdx(
+                                16,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(8),
@@ -20520,11 +23234,15 @@
                             qual: Ref,
                         },
                         VmirExprData::Binary {
-                            lopd: 18,
+                            lopd: VmirExprIdx(
+                                18,
+                            ),
                             opr: Comparison(
                                 Less,
                             ),
-                            ropd: 19,
+                            ropd: VmirExprIdx(
+                                19,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(3),
@@ -20536,11 +23254,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 21,
+                            lopd: VmirExprIdx(
+                                21,
+                            ),
                             opr: Comparison(
                                 Greater,
                             ),
-                            ropd: 22,
+                            ropd: VmirExprIdx(
+                                22,
+                            ),
                         },
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
@@ -20556,7 +23278,9 @@
                     data: [
                         VmirStmtData::Let,
                         VmirStmtData::Eval {
-                            expr: 10,
+                            expr: VmirExprIdx(
+                                10,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -20564,7 +23288,9 @@
                         },
                         VmirStmtData::Let,
                         VmirStmtData::Eval {
-                            expr: 17,
+                            expr: VmirExprIdx(
+                                17,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -20585,11 +23311,15 @@
                             ),
                         },
                         VmirStmtData::Return {
-                            result: 20,
+                            result: VmirExprIdx(
+                                20,
+                            ),
                             coersion: VmirCoersion::Trivial,
                         },
                         VmirStmtData::Return {
-                            result: 23,
+                            result: VmirExprIdx(
+                                23,
+                            ),
                             coersion: VmirCoersion::Trivial,
                         },
                         VmirStmtData::Let,
@@ -20599,7 +23329,9 @@
                         VmirStmtData::IfElse {
                             if_branch: VmirIfBranch {
                                 condition: VmirCondition::Other {
-                                    opd: 3,
+                                    opd: VmirExprIdx(
+                                        3,
+                                    ),
                                     conversion: VmirConditionConversion::None,
                                 },
                                 stmts: ArenaIdxRange(
@@ -20716,7 +23448,9 @@
                         },
                     },
                 },
-                root_expr: 6,
+                root_expr: VmirExprIdx(
+                    6,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -20743,7 +23477,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                 },
                             ],
                         },
@@ -20771,7 +23507,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 3,
+                                    expr: VmirExprIdx(
+                                        3,
+                                    ),
                                 },
                             ],
                         },
@@ -20793,10 +23531,14 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 2,
+                                    expr: VmirExprIdx(
+                                        2,
+                                    ),
                                 },
                                 VmirArgument::Simple {
-                                    expr: 4,
+                                    expr: VmirExprIdx(
+                                        4,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -20814,7 +23556,9 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 5,
+                            expr: VmirExprIdx(
+                                5,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -20858,7 +23602,9 @@
                         },
                     },
                 },
-                root_expr: 22,
+                root_expr: VmirExprIdx(
+                    22,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -20887,10 +23633,14 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                 },
                                 VmirArgument::Simple {
-                                    expr: 2,
+                                    expr: VmirExprIdx(
+                                        2,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -20903,11 +23653,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 3,
+                            lopd: VmirExprIdx(
+                                3,
+                            ),
                             opr: Comparison(
                                 Less,
                             ),
-                            ropd: 4,
+                            ropd: VmirExprIdx(
+                                4,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(2),
@@ -20931,7 +23685,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 6,
+                                    expr: VmirExprIdx(
+                                        6,
+                                    ),
                                 },
                             ],
                         },
@@ -20961,10 +23717,14 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 8,
+                                    expr: VmirExprIdx(
+                                        8,
+                                    ),
                                 },
                                 VmirArgument::Simple {
-                                    expr: 9,
+                                    expr: VmirExprIdx(
+                                        9,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -20977,11 +23737,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 10,
+                            lopd: VmirExprIdx(
+                                10,
+                            ),
                             opr: Comparison(
                                 Greater,
                             ),
-                            ropd: 11,
+                            ropd: VmirExprIdx(
+                                11,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(3),
@@ -21005,7 +23769,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 13,
+                                    expr: VmirExprIdx(
+                                        13,
+                                    ),
                                 },
                             ],
                         },
@@ -21035,10 +23801,14 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 15,
+                                    expr: VmirExprIdx(
+                                        15,
+                                    ),
                                 },
                                 VmirArgument::Simple {
-                                    expr: 16,
+                                    expr: VmirExprIdx(
+                                        16,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -21061,7 +23831,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 17,
+                                    expr: VmirExprIdx(
+                                        17,
+                                    ),
                                 },
                             ],
                         },
@@ -21087,16 +23859,22 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 19,
+                                    expr: VmirExprIdx(
+                                        19,
+                                    ),
                                 },
                             ],
                         },
                         VmirExprData::Binary {
-                            lopd: 18,
+                            lopd: VmirExprIdx(
+                                18,
+                            ),
                             opr: Closed(
                                 Div,
                             ),
-                            ropd: 20,
+                            ropd: VmirExprIdx(
+                                20,
+                            ),
                         },
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
@@ -21111,21 +23889,27 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 7,
+                            expr: VmirExprIdx(
+                                7,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 14,
+                            expr: VmirExprIdx(
+                                14,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 21,
+                            expr: VmirExprIdx(
+                                21,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -21135,7 +23919,9 @@
                         VmirStmtData::IfElse {
                             if_branch: VmirIfBranch {
                                 condition: VmirCondition::Other {
-                                    opd: 12,
+                                    opd: VmirExprIdx(
+                                        12,
+                                    ),
                                     conversion: VmirConditionConversion::None,
                                 },
                                 stmts: ArenaIdxRange(
@@ -21156,7 +23942,9 @@
                         VmirStmtData::IfElse {
                             if_branch: VmirIfBranch {
                                 condition: VmirCondition::Other {
-                                    opd: 5,
+                                    opd: VmirExprIdx(
+                                        5,
+                                    ),
                                     conversion: VmirConditionConversion::None,
                                 },
                                 stmts: ArenaIdxRange(
@@ -21265,7 +24053,9 @@
                         },
                     },
                 },
-                root_expr: 9,
+                root_expr: VmirExprIdx(
+                    9,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -21327,10 +24117,14 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 2,
+                                    expr: VmirExprIdx(
+                                        2,
+                                    ),
                                 },
                                 VmirArgument::Simple {
-                                    expr: 3,
+                                    expr: VmirExprIdx(
+                                        3,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -21382,10 +24176,14 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                 },
                                 VmirArgument::Simple {
-                                    expr: 4,
+                                    expr: VmirExprIdx(
+                                        4,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -21410,11 +24208,15 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 6,
+                                    expr: VmirExprIdx(
+                                        6,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 7,
+                                    expr: VmirExprIdx(
+                                        7,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -21433,7 +24235,9 @@
                     data: [
                         VmirStmtData::Let,
                         VmirStmtData::Eval {
-                            expr: 5,
+                            expr: VmirExprIdx(
+                                5,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -21447,7 +24251,9 @@
                             ),
                         },
                         VmirStmtData::Return {
-                            result: 8,
+                            result: VmirExprIdx(
+                                8,
+                            ),
                             coersion: VmirCoersion::Trivial,
                         },
                     ],
@@ -21484,7 +24290,9 @@
                         },
                     },
                 },
-                root_expr: 8,
+                root_expr: VmirExprIdx(
+                    8,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -21512,7 +24320,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 3,
+                                    expr: VmirExprIdx(
+                                        3,
+                                    ),
                                 },
                             ],
                         },
@@ -21534,18 +24344,26 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 2,
+                                    expr: VmirExprIdx(
+                                        2,
+                                    ),
                                 },
                                 VmirArgument::Simple {
-                                    expr: 4,
+                                    expr: VmirExprIdx(
+                                        4,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
                         },
                         VmirExprData::Binary {
-                            lopd: 1,
+                            lopd: VmirExprIdx(
+                                1,
+                            ),
                             opr: Assign,
-                            ropd: 5,
+                            ropd: VmirExprIdx(
+                                5,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(1),
@@ -21564,7 +24382,9 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 6,
+                            expr: VmirExprIdx(
+                                6,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -21577,7 +24397,9 @@
                             ),
                         },
                         VmirStmtData::Return {
-                            result: 7,
+                            result: VmirExprIdx(
+                                7,
+                            ),
                             coersion: VmirCoersion::Trivial,
                         },
                     ],
@@ -21614,7 +24436,9 @@
                         },
                     },
                 },
-                root_expr: 8,
+                root_expr: VmirExprIdx(
+                    8,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -21642,7 +24466,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 3,
+                                    expr: VmirExprIdx(
+                                        3,
+                                    ),
                                 },
                             ],
                         },
@@ -21664,18 +24490,26 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 2,
+                                    expr: VmirExprIdx(
+                                        2,
+                                    ),
                                 },
                                 VmirArgument::Simple {
-                                    expr: 4,
+                                    expr: VmirExprIdx(
+                                        4,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
                         },
                         VmirExprData::Binary {
-                            lopd: 1,
+                            lopd: VmirExprIdx(
+                                1,
+                            ),
                             opr: Assign,
-                            ropd: 5,
+                            ropd: VmirExprIdx(
+                                5,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(1),
@@ -21694,7 +24528,9 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 6,
+                            expr: VmirExprIdx(
+                                6,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -21707,7 +24543,9 @@
                             ),
                         },
                         VmirStmtData::Return {
-                            result: 7,
+                            result: VmirExprIdx(
+                                7,
+                            ),
                             coersion: VmirCoersion::Trivial,
                         },
                     ],
@@ -21744,7 +24582,9 @@
                         },
                     },
                 },
-                root_expr: 9,
+                root_expr: VmirExprIdx(
+                    9,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -21772,7 +24612,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 3,
+                                    expr: VmirExprIdx(
+                                        3,
+                                    ),
                                 },
                             ],
                         },
@@ -21794,7 +24636,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 4,
+                                    expr: VmirExprIdx(
+                                        4,
+                                    ),
                                 },
                             ],
                         },
@@ -21816,18 +24660,26 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 2,
+                                    expr: VmirExprIdx(
+                                        2,
+                                    ),
                                 },
                                 VmirArgument::Simple {
-                                    expr: 5,
+                                    expr: VmirExprIdx(
+                                        5,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
                         },
                         VmirExprData::Binary {
-                            lopd: 1,
+                            lopd: VmirExprIdx(
+                                1,
+                            ),
                             opr: Assign,
-                            ropd: 6,
+                            ropd: VmirExprIdx(
+                                6,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(1),
@@ -21846,7 +24698,9 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 7,
+                            expr: VmirExprIdx(
+                                7,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -21859,7 +24713,9 @@
                             ),
                         },
                         VmirStmtData::Return {
-                            result: 8,
+                            result: VmirExprIdx(
+                                8,
+                            ),
                             coersion: VmirCoersion::Trivial,
                         },
                     ],
@@ -21888,7 +24744,9 @@
                         },
                     },
                 },
-                root_expr: 5,
+                root_expr: VmirExprIdx(
+                    5,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::PrincipalEntityPath,
@@ -21951,11 +24809,15 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 3,
+                                    expr: VmirExprIdx(
+                                        3,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -21973,7 +24835,9 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 4,
+                            expr: VmirExprIdx(
+                                4,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -22009,7 +24873,9 @@
                         },
                     },
                 },
-                root_expr: 13,
+                root_expr: VmirExprIdx(
+                    13,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -22032,7 +24898,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                 },
                             ],
                         },
@@ -22044,11 +24912,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 2,
+                            lopd: VmirExprIdx(
+                                2,
+                            ),
                             opr: Closed(
                                 Add,
                             ),
-                            ropd: 3,
+                            ropd: VmirExprIdx(
+                                3,
+                            ),
                         },
                         VmirExprData::Literal {
                             value: F32(
@@ -22059,14 +24931,20 @@
                         },
                         VmirExprData::Prefix {
                             opr: Minus,
-                            opd: 5,
+                            opd: VmirExprIdx(
+                                5,
+                            ),
                         },
                         VmirExprData::Binary {
-                            lopd: 4,
+                            lopd: VmirExprIdx(
+                                4,
+                            ),
                             opr: Comparison(
                                 Less,
                             ),
-                            ropd: 6,
+                            ropd: VmirExprIdx(
+                                6,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(0),
@@ -22088,13 +24966,17 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 8,
+                                    expr: VmirExprIdx(
+                                        8,
+                                    ),
                                 },
                             ],
                         },
                         VmirExprData::Prefix {
                             opr: Minus,
-                            opd: 9,
+                            opd: VmirExprIdx(
+                                9,
+                            ),
                         },
                         VmirExprData::Literal {
                             value: F32(
@@ -22104,11 +24986,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 10,
+                            lopd: VmirExprIdx(
+                                10,
+                            ),
                             opr: Closed(
                                 Add,
                             ),
-                            ropd: 11,
+                            ropd: VmirExprIdx(
+                                11,
+                            ),
                         },
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
@@ -22124,12 +25010,16 @@
                     data: [
                         VmirStmtData::Require {
                             condition: VmirCondition::Other {
-                                opd: 7,
+                                opd: VmirExprIdx(
+                                    7,
+                                ),
                                 conversion: VmirConditionConversion::None,
                             },
                         },
                         VmirStmtData::Eval {
-                            expr: 12,
+                            expr: VmirExprIdx(
+                                12,
+                            ),
                             coersion: Some(
                                 VmirCoersion::WrapInSome,
                             ),
@@ -22173,7 +25063,9 @@
                         },
                     },
                 },
-                root_expr: 7,
+                root_expr: VmirExprIdx(
+                    7,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::PrincipalEntityPath,
@@ -22238,11 +25130,15 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 5,
+                                    expr: VmirExprIdx(
+                                        5,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -22260,7 +25156,9 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 6,
+                            expr: VmirExprIdx(
+                                6,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -22308,7 +25206,9 @@
                         },
                     },
                 },
-                root_expr: 7,
+                root_expr: VmirExprIdx(
+                    7,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -22335,7 +25235,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                 },
                             ],
                         },
@@ -22347,11 +25249,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 2,
+                            lopd: VmirExprIdx(
+                                2,
+                            ),
                             opr: Comparison(
                                 Greater,
                             ),
-                            ropd: 3,
+                            ropd: VmirExprIdx(
+                                3,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(0),
@@ -22377,7 +25283,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 5,
+                                    expr: VmirExprIdx(
+                                        5,
+                                    ),
                                 },
                             ],
                         },
@@ -22396,12 +25304,16 @@
                         VmirStmtData::Let,
                         VmirStmtData::Require {
                             condition: VmirCondition::Other {
-                                opd: 4,
+                                opd: VmirExprIdx(
+                                    4,
+                                ),
                                 conversion: VmirConditionConversion::None,
                             },
                         },
                         VmirStmtData::Eval {
-                            expr: 6,
+                            expr: VmirExprIdx(
+                                6,
+                            ),
                             coersion: Some(
                                 VmirCoersion::WrapInSome,
                             ),
@@ -22437,7 +25349,9 @@
                         },
                     },
                 },
-                root_expr: 9,
+                root_expr: VmirExprIdx(
+                    9,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -22464,7 +25378,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                 },
                             ],
                         },
@@ -22476,11 +25392,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 2,
+                            lopd: VmirExprIdx(
+                                2,
+                            ),
                             opr: Comparison(
                                 Leq,
                             ),
-                            ropd: 3,
+                            ropd: VmirExprIdx(
+                                3,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(0),
@@ -22504,7 +25424,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 5,
+                                    expr: VmirExprIdx(
+                                        5,
+                                    ),
                                 },
                             ],
                         },
@@ -22528,13 +25450,17 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 6,
+                                    expr: VmirExprIdx(
+                                        6,
+                                    ),
                                 },
                             ],
                         },
                         VmirExprData::Prefix {
                             opr: Minus,
-                            opd: 7,
+                            opd: VmirExprIdx(
+                                7,
+                            ),
                         },
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
@@ -22551,12 +25477,16 @@
                         VmirStmtData::Let,
                         VmirStmtData::Require {
                             condition: VmirCondition::Other {
-                                opd: 4,
+                                opd: VmirExprIdx(
+                                    4,
+                                ),
                                 conversion: VmirConditionConversion::None,
                             },
                         },
                         VmirStmtData::Eval {
-                            expr: 8,
+                            expr: VmirExprIdx(
+                                8,
+                            ),
                             coersion: Some(
                                 VmirCoersion::WrapInSome,
                             ),
@@ -22592,7 +25522,9 @@
                         },
                     },
                 },
-                root_expr: 15,
+                root_expr: VmirExprIdx(
+                    15,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -22619,7 +25551,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                 },
                             ],
                         },
@@ -22631,11 +25565,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 2,
+                            lopd: VmirExprIdx(
+                                2,
+                            ),
                             opr: Comparison(
                                 Less,
                             ),
-                            ropd: 3,
+                            ropd: VmirExprIdx(
+                                3,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(0),
@@ -22661,7 +25599,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 5,
+                                    expr: VmirExprIdx(
+                                        5,
+                                    ),
                                 },
                             ],
                         },
@@ -22673,11 +25613,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 6,
+                            lopd: VmirExprIdx(
+                                6,
+                            ),
                             opr: Comparison(
                                 Less,
                             ),
-                            ropd: 7,
+                            ropd: VmirExprIdx(
+                                7,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(0),
@@ -22703,13 +25647,17 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 9,
+                                    expr: VmirExprIdx(
+                                        9,
+                                    ),
                                 },
                             ],
                         },
                         VmirExprData::Prefix {
                             opr: Minus,
-                            opd: 10,
+                            opd: VmirExprIdx(
+                                10,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(0),
@@ -22735,16 +25683,22 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 12,
+                                    expr: VmirExprIdx(
+                                        12,
+                                    ),
                                 },
                             ],
                         },
                         VmirExprData::Binary {
-                            lopd: 11,
+                            lopd: VmirExprIdx(
+                                11,
+                            ),
                             opr: Closed(
                                 Sub,
                             ),
-                            ropd: 13,
+                            ropd: VmirExprIdx(
+                                13,
+                            ),
                         },
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
@@ -22761,18 +25715,24 @@
                         VmirStmtData::Let,
                         VmirStmtData::Require {
                             condition: VmirCondition::Other {
-                                opd: 4,
+                                opd: VmirExprIdx(
+                                    4,
+                                ),
                                 conversion: VmirConditionConversion::None,
                             },
                         },
                         VmirStmtData::Require {
                             condition: VmirCondition::Other {
-                                opd: 8,
+                                opd: VmirExprIdx(
+                                    8,
+                                ),
                                 conversion: VmirConditionConversion::None,
                             },
                         },
                         VmirStmtData::Eval {
-                            expr: 14,
+                            expr: VmirExprIdx(
+                                14,
+                            ),
                             coersion: Some(
                                 VmirCoersion::WrapInSome,
                             ),
@@ -22804,7 +25764,9 @@
                         },
                     },
                 },
-                root_expr: 5,
+                root_expr: VmirExprIdx(
+                    5,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::PrincipalEntityPath,
@@ -22867,11 +25829,15 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 3,
+                                    expr: VmirExprIdx(
+                                        3,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -22889,7 +25855,9 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 4,
+                            expr: VmirExprIdx(
+                                4,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -22921,7 +25889,9 @@
                         },
                     },
                 },
-                root_expr: 6,
+                root_expr: VmirExprIdx(
+                    6,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::PrincipalEntityPath,
@@ -22985,11 +25955,15 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 4,
+                                    expr: VmirExprIdx(
+                                        4,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -23007,7 +25981,9 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 5,
+                            expr: VmirExprIdx(
+                                5,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -23055,7 +26031,9 @@
                         },
                     },
                 },
-                root_expr: 7,
+                root_expr: VmirExprIdx(
+                    7,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -23082,7 +26060,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                 },
                             ],
                         },
@@ -23094,11 +26074,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 2,
+                            lopd: VmirExprIdx(
+                                2,
+                            ),
                             opr: Comparison(
                                 Greater,
                             ),
-                            ropd: 3,
+                            ropd: VmirExprIdx(
+                                3,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(0),
@@ -23124,7 +26108,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 5,
+                                    expr: VmirExprIdx(
+                                        5,
+                                    ),
                                 },
                             ],
                         },
@@ -23143,12 +26129,16 @@
                         VmirStmtData::Let,
                         VmirStmtData::Require {
                             condition: VmirCondition::Other {
-                                opd: 4,
+                                opd: VmirExprIdx(
+                                    4,
+                                ),
                                 conversion: VmirConditionConversion::None,
                             },
                         },
                         VmirStmtData::Eval {
-                            expr: 6,
+                            expr: VmirExprIdx(
+                                6,
+                            ),
                             coersion: Some(
                                 VmirCoersion::WrapInSome,
                             ),
@@ -23184,7 +26174,9 @@
                         },
                     },
                 },
-                root_expr: 27,
+                root_expr: VmirExprIdx(
+                    27,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -23211,7 +26203,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                 },
                             ],
                         },
@@ -23224,14 +26218,20 @@
                         },
                         VmirExprData::Prefix {
                             opr: Minus,
-                            opd: 3,
+                            opd: VmirExprIdx(
+                                3,
+                            ),
                         },
                         VmirExprData::Binary {
-                            lopd: 2,
+                            lopd: VmirExprIdx(
+                                2,
+                            ),
                             opr: Comparison(
                                 Less,
                             ),
-                            ropd: 4,
+                            ropd: VmirExprIdx(
+                                4,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(0),
@@ -23257,7 +26257,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 6,
+                                    expr: VmirExprIdx(
+                                        6,
+                                    ),
                                 },
                             ],
                         },
@@ -23285,16 +26287,22 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 8,
+                                    expr: VmirExprIdx(
+                                        8,
+                                    ),
                                 },
                             ],
                         },
                         VmirExprData::Binary {
-                            lopd: 7,
+                            lopd: VmirExprIdx(
+                                7,
+                            ),
                             opr: Closed(
                                 Div,
                             ),
-                            ropd: 9,
+                            ropd: VmirExprIdx(
+                                9,
+                            ),
                         },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
@@ -23314,7 +26322,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 10,
+                                    expr: VmirExprIdx(
+                                        10,
+                                    ),
                                 },
                             ],
                         },
@@ -23326,11 +26336,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 11,
+                            lopd: VmirExprIdx(
+                                11,
+                            ),
                             opr: Comparison(
                                 Greater,
                             ),
-                            ropd: 12,
+                            ropd: VmirExprIdx(
+                                12,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(0),
@@ -23352,7 +26366,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 14,
+                                    expr: VmirExprIdx(
+                                        14,
+                                    ),
                                 },
                             ],
                         },
@@ -23374,7 +26390,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 15,
+                                    expr: VmirExprIdx(
+                                        15,
+                                    ),
                                 },
                             ],
                         },
@@ -23386,11 +26404,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 16,
+                            lopd: VmirExprIdx(
+                                16,
+                            ),
                             opr: Comparison(
                                 Less,
                             ),
-                            ropd: 17,
+                            ropd: VmirExprIdx(
+                                17,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(1),
@@ -23416,7 +26438,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 19,
+                                    expr: VmirExprIdx(
+                                        19,
+                                    ),
                                 },
                             ],
                         },
@@ -23428,11 +26452,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 20,
+                            lopd: VmirExprIdx(
+                                20,
+                            ),
                             opr: Comparison(
                                 Greater,
                             ),
-                            ropd: 21,
+                            ropd: VmirExprIdx(
+                                21,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(0),
@@ -23456,7 +26484,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 23,
+                                    expr: VmirExprIdx(
+                                        23,
+                                    ),
                                 },
                             ],
                         },
@@ -23480,13 +26510,17 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 24,
+                                    expr: VmirExprIdx(
+                                        24,
+                                    ),
                                 },
                             ],
                         },
                         VmirExprData::Prefix {
                             opr: Minus,
-                            opd: 25,
+                            opd: VmirExprIdx(
+                                25,
+                            ),
                         },
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
@@ -23502,7 +26536,9 @@
                     data: [
                         VmirStmtData::Require {
                             condition: VmirCondition::Other {
-                                opd: 13,
+                                opd: VmirExprIdx(
+                                    13,
+                                ),
                                 conversion: VmirConditionConversion::None,
                             },
                         },
@@ -23510,7 +26546,9 @@
                         VmirStmtData::IfElse {
                             if_branch: VmirIfBranch {
                                 condition: VmirCondition::Other {
-                                    opd: 5,
+                                    opd: VmirExprIdx(
+                                        5,
+                                    ),
                                     conversion: VmirConditionConversion::None,
                                 },
                                 stmts: ArenaIdxRange(
@@ -23522,19 +26560,25 @@
                         },
                         VmirStmtData::Require {
                             condition: VmirCondition::Other {
-                                opd: 18,
+                                opd: VmirExprIdx(
+                                    18,
+                                ),
                                 conversion: VmirConditionConversion::None,
                             },
                         },
                         VmirStmtData::Let,
                         VmirStmtData::Require {
                             condition: VmirCondition::Other {
-                                opd: 22,
+                                opd: VmirExprIdx(
+                                    22,
+                                ),
                                 conversion: VmirConditionConversion::None,
                             },
                         },
                         VmirStmtData::Eval {
-                            expr: 26,
+                            expr: VmirExprIdx(
+                                26,
+                            ),
                             coersion: Some(
                                 VmirCoersion::WrapInSome,
                             ),
@@ -23566,7 +26610,9 @@
                         },
                     },
                 },
-                root_expr: 7,
+                root_expr: VmirExprIdx(
+                    7,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::PrincipalEntityPath,
@@ -23631,11 +26677,15 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 5,
+                                    expr: VmirExprIdx(
+                                        5,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -23653,7 +26703,9 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 6,
+                            expr: VmirExprIdx(
+                                6,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -23685,7 +26737,9 @@
                         },
                     },
                 },
-                root_expr: 38,
+                root_expr: VmirExprIdx(
+                    38,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::PrincipalEntityPath,
@@ -23730,7 +26784,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                 },
                             ],
                         },
@@ -23740,11 +26796,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 2,
+                            lopd: VmirExprIdx(
+                                2,
+                            ),
                             opr: Comparison(
                                 Geq,
                             ),
-                            ropd: 3,
+                            ropd: VmirExprIdx(
+                                3,
+                            ),
                         },
                         VmirExprData::PrincipalEntityPath,
                         VmirExprData::Linkage {
@@ -23788,7 +26848,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 5,
+                                    expr: VmirExprIdx(
+                                        5,
+                                    ),
                                 },
                             ],
                         },
@@ -23798,11 +26860,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 6,
+                            lopd: VmirExprIdx(
+                                6,
+                            ),
                             opr: Comparison(
                                 Leq,
                             ),
-                            ropd: 7,
+                            ropd: VmirExprIdx(
+                                7,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(0),
@@ -23813,7 +26879,9 @@
                             qual: Ref,
                         },
                         VmirExprData::Unwrap {
-                            opd: 10,
+                            opd: VmirExprIdx(
+                                10,
+                            ),
                         },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
@@ -23831,7 +26899,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 11,
+                                    expr: VmirExprIdx(
+                                        11,
+                                    ),
                                 },
                             ],
                         },
@@ -23843,11 +26913,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 12,
+                            lopd: VmirExprIdx(
+                                12,
+                            ),
                             opr: Comparison(
                                 Greater,
                             ),
-                            ropd: 13,
+                            ropd: VmirExprIdx(
+                                13,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(1),
@@ -23865,11 +26939,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 16,
+                            lopd: VmirExprIdx(
+                                16,
+                            ),
                             opr: Comparison(
                                 Greater,
                             ),
-                            ropd: 17,
+                            ropd: VmirExprIdx(
+                                17,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(3),
@@ -23884,21 +26962,31 @@
                         },
                         VmirExprData::Prefix {
                             opr: Minus,
-                            opd: 20,
+                            opd: VmirExprIdx(
+                                20,
+                            ),
                         },
                         VmirExprData::Binary {
-                            lopd: 19,
+                            lopd: VmirExprIdx(
+                                19,
+                            ),
                             opr: Comparison(
                                 Less,
                             ),
-                            ropd: 21,
+                            ropd: VmirExprIdx(
+                                21,
+                            ),
                         },
                         VmirExprData::Binary {
-                            lopd: 18,
+                            lopd: VmirExprIdx(
+                                18,
+                            ),
                             opr: ShortCircuitLogic(
                                 Or,
                             ),
-                            ropd: 22,
+                            ropd: VmirExprIdx(
+                                22,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(6),
@@ -23912,11 +27000,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 24,
+                            lopd: VmirExprIdx(
+                                24,
+                            ),
                             opr: Comparison(
                                 Less,
                             ),
-                            ropd: 25,
+                            ropd: VmirExprIdx(
+                                25,
+                            ),
                         },
                         VmirExprData::PrincipalEntityPath,
                         VmirExprData::Linkage {
@@ -23935,7 +27027,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 27,
+                                    expr: VmirExprIdx(
+                                        27,
+                                    ),
                                 },
                             ],
                         },
@@ -23947,18 +27041,24 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 28,
+                            lopd: VmirExprIdx(
+                                28,
+                            ),
                             opr: Comparison(
                                 Less,
                             ),
-                            ropd: 29,
+                            ropd: VmirExprIdx(
+                                29,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(0),
                             qual: Ref,
                         },
                         VmirExprData::Unwrap {
-                            opd: 31,
+                            opd: VmirExprIdx(
+                                31,
+                            ),
                         },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
@@ -23976,7 +27076,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 32,
+                                    expr: VmirExprIdx(
+                                        32,
+                                    ),
                                 },
                             ],
                         },
@@ -23989,14 +27091,20 @@
                         },
                         VmirExprData::Prefix {
                             opr: Minus,
-                            opd: 34,
+                            opd: VmirExprIdx(
+                                34,
+                            ),
                         },
                         VmirExprData::Binary {
-                            lopd: 33,
+                            lopd: VmirExprIdx(
+                                33,
+                            ),
                             opr: Comparison(
                                 Less,
                             ),
-                            ropd: 35,
+                            ropd: VmirExprIdx(
+                                35,
+                            ),
                         },
                         VmirExprData::PrincipalEntityPath,
                         VmirExprData::Block {
@@ -24013,13 +27121,17 @@
                     data: [
                         VmirStmtData::Require {
                             condition: VmirCondition::Other {
-                                opd: 4,
+                                opd: VmirExprIdx(
+                                    4,
+                                ),
                                 conversion: VmirConditionConversion::None,
                             },
                         },
                         VmirStmtData::Require {
                             condition: VmirCondition::Other {
-                                opd: 8,
+                                opd: VmirExprIdx(
+                                    8,
+                                ),
                                 conversion: VmirConditionConversion::None,
                             },
                         },
@@ -24028,7 +27140,9 @@
                         VmirStmtData::Let,
                         VmirStmtData::Require {
                             condition: VmirCondition::Be {
-                                opd: 9,
+                                opd: VmirExprIdx(
+                                    9,
+                                ),
                                 pattern: VmirPatternIdx {
                                     restructive_pattern: 1,
                                     destructive_pattern: None,
@@ -24037,13 +27151,17 @@
                         },
                         VmirStmtData::Require {
                             condition: VmirCondition::Other {
-                                opd: 14,
+                                opd: VmirExprIdx(
+                                    14,
+                                ),
                                 conversion: VmirConditionConversion::None,
                             },
                         },
                         VmirStmtData::Require {
                             condition: VmirCondition::Be {
-                                opd: 15,
+                                opd: VmirExprIdx(
+                                    15,
+                                ),
                                 pattern: VmirPatternIdx {
                                     restructive_pattern: 2,
                                     destructive_pattern: None,
@@ -24053,7 +27171,9 @@
                         VmirStmtData::Let,
                         VmirStmtData::Require {
                             condition: VmirCondition::Other {
-                                opd: 23,
+                                opd: VmirExprIdx(
+                                    23,
+                                ),
                                 conversion: VmirConditionConversion::None,
                             },
                         },
@@ -24062,24 +27182,32 @@
                         VmirStmtData::Let,
                         VmirStmtData::Require {
                             condition: VmirCondition::Other {
-                                opd: 26,
+                                opd: VmirExprIdx(
+                                    26,
+                                ),
                                 conversion: VmirConditionConversion::None,
                             },
                         },
                         VmirStmtData::Require {
                             condition: VmirCondition::Other {
-                                opd: 30,
+                                opd: VmirExprIdx(
+                                    30,
+                                ),
                                 conversion: VmirConditionConversion::None,
                             },
                         },
                         VmirStmtData::Require {
                             condition: VmirCondition::Other {
-                                opd: 36,
+                                opd: VmirExprIdx(
+                                    36,
+                                ),
                                 conversion: VmirConditionConversion::None,
                             },
                         },
                         VmirStmtData::Eval {
-                            expr: 37,
+                            expr: VmirExprIdx(
+                                37,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -24115,7 +27243,9 @@
                         },
                     },
                 },
-                root_expr: 10,
+                root_expr: VmirExprIdx(
+                    10,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -24142,7 +27272,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                 },
                             ],
                         },
@@ -24154,11 +27286,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 2,
+                            lopd: VmirExprIdx(
+                                2,
+                            ),
                             opr: Comparison(
                                 Leq,
                             ),
-                            ropd: 3,
+                            ropd: VmirExprIdx(
+                                3,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(0),
@@ -24180,7 +27316,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 5,
+                                    expr: VmirExprIdx(
+                                        5,
+                                    ),
                                 },
                             ],
                         },
@@ -24202,13 +27340,17 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 6,
+                                    expr: VmirExprIdx(
+                                        6,
+                                    ),
                                 },
                             ],
                         },
                         VmirExprData::Prefix {
                             opr: Minus,
-                            opd: 7,
+                            opd: VmirExprIdx(
+                                7,
+                            ),
                         },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
@@ -24264,7 +27406,9 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 8,
+                                    expr: VmirExprIdx(
+                                        8,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -24284,12 +27428,16 @@
                         VmirStmtData::Let,
                         VmirStmtData::Require {
                             condition: VmirCondition::Other {
-                                opd: 4,
+                                opd: VmirExprIdx(
+                                    4,
+                                ),
                                 conversion: VmirConditionConversion::None,
                             },
                         },
                         VmirStmtData::Eval {
-                            expr: 9,
+                            expr: VmirExprIdx(
+                                9,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -24325,7 +27473,9 @@
                         },
                     },
                 },
-                root_expr: 10,
+                root_expr: VmirExprIdx(
+                    10,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -24352,7 +27502,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                 },
                             ],
                         },
@@ -24364,11 +27516,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 2,
+                            lopd: VmirExprIdx(
+                                2,
+                            ),
                             opr: Comparison(
                                 Leq,
                             ),
-                            ropd: 3,
+                            ropd: VmirExprIdx(
+                                3,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(0),
@@ -24390,7 +27546,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 5,
+                                    expr: VmirExprIdx(
+                                        5,
+                                    ),
                                 },
                             ],
                         },
@@ -24412,13 +27570,17 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 6,
+                                    expr: VmirExprIdx(
+                                        6,
+                                    ),
                                 },
                             ],
                         },
                         VmirExprData::Prefix {
                             opr: Minus,
-                            opd: 7,
+                            opd: VmirExprIdx(
+                                7,
+                            ),
                         },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
@@ -24474,7 +27636,9 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 8,
+                                    expr: VmirExprIdx(
+                                        8,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -24494,12 +27658,16 @@
                         VmirStmtData::Let,
                         VmirStmtData::Require {
                             condition: VmirCondition::Other {
-                                opd: 4,
+                                opd: VmirExprIdx(
+                                    4,
+                                ),
                                 conversion: VmirConditionConversion::None,
                             },
                         },
                         VmirStmtData::Eval {
-                            expr: 9,
+                            expr: VmirExprIdx(
+                                9,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -24535,7 +27703,9 @@
                         },
                     },
                 },
-                root_expr: 10,
+                root_expr: VmirExprIdx(
+                    10,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -24562,7 +27732,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                 },
                             ],
                         },
@@ -24574,11 +27746,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 2,
+                            lopd: VmirExprIdx(
+                                2,
+                            ),
                             opr: Comparison(
                                 Geq,
                             ),
-                            ropd: 3,
+                            ropd: VmirExprIdx(
+                                3,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(0),
@@ -24600,7 +27776,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 5,
+                                    expr: VmirExprIdx(
+                                        5,
+                                    ),
                                 },
                             ],
                         },
@@ -24622,13 +27800,17 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 6,
+                                    expr: VmirExprIdx(
+                                        6,
+                                    ),
                                 },
                             ],
                         },
                         VmirExprData::Prefix {
                             opr: Minus,
-                            opd: 7,
+                            opd: VmirExprIdx(
+                                7,
+                            ),
                         },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
@@ -24684,7 +27866,9 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 8,
+                                    expr: VmirExprIdx(
+                                        8,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -24704,12 +27888,16 @@
                         VmirStmtData::Let,
                         VmirStmtData::Require {
                             condition: VmirCondition::Other {
-                                opd: 4,
+                                opd: VmirExprIdx(
+                                    4,
+                                ),
                                 conversion: VmirConditionConversion::None,
                             },
                         },
                         VmirStmtData::Eval {
-                            expr: 9,
+                            expr: VmirExprIdx(
+                                9,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -24741,7 +27929,9 @@
                         },
                     },
                 },
-                root_expr: 6,
+                root_expr: VmirExprIdx(
+                    6,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::PrincipalEntityPath,
@@ -24805,11 +27995,15 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 4,
+                                    expr: VmirExprIdx(
+                                        4,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -24827,7 +28021,9 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 5,
+                            expr: VmirExprIdx(
+                                5,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -24863,7 +28059,9 @@
                         },
                     },
                 },
-                root_expr: 4,
+                root_expr: VmirExprIdx(
+                    4,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -24886,7 +28084,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                 },
                             ],
                         },
@@ -24908,7 +28108,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 2,
+                                    expr: VmirExprIdx(
+                                        2,
+                                    ),
                                 },
                             ],
                         },
@@ -24925,7 +28127,9 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 3,
+                            expr: VmirExprIdx(
+                                3,
+                            ),
                             coersion: Some(
                                 VmirCoersion::WrapInSome,
                             ),
@@ -24957,7 +28161,9 @@
                         },
                     },
                 },
-                root_expr: 5,
+                root_expr: VmirExprIdx(
+                    5,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::PrincipalEntityPath,
@@ -25020,11 +28226,15 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 3,
+                                    expr: VmirExprIdx(
+                                        3,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -25042,7 +28252,9 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 4,
+                            expr: VmirExprIdx(
+                                4,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -25074,7 +28286,9 @@
                         },
                     },
                 },
-                root_expr: 5,
+                root_expr: VmirExprIdx(
+                    5,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::PrincipalEntityPath,
@@ -25137,11 +28351,15 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 3,
+                                    expr: VmirExprIdx(
+                                        3,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -25159,7 +28377,9 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 4,
+                            expr: VmirExprIdx(
+                                4,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -25191,7 +28411,9 @@
                         },
                     },
                 },
-                root_expr: 43,
+                root_expr: VmirExprIdx(
+                    43,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Index,
@@ -25213,11 +28435,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 5,
+                            lopd: VmirExprIdx(
+                                5,
+                            ),
                             opr: Comparison(
                                 Greater,
                             ),
-                            ropd: 6,
+                            ropd: VmirExprIdx(
+                                6,
+                            ),
                         },
                         VmirExprData::Index,
                         VmirExprData::PrincipalEntityPath,
@@ -25262,7 +28488,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 9,
+                                    expr: VmirExprIdx(
+                                        9,
+                                    ),
                                 },
                             ],
                         },
@@ -25272,11 +28500,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 10,
+                            lopd: VmirExprIdx(
+                                10,
+                            ),
                             opr: Comparison(
                                 Geq,
                             ),
-                            ropd: 11,
+                            ropd: VmirExprIdx(
+                                11,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(4),
@@ -25299,7 +28531,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 14,
+                                    expr: VmirExprIdx(
+                                        14,
+                                    ),
                                 },
                             ],
                         },
@@ -25311,11 +28545,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 15,
+                            lopd: VmirExprIdx(
+                                15,
+                            ),
                             opr: Comparison(
                                 Less,
                             ),
-                            ropd: 16,
+                            ropd: VmirExprIdx(
+                                16,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(6),
@@ -25326,7 +28564,9 @@
                             qual: Ref,
                         },
                         VmirExprData::Unwrap {
-                            opd: 19,
+                            opd: VmirExprIdx(
+                                19,
+                            ),
                         },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
@@ -25346,7 +28586,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 20,
+                                    expr: VmirExprIdx(
+                                        20,
+                                    ),
                                 },
                             ],
                         },
@@ -25370,7 +28612,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 21,
+                                    expr: VmirExprIdx(
+                                        21,
+                                    ),
                                 },
                             ],
                         },
@@ -25382,18 +28626,24 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 22,
+                            lopd: VmirExprIdx(
+                                22,
+                            ),
                             opr: Comparison(
                                 Greater,
                             ),
-                            ropd: 23,
+                            ropd: VmirExprIdx(
+                                23,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(6),
                             qual: Ref,
                         },
                         VmirExprData::Unwrap {
-                            opd: 25,
+                            opd: VmirExprIdx(
+                                25,
+                            ),
                         },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
@@ -25411,7 +28661,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 26,
+                                    expr: VmirExprIdx(
+                                        26,
+                                    ),
                                 },
                             ],
                         },
@@ -25424,14 +28676,20 @@
                         },
                         VmirExprData::Prefix {
                             opr: Minus,
-                            opd: 28,
+                            opd: VmirExprIdx(
+                                28,
+                            ),
                         },
                         VmirExprData::Binary {
-                            lopd: 27,
+                            lopd: VmirExprIdx(
+                                27,
+                            ),
                             opr: Comparison(
                                 Less,
                             ),
-                            ropd: 29,
+                            ropd: VmirExprIdx(
+                                29,
+                            ),
                         },
                         VmirExprData::PrincipalEntityPath,
                         VmirExprData::Linkage {
@@ -25450,7 +28708,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 31,
+                                    expr: VmirExprIdx(
+                                        31,
+                                    ),
                                 },
                             ],
                         },
@@ -25462,11 +28722,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 32,
+                            lopd: VmirExprIdx(
+                                32,
+                            ),
                             opr: Comparison(
                                 Less,
                             ),
-                            ropd: 33,
+                            ropd: VmirExprIdx(
+                                33,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(7),
@@ -25480,11 +28744,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 35,
+                            lopd: VmirExprIdx(
+                                35,
+                            ),
                             opr: Comparison(
                                 Less,
                             ),
-                            ropd: 36,
+                            ropd: VmirExprIdx(
+                                36,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(7),
@@ -25498,11 +28766,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 38,
+                            lopd: VmirExprIdx(
+                                38,
+                            ),
                             opr: Comparison(
                                 Greater,
                             ),
-                            ropd: 39,
+                            ropd: VmirExprIdx(
+                                39,
+                            ),
                         },
                         VmirExprData::PrincipalEntityPath,
                         VmirExprData::PrincipalEntityPath,
@@ -25520,14 +28792,18 @@
                     data: [
                         VmirStmtData::Require {
                             condition: VmirCondition::Other {
-                                opd: 12,
+                                opd: VmirExprIdx(
+                                    12,
+                                ),
                                 conversion: VmirConditionConversion::None,
                             },
                         },
                         VmirStmtData::Let,
                         VmirStmtData::Require {
                             condition: VmirCondition::Be {
-                                opd: 13,
+                                opd: VmirExprIdx(
+                                    13,
+                                ),
                                 pattern: VmirPatternIdx {
                                     restructive_pattern: 6,
                                     destructive_pattern: None,
@@ -25536,7 +28812,9 @@
                         },
                         VmirStmtData::Require {
                             condition: VmirCondition::Other {
-                                opd: 17,
+                                opd: VmirExprIdx(
+                                    17,
+                                ),
                                 conversion: VmirConditionConversion::None,
                             },
                         },
@@ -25544,7 +28822,9 @@
                         VmirStmtData::Let,
                         VmirStmtData::Require {
                             condition: VmirCondition::Be {
-                                opd: 18,
+                                opd: VmirExprIdx(
+                                    18,
+                                ),
                                 pattern: VmirPatternIdx {
                                     restructive_pattern: 7,
                                     destructive_pattern: None,
@@ -25553,42 +28833,56 @@
                         },
                         VmirStmtData::Require {
                             condition: VmirCondition::Other {
-                                opd: 24,
+                                opd: VmirExprIdx(
+                                    24,
+                                ),
                                 conversion: VmirConditionConversion::None,
                             },
                         },
                         VmirStmtData::Require {
                             condition: VmirCondition::Other {
-                                opd: 30,
+                                opd: VmirExprIdx(
+                                    30,
+                                ),
                                 conversion: VmirConditionConversion::None,
                             },
                         },
                         VmirStmtData::Require {
                             condition: VmirCondition::Other {
-                                opd: 34,
+                                opd: VmirExprIdx(
+                                    34,
+                                ),
                                 conversion: VmirConditionConversion::None,
                             },
                         },
                         VmirStmtData::Let,
                         VmirStmtData::Require {
                             condition: VmirCondition::Other {
-                                opd: 37,
+                                opd: VmirExprIdx(
+                                    37,
+                                ),
                                 conversion: VmirConditionConversion::None,
                             },
                         },
                         VmirStmtData::Require {
                             condition: VmirCondition::Other {
-                                opd: 40,
+                                opd: VmirExprIdx(
+                                    40,
+                                ),
                                 conversion: VmirConditionConversion::None,
                             },
                         },
                         VmirStmtData::Return {
-                            result: 41,
+                            result: VmirExprIdx(
+                                41,
+                            ),
                             coersion: VmirCoersion::Trivial,
                         },
                         VmirStmtData::Require {
                             condition: VmirCondition::Be {
-                                opd: 1,
+                                opd: VmirExprIdx(
+                                    1,
+                                ),
                                 pattern: VmirPatternIdx {
                                     restructive_pattern: 1,
                                     destructive_pattern: None,
@@ -25597,7 +28891,9 @@
                         },
                         VmirStmtData::Require {
                             condition: VmirCondition::Be {
-                                opd: 2,
+                                opd: VmirExprIdx(
+                                    2,
+                                ),
                                 pattern: VmirPatternIdx {
                                     restructive_pattern: 2,
                                     destructive_pattern: None,
@@ -25607,7 +28903,9 @@
                         VmirStmtData::Let,
                         VmirStmtData::Require {
                             condition: VmirCondition::Be {
-                                opd: 3,
+                                opd: VmirExprIdx(
+                                    3,
+                                ),
                                 pattern: VmirPatternIdx {
                                     restructive_pattern: 3,
                                     destructive_pattern: None,
@@ -25617,7 +28915,9 @@
                         VmirStmtData::Let,
                         VmirStmtData::Require {
                             condition: VmirCondition::Be {
-                                opd: 4,
+                                opd: VmirExprIdx(
+                                    4,
+                                ),
                                 pattern: VmirPatternIdx {
                                     restructive_pattern: 4,
                                     destructive_pattern: None,
@@ -25628,14 +28928,18 @@
                         VmirStmtData::Let,
                         VmirStmtData::Require {
                             condition: VmirCondition::Other {
-                                opd: 7,
+                                opd: VmirExprIdx(
+                                    7,
+                                ),
                                 conversion: VmirConditionConversion::None,
                             },
                         },
                         VmirStmtData::IfElse {
                             if_branch: VmirIfBranch {
                                 condition: VmirCondition::Be {
-                                    opd: 8,
+                                    opd: VmirExprIdx(
+                                        8,
+                                    ),
                                     pattern: VmirPatternIdx {
                                         restructive_pattern: 5,
                                         destructive_pattern: None,
@@ -25649,7 +28953,9 @@
                             else_branch: None,
                         },
                         VmirStmtData::Eval {
-                            expr: 42,
+                            expr: VmirExprIdx(
+                                42,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -25685,7 +28991,9 @@
                         },
                     },
                 },
-                root_expr: 7,
+                root_expr: VmirExprIdx(
+                    7,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -25712,7 +29020,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                 },
                             ],
                         },
@@ -25724,11 +29034,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 2,
+                            lopd: VmirExprIdx(
+                                2,
+                            ),
                             opr: Comparison(
                                 Less,
                             ),
-                            ropd: 3,
+                            ropd: VmirExprIdx(
+                                3,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(0),
@@ -25754,7 +29068,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 5,
+                                    expr: VmirExprIdx(
+                                        5,
+                                    ),
                                 },
                             ],
                         },
@@ -25773,12 +29089,16 @@
                         VmirStmtData::Let,
                         VmirStmtData::Require {
                             condition: VmirCondition::Other {
-                                opd: 4,
+                                opd: VmirExprIdx(
+                                    4,
+                                ),
                                 conversion: VmirConditionConversion::None,
                             },
                         },
                         VmirStmtData::Eval {
-                            expr: 6,
+                            expr: VmirExprIdx(
+                                6,
+                            ),
                             coersion: Some(
                                 VmirCoersion::WrapInSome,
                             ),
@@ -25814,7 +29134,9 @@
                         },
                     },
                 },
-                root_expr: 13,
+                root_expr: VmirExprIdx(
+                    13,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -25841,7 +29163,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                 },
                             ],
                         },
@@ -25853,11 +29177,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 2,
+                            lopd: VmirExprIdx(
+                                2,
+                            ),
                             opr: Comparison(
                                 Greater,
                             ),
-                            ropd: 3,
+                            ropd: VmirExprIdx(
+                                3,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(0),
@@ -25879,7 +29207,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 5,
+                                    expr: VmirExprIdx(
+                                        5,
+                                    ),
                                 },
                             ],
                         },
@@ -25901,7 +29231,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 6,
+                                    expr: VmirExprIdx(
+                                        6,
+                                    ),
                                 },
                             ],
                         },
@@ -25913,11 +29245,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 7,
+                            lopd: VmirExprIdx(
+                                7,
+                            ),
                             opr: Comparison(
                                 Greater,
                             ),
-                            ropd: 8,
+                            ropd: VmirExprIdx(
+                                8,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(0),
@@ -25939,7 +29275,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 10,
+                                    expr: VmirExprIdx(
+                                        10,
+                                    ),
                                 },
                             ],
                         },
@@ -25961,7 +29299,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 11,
+                                    expr: VmirExprIdx(
+                                        11,
+                                    ),
                                 },
                             ],
                         },
@@ -25980,18 +29320,24 @@
                         VmirStmtData::Let,
                         VmirStmtData::Require {
                             condition: VmirCondition::Other {
-                                opd: 4,
+                                opd: VmirExprIdx(
+                                    4,
+                                ),
                                 conversion: VmirConditionConversion::None,
                             },
                         },
                         VmirStmtData::Require {
                             condition: VmirCondition::Other {
-                                opd: 9,
+                                opd: VmirExprIdx(
+                                    9,
+                                ),
                                 conversion: VmirConditionConversion::None,
                             },
                         },
                         VmirStmtData::Eval {
-                            expr: 12,
+                            expr: VmirExprIdx(
+                                12,
+                            ),
                             coersion: Some(
                                 VmirCoersion::WrapInSome,
                             ),
@@ -26023,7 +29369,9 @@
                         },
                     },
                 },
-                root_expr: 2,
+                root_expr: VmirExprIdx(
+                    2,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::PrincipalEntityPath,
@@ -26040,7 +29388,9 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 1,
+                            expr: VmirExprIdx(
+                                1,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -26072,7 +29422,9 @@
                         },
                     },
                 },
-                root_expr: 5,
+                root_expr: VmirExprIdx(
+                    5,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::PrincipalEntityPath,
@@ -26135,11 +29487,15 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 3,
+                                    expr: VmirExprIdx(
+                                        3,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -26157,7 +29513,9 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 4,
+                            expr: VmirExprIdx(
+                                4,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -26193,7 +29551,9 @@
                         },
                     },
                 },
-                root_expr: 8,
+                root_expr: VmirExprIdx(
+                    8,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -26220,7 +29580,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                 },
                             ],
                         },
@@ -26232,11 +29594,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 2,
+                            lopd: VmirExprIdx(
+                                2,
+                            ),
                             opr: Comparison(
                                 Less,
                             ),
-                            ropd: 3,
+                            ropd: VmirExprIdx(
+                                3,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(0),
@@ -26262,13 +29628,17 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 5,
+                                    expr: VmirExprIdx(
+                                        5,
+                                    ),
                                 },
                             ],
                         },
                         VmirExprData::Prefix {
                             opr: Minus,
-                            opd: 6,
+                            opd: VmirExprIdx(
+                                6,
+                            ),
                         },
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
@@ -26285,12 +29655,16 @@
                         VmirStmtData::Let,
                         VmirStmtData::Require {
                             condition: VmirCondition::Other {
-                                opd: 4,
+                                opd: VmirExprIdx(
+                                    4,
+                                ),
                                 conversion: VmirConditionConversion::None,
                             },
                         },
                         VmirStmtData::Eval {
-                            expr: 7,
+                            expr: VmirExprIdx(
+                                7,
+                            ),
                             coersion: Some(
                                 VmirCoersion::WrapInSome,
                             ),
@@ -26322,7 +29696,9 @@
                         },
                     },
                 },
-                root_expr: 6,
+                root_expr: VmirExprIdx(
+                    6,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::PrincipalEntityPath,
@@ -26386,11 +29762,15 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 4,
+                                    expr: VmirExprIdx(
+                                        4,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -26408,7 +29788,9 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 5,
+                            expr: VmirExprIdx(
+                                5,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -26444,7 +29826,9 @@
                         },
                     },
                 },
-                root_expr: 13,
+                root_expr: VmirExprIdx(
+                    13,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -26471,7 +29855,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                 },
                             ],
                         },
@@ -26483,11 +29869,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 2,
+                            lopd: VmirExprIdx(
+                                2,
+                            ),
                             opr: Comparison(
                                 Less,
                             ),
-                            ropd: 3,
+                            ropd: VmirExprIdx(
+                                3,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(0),
@@ -26509,7 +29899,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 5,
+                                    expr: VmirExprIdx(
+                                        5,
+                                    ),
                                 },
                             ],
                         },
@@ -26531,7 +29923,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 6,
+                                    expr: VmirExprIdx(
+                                        6,
+                                    ),
                                 },
                             ],
                         },
@@ -26543,11 +29937,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 7,
+                            lopd: VmirExprIdx(
+                                7,
+                            ),
                             opr: Comparison(
                                 Greater,
                             ),
-                            ropd: 8,
+                            ropd: VmirExprIdx(
+                                8,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(0),
@@ -26571,7 +29969,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 10,
+                                    expr: VmirExprIdx(
+                                        10,
+                                    ),
                                 },
                             ],
                         },
@@ -26595,7 +29995,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 11,
+                                    expr: VmirExprIdx(
+                                        11,
+                                    ),
                                 },
                             ],
                         },
@@ -26614,18 +30016,24 @@
                         VmirStmtData::Let,
                         VmirStmtData::Require {
                             condition: VmirCondition::Other {
-                                opd: 4,
+                                opd: VmirExprIdx(
+                                    4,
+                                ),
                                 conversion: VmirConditionConversion::None,
                             },
                         },
                         VmirStmtData::Require {
                             condition: VmirCondition::Other {
-                                opd: 9,
+                                opd: VmirExprIdx(
+                                    9,
+                                ),
                                 conversion: VmirConditionConversion::None,
                             },
                         },
                         VmirStmtData::Eval {
-                            expr: 12,
+                            expr: VmirExprIdx(
+                                12,
+                            ),
                             coersion: Some(
                                 VmirCoersion::WrapInSome,
                             ),
@@ -26661,7 +30069,9 @@
                         },
                     },
                 },
-                root_expr: 14,
+                root_expr: VmirExprIdx(
+                    14,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -26688,7 +30098,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                 },
                             ],
                         },
@@ -26700,11 +30112,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 2,
+                            lopd: VmirExprIdx(
+                                2,
+                            ),
                             opr: Comparison(
                                 Less,
                             ),
-                            ropd: 3,
+                            ropd: VmirExprIdx(
+                                3,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(0),
@@ -26726,7 +30142,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 5,
+                                    expr: VmirExprIdx(
+                                        5,
+                                    ),
                                 },
                             ],
                         },
@@ -26748,7 +30166,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 6,
+                                    expr: VmirExprIdx(
+                                        6,
+                                    ),
                                 },
                             ],
                         },
@@ -26760,11 +30180,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 7,
+                            lopd: VmirExprIdx(
+                                7,
+                            ),
                             opr: Comparison(
                                 Less,
                             ),
-                            ropd: 8,
+                            ropd: VmirExprIdx(
+                                8,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(1),
@@ -26778,11 +30202,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 10,
+                            lopd: VmirExprIdx(
+                                10,
+                            ),
                             opr: Comparison(
                                 Less,
                             ),
-                            ropd: 11,
+                            ropd: VmirExprIdx(
+                                11,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(1),
@@ -26803,25 +30231,33 @@
                         VmirStmtData::Let,
                         VmirStmtData::Require {
                             condition: VmirCondition::Other {
-                                opd: 4,
+                                opd: VmirExprIdx(
+                                    4,
+                                ),
                                 conversion: VmirConditionConversion::None,
                             },
                         },
                         VmirStmtData::Require {
                             condition: VmirCondition::Other {
-                                opd: 9,
+                                opd: VmirExprIdx(
+                                    9,
+                                ),
                                 conversion: VmirConditionConversion::None,
                             },
                         },
                         VmirStmtData::Let,
                         VmirStmtData::Require {
                             condition: VmirCondition::Other {
-                                opd: 12,
+                                opd: VmirExprIdx(
+                                    12,
+                                ),
                                 conversion: VmirConditionConversion::None,
                             },
                         },
                         VmirStmtData::Eval {
-                            expr: 13,
+                            expr: VmirExprIdx(
+                                13,
+                            ),
                             coersion: Some(
                                 VmirCoersion::WrapInSome,
                             ),
@@ -26853,7 +30289,9 @@
                         },
                     },
                 },
-                root_expr: 27,
+                root_expr: VmirExprIdx(
+                    27,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::PrincipalEntityPath,
@@ -26873,7 +30311,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                 },
                             ],
                         },
@@ -26885,11 +30325,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 2,
+                            lopd: VmirExprIdx(
+                                2,
+                            ),
                             opr: Comparison(
                                 Eq,
                             ),
-                            ropd: 3,
+                            ropd: VmirExprIdx(
+                                3,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(0),
@@ -26903,11 +30347,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 5,
+                            lopd: VmirExprIdx(
+                                5,
+                            ),
                             opr: Comparison(
                                 Less,
                             ),
-                            ropd: 6,
+                            ropd: VmirExprIdx(
+                                6,
+                            ),
                         },
                         VmirExprData::Index,
                         VmirExprData::Variable {
@@ -26922,11 +30370,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 9,
+                            lopd: VmirExprIdx(
+                                9,
+                            ),
                             opr: Comparison(
                                 Less,
                             ),
-                            ropd: 10,
+                            ropd: VmirExprIdx(
+                                10,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(3),
@@ -26941,14 +30393,20 @@
                         },
                         VmirExprData::Prefix {
                             opr: Minus,
-                            opd: 13,
+                            opd: VmirExprIdx(
+                                13,
+                            ),
                         },
                         VmirExprData::Binary {
-                            lopd: 12,
+                            lopd: VmirExprIdx(
+                                12,
+                            ),
                             opr: Comparison(
                                 Less,
                             ),
-                            ropd: 14,
+                            ropd: VmirExprIdx(
+                                14,
+                            ),
                         },
                         VmirExprData::PrincipalEntityPath,
                         VmirExprData::Variable {
@@ -26963,11 +30421,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 17,
+                            lopd: VmirExprIdx(
+                                17,
+                            ),
                             opr: Comparison(
                                 Less,
                             ),
-                            ropd: 18,
+                            ropd: VmirExprIdx(
+                                18,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(4),
@@ -26981,11 +30443,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 20,
+                            lopd: VmirExprIdx(
+                                20,
+                            ),
                             opr: Comparison(
                                 Greater,
                             ),
-                            ropd: 21,
+                            ropd: VmirExprIdx(
+                                21,
+                            ),
                         },
                         VmirExprData::PrincipalEntityPath,
                         VmirExprData::Index,
@@ -27011,13 +30477,17 @@
                         VmirStmtData::Let,
                         VmirStmtData::Require {
                             condition: VmirCondition::Other {
-                                opd: 15,
+                                opd: VmirExprIdx(
+                                    15,
+                                ),
                                 conversion: VmirConditionConversion::None,
                             },
                         },
                         VmirStmtData::Require {
                             condition: VmirCondition::Be {
-                                opd: 8,
+                                opd: VmirExprIdx(
+                                    8,
+                                ),
                                 pattern: VmirPatternIdx {
                                     restructive_pattern: 1,
                                     destructive_pattern: None,
@@ -27028,7 +30498,9 @@
                         VmirStmtData::IfElse {
                             if_branch: VmirIfBranch {
                                 condition: VmirCondition::Other {
-                                    opd: 11,
+                                    opd: VmirExprIdx(
+                                        11,
+                                    ),
                                     conversion: VmirConditionConversion::None,
                                 },
                                 stmts: ArenaIdxRange(
@@ -27039,23 +30511,31 @@
                             else_branch: None,
                         },
                         VmirStmtData::Return {
-                            result: 16,
+                            result: VmirExprIdx(
+                                16,
+                            ),
                             coersion: VmirCoersion::Trivial,
                         },
                         VmirStmtData::Let,
                         VmirStmtData::Require {
                             condition: VmirCondition::Other {
-                                opd: 22,
+                                opd: VmirExprIdx(
+                                    22,
+                                ),
                                 conversion: VmirConditionConversion::None,
                             },
                         },
                         VmirStmtData::Return {
-                            result: 23,
+                            result: VmirExprIdx(
+                                23,
+                            ),
                             coersion: VmirCoersion::Trivial,
                         },
                         VmirStmtData::Require {
                             condition: VmirCondition::Other {
-                                opd: 4,
+                                opd: VmirExprIdx(
+                                    4,
+                                ),
                                 conversion: VmirConditionConversion::None,
                             },
                         },
@@ -27063,7 +30543,9 @@
                         VmirStmtData::IfElse {
                             if_branch: VmirIfBranch {
                                 condition: VmirCondition::Other {
-                                    opd: 7,
+                                    opd: VmirExprIdx(
+                                        7,
+                                    ),
                                     conversion: VmirConditionConversion::None,
                                 },
                                 stmts: ArenaIdxRange(
@@ -27076,7 +30558,9 @@
                         VmirStmtData::IfElse {
                             if_branch: VmirIfBranch {
                                 condition: VmirCondition::Other {
-                                    opd: 19,
+                                    opd: VmirExprIdx(
+                                        19,
+                                    ),
                                     conversion: VmirConditionConversion::None,
                                 },
                                 stmts: ArenaIdxRange(
@@ -27088,7 +30572,9 @@
                         },
                         VmirStmtData::Require {
                             condition: VmirCondition::Be {
-                                opd: 24,
+                                opd: VmirExprIdx(
+                                    24,
+                                ),
                                 pattern: VmirPatternIdx {
                                     restructive_pattern: 2,
                                     destructive_pattern: None,
@@ -27098,12 +30584,16 @@
                         VmirStmtData::Let,
                         VmirStmtData::Require {
                             condition: VmirCondition::Other {
-                                opd: 25,
+                                opd: VmirExprIdx(
+                                    25,
+                                ),
                                 conversion: VmirConditionConversion::None,
                             },
                         },
                         VmirStmtData::Eval {
-                            expr: 26,
+                            expr: VmirExprIdx(
+                                26,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -27135,7 +30625,9 @@
                         },
                     },
                 },
-                root_expr: 5,
+                root_expr: VmirExprIdx(
+                    5,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::PrincipalEntityPath,
@@ -27198,11 +30690,15 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 3,
+                                    expr: VmirExprIdx(
+                                        3,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -27220,7 +30716,9 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 4,
+                            expr: VmirExprIdx(
+                                4,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -27252,7 +30750,9 @@
                         },
                     },
                 },
-                root_expr: 6,
+                root_expr: VmirExprIdx(
+                    6,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Index,
@@ -27282,14 +30782,18 @@
                     data: [
                         VmirStmtData::Require {
                             condition: VmirCondition::Other {
-                                opd: 3,
+                                opd: VmirExprIdx(
+                                    3,
+                                ),
                                 conversion: VmirConditionConversion::None,
                             },
                         },
                         VmirStmtData::IfElse {
                             if_branch: VmirIfBranch {
                                 condition: VmirCondition::Be {
-                                    opd: 2,
+                                    opd: VmirExprIdx(
+                                        2,
+                                    ),
                                     pattern: VmirPatternIdx {
                                         restructive_pattern: 2,
                                         destructive_pattern: None,
@@ -27304,7 +30808,9 @@
                         },
                         VmirStmtData::Require {
                             condition: VmirCondition::Other {
-                                opd: 4,
+                                opd: VmirExprIdx(
+                                    4,
+                                ),
                                 conversion: VmirConditionConversion::None,
                             },
                         },
@@ -27312,7 +30818,9 @@
                         VmirStmtData::IfElse {
                             if_branch: VmirIfBranch {
                                 condition: VmirCondition::Be {
-                                    opd: 1,
+                                    opd: VmirExprIdx(
+                                        1,
+                                    ),
                                     pattern: VmirPatternIdx {
                                         restructive_pattern: 1,
                                         destructive_pattern: None,
@@ -27326,7 +30834,9 @@
                             else_branch: None,
                         },
                         VmirStmtData::Eval {
-                            expr: 5,
+                            expr: VmirExprIdx(
+                                5,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -27362,7 +30872,9 @@
                         },
                     },
                 },
-                root_expr: 22,
+                root_expr: VmirExprIdx(
+                    22,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -27385,7 +30897,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                 },
                             ],
                         },
@@ -27407,7 +30921,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 2,
+                                    expr: VmirExprIdx(
+                                        2,
+                                    ),
                                 },
                             ],
                         },
@@ -27419,11 +30935,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 3,
+                            lopd: VmirExprIdx(
+                                3,
+                            ),
                             opr: Comparison(
                                 Greater,
                             ),
-                            ropd: 4,
+                            ropd: VmirExprIdx(
+                                4,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(0),
@@ -27458,7 +30978,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 6,
+                                    expr: VmirExprIdx(
+                                        6,
+                                    ),
                                 },
                             ],
                         },
@@ -27503,12 +31025,16 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 7,
+                                    expr: VmirExprIdx(
+                                        7,
+                                    ),
                                 },
                             ],
                         },
                         VmirExprData::Unwrap {
-                            opd: 8,
+                            opd: VmirExprIdx(
+                                8,
+                            ),
                         },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
@@ -27539,7 +31065,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 9,
+                                    expr: VmirExprIdx(
+                                        9,
+                                    ),
                                 },
                             ],
                         },
@@ -27563,7 +31091,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 10,
+                                    expr: VmirExprIdx(
+                                        10,
+                                    ),
                                 },
                             ],
                         },
@@ -27600,7 +31130,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 12,
+                                    expr: VmirExprIdx(
+                                        12,
+                                    ),
                                 },
                             ],
                         },
@@ -27645,12 +31177,16 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 13,
+                                    expr: VmirExprIdx(
+                                        13,
+                                    ),
                                 },
                             ],
                         },
                         VmirExprData::Unwrap {
-                            opd: 14,
+                            opd: VmirExprIdx(
+                                14,
+                            ),
                         },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
@@ -27681,7 +31217,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 15,
+                                    expr: VmirExprIdx(
+                                        15,
+                                    ),
                                 },
                             ],
                         },
@@ -27705,16 +31243,22 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 16,
+                                    expr: VmirExprIdx(
+                                        16,
+                                    ),
                                 },
                             ],
                         },
                         VmirExprData::Binary {
-                            lopd: 11,
+                            lopd: VmirExprIdx(
+                                11,
+                            ),
                             opr: Comparison(
                                 Greater,
                             ),
-                            ropd: 17,
+                            ropd: VmirExprIdx(
+                                17,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(0),
@@ -27736,7 +31280,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 19,
+                                    expr: VmirExprIdx(
+                                        19,
+                                    ),
                                 },
                             ],
                         },
@@ -27758,7 +31304,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 20,
+                                    expr: VmirExprIdx(
+                                        20,
+                                    ),
                                 },
                             ],
                         },
@@ -27776,14 +31324,18 @@
                     data: [
                         VmirStmtData::Require {
                             condition: VmirCondition::Other {
-                                opd: 18,
+                                opd: VmirExprIdx(
+                                    18,
+                                ),
                                 conversion: VmirConditionConversion::None,
                             },
                         },
                         VmirStmtData::IfElse {
                             if_branch: VmirIfBranch {
                                 condition: VmirCondition::Other {
-                                    opd: 5,
+                                    opd: VmirExprIdx(
+                                        5,
+                                    ),
                                     conversion: VmirConditionConversion::None,
                                 },
                                 stmts: ArenaIdxRange(
@@ -27794,7 +31346,9 @@
                             else_branch: None,
                         },
                         VmirStmtData::Eval {
-                            expr: 21,
+                            expr: VmirExprIdx(
+                                21,
+                            ),
                             coersion: Some(
                                 VmirCoersion::WrapInSome,
                             ),
@@ -27826,7 +31380,9 @@
                         },
                     },
                 },
-                root_expr: 5,
+                root_expr: VmirExprIdx(
+                    5,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::PrincipalEntityPath,
@@ -27889,11 +31445,15 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 3,
+                                    expr: VmirExprIdx(
+                                        3,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -27911,7 +31471,9 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 4,
+                            expr: VmirExprIdx(
+                                4,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -27943,7 +31505,9 @@
                         },
                     },
                 },
-                root_expr: 5,
+                root_expr: VmirExprIdx(
+                    5,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::PrincipalEntityPath,
@@ -28006,11 +31570,15 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 3,
+                                    expr: VmirExprIdx(
+                                        3,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -28028,7 +31596,9 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 4,
+                            expr: VmirExprIdx(
+                                4,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -28060,7 +31630,9 @@
                         },
                     },
                 },
-                root_expr: 41,
+                root_expr: VmirExprIdx(
+                    41,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Index,
@@ -28080,11 +31652,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 3,
+                            lopd: VmirExprIdx(
+                                3,
+                            ),
                             opr: Comparison(
                                 Greater,
                             ),
-                            ropd: 4,
+                            ropd: VmirExprIdx(
+                                4,
+                            ),
                         },
                         VmirExprData::Index,
                         VmirExprData::PrincipalEntityPath,
@@ -28129,7 +31705,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 7,
+                                    expr: VmirExprIdx(
+                                        7,
+                                    ),
                                 },
                             ],
                         },
@@ -28139,11 +31717,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 8,
+                            lopd: VmirExprIdx(
+                                8,
+                            ),
                             opr: Comparison(
                                 Geq,
                             ),
-                            ropd: 9,
+                            ropd: VmirExprIdx(
+                                9,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(4),
@@ -28166,7 +31748,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 12,
+                                    expr: VmirExprIdx(
+                                        12,
+                                    ),
                                 },
                             ],
                         },
@@ -28178,11 +31762,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 13,
+                            lopd: VmirExprIdx(
+                                13,
+                            ),
                             opr: Comparison(
                                 Less,
                             ),
-                            ropd: 14,
+                            ropd: VmirExprIdx(
+                                14,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(6),
@@ -28193,7 +31781,9 @@
                             qual: Ref,
                         },
                         VmirExprData::Unwrap {
-                            opd: 17,
+                            opd: VmirExprIdx(
+                                17,
+                            ),
                         },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
@@ -28213,7 +31803,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 18,
+                                    expr: VmirExprIdx(
+                                        18,
+                                    ),
                                 },
                             ],
                         },
@@ -28237,7 +31829,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 19,
+                                    expr: VmirExprIdx(
+                                        19,
+                                    ),
                                 },
                             ],
                         },
@@ -28249,18 +31843,24 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 20,
+                            lopd: VmirExprIdx(
+                                20,
+                            ),
                             opr: Comparison(
                                 Greater,
                             ),
-                            ropd: 21,
+                            ropd: VmirExprIdx(
+                                21,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(6),
                             qual: Ref,
                         },
                         VmirExprData::Unwrap {
-                            opd: 23,
+                            opd: VmirExprIdx(
+                                23,
+                            ),
                         },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
@@ -28278,7 +31878,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 24,
+                                    expr: VmirExprIdx(
+                                        24,
+                                    ),
                                 },
                             ],
                         },
@@ -28291,14 +31893,20 @@
                         },
                         VmirExprData::Prefix {
                             opr: Minus,
-                            opd: 26,
+                            opd: VmirExprIdx(
+                                26,
+                            ),
                         },
                         VmirExprData::Binary {
-                            lopd: 25,
+                            lopd: VmirExprIdx(
+                                25,
+                            ),
                             opr: Comparison(
                                 Less,
                             ),
-                            ropd: 27,
+                            ropd: VmirExprIdx(
+                                27,
+                            ),
                         },
                         VmirExprData::PrincipalEntityPath,
                         VmirExprData::Linkage {
@@ -28317,7 +31925,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 29,
+                                    expr: VmirExprIdx(
+                                        29,
+                                    ),
                                 },
                             ],
                         },
@@ -28329,11 +31939,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 30,
+                            lopd: VmirExprIdx(
+                                30,
+                            ),
                             opr: Comparison(
                                 Less,
                             ),
-                            ropd: 31,
+                            ropd: VmirExprIdx(
+                                31,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(7),
@@ -28347,11 +31961,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 33,
+                            lopd: VmirExprIdx(
+                                33,
+                            ),
                             opr: Comparison(
                                 Less,
                             ),
-                            ropd: 34,
+                            ropd: VmirExprIdx(
+                                34,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(7),
@@ -28365,11 +31983,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 36,
+                            lopd: VmirExprIdx(
+                                36,
+                            ),
                             opr: Comparison(
                                 Greater,
                             ),
-                            ropd: 37,
+                            ropd: VmirExprIdx(
+                                37,
+                            ),
                         },
                         VmirExprData::PrincipalEntityPath,
                         VmirExprData::PrincipalEntityPath,
@@ -28387,14 +32009,18 @@
                     data: [
                         VmirStmtData::Require {
                             condition: VmirCondition::Other {
-                                opd: 10,
+                                opd: VmirExprIdx(
+                                    10,
+                                ),
                                 conversion: VmirConditionConversion::None,
                             },
                         },
                         VmirStmtData::Let,
                         VmirStmtData::Require {
                             condition: VmirCondition::Be {
-                                opd: 11,
+                                opd: VmirExprIdx(
+                                    11,
+                                ),
                                 pattern: VmirPatternIdx {
                                     restructive_pattern: 4,
                                     destructive_pattern: None,
@@ -28403,7 +32029,9 @@
                         },
                         VmirStmtData::Require {
                             condition: VmirCondition::Other {
-                                opd: 15,
+                                opd: VmirExprIdx(
+                                    15,
+                                ),
                                 conversion: VmirConditionConversion::None,
                             },
                         },
@@ -28411,7 +32039,9 @@
                         VmirStmtData::Let,
                         VmirStmtData::Require {
                             condition: VmirCondition::Be {
-                                opd: 16,
+                                opd: VmirExprIdx(
+                                    16,
+                                ),
                                 pattern: VmirPatternIdx {
                                     restructive_pattern: 5,
                                     destructive_pattern: None,
@@ -28420,43 +32050,57 @@
                         },
                         VmirStmtData::Require {
                             condition: VmirCondition::Other {
-                                opd: 22,
+                                opd: VmirExprIdx(
+                                    22,
+                                ),
                                 conversion: VmirConditionConversion::None,
                             },
                         },
                         VmirStmtData::Require {
                             condition: VmirCondition::Other {
-                                opd: 28,
+                                opd: VmirExprIdx(
+                                    28,
+                                ),
                                 conversion: VmirConditionConversion::None,
                             },
                         },
                         VmirStmtData::Require {
                             condition: VmirCondition::Other {
-                                opd: 32,
+                                opd: VmirExprIdx(
+                                    32,
+                                ),
                                 conversion: VmirConditionConversion::None,
                             },
                         },
                         VmirStmtData::Let,
                         VmirStmtData::Require {
                             condition: VmirCondition::Other {
-                                opd: 35,
+                                opd: VmirExprIdx(
+                                    35,
+                                ),
                                 conversion: VmirConditionConversion::None,
                             },
                         },
                         VmirStmtData::Require {
                             condition: VmirCondition::Other {
-                                opd: 38,
+                                opd: VmirExprIdx(
+                                    38,
+                                ),
                                 conversion: VmirConditionConversion::None,
                             },
                         },
                         VmirStmtData::Return {
-                            result: 39,
+                            result: VmirExprIdx(
+                                39,
+                            ),
                             coersion: VmirCoersion::Trivial,
                         },
                         VmirStmtData::Let,
                         VmirStmtData::Require {
                             condition: VmirCondition::Be {
-                                opd: 1,
+                                opd: VmirExprIdx(
+                                    1,
+                                ),
                                 pattern: VmirPatternIdx {
                                     restructive_pattern: 1,
                                     destructive_pattern: None,
@@ -28466,7 +32110,9 @@
                         VmirStmtData::Let,
                         VmirStmtData::Require {
                             condition: VmirCondition::Be {
-                                opd: 2,
+                                opd: VmirExprIdx(
+                                    2,
+                                ),
                                 pattern: VmirPatternIdx {
                                     restructive_pattern: 2,
                                     destructive_pattern: None,
@@ -28477,14 +32123,18 @@
                         VmirStmtData::Let,
                         VmirStmtData::Require {
                             condition: VmirCondition::Other {
-                                opd: 5,
+                                opd: VmirExprIdx(
+                                    5,
+                                ),
                                 conversion: VmirConditionConversion::None,
                             },
                         },
                         VmirStmtData::IfElse {
                             if_branch: VmirIfBranch {
                                 condition: VmirCondition::Be {
-                                    opd: 6,
+                                    opd: VmirExprIdx(
+                                        6,
+                                    ),
                                     pattern: VmirPatternIdx {
                                         restructive_pattern: 3,
                                         destructive_pattern: None,
@@ -28498,7 +32148,9 @@
                             else_branch: None,
                         },
                         VmirStmtData::Eval {
-                            expr: 40,
+                            expr: VmirExprIdx(
+                                40,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -28534,7 +32186,9 @@
                         },
                     },
                 },
-                root_expr: 7,
+                root_expr: VmirExprIdx(
+                    7,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -28561,7 +32215,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                 },
                             ],
                         },
@@ -28573,11 +32229,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 2,
+                            lopd: VmirExprIdx(
+                                2,
+                            ),
                             opr: Comparison(
                                 Less,
                             ),
-                            ropd: 3,
+                            ropd: VmirExprIdx(
+                                3,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(0),
@@ -28603,7 +32263,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 5,
+                                    expr: VmirExprIdx(
+                                        5,
+                                    ),
                                 },
                             ],
                         },
@@ -28622,12 +32284,16 @@
                         VmirStmtData::Let,
                         VmirStmtData::Require {
                             condition: VmirCondition::Other {
-                                opd: 4,
+                                opd: VmirExprIdx(
+                                    4,
+                                ),
                                 conversion: VmirConditionConversion::None,
                             },
                         },
                         VmirStmtData::Eval {
-                            expr: 6,
+                            expr: VmirExprIdx(
+                                6,
+                            ),
                             coersion: Some(
                                 VmirCoersion::WrapInSome,
                             ),
@@ -28663,7 +32329,9 @@
                         },
                     },
                 },
-                root_expr: 13,
+                root_expr: VmirExprIdx(
+                    13,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -28690,7 +32358,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                 },
                             ],
                         },
@@ -28702,11 +32372,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 2,
+                            lopd: VmirExprIdx(
+                                2,
+                            ),
                             opr: Comparison(
                                 Greater,
                             ),
-                            ropd: 3,
+                            ropd: VmirExprIdx(
+                                3,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(0),
@@ -28728,7 +32402,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 5,
+                                    expr: VmirExprIdx(
+                                        5,
+                                    ),
                                 },
                             ],
                         },
@@ -28750,7 +32426,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 6,
+                                    expr: VmirExprIdx(
+                                        6,
+                                    ),
                                 },
                             ],
                         },
@@ -28762,11 +32440,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 7,
+                            lopd: VmirExprIdx(
+                                7,
+                            ),
                             opr: Comparison(
                                 Greater,
                             ),
-                            ropd: 8,
+                            ropd: VmirExprIdx(
+                                8,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(0),
@@ -28788,7 +32470,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 10,
+                                    expr: VmirExprIdx(
+                                        10,
+                                    ),
                                 },
                             ],
                         },
@@ -28810,7 +32494,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 11,
+                                    expr: VmirExprIdx(
+                                        11,
+                                    ),
                                 },
                             ],
                         },
@@ -28829,18 +32515,24 @@
                         VmirStmtData::Let,
                         VmirStmtData::Require {
                             condition: VmirCondition::Other {
-                                opd: 4,
+                                opd: VmirExprIdx(
+                                    4,
+                                ),
                                 conversion: VmirConditionConversion::None,
                             },
                         },
                         VmirStmtData::Require {
                             condition: VmirCondition::Other {
-                                opd: 9,
+                                opd: VmirExprIdx(
+                                    9,
+                                ),
                                 conversion: VmirConditionConversion::None,
                             },
                         },
                         VmirStmtData::Eval {
-                            expr: 12,
+                            expr: VmirExprIdx(
+                                12,
+                            ),
                             coersion: Some(
                                 VmirCoersion::WrapInSome,
                             ),
@@ -28872,7 +32564,9 @@
                         },
                     },
                 },
-                root_expr: 7,
+                root_expr: VmirExprIdx(
+                    7,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::PrincipalEntityPath,
@@ -28937,11 +32631,15 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                                 VmirArgument::Simple {
-                                    expr: 5,
+                                    expr: VmirExprIdx(
+                                        5,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -28959,7 +32657,9 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 6,
+                            expr: VmirExprIdx(
+                                6,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -28995,7 +32695,9 @@
                         },
                     },
                 },
-                root_expr: 7,
+                root_expr: VmirExprIdx(
+                    7,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -29022,7 +32724,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                 },
                             ],
                         },
@@ -29034,11 +32738,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 2,
+                            lopd: VmirExprIdx(
+                                2,
+                            ),
                             opr: Comparison(
                                 Less,
                             ),
-                            ropd: 3,
+                            ropd: VmirExprIdx(
+                                3,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(0),
@@ -29064,7 +32772,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 5,
+                                    expr: VmirExprIdx(
+                                        5,
+                                    ),
                                 },
                             ],
                         },
@@ -29083,12 +32793,16 @@
                         VmirStmtData::Let,
                         VmirStmtData::Require {
                             condition: VmirCondition::Other {
-                                opd: 4,
+                                opd: VmirExprIdx(
+                                    4,
+                                ),
                                 conversion: VmirConditionConversion::None,
                             },
                         },
                         VmirStmtData::Eval {
-                            expr: 6,
+                            expr: VmirExprIdx(
+                                6,
+                            ),
                             coersion: Some(
                                 VmirCoersion::WrapInSome,
                             ),
@@ -29124,7 +32838,9 @@
                         },
                     },
                 },
-                root_expr: 7,
+                root_expr: VmirExprIdx(
+                    7,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -29151,7 +32867,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                 },
                             ],
                         },
@@ -29163,11 +32881,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 2,
+                            lopd: VmirExprIdx(
+                                2,
+                            ),
                             opr: Comparison(
                                 Greater,
                             ),
-                            ropd: 3,
+                            ropd: VmirExprIdx(
+                                3,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(0),
@@ -29193,7 +32915,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 5,
+                                    expr: VmirExprIdx(
+                                        5,
+                                    ),
                                 },
                             ],
                         },
@@ -29212,12 +32936,16 @@
                         VmirStmtData::Let,
                         VmirStmtData::Require {
                             condition: VmirCondition::Other {
-                                opd: 4,
+                                opd: VmirExprIdx(
+                                    4,
+                                ),
                                 conversion: VmirConditionConversion::None,
                             },
                         },
                         VmirStmtData::Eval {
-                            expr: 6,
+                            expr: VmirExprIdx(
+                                6,
+                            ),
                             coersion: Some(
                                 VmirCoersion::WrapInSome,
                             ),
@@ -29253,7 +32981,9 @@
                         },
                     },
                 },
-                root_expr: 7,
+                root_expr: VmirExprIdx(
+                    7,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -29280,7 +33010,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                 },
                             ],
                         },
@@ -29292,11 +33024,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 2,
+                            lopd: VmirExprIdx(
+                                2,
+                            ),
                             opr: Comparison(
                                 Greater,
                             ),
-                            ropd: 3,
+                            ropd: VmirExprIdx(
+                                3,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(0),
@@ -29322,7 +33058,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 5,
+                                    expr: VmirExprIdx(
+                                        5,
+                                    ),
                                 },
                             ],
                         },
@@ -29341,12 +33079,16 @@
                         VmirStmtData::Let,
                         VmirStmtData::Require {
                             condition: VmirCondition::Other {
-                                opd: 4,
+                                opd: VmirExprIdx(
+                                    4,
+                                ),
                                 conversion: VmirConditionConversion::None,
                             },
                         },
                         VmirStmtData::Eval {
-                            expr: 6,
+                            expr: VmirExprIdx(
+                                6,
+                            ),
                             coersion: Some(
                                 VmirCoersion::WrapInSome,
                             ),
@@ -29378,7 +33120,9 @@
                         },
                     },
                 },
-                root_expr: 33,
+                root_expr: VmirExprIdx(
+                    33,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Index,
@@ -29392,11 +33136,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 2,
+                            lopd: VmirExprIdx(
+                                2,
+                            ),
                             opr: Comparison(
                                 Leq,
                             ),
-                            ropd: 3,
+                            ropd: VmirExprIdx(
+                                3,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(5),
@@ -29410,11 +33158,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 5,
+                            lopd: VmirExprIdx(
+                                5,
+                            ),
                             opr: Comparison(
                                 Greater,
                             ),
-                            ropd: 6,
+                            ropd: VmirExprIdx(
+                                6,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(0),
@@ -29426,11 +33178,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 8,
+                            lopd: VmirExprIdx(
+                                8,
+                            ),
                             opr: Comparison(
                                 Eq,
                             ),
-                            ropd: 9,
+                            ropd: VmirExprIdx(
+                                9,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(2),
@@ -29453,14 +33209,20 @@
                         },
                         VmirExprData::Prefix {
                             opr: Minus,
-                            opd: 14,
+                            opd: VmirExprIdx(
+                                14,
+                            ),
                         },
                         VmirExprData::Binary {
-                            lopd: 13,
+                            lopd: VmirExprIdx(
+                                13,
+                            ),
                             opr: Comparison(
                                 Greater,
                             ),
-                            ropd: 15,
+                            ropd: VmirExprIdx(
+                                15,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(12),
@@ -29471,11 +33233,15 @@
                             qual: Ref,
                         },
                         VmirExprData::Binary {
-                            lopd: 17,
+                            lopd: VmirExprIdx(
+                                17,
+                            ),
                             opr: Comparison(
                                 Geq,
                             ),
-                            ropd: 18,
+                            ropd: VmirExprIdx(
+                                18,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(0),
@@ -29487,11 +33253,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 20,
+                            lopd: VmirExprIdx(
+                                20,
+                            ),
                             opr: Comparison(
                                 Eq,
                             ),
-                            ropd: 21,
+                            ropd: VmirExprIdx(
+                                21,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(2),
@@ -29510,7 +33280,9 @@
                             qual: Ref,
                         },
                         VmirExprData::Unwrap {
-                            opd: 26,
+                            opd: VmirExprIdx(
+                                26,
+                            ),
                         },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
@@ -29528,7 +33300,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 27,
+                                    expr: VmirExprIdx(
+                                        27,
+                                    ),
                                 },
                             ],
                         },
@@ -29550,7 +33324,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 28,
+                                    expr: VmirExprIdx(
+                                        28,
+                                    ),
                                 },
                             ],
                         },
@@ -29562,11 +33338,15 @@
                             ),
                         },
                         VmirExprData::Binary {
-                            lopd: 29,
+                            lopd: VmirExprIdx(
+                                29,
+                            ),
                             opr: Comparison(
                                 Less,
                             ),
-                            ropd: 30,
+                            ropd: VmirExprIdx(
+                                30,
+                            ),
                         },
                         VmirExprData::PrincipalEntityPath,
                         VmirExprData::Block {
@@ -29583,7 +33363,9 @@
                     data: [
                         VmirStmtData::Require {
                             condition: VmirCondition::Be {
-                                opd: 11,
+                                opd: VmirExprIdx(
+                                    11,
+                                ),
                                 pattern: VmirPatternIdx {
                                     restructive_pattern: 2,
                                     destructive_pattern: None,
@@ -29592,7 +33374,9 @@
                         },
                         VmirStmtData::Require {
                             condition: VmirCondition::Be {
-                                opd: 12,
+                                opd: VmirExprIdx(
+                                    12,
+                                ),
                                 pattern: VmirPatternIdx {
                                     restructive_pattern: 3,
                                     destructive_pattern: None,
@@ -29602,7 +33386,9 @@
                         VmirStmtData::Let,
                         VmirStmtData::Require {
                             condition: VmirCondition::Other {
-                                opd: 16,
+                                opd: VmirExprIdx(
+                                    16,
+                                ),
                                 conversion: VmirConditionConversion::None,
                             },
                         },
@@ -29617,13 +33403,17 @@
                         VmirStmtData::Let,
                         VmirStmtData::Require {
                             condition: VmirCondition::Other {
-                                opd: 19,
+                                opd: VmirExprIdx(
+                                    19,
+                                ),
                                 conversion: VmirConditionConversion::None,
                             },
                         },
                         VmirStmtData::Require {
                             condition: VmirCondition::Be {
-                                opd: 23,
+                                opd: VmirExprIdx(
+                                    23,
+                                ),
                                 pattern: VmirPatternIdx {
                                     restructive_pattern: 4,
                                     destructive_pattern: None,
@@ -29632,7 +33422,9 @@
                         },
                         VmirStmtData::Require {
                             condition: VmirCondition::Be {
-                                opd: 24,
+                                opd: VmirExprIdx(
+                                    24,
+                                ),
                                 pattern: VmirPatternIdx {
                                     restructive_pattern: 5,
                                     destructive_pattern: None,
@@ -29641,7 +33433,9 @@
                         },
                         VmirStmtData::Require {
                             condition: VmirCondition::Be {
-                                opd: 25,
+                                opd: VmirExprIdx(
+                                    25,
+                                ),
                                 pattern: VmirPatternIdx {
                                     restructive_pattern: 6,
                                     destructive_pattern: None,
@@ -29650,7 +33444,9 @@
                         },
                         VmirStmtData::Require {
                             condition: VmirCondition::Other {
-                                opd: 31,
+                                opd: VmirExprIdx(
+                                    31,
+                                ),
                                 conversion: VmirConditionConversion::None,
                             },
                         },
@@ -29659,7 +33455,9 @@
                         VmirStmtData::Let,
                         VmirStmtData::Require {
                             condition: VmirCondition::Be {
-                                opd: 1,
+                                opd: VmirExprIdx(
+                                    1,
+                                ),
                                 pattern: VmirPatternIdx {
                                     restructive_pattern: 1,
                                     destructive_pattern: None,
@@ -29671,21 +33469,27 @@
                         VmirStmtData::Let,
                         VmirStmtData::Require {
                             condition: VmirCondition::Other {
-                                opd: 4,
+                                opd: VmirExprIdx(
+                                    4,
+                                ),
                                 conversion: VmirConditionConversion::None,
                             },
                         },
                         VmirStmtData::Let,
                         VmirStmtData::Require {
                             condition: VmirCondition::Other {
-                                opd: 7,
+                                opd: VmirExprIdx(
+                                    7,
+                                ),
                                 conversion: VmirConditionConversion::None,
                             },
                         },
                         VmirStmtData::IfElse {
                             if_branch: VmirIfBranch {
                                 condition: VmirCondition::Other {
-                                    opd: 10,
+                                    opd: VmirExprIdx(
+                                        10,
+                                    ),
                                     conversion: VmirConditionConversion::None,
                                 },
                                 stmts: ArenaIdxRange(
@@ -29698,7 +33502,9 @@
                         VmirStmtData::IfElse {
                             if_branch: VmirIfBranch {
                                 condition: VmirCondition::Other {
-                                    opd: 22,
+                                    opd: VmirExprIdx(
+                                        22,
+                                    ),
                                     conversion: VmirConditionConversion::None,
                                 },
                                 stmts: ArenaIdxRange(
@@ -29709,7 +33515,9 @@
                             else_branch: None,
                         },
                         VmirStmtData::Eval {
-                            expr: 32,
+                            expr: VmirExprIdx(
+                                32,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -29741,7 +33549,9 @@
                         },
                     },
                 },
-                root_expr: 3,
+                root_expr: VmirExprIdx(
+                    3,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::PrincipalEntityPath,
@@ -29759,7 +33569,9 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -29777,7 +33589,9 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 2,
+                            expr: VmirExprIdx(
+                                2,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -29809,7 +33623,9 @@
                         },
                     },
                 },
-                root_expr: 11,
+                root_expr: VmirExprIdx(
+                    11,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -29821,11 +33637,15 @@
                             qual: Ref,
                         },
                         VmirExprData::Binary {
-                            lopd: 1,
+                            lopd: VmirExprIdx(
+                                1,
+                            ),
                             opr: Comparison(
                                 Greater,
                             ),
-                            ropd: 2,
+                            ropd: VmirExprIdx(
+                                2,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(1),
@@ -29836,9 +33656,13 @@
                             qual: Transient,
                         },
                         VmirExprData::Binary {
-                            lopd: 4,
+                            lopd: VmirExprIdx(
+                                4,
+                            ),
                             opr: Assign,
-                            ropd: 5,
+                            ropd: VmirExprIdx(
+                                5,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(0),
@@ -29849,9 +33673,13 @@
                             qual: Transient,
                         },
                         VmirExprData::Binary {
-                            lopd: 7,
+                            lopd: VmirExprIdx(
+                                7,
+                            ),
                             opr: Assign,
-                            ropd: 8,
+                            ropd: VmirExprIdx(
+                                8,
+                            ),
                         },
                         VmirExprData::Index,
                         VmirExprData::Block {
@@ -29867,14 +33695,18 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 6,
+                            expr: VmirExprIdx(
+                                6,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 9,
+                            expr: VmirExprIdx(
+                                9,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -29884,7 +33716,9 @@
                         VmirStmtData::IfElse {
                             if_branch: VmirIfBranch {
                                 condition: VmirCondition::Other {
-                                    opd: 3,
+                                    opd: VmirExprIdx(
+                                        3,
+                                    ),
                                     conversion: VmirConditionConversion::None,
                                 },
                                 stmts: ArenaIdxRange(
@@ -29902,7 +33736,9 @@
                             ),
                         },
                         VmirStmtData::Return {
-                            result: 10,
+                            result: VmirExprIdx(
+                                10,
+                            ),
                             coersion: VmirCoersion::PlaceToLeash,
                         },
                     ],
@@ -29931,7 +33767,9 @@
                         },
                     },
                 },
-                root_expr: 9,
+                root_expr: VmirExprIdx(
+                    9,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -29955,16 +33793,22 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 2,
+                                    expr: VmirExprIdx(
+                                        2,
+                                    ),
                                 },
                             ],
                         },
                         VmirExprData::Binary {
-                            lopd: 1,
+                            lopd: VmirExprIdx(
+                                1,
+                            ),
                             opr: AssignClosed(
                                 Add,
                             ),
-                            ropd: 3,
+                            ropd: VmirExprIdx(
+                                3,
+                            ),
                         },
                         VmirExprData::Variable {
                             place_idx: PlaceIdx(0),
@@ -29987,16 +33831,22 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 6,
+                                    expr: VmirExprIdx(
+                                        6,
+                                    ),
                                 },
                             ],
                         },
                         VmirExprData::Binary {
-                            lopd: 5,
+                            lopd: VmirExprIdx(
+                                5,
+                            ),
                             opr: Closed(
                                 Sub,
                             ),
-                            ropd: 7,
+                            ropd: VmirExprIdx(
+                                7,
+                            ),
                         },
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
@@ -30011,7 +33861,9 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 4,
+                            expr: VmirExprIdx(
+                                4,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -30024,7 +33876,9 @@
                             ),
                         },
                         VmirStmtData::Return {
-                            result: 8,
+                            result: VmirExprIdx(
+                                8,
+                            ),
                             coersion: VmirCoersion::Trivial,
                         },
                     ],
@@ -30053,7 +33907,9 @@
                         },
                     },
                 },
-                root_expr: 3,
+                root_expr: VmirExprIdx(
+                    3,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::PrincipalEntityPath,
@@ -30073,7 +33929,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                 },
                             ],
                         },
@@ -30090,7 +33948,9 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 2,
+                            expr: VmirExprIdx(
+                                2,
+                            ),
                             coersion: Some(
                                 VmirCoersion::PlaceToLeash,
                             ),
@@ -30122,7 +33982,9 @@
                         },
                     },
                 },
-                root_expr: 2,
+                root_expr: VmirExprIdx(
+                    2,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Index,
@@ -30139,7 +34001,9 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 1,
+                            expr: VmirExprIdx(
+                                1,
+                            ),
                             coersion: Some(
                                 VmirCoersion::PlaceToLeash,
                             ),
@@ -30171,7 +34035,9 @@
                         },
                     },
                 },
-                root_expr: 3,
+                root_expr: VmirExprIdx(
+                    3,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::PrincipalEntityPath,
@@ -30191,7 +34057,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                 },
                             ],
                         },
@@ -30208,7 +34076,9 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 2,
+                            expr: VmirExprIdx(
+                                2,
+                            ),
                             coersion: Some(
                                 VmirCoersion::PlaceToLeash,
                             ),
@@ -30240,7 +34110,9 @@
                         },
                     },
                 },
-                root_expr: 3,
+                root_expr: VmirExprIdx(
+                    3,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::PrincipalEntityPath,
@@ -30260,7 +34132,9 @@
                             },
                             arguments: [
                                 VmirArgument::SelfValue {
-                                    expr: 1,
+                                    expr: VmirExprIdx(
+                                        1,
+                                    ),
                                 },
                             ],
                         },
@@ -30277,7 +34151,9 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 2,
+                            expr: VmirExprIdx(
+                                2,
+                            ),
                             coersion: Some(
                                 VmirCoersion::PlaceToLeash,
                             ),
@@ -30373,7 +34249,9 @@
                         },
                     },
                 },
-                root_expr: 7,
+                root_expr: VmirExprIdx(
+                    7,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -30435,7 +34313,9 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 2,
+                                    expr: VmirExprIdx(
+                                        2,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -30533,7 +34413,9 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 3,
+                                    expr: VmirExprIdx(
+                                        3,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -30636,7 +34518,9 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 5,
+                                    expr: VmirExprIdx(
+                                        5,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -30654,21 +34538,27 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 4,
+                            expr: VmirExprIdx(
+                                4,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 6,
+                            expr: VmirExprIdx(
+                                6,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Match {
-                            opd: 1,
+                            opd: VmirExprIdx(
+                                1,
+                            ),
                             case_branches: [
                                 VmirCaseBranch {
                                     pattern: VmirPatternIdx {
@@ -30776,7 +34666,9 @@
                         },
                     },
                 },
-                root_expr: 7,
+                root_expr: VmirExprIdx(
+                    7,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -30838,7 +34730,9 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 2,
+                                    expr: VmirExprIdx(
+                                        2,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -30936,7 +34830,9 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 3,
+                                    expr: VmirExprIdx(
+                                        3,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -31039,7 +34935,9 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 5,
+                                    expr: VmirExprIdx(
+                                        5,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -31057,21 +34955,27 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 4,
+                            expr: VmirExprIdx(
+                                4,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 6,
+                            expr: VmirExprIdx(
+                                6,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Match {
-                            opd: 1,
+                            opd: VmirExprIdx(
+                                1,
+                            ),
                             case_branches: [
                                 VmirCaseBranch {
                                     pattern: VmirPatternIdx {

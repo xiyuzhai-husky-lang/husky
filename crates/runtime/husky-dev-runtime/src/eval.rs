@@ -10,9 +10,10 @@ use husky_task::{
     helpers::{TaskError, TaskValue},
     IsTask,
 };
+use husky_task_interface::ki_repr::KiArgumentReprInterface;
 use husky_task_interface::{ki_control_flow::KiControlFlow, IsLinkageImpl};
-use husky_task_interface::{ki_repr::KiArgumentReprInterface, value::IsValue};
 use husky_term_prelude::literal::Literal;
+use husky_value_interface::IsValue;
 
 impl<Task: IsTask> DevRuntime<Task> {
     pub fn eval_ki_repr_at_pedestal(

@@ -163,7 +163,8 @@ impl<Task: IsTask> IsDevRuntime<TaskLinkageImpl<Task>> for DevRuntime<Task> {
         &self,
         val_runtime_constant: KiRuntimeConstantInterface,
     ) -> <TaskLinkageImpl<Task> as IsLinkageImpl>::Value {
-        use husky_task_interface::value::IsValue;
+        use husky_value_interface::IsValue;
+
         let db = self.db();
         let val_runtime_constant: KiRuntimeConstant =
             unsafe { std::mem::transmute(val_runtime_constant) };

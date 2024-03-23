@@ -1,11 +1,16 @@
 use self::coersion::VmirCoersion;
-use crate::{destroyer::VmirDestroyerIdxRange, pattern::VmirPatternIdx, stmt::VmirStmtIdxRange, *};
+use crate::{
+    destroyer::VmirDestroyerIdxRange, eval::EvalVmir, pattern::VmirPatternIdx,
+    stmt::VmirStmtIdxRange, *,
+};
 use husky_hir_eager_expr::{HirEagerExprData, HirEagerExprIdx, HirEagerRitchieArgument};
 use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
 use husky_lifetime_utils::capture::Captures;
 use husky_linkage::{linkage::Linkage, template_argument::qual::LinQual};
 use husky_literal_value::LiteralValue;
+use husky_opr::{BinaryClosedOpr, BinaryShiftOpr};
 use husky_place::place::{idx::PlaceIdx, EthPlace};
+use husky_task_interface::vm_control_flow::{LinkageImplVmControlFlow, VmControlFlow};
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
 use smallvec::{smallvec, SmallVec};
 
@@ -63,7 +68,18 @@ pub enum VmirExprData<LinkageImpl: IsLinkageImpl> {
 }
 
 pub type VmirExprArena<LinkageImpl> = Arena<VmirExprData<LinkageImpl>>;
-pub type VmirExprIdx<LinkageImpl> = ArenaIdx<VmirExprData<LinkageImpl>>;
+
+#[salsa::derive_debug_with_db]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub struct VmirExprIdx<LinkageImpl: IsLinkageImpl>(ArenaIdx<VmirExprData<LinkageImpl>>);
+
+impl<LinkageImpl: IsLinkageImpl> std::ops::Deref for VmirExprIdx<LinkageImpl> {
+    type Target = ArenaIdx<VmirExprData<LinkageImpl>>;
+
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
 pub type VmirExprIdxRange<LinkageImpl> = ArenaIdxRange<VmirExprData<LinkageImpl>>;
 
 #[salsa::derive_debug_with_db]
@@ -90,7 +106,7 @@ impl<LinkageImpl: IsLinkageImpl> ToVmir<LinkageImpl> for HirEagerExprIdx {
         builder: &mut VmirBuilder<Linktime>,
     ) -> Self::Output {
         let expr_data = builder.build_vmir_expr(self);
-        builder.alloc_expr(expr_data)
+        VmirExprIdx(builder.alloc_expr(expr_data))
     }
 }
 
@@ -99,7 +115,7 @@ impl<'comptime, Linktime: IsLinktime> VmirBuilder<'comptime, Linktime> {
         let entry = &self.hir_eager_expr_arena()[expr];
         match *entry.data() {
             HirEagerExprData::Literal(lit) => VmirExprData::Literal {
-                value: lit.into_value(self.db()),
+                value: lit.into_literal_value(self.db()),
             },
             HirEagerExprData::PrincipalEntityPath(_) => VmirExprData::PrincipalEntityPath,
             HirEagerExprData::AssocFn { assoc_item_path } => todo!(),
@@ -358,5 +374,73 @@ impl<'comptime, Linktime: IsLinktime> VmirBuilder<'comptime, Linktime> {
             }
             HirEagerRitchieArgument::Keyed => todo!(),
         })
+    }
+}
+
+impl<LinkageImpl: IsLinkageImpl> VmirExprIdx<LinkageImpl> {
+    #[inline(always)]
+    pub fn eval<'comptime>(
+        self,
+        ctx: &mut impl EvalVmir<'comptime, LinkageImpl>,
+    ) -> LinkageImplVmControlFlow<LinkageImpl> {
+        ctx.eval_expr(self, |ctx| self.eval_aux(ctx))
+    }
+
+    #[inline(always)]
+    fn eval_aux<'comptime>(
+        self,
+        ctx: &mut impl EvalVmir<'comptime, LinkageImpl>,
+    ) -> LinkageImplVmControlFlow<LinkageImpl> {
+        use VmControlFlow::*;
+
+        match *self.entry(ctx.vmir_expr_arena()) {
+            VmirExprData::Literal { value } => Continue(value.into_value()),
+            VmirExprData::Variable { place_idx, qual } => {
+                Continue(ctx.borrow_variable(place_idx, qual))
+            }
+            VmirExprData::Binary { lopd, opr, ropd } => {
+                let lopd = lopd.eval(ctx)?;
+                let ropd = ropd.eval(ctx)?;
+                ctx.eval_expr_inner(self, |_ctx| match opr {
+                    HirBinaryOpr::Closed(opr) => Continue(match opr {
+                        BinaryClosedOpr::Add => lopd + ropd,
+                        BinaryClosedOpr::BitAnd => lopd & ropd,
+                        BinaryClosedOpr::BitOr => lopd | ropd,
+                        BinaryClosedOpr::BitXor => lopd ^ ropd,
+                        BinaryClosedOpr::Div => lopd / ropd,
+                        BinaryClosedOpr::Mul => lopd * ropd,
+                        BinaryClosedOpr::RemEuclid => todo!("be careful"),
+                        BinaryClosedOpr::Power => todo!(),
+                        BinaryClosedOpr::Sub => lopd - ropd,
+                    }),
+                    HirBinaryOpr::Shift(opr) => Continue(match opr {
+                        BinaryShiftOpr::Shl => lopd << ropd,
+                        BinaryShiftOpr::Shr => lopd >> ropd,
+                    }),
+                    HirBinaryOpr::Assign => todo!(),
+                    HirBinaryOpr::AssignClosed(_) => todo!(),
+                    HirBinaryOpr::AssignShift(_) => todo!(),
+                    HirBinaryOpr::Comparison(_) => todo!(),
+                    HirBinaryOpr::ShortCircuitLogic(_) => todo!(),
+                })
+            }
+            VmirExprData::Be { opd, pattern } => todo!(),
+            VmirExprData::Prefix { opr, opd } => todo!(),
+            VmirExprData::Suffix { opd, opr } => todo!(),
+            VmirExprData::Unveil { linkage_impl, opd } => todo!(),
+            VmirExprData::Linkage {
+                linkage_impl,
+                ref arguments,
+            } => todo!(),
+            VmirExprData::Block { stmts, destroyers } => todo!(),
+            VmirExprData::Closure => todo!(),
+            VmirExprData::Todo => todo!(),
+            VmirExprData::Unreachable => todo!(),
+            VmirExprData::As { opd } => todo!(),
+            VmirExprData::Index => todo!(),
+            VmirExprData::PrincipalEntityPath => todo!(),
+            VmirExprData::Unwrap { opd } => todo!(),
+            VmirExprData::ConstSvar => todo!(),
+        }
     }
 }

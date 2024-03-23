@@ -4375,6 +4375,7 @@ dependencies = [
  "husky-term-prelude",
  "husky-text-protocol",
  "husky-token",
+ "husky-value-interface",
  "husky-vfs",
  "husky-visual-protocol",
  "husky-vm",
@@ -5250,6 +5251,7 @@ dependencies = [
 name = "husky-literal-value"
 version = "0.1.0"
 dependencies = [
+ "husky-value-interface",
  "ordered-float 4.2.0",
 ]
 
@@ -5818,6 +5820,7 @@ dependencies = [
  "husky-standard-value-macros",
  "husky-task-interface",
  "husky-term-prelude",
+ "husky-value-interface",
  "husky-value-protocol",
  "husky-visual-protocol",
  "husky-wild-utils",
@@ -5982,6 +5985,7 @@ dependencies = [
  "husky-linkage-impl",
  "husky-task-interface",
  "husky-trace-protocol",
+ "husky-value-interface",
  "husky-vfs",
  "husky-visual-protocol",
  "salsa",
@@ -5994,8 +5998,8 @@ name = "husky-task-interface"
 version = "0.1.0"
 dependencies = [
  "husky-decl-macro-utils",
- "husky-literal-value",
  "husky-task-interface-macros",
+ "husky-value-interface",
  "husky-value-protocol",
  "husky-visual-protocol",
  "once_cell",
@@ -6399,6 +6403,14 @@ name = "husky-unwind-utils"
 version = "0.1.0"
 
 [[package]]
+name = "husky-value-interface"
+version = "0.1.0"
+dependencies = [
+ "husky-value-protocol",
+ "husky-visual-protocol",
+]
+
+[[package]]
 name = "husky-value-protocol"
 version = "0.1.0"
 dependencies = [
@@ -6447,8 +6459,9 @@ name = "husky-virtual-value"
 version = "0.1.0"
 dependencies = [
  "husky-literal-value",
- "husky-task-interface",
+ "husky-value-interface",
  "husky-value-protocol",
+ "husky-visual-protocol",
 ]
 
 [[package]]

@@ -1,5 +1,3 @@
-// todo: move the whole module to a crate under value
-use husky_literal_value::LiteralValue;
 use husky_value_protocol::presentation::{
     synchrotron::ValuePresentationSynchrotron, EnumU8ValuePresenter, ValuePresentation,
     ValuePresenterCache,
@@ -61,7 +59,6 @@ pub trait IsValue:
     + Into<f32>
     + From<f64>
     + Into<f64>
-    + From<LiteralValue>
     + 'static
 {
     // the followings are methods that should be implemented.

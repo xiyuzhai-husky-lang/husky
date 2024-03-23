@@ -1,5 +1,5 @@
 [package]
-name = "husky-virtual-value"
+name = "husky-value-interface"
 version.workspace = true
 rust-version.workspace = true
 authors.workspace = true
@@ -15,9 +15,6 @@ keywords.workspace = true
 # protocols
 husky-value-protocol.workspace = true
 husky-visual-protocol.workspace = true
-# value
-husky-value-interface.workspace = true
-husky-literal-value.workspace = true
 
 [lints]
 workspace = true

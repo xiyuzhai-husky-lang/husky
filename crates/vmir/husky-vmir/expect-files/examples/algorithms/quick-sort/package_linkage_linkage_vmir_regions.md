@@ -25,7 +25,9 @@
                         },
                     },
                 },
-                root_expr: 1,
+                root_expr: VmirExprIdx(
+                    1,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Block {
@@ -71,7 +73,9 @@
                         },
                     },
                 },
-                root_expr: 1,
+                root_expr: VmirExprIdx(
+                    1,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Block {
