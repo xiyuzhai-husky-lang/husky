@@ -12,7 +12,7 @@ pub type VmirCaseBranches<LinkageImpl> = Vec<VmirCaseBranch<LinkageImpl>>;
 
 /// # getters
 impl<LinkageImpl: IsLinkageImpl> VmirCaseBranch<LinkageImpl> {
-    pub fn stmts(&self) -> ArenaIdxRange<VmirStmtData<LinkageImpl>> {
+    pub fn stmts(&self) -> VmirStmtIdxRange<LinkageImpl> {
         self.stmts
     }
 }
