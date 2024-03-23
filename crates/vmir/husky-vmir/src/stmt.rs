@@ -4,6 +4,7 @@ mod r#match;
 
 use crate::{
     coersion::VmirCoersion,
+    eval::EvalVmir,
     expr::VmirExprIdx,
     pattern::VmirPatternIdx,
     stmt::{
@@ -14,6 +15,7 @@ use crate::{
 };
 use husky_expr::stmt::ConditionConversion;
 use husky_hir_eager_expr::{HirEagerCondition, HirEagerStmtData, HirEagerStmtIdxRange};
+use husky_task_interface::vm_control_flow::{LinkageImplVmControlFlow, VmControlFlow};
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
 
 #[salsa::derive_debug_with_db]
@@ -65,8 +67,39 @@ pub enum VmirStmtData<LinkageImpl: IsLinkageImpl> {
 }
 
 pub type VmirStmtArena<LinkageImpl> = Arena<VmirStmtData<LinkageImpl>>;
-pub type VmirStmtIdx<LinkageImpl> = ArenaIdx<VmirStmtData<LinkageImpl>>;
-pub type VmirStmtIdxRange<LinkageImpl> = ArenaIdxRange<VmirStmtData<LinkageImpl>>;
+
+#[salsa::derive_debug_with_db]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub struct VmirStmtIdx<LinkageImpl: IsLinkageImpl>(ArenaIdx<VmirStmtData<LinkageImpl>>);
+
+impl<LinkageImpl: IsLinkageImpl> std::ops::Deref for VmirStmtIdx<LinkageImpl> {
+    type Target = ArenaIdx<VmirStmtData<LinkageImpl>>;
+
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+
+#[salsa::derive_debug_with_db]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub struct VmirStmtIdxRange<LinkageImpl: IsLinkageImpl>(ArenaIdxRange<VmirStmtData<LinkageImpl>>);
+
+impl<LinkageImpl: IsLinkageImpl> IntoIterator for VmirStmtIdxRange<LinkageImpl> {
+    type Item = VmirStmtIdx<LinkageImpl>;
+
+    type IntoIter = impl Iterator<Item = VmirStmtIdx<LinkageImpl>>;
+
+    fn into_iter(self) -> Self::IntoIter {
+        self.0.into_iter().map(VmirStmtIdx)
+    }
+}
+
+impl<LinkageImpl: IsLinkageImpl> VmirStmtIdxRange<LinkageImpl> {
+    fn split_last(self) -> (Self, VmirStmtIdx<LinkageImpl>) {
+        let (non_lasts, last) = self.0.split_last();
+        (Self(non_lasts), VmirStmtIdx(last))
+    }
+}
 
 impl<LinkageImpl: IsLinkageImpl> ToVmir<LinkageImpl> for HirEagerStmtIdxRange {
     type Output = VmirStmtIdxRange<LinkageImpl>;
@@ -154,7 +187,7 @@ impl<LinkageImpl: IsLinkageImpl> ToVmir<LinkageImpl> for HirEagerStmtIdxRange {
                 },
             })
             .collect();
-        builder.alloc_stmts(stmts)
+        VmirStmtIdxRange(builder.alloc_stmts(stmts))
     }
 }
 
@@ -213,6 +246,72 @@ impl<LinkageImpl: IsLinkageImpl> ToVmir<LinkageImpl> for ConditionConversion {
         match self {
             ConditionConversion::None => VmirConditionConversion::None,
             ConditionConversion::IntToBool(_) => VmirConditionConversion::IntToBool,
+        }
+    }
+}
+
+impl<LinkageImpl: IsLinkageImpl> VmirStmtIdxRange<LinkageImpl> {
+    pub fn eval<'comptime>(
+        self,
+        ctx: &mut impl EvalVmir<'comptime, LinkageImpl>,
+    ) -> LinkageImplVmControlFlow<LinkageImpl> {
+        ctx.eval_stmts(self, |ctx| self.eval_aux(ctx))
+    }
+
+    pub fn eval_aux<'comptime>(
+        self,
+        ctx: &mut impl EvalVmir<'comptime, LinkageImpl>,
+    ) -> LinkageImplVmControlFlow<LinkageImpl> {
+        let (non_lasts, last) = self.split_last();
+        last.eval(ctx)
+    }
+}
+
+impl<LinkageImpl: IsLinkageImpl> VmirStmtIdx<LinkageImpl> {
+    pub fn eval<'comptime>(
+        self,
+        ctx: &mut impl EvalVmir<'comptime, LinkageImpl>,
+    ) -> LinkageImplVmControlFlow<LinkageImpl> {
+        ctx.eval_stmt(self, |ctx| self.eval_aux(ctx))
+    }
+
+    pub fn eval_aux<'comptime>(
+        self,
+        ctx: &mut impl EvalVmir<'comptime, LinkageImpl>,
+    ) -> LinkageImplVmControlFlow<LinkageImpl> {
+        use VmControlFlow::*;
+
+        match *self.entry(ctx.vmir_stmt_arena()) {
+            VmirStmtData::Let => todo!(),
+            VmirStmtData::Return { result, coersion } => todo!(),
+            VmirStmtData::Require { condition } => todo!(),
+            VmirStmtData::Assert { condition } => todo!(),
+            VmirStmtData::Break => todo!(),
+            VmirStmtData::Eval {
+                expr,
+                coersion,
+                discarded,
+            } => {
+                let result = expr.eval(ctx)?;
+                match discarded {
+                    true => Continue(().into()),
+                    false => Continue(result),
+                }
+            }
+            VmirStmtData::ForBetween { stmts } => todo!(),
+            VmirStmtData::Forext { stmts } => todo!(),
+            VmirStmtData::ForIn { stmts } => todo!(),
+            VmirStmtData::While { condition, stmts } => todo!(),
+            VmirStmtData::DoWhile { condition, stmts } => todo!(),
+            VmirStmtData::IfElse {
+                ref if_branch,
+                ref elif_branches,
+                ref else_branch,
+            } => todo!(),
+            VmirStmtData::Match {
+                opd,
+                ref case_branches,
+            } => todo!(),
         }
     }
 }

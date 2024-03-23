@@ -2,7 +2,7 @@ use crate::*;
 use husky_hir_eager_expr::coersion::HirEagerCoersion;
 
 #[salsa::derive_debug_with_db]
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum VmirCoersion {
     Trivial,
     Never,
