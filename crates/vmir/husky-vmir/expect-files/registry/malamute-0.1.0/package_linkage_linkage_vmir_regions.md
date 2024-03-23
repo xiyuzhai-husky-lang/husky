@@ -282,8 +282,10 @@
                     data: [
                         VmirExprData::PrincipalEntityPath,
                         VmirExprData::Block {
-                            stmts: ArenaIdxRange(
-                                1..2,
+                            stmts: VmirStmtIdxRange(
+                                ArenaIdxRange(
+                                    1..2,
+                                ),
                             ),
                             destroyers: ArenaIdxRange(
                                 1..1,
@@ -636,8 +638,10 @@
                             ],
                         },
                         VmirExprData::Block {
-                            stmts: ArenaIdxRange(
-                                4..5,
+                            stmts: VmirStmtIdxRange(
+                                ArenaIdxRange(
+                                    4..5,
+                                ),
                             ),
                             destroyers: ArenaIdxRange(
                                 1..1,
@@ -684,8 +688,10 @@
                                         restructive_pattern: 1,
                                         destructive_pattern: None,
                                     },
-                                    stmts: ArenaIdxRange(
-                                        1..2,
+                                    stmts: VmirStmtIdxRange(
+                                        ArenaIdxRange(
+                                            1..2,
+                                        ),
                                     ),
                                 },
                                 VmirCaseBranch {
@@ -693,8 +699,10 @@
                                         restructive_pattern: 2,
                                         destructive_pattern: None,
                                     },
-                                    stmts: ArenaIdxRange(
-                                        2..3,
+                                    stmts: VmirStmtIdxRange(
+                                        ArenaIdxRange(
+                                            2..3,
+                                        ),
                                     ),
                                 },
                                 VmirCaseBranch {
@@ -702,8 +710,10 @@
                                         restructive_pattern: 3,
                                         destructive_pattern: None,
                                     },
-                                    stmts: ArenaIdxRange(
-                                        3..4,
+                                    stmts: VmirStmtIdxRange(
+                                        ArenaIdxRange(
+                                            3..4,
+                                        ),
                                     ),
                                 },
                             ],
@@ -1038,8 +1048,10 @@
                             ],
                         },
                         VmirExprData::Block {
-                            stmts: ArenaIdxRange(
-                                4..5,
+                            stmts: VmirStmtIdxRange(
+                                ArenaIdxRange(
+                                    4..5,
+                                ),
                             ),
                             destroyers: ArenaIdxRange(
                                 1..1,
@@ -1086,8 +1098,10 @@
                                         restructive_pattern: 1,
                                         destructive_pattern: None,
                                     },
-                                    stmts: ArenaIdxRange(
-                                        1..2,
+                                    stmts: VmirStmtIdxRange(
+                                        ArenaIdxRange(
+                                            1..2,
+                                        ),
                                     ),
                                 },
                                 VmirCaseBranch {
@@ -1095,8 +1109,10 @@
                                         restructive_pattern: 2,
                                         destructive_pattern: None,
                                     },
-                                    stmts: ArenaIdxRange(
-                                        2..3,
+                                    stmts: VmirStmtIdxRange(
+                                        ArenaIdxRange(
+                                            2..3,
+                                        ),
                                     ),
                                 },
                                 VmirCaseBranch {
@@ -1104,8 +1120,10 @@
                                         restructive_pattern: 3,
                                         destructive_pattern: None,
                                     },
-                                    stmts: ArenaIdxRange(
-                                        3..4,
+                                    stmts: VmirStmtIdxRange(
+                                        ArenaIdxRange(
+                                            3..4,
+                                        ),
                                     ),
                                 },
                             ],

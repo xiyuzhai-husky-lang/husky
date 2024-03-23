@@ -381,9 +381,20 @@ impl<LinkageImpl: IsLinkageImpl> VmirExprIdx<LinkageImpl> {
     #[inline(always)]
     pub fn eval<'comptime>(
         self,
+        coersion: Option<VmirCoersion>,
         ctx: &mut impl EvalVmir<'comptime, LinkageImpl>,
     ) -> LinkageImplVmControlFlow<LinkageImpl> {
-        ctx.eval_expr(self, |ctx| self.eval_aux(ctx))
+        let value = ctx.eval_expr(self, |ctx| self.eval_aux(ctx))?;
+        VmControlFlow::Continue(match coersion {
+            Some(coersion) => match coersion {
+                VmirCoersion::Trivial => todo!(),
+                VmirCoersion::Never => todo!(),
+                VmirCoersion::WrapInSome => todo!(),
+                VmirCoersion::PlaceToLeash => todo!(),
+                VmirCoersion::Deref => todo!(),
+            },
+            None => value,
+        })
     }
 
     #[inline(always)]
@@ -399,8 +410,8 @@ impl<LinkageImpl: IsLinkageImpl> VmirExprIdx<LinkageImpl> {
                 Continue(ctx.access_variable(place_idx, qual))
             }
             VmirExprData::Binary { lopd, opr, ropd } => {
-                let lopd = lopd.eval(ctx)?;
-                let ropd = ropd.eval(ctx)?;
+                let lopd = lopd.eval(None, ctx)?;
+                let ropd = ropd.eval(None, ctx)?;
                 ctx.eval_expr_inner(self, |_ctx| match opr {
                     HirBinaryOpr::Closed(opr) => Continue(match opr {
                         BinaryClosedOpr::Add => lopd + ropd,
