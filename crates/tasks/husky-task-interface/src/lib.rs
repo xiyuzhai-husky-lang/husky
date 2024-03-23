@@ -210,7 +210,7 @@ impl<LinkageImpl: IsLinkageImpl> DevEvalContext<LinkageImpl> {
     pub fn eval_val_domain_repr_interface(
         self,
         val_domain_repr_interface: ValDomainReprInterface,
-    ) -> KiControlFlow<(), Infallible, LinkageImpl::Error> {
+    ) -> KiControlFlow<(), Infallible, LinkageImpl::Exception> {
         self.runtime
             .eval_val_domain_repr_interface_dyn(val_domain_repr_interface, self.pedestal)
     }
@@ -275,7 +275,7 @@ pub trait IsDevRuntime<LinkageImpl: IsLinkageImpl> {
         &self,
         val_domain_repr: ValDomainReprInterface,
         pedestal: LinkageImpl::Pedestal,
-    ) -> KiControlFlow<(), Infallible, LinkageImpl::Error>;
+    ) -> KiControlFlow<(), Infallible, LinkageImpl::Exception>;
 
     /// the computation is done by `f`
     /// returns `LinkageImplKiControlFlow<LinkageImpl>` because there is not guaranteed to be no control flow
@@ -327,7 +327,7 @@ pub trait IsDevRuntimeDyn<LinkageImpl: IsLinkageImpl> {
         &self,
         val_domain_repr: ValDomainReprInterface,
         pedestal: LinkageImpl::Pedestal,
-    ) -> KiControlFlow<(), Infallible, LinkageImpl::Error>;
+    ) -> KiControlFlow<(), Infallible, LinkageImpl::Exception>;
 
     fn eval_ki_repr_interface_at_generic_pedestal_dyn(
         &self,
@@ -391,7 +391,7 @@ where
         &self,
         val_domain_repr_interface: ValDomainReprInterface,
         pedestal: LinkageImpl::Pedestal,
-    ) -> KiControlFlow<(), Infallible, LinkageImpl::Error> {
+    ) -> KiControlFlow<(), Infallible, LinkageImpl::Exception> {
         self.eval_val_domain_repr_interface_at_pedestal(val_domain_repr_interface, pedestal)
     }
 

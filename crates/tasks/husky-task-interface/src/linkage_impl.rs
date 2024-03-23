@@ -5,7 +5,7 @@ use serde::Serialize;
 pub trait IsLinkageImpl: Send + Copy + 'static {
     type Pedestal: std::fmt::Debug + Copy + 'static;
     type Value: IsValue;
-    type Error: std::fmt::Debug + Serialize;
+    type Exception: std::fmt::Debug + Serialize;
 
     /// assumed that pedestal has already been
     fn eval_ki(
@@ -19,4 +19,8 @@ pub trait IsLinkageImpl: Send + Copy + 'static {
 }
 
 pub type LinkageImplKiControlFlow<LinkageImpl, C = <LinkageImpl as IsLinkageImpl>::Value> =
-    KiControlFlow<C, <LinkageImpl as IsLinkageImpl>::Value, <LinkageImpl as IsLinkageImpl>::Error>;
+    KiControlFlow<
+        C,
+        <LinkageImpl as IsLinkageImpl>::Value,
+        <LinkageImpl as IsLinkageImpl>::Exception,
+    >;

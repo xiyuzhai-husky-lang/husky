@@ -9,7 +9,7 @@ impl IsLinkageImpl for Linkage {
     type Value = Value;
 
     // ad hoc
-    type Error = ();
+    type Exception = ();
 
     fn eval_ki(
         self,

@@ -57,7 +57,7 @@ pub trait IsDevAscension {
                 KiControlFlow::LoopExit(_) => todo!(),
                 KiControlFlow::Return(_) => todo!(),
                 KiControlFlow::Undefined => todo!(),
-                KiControlFlow::Err(_) => todo!(),
+                KiControlFlow::Throw(_) => todo!(),
             }
         })
     }
