@@ -1,7 +1,7 @@
 use self::coersion::VmirCoersion;
 use crate::{
-    destroyer::VmirDestroyerIdxRange, eval::EvalVmir, pattern::VmirPatternIdx,
-    stmt::VmirStmtIdxRange, *,
+    destroyer::VmirDestroyerIdxRange, eval::EvalVmir, pattern::VmirPattern, stmt::VmirStmtIdxRange,
+    *,
 };
 use husky_hir_eager_expr::{HirEagerExprData, HirEagerExprIdx, HirEagerRitchieArgument};
 use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
@@ -31,7 +31,7 @@ pub enum VmirExprData<LinkageImpl: IsLinkageImpl> {
     },
     Be {
         opd: VmirExprIdx<LinkageImpl>,
-        pattern: VmirPatternIdx<LinkageImpl>,
+        pattern: VmirPattern<LinkageImpl>,
     },
     Prefix {
         opr: HirPrefixOpr,

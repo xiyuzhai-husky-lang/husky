@@ -4,7 +4,7 @@ use husky_hir_eager_expr::HirEagerCaseBranch;
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub struct VmirCaseBranch<LinkageImpl: IsLinkageImpl> {
-    pattern: VmirPatternIdx<LinkageImpl>,
+    pattern: VmirPattern<LinkageImpl>,
     stmts: VmirStmtIdxRange<LinkageImpl>,
 }
 

@@ -13,4 +13,4 @@ enum-class = { workspace = true, optional = true }
 husky-visual-protocol = { workspace = true }
 
 [features]
-egui = ["dep:egui", "dep:rustc-hash", "dep:enum-class"]
+egui = ["dep:egui", "dep:rustc-hash", "dep:enum-class", "husky-visual-protocol/egui"]

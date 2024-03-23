@@ -4111,7 +4111,7 @@
                             ),
                             case_branches: [
                                 VmirCaseBranch {
-                                    pattern: VmirPatternIdx {
+                                    pattern: VmirPattern {
                                         restructive_pattern: 4,
                                         destructive_pattern: None,
                                     },
@@ -4122,7 +4122,7 @@
                                     ),
                                 },
                                 VmirCaseBranch {
-                                    pattern: VmirPatternIdx {
+                                    pattern: VmirPattern {
                                         restructive_pattern: 5,
                                         destructive_pattern: None,
                                     },
@@ -4133,7 +4133,7 @@
                                     ),
                                 },
                                 VmirCaseBranch {
-                                    pattern: VmirPatternIdx {
+                                    pattern: VmirPattern {
                                         restructive_pattern: 6,
                                         destructive_pattern: None,
                                     },
@@ -4196,7 +4196,7 @@
                             ),
                             case_branches: [
                                 VmirCaseBranch {
-                                    pattern: VmirPatternIdx {
+                                    pattern: VmirPattern {
                                         restructive_pattern: 9,
                                         destructive_pattern: None,
                                     },
@@ -4207,7 +4207,7 @@
                                     ),
                                 },
                                 VmirCaseBranch {
-                                    pattern: VmirPatternIdx {
+                                    pattern: VmirPattern {
                                         restructive_pattern: 12,
                                         destructive_pattern: None,
                                     },
@@ -4218,7 +4218,7 @@
                                     ),
                                 },
                                 VmirCaseBranch {
-                                    pattern: VmirPatternIdx {
+                                    pattern: VmirPattern {
                                         restructive_pattern: 13,
                                         destructive_pattern: None,
                                     },
@@ -4229,7 +4229,7 @@
                                     ),
                                 },
                                 VmirCaseBranch {
-                                    pattern: VmirPatternIdx {
+                                    pattern: VmirPattern {
                                         restructive_pattern: 14,
                                         destructive_pattern: None,
                                     },
@@ -4274,7 +4274,7 @@
                             ),
                             case_branches: [
                                 VmirCaseBranch {
-                                    pattern: VmirPatternIdx {
+                                    pattern: VmirPattern {
                                         restructive_pattern: 18,
                                         destructive_pattern: None,
                                     },
@@ -4285,7 +4285,7 @@
                                     ),
                                 },
                                 VmirCaseBranch {
-                                    pattern: VmirPatternIdx {
+                                    pattern: VmirPattern {
                                         restructive_pattern: 19,
                                         destructive_pattern: None,
                                     },
@@ -4296,7 +4296,7 @@
                                     ),
                                 },
                                 VmirCaseBranch {
-                                    pattern: VmirPatternIdx {
+                                    pattern: VmirPattern {
                                         restructive_pattern: 20,
                                         destructive_pattern: None,
                                     },
@@ -4325,7 +4325,7 @@
                             ),
                             case_branches: [
                                 VmirCaseBranch {
-                                    pattern: VmirPatternIdx {
+                                    pattern: VmirPattern {
                                         restructive_pattern: 1,
                                         destructive_pattern: None,
                                     },
@@ -4336,7 +4336,7 @@
                                     ),
                                 },
                                 VmirCaseBranch {
-                                    pattern: VmirPatternIdx {
+                                    pattern: VmirPattern {
                                         restructive_pattern: 7,
                                         destructive_pattern: None,
                                     },
@@ -4347,7 +4347,7 @@
                                     ),
                                 },
                                 VmirCaseBranch {
-                                    pattern: VmirPatternIdx {
+                                    pattern: VmirPattern {
                                         restructive_pattern: 8,
                                         destructive_pattern: None,
                                     },
@@ -4358,7 +4358,7 @@
                                     ),
                                 },
                                 VmirCaseBranch {
-                                    pattern: VmirPatternIdx {
+                                    pattern: VmirPattern {
                                         restructive_pattern: 15,
                                         destructive_pattern: None,
                                     },
@@ -4369,7 +4369,7 @@
                                     ),
                                 },
                                 VmirCaseBranch {
-                                    pattern: VmirPatternIdx {
+                                    pattern: VmirPattern {
                                         restructive_pattern: 21,
                                         destructive_pattern: None,
                                     },
@@ -4489,7 +4489,7 @@
                             ),
                             case_branches: [
                                 VmirCaseBranch {
-                                    pattern: VmirPatternIdx {
+                                    pattern: VmirPattern {
                                         restructive_pattern: 4,
                                         destructive_pattern: None,
                                     },
@@ -4500,7 +4500,7 @@
                                     ),
                                 },
                                 VmirCaseBranch {
-                                    pattern: VmirPatternIdx {
+                                    pattern: VmirPattern {
                                         restructive_pattern: 5,
                                         destructive_pattern: None,
                                     },
@@ -4511,7 +4511,7 @@
                                     ),
                                 },
                                 VmirCaseBranch {
-                                    pattern: VmirPatternIdx {
+                                    pattern: VmirPattern {
                                         restructive_pattern: 6,
                                         destructive_pattern: None,
                                     },
@@ -4652,7 +4652,7 @@
                             ),
                             case_branches: [
                                 VmirCaseBranch {
-                                    pattern: VmirPatternIdx {
+                                    pattern: VmirPattern {
                                         restructive_pattern: 2,
                                         destructive_pattern: None,
                                     },
@@ -4663,7 +4663,7 @@
                                     ),
                                 },
                                 VmirCaseBranch {
-                                    pattern: VmirPatternIdx {
+                                    pattern: VmirPattern {
                                         restructive_pattern: 5,
                                         destructive_pattern: None,
                                     },
@@ -4674,7 +4674,7 @@
                                     ),
                                 },
                                 VmirCaseBranch {
-                                    pattern: VmirPatternIdx {
+                                    pattern: VmirPattern {
                                         restructive_pattern: 6,
                                         destructive_pattern: None,
                                     },
@@ -4737,7 +4737,7 @@
                             ),
                             case_branches: [
                                 VmirCaseBranch {
-                                    pattern: VmirPatternIdx {
+                                    pattern: VmirPattern {
                                         restructive_pattern: 11,
                                         destructive_pattern: None,
                                     },
@@ -4748,7 +4748,7 @@
                                     ),
                                 },
                                 VmirCaseBranch {
-                                    pattern: VmirPatternIdx {
+                                    pattern: VmirPattern {
                                         restructive_pattern: 12,
                                         destructive_pattern: None,
                                     },
@@ -4759,7 +4759,7 @@
                                     ),
                                 },
                                 VmirCaseBranch {
-                                    pattern: VmirPatternIdx {
+                                    pattern: VmirPattern {
                                         restructive_pattern: 13,
                                         destructive_pattern: None,
                                     },
@@ -4795,7 +4795,7 @@
                             ),
                             case_branches: [
                                 VmirCaseBranch {
-                                    pattern: VmirPatternIdx {
+                                    pattern: VmirPattern {
                                         restructive_pattern: 8,
                                         destructive_pattern: None,
                                     },
@@ -4806,7 +4806,7 @@
                                     ),
                                 },
                                 VmirCaseBranch {
-                                    pattern: VmirPatternIdx {
+                                    pattern: VmirPattern {
                                         restructive_pattern: 9,
                                         destructive_pattern: None,
                                     },
@@ -4817,7 +4817,7 @@
                                     ),
                                 },
                                 VmirCaseBranch {
-                                    pattern: VmirPatternIdx {
+                                    pattern: VmirPattern {
                                         restructive_pattern: 10,
                                         destructive_pattern: None,
                                     },
@@ -4828,7 +4828,7 @@
                                     ),
                                 },
                                 VmirCaseBranch {
-                                    pattern: VmirPatternIdx {
+                                    pattern: VmirPattern {
                                         restructive_pattern: 14,
                                         destructive_pattern: None,
                                     },
@@ -4839,7 +4839,7 @@
                                     ),
                                 },
                                 VmirCaseBranch {
-                                    pattern: VmirPatternIdx {
+                                    pattern: VmirPattern {
                                         restructive_pattern: 15,
                                         destructive_pattern: None,
                                     },
@@ -4893,7 +4893,7 @@
                             ),
                             case_branches: [
                                 VmirCaseBranch {
-                                    pattern: VmirPatternIdx {
+                                    pattern: VmirPattern {
                                         restructive_pattern: 22,
                                         destructive_pattern: None,
                                     },
@@ -4904,7 +4904,7 @@
                                     ),
                                 },
                                 VmirCaseBranch {
-                                    pattern: VmirPatternIdx {
+                                    pattern: VmirPattern {
                                         restructive_pattern: 23,
                                         destructive_pattern: None,
                                     },
@@ -4915,7 +4915,7 @@
                                     ),
                                 },
                                 VmirCaseBranch {
-                                    pattern: VmirPatternIdx {
+                                    pattern: VmirPattern {
                                         restructive_pattern: 24,
                                         destructive_pattern: None,
                                     },
@@ -4942,7 +4942,7 @@
                             ),
                             case_branches: [
                                 VmirCaseBranch {
-                                    pattern: VmirPatternIdx {
+                                    pattern: VmirPattern {
                                         restructive_pattern: 20,
                                         destructive_pattern: None,
                                     },
@@ -4953,7 +4953,7 @@
                                     ),
                                 },
                                 VmirCaseBranch {
-                                    pattern: VmirPatternIdx {
+                                    pattern: VmirPattern {
                                         restructive_pattern: 21,
                                         destructive_pattern: None,
                                     },
@@ -4964,7 +4964,7 @@
                                     ),
                                 },
                                 VmirCaseBranch {
-                                    pattern: VmirPatternIdx {
+                                    pattern: VmirPattern {
                                         restructive_pattern: 25,
                                         destructive_pattern: None,
                                     },
@@ -5009,7 +5009,7 @@
                             ),
                             case_branches: [
                                 VmirCaseBranch {
-                                    pattern: VmirPatternIdx {
+                                    pattern: VmirPattern {
                                         restructive_pattern: 29,
                                         destructive_pattern: None,
                                     },
@@ -5020,7 +5020,7 @@
                                     ),
                                 },
                                 VmirCaseBranch {
-                                    pattern: VmirPatternIdx {
+                                    pattern: VmirPattern {
                                         restructive_pattern: 30,
                                         destructive_pattern: None,
                                     },
@@ -5031,7 +5031,7 @@
                                     ),
                                 },
                                 VmirCaseBranch {
-                                    pattern: VmirPatternIdx {
+                                    pattern: VmirPattern {
                                         restructive_pattern: 31,
                                         destructive_pattern: None,
                                     },
@@ -5060,7 +5060,7 @@
                             ),
                             case_branches: [
                                 VmirCaseBranch {
-                                    pattern: VmirPatternIdx {
+                                    pattern: VmirPattern {
                                         restructive_pattern: 1,
                                         destructive_pattern: None,
                                     },
@@ -5071,7 +5071,7 @@
                                     ),
                                 },
                                 VmirCaseBranch {
-                                    pattern: VmirPatternIdx {
+                                    pattern: VmirPattern {
                                         restructive_pattern: 7,
                                         destructive_pattern: None,
                                     },
@@ -5082,7 +5082,7 @@
                                     ),
                                 },
                                 VmirCaseBranch {
-                                    pattern: VmirPatternIdx {
+                                    pattern: VmirPattern {
                                         restructive_pattern: 16,
                                         destructive_pattern: None,
                                     },
@@ -5093,7 +5093,7 @@
                                     ),
                                 },
                                 VmirCaseBranch {
-                                    pattern: VmirPatternIdx {
+                                    pattern: VmirPattern {
                                         restructive_pattern: 26,
                                         destructive_pattern: None,
                                     },
@@ -5104,7 +5104,7 @@
                                     ),
                                 },
                                 VmirCaseBranch {
-                                    pattern: VmirPatternIdx {
+                                    pattern: VmirPattern {
                                         restructive_pattern: 32,
                                         destructive_pattern: None,
                                     },
@@ -7686,7 +7686,7 @@
                             ),
                             case_branches: [
                                 VmirCaseBranch {
-                                    pattern: VmirPatternIdx {
+                                    pattern: VmirPattern {
                                         restructive_pattern: 1,
                                         destructive_pattern: None,
                                     },
@@ -7697,7 +7697,7 @@
                                     ),
                                 },
                                 VmirCaseBranch {
-                                    pattern: VmirPatternIdx {
+                                    pattern: VmirPattern {
                                         restructive_pattern: 2,
                                         destructive_pattern: None,
                                     },
@@ -7708,7 +7708,7 @@
                                     ),
                                 },
                                 VmirCaseBranch {
-                                    pattern: VmirPatternIdx {
+                                    pattern: VmirPattern {
                                         restructive_pattern: 3,
                                         destructive_pattern: None,
                                     },
@@ -7719,7 +7719,7 @@
                                     ),
                                 },
                                 VmirCaseBranch {
-                                    pattern: VmirPatternIdx {
+                                    pattern: VmirPattern {
                                         restructive_pattern: 4,
                                         destructive_pattern: None,
                                     },
@@ -27621,7 +27621,7 @@
                                 opd: VmirExprIdx(
                                     9,
                                 ),
-                                pattern: VmirPatternIdx {
+                                pattern: VmirPattern {
                                     restructive_pattern: 1,
                                     destructive_pattern: None,
                                 },
@@ -27640,7 +27640,7 @@
                                 opd: VmirExprIdx(
                                     15,
                                 ),
-                                pattern: VmirPatternIdx {
+                                pattern: VmirPattern {
                                     restructive_pattern: 2,
                                     destructive_pattern: None,
                                 },
@@ -29298,7 +29298,7 @@
                                 opd: VmirExprIdx(
                                     13,
                                 ),
-                                pattern: VmirPatternIdx {
+                                pattern: VmirPattern {
                                     restructive_pattern: 6,
                                     destructive_pattern: None,
                                 },
@@ -29319,7 +29319,7 @@
                                 opd: VmirExprIdx(
                                     18,
                                 ),
-                                pattern: VmirPatternIdx {
+                                pattern: VmirPattern {
                                     restructive_pattern: 7,
                                     destructive_pattern: None,
                                 },
@@ -29377,7 +29377,7 @@
                                 opd: VmirExprIdx(
                                     1,
                                 ),
-                                pattern: VmirPatternIdx {
+                                pattern: VmirPattern {
                                     restructive_pattern: 1,
                                     destructive_pattern: None,
                                 },
@@ -29388,7 +29388,7 @@
                                 opd: VmirExprIdx(
                                     2,
                                 ),
-                                pattern: VmirPatternIdx {
+                                pattern: VmirPattern {
                                     restructive_pattern: 2,
                                     destructive_pattern: None,
                                 },
@@ -29400,7 +29400,7 @@
                                 opd: VmirExprIdx(
                                     3,
                                 ),
-                                pattern: VmirPatternIdx {
+                                pattern: VmirPattern {
                                     restructive_pattern: 3,
                                     destructive_pattern: None,
                                 },
@@ -29412,7 +29412,7 @@
                                 opd: VmirExprIdx(
                                     4,
                                 ),
-                                pattern: VmirPatternIdx {
+                                pattern: VmirPattern {
                                     restructive_pattern: 4,
                                     destructive_pattern: None,
                                 },
@@ -29434,7 +29434,7 @@
                                     opd: VmirExprIdx(
                                         8,
                                     ),
-                                    pattern: VmirPatternIdx {
+                                    pattern: VmirPattern {
                                         restructive_pattern: 5,
                                         destructive_pattern: None,
                                     },
@@ -31002,7 +31002,7 @@
                                 opd: VmirExprIdx(
                                     8,
                                 ),
-                                pattern: VmirPatternIdx {
+                                pattern: VmirPattern {
                                     restructive_pattern: 1,
                                     destructive_pattern: None,
                                 },
@@ -31095,7 +31095,7 @@
                                 opd: VmirExprIdx(
                                     24,
                                 ),
-                                pattern: VmirPatternIdx {
+                                pattern: VmirPattern {
                                     restructive_pattern: 2,
                                     destructive_pattern: None,
                                 },
@@ -31318,7 +31318,7 @@
                                     opd: VmirExprIdx(
                                         2,
                                     ),
-                                    pattern: VmirPatternIdx {
+                                    pattern: VmirPattern {
                                         restructive_pattern: 2,
                                         destructive_pattern: None,
                                     },
@@ -31347,7 +31347,7 @@
                                     opd: VmirExprIdx(
                                         1,
                                     ),
-                                    pattern: VmirPatternIdx {
+                                    pattern: VmirPattern {
                                         restructive_pattern: 1,
                                         destructive_pattern: None,
                                     },
@@ -32559,7 +32559,7 @@
                                 opd: VmirExprIdx(
                                     11,
                                 ),
-                                pattern: VmirPatternIdx {
+                                pattern: VmirPattern {
                                     restructive_pattern: 4,
                                     destructive_pattern: None,
                                 },
@@ -32580,7 +32580,7 @@
                                 opd: VmirExprIdx(
                                     16,
                                 ),
-                                pattern: VmirPatternIdx {
+                                pattern: VmirPattern {
                                     restructive_pattern: 5,
                                     destructive_pattern: None,
                                 },
@@ -32639,7 +32639,7 @@
                                 opd: VmirExprIdx(
                                     1,
                                 ),
-                                pattern: VmirPatternIdx {
+                                pattern: VmirPattern {
                                     restructive_pattern: 1,
                                     destructive_pattern: None,
                                 },
@@ -32651,7 +32651,7 @@
                                 opd: VmirExprIdx(
                                     2,
                                 ),
-                                pattern: VmirPatternIdx {
+                                pattern: VmirPattern {
                                     restructive_pattern: 2,
                                     destructive_pattern: None,
                                 },
@@ -32673,7 +32673,7 @@
                                     opd: VmirExprIdx(
                                         6,
                                     ),
-                                    pattern: VmirPatternIdx {
+                                    pattern: VmirPattern {
                                         restructive_pattern: 3,
                                         destructive_pattern: None,
                                     },
@@ -33920,7 +33920,7 @@
                                 opd: VmirExprIdx(
                                     11,
                                 ),
-                                pattern: VmirPatternIdx {
+                                pattern: VmirPattern {
                                     restructive_pattern: 2,
                                     destructive_pattern: None,
                                 },
@@ -33931,7 +33931,7 @@
                                 opd: VmirExprIdx(
                                     12,
                                 ),
-                                pattern: VmirPatternIdx {
+                                pattern: VmirPattern {
                                     restructive_pattern: 3,
                                     destructive_pattern: None,
                                 },
@@ -33968,7 +33968,7 @@
                                 opd: VmirExprIdx(
                                     23,
                                 ),
-                                pattern: VmirPatternIdx {
+                                pattern: VmirPattern {
                                     restructive_pattern: 4,
                                     destructive_pattern: None,
                                 },
@@ -33979,7 +33979,7 @@
                                 opd: VmirExprIdx(
                                     24,
                                 ),
-                                pattern: VmirPatternIdx {
+                                pattern: VmirPattern {
                                     restructive_pattern: 5,
                                     destructive_pattern: None,
                                 },
@@ -33990,7 +33990,7 @@
                                 opd: VmirExprIdx(
                                     25,
                                 ),
-                                pattern: VmirPatternIdx {
+                                pattern: VmirPattern {
                                     restructive_pattern: 6,
                                     destructive_pattern: None,
                                 },
@@ -34012,7 +34012,7 @@
                                 opd: VmirExprIdx(
                                     1,
                                 ),
-                                pattern: VmirPatternIdx {
+                                pattern: VmirPattern {
                                     restructive_pattern: 1,
                                     destructive_pattern: None,
                                 },
@@ -35141,7 +35141,7 @@
                             ),
                             case_branches: [
                                 VmirCaseBranch {
-                                    pattern: VmirPatternIdx {
+                                    pattern: VmirPattern {
                                         restructive_pattern: 1,
                                         destructive_pattern: None,
                                     },
@@ -35152,7 +35152,7 @@
                                     ),
                                 },
                                 VmirCaseBranch {
-                                    pattern: VmirPatternIdx {
+                                    pattern: VmirPattern {
                                         restructive_pattern: 2,
                                         destructive_pattern: None,
                                     },
@@ -35564,7 +35564,7 @@
                             ),
                             case_branches: [
                                 VmirCaseBranch {
-                                    pattern: VmirPatternIdx {
+                                    pattern: VmirPattern {
                                         restructive_pattern: 1,
                                         destructive_pattern: None,
                                     },
@@ -35575,7 +35575,7 @@
                                     ),
                                 },
                                 VmirCaseBranch {
-                                    pattern: VmirPatternIdx {
+                                    pattern: VmirPattern {
                                         restructive_pattern: 2,
                                         destructive_pattern: None,
                                     },

@@ -6,7 +6,7 @@ use crate::{
     coersion::VmirCoersion,
     eval::EvalVmir,
     expr::VmirExprIdx,
-    pattern::VmirPatternIdx,
+    pattern::VmirPattern,
     stmt::{
         ifelse::{VmirElifBranchs, VmirElseBranch, VmirIfBranch},
         r#match::VmirCaseBranches,
@@ -198,7 +198,7 @@ pub enum VmirCondition<LinkageImpl: IsLinkageImpl> {
     /// This requires special handling for many cases.
     Be {
         opd: VmirExprIdx<LinkageImpl>,
-        pattern: VmirPatternIdx<LinkageImpl>,
+        pattern: VmirPattern<LinkageImpl>,
     },
     /// all other conditions.
     /// for simplicity, `be` with a syntactically broken pattern is also included in there
