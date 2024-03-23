@@ -80,7 +80,7 @@ where
 {
     type Pedestal = Pedestal;
     type Value = Value;
-    type Error = Error;
+    type Exception = Error;
 
     fn eval_ki(
         self,

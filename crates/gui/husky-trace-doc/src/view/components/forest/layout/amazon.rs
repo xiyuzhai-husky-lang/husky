@@ -180,7 +180,7 @@ where
                                         self.render_value(value, ui)
                                     }
                                     KiControlFlow::Undefined => todo!(),
-                                    KiControlFlow::Err(_) => todo!(),
+                                    KiControlFlow::Throw(_) => todo!(),
                                 },
                                 TraceStalk::Vm(_) => todo!(),
                             }

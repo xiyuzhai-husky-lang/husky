@@ -48,7 +48,7 @@ where
             KiControlFlow::LoopExit(_) => todo!(),
             KiControlFlow::Return(_) => todo!(),
             KiControlFlow::Undefined => return Ok(None),
-            KiControlFlow::Err(_) => todo!(),
+            KiControlFlow::Throw(_) => todo!(),
         };
         let mut features: SmallVec<[NotNan<f32>; 4]> = smallvec![];
         for &argument in arguments {
@@ -58,7 +58,7 @@ where
                 KiControlFlow::LoopExit(_) => todo!(),
                 KiControlFlow::Return(_) => todo!(),
                 KiControlFlow::Undefined => todo!(),
-                KiControlFlow::Err(_) => todo!(),
+                KiControlFlow::Throw(_) => todo!(),
             };
             let feature = match NotNan::new(feature) {
                 Ok(feature) => feature,

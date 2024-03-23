@@ -138,7 +138,7 @@ where
                 KiControlFlow::LoopExit(_) => todo!(),
                 KiControlFlow::Return(_) => todo!(),
                 KiControlFlow::Undefined => todo!(),
-                KiControlFlow::Err(_) => todo!(),
+                KiControlFlow::Throw(_) => todo!(),
             };
             let v = NotNan::new(v).unwrap();
             let apply_result = flag_range.apply(v);

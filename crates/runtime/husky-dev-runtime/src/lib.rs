@@ -128,7 +128,7 @@ impl<Task: IsTask> IsDevRuntime<TaskLinkageImpl<Task>> for DevRuntime<Task> {
     ) -> husky_task_interface::ki_control_flow::KiControlFlow<
         (),
         Infallible,
-        <TaskLinkageImpl<Task> as IsLinkageImpl>::Error,
+        <TaskLinkageImpl<Task> as IsLinkageImpl>::Exception,
     > {
         self.eval_val_domain_repr_at_pedestal(val_domain_repr.into(), pedestal)
     }

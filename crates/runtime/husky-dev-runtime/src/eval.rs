@@ -43,7 +43,7 @@ impl<Task: IsTask> DevRuntime<Task> {
                     KiControlFlow::LoopExit(_) => todo!(),
                     KiControlFlow::Return(_) => todo!(),
                     KiControlFlow::Undefined => KiControlFlow::Undefined,
-                    KiControlFlow::Err(_) => todo!(),
+                    KiControlFlow::Throw(_) => todo!(),
                 }
             }
             ValDomainRepr::ConditionNotSatisfied(condition_ki_repr) => {
@@ -56,7 +56,7 @@ impl<Task: IsTask> DevRuntime<Task> {
                     KiControlFlow::LoopExit(_) => todo!(),
                     KiControlFlow::Return(_) => todo!(),
                     KiControlFlow::Undefined => KiControlFlow::Undefined,
-                    KiControlFlow::Err(_) => todo!(),
+                    KiControlFlow::Throw(_) => todo!(),
                 }
             }
             ValDomainRepr::StmtNotReturned(stmt_ki_repr) => {
@@ -65,7 +65,7 @@ impl<Task: IsTask> DevRuntime<Task> {
                     KiControlFlow::LoopContinue => todo!(),
                     KiControlFlow::LoopExit(_) => todo!(),
                     KiControlFlow::Return(_) | KiControlFlow::Undefined => KiControlFlow::Undefined,
-                    KiControlFlow::Err(_) => todo!(),
+                    KiControlFlow::Throw(_) => todo!(),
                 }
             }
             ValDomainRepr::ExprNotReturned(_) => todo!(),
@@ -291,7 +291,7 @@ impl<Task: IsTask> DevRuntime<Task> {
             KiControlFlow::LoopContinue => unreachable!(),
             KiControlFlow::LoopExit(_) => unreachable!(),
             KiControlFlow::Undefined => unreachable!(),
-            KiControlFlow::Err(e) => KiControlFlow::Err(e),
+            KiControlFlow::Throw(e) => KiControlFlow::Throw(e),
         }
     }
 

@@ -12,7 +12,7 @@ pub enum KiControlFlow<C, B, E> {
     LoopExit(B),
     Return(B),
     Undefined,
-    Err(E),
+    Throw(E),
 }
 
 pub type ValuePresentationKiControlFlow =
@@ -40,7 +40,7 @@ impl<C, B, E> std::ops::Try for KiControlFlow<C, B, E> {
             KiControlFlow::LoopExit(b) => std::ops::ControlFlow::Break(KiControlFlow::LoopExit(b)),
             KiControlFlow::Return(b) => std::ops::ControlFlow::Break(KiControlFlow::Return(b)),
             KiControlFlow::Undefined => std::ops::ControlFlow::Break(KiControlFlow::Undefined),
-            KiControlFlow::Err(e) => std::ops::ControlFlow::Break(KiControlFlow::Err(e)),
+            KiControlFlow::Throw(e) => std::ops::ControlFlow::Break(KiControlFlow::Throw(e)),
         }
     }
 }
@@ -53,7 +53,7 @@ impl<C, B, E> FromResidual<KiControlFlow<Infallible, B, E>> for KiControlFlow<C,
             KiControlFlow::LoopExit(b) => KiControlFlow::LoopExit(b),
             KiControlFlow::Return(b) => KiControlFlow::Return(b),
             KiControlFlow::Undefined => KiControlFlow::Undefined,
-            KiControlFlow::Err(e) => KiControlFlow::Err(e),
+            KiControlFlow::Throw(e) => KiControlFlow::Throw(e),
         }
     }
 }
@@ -62,7 +62,7 @@ impl<C, B, E> FromResidual<Result<Infallible, E>> for KiControlFlow<C, B, E> {
     fn from_residual(residual: Result<Infallible, E>) -> Self {
         match residual {
             Ok(_) => unreachable!(),
-            Err(e) => KiControlFlow::Err(e),
+            Err(e) => KiControlFlow::Throw(e),
         }
     }
 }
@@ -107,7 +107,7 @@ where
             KiControlFlow::LoopExit(_) => todo!(),
             KiControlFlow::Return(_) => todo!(),
             KiControlFlow::Undefined => todo!(),
-            KiControlFlow::Err(_) => todo!(),
+            KiControlFlow::Throw(_) => todo!(),
         }
     }
 
@@ -139,8 +139,8 @@ where
                 value.present(value_presenter_cache, value_presentation_synchrotron),
             ),
             KiControlFlow::Undefined => KiControlFlow::Undefined,
-            KiControlFlow::Err(e) => {
-                KiControlFlow::Err(ValuePresentation::AdHoc(format! {"{e:?}"}))
+            KiControlFlow::Throw(e) => {
+                KiControlFlow::Throw(ValuePresentation::AdHoc(format! {"{e:?}"}))
             }
         }
     }
@@ -154,7 +154,7 @@ impl<C1, B, E> KiControlFlow<C1, B, E> {
             KiControlFlow::LoopExit(b) => KiControlFlow::LoopExit(b),
             KiControlFlow::Return(b) => KiControlFlow::Return(b),
             KiControlFlow::Undefined => KiControlFlow::Undefined,
-            KiControlFlow::Err(e) => KiControlFlow::Err(e),
+            KiControlFlow::Throw(e) => KiControlFlow::Throw(e),
         }
     }
 }

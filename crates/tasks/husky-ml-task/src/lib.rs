@@ -120,7 +120,7 @@ where
                             KiControlFlow::LoopExit(_) => todo!(),
                             KiControlFlow::Return(_) => todo!(),
                             KiControlFlow::Undefined => todo!(),
-                            KiControlFlow::Err(_) => todo!(),
+                            KiControlFlow::Throw(_) => todo!(),
                         }
                     });
                 <<Self::TraceProtocol as IsTraceProtocol>::Figure as IsFigure<MlPedestal>>::new_generic(
