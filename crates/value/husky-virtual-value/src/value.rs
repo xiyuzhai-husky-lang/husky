@@ -3,11 +3,13 @@ mod list;
 mod r#struct;
 
 use husky_literal_value::LiteralValue;
-use husky_task_interface::value::IsValue;
+use husky_value_interface::IsValue;
 use husky_value_protocol::presentation::{
     synchrotron::ValuePresentationSynchrotron, EnumU8ValuePresenter, ValuePresentation,
     ValuePresenterCache,
 };
+use husky_visual_protocol::synchrotron::VisualSynchrotron;
+use husky_visual_protocol::visual::Visual;
 use std::cmp::Ordering;
 
 #[derive(Debug)]
@@ -84,10 +86,7 @@ impl IsValue for Value {
         todo!()
     }
 
-    fn visualize(
-        &self,
-        visual_synchrotron: &mut husky_task_interface::ugly::__VisualSynchrotron,
-    ) -> husky_task_interface::ugly::__Visual {
+    fn visualize(&self, visual_synchrotron: &mut VisualSynchrotron) -> Visual {
         todo!()
     }
 }
@@ -631,11 +630,5 @@ impl Into<f64> for Value {
             Value::F64(value) => value,
             _ => unreachable!(),
         }
-    }
-}
-
-impl From<LiteralValue> for Value {
-    fn from(value: LiteralValue) -> Self {
-        todo!()
     }
 }

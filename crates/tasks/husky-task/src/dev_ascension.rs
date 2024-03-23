@@ -50,7 +50,7 @@ pub trait IsDevAscension {
         val_visual_cache: &mut ValVisualCache<Self::Pedestal>,
     ) -> Visual {
         val_visual_cache.get_visual(ki_repr, pedestal, || {
-            use husky_task_interface::value::IsValue;
+            use husky_value_interface::IsValue;
             match runtime.eval_ki_repr_interface_at_pedestal(ki_repr, pedestal) {
                 KiControlFlow::Continue(value) => value.visualize(visual_synchrotron),
                 KiControlFlow::LoopContinue => todo!(),

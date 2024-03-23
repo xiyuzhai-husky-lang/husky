@@ -275,7 +275,9 @@
                         },
                     },
                 },
-                root_expr: 2,
+                root_expr: VmirExprIdx(
+                    2,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::PrincipalEntityPath,
@@ -292,7 +294,9 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 1,
+                            expr: VmirExprIdx(
+                                1,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
@@ -342,7 +346,9 @@
                         },
                     },
                 },
-                root_expr: 8,
+                root_expr: VmirExprIdx(
+                    8,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -434,7 +440,9 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 2,
+                                    expr: VmirExprIdx(
+                                        2,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -524,7 +532,9 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 4,
+                                    expr: VmirExprIdx(
+                                        4,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -618,7 +628,9 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 6,
+                                    expr: VmirExprIdx(
+                                        6,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -636,28 +648,36 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 3,
+                            expr: VmirExprIdx(
+                                3,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 5,
+                            expr: VmirExprIdx(
+                                5,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 7,
+                            expr: VmirExprIdx(
+                                7,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Match {
-                            opd: 1,
+                            opd: VmirExprIdx(
+                                1,
+                            ),
                             case_branches: [
                                 VmirCaseBranch {
                                     pattern: VmirPatternIdx {
@@ -728,7 +748,9 @@
                         },
                     },
                 },
-                root_expr: 8,
+                root_expr: VmirExprIdx(
+                    8,
+                ),
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Variable {
@@ -820,7 +842,9 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 2,
+                                    expr: VmirExprIdx(
+                                        2,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -910,7 +934,9 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 4,
+                                    expr: VmirExprIdx(
+                                        4,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -1004,7 +1030,9 @@
                             },
                             arguments: [
                                 VmirArgument::Simple {
-                                    expr: 6,
+                                    expr: VmirExprIdx(
+                                        6,
+                                    ),
                                     coersion: VmirCoersion::Trivial,
                                 },
                             ],
@@ -1022,28 +1050,36 @@
                 vmir_stmt_arena: Arena {
                     data: [
                         VmirStmtData::Eval {
-                            expr: 3,
+                            expr: VmirExprIdx(
+                                3,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 5,
+                            expr: VmirExprIdx(
+                                5,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Eval {
-                            expr: 7,
+                            expr: VmirExprIdx(
+                                7,
+                            ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
                             ),
                             discarded: false,
                         },
                         VmirStmtData::Match {
-                            opd: 1,
+                            opd: VmirExprIdx(
+                                1,
+                            ),
                             case_branches: [
                                 VmirCaseBranch {
                                     pattern: VmirPatternIdx {
