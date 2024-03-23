@@ -31,8 +31,10 @@
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Block {
-                            stmts: ArenaIdxRange(
-                                1..2,
+                            stmts: VmirStmtIdxRange(
+                                ArenaIdxRange(
+                                    1..2,
+                                ),
                             ),
                             destroyers: ArenaIdxRange(
                                 1..1,
@@ -79,8 +81,10 @@
                 vmir_expr_arena: Arena {
                     data: [
                         VmirExprData::Block {
-                            stmts: ArenaIdxRange(
-                                1..2,
+                            stmts: VmirStmtIdxRange(
+                                ArenaIdxRange(
+                                    1..2,
+                                ),
                             ),
                             destroyers: ArenaIdxRange(
                                 1..1,

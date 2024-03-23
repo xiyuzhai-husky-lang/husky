@@ -292,7 +292,7 @@ impl<LinkageImpl: IsLinkageImpl> VmirStmtIdx<LinkageImpl> {
                 coersion,
                 discarded,
             } => {
-                let result = expr.eval(ctx)?;
+                let result = expr.eval(coersion, ctx)?;
                 match discarded {
                     true => Continue(().into()),
                     false => Continue(result),
