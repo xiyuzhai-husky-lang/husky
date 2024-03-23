@@ -1,6 +1,6 @@
 use super::*;
 use husky_control_flow_utils::require;
-use husky_task_interface::IsLinkageImpl;
+use husky_place::place::idx::PlaceIdx;
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
 
 /// takes ownership of the match src, destruct it
@@ -14,6 +14,23 @@ pub type VmirDestructivePatternArena<LinkageImpl> = Arena<VmirDestructivePattern
 pub type VmirDestructivePatternIdx<LinkageImpl> = ArenaIdx<VmirDestructivePatternData<LinkageImpl>>;
 pub type VmirDestructivePatternIdxRange<LinkageImpl> =
     ArenaIdxRange<VmirDestructivePatternData<LinkageImpl>>;
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[repr(u8)]
+pub enum VmirDestructivePattern<LinkageImpl: IsLinkageImpl> {
+    Default(Option<PlaceIdx>) = 1,
+    Other(VmirDestructivePatternIdx<LinkageImpl>),
+}
+
+#[test]
+fn vmir_destructive_pattern_size_works() {
+    use husky_linkage::linkage::Linkage;
+
+    assert_eq!(
+        std::mem::size_of::<VmirDestructivePattern<Linkage>>(),
+        std::mem::size_of::<Option<VmirDestructivePattern<Linkage>>>(),
+    )
+}
 
 impl<'comptime, Linktime: IsLinktime> VmirBuilder<'comptime, Linktime> {
     pub(super) fn build_destructive_pattern(

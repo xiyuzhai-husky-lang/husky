@@ -8,14 +8,14 @@ use crate::*;
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct VmirPatternIdx<LinkageImpl: IsLinkageImpl> {
+pub struct VmirPattern<LinkageImpl: IsLinkageImpl> {
     /// a restructive version is always needed to tell if pattern is satisfied
     restructive_pattern: VmirRestructivePatternIdx<LinkageImpl>,
     /// only need this for destructive pattern
     destructive_pattern: Option<VmirDestructivePatternIdx<LinkageImpl>>,
 }
 
-impl<LinkageImpl: IsLinkageImpl> VmirPatternIdx<LinkageImpl> {
+impl<LinkageImpl: IsLinkageImpl> VmirPattern<LinkageImpl> {
     /// a restructive version is always needed to tell if pattern is satisfied
     pub fn restructive_pattern(&self) -> VmirRestructivePatternIdx<LinkageImpl> {
         self.restructive_pattern
@@ -28,7 +28,7 @@ impl<LinkageImpl: IsLinkageImpl> VmirPatternIdx<LinkageImpl> {
 }
 
 impl<LinkageImpl: IsLinkageImpl> ToVmir<LinkageImpl> for HirEagerPatternIdx {
-    type Output = VmirPatternIdx<LinkageImpl>;
+    type Output = VmirPattern<LinkageImpl>;
 
     fn to_vmir<Linktime>(self, builder: &mut VmirBuilder<Linktime>) -> Self::Output
     where
@@ -36,7 +36,7 @@ impl<LinkageImpl: IsLinkageImpl> ToVmir<LinkageImpl> for HirEagerPatternIdx {
     {
         let restructive_pattern = builder.build_restructive_pattern(self);
         let destructive_pattern = builder.build_destructive_pattern(self);
-        VmirPatternIdx {
+        VmirPattern {
             restructive_pattern,
             destructive_pattern,
         }
