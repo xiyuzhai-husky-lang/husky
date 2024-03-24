@@ -6,6 +6,7 @@ use self::int::*;
 use crate::*;
 use husky_literal_value::LiteralValue;
 use ordered_float::OrderedFloat;
+use std::sync::Arc;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db]
@@ -67,7 +68,7 @@ pub enum Literal {
 #[salsa::tracked(db = TermPreludeDb, jar = TermPreludeJar)]
 pub struct StringLiteralTokenData {
     #[return_ref]
-    pub data: String,
+    pub data: Arc<String>,
 }
 
 #[test]
@@ -183,7 +184,7 @@ impl Literal {
             Literal::Nat(_) => todo!(),
             Literal::F32(val) => LiteralValue::F32(val.value(db)),
             Literal::F64(val) => LiteralValue::F64(val.value(db)),
-            Literal::String(_) => todo!(),
+            Literal::String(val) => LiteralValue::String(val.data(db).clone()),
             Literal::StaticLifetime => todo!(),
         }
     }

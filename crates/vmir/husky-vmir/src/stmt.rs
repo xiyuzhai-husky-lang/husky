@@ -21,7 +21,11 @@ use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub enum VmirStmtData<LinkageImpl: IsLinkageImpl> {
-    Let,
+    Let {
+        pattern: VmirPattern<LinkageImpl>,
+        initial_value: VmirExprIdx<LinkageImpl>,
+        coersion: Option<VmirCoersion>,
+    },
     Return {
         result: VmirExprIdx<LinkageImpl>,
         coersion: VmirCoersion,
@@ -116,7 +120,11 @@ impl<LinkageImpl: IsLinkageImpl> ToVmir<LinkageImpl> for HirEagerStmtIdxRange {
                     contract,
                     initial_value,
                     coersion,
-                } => VmirStmtData::Let,
+                } => VmirStmtData::Let {
+                    pattern: pattern.pattern_expr_idx().to_vmir(builder),
+                    initial_value: initial_value.to_vmir(builder),
+                    coersion: coersion.to_vmir(builder),
+                },
                 HirEagerStmtData::Return { result, coersion } => VmirStmtData::Return {
                     result: result.to_vmir(builder),
                     coersion: coersion.to_vmir(builder),
@@ -282,7 +290,14 @@ impl<LinkageImpl: IsLinkageImpl> VmirStmtIdx<LinkageImpl> {
         use VmControlFlow::*;
 
         match *self.entry(ctx.vmir_stmt_arena()) {
-            VmirStmtData::Let => todo!(),
+            VmirStmtData::Let {
+                pattern,
+                initial_value,
+                coersion,
+            } => {
+                todo!();
+                Continue(().into())
+            }
             VmirStmtData::Return { result, coersion } => todo!(),
             VmirStmtData::Require { condition } => todo!(),
             VmirStmtData::Assert { condition } => todo!(),

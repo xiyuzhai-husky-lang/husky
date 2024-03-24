@@ -4,6 +4,7 @@ use husky_term_prelude::literal::{
     float::{F32Literal, F64Literal},
     StringLiteralTokenData,
 };
+use std::sync::Arc;
 
 pub(crate) struct RangedPretoken {
     pub(crate) range: TextRange,
@@ -579,7 +580,7 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
             }
         }
         Ok(Pretoken::Literal(LiteralTokenData::String(
-            StringLiteralTokenData::new(self.db, s),
+            StringLiteralTokenData::new(self.db, Arc::new(s)),
         )))
     }
 }

@@ -478,10 +478,15 @@
                     },
                 },
                 root_expr: VmirExprIdx(
-                    1,
+                    3,
                 ),
                 vmir_expr_arena: Arena {
                     data: [
+                        VmirExprData::Literal {
+                            value: I32(
+                                1,
+                            ),
+                        },
                         VmirExprData::Block {
                             stmts: VmirStmtIdxRange(
                                 ArenaIdxRange(
@@ -492,11 +497,39 @@
                                 1..1,
                             ),
                         },
+                        VmirExprData::Block {
+                            stmts: VmirStmtIdxRange(
+                                ArenaIdxRange(
+                                    2..3,
+                                ),
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
                     data: [
-                        VmirStmtData::Let,
+                        VmirStmtData::Eval {
+                            expr: VmirExprIdx(
+                                1,
+                            ),
+                            coersion: None,
+                            discarded: false,
+                        },
+                        VmirStmtData::Let {
+                            pattern: VmirPattern {
+                                restructive_pattern: VmirRestructivePattern::Default(
+                                    None,
+                                ),
+                                destructive_pattern: None,
+                            },
+                            initial_value: VmirExprIdx(
+                                2,
+                            ),
+                            coersion: None,
+                        },
                     ],
                 },
             },
@@ -528,10 +561,11 @@
                     },
                 },
                 root_expr: VmirExprIdx(
-                    1,
+                    2,
                 ),
                 vmir_expr_arena: Arena {
                     data: [
+                        VmirExprData::Closure,
                         VmirExprData::Block {
                             stmts: VmirStmtIdxRange(
                                 ArenaIdxRange(
@@ -546,7 +580,18 @@
                 },
                 vmir_stmt_arena: Arena {
                     data: [
-                        VmirStmtData::Let,
+                        VmirStmtData::Let {
+                            pattern: VmirPattern {
+                                restructive_pattern: VmirRestructivePattern::Default(
+                                    None,
+                                ),
+                                destructive_pattern: None,
+                            },
+                            initial_value: VmirExprIdx(
+                                1,
+                            ),
+                            coersion: None,
+                        },
                     ],
                 },
             },
@@ -578,10 +623,11 @@
                     },
                 },
                 root_expr: VmirExprIdx(
-                    1,
+                    2,
                 ),
                 vmir_expr_arena: Arena {
                     data: [
+                        VmirExprData::Closure,
                         VmirExprData::Block {
                             stmts: VmirStmtIdxRange(
                                 ArenaIdxRange(
@@ -596,7 +642,18 @@
                 },
                 vmir_stmt_arena: Arena {
                     data: [
-                        VmirStmtData::Let,
+                        VmirStmtData::Let {
+                            pattern: VmirPattern {
+                                restructive_pattern: VmirRestructivePattern::Default(
+                                    None,
+                                ),
+                                destructive_pattern: None,
+                            },
+                            initial_value: VmirExprIdx(
+                                1,
+                            ),
+                            coersion: None,
+                        },
                     ],
                 },
             },

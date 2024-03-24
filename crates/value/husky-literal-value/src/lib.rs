@@ -1,7 +1,8 @@
 use husky_value_interface::IsValue;
 use ordered_float::OrderedFloat;
+use std::sync::Arc;
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[derive(Debug, PartialEq, Eq, Clone)]
 pub enum LiteralValue {
     /// unit literal
     Unit(()),
@@ -49,10 +50,11 @@ pub enum LiteralValue {
     F32(OrderedFloat<f32>),
     /// 64-bit float literal
     F64(OrderedFloat<f64>),
+    String(Arc<String>),
 }
 
 impl LiteralValue {
-    pub fn into_value<Value: IsValue>(self) -> Value {
+    pub fn into_value<Value: IsValue>(&self) -> Value {
         todo!()
     }
 }
