@@ -405,7 +405,7 @@ impl<LinkageImpl: IsLinkageImpl> VmirExprIdx<LinkageImpl> {
         use VmControlFlow::*;
 
         match *self.entry(ctx.vmir_expr_arena()) {
-            VmirExprData::Literal { value } => Continue(value.into_value()),
+            VmirExprData::Literal { ref value } => Continue(value.into_value()),
             VmirExprData::Variable { place_idx, qual } => {
                 Continue(ctx.access_variable(place_idx, qual))
             }

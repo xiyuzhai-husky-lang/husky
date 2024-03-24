@@ -45,7 +45,7 @@ impl<'comptime, Linktime: IsLinktime> VmirBuilder<'comptime, Linktime> {
             .is_destructive());
         let pattern = self.build_destructive_pattern_aux(hir_eager_pattern);
         Some(match pattern {
-            Left(pattern) => todo!(),
+            Left(pattern) => pattern,
             Right(pattern_data) => {
                 VmirDestructivePattern::Other(self.alloc_destructive_pattern(pattern_data))
             }
@@ -64,7 +64,7 @@ impl<'comptime, Linktime: IsLinktime> VmirBuilder<'comptime, Linktime> {
             HirEagerPatternData::Ident {
                 symbol_modifier,
                 ident,
-            } => todo!(),
+            } => Left(VmirDestructivePattern::Default(None /* ad hoc */)),
             HirEagerPatternData::UnitPath(_) => todo!(),
             HirEagerPatternData::Tuple { path, fields } => todo!(),
             HirEagerPatternData::Props { path, fields } => todo!(),
