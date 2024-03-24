@@ -1,7 +1,5 @@
 use crate::*;
 
-use husky_vfs::ModulePath;
-
 pub trait SynDeclDb {
     fn syn_node_decl_sheet(&self, module_path: ModulePath) -> SynNodeDeclSheet;
 
@@ -126,6 +124,8 @@ pub struct SynDeclJar(
     crate::decl::attr::backprop::BackwardAttrSynDecl,
     crate::decl::attr::effect::EffectAttrSynNodeDecl,
     crate::decl::attr::effect::EffectAttrSynDecl,
+    crate::decl::attr::test::TestAttrSynNodeDecl,
+    crate::decl::attr::test::TestAttrSynDecl,
     crate::decl::attr_syn_node_decl,
     crate::decl::attr_syn_decl,
     // sheet

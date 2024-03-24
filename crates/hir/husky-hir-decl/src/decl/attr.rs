@@ -35,5 +35,6 @@ fn attr_hir_decl(db: &::salsa::Db, path: AttrItemPath) -> Option<AttrHirDecl> {
         AttrSynDecl::Derive(syn_decl) => {
             Some(DeriveAttrHirDecl::from_syn(path, syn_decl, db).into())
         }
+        AttrSynDecl::Test(_) => todo!(),
     }
 }
