@@ -22,7 +22,7 @@ pub enum HirEagerPatternData {
         ident: Ident,
     },
     /// example: `A::B`
-    Unit(PatternPath),
+    UnitPath(PatternPath),
     /// example: `(a, b)`
     Tuple {
         path: Option<PatternPath>,
@@ -168,7 +168,9 @@ impl<'a> HirEagerExprBuilder<'a> {
                 ident: ident_token.ident(),
                 symbol_modifier: symbol_modifier_tokens.map(Into::into),
             },
-            SynPatternData::UnitTypeVariant { path, .. } => HirEagerPatternData::Unit(path.into()),
+            SynPatternData::UnitTypeVariant { path, .. } => {
+                HirEagerPatternData::UnitPath(path.into())
+            }
             SynPatternData::Tuple { .. } => todo!(),
             SynPatternData::TupleStruct { .. } => todo!(),
             SynPatternData::TupleTypeVariant { path, .. } => {

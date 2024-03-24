@@ -4354,7 +4354,7 @@
                                             contract: Pure,
                                         },
                                         HirEagerPatternEntry {
-                                            data: HirEagerPatternData::Unit(
+                                            data: HirEagerPatternData::UnitPath(
                                                 PatternPath::TypeVariant(
                                                     TypeVariantPath(
                                                         ItemPathId(
@@ -4368,7 +4368,7 @@
                                             contract: Pure,
                                         },
                                         HirEagerPatternEntry {
-                                            data: HirEagerPatternData::Unit(
+                                            data: HirEagerPatternData::UnitPath(
                                                 PatternPath::TypeVariant(
                                                     TypeVariantPath(
                                                         ItemPathId(
@@ -4452,7 +4452,7 @@
                                             contract: Pure,
                                         },
                                         HirEagerPatternEntry {
-                                            data: HirEagerPatternData::Unit(
+                                            data: HirEagerPatternData::UnitPath(
                                                 PatternPath::TypeVariant(
                                                     TypeVariantPath(
                                                         ItemPathId(
@@ -4466,7 +4466,7 @@
                                             contract: Pure,
                                         },
                                         HirEagerPatternEntry {
-                                            data: HirEagerPatternData::Unit(
+                                            data: HirEagerPatternData::UnitPath(
                                                 PatternPath::TypeVariant(
                                                     TypeVariantPath(
                                                         ItemPathId(
@@ -13953,7 +13953,7 @@
                                             contract: Pure,
                                         },
                                         HirEagerPatternEntry {
-                                            data: HirEagerPatternData::Unit(
+                                            data: HirEagerPatternData::UnitPath(
                                                 PatternPath::TypeVariant(
                                                     TypeVariantPath(
                                                         ItemPathId(
@@ -13967,7 +13967,7 @@
                                             contract: Pure,
                                         },
                                         HirEagerPatternEntry {
-                                            data: HirEagerPatternData::Unit(
+                                            data: HirEagerPatternData::UnitPath(
                                                 PatternPath::TypeVariant(
                                                     TypeVariantPath(
                                                         ItemPathId(
@@ -13981,7 +13981,7 @@
                                             contract: Pure,
                                         },
                                         HirEagerPatternEntry {
-                                            data: HirEagerPatternData::Unit(
+                                            data: HirEagerPatternData::UnitPath(
                                                 PatternPath::TypeVariant(
                                                     TypeVariantPath(
                                                         ItemPathId(
@@ -13995,7 +13995,7 @@
                                             contract: Pure,
                                         },
                                         HirEagerPatternEntry {
-                                            data: HirEagerPatternData::Unit(
+                                            data: HirEagerPatternData::UnitPath(
                                                 PatternPath::TypeVariant(
                                                     TypeVariantPath(
                                                         ItemPathId(

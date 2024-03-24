@@ -36,7 +36,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for HirEagerPatternIdx {
                 }
                 ident.transpile_to_rust(builder)
             }
-            HirEagerPatternData::Unit(path) => path.transpile_to_rust(builder),
+            HirEagerPatternData::UnitPath(path) => path.transpile_to_rust(builder),
             HirEagerPatternData::Tuple { path: _, fields: _ } => todo!(),
             HirEagerPatternData::Props { path: _, fields: _ } => todo!(),
             HirEagerPatternData::OneOf { options } => {

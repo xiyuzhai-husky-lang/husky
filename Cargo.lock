@@ -6490,6 +6490,7 @@ version = "0.1.0"
 name = "husky-vmir"
 version = "0.0.0"
 dependencies = [
+ "either",
  "enum-class",
  "husky-ast",
  "husky-check-utils",
