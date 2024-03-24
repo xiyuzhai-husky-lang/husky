@@ -23,5 +23,6 @@ impl HasDecTemplate for AttrItemPath {
 fn attr_dec_template(db: &::salsa::Db, path: AttrItemPath) -> DecSignatureResult<AttrDecTemplate> {
     match path.syn_decl(db)? {
         AttrSynDecl::Derive(decl) => DeriveAttrDecTemplate::from_decl(decl, db).map(Into::into),
+        AttrSynDecl::Test(decl) => todo!(),
     }
 }

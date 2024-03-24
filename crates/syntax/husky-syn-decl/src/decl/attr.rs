@@ -1,10 +1,15 @@
 pub mod backprop;
 pub mod derive;
 pub mod effect;
+pub mod test;
 
 pub use self::derive::*;
 
-use self::{backprop::BackpropAttrSynNodeDecl, effect::EffectAttrSynNodeDecl};
+use self::{
+    backprop::BackpropAttrSynNodeDecl,
+    effect::EffectAttrSynNodeDecl,
+    test::{TestAttrSynDecl, TestAttrSynNodeDecl},
+};
 use super::*;
 use husky_coword::coword_menu;
 
@@ -14,6 +19,7 @@ pub enum AttrSynNodeDecl {
     Backprop(BackpropAttrSynNodeDecl),
     Derive(DeriveAttrSynNodeDecl),
     Effect(EffectAttrSynNodeDecl),
+    Test(TestAttrSynNodeDecl),
 }
 
 /// # getters
@@ -23,6 +29,7 @@ impl AttrSynNodeDecl {
             AttrSynNodeDecl::Derive(slf) => slf.syn_expr_region(db),
             AttrSynNodeDecl::Backprop(slf) => slf.syn_expr_region(db),
             AttrSynNodeDecl::Effect(slf) => slf.syn_expr_region(db),
+            AttrSynNodeDecl::Test(slf) => slf.syn_expr_region(db),
         }
     }
 
@@ -31,6 +38,7 @@ impl AttrSynNodeDecl {
             AttrSynNodeDecl::Derive(slf) => slf.errors(db),
             AttrSynNodeDecl::Backprop(slf) => slf.errors(db),
             AttrSynNodeDecl::Effect(slf) => slf.errors(db),
+            AttrSynNodeDecl::Test(slf) => slf.errors(db),
         }
     }
 }
@@ -59,6 +67,7 @@ fn attr_syn_node_decl(db: &::salsa::Db, syn_node_path: AttrSynNodePath) -> AttrS
 #[enum_class::from_variants]
 pub enum AttrSynDecl {
     Derive(DeriveAttrSynDecl),
+    Test(TestAttrSynDecl),
 }
 
 /// # constructor
@@ -67,14 +76,15 @@ impl AttrSynDecl {
     fn from_node_decl(
         db: &::salsa::Db,
         path: AttrItemPath,
-        sndecl: AttrSynNodeDecl,
+        node_decl: AttrSynNodeDecl,
     ) -> DeclResult<Self> {
-        Ok(match sndecl {
-            AttrSynNodeDecl::Derive(sndecl) => {
-                DeriveAttrSynDecl::from_node_decl(db, path, sndecl)?.into()
+        Ok(match node_decl {
+            AttrSynNodeDecl::Derive(node_decl) => {
+                DeriveAttrSynDecl::from_node_decl(db, path, node_decl)?.into()
             }
             AttrSynNodeDecl::Backprop(_) => todo!(),
             AttrSynNodeDecl::Effect(_) => todo!(),
+            AttrSynNodeDecl::Test(node_decl) => TestAttrSynDecl::from_node(node_decl, db)?.into(),
         })
     }
 }
@@ -84,12 +94,14 @@ impl AttrSynDecl {
     pub fn path(self, db: &::salsa::Db) -> AttrItemPath {
         match self {
             AttrSynDecl::Derive(slf) => slf.path(db),
+            AttrSynDecl::Test(slf) => slf.path(db),
         }
     }
 
     pub fn syn_expr_region(self, db: &::salsa::Db) -> SynExprRegion {
         match self {
             AttrSynDecl::Derive(slf) => slf.syn_expr_region(db),
+            AttrSynDecl::Test(slf) => slf.syn_expr_region(db),
         }
     }
 }
