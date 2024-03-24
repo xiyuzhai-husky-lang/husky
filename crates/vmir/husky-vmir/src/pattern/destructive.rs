@@ -1,4 +1,5 @@
 use super::*;
+use either::*;
 use husky_control_flow_utils::require;
 use husky_place::place::idx::PlaceIdx;
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
@@ -15,10 +16,12 @@ pub type VmirDestructivePatternIdx<LinkageImpl> = ArenaIdx<VmirDestructivePatter
 pub type VmirDestructivePatternIdxRange<LinkageImpl> =
     ArenaIdxRange<VmirDestructivePatternData<LinkageImpl>>;
 
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[repr(u8)]
 pub enum VmirDestructivePattern<LinkageImpl: IsLinkageImpl> {
     Default(Option<PlaceIdx>) = 1,
+    Or(VmirDestructivePatternIdxRange<LinkageImpl>),
     Other(VmirDestructivePatternIdx<LinkageImpl>),
 }
 
@@ -36,31 +39,39 @@ impl<'comptime, Linktime: IsLinktime> VmirBuilder<'comptime, Linktime> {
     pub(super) fn build_destructive_pattern(
         &mut self,
         hir_eager_pattern: HirEagerPatternIdx,
-    ) -> Option<VmirDestructivePatternIdx<Linktime::LinkageImpl>> {
+    ) -> Option<VmirDestructivePattern<Linktime::LinkageImpl>> {
         require!(hir_eager_pattern
             .entry(self.hir_eager_pattern_arena())
             .is_destructive());
         let pattern = self.build_destructive_pattern_aux(hir_eager_pattern);
-        Some(self.alloc_destructive_pattern(pattern))
+        Some(match pattern {
+            Left(pattern) => todo!(),
+            Right(pattern_data) => {
+                VmirDestructivePattern::Other(self.alloc_destructive_pattern(pattern_data))
+            }
+        })
     }
 
     pub(super) fn build_destructive_pattern_aux(
         &mut self,
         hir_eager_pattern: HirEagerPatternIdx,
-    ) -> VmirDestructivePatternData<Linktime::LinkageImpl> {
+    ) -> Either<
+        VmirDestructivePattern<Linktime::LinkageImpl>,
+        VmirDestructivePatternData<Linktime::LinkageImpl>,
+    > {
         match *self.hir_eager_pattern_arena()[hir_eager_pattern].data() {
             HirEagerPatternData::Literal(_) => todo!(),
             HirEagerPatternData::Ident {
                 symbol_modifier,
                 ident,
             } => todo!(),
-            HirEagerPatternData::Unit(_) => todo!(),
+            HirEagerPatternData::UnitPath(_) => todo!(),
             HirEagerPatternData::Tuple { path, fields } => todo!(),
             HirEagerPatternData::Props { path, fields } => todo!(),
             HirEagerPatternData::OneOf { options } => todo!(),
             HirEagerPatternData::Binding { ident, src } => todo!(),
             HirEagerPatternData::Range { start, end } => todo!(),
-            HirEagerPatternData::Some => VmirDestructivePatternData::Some,
+            HirEagerPatternData::Some => Right(VmirDestructivePatternData::Some),
         }
     }
 }

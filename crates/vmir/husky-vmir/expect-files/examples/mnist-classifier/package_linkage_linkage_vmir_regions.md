@@ -4112,7 +4112,11 @@
                             case_branches: [
                                 VmirCaseBranch {
                                     pattern: VmirPattern {
-                                        restructive_pattern: 4,
+                                        restructive_pattern: VmirRestructivePattern::OneOf(
+                                            ArenaIdxRange(
+                                                1..3,
+                                            ),
+                                        ),
                                         destructive_pattern: None,
                                     },
                                     stmts: VmirStmtIdxRange(
@@ -4123,7 +4127,7 @@
                                 },
                                 VmirCaseBranch {
                                     pattern: VmirPattern {
-                                        restructive_pattern: 5,
+                                        restructive_pattern: VmirRestructivePattern::Literal,
                                         destructive_pattern: None,
                                     },
                                     stmts: VmirStmtIdxRange(
@@ -4134,7 +4138,9 @@
                                 },
                                 VmirCaseBranch {
                                     pattern: VmirPattern {
-                                        restructive_pattern: 6,
+                                        restructive_pattern: VmirRestructivePattern::Default(
+                                            None,
+                                        ),
                                         destructive_pattern: None,
                                     },
                                     stmts: VmirStmtIdxRange(
@@ -4197,7 +4203,7 @@
                             case_branches: [
                                 VmirCaseBranch {
                                     pattern: VmirPattern {
-                                        restructive_pattern: 9,
+                                        restructive_pattern: VmirRestructivePattern::Literal,
                                         destructive_pattern: None,
                                     },
                                     stmts: VmirStmtIdxRange(
@@ -4208,7 +4214,11 @@
                                 },
                                 VmirCaseBranch {
                                     pattern: VmirPattern {
-                                        restructive_pattern: 12,
+                                        restructive_pattern: VmirRestructivePattern::OneOf(
+                                            ArenaIdxRange(
+                                                3..5,
+                                            ),
+                                        ),
                                         destructive_pattern: None,
                                     },
                                     stmts: VmirStmtIdxRange(
@@ -4219,7 +4229,7 @@
                                 },
                                 VmirCaseBranch {
                                     pattern: VmirPattern {
-                                        restructive_pattern: 13,
+                                        restructive_pattern: VmirRestructivePattern::Literal,
                                         destructive_pattern: None,
                                     },
                                     stmts: VmirStmtIdxRange(
@@ -4230,7 +4240,9 @@
                                 },
                                 VmirCaseBranch {
                                     pattern: VmirPattern {
-                                        restructive_pattern: 14,
+                                        restructive_pattern: VmirRestructivePattern::Default(
+                                            None,
+                                        ),
                                         destructive_pattern: None,
                                     },
                                     stmts: VmirStmtIdxRange(
@@ -4275,7 +4287,11 @@
                             case_branches: [
                                 VmirCaseBranch {
                                     pattern: VmirPattern {
-                                        restructive_pattern: 18,
+                                        restructive_pattern: VmirRestructivePattern::OneOf(
+                                            ArenaIdxRange(
+                                                5..7,
+                                            ),
+                                        ),
                                         destructive_pattern: None,
                                     },
                                     stmts: VmirStmtIdxRange(
@@ -4286,7 +4302,7 @@
                                 },
                                 VmirCaseBranch {
                                     pattern: VmirPattern {
-                                        restructive_pattern: 19,
+                                        restructive_pattern: VmirRestructivePattern::Literal,
                                         destructive_pattern: None,
                                     },
                                     stmts: VmirStmtIdxRange(
@@ -4297,7 +4313,9 @@
                                 },
                                 VmirCaseBranch {
                                     pattern: VmirPattern {
-                                        restructive_pattern: 20,
+                                        restructive_pattern: VmirRestructivePattern::Default(
+                                            None,
+                                        ),
                                         destructive_pattern: None,
                                     },
                                     stmts: VmirStmtIdxRange(
@@ -4326,7 +4344,7 @@
                             case_branches: [
                                 VmirCaseBranch {
                                     pattern: VmirPattern {
-                                        restructive_pattern: 1,
+                                        restructive_pattern: VmirRestructivePattern::Literal,
                                         destructive_pattern: None,
                                     },
                                     stmts: VmirStmtIdxRange(
@@ -4337,7 +4355,7 @@
                                 },
                                 VmirCaseBranch {
                                     pattern: VmirPattern {
-                                        restructive_pattern: 7,
+                                        restructive_pattern: VmirRestructivePattern::Literal,
                                         destructive_pattern: None,
                                     },
                                     stmts: VmirStmtIdxRange(
@@ -4348,7 +4366,7 @@
                                 },
                                 VmirCaseBranch {
                                     pattern: VmirPattern {
-                                        restructive_pattern: 8,
+                                        restructive_pattern: VmirRestructivePattern::Literal,
                                         destructive_pattern: None,
                                     },
                                     stmts: VmirStmtIdxRange(
@@ -4359,7 +4377,7 @@
                                 },
                                 VmirCaseBranch {
                                     pattern: VmirPattern {
-                                        restructive_pattern: 15,
+                                        restructive_pattern: VmirRestructivePattern::Literal,
                                         destructive_pattern: None,
                                     },
                                     stmts: VmirStmtIdxRange(
@@ -4370,7 +4388,9 @@
                                 },
                                 VmirCaseBranch {
                                     pattern: VmirPattern {
-                                        restructive_pattern: 21,
+                                        restructive_pattern: VmirRestructivePattern::Default(
+                                            None,
+                                        ),
                                         destructive_pattern: None,
                                     },
                                     stmts: VmirStmtIdxRange(
@@ -4490,7 +4510,11 @@
                             case_branches: [
                                 VmirCaseBranch {
                                     pattern: VmirPattern {
-                                        restructive_pattern: 4,
+                                        restructive_pattern: VmirRestructivePattern::OneOf(
+                                            ArenaIdxRange(
+                                                1..4,
+                                            ),
+                                        ),
                                         destructive_pattern: None,
                                     },
                                     stmts: VmirStmtIdxRange(
@@ -4501,7 +4525,7 @@
                                 },
                                 VmirCaseBranch {
                                     pattern: VmirPattern {
-                                        restructive_pattern: 5,
+                                        restructive_pattern: VmirRestructivePattern::Literal,
                                         destructive_pattern: None,
                                     },
                                     stmts: VmirStmtIdxRange(
@@ -4512,7 +4536,9 @@
                                 },
                                 VmirCaseBranch {
                                     pattern: VmirPattern {
-                                        restructive_pattern: 6,
+                                        restructive_pattern: VmirRestructivePattern::Default(
+                                            None,
+                                        ),
                                         destructive_pattern: None,
                                     },
                                     stmts: VmirStmtIdxRange(
@@ -4653,7 +4679,7 @@
                             case_branches: [
                                 VmirCaseBranch {
                                     pattern: VmirPattern {
-                                        restructive_pattern: 2,
+                                        restructive_pattern: VmirRestructivePattern::Literal,
                                         destructive_pattern: None,
                                     },
                                     stmts: VmirStmtIdxRange(
@@ -4664,7 +4690,11 @@
                                 },
                                 VmirCaseBranch {
                                     pattern: VmirPattern {
-                                        restructive_pattern: 5,
+                                        restructive_pattern: VmirRestructivePattern::OneOf(
+                                            ArenaIdxRange(
+                                                1..3,
+                                            ),
+                                        ),
                                         destructive_pattern: None,
                                     },
                                     stmts: VmirStmtIdxRange(
@@ -4675,7 +4705,9 @@
                                 },
                                 VmirCaseBranch {
                                     pattern: VmirPattern {
-                                        restructive_pattern: 6,
+                                        restructive_pattern: VmirRestructivePattern::Default(
+                                            None,
+                                        ),
                                         destructive_pattern: None,
                                     },
                                     stmts: VmirStmtIdxRange(
@@ -4738,7 +4770,7 @@
                             case_branches: [
                                 VmirCaseBranch {
                                     pattern: VmirPattern {
-                                        restructive_pattern: 11,
+                                        restructive_pattern: VmirRestructivePattern::UnitPath,
                                         destructive_pattern: None,
                                     },
                                     stmts: VmirStmtIdxRange(
@@ -4749,7 +4781,7 @@
                                 },
                                 VmirCaseBranch {
                                     pattern: VmirPattern {
-                                        restructive_pattern: 12,
+                                        restructive_pattern: VmirRestructivePattern::UnitPath,
                                         destructive_pattern: None,
                                     },
                                     stmts: VmirStmtIdxRange(
@@ -4760,7 +4792,9 @@
                                 },
                                 VmirCaseBranch {
                                     pattern: VmirPattern {
-                                        restructive_pattern: 13,
+                                        restructive_pattern: VmirRestructivePattern::Default(
+                                            None,
+                                        ),
                                         destructive_pattern: None,
                                     },
                                     stmts: VmirStmtIdxRange(
@@ -4796,7 +4830,7 @@
                             case_branches: [
                                 VmirCaseBranch {
                                     pattern: VmirPattern {
-                                        restructive_pattern: 8,
+                                        restructive_pattern: VmirRestructivePattern::Literal,
                                         destructive_pattern: None,
                                     },
                                     stmts: VmirStmtIdxRange(
@@ -4807,7 +4841,7 @@
                                 },
                                 VmirCaseBranch {
                                     pattern: VmirPattern {
-                                        restructive_pattern: 9,
+                                        restructive_pattern: VmirRestructivePattern::Literal,
                                         destructive_pattern: None,
                                     },
                                     stmts: VmirStmtIdxRange(
@@ -4818,7 +4852,7 @@
                                 },
                                 VmirCaseBranch {
                                     pattern: VmirPattern {
-                                        restructive_pattern: 10,
+                                        restructive_pattern: VmirRestructivePattern::Literal,
                                         destructive_pattern: None,
                                     },
                                     stmts: VmirStmtIdxRange(
@@ -4829,7 +4863,7 @@
                                 },
                                 VmirCaseBranch {
                                     pattern: VmirPattern {
-                                        restructive_pattern: 14,
+                                        restructive_pattern: VmirRestructivePattern::Literal,
                                         destructive_pattern: None,
                                     },
                                     stmts: VmirStmtIdxRange(
@@ -4840,7 +4874,9 @@
                                 },
                                 VmirCaseBranch {
                                     pattern: VmirPattern {
-                                        restructive_pattern: 15,
+                                        restructive_pattern: VmirRestructivePattern::Default(
+                                            None,
+                                        ),
                                         destructive_pattern: None,
                                     },
                                     stmts: VmirStmtIdxRange(
@@ -4894,7 +4930,7 @@
                             case_branches: [
                                 VmirCaseBranch {
                                     pattern: VmirPattern {
-                                        restructive_pattern: 22,
+                                        restructive_pattern: VmirRestructivePattern::UnitPath,
                                         destructive_pattern: None,
                                     },
                                     stmts: VmirStmtIdxRange(
@@ -4905,7 +4941,7 @@
                                 },
                                 VmirCaseBranch {
                                     pattern: VmirPattern {
-                                        restructive_pattern: 23,
+                                        restructive_pattern: VmirRestructivePattern::UnitPath,
                                         destructive_pattern: None,
                                     },
                                     stmts: VmirStmtIdxRange(
@@ -4916,7 +4952,9 @@
                                 },
                                 VmirCaseBranch {
                                     pattern: VmirPattern {
-                                        restructive_pattern: 24,
+                                        restructive_pattern: VmirRestructivePattern::Default(
+                                            None,
+                                        ),
                                         destructive_pattern: None,
                                     },
                                     stmts: VmirStmtIdxRange(
@@ -4943,7 +4981,11 @@
                             case_branches: [
                                 VmirCaseBranch {
                                     pattern: VmirPattern {
-                                        restructive_pattern: 20,
+                                        restructive_pattern: VmirRestructivePattern::OneOf(
+                                            ArenaIdxRange(
+                                                3..6,
+                                            ),
+                                        ),
                                         destructive_pattern: None,
                                     },
                                     stmts: VmirStmtIdxRange(
@@ -4954,7 +4996,7 @@
                                 },
                                 VmirCaseBranch {
                                     pattern: VmirPattern {
-                                        restructive_pattern: 21,
+                                        restructive_pattern: VmirRestructivePattern::Literal,
                                         destructive_pattern: None,
                                     },
                                     stmts: VmirStmtIdxRange(
@@ -4965,7 +5007,9 @@
                                 },
                                 VmirCaseBranch {
                                     pattern: VmirPattern {
-                                        restructive_pattern: 25,
+                                        restructive_pattern: VmirRestructivePattern::Default(
+                                            None,
+                                        ),
                                         destructive_pattern: None,
                                     },
                                     stmts: VmirStmtIdxRange(
@@ -5010,7 +5054,11 @@
                             case_branches: [
                                 VmirCaseBranch {
                                     pattern: VmirPattern {
-                                        restructive_pattern: 29,
+                                        restructive_pattern: VmirRestructivePattern::OneOf(
+                                            ArenaIdxRange(
+                                                6..8,
+                                            ),
+                                        ),
                                         destructive_pattern: None,
                                     },
                                     stmts: VmirStmtIdxRange(
@@ -5021,7 +5069,7 @@
                                 },
                                 VmirCaseBranch {
                                     pattern: VmirPattern {
-                                        restructive_pattern: 30,
+                                        restructive_pattern: VmirRestructivePattern::Literal,
                                         destructive_pattern: None,
                                     },
                                     stmts: VmirStmtIdxRange(
@@ -5032,7 +5080,9 @@
                                 },
                                 VmirCaseBranch {
                                     pattern: VmirPattern {
-                                        restructive_pattern: 31,
+                                        restructive_pattern: VmirRestructivePattern::Default(
+                                            None,
+                                        ),
                                         destructive_pattern: None,
                                     },
                                     stmts: VmirStmtIdxRange(
@@ -5061,7 +5111,7 @@
                             case_branches: [
                                 VmirCaseBranch {
                                     pattern: VmirPattern {
-                                        restructive_pattern: 1,
+                                        restructive_pattern: VmirRestructivePattern::Literal,
                                         destructive_pattern: None,
                                     },
                                     stmts: VmirStmtIdxRange(
@@ -5072,7 +5122,7 @@
                                 },
                                 VmirCaseBranch {
                                     pattern: VmirPattern {
-                                        restructive_pattern: 7,
+                                        restructive_pattern: VmirRestructivePattern::Literal,
                                         destructive_pattern: None,
                                     },
                                     stmts: VmirStmtIdxRange(
@@ -5083,7 +5133,7 @@
                                 },
                                 VmirCaseBranch {
                                     pattern: VmirPattern {
-                                        restructive_pattern: 16,
+                                        restructive_pattern: VmirRestructivePattern::Literal,
                                         destructive_pattern: None,
                                     },
                                     stmts: VmirStmtIdxRange(
@@ -5094,7 +5144,7 @@
                                 },
                                 VmirCaseBranch {
                                     pattern: VmirPattern {
-                                        restructive_pattern: 26,
+                                        restructive_pattern: VmirRestructivePattern::Literal,
                                         destructive_pattern: None,
                                     },
                                     stmts: VmirStmtIdxRange(
@@ -5105,7 +5155,9 @@
                                 },
                                 VmirCaseBranch {
                                     pattern: VmirPattern {
-                                        restructive_pattern: 32,
+                                        restructive_pattern: VmirRestructivePattern::Default(
+                                            None,
+                                        ),
                                         destructive_pattern: None,
                                     },
                                     stmts: VmirStmtIdxRange(
@@ -7687,7 +7739,7 @@
                             case_branches: [
                                 VmirCaseBranch {
                                     pattern: VmirPattern {
-                                        restructive_pattern: 1,
+                                        restructive_pattern: VmirRestructivePattern::UnitPath,
                                         destructive_pattern: None,
                                     },
                                     stmts: VmirStmtIdxRange(
@@ -7698,7 +7750,7 @@
                                 },
                                 VmirCaseBranch {
                                     pattern: VmirPattern {
-                                        restructive_pattern: 2,
+                                        restructive_pattern: VmirRestructivePattern::UnitPath,
                                         destructive_pattern: None,
                                     },
                                     stmts: VmirStmtIdxRange(
@@ -7709,7 +7761,7 @@
                                 },
                                 VmirCaseBranch {
                                     pattern: VmirPattern {
-                                        restructive_pattern: 3,
+                                        restructive_pattern: VmirRestructivePattern::UnitPath,
                                         destructive_pattern: None,
                                     },
                                     stmts: VmirStmtIdxRange(
@@ -7720,7 +7772,7 @@
                                 },
                                 VmirCaseBranch {
                                     pattern: VmirPattern {
-                                        restructive_pattern: 4,
+                                        restructive_pattern: VmirRestructivePattern::UnitPath,
                                         destructive_pattern: None,
                                     },
                                     stmts: VmirStmtIdxRange(
@@ -27622,7 +27674,9 @@
                                     9,
                                 ),
                                 pattern: VmirPattern {
-                                    restructive_pattern: 1,
+                                    restructive_pattern: VmirRestructivePattern::Other(
+                                        1,
+                                    ),
                                     destructive_pattern: None,
                                 },
                             },
@@ -27641,7 +27695,9 @@
                                     15,
                                 ),
                                 pattern: VmirPattern {
-                                    restructive_pattern: 2,
+                                    restructive_pattern: VmirRestructivePattern::Other(
+                                        2,
+                                    ),
                                     destructive_pattern: None,
                                 },
                             },
@@ -29299,7 +29355,9 @@
                                     13,
                                 ),
                                 pattern: VmirPattern {
-                                    restructive_pattern: 6,
+                                    restructive_pattern: VmirRestructivePattern::Other(
+                                        4,
+                                    ),
                                     destructive_pattern: None,
                                 },
                             },
@@ -29320,7 +29378,9 @@
                                     18,
                                 ),
                                 pattern: VmirPattern {
-                                    restructive_pattern: 7,
+                                    restructive_pattern: VmirRestructivePattern::Other(
+                                        5,
+                                    ),
                                     destructive_pattern: None,
                                 },
                             },
@@ -29378,7 +29438,9 @@
                                     1,
                                 ),
                                 pattern: VmirPattern {
-                                    restructive_pattern: 1,
+                                    restructive_pattern: VmirRestructivePattern::Other(
+                                        1,
+                                    ),
                                     destructive_pattern: None,
                                 },
                             },
@@ -29389,7 +29451,9 @@
                                     2,
                                 ),
                                 pattern: VmirPattern {
-                                    restructive_pattern: 2,
+                                    restructive_pattern: VmirRestructivePattern::Other(
+                                        2,
+                                    ),
                                     destructive_pattern: None,
                                 },
                             },
@@ -29401,7 +29465,7 @@
                                     3,
                                 ),
                                 pattern: VmirPattern {
-                                    restructive_pattern: 3,
+                                    restructive_pattern: VmirRestructivePattern::UnitPath,
                                     destructive_pattern: None,
                                 },
                             },
@@ -29413,7 +29477,9 @@
                                     4,
                                 ),
                                 pattern: VmirPattern {
-                                    restructive_pattern: 4,
+                                    restructive_pattern: VmirRestructivePattern::Other(
+                                        3,
+                                    ),
                                     destructive_pattern: None,
                                 },
                             },
@@ -29435,7 +29501,7 @@
                                         8,
                                     ),
                                     pattern: VmirPattern {
-                                        restructive_pattern: 5,
+                                        restructive_pattern: VmirRestructivePattern::UnitPath,
                                         destructive_pattern: None,
                                     },
                                 },
@@ -31003,7 +31069,9 @@
                                     8,
                                 ),
                                 pattern: VmirPattern {
-                                    restructive_pattern: 1,
+                                    restructive_pattern: VmirRestructivePattern::Other(
+                                        1,
+                                    ),
                                     destructive_pattern: None,
                                 },
                             },
@@ -31096,7 +31164,9 @@
                                     24,
                                 ),
                                 pattern: VmirPattern {
-                                    restructive_pattern: 2,
+                                    restructive_pattern: VmirRestructivePattern::Other(
+                                        2,
+                                    ),
                                     destructive_pattern: None,
                                 },
                             },
@@ -31319,7 +31389,7 @@
                                         2,
                                     ),
                                     pattern: VmirPattern {
-                                        restructive_pattern: 2,
+                                        restructive_pattern: VmirRestructivePattern::UnitPath,
                                         destructive_pattern: None,
                                     },
                                 },
@@ -31348,7 +31418,7 @@
                                         1,
                                     ),
                                     pattern: VmirPattern {
-                                        restructive_pattern: 1,
+                                        restructive_pattern: VmirRestructivePattern::UnitPath,
                                         destructive_pattern: None,
                                     },
                                 },
@@ -32560,7 +32630,9 @@
                                     11,
                                 ),
                                 pattern: VmirPattern {
-                                    restructive_pattern: 4,
+                                    restructive_pattern: VmirRestructivePattern::Other(
+                                        2,
+                                    ),
                                     destructive_pattern: None,
                                 },
                             },
@@ -32581,7 +32653,9 @@
                                     16,
                                 ),
                                 pattern: VmirPattern {
-                                    restructive_pattern: 5,
+                                    restructive_pattern: VmirRestructivePattern::Other(
+                                        3,
+                                    ),
                                     destructive_pattern: None,
                                 },
                             },
@@ -32640,7 +32714,7 @@
                                     1,
                                 ),
                                 pattern: VmirPattern {
-                                    restructive_pattern: 1,
+                                    restructive_pattern: VmirRestructivePattern::UnitPath,
                                     destructive_pattern: None,
                                 },
                             },
@@ -32652,7 +32726,9 @@
                                     2,
                                 ),
                                 pattern: VmirPattern {
-                                    restructive_pattern: 2,
+                                    restructive_pattern: VmirRestructivePattern::Other(
+                                        1,
+                                    ),
                                     destructive_pattern: None,
                                 },
                             },
@@ -32674,7 +32750,7 @@
                                         6,
                                     ),
                                     pattern: VmirPattern {
-                                        restructive_pattern: 3,
+                                        restructive_pattern: VmirRestructivePattern::UnitPath,
                                         destructive_pattern: None,
                                     },
                                 },
@@ -33921,7 +33997,9 @@
                                     11,
                                 ),
                                 pattern: VmirPattern {
-                                    restructive_pattern: 2,
+                                    restructive_pattern: VmirRestructivePattern::Other(
+                                        1,
+                                    ),
                                     destructive_pattern: None,
                                 },
                             },
@@ -33932,7 +34010,9 @@
                                     12,
                                 ),
                                 pattern: VmirPattern {
-                                    restructive_pattern: 3,
+                                    restructive_pattern: VmirRestructivePattern::Other(
+                                        2,
+                                    ),
                                     destructive_pattern: None,
                                 },
                             },
@@ -33969,7 +34049,9 @@
                                     23,
                                 ),
                                 pattern: VmirPattern {
-                                    restructive_pattern: 4,
+                                    restructive_pattern: VmirRestructivePattern::Other(
+                                        3,
+                                    ),
                                     destructive_pattern: None,
                                 },
                             },
@@ -33980,7 +34062,9 @@
                                     24,
                                 ),
                                 pattern: VmirPattern {
-                                    restructive_pattern: 5,
+                                    restructive_pattern: VmirRestructivePattern::Other(
+                                        4,
+                                    ),
                                     destructive_pattern: None,
                                 },
                             },
@@ -33991,7 +34075,9 @@
                                     25,
                                 ),
                                 pattern: VmirPattern {
-                                    restructive_pattern: 6,
+                                    restructive_pattern: VmirRestructivePattern::Other(
+                                        5,
+                                    ),
                                     destructive_pattern: None,
                                 },
                             },
@@ -34013,7 +34099,7 @@
                                     1,
                                 ),
                                 pattern: VmirPattern {
-                                    restructive_pattern: 1,
+                                    restructive_pattern: VmirRestructivePattern::UnitPath,
                                     destructive_pattern: None,
                                 },
                             },
@@ -35142,7 +35228,7 @@
                             case_branches: [
                                 VmirCaseBranch {
                                     pattern: VmirPattern {
-                                        restructive_pattern: 1,
+                                        restructive_pattern: VmirRestructivePattern::UnitPath,
                                         destructive_pattern: None,
                                     },
                                     stmts: VmirStmtIdxRange(
@@ -35153,7 +35239,7 @@
                                 },
                                 VmirCaseBranch {
                                     pattern: VmirPattern {
-                                        restructive_pattern: 2,
+                                        restructive_pattern: VmirRestructivePattern::UnitPath,
                                         destructive_pattern: None,
                                     },
                                     stmts: VmirStmtIdxRange(
@@ -35565,7 +35651,7 @@
                             case_branches: [
                                 VmirCaseBranch {
                                     pattern: VmirPattern {
-                                        restructive_pattern: 1,
+                                        restructive_pattern: VmirRestructivePattern::UnitPath,
                                         destructive_pattern: None,
                                     },
                                     stmts: VmirStmtIdxRange(
@@ -35576,7 +35662,7 @@
                                 },
                                 VmirCaseBranch {
                                     pattern: VmirPattern {
-                                        restructive_pattern: 2,
+                                        restructive_pattern: VmirRestructivePattern::UnitPath,
                                         destructive_pattern: None,
                                     },
                                     stmts: VmirStmtIdxRange(

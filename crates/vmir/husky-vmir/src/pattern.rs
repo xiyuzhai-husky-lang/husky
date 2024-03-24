@@ -1,28 +1,27 @@
 pub mod destructive;
 pub mod restructive;
 
-use husky_hir_eager_expr::{HirEagerPatternData, HirEagerPatternIdx};
-
-use self::{destructive::VmirDestructivePatternIdx, restructive::VmirRestructivePatternIdx};
+use self::{destructive::VmirDestructivePattern, restructive::VmirRestructivePattern};
 use crate::*;
+use husky_hir_eager_expr::{HirEagerPatternData, HirEagerPatternIdx};
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct VmirPattern<LinkageImpl: IsLinkageImpl> {
     /// a restructive version is always needed to tell if pattern is satisfied
-    restructive_pattern: VmirRestructivePatternIdx<LinkageImpl>,
+    restructive_pattern: VmirRestructivePattern<LinkageImpl>,
     /// only need this for destructive pattern
-    destructive_pattern: Option<VmirDestructivePatternIdx<LinkageImpl>>,
+    destructive_pattern: Option<VmirDestructivePattern<LinkageImpl>>,
 }
 
 impl<LinkageImpl: IsLinkageImpl> VmirPattern<LinkageImpl> {
     /// a restructive version is always needed to tell if pattern is satisfied
-    pub fn restructive_pattern(&self) -> VmirRestructivePatternIdx<LinkageImpl> {
+    pub fn restructive_pattern(&self) -> VmirRestructivePattern<LinkageImpl> {
         self.restructive_pattern
     }
 
     /// only need this for destructive pattern
-    pub fn destructive_pattern(&self) -> Option<VmirDestructivePatternIdx<LinkageImpl>> {
+    pub fn destructive_pattern(&self) -> Option<VmirDestructivePattern<LinkageImpl>> {
         self.destructive_pattern
     }
 }
