@@ -13,6 +13,18 @@ pub enum VmControlFlow<C, B, E> {
     Throw(E),
 }
 
+impl<C, B, E> VmControlFlow<C, B, E> {
+    pub fn map<D>(self, f: impl FnOnce(C) -> D) -> VmControlFlow<D, B, E> {
+        match self {
+            VmControlFlow::Continue(c) => VmControlFlow::Continue(f(c)),
+            VmControlFlow::LoopContinue => VmControlFlow::LoopContinue,
+            VmControlFlow::LoopExit(b) => VmControlFlow::LoopExit(b),
+            VmControlFlow::Return(b) => VmControlFlow::Return(b),
+            VmControlFlow::Throw(e) => VmControlFlow::Throw(e),
+        }
+    }
+}
+
 pub type ValuePresentationVmControlFlow =
     VmControlFlow<ValuePresentation, ValuePresentation, ValuePresentation>;
 pub type LinkageImplVmControlFlow<LinkageImpl> = VmControlFlow<
