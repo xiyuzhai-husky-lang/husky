@@ -258,6 +258,8 @@ impl<LinkageImpl: IsLinkageImpl> ToVmir<LinkageImpl> for ConditionConversion {
     }
 }
 
+/// # eval
+
 impl<LinkageImpl: IsLinkageImpl> VmirStmtIdxRange<LinkageImpl> {
     pub fn eval<'comptime>(
         self,
@@ -295,13 +297,19 @@ impl<LinkageImpl: IsLinkageImpl> VmirStmtIdx<LinkageImpl> {
                 initial_value,
                 coersion,
             } => {
-                todo!();
+                todo!("init pattern");
                 Continue(().into())
             }
-            VmirStmtData::Return { result, coersion } => todo!(),
-            VmirStmtData::Require { condition } => todo!(),
-            VmirStmtData::Assert { condition } => todo!(),
-            VmirStmtData::Break => todo!(),
+            VmirStmtData::Return { result, coersion } => Return(result.eval(coersion, ctx)?),
+            VmirStmtData::Require { condition } => match condition.eval(ctx)? {
+                true => todo!(),
+                false => todo!(),
+            },
+            VmirStmtData::Assert { condition } => match condition.eval(ctx)? {
+                true => todo!(),
+                false => todo!(),
+            },
+            VmirStmtData::Break => LoopExit(().into()),
             VmirStmtData::Eval {
                 expr,
                 coersion,
@@ -327,6 +335,18 @@ impl<LinkageImpl: IsLinkageImpl> VmirStmtIdx<LinkageImpl> {
                 opd,
                 ref case_branches,
             } => todo!(),
+        }
+    }
+}
+
+impl<LinkageImpl: IsLinkageImpl> VmirCondition<LinkageImpl> {
+    fn eval<'comptime>(
+        self,
+        ctx: &mut impl EvalVmir<'comptime, LinkageImpl>,
+    ) -> VmControlFlow<bool, LinkageImpl::Value, LinkageImpl::Exception> {
+        match self {
+            VmirCondition::Be { opd, pattern } => todo!(),
+            VmirCondition::Other { opd, conversion } => opd.eval(None, ctx).map(|v| v.to_bool()),
         }
     }
 }

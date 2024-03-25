@@ -381,11 +381,11 @@ impl<LinkageImpl: IsLinkageImpl> VmirExprIdx<LinkageImpl> {
     #[inline(always)]
     pub fn eval<'comptime>(
         self,
-        coersion: Option<VmirCoersion>,
+        coersion: impl Into<Option<VmirCoersion>>,
         ctx: &mut impl EvalVmir<'comptime, LinkageImpl>,
     ) -> LinkageImplVmControlFlow<LinkageImpl> {
         let value = ctx.eval_expr(self, |ctx| self.eval_aux(ctx))?;
-        VmControlFlow::Continue(match coersion {
+        VmControlFlow::Continue(match coersion.into() {
             Some(coersion) => match coersion {
                 VmirCoersion::Trivial => todo!(),
                 VmirCoersion::Never => todo!(),
