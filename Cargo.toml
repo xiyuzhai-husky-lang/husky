@@ -87,10 +87,10 @@ comemo = { git = "https://github.com/typst/comemo", rev = "ddb3773" }
 csv = "1"
 dashmap = "5.5.1"
 dirs = "5"
-ecolor = { version = "0.26.0", features = ["serde", "bytemuck"] }
+ecolor = { version = "0.27.0", features = ["serde", "bytemuck"] }
 ecow = { version = "0.2", features = ["serde"] }
-eframe = "0.26.0"
-egui = { version = "0.26.0", features = [
+eframe = "0.27.0"
+egui = { version = "0.27.0", features = [
     "callstack",
     "extra_debug_asserts",
     "extra_asserts",
@@ -98,7 +98,7 @@ egui = { version = "0.26.0", features = [
 ] }
 either = "1.8.1"
 env_proxy = "0.4"
-epaint = "0.26.0"
+epaint = "0.27.0"
 expect-test = "1.4.1"
 futures = "0.3.28"
 futures-util = { version = "0.3", default-features = false, features = [
