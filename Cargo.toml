@@ -64,7 +64,7 @@ lto = false
 arc-swap = "1.4.0"
 atomic_enum = "0.3.0"
 axum = { version = "0.7.4" }
-cargo = "0.77.0"
+cargo = "0.78.0"
 cargo-manifest = "0.13.0"
 chinese-number = { version = "0.7.2", default-features = false, features = [
     "number-to-chinese"
@@ -108,9 +108,9 @@ futures-util = { version = "0.3", default-features = false, features = [
 fxhash = "0.2.1"
 git2 = "0.18.2"
 hashlink = "0.9.0"
-heck = "0.4"
-image = "0.24.8"
-imageproc = "0.23.0"
+heck = "0.5"
+image = "0.25.0"
+imageproc = "0.24.0"
 indexmap = "2.0.0"
 itertools = "0.12.0"
 lazy_static = "1.4.0"
