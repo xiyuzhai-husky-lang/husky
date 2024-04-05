@@ -6128,6 +6128,7 @@ dependencies = [
 name = "husky-tex-command"
 version = "0.1.0"
 dependencies = [
+ "husky-coword",
  "husky-tex-prelude",
  "salsa",
 ]
@@ -6167,6 +6168,7 @@ version = "0.1.0"
 dependencies = [
  "enum-class",
  "expect-test",
+ "husky-coword",
  "husky-print-utils",
  "husky-tex-math-letter",
  "husky-tex-prelude",

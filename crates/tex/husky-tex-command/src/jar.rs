@@ -1,2 +1,2 @@
 #[salsa::jar]
-pub struct TexCommandJar(crate::path::TexCommandPath);
+pub struct TexCommandJar();

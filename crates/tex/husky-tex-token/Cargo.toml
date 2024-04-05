@@ -16,6 +16,8 @@ keywords.workspace = true
 enum-class.workspace = true
 salsa.workspace = true
 shifted-unsigned-int.workspace = true
+# kernel
+husky-coword.workspace = true
 # protocols
 husky-text-protocol.workspace = true
 # tex
