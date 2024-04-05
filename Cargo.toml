@@ -273,6 +273,12 @@ husky-task-interface = { path = "crates/tasks/husky-task-interface" }
 husky-task-interface-macros = { path = "crates/tasks/husky-task-interface-macros" }
 # tex
 husky-tex-ast = { path = "crates/tex/husky-tex-ast" }
+husky-tex-command = { path = "crates/tex/husky-tex-command" }
+husky-tex-math-letter = { path = "crates/tex/husky-tex-math-letter" }
+husky-tex-math-opr = { path = "crates/tex/husky-tex-math-opr" }
+husky-tex-prelude = { path = "crates/tex/husky-tex-prelude" }
+husky-tex-sem-expr = { path = "crates/tex/husky-tex-sem-expr" }
+husky-tex-syn-expr = { path = "crates/tex/husky-tex-syn-expr" }
 husky-tex-text = { path = "crates/tex/husky-tex-text" }
 husky-tex-token = { path = "crates/tex/husky-tex-token" }
 # toml

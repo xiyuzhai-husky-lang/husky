@@ -165,6 +165,8 @@ pub enum JarIndex {
     SynExprJar,
     TomlAstJar,
     CorgiConfigAstJar,
+    // tex
+    TexCommandJar,
     // vm
     VmirJar,
 }
