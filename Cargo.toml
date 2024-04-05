@@ -242,9 +242,9 @@ husky-visual-protocol = { path = "crates/protocols/husky-visual-protocol" }
 # runtime
 husky-dev-runtime = { path = "crates/runtime/husky-dev-runtime" }
 # semantics
-husky-sema-expr = { path = "crates/semantics/husky-sema-expr" }
-husky-sema-opr = { path = "crates/semantics/husky-sema-opr" }
-husky-sema-place-contract = { path = "crates/semantics/husky-sema-place-contract" }
+husky-sem-expr = { path = "crates/semantics/husky-sem-expr" }
+husky-sem-opr = { path = "crates/semantics/husky-sem-opr" }
+husky-sem-place-contract = { path = "crates/semantics/husky-sem-place-contract" }
 # syntax
 husky-ast = { path = "crates/syntax/husky-ast" }
 husky-decl-ast = { path = "crates/syntax/husky-decl-ast" }

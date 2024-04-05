@@ -1,5 +1,5 @@
 use husky_hir_ty::HirType;
-use husky_sema_expr::LetVariableObelisk;
+use husky_sem_expr::LetVariableObelisk;
 use husky_syn_expr::{BePatternSyndicate, SynPatternData};
 
 use crate::*;
@@ -35,9 +35,9 @@ impl<'a> HirLazyExprBuilder<'a> {
                 .filter_map(|var| self.current_syn_symbol_to_hir_lazy_variable(var))
                 .collect(),
             ty: let_variables_pattern
-                .ty_sema_expr_idx()
-                .map(|ty_sema_expr_idx| {
-                    HirType::from_eth(self.expr_term(ty_sema_expr_idx), self.db()).unwrap()
+                .ty_sem_expr_idx()
+                .map(|ty_sem_expr_idx| {
+                    HirType::from_eth(self.expr_term(ty_sem_expr_idx), self.db()).unwrap()
                 }),
         }
     }

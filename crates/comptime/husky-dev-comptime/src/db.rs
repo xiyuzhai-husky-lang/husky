@@ -38,8 +38,8 @@ use std::panic::RefUnwindSafe;
     husky_javelin::jar::JavelinJar,
     husky_linkage::jar::LinkageJar,
     // semantics
-    husky_sema_expr::SemaExprJar,
-    husky_sema_place_contract::jar::SemaPlaceContractJar,
+    husky_sem_expr::SemaExprJar,
+    husky_sem_place_contract::jar::SemaPlaceContractJar,
     // syntax
     husky_ast::jar::AstJar,
     husky_toml_ast::TomlAstJar,

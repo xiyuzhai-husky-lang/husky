@@ -10,7 +10,7 @@ enum-class.workspace = true
 # fs
 husky-vfs.workspace = true
 # infer
-husky-sema-expr.workspace = true
+husky-sem-expr.workspace = true
 # kernel
 husky-entity-kind = { path = "../../kernel/husky-entity-kind", features = [
     "protocol_support"
@@ -27,7 +27,7 @@ husky-text-protocol.workspace = true
 husky-entity-protocol = { workspace = true, optional = true }
 husky-token-protocol = { path = "../../protocols/husky-token-protocol", optional = true }
 # semantics
-husky-sema-opr = { path = "../../semantics/husky-sema-opr" }
+husky-sem-opr = { path = "../../semantics/husky-sem-opr" }
 # syntax
 husky-ast.workspace = true
 husky-decl-ast.workspace = true
@@ -53,7 +53,7 @@ husky-eth-term.workspace = true
 husky-eth-signature.workspace = true
 husky-fly-term.workspace = true
 # semantics
-husky-sema-place-contract.workspace = true
+husky-sem-place-contract.workspace = true
 # lex
 husky-text.workspace = true
 husky-toml-token.workspace = true

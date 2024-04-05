@@ -1,0 +1,11 @@
+```rust
+[
+    SemaPlaceContractRegion {
+        expr_sites: SemaExprMap(
+            ArenaMap {
+                data: [],
+            },
+        ),
+    },
+]
+```

@@ -77,8 +77,8 @@ husky-javelin.workspace = true
 husky-linkage.workspace = true
 # semantics
 husky-corgi-config.workspace = true
-husky-sema-expr.workspace = true
-husky-sema-place-contract.workspace = true
+husky-sem-expr.workspace = true
+husky-sem-place-contract.workspace = true
 # syntax
 husky-ast = { workspace = true, features = ["test_utils"] }
 husky-toml-ast.workspace = true

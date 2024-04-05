@@ -57,9 +57,9 @@ impl HirTemplateParameter {
                     }) => trait_syn_expr_idxs
                         .iter()
                         .map(|&trai_syn_expr_idx| {
-                            let sema_expr_region_data = &builder.sema_expr_region_data();
-                            let terms = sema_expr_region_data.fly_term_region().terms();
-                            let trai_term = match sema_expr_region_data
+                            let sem_expr_region_data = &builder.sem_expr_region_data();
+                            let terms = sem_expr_region_data.fly_term_region().terms();
+                            let trai_term = match sem_expr_region_data
                                 .syn_root_expr_term(trai_syn_expr_idx)
                                 .expect("some")
                                 .expect("ok")

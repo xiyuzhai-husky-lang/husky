@@ -2,7 +2,7 @@ use either::*;
 use husky_entity_path::{PreludeNumTypePath, PreludeTypePath};
 use husky_fly_term::FlyTerm;
 use husky_fly_term::FlyTerms;
-use husky_sema_opr::prefix::SemaPrefixOpr;
+use husky_sem_opr::prefix::SemaPrefixOpr;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum HirPrefixOpr {

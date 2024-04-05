@@ -3,7 +3,7 @@ use husky_hir_lazy_expr::{
     helpers::hir_lazy_expr_source_map_from_syn, HirLazyExprIdx, HirLazyStmtIdx,
 };
 use husky_regional_token::RegionalTokenIdxRange;
-use husky_sema_expr::{helpers::range::sema_expr_range_region, SemaExprDb};
+use husky_sem_expr::{helpers::range::sem_expr_range_region, SemaExprDb};
 use husky_syn_defn::{item_syn_defn, ItemSynDefn};
 use salsa::DebugWithDb;
 
@@ -50,9 +50,9 @@ impl KiReprSource {
                     let ItemSynDefn {
                         syn_expr_region, ..
                     } = item_syn_defn(db, path.into()).unwrap();
-                    let sema_expr_region = db.sema_expr_region(syn_expr_region);
-                    let sema_expr_range_region_data =
-                        sema_expr_range_region(db, sema_expr_region).data(db);
+                    let sem_expr_region = db.sem_expr_region(syn_expr_region);
+                    let sem_expr_range_region_data =
+                        sem_expr_range_region(db, sem_expr_region).data(db);
                     let source_map_data =
                         hir_lazy_expr_source_map_from_syn(syn_expr_region, db).data(db);
                     match source {
@@ -63,7 +63,7 @@ impl KiReprSource {
                         KiReprExpansionSource::IfCondition { stmt } => todo!(),
                         KiReprExpansionSource::ElifCondition { stmt, branch_idx } => todo!(),
                         KiReprExpansionSource::Expr { expr } => {
-                            sema_expr_range_region_data[source_map_data.sema_expr_idx(expr)]
+                            sem_expr_range_region_data[source_map_data.sem_expr_idx(expr)]
                         }
                         KiReprExpansionSource::Stmt { stmt } => todo!(),
                     }

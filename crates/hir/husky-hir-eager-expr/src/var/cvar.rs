@@ -3,7 +3,7 @@ use husky_coword::Ident;
 use husky_eth_term::term::EthTerm;
 use husky_fly_term::FlyTermBase;
 use husky_hir_ty::HirTemplateSvar;
-use husky_sema_expr::SemaExprRegionData;
+use husky_sem_expr::SemaExprRegionData;
 use husky_syn_expr::{
     CurrentSynSymbolData, CurrentTemplateParameterSynSymbolVariant, VariableRegionData,
 };
@@ -55,13 +55,13 @@ impl HirEagerComptimeSvarEntry {
 
 impl HirEagerComptimeSvarRegionData {
     pub(crate) fn from_sema(
-        sema_expr_region_data: &SemaExprRegionData,
+        sem_expr_region_data: &SemaExprRegionData,
         syn_symobl_region_data: &VariableRegionData,
         db: &::salsa::Db,
     ) -> Self {
         let mut arena = HirEagerComptimeSvarArena::default();
-        let terms = sema_expr_region_data.fly_term_region().terms();
-        for (inherited_syn_symbol_idx, &fly_term) in sema_expr_region_data
+        let terms = sem_expr_region_data.fly_term_region().terms();
+        for (inherited_syn_symbol_idx, &fly_term) in sem_expr_region_data
             .symbol_terms()
             .inherited_syn_symbol_key_values()
         {
@@ -87,7 +87,7 @@ impl HirEagerComptimeSvarRegionData {
                 _ => todo!(),
             }
         }
-        for (current_syn_symbol_idx, &fly_term) in sema_expr_region_data
+        for (current_syn_symbol_idx, &fly_term) in sem_expr_region_data
             .symbol_terms()
             .current_syn_symbol_key_values()
         {

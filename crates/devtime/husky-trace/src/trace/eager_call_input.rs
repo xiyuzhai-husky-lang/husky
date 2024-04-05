@@ -1,7 +1,7 @@
 use super::*;
 use crate::registry::assoc_trace::VoidAssocTraceRegistry;
 use husky_hir_eager_expr::HirEagerExprIdx;
-use husky_sema_expr::{helpers::range::sema_expr_range_region, SemaExprRegion};
+use husky_sem_expr::{helpers::range::sem_expr_range_region, SemaExprRegion};
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct EagerCallInputTracePathData {
@@ -15,7 +15,7 @@ pub struct EagerCallInputTraceData {
     biological_parent: Trace,
     input_sketch: EagerCallInputSketch,
     #[skip_fmt]
-    caller_sema_expr_region: SemaExprRegion,
+    caller_sem_expr_region: SemaExprRegion,
     #[skip_fmt]
     callee_syn_expr_region: SynExprRegion,
 }
@@ -24,7 +24,7 @@ pub struct EagerCallInputTraceData {
 pub enum EagerCallInputSketch {
     Simple {
         // parameter_syn_pattern_expr_idx: SynPatternExprIdx,
-        argument_sema_expr_idx: SemaExprIdx,
+        argument_sem_expr_idx: SemaExprIdx,
         argument_hir_eager_expr_idx: Option<HirEagerExprIdx>,
     },
     Variadic,
@@ -36,7 +36,7 @@ impl Trace {
         biological_parent_path: TracePath,
         biological_parent: Trace,
         input_sketch: EagerCallInputSketch,
-        caller_sema_expr_region: SemaExprRegion,
+        caller_sem_expr_region: SemaExprRegion,
         callee_syn_expr_region: SynExprRegion,
         db: &::salsa::Db,
     ) -> Self {
@@ -52,7 +52,7 @@ impl Trace {
                 path,
                 biological_parent: biological_parent.into(),
                 input_sketch,
-                caller_sema_expr_region,
+                caller_sem_expr_region,
                 callee_syn_expr_region,
             }
             .into(),
@@ -63,17 +63,17 @@ impl Trace {
 
 impl EagerCallInputTraceData {
     pub(super) fn view_lines(&self, db: &::salsa::Db) -> TraceViewLines {
-        let caller_sema_expr_region = self.caller_sema_expr_region;
-        let caller_sema_expr_range_region = sema_expr_range_region(db, caller_sema_expr_region);
-        let caller_sema_expr_range_region_data = caller_sema_expr_range_region.data(db);
-        let caller_region_path = caller_sema_expr_region.path(db);
+        let caller_sem_expr_region = self.caller_sem_expr_region;
+        let caller_sem_expr_range_region = sem_expr_range_region(db, caller_sem_expr_region);
+        let caller_sem_expr_range_region_data = caller_sem_expr_range_region.data(db);
+        let caller_region_path = caller_sem_expr_region.path(db);
         match self.input_sketch {
             EagerCallInputSketch::Simple {
-                argument_sema_expr_idx,
+                argument_sem_expr_idx,
                 argument_hir_eager_expr_idx: _,
             } => {
                 let argument_regional_token_idx_range =
-                    caller_sema_expr_range_region_data[argument_sema_expr_idx];
+                    caller_sem_expr_range_region_data[argument_sem_expr_idx];
                 let argument_token_idx_range = argument_regional_token_idx_range
                     .token_idx_range(caller_region_path.regional_token_idx_base(db).unwrap());
                 TraceViewLines::new(

@@ -1,4 +1,4 @@
-use husky_sema_expr::SemaHtmlArgumentExpr;
+use husky_sem_expr::SemaHtmlArgumentExpr;
 
 use super::*;
 
