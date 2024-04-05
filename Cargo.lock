@@ -6138,6 +6138,10 @@ name = "husky-tex-math-letter"
 version = "0.1.0"
 
 [[package]]
+name = "husky-tex-math-opr"
+version = "0.1.0"
+
+[[package]]
 name = "husky-tex-token"
 version = "0.1.0"
 
