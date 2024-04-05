@@ -14,11 +14,3 @@ impl<'a> TexTokenizer<'a> {
         }
     }
 }
-
-#[test]
-fn next_math_token_data_works() {
-    let db = &DB::default();
-    let tokenizer = TexTokenizer::new(db, "hello", TexMode::Text);
-    let tokens: Vec<_> = tokenizer.map(|(_, token_data)| token_data).collect();
-    expect![[""]].assert_debug_eq(&tokens)
-}

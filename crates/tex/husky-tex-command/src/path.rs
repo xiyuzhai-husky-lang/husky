@@ -1,9 +1,6 @@
-#[salsa::interned]
-pub struct TexCommandPath {
-    data: TexCommandPathData,
-}
+use husky_coword::Coword;
 
-#[derive(Debug, Clone, PartialEq, Eq, Hash)]
-pub enum TexCommandPathData {
-    Name(String),
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum TexCommandPath {
+    Name(Coword),
 }
