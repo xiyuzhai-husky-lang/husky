@@ -6125,6 +6125,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "husky-tex-command"
+version = "0.1.0"
+dependencies = [
+ "husky-tex-prelude",
+ "salsa",
+]
+
+[[package]]
 name = "husky-tex-egui"
 version = "0.1.0"
 dependencies = [
@@ -6142,8 +6150,24 @@ name = "husky-tex-math-opr"
 version = "0.1.0"
 
 [[package]]
+name = "husky-tex-prelude"
+version = "0.1.0"
+
+[[package]]
+name = "husky-tex-sem-expr"
+version = "0.1.0"
+
+[[package]]
+name = "husky-tex-syn-expr"
+version = "0.1.0"
+
+[[package]]
 name = "husky-tex-token"
 version = "0.1.0"
+dependencies = [
+ "husky-text-protocol",
+ "salsa",
+]
 
 [[package]]
 name = "husky-text"

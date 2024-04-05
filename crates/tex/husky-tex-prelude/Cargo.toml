@@ -1,5 +1,5 @@
 [package]
-name = "husky-tex-token"
+name = "husky-tex-prelude"
 version.workspace = true
 rust-version.workspace = true
 authors.workspace = true
@@ -12,10 +12,6 @@ categories.workspace = true
 keywords.workspace = true
 
 [dependencies]
-# abstractions
-salsa.workspace = true
-# protocols
-husky-text-protocol.workspace = true
 
 [lints]
 workspace = true
