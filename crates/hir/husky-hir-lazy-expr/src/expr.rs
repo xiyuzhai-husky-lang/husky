@@ -16,8 +16,8 @@ use husky_hir_ty::{
     indirections::HirIndirections, instantiation::HirInstantiation,
     place_contract_site::HirPlaceContractSite, HirConstSvar, HirType,
 };
-use husky_sema_expr::{SemaExprData, SemaExprIdx};
-use husky_sema_opr::binary::SemaBinaryOpr;
+use husky_sem_expr::{SemaExprData, SemaExprIdx};
+use husky_sem_opr::binary::SemaBinaryOpr;
 use husky_term_prelude::literal::Literal;
 use idx_arena::ArenaRef;
 
@@ -142,8 +142,8 @@ impl ToHirLazy for SemaExprIdx {
 
     fn to_hir_lazy(&self, builder: &mut HirLazyExprBuilder) -> Self::Output {
         let place_contract_site =
-            HirPlaceContractSite::from_sema(&builder.sema_place_contract_region()[*self]);
-        let hir_lazy_expr = match *self.data(builder.sema_expr_arena_ref()) {
+            HirPlaceContractSite::from_sema(&builder.sem_place_contract_region()[*self]);
+        let hir_lazy_expr = match *self.data(builder.sem_expr_arena_ref()) {
             SemaExprData::Literal(_, _) => {
                 let EthTerm::Literal(lit) = builder.expr_term(*self) else {
                     unreachable!()
@@ -203,31 +203,31 @@ impl ToHirLazy for SemaExprIdx {
             },
             SemaExprData::Prefix {
                 opr,
-                opd: opd_sema_expr_idx,
+                opd: opd_sem_expr_idx,
                 ..
             } => HirLazyExprData::Prefix {
                 opr: HirPrefixOpr::from_sema(
                     opr,
-                    builder.expr_ty(opd_sema_expr_idx),
+                    builder.expr_ty(opd_sem_expr_idx),
                     builder.db(),
                     builder.fly_terms(),
                 ),
-                opd_hir_expr_idx: opd_sema_expr_idx.to_hir_lazy(builder),
+                opd_hir_expr_idx: opd_sem_expr_idx.to_hir_lazy(builder),
             },
             SemaExprData::Suffix {
-                opd: opd_sema_expr_idx,
+                opd: opd_sem_expr_idx,
                 opr,
                 ..
             } => match opr {
                 _ => HirLazyExprData::Suffix {
                     opr: HirSuffixOpr::from_sema(opr),
-                    opd_hir_expr_idx: opd_sema_expr_idx.to_hir_lazy(builder),
+                    opd_hir_expr_idx: opd_sem_expr_idx.to_hir_lazy(builder),
                 },
             },
             SemaExprData::Unveil {
                 ref unveil_output_ty_signature,
                 unveil_assoc_fn_path,
-                opd_sema_expr_idx,
+                opd_sem_expr_idx,
                 ..
             } => HirLazyExprData::Unveil {
                 unveil_assoc_fn_path,
@@ -235,28 +235,28 @@ impl ToHirLazy for SemaExprIdx {
                     unveil_output_ty_signature.instantiation(),
                     builder.db(),
                 ),
-                opd_hir_expr_idx: opd_sema_expr_idx.to_hir_lazy(builder),
+                opd_hir_expr_idx: opd_sem_expr_idx.to_hir_lazy(builder),
             },
             SemaExprData::Unwrap {
-                opd_sema_expr_idx, ..
+                opd_sem_expr_idx, ..
             } => HirLazyExprData::Unwrap {
-                opd_hir_expr_idx: opd_sema_expr_idx.to_hir_lazy(builder),
+                opd_hir_expr_idx: opd_sem_expr_idx.to_hir_lazy(builder),
             },
             SemaExprData::FunctionApplication {
-                function_sema_expr_idx: _,
-                argument_sema_expr_idx: _,
+                function_sem_expr_idx: _,
+                argument_sem_expr_idx: _,
             } => {
                 todo!()
             }
             SemaExprData::FunctionRitchieCall {
-                function_sema_expr_idx,
+                function_sem_expr_idx,
                 ref ritchie_parameter_argument_matches,
                 ..
             } => {
-                let _function_hir_lazy_expr_idx = function_sema_expr_idx.to_hir_lazy(builder);
+                let _function_hir_lazy_expr_idx = function_sem_expr_idx.to_hir_lazy(builder);
                 let item_groups =
                     builder.new_call_list_item_groups(ritchie_parameter_argument_matches);
-                match *builder.sema_expr_arena_ref()[function_sema_expr_idx].data() {
+                match *builder.sem_expr_arena_ref()[function_sem_expr_idx].data() {
                     SemaExprData::PrincipalEntityPath {
                         path,
                         // only None if `path` is an ontology constructor
@@ -324,7 +324,7 @@ impl ToHirLazy for SemaExprIdx {
                 parameter_ty_items: _,
                 rpar_regional_token_idx: _,
                 light_arrow_token: _,
-                return_ty_sema_expr_idx: _,
+                return_ty_sem_expr_idx: _,
             } => todo!(),
             SemaExprData::Field {
                 self_argument: owner,
@@ -371,7 +371,7 @@ impl ToHirLazy for SemaExprIdx {
                 todo!()
             }
             SemaExprData::MethodFnCall {
-                self_argument_sema_expr_idx,
+                self_argument_sem_expr_idx,
                 ident_token,
                 ref dispatch,
                 ref ritchie_parameter_argument_matches,
@@ -381,7 +381,7 @@ impl ToHirLazy for SemaExprIdx {
                     unreachable!()
                 };
                 HirLazyExprData::MethodFnCall {
-                    self_argument: self_argument_sema_expr_idx.to_hir_lazy(builder),
+                    self_argument: self_argument_sem_expr_idx.to_hir_lazy(builder),
                     ident: ident_token.ident(),
                     path: signature.path(),
                     item_groups: builder
@@ -411,14 +411,14 @@ impl ToHirLazy for SemaExprIdx {
                 rpar_regional_token_idx: _,
             } => todo!(),
             SemaExprData::Index {
-                owner: owner_sema_expr_idx,
-                ref index_sema_list_items,
+                owner: owner_sem_expr_idx,
+                ref index_sem_list_items,
                 ..
             } => HirLazyExprData::Index {
-                owner: owner_sema_expr_idx.to_hir_lazy(builder),
-                items: index_sema_list_items
+                owner: owner_sem_expr_idx.to_hir_lazy(builder),
+                items: index_sem_list_items
                     .iter()
-                    .map(|item| item.sema_expr_idx.to_hir_lazy(builder))
+                    .map(|item| item.sem_expr_idx.to_hir_lazy(builder))
                     .collect(),
             },
             SemaExprData::CompositionWithList { .. } => {
@@ -431,7 +431,7 @@ impl ToHirLazy for SemaExprIdx {
             } => HirLazyExprData::ConstructList {
                 items: items
                     .iter()
-                    .map(|item| item.sema_expr_idx.to_hir_lazy(builder))
+                    .map(|item| item.sem_expr_idx.to_hir_lazy(builder))
                     .collect(),
                 element_ty: HirType::from_fly(element_ty, builder.db(), builder.fly_terms())
                     .unwrap(),

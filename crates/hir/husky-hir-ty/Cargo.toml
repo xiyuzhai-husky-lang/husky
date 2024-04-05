@@ -25,7 +25,7 @@ husky-scope.workspace = true
 husky-place = { path = "../../kernel/husky-place" }
 husky-hir-prelude = { path = "../../hir/husky-hir-prelude" }
 # semantics
-husky-sema-place-contract.workspace = true
+husky-sem-place-contract.workspace = true
 # utils
 husky-print-utils.workspace = true
 

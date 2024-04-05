@@ -5,7 +5,7 @@ use husky_hir_lazy_expr::{
     variable::HirLazyVariableIdx, HirLazyExprRegion, HirLazyPatternExpr, HirLazyPatternExprIdx,
 };
 use husky_ki_repr::expansion::KiReprExpansion;
-use husky_sema_expr::{helpers::range::sema_expr_range_region, SemaExprRegion};
+use husky_sem_expr::{helpers::range::sem_expr_range_region, SemaExprRegion};
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct LazyPatternExprTracePath(TracePath);
@@ -31,7 +31,7 @@ pub struct LazyPatternExprTraceData {
     hir_lazy_pattern_expr_idx: Option<HirLazyPatternExprIdx>,
     hir_lazy_variable_idxs: IdentPairMap<Option<HirLazyVariableIdx>>,
     #[skip_fmt]
-    sema_expr_region: SemaExprRegion,
+    sem_expr_region: SemaExprRegion,
     #[skip_fmt]
     hir_lazy_expr_region: HirLazyExprRegion,
 }
@@ -43,7 +43,7 @@ impl Trace {
         syn_pattern_expr_idx: SynPatternIdx,
         hir_lazy_pattern_expr_idx: Option<HirLazyPatternExprIdx>,
         hir_lazy_variable_idxs: IdentPairMap<Option<HirLazyVariableIdx>>,
-        sema_expr_region: SemaExprRegion,
+        sem_expr_region: SemaExprRegion,
         hir_lazy_expr_region: HirLazyExprRegion,
         lazy_expr_trace_path_registry: &mut TracePathRegistry<LazyPatternExprEssence>,
         db: &::salsa::Db,
@@ -65,7 +65,7 @@ impl Trace {
                 syn_pattern_expr_idx,
                 hir_lazy_pattern_expr_idx,
                 hir_lazy_variable_idxs,
-                sema_expr_region,
+                sem_expr_region,
                 hir_lazy_expr_region,
             }
             .into(),
@@ -84,11 +84,11 @@ impl LazyPatternExprTraceData {
     }
 
     pub(super) fn view_lines(&self, db: &::salsa::Db) -> TraceViewLines {
-        let sema_expr_region = self.sema_expr_region;
-        let sema_expr_range_region = sema_expr_range_region(db, sema_expr_region);
-        let sema_expr_range_region_data = sema_expr_range_region.data(db);
-        let region_path = sema_expr_region.path(db);
-        let regional_token_idx_range = sema_expr_range_region_data[self.syn_pattern_expr_idx];
+        let sem_expr_region = self.sem_expr_region;
+        let sem_expr_range_region = sem_expr_range_region(db, sem_expr_region);
+        let sem_expr_range_region_data = sem_expr_range_region.data(db);
+        let region_path = sem_expr_region.path(db);
+        let regional_token_idx_range = sem_expr_range_region_data[self.syn_pattern_expr_idx];
         let token_idx_range = regional_token_idx_range
             .token_idx_range(region_path.regional_token_idx_base(db).unwrap());
         TraceViewLines::new(

@@ -1,11 +1,11 @@
 use crate::{source_map::HirLazyExprSourceMap, *};
 use husky_fly_term::{FlyTerm, FlyTermBase, FlyTerms};
 use husky_hir_ty::HirType;
-use husky_sema_expr::{
+use husky_sem_expr::{
     SemaExprArenaRef, SemaExprIdx, SemaExprMap, SemaExprRegion, SemaExprRegionData,
     SemaStmtArenaRef, SemaStmtIdx, SemaStmtMap,
 };
-use husky_sema_place_contract::region::{sema_place_contract_region, SemaPlaceContractRegion};
+use husky_sem_place_contract::region::{sem_place_contract_region, SemaPlaceContractRegion};
 use husky_syn_expr::{
     CurrentSynSymbolIdx, InheritedSynSymbolIdx, SynExprRegionData, SynExprRootKind, SynPatternMap,
     SynSymbolMap,
@@ -15,22 +15,22 @@ use salsa::DebugWithDb;
 pub(crate) struct HirLazyExprBuilder<'a> {
     db: &'a ::salsa::Db,
     syn_expr_region_data: &'a SynExprRegionData,
-    sema_expr_region_data: &'a SemaExprRegionData,
-    sema_place_contract_region: &'a SemaPlaceContractRegion,
+    sem_expr_region_data: &'a SemaExprRegionData,
+    sem_place_contract_region: &'a SemaPlaceContractRegion,
     hir_lazy_expr_arena: HirLazyExprArena,
     hir_lazy_stmt_arena: HirLazyStmtArena,
     hir_lazy_pattern_expr_arena: HirLazyPatternExprArena,
     syn_to_hir_lazy_pattern_expr_idx_map: SynPatternMap<HirLazyPatternExprIdx>,
-    sema_to_hir_lazy_expr_idx_map: SemaExprMap<HirLazyExprIdx>,
-    sema_to_hir_lazy_stmt_idx_map: SemaStmtMap<HirLazyStmtIdx>,
+    sem_to_hir_lazy_expr_idx_map: SemaExprMap<HirLazyExprIdx>,
+    sem_to_hir_lazy_stmt_idx_map: SemaStmtMap<HirLazyStmtIdx>,
     hir_lazy_variable_region: HirLazyVariableRegion,
     syn_symbol_to_hir_lazy_variable_map: SynSymbolMap<HirLazyVariableIdx>,
 }
 
 impl<'a> HirLazyExprBuilder<'a> {
-    fn new(db: &'a ::salsa::Db, sema_expr_region: SemaExprRegion) -> Self {
-        let syn_expr_region_data = sema_expr_region.syn_expr_region(db).data(db);
-        let sema_expr_region_data = sema_expr_region.data(db);
+    fn new(db: &'a ::salsa::Db, sem_expr_region: SemaExprRegion) -> Self {
+        let syn_expr_region_data = sem_expr_region.syn_expr_region(db).data(db);
+        let sem_expr_region_data = sem_expr_region.data(db);
         let syn_to_hir_lazy_pattern_expr_idx_map =
             SynPatternMap::new(syn_expr_region_data.pattern_expr_arena());
         let (hir_lazy_variable_region, syn_symbol_to_hir_lazy_variable_map) =
@@ -38,18 +38,14 @@ impl<'a> HirLazyExprBuilder<'a> {
         Self {
             db,
             syn_expr_region_data,
-            sema_expr_region_data,
-            sema_place_contract_region: sema_place_contract_region(db, sema_expr_region),
+            sem_expr_region_data,
+            sem_place_contract_region: sem_place_contract_region(db, sem_expr_region),
             hir_lazy_expr_arena: Default::default(),
             hir_lazy_stmt_arena: Default::default(),
             hir_lazy_pattern_expr_arena: Default::default(),
             syn_to_hir_lazy_pattern_expr_idx_map,
-            sema_to_hir_lazy_expr_idx_map: SemaExprMap::new(
-                sema_expr_region_data.sema_expr_arena(),
-            ),
-            sema_to_hir_lazy_stmt_idx_map: SemaStmtMap::new(
-                sema_expr_region_data.sema_stmt_arena(),
-            ),
+            sem_to_hir_lazy_expr_idx_map: SemaExprMap::new(sem_expr_region_data.sem_expr_arena()),
+            sem_to_hir_lazy_stmt_idx_map: SemaStmtMap::new(sem_expr_region_data.sem_stmt_arena()),
             hir_lazy_variable_region,
             syn_symbol_to_hir_lazy_variable_map,
         }
@@ -59,42 +55,42 @@ impl<'a> HirLazyExprBuilder<'a> {
         self.syn_expr_region_data
     }
 
-    pub(crate) fn sema_expr_arena_ref(&self) -> SemaExprArenaRef<'a> {
-        self.sema_expr_region_data.sema_expr_arena()
+    pub(crate) fn sem_expr_arena_ref(&self) -> SemaExprArenaRef<'a> {
+        self.sem_expr_region_data.sem_expr_arena()
     }
 
-    pub(crate) fn sema_stmt_arena_ref(&self) -> SemaStmtArenaRef<'a> {
-        self.sema_expr_region_data.sema_stmt_arena()
+    pub(crate) fn sem_stmt_arena_ref(&self) -> SemaStmtArenaRef<'a> {
+        self.sem_expr_region_data.sem_stmt_arena()
     }
 
-    pub(crate) fn sema_place_contract_region(&self) -> &'a SemaPlaceContractRegion {
-        self.sema_place_contract_region
+    pub(crate) fn sem_place_contract_region(&self) -> &'a SemaPlaceContractRegion {
+        self.sem_place_contract_region
     }
 
     pub(crate) fn alloc_stmts(
         &mut self,
-        sema_stmt_indices: Vec<SemaStmtIdx>,
+        sem_stmt_indices: Vec<SemaStmtIdx>,
         hir_eager_stmts: Vec<HirLazyStmtData>,
     ) -> HirLazyStmtIdxRange {
-        debug_assert_eq!(sema_stmt_indices.len(), hir_eager_stmts.len());
+        debug_assert_eq!(sem_stmt_indices.len(), hir_eager_stmts.len());
         let hir_stmt_idx_range = self.hir_lazy_stmt_arena.alloc_batch(hir_eager_stmts);
-        for (sema_stmt_idx, hir_lazy_stmt_idx) in
-            std::iter::zip(sema_stmt_indices, hir_stmt_idx_range)
+        for (sem_stmt_idx, hir_lazy_stmt_idx) in
+            std::iter::zip(sem_stmt_indices, hir_stmt_idx_range)
         {
-            self.sema_to_hir_lazy_stmt_idx_map
-                .insert_new(sema_stmt_idx, hir_lazy_stmt_idx);
+            self.sem_to_hir_lazy_stmt_idx_map
+                .insert_new(sem_stmt_idx, hir_lazy_stmt_idx);
         }
         hir_stmt_idx_range
     }
 
     pub(crate) fn alloc_expr(
         &mut self,
-        sema_expr_idx: SemaExprIdx,
+        sem_expr_idx: SemaExprIdx,
         hir_lazy_expr: HirLazyExprData,
     ) -> HirLazyExprIdx {
         let hir_lazy_expr_idx = self.hir_lazy_expr_arena.alloc_one(hir_lazy_expr);
-        self.sema_to_hir_lazy_expr_idx_map
-            .insert_new(sema_expr_idx, hir_lazy_expr_idx);
+        self.sem_to_hir_lazy_expr_idx_map
+            .insert_new(sem_expr_idx, hir_lazy_expr_idx);
         hir_lazy_expr_idx
     }
 
@@ -114,22 +110,22 @@ impl<'a> HirLazyExprBuilder<'a> {
         format!("{:?}", self.syn_expr_region_data.path().debug(self.db))
     }
 
-    pub(crate) fn expr_ty(&self, sema_expr_idx: SemaExprIdx) -> FlyTerm {
-        sema_expr_idx.ty(self.sema_expr_region_data.sema_expr_arena2())
+    pub(crate) fn expr_ty(&self, sem_expr_idx: SemaExprIdx) -> FlyTerm {
+        sem_expr_idx.ty(self.sem_expr_region_data.sem_expr_arena2())
     }
 
-    pub(crate) fn expr_term_to_hir_ty(&self, sema_expr_idx: SemaExprIdx) -> Option<HirType> {
-        HirType::from_eth(self.expr_term(sema_expr_idx), self.db)
+    pub(crate) fn expr_term_to_hir_ty(&self, sem_expr_idx: SemaExprIdx) -> Option<HirType> {
+        HirType::from_eth(self.expr_term(sem_expr_idx), self.db)
     }
 
-    pub(crate) fn expr_term(&self, sema_expr_idx: SemaExprIdx) -> EthTerm {
+    pub(crate) fn expr_term(&self, sem_expr_idx: SemaExprIdx) -> EthTerm {
         // ad hoc
         match self
-            .sema_expr_region_data
-            .sema_expr_term(sema_expr_idx)
+            .sem_expr_region_data
+            .sem_expr_term(sem_expr_idx)
             .expect("hir stage some")
             .expect("hir stage ok")
-            .base_resolved_inner(self.sema_expr_region_data.fly_term_region().terms())
+            .base_resolved_inner(self.sem_expr_region_data.fly_term_region().terms())
         {
             FlyTermBase::Eth(term) => term,
             FlyTermBase::Sol(_) => todo!(),
@@ -139,10 +135,10 @@ impl<'a> HirLazyExprBuilder<'a> {
     }
 
     pub fn build_all_then_finish(mut self) -> (HirLazyExprRegion, HirLazyExprSourceMap) {
-        for (sema_expr_idx, expr_root_kind) in self.sema_expr_region_data.sema_expr_roots() {
+        for (sem_expr_idx, expr_root_kind) in self.sem_expr_region_data.sem_expr_roots() {
             match expr_root_kind {
                 SynExprRootKind::BlockExpr | SynExprRootKind::ReturnExpr => {
-                    sema_expr_idx.to_hir_lazy(&mut self);
+                    sem_expr_idx.to_hir_lazy(&mut self);
                 }
                 // ad hoc
                 SynExprRootKind::FieldBindInitialValue { .. } => (),
@@ -188,8 +184,8 @@ impl<'a> HirLazyExprBuilder<'a> {
             HirLazyExprSourceMap::new(
                 self.db,
                 self.syn_to_hir_lazy_pattern_expr_idx_map,
-                self.sema_to_hir_lazy_expr_idx_map,
-                self.sema_to_hir_lazy_stmt_idx_map,
+                self.sem_to_hir_lazy_expr_idx_map,
+                self.sem_to_hir_lazy_stmt_idx_map,
                 self.syn_symbol_to_hir_lazy_variable_map,
             ),
         )
@@ -200,11 +196,11 @@ impl<'a> HirLazyExprBuilder<'a> {
     }
 
     pub(crate) fn fly_terms(&self) -> &FlyTerms {
-        self.sema_expr_region_data.fly_term_region().terms()
+        self.sem_expr_region_data.fly_term_region().terms()
     }
 
-    pub(crate) fn sema_expr_region_data(&self) -> &'a SemaExprRegionData {
-        self.sema_expr_region_data
+    pub(crate) fn sem_expr_region_data(&self) -> &'a SemaExprRegionData {
+        self.sem_expr_region_data
     }
 }
 
@@ -212,8 +208,8 @@ impl<'a> HirLazyExprBuilder<'a> {
 #[salsa::tracked(jar = HirLazyExprJar)]
 pub fn hir_lazy_expr_region_with_source_map(
     db: &::salsa::Db,
-    sema_expr_region: SemaExprRegion,
+    sem_expr_region: SemaExprRegion,
 ) -> (HirLazyExprRegion, HirLazyExprSourceMap) {
-    let builder = HirLazyExprBuilder::new(db, sema_expr_region);
+    let builder = HirLazyExprBuilder::new(db, sem_expr_region);
     builder.build_all_then_finish()
 }

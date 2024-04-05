@@ -21,8 +21,8 @@ use husky_hir_ty::{
     ritchie::HirContract,
     HirType,
 };
-use husky_sema_expr::{SemaExprData, SemaExprIdx, SemaRitchieArgument};
-use husky_sema_opr::{binary::SemaBinaryOpr, suffix::SemaSuffixOpr};
+use husky_sem_expr::{SemaExprData, SemaExprIdx, SemaRitchieArgument};
+use husky_sem_opr::{binary::SemaBinaryOpr, suffix::SemaSuffixOpr};
 use husky_syn_expr::{InheritedSynSymbolKind, InheritedTemplateParameterSynSymbol};
 use husky_term_prelude::literal::Literal;
 use vec_like::VecMap;
@@ -183,8 +183,8 @@ impl ToHirEager for SemaExprIdx {
 
     fn to_hir_eager(&self, builder: &mut HirEagerExprBuilder) -> Self::Output {
         let place_contract_site =
-            HirPlaceContractSite::from_sema(&builder.sema_place_contract_region()[*self]);
-        let data = match *self.data(builder.sema_expr_arena_ref()) {
+            HirPlaceContractSite::from_sema(&builder.sem_place_contract_region()[*self]);
+        let data = match *self.data(builder.sem_expr_arena_ref()) {
             SemaExprData::Literal(_, _) => {
                 HirEagerExprData::Literal(match builder.expr_term(*self) {
                     EthTerm::Literal(lit) => lit,
@@ -262,19 +262,19 @@ impl ToHirEager for SemaExprIdx {
             },
             SemaExprData::Prefix {
                 opr,
-                opd: opd_sema_expr_idx,
+                opd: opd_sem_expr_idx,
                 ..
             } => HirEagerExprData::Prefix {
                 opr: HirPrefixOpr::from_sema(
                     opr,
-                    builder.expr_ty(opd_sema_expr_idx),
+                    builder.expr_ty(opd_sem_expr_idx),
                     builder.db(),
                     builder.fly_terms(),
                 ),
-                opd: opd_sema_expr_idx.to_hir_eager(builder),
+                opd: opd_sem_expr_idx.to_hir_eager(builder),
             },
             SemaExprData::Suffix {
-                opd: opd_sema_expr_idx,
+                opd: opd_sem_expr_idx,
                 opr,
                 ..
             } => match opr {
@@ -282,14 +282,14 @@ impl ToHirEager for SemaExprIdx {
                 SemaSuffixOpr::ComposeWithNot => unreachable!(),
                 SemaSuffixOpr::Incr | SemaSuffixOpr::Decr => HirEagerExprData::Suffix {
                     opr: HirSuffixOpr::from_sema(opr),
-                    opd: opd_sema_expr_idx.to_hir_eager(builder),
+                    opd: opd_sem_expr_idx.to_hir_eager(builder),
                 },
             },
             SemaExprData::Unveil {
                 return_ty,
                 ref unveil_output_ty_signature,
                 unveil_assoc_fn_path,
-                opd_sema_expr_idx,
+                opd_sem_expr_idx,
                 ..
             } => {
                 let db = builder.db();
@@ -299,14 +299,14 @@ impl ToHirEager for SemaExprIdx {
                         unveil_output_ty_signature.instantiation(),
                         db,
                     ),
-                    opd: opd_sema_expr_idx.to_hir_eager(builder),
+                    opd: opd_sem_expr_idx.to_hir_eager(builder),
                     return_ty: HirType::from_eth(return_ty, db).unwrap(),
                 }
             }
             SemaExprData::Unwrap {
-                opd_sema_expr_idx, ..
+                opd_sem_expr_idx, ..
             } => HirEagerExprData::Unwrap {
-                opd: opd_sema_expr_idx.to_hir_eager(builder),
+                opd: opd_sem_expr_idx.to_hir_eager(builder),
             },
             SemaExprData::FunctionApplication { .. } => {
                 use husky_print_utils::p;
@@ -314,7 +314,7 @@ impl ToHirEager for SemaExprIdx {
                 unreachable!()
             }
             SemaExprData::FunctionRitchieCall {
-                function_sema_expr_idx,
+                function_sem_expr_idx,
                 ref template_arguments,
                 ref ritchie_parameter_argument_matches,
                 ..
@@ -323,7 +323,7 @@ impl ToHirEager for SemaExprIdx {
                 let _template_arguments = template_arguments.as_ref().map(|_| todo!());
                 let item_groups =
                     builder.new_call_list_arguments(ritchie_parameter_argument_matches);
-                match *builder.sema_expr_arena_ref()[function_sema_expr_idx].data() {
+                match *builder.sem_expr_arena_ref()[function_sem_expr_idx].data() {
                     SemaExprData::PrincipalEntityPath {
                         path,
                         ref instantiation,
@@ -424,7 +424,7 @@ impl ToHirEager for SemaExprIdx {
             },
             SemaExprData::MethodApplication { .. } => todo!(),
             SemaExprData::MethodFnCall {
-                self_argument_sema_expr_idx,
+                self_argument_sem_expr_idx,
                 self_contract,
                 ident_token,
                 ref dispatch,
@@ -436,7 +436,7 @@ impl ToHirEager for SemaExprIdx {
                     unreachable!()
                 };
                 HirEagerExprData::MethodFnCall {
-                    self_argument: self_argument_sema_expr_idx.to_hir_eager(builder),
+                    self_argument: self_argument_sem_expr_idx.to_hir_eager(builder),
                     self_contract: HirContract::from_contract(self_contract),
                     ident: ident_token.ident(),
                     path: signature.path(),
@@ -458,15 +458,15 @@ impl ToHirEager for SemaExprIdx {
             SemaExprData::Delimitered { item, .. } => return item.to_hir_eager(builder),
             SemaExprData::NewTuple { .. } => todo!(),
             SemaExprData::Index {
-                owner: owner_sema_expr_idx,
+                owner: owner_sem_expr_idx,
                 lbox_regional_token_idx: _,
-                ref index_sema_list_items,
+                ref index_sem_list_items,
                 ..
             } => HirEagerExprData::Index {
-                owner: owner_sema_expr_idx.to_hir_eager(builder),
-                items: index_sema_list_items
+                owner: owner_sem_expr_idx.to_hir_eager(builder),
+                items: index_sem_list_items
                     .iter()
-                    .map(|item| item.sema_expr_idx.to_hir_eager(builder))
+                    .map(|item| item.sem_expr_idx.to_hir_eager(builder))
                     .collect(),
             },
             SemaExprData::CompositionWithList { .. } => {
@@ -479,7 +479,7 @@ impl ToHirEager for SemaExprIdx {
             } => HirEagerExprData::NewList {
                 exprs: items
                     .iter()
-                    .map(|item| item.sema_expr_idx.to_hir_eager(builder))
+                    .map(|item| item.sem_expr_idx.to_hir_eager(builder))
                     .collect(),
                 element_ty: HirType::from_fly(element_ty, builder.db(), builder.fly_terms())
                     .unwrap(),
@@ -530,7 +530,7 @@ impl ToHirEager for SemaExprIdx {
                 body: body.to_hir_eager(builder),
             },
         };
-        let ty = self.ty(builder.sema_expr_arena_ref2());
+        let ty = self.ty(builder.sem_expr_arena_ref2());
         let contracted_quary = ty
             .quary()
             .map(|quary| HirContractedQuary::from_fly(quary, &place_contract_site))

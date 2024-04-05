@@ -12,7 +12,7 @@ salsa.workspace = true
 # fs
 husky-vfs.workspace = true
 # infer
-husky-sema-expr.workspace = true
+husky-sem-expr.workspace = true
 # kernel
 husky-eth-term.workspace = true
 husky-eth-signature.workspace = true

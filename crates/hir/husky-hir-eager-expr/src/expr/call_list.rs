@@ -24,7 +24,7 @@ impl<'a> HirEagerExprBuilder<'a> {
         match pam {
             SemaRitchieArgument::Simple(param, item) => HirEagerRitchieArgument::Simple(
                 HirRitchieSimpleParameter::from_fly(param, self.db(), self.fly_terms()),
-                item.argument_sema_expr_idx().to_hir_eager(self),
+                item.argument_sem_expr_idx().to_hir_eager(self),
                 item.coersion_outcome
                     .as_ref()
                     .unwrap()

@@ -15,8 +15,8 @@ use husky_regional_token::{
     ElifRegionalToken, ElseRegionalToken, EolColonRegionalToken, IfRegionalToken,
     RegionalTokenIdxRange,
 };
-use husky_sema_expr::{
-    helpers::range::sema_expr_range_region, SemaExprData, SemaExprDb, SemaExprRegion, SemaStmtData,
+use husky_sem_expr::{
+    helpers::range::sem_expr_range_region, SemaExprData, SemaExprDb, SemaExprRegion, SemaStmtData,
     SemaStmtIdx, SemaStmtIdxRange,
 };
 use husky_syn_defn::ItemSynDefn;
@@ -48,11 +48,11 @@ pub enum LazyStmtEssence {
 pub struct LazyStmtTraceData {
     path: TracePath,
     biological_parent: Trace,
-    sema_stmt_idx: SemaStmtIdx,
+    sem_stmt_idx: SemaStmtIdx,
     hir_lazy_stmt_idx: Option<HirLazyStmtIdx>,
     lazy_stmt_sketch: LazyStmtSketch,
     #[skip_fmt]
-    sema_expr_region: SemaExprRegion,
+    sem_expr_region: SemaExprRegion,
     #[skip_fmt]
     hir_lazy_expr_region: HirLazyExprRegion,
 }
@@ -84,9 +84,9 @@ impl Trace {
         biological_parent: Trace,
         essence: LazyStmtEssence,
         registry: &mut crate::registry::trace_path::TracePathRegistry<LazyStmtEssence>,
-        sema_stmt_idx: SemaStmtIdx,
+        sem_stmt_idx: SemaStmtIdx,
         lazy_stmt_sketch: LazyStmtSketch,
-        sema_expr_region: SemaExprRegion,
+        sem_expr_region: SemaExprRegion,
         db: &::salsa::Db,
     ) -> Self {
         let path = TracePath::new(
@@ -98,19 +98,19 @@ impl Trace {
             db,
         );
         let (hir_lazy_expr_region, hir_lazy_expr_source_map) =
-            hir_lazy_expr_region_with_source_map(db, sema_expr_region);
+            hir_lazy_expr_region_with_source_map(db, sem_expr_region);
         let hir_lazy_stmt_idx = hir_lazy_expr_source_map
             .data(db)
-            .sema_to_hir_lazy_stmt_idx(sema_stmt_idx);
+            .sem_to_hir_lazy_stmt_idx(sem_stmt_idx);
         Trace::new(
             path,
             LazyStmtTraceData {
                 path,
                 biological_parent: biological_parent.into(),
-                sema_stmt_idx,
+                sem_stmt_idx,
                 hir_lazy_stmt_idx,
                 lazy_stmt_sketch,
-                sema_expr_region,
+                sem_expr_region,
                 hir_lazy_expr_region,
             }
             .into(),
@@ -121,12 +121,12 @@ impl Trace {
 
 impl LazyStmtTraceData {
     pub(super) fn view_lines(&self, trace: Trace, db: &::salsa::Db) -> TraceViewLines {
-        let sema_stmt_idx = self.sema_stmt_idx;
-        let sema_expr_region = self.sema_expr_region;
-        let sema_expr_range_region = sema_expr_range_region(db, sema_expr_region);
-        let region_path = sema_expr_region.path(db);
+        let sem_stmt_idx = self.sem_stmt_idx;
+        let sem_expr_region = self.sem_expr_region;
+        let sem_expr_range_region = sem_expr_range_region(db, sem_expr_region);
+        let region_path = sem_expr_region.path(db);
         let regional_token_idx_range = match self.lazy_stmt_sketch {
-            LazyStmtSketch::BasicStmt => sema_expr_range_region.data(db)[sema_stmt_idx],
+            LazyStmtSketch::BasicStmt => sem_expr_range_region.data(db)[sem_stmt_idx],
             LazyStmtSketch::IfBranch {
                 if_regional_token,
                 eol_colon_regional_token,
@@ -154,7 +154,7 @@ impl LazyStmtTraceData {
         };
         let token_idx_range = regional_token_idx_range
             .token_idx_range(region_path.regional_token_idx_base(db).unwrap());
-        let registry = LazyStmtAssocTraceRegistry::new(self.path, trace, sema_expr_region, db);
+        let registry = LazyStmtAssocTraceRegistry::new(self.path, trace, sem_expr_region, db);
         TraceViewLines::new(region_path.module_path(db), token_idx_range, registry, db)
     }
 
@@ -178,7 +178,7 @@ impl LazyStmtTraceData {
                 biological_parent_path,
                 biological_parent,
                 stmts,
-                self.sema_expr_region,
+                self.sem_expr_region,
                 db,
             ),
         }
@@ -201,7 +201,7 @@ impl LazyStmtTraceData {
 struct LazyStmtAssocTraceRegistry<'a> {
     biological_parent_path: TracePath,
     biological_parent: Trace,
-    sema_expr_region: SemaExprRegion,
+    sem_expr_region: SemaExprRegion,
     hir_lazy_expr_region: HirLazyExprRegion,
     syn_expr_region_data: &'a SynExprRegionData,
     hir_lazy_expr_source_map: HirLazyExprSourceMap,
@@ -216,17 +216,17 @@ impl<'a> LazyStmtAssocTraceRegistry<'a> {
     fn new(
         parent_trace_path: TracePath,
         parent_trace: Trace,
-        sema_expr_region: SemaExprRegion,
+        sem_expr_region: SemaExprRegion,
         db: &'a ::salsa::Db,
     ) -> Self {
         let (hir_lazy_expr_region, hir_lazy_expr_source_map) =
-            hir_lazy_expr_region_with_source_map(db, sema_expr_region);
+            hir_lazy_expr_region_with_source_map(db, sem_expr_region);
         LazyStmtAssocTraceRegistry {
             biological_parent_path: parent_trace_path,
             biological_parent: parent_trace,
-            sema_expr_region,
+            sem_expr_region,
             hir_lazy_expr_region,
-            syn_expr_region_data: sema_expr_region.syn_expr_region(db).data(db),
+            syn_expr_region_data: sem_expr_region.syn_expr_region(db).data(db),
             hir_lazy_expr_source_map,
             hir_lazy_expr_source_map_data: hir_lazy_expr_source_map.data(db),
             lazy_expr_trace_path_registry: Default::default(),
@@ -245,18 +245,18 @@ impl<'a> IsAssocTraceRegistry for LazyStmtAssocTraceRegistry<'a> {
     ) -> Option<Trace> {
         match source {
             TokenInfoSource::UseExpr(_) => None,
-            TokenInfoSource::SemaExpr(sema_expr_idx) => Some(
+            TokenInfoSource::SemaExpr(sem_expr_idx) => Some(
                 self.lazy_expr_traces_issued
-                    .get_value_copied_or_insert_with(sema_expr_idx, || {
+                    .get_value_copied_or_insert_with(sem_expr_idx, || {
                         let hir_lazy_expr_idx = self
                             .hir_lazy_expr_source_map_data
-                            .sema_to_hir_lazy_expr_idx(sema_expr_idx);
+                            .sem_to_hir_lazy_expr_idx(sem_expr_idx);
                         Trace::new_lazy_expr(
                             self.biological_parent_path,
                             self.biological_parent,
-                            sema_expr_idx,
+                            sem_expr_idx,
                             hir_lazy_expr_idx,
-                            self.sema_expr_region,
+                            self.sem_expr_region,
                             self.hir_lazy_expr_region,
                             self.hir_lazy_expr_source_map,
                             &mut self.lazy_expr_trace_path_registry,
@@ -294,7 +294,7 @@ impl<'a> IsAssocTraceRegistry for LazyStmtAssocTraceRegistry<'a> {
                                             )
                                     },
                                 ),
-                            self.sema_expr_region,
+                            self.sem_expr_region,
                             self.hir_lazy_expr_region,
                             &mut self.lazy_pattern_expr_trace_path_registry,
                             db,
@@ -322,28 +322,28 @@ impl Trace {
         else {
             return vec![];
         };
-        let sema_expr_region = db.sema_expr_region(syn_expr_region);
-        let sema_expr_region_data = sema_expr_region.data(db);
-        let body = sema_expr_region_data.syn_root_to_sema_expr_idx(body);
-        let SemaExprData::Block { stmts } = *body.data(sema_expr_region_data.sema_expr_arena())
+        let sem_expr_region = db.sem_expr_region(syn_expr_region);
+        let sem_expr_region_data = sem_expr_region.data(db);
+        let body = sem_expr_region_data.syn_root_to_sem_expr_idx(body);
+        let SemaExprData::Block { stmts } = *body.data(sem_expr_region_data.sem_expr_arena())
         else {
             unreachable!()
         };
-        Self::new_lazy_stmts(parent_trace_path, parent_trace, stmts, sema_expr_region, db)
+        Self::new_lazy_stmts(parent_trace_path, parent_trace, stmts, sem_expr_region, db)
     }
 
     pub(crate) fn new_lazy_stmts(
         parent_trace_path: TracePath,
         parent_trace: Trace,
-        stmts: husky_sema_expr::SemaStmtIdxRange,
-        sema_expr_region: husky_sema_expr::SemaExprRegion,
+        stmts: husky_sem_expr::SemaStmtIdxRange,
+        sem_expr_region: husky_sem_expr::SemaExprRegion,
         db: &::salsa::Db,
     ) -> Vec<Trace> {
         let mut registry = TracePathRegistry::<LazyStmtEssence>::default();
         let mut subtraces: Vec<Trace> = vec![];
-        let sema_stmt_arena = sema_expr_region.data(db).sema_stmt_arena();
+        let sem_stmt_arena = sem_expr_region.data(db).sem_stmt_arena();
         for stmt in stmts {
-            match stmt.data(sema_stmt_arena) {
+            match stmt.data(sem_stmt_arena) {
                 SemaStmtData::Let { .. } => {
                     let lazy_stmt_sketch = LazyStmtEssence::Let {};
                     let lazy_stmt_trace = Trace::new_lazy_stmt(
@@ -353,7 +353,7 @@ impl Trace {
                         &mut registry,
                         stmt,
                         LazyStmtSketch::BasicStmt,
-                        sema_expr_region,
+                        sem_expr_region,
                         db,
                     );
                     subtraces.push(lazy_stmt_trace.into())
@@ -367,7 +367,7 @@ impl Trace {
                         &mut registry,
                         stmt,
                         LazyStmtSketch::BasicStmt,
-                        sema_expr_region,
+                        sem_expr_region,
                         db,
                     );
                     subtraces.push(lazy_stmt_trace.into())
@@ -384,7 +384,7 @@ impl Trace {
                         &mut registry,
                         stmt,
                         LazyStmtSketch::BasicStmt,
-                        sema_expr_region,
+                        sem_expr_region,
                         db,
                     );
                     subtraces.push(lazy_stmt_trace.into())
@@ -401,7 +401,7 @@ impl Trace {
                         &mut registry,
                         stmt,
                         LazyStmtSketch::BasicStmt,
-                        sema_expr_region,
+                        sem_expr_region,
                         db,
                     );
                     subtraces.push(lazy_stmt_trace.into())
@@ -415,7 +415,7 @@ impl Trace {
                         &mut registry,
                         stmt,
                         LazyStmtSketch::BasicStmt,
-                        sema_expr_region,
+                        sem_expr_region,
                         db,
                     );
                     subtraces.push(lazy_stmt_trace.into())
@@ -429,7 +429,7 @@ impl Trace {
                         &mut registry,
                         stmt,
                         LazyStmtSketch::BasicStmt,
-                        sema_expr_region,
+                        sem_expr_region,
                         db,
                     );
                     subtraces.push(lazy_stmt_trace.into())
@@ -467,9 +467,9 @@ impl Trace {
                     stmts: _,
                 } => todo!(),
                 SemaStmtData::IfElse {
-                    if_branch: sema_if_branch,
-                    elif_branches: sema_elif_branches,
-                    else_branch: sema_else_branch,
+                    if_branch: sem_if_branch,
+                    elif_branches: sem_elif_branches,
+                    else_branch: sem_else_branch,
                 } => {
                     subtraces.push(
                         Trace::new_lazy_stmt(
@@ -479,17 +479,16 @@ impl Trace {
                             &mut registry,
                             stmt,
                             LazyStmtSketch::IfBranch {
-                                if_regional_token: sema_if_branch.if_token(),
-                                eol_colon_regional_token: sema_if_branch.eol_colon_token(),
-                                stmts: sema_if_branch.stmts(),
+                                if_regional_token: sem_if_branch.if_token(),
+                                eol_colon_regional_token: sem_if_branch.eol_colon_token(),
+                                stmts: sem_if_branch.stmts(),
                             },
-                            sema_expr_region,
+                            sem_expr_region,
                             db,
                         )
                         .into(),
                     );
-                    for (elif_branch_idx, sema_elif_branch) in sema_elif_branches.iter().enumerate()
-                    {
+                    for (elif_branch_idx, sem_elif_branch) in sem_elif_branches.iter().enumerate() {
                         let elif_branch_idx = elif_branch_idx.try_into().unwrap();
                         subtraces.push(
                             Trace::new_lazy_stmt(
@@ -500,17 +499,17 @@ impl Trace {
                                 stmt,
                                 LazyStmtSketch::ElifBranch {
                                     elif_branch_idx,
-                                    elif_regional_token: sema_elif_branch.elif_regional_token(),
-                                    eol_colon_regional_token: sema_elif_branch.eol_colon_token(),
-                                    stmts: sema_elif_branch.stmts(),
+                                    elif_regional_token: sem_elif_branch.elif_regional_token(),
+                                    eol_colon_regional_token: sem_elif_branch.eol_colon_token(),
+                                    stmts: sem_elif_branch.stmts(),
                                 },
-                                sema_expr_region,
+                                sem_expr_region,
                                 db,
                             )
                             .into(),
                         );
                     }
-                    if let Some(sema_else_branch) = sema_else_branch {
+                    if let Some(sem_else_branch) = sem_else_branch {
                         subtraces.push(
                             Trace::new_lazy_stmt(
                                 parent_trace_path,
@@ -519,12 +518,12 @@ impl Trace {
                                 &mut registry,
                                 stmt,
                                 LazyStmtSketch::ElseBranch {
-                                    else_regional_token: sema_else_branch.else_regional_token(),
-                                    eol_colon_regional_token: sema_else_branch
+                                    else_regional_token: sem_else_branch.else_regional_token(),
+                                    eol_colon_regional_token: sem_else_branch
                                         .eol_colon_regional_token(),
-                                    stmts: sema_else_branch.stmts(),
+                                    stmts: sem_else_branch.stmts(),
                                 },
-                                sema_expr_region,
+                                sem_expr_region,
                                 db,
                             )
                             .into(),

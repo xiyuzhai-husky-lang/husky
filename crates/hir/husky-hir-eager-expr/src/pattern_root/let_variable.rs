@@ -21,14 +21,14 @@ impl HirEagerLetVariablesPattern {
 impl<'a> HirEagerExprBuilder<'a> {
     pub(crate) fn new_let_variables_pattern(
         &mut self,
-        let_pattern_sema_obelisk: &LetVariableObelisk,
+        let_pattern_sem_obelisk: &LetVariableObelisk,
     ) -> HirEagerLetVariablesPattern {
         HirEagerLetVariablesPattern {
-            pattern_expr_idx: self.new_pattern(let_pattern_sema_obelisk.syn_pattern_root()),
-            ty: let_pattern_sema_obelisk
-                .ty_sema_expr_idx()
-                .map(|ty_sema_expr_idx| {
-                    HirType::from_eth(self.expr_term(ty_sema_expr_idx), self.db()).unwrap()
+            pattern_expr_idx: self.new_pattern(let_pattern_sem_obelisk.syn_pattern_root()),
+            ty: let_pattern_sem_obelisk
+                .ty_sem_expr_idx()
+                .map(|ty_sem_expr_idx| {
+                    HirType::from_eth(self.expr_term(ty_sem_expr_idx), self.db()).unwrap()
                 }),
         }
     }

@@ -1,9 +1,7 @@
 use super::*;
 use crate::registry::assoc_trace::VoidAssocTraceRegistry;
 use husky_hir_defn::HasHirDefn;
-use husky_sema_expr::{
-    helpers::analysis::sema_expr_region_requires_lazy, SemaExprData, SemaExprDb,
-};
+use husky_sem_expr::{helpers::analysis::sem_expr_region_requires_lazy, SemaExprData, SemaExprDb};
 use husky_syn_defn::{item_syn_defn, ItemSynDefn};
 
 #[salsa::derive_debug_with_db]
@@ -69,27 +67,27 @@ impl ValItemTraceData {
         else {
             return vec![];
         };
-        let sema_expr_region = db.sema_expr_region(syn_expr_region);
-        let sema_expr_region_data = sema_expr_region.data(db);
-        let body: SemaExprIdx = sema_expr_region_data.syn_root_to_sema_expr_idx(body);
-        let sema_expr_arena = sema_expr_region_data.sema_expr_arena();
-        match sema_expr_region_requires_lazy(db, sema_expr_region) {
-            true => match body.data(sema_expr_arena) {
+        let sem_expr_region = db.sem_expr_region(syn_expr_region);
+        let sem_expr_region_data = sem_expr_region.data(db);
+        let body: SemaExprIdx = sem_expr_region_data.syn_root_to_sem_expr_idx(body);
+        let sem_expr_arena = sem_expr_region_data.sem_expr_arena();
+        match sem_expr_region_requires_lazy(db, sem_expr_region) {
+            true => match body.data(sem_expr_arena) {
                 &SemaExprData::Block { stmts } => Trace::new_lazy_stmts(
                     biological_parent_path,
                     biological_parent,
                     stmts,
-                    sema_expr_region,
+                    sem_expr_region,
                     db,
                 ),
                 _ => todo!(),
             },
-            false => match body.data(sema_expr_arena) {
+            false => match body.data(sem_expr_arena) {
                 &SemaExprData::Block { stmts } => Trace::new_eager_stmts(
                     biological_parent_path,
                     biological_parent,
                     stmts,
-                    sema_expr_region,
+                    sem_expr_region,
                     db,
                 ),
                 _ => todo!(),

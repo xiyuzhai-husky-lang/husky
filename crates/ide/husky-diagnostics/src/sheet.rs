@@ -1,13 +1,13 @@
 mod ast;
 mod decl;
-mod sema_expr;
+mod sem_expr;
 mod syn_expr;
 mod syn_tree;
 mod token;
 
 pub(crate) use self::ast::*;
 pub(crate) use self::decl::*;
-pub(crate) use self::sema_expr::*;
+pub(crate) use self::sem_expr::*;
 pub(crate) use self::syn_expr::*;
 pub(crate) use self::syn_tree::*;
 pub(crate) use self::token::*;

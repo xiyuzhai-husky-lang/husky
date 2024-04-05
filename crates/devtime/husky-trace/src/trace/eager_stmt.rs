@@ -7,8 +7,8 @@ use husky_regional_token::{
     ElifRegionalToken, ElseRegionalToken, EolColonRegionalToken, EolRegionalToken, IfRegionalToken,
     RegionalTokenIdxRange, StmtForRegionalToken,
 };
-use husky_sema_expr::{
-    helpers::range::sema_expr_range_region, SemaExprData, SemaExprDb, SemaExprRegion, SemaStmtData,
+use husky_sem_expr::{
+    helpers::range::sem_expr_range_region, SemaExprData, SemaExprDb, SemaExprRegion, SemaStmtData,
     SemaStmtIdx, SemaStmtIdxRange,
 };
 use husky_syn_defn::ItemSynDefn;
@@ -45,11 +45,11 @@ pub enum EagerStmtEssence {
 pub struct EagerStmtTraceData {
     pub path: TracePath,
     pub biological_parent: Trace,
-    pub sema_stmt_idx: SemaStmtIdx,
+    pub sem_stmt_idx: SemaStmtIdx,
     pub hir_eager_stmt_idx: Option<HirEagerStmtIdx>,
     pub eager_stmt_data_sketch: EagerStmtDataSketch,
     #[skip_fmt]
-    pub sema_expr_region: SemaExprRegion,
+    pub sem_expr_region: SemaExprRegion,
     #[skip_fmt]
     pub hir_eager_expr_region: HirEagerExprRegion,
 }
@@ -91,9 +91,9 @@ impl Trace {
         biological_parent: Trace,
         essence: EagerStmtEssence,
         registry: &mut crate::registry::trace_path::TracePathRegistry<EagerStmtEssence>,
-        sema_stmt_idx: SemaStmtIdx,
+        sem_stmt_idx: SemaStmtIdx,
         eager_stmt_data_sketch: EagerStmtDataSketch,
-        sema_expr_region: SemaExprRegion,
+        sem_expr_region: SemaExprRegion,
         db: &::salsa::Db,
     ) -> Self {
         let path = TracePath::new(
@@ -105,19 +105,19 @@ impl Trace {
             db,
         );
         let (hir_eager_expr_region, hir_eager_expr_source_map) =
-            hir_eager_expr_region_with_source_map(db, sema_expr_region);
+            hir_eager_expr_region_with_source_map(db, sem_expr_region);
         let hir_eager_stmt_idx = hir_eager_expr_source_map
             .data(db)
-            .sema_to_hir_eager_stmt_idx(sema_stmt_idx);
+            .sem_to_hir_eager_stmt_idx(sem_stmt_idx);
         Trace::new(
             path,
             EagerStmtTraceData {
                 path,
                 biological_parent: biological_parent.into(),
-                sema_stmt_idx,
+                sem_stmt_idx,
                 hir_eager_stmt_idx,
                 eager_stmt_data_sketch,
-                sema_expr_region,
+                sem_expr_region,
                 hir_eager_expr_region,
             }
             .into(),
@@ -138,28 +138,28 @@ impl Trace {
         else {
             return vec![];
         };
-        let sema_expr_region = db.sema_expr_region(syn_expr_region);
-        let sema_expr_region_data = sema_expr_region.data(db);
-        let body = sema_expr_region_data.syn_root_to_sema_expr_idx(body);
-        let SemaExprData::Block { stmts } = *body.data(sema_expr_region_data.sema_expr_arena())
+        let sem_expr_region = db.sem_expr_region(syn_expr_region);
+        let sem_expr_region_data = sem_expr_region.data(db);
+        let body = sem_expr_region_data.syn_root_to_sem_expr_idx(body);
+        let SemaExprData::Block { stmts } = *body.data(sem_expr_region_data.sem_expr_arena())
         else {
             unreachable!()
         };
-        Self::new_eager_stmts(parent_trace_path, parent_trace, stmts, sema_expr_region, db)
+        Self::new_eager_stmts(parent_trace_path, parent_trace, stmts, sem_expr_region, db)
     }
 
     pub(crate) fn new_eager_stmts(
         parent_trace_path: TracePath,
         parent_trace: Trace,
-        stmts: husky_sema_expr::SemaStmtIdxRange,
-        sema_expr_region: husky_sema_expr::SemaExprRegion,
+        stmts: husky_sem_expr::SemaStmtIdxRange,
+        sem_expr_region: husky_sem_expr::SemaExprRegion,
         db: &::salsa::Db,
     ) -> Vec<Trace> {
         let mut registry = TracePathRegistry::<EagerStmtEssence>::default();
         let mut subtraces: Vec<Trace> = vec![];
-        let sema_stmt_arena = sema_expr_region.data(db).sema_stmt_arena();
+        let sem_stmt_arena = sem_expr_region.data(db).sem_stmt_arena();
         for stmt in stmts {
-            match stmt.data(sema_stmt_arena) {
+            match stmt.data(sem_stmt_arena) {
                 SemaStmtData::Let { .. } => {
                     let essence = EagerStmtEssence::Let {};
                     let eager_stmt_trace = Trace::new_eager_stmt(
@@ -169,7 +169,7 @@ impl Trace {
                         &mut registry,
                         stmt,
                         EagerStmtDataSketch::BasicStmt,
-                        sema_expr_region,
+                        sem_expr_region,
                         db,
                     );
                     subtraces.push(eager_stmt_trace.into())
@@ -183,7 +183,7 @@ impl Trace {
                         &mut registry,
                         stmt,
                         EagerStmtDataSketch::BasicStmt,
-                        sema_expr_region,
+                        sem_expr_region,
                         db,
                     );
                     subtraces.push(eager_stmt_trace.into())
@@ -200,7 +200,7 @@ impl Trace {
                         &mut registry,
                         stmt,
                         EagerStmtDataSketch::BasicStmt,
-                        sema_expr_region,
+                        sem_expr_region,
                         db,
                     );
                     subtraces.push(eager_stmt_trace.into())
@@ -217,7 +217,7 @@ impl Trace {
                         &mut registry,
                         stmt,
                         EagerStmtDataSketch::BasicStmt,
-                        sema_expr_region,
+                        sem_expr_region,
                         db,
                     );
                     subtraces.push(eager_stmt_trace.into())
@@ -231,7 +231,7 @@ impl Trace {
                         &mut registry,
                         stmt,
                         EagerStmtDataSketch::BasicStmt,
-                        sema_expr_region,
+                        sem_expr_region,
                         db,
                     );
                     subtraces.push(eager_stmt_trace.into())
@@ -245,7 +245,7 @@ impl Trace {
                         &mut registry,
                         stmt,
                         EagerStmtDataSketch::BasicStmt,
-                        sema_expr_region,
+                        sem_expr_region,
                         db,
                     );
                     subtraces.push(eager_stmt_trace.into())
@@ -267,7 +267,7 @@ impl Trace {
                             eol_colon_regional_token: eol_colon,
                             stmts: block,
                         },
-                        sema_expr_region,
+                        sem_expr_region,
                         db,
                     )
                     .into(),
@@ -289,7 +289,7 @@ impl Trace {
                             eol_colon_regional_token: eol_colon,
                             stmts: block,
                         },
-                        sema_expr_region,
+                        sem_expr_region,
                         db,
                     )
                     .into(),
@@ -314,9 +314,9 @@ impl Trace {
                     stmts: _,
                 } => todo!(),
                 SemaStmtData::IfElse {
-                    if_branch: sema_if_branch,
-                    elif_branches: sema_elif_branches,
-                    else_branch: sema_else_branch,
+                    if_branch: sem_if_branch,
+                    elif_branches: sem_elif_branches,
+                    else_branch: sem_else_branch,
                 } => {
                     subtraces.push(
                         Trace::new_eager_stmt(
@@ -326,17 +326,16 @@ impl Trace {
                             &mut registry,
                             stmt,
                             EagerStmtDataSketch::IfBranch {
-                                if_regional_token: sema_if_branch.if_token(),
-                                eol_colon_regional_token: sema_if_branch.eol_colon_token(),
-                                stmts: sema_if_branch.stmts(),
+                                if_regional_token: sem_if_branch.if_token(),
+                                eol_colon_regional_token: sem_if_branch.eol_colon_token(),
+                                stmts: sem_if_branch.stmts(),
                             },
-                            sema_expr_region,
+                            sem_expr_region,
                             db,
                         )
                         .into(),
                     );
-                    for (elif_branch_idx, sema_elif_branch) in sema_elif_branches.iter().enumerate()
-                    {
+                    for (elif_branch_idx, sem_elif_branch) in sem_elif_branches.iter().enumerate() {
                         let elif_branch_idx = elif_branch_idx.try_into().unwrap();
                         subtraces.push(
                             Trace::new_eager_stmt(
@@ -347,17 +346,17 @@ impl Trace {
                                 stmt,
                                 EagerStmtDataSketch::ElifBranch {
                                     elif_branch_idx,
-                                    elif_regional_token: sema_elif_branch.elif_regional_token(),
-                                    eol_colon_regional_token: sema_elif_branch.eol_colon_token(),
-                                    stmts: sema_elif_branch.stmts(),
+                                    elif_regional_token: sem_elif_branch.elif_regional_token(),
+                                    eol_colon_regional_token: sem_elif_branch.eol_colon_token(),
+                                    stmts: sem_elif_branch.stmts(),
                                 },
-                                sema_expr_region,
+                                sem_expr_region,
                                 db,
                             )
                             .into(),
                         );
                     }
-                    if let Some(sema_else_branch) = sema_else_branch {
+                    if let Some(sem_else_branch) = sem_else_branch {
                         subtraces.push(
                             Trace::new_eager_stmt(
                                 parent_trace_path,
@@ -366,12 +365,12 @@ impl Trace {
                                 &mut registry,
                                 stmt,
                                 EagerStmtDataSketch::ElseBranch {
-                                    else_regional_token: sema_else_branch.else_regional_token(),
-                                    eol_colon_regional_token: sema_else_branch
+                                    else_regional_token: sem_else_branch.else_regional_token(),
+                                    eol_colon_regional_token: sem_else_branch
                                         .eol_colon_regional_token(),
-                                    stmts: sema_else_branch.stmts(),
+                                    stmts: sem_else_branch.stmts(),
                                 },
-                                sema_expr_region,
+                                sem_expr_region,
                                 db,
                             )
                             .into(),
@@ -387,12 +386,12 @@ impl Trace {
 
 impl EagerStmtTraceData {
     pub(super) fn view_lines(&self, trace_id: Trace, db: &::salsa::Db) -> TraceViewLines {
-        let sema_stmt_idx = self.sema_stmt_idx;
-        let sema_expr_region = self.sema_expr_region;
-        let sema_expr_range_region = sema_expr_range_region(db, sema_expr_region);
-        let region_path = sema_expr_region.path(db);
+        let sem_stmt_idx = self.sem_stmt_idx;
+        let sem_expr_region = self.sem_expr_region;
+        let sem_expr_range_region = sem_expr_range_region(db, sem_expr_region);
+        let region_path = sem_expr_region.path(db);
         let regional_token_idx_range = match self.eager_stmt_data_sketch {
-            EagerStmtDataSketch::BasicStmt => sema_expr_range_region.data(db)[sema_stmt_idx],
+            EagerStmtDataSketch::BasicStmt => sem_expr_range_region.data(db)[sem_stmt_idx],
             EagerStmtDataSketch::IfBranch {
                 if_regional_token,
                 eol_colon_regional_token,
@@ -436,7 +435,7 @@ impl EagerStmtTraceData {
         };
         let token_idx_range = regional_token_idx_range
             .token_idx_range(region_path.regional_token_idx_base(db).unwrap());
-        let registry = EagerStmtAssocTraceRegistry::new(trace_id, sema_expr_region, db);
+        let registry = EagerStmtAssocTraceRegistry::new(trace_id, sem_expr_region, db);
         TraceViewLines::new(region_path.module_path(db), token_idx_range, registry, db)
     }
 
@@ -459,7 +458,7 @@ impl EagerStmtTraceData {
             | EagerStmtDataSketch::ElseBranch { stmts, .. }
             | EagerStmtDataSketch::ForIn { stmts, .. }
             | EagerStmtDataSketch::ForBetween { stmts, .. } => {
-                Trace::new_eager_stmts(self.path, trace, stmts, self.sema_expr_region, db)
+                Trace::new_eager_stmts(self.path, trace, stmts, self.sem_expr_region, db)
             }
         }
     }
@@ -467,7 +466,7 @@ impl EagerStmtTraceData {
 
 struct EagerStmtAssocTraceRegistry<'a> {
     parent_trace: Trace,
-    sema_expr_region: SemaExprRegion,
+    sem_expr_region: SemaExprRegion,
     hir_eager_expr_region: HirEagerExprRegion,
     syn_expr_region_data: &'a SynExprRegionData,
     hir_eager_expr_source_map: HirEagerExprSourceMap,
@@ -479,13 +478,13 @@ struct EagerStmtAssocTraceRegistry<'a> {
 }
 
 impl<'a> EagerStmtAssocTraceRegistry<'a> {
-    fn new(parent_trace: Trace, sema_expr_region: SemaExprRegion, db: &'a ::salsa::Db) -> Self {
+    fn new(parent_trace: Trace, sem_expr_region: SemaExprRegion, db: &'a ::salsa::Db) -> Self {
         let (hir_eager_expr_region, hir_eager_expr_source_map) =
-            hir_eager_expr_region_with_source_map(db, sema_expr_region);
+            hir_eager_expr_region_with_source_map(db, sem_expr_region);
         EagerStmtAssocTraceRegistry {
             parent_trace,
-            sema_expr_region,
-            syn_expr_region_data: sema_expr_region.syn_expr_region(db).data(db),
+            sem_expr_region,
+            syn_expr_region_data: sem_expr_region.syn_expr_region(db).data(db),
             hir_eager_expr_region,
             hir_eager_expr_source_map,
             hir_eager_expr_source_map_data: hir_eager_expr_source_map.data(db),
@@ -505,18 +504,18 @@ impl<'a> IsAssocTraceRegistry for EagerStmtAssocTraceRegistry<'a> {
     ) -> Option<Trace> {
         match source {
             TokenInfoSource::UseExpr(_) => None,
-            TokenInfoSource::SemaExpr(sema_expr_idx) => Some(
+            TokenInfoSource::SemaExpr(sem_expr_idx) => Some(
                 self.eager_expr_traces_issued
-                    .get_value_copied_or_insert_with(sema_expr_idx, || {
+                    .get_value_copied_or_insert_with(sem_expr_idx, || {
                         let hir_eager_expr_idx = self
                             .hir_eager_expr_source_map_data
-                            .sema_to_hir_eager_expr_idx(sema_expr_idx);
+                            .sem_to_hir_eager_expr_idx(sem_expr_idx);
                         Trace::new_eager_expr(
                             self.parent_trace.path(db),
                             self.parent_trace,
-                            sema_expr_idx,
+                            sem_expr_idx,
                             hir_eager_expr_idx,
-                            self.sema_expr_region,
+                            self.sem_expr_region,
                             self.hir_eager_expr_region,
                             self.hir_eager_expr_source_map,
                             &mut self.eager_expr_trace_path_registry,
@@ -552,7 +551,7 @@ impl<'a> IsAssocTraceRegistry for EagerStmtAssocTraceRegistry<'a> {
                                             )
                                     },
                                 ),
-                            self.sema_expr_region,
+                            self.sem_expr_region,
                             &mut self.eager_pattern_expr_trace_path_registry,
                             db,
                         )

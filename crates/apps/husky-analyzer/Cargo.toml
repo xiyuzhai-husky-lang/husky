@@ -54,7 +54,7 @@ husky-toml-token.workspace = true
 husky-text-protocol = { workspace = true, features = ["lsp_support"] }
 # semantics
 husky-manifest.workspace = true
-husky-sema-expr.workspace = true
+husky-sem-expr.workspace = true
 husky-corgi-config.workspace = true
 # syntax
 husky-ast.workspace = true

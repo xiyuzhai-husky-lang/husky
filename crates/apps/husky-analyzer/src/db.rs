@@ -31,7 +31,7 @@ use salsa::snapshot::SnapshotClone;
     husky_syn_decl::SynDeclJar,
     husky_syn_defn::SynDefnJar,
     // semantics
-    husky_sema_expr::SemaExprJar,
+    husky_sem_expr::SemaExprJar,
     husky_corgi_config::CorgiConfigJar,
     husky_manifest::ManifestJar,
     // ide
