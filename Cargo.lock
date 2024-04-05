@@ -6165,8 +6165,14 @@ version = "0.1.0"
 name = "husky-tex-token"
 version = "0.1.0"
 dependencies = [
+ "enum-class",
+ "expect-test",
+ "husky-print-utils",
+ "husky-tex-math-letter",
+ "husky-tex-prelude",
  "husky-text-protocol",
  "salsa",
+ "shifted-unsigned-int",
 ]
 
 [[package]]

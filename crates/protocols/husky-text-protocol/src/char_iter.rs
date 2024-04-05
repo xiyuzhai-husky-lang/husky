@@ -76,6 +76,17 @@ impl<'a> TextCharIter<'a> {
         }
     }
 
+    pub fn get_str_slice_from_start_with(
+        &mut self,
+        start: usize,
+        predicate: impl Fn(char) -> bool,
+    ) -> &'a str {
+        let slice = self.iter.as_slice();
+        self.eat_chars_with(predicate);
+        let end = self.current_offset;
+        unsafe { std::str::from_utf8_unchecked(&slice[..(end - start)]) }
+    }
+
     pub fn get_str_slice_with(&mut self, predicate: impl Fn(char) -> bool) -> &'a str {
         let slice = self.iter.as_slice();
         let start = self.current_offset;
