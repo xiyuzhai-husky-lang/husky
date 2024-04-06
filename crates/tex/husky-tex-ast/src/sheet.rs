@@ -4,7 +4,7 @@ pub mod egui;
 pub mod event;
 
 use self::event::*;
-use crate::ast::{TexAstArena, TexAstData, TexAstIdx, TexAstIdxRange};
+use crate::data::{TexAstArena, TexAstData, TexAstIdx, TexAstIdxRange};
 use time_capsule::{capsule::TimeCapsule, state::IsTimeCapsuleState};
 
 #[derive(Default)]

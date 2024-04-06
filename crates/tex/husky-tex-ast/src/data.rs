@@ -1,3 +1,7 @@
+pub mod math;
+pub mod text;
+
+use self::{math::TexMathAstData, text::TexTextAstData};
 use crate::{parser::TexAstParser, sheet::TexAstSheet, *};
 use husky_tex_math_letter::TexMathLetter;
 use husky_tex_math_opr::TexMathOpr;
@@ -5,15 +9,12 @@ use husky_tex_prelude::mode::TexMode;
 use husky_tex_token::data::{math::TexMathTokenData, text::TexTextTokenData, TexTokenData};
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
 
+#[enum_class::from_variants]
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum TexAstData {
-    Attach {},
-    TextEdit { buffer: String },
-    Other,
-    MathLetter(TexMathLetter),
-    MathOpr(TexMathOpr),
-    MathNat32(u32),
+    Math(TexMathAstData),
+    Text(TexTextAstData),
 }
 
 pub type TexAstArena = Arena<TexAstData>;
@@ -76,11 +77,15 @@ fn parse_tex_input_into_asts_works() {
             (
                 Arena {
                     data: [
-                        TexAstData::MathLetter(
-                            LowerX,
+                        TexAstData::Math(
+                            TexMathAstData::Letter(
+                                LowerX,
+                            ),
                         ),
-                        TexAstData::MathOpr(
-                            Add,
+                        TexAstData::Math(
+                            TexMathAstData::Opr(
+                                Add,
+                            ),
                         ),
                     ],
                 },
@@ -102,6 +107,19 @@ impl<'a> TexAstParser<'a> {
     }
 
     fn parse_ast(&mut self) -> Option<TexAstData> {
+        let mut ast = self.parse_atomic_ast()?;
+        match self.peek()? {
+            TexTokenData::Math(token) => match token {
+                TexMathTokenData::Subscript => todo!(),
+                TexMathTokenData::Superscript => todo!(),
+                _ => (),
+            },
+            TexTokenData::Text(token) => (),
+        };
+        Some(ast)
+    }
+
+    fn parse_atomic_ast(&mut self) -> Option<TexAstData> {
         match self.peek()? {
             TexTokenData::Math(token) => {
                 match token {
@@ -123,33 +141,10 @@ impl<'a> TexAstParser<'a> {
                 TexTextTokenData::Nat32(_) => todo!(),
             },
         }
-        let mut ast = self.parse_ast_inner()?;
-        match self.peek()? {
-            TexTokenData::Math(token) => match token {
-                TexMathTokenData::Subscript => todo!(),
-                TexMathTokenData::Superscript => todo!(),
-                _ => (),
-            },
-            TexTokenData::Text(token) => (),
-        };
-        Some(ast)
-    }
-
-    fn parse_ast_inner(&mut self) -> Option<TexAstData> {
         let (idx, token) = self.next_token().unwrap();
-        match token {
-            TexTokenData::Math(token) => match token {
-                TexMathTokenData::Command(_) => todo!(),
-                TexMathTokenData::LeftDelimiter(_) => todo!(),
-                TexMathTokenData::RightDelimiter(_) => todo!(),
-                TexMathTokenData::Letter(letter) => Some(TexAstData::MathLetter(letter)),
-                TexMathTokenData::Opr(opr) => Some(TexAstData::MathOpr(opr)),
-                TexMathTokenData::Nat32(number) => Some(TexAstData::MathNat32(number)),
-                TexMathTokenData::Other(_) => todo!(),
-                TexMathTokenData::Subscript => todo!(),
-                TexMathTokenData::Superscript => todo!(),
-            },
-            TexTokenData::Text(_) => todo!(),
-        }
+        Some(match token {
+            TexTokenData::Math(token) => self.parse_atomic_math_ast(token).into(),
+            TexTokenData::Text(token) => self.parse_atomic_text_ast(token).into(),
+        })
     }
 }

@@ -1,4 +1,4 @@
-use crate::ast::{TexAstArena, TexAstData, TexAstIdxRange};
+use crate::data::{TexAstArena, TexAstData, TexAstIdxRange};
 use husky_tex_prelude::mode::TexMode;
 use husky_tex_token::{data::TexTokenData, idx::TexTokenIdx, lexer::TexLexer};
 use std::iter::Peekable;

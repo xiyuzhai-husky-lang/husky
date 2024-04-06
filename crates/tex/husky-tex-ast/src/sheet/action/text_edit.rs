@@ -1,4 +1,5 @@
 use super::*;
+use crate::data::{math::TexMathAstData, text::TexTextAstData};
 
 pub(in crate::sheet) struct MathAstTextEditAction<F>
 where
@@ -32,7 +33,8 @@ where
 
     fn exec(self, sheet: &mut TexAstSheet) -> Self::Outcome {
         sheet.arena.update(self.ast_idx, |ast| match ast {
-            TexAstData::TextEdit { ref mut buffer, .. } => (self.f)(buffer),
+            TexAstData::Math(TexMathAstData::TextEdit { ref mut buffer, .. }) => (self.f)(buffer),
+            TexAstData::Text(TexTextAstData::TextEdit { ref mut buffer, .. }) => (self.f)(buffer),
             _ => unreachable!("shouldn't use this"),
         })
     }
@@ -41,12 +43,15 @@ where
 #[test]
 fn math_ast_text_edit_action_works() {
     let mut sheet: TexAstSheet = Default::default();
-    let ast_idx = sheet.alloc_ast(TexAstData::TextEdit {
-        buffer: "hello,".to_string(),
-    });
+    let ast_idx = sheet.alloc_ast(
+        TexMathAstData::TextEdit {
+            buffer: "hello,".to_string(),
+        }
+        .into(),
+    );
     let action = MathAstTextEditAction::new(ast_idx, |s| *s += " world");
     action.exec(&mut sheet);
-    let TexAstData::TextEdit { ref buffer, .. } = sheet.arena[ast_idx] else {
+    let TexAstData::Math(TexMathAstData::TextEdit { ref buffer, .. }) = sheet.arena[ast_idx] else {
         unreachable!()
     };
     assert_eq!(buffer, "hello, world")
