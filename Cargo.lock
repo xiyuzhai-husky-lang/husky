@@ -6172,6 +6172,7 @@ dependencies = [
  "husky-print-utils",
  "husky-tex-command",
  "husky-tex-math-letter",
+ "husky-tex-math-opr",
  "husky-tex-prelude",
  "husky-text-protocol",
  "salsa",

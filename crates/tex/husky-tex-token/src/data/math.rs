@@ -1,6 +1,7 @@
 use super::*;
 use husky_tex_command::path::TexCommandPath;
 use husky_tex_math_letter::TexMathLetter;
+use husky_tex_math_opr::TexMathOpr;
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -9,8 +10,11 @@ pub enum TexMathTokenData {
     LeftDelimiter(TexMathDelimiter),
     RightDelimiter(TexMathDelimiter),
     Letter(TexMathLetter),
+    Opr(TexMathOpr),
     Nat32(u32),
     Other(char),
+    Subscript,
+    Superscript,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -24,8 +28,6 @@ pub enum TexMathDelimiter {
     /// `\{`, `\}`
     Set,
 }
-
-pub enum Script {}
 
 impl<'a> TexLexer<'a> {
     pub(super) fn next_math_token_data(&mut self) -> Option<TexMathTokenData> {
@@ -68,16 +70,23 @@ impl<'a> TexLexer<'a> {
             c => {
                 self.chars.eat_char();
                 match c {
+                    '_' => Some(TexMathTokenData::Subscript),
+                    '^' => Some(TexMathTokenData::Superscript),
                     '{' => Some(TexMathTokenData::LeftDelimiter(TexMathDelimiter::Curl)),
                     '}' => Some(TexMathTokenData::RightDelimiter(TexMathDelimiter::Curl)),
                     '(' => Some(TexMathTokenData::LeftDelimiter(TexMathDelimiter::Par)),
                     ')' => Some(TexMathTokenData::RightDelimiter(TexMathDelimiter::Par)),
                     '[' => Some(TexMathTokenData::LeftDelimiter(TexMathDelimiter::Box)),
                     ']' => Some(TexMathTokenData::RightDelimiter(TexMathDelimiter::Box)),
-                    c => match TexMathLetter::try_from_char(c) {
-                        Some(letter) => Some(TexMathTokenData::Letter(letter)),
-                        None => Some(TexMathTokenData::Other(c)),
-                    },
+                    c => {
+                        if let Some(letter) = TexMathLetter::try_from_char(c) {
+                            Some(TexMathTokenData::Letter(letter))
+                        } else if let Some(opr) = TexMathOpr::try_from_char(c) {
+                            Some(TexMathTokenData::Opr(opr))
+                        } else {
+                            Some(TexMathTokenData::Other(c))
+                        }
+                    }
                 }
             }
         }
@@ -247,5 +256,69 @@ fn next_text_token_data_works() {
             ),
         ]
     "#]],
+    );
+    t(
+        "+",
+        &expect![[r#"
+        [
+            TexTokenData::Math(
+                TexMathTokenData::Opr(
+                    Add,
+                ),
+            ),
+        ]
+    "#]],
+    );
+    t(
+        "x+1",
+        &expect![[r#"
+        [
+            TexTokenData::Math(
+                TexMathTokenData::Letter(
+                    LowerX,
+                ),
+            ),
+            TexTokenData::Math(
+                TexMathTokenData::Opr(
+                    Add,
+                ),
+            ),
+            TexTokenData::Math(
+                TexMathTokenData::Nat32(
+                    1,
+                ),
+            ),
+        ]
+    "#]],
+    );
+    t(
+        "x_1+1",
+        &expect![[r#"
+            [
+                TexTokenData::Math(
+                    TexMathTokenData::Letter(
+                        LowerX,
+                    ),
+                ),
+                TexTokenData::Math(
+                    TexMathTokenData::Subscript,
+                ),
+                TexTokenData::Math(
+                    TexMathTokenData::Nat32(
+                        1,
+                    ),
+                ),
+                TexTokenData::Math(
+                    TexMathTokenData::Opr(
+                        Add,
+                    ),
+                ),
+                TexTokenData::Math(
+                    TexMathTokenData::Nat32(
+                        1,
+                    ),
+                ),
+            ]
+        "#]],
     );
 }

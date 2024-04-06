@@ -75,7 +75,7 @@ impl TexMathOpr {
         }
     }
 
-    pub fn from_char(c: char) -> Option<Self> {
+    pub fn try_from_char(c: char) -> Option<Self> {
         match c {
             '+' => Some(TexMathOpr::Add),
             '-' => Some(TexMathOpr::Sub),
