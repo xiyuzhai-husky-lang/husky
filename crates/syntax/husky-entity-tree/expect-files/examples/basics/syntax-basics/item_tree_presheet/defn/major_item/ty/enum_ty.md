@@ -25,7 +25,7 @@ EntityTreePresheet {
                         visibility: Scope::PubUnder(
                             `syntax_basics::defn::major_item::ty::enum_ty`,
                         ),
-                        ast_idx: 6,
+                        ast_idx: 5,
                         ident_token: IdentToken {
                             ident: `A`,
                             token_idx: TokenIdx(
@@ -37,7 +37,7 @@ EntityTreePresheet {
                             variants: Some(
                                 TypeVariants {
                                     ast_idx_range: ArenaIdxRange(
-                                        1..6,
+                                        0..5,
                                     ),
                                 },
                             ),

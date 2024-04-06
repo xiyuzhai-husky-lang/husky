@@ -176,7 +176,7 @@ AstSheet {
                     body: Some(
                         FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
-                                5..6,
+                                4..5,
                             ),
                         },
                     ),
@@ -216,9 +216,9 @@ AstSheet {
                         15,
                     ),
                 },
-                pattern_stmt: 7,
+                pattern_stmt: 6,
                 case_branches: ArenaIdxRange(
-                    8..10,
+                    7..9,
                 ),
             },
             AstData::Identifiable {
@@ -293,7 +293,7 @@ AstSheet {
                     body: Some(
                         FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
-                                10..11,
+                                9..10,
                             ),
                         },
                     ),
@@ -438,9 +438,9 @@ AstSheet {
                         26,
                     ),
                 },
-                pattern_stmt: 16,
+                pattern_stmt: 15,
                 case_branches: ArenaIdxRange(
-                    17..20,
+                    16..19,
                 ),
             },
             AstData::Identifiable {
@@ -515,7 +515,7 @@ AstSheet {
                     body: Some(
                         FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
-                                20..21,
+                                19..20,
                             ),
                         },
                     ),
@@ -571,7 +571,7 @@ AstSheet {
                     variants: Some(
                         TypeVariants {
                             ast_idx_range: ArenaIdxRange(
-                                1..3,
+                                0..2,
                             ),
                         },
                     ),
@@ -627,7 +627,7 @@ AstSheet {
                     variants: Some(
                         TypeVariants {
                             ast_idx_range: ArenaIdxRange(
-                                3..5,
+                                2..4,
                             ),
                         },
                     ),
@@ -644,7 +644,7 @@ AstSheet {
                     TraitForType(
                         TraitForTypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                6..7,
+                                5..6,
                             ),
                         },
                     ),
@@ -661,7 +661,7 @@ AstSheet {
                     TraitForType(
                         TraitForTypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                11..13,
+                                10..12,
                             ),
                         },
                     ),
@@ -717,7 +717,7 @@ AstSheet {
                     variants: Some(
                         TypeVariants {
                             ast_idx_range: ArenaIdxRange(
-                                13..16,
+                                12..15,
                             ),
                         },
                     ),
@@ -734,7 +734,7 @@ AstSheet {
                     TraitForType(
                         TraitForTypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                21..23,
+                                20..22,
                             ),
                         },
                     ),
@@ -788,18 +788,24 @@ AstSheet {
         ],
     },
     top_level_asts: ArenaIdxRange(
-        23..33,
+        22..32,
     ),
     nested_top_level_asts: [],
     siblings: [
         ArenaIdxRange(
-            5..5,
+            4..4,
+        ),
+        ArenaIdxRange(
+            4..5,
         ),
         ArenaIdxRange(
             5..6,
         ),
         ArenaIdxRange(
-            6..7,
+            6..6,
+        ),
+        ArenaIdxRange(
+            6..6,
         ),
         ArenaIdxRange(
             7..7,
@@ -808,16 +814,19 @@ AstSheet {
             7..7,
         ),
         ArenaIdxRange(
-            8..8,
+            9..10,
         ),
         ArenaIdxRange(
-            8..8,
+            10..12,
         ),
         ArenaIdxRange(
-            10..11,
+            15..15,
         ),
         ArenaIdxRange(
-            11..13,
+            15..15,
+        ),
+        ArenaIdxRange(
+            16..16,
         ),
         ArenaIdxRange(
             16..16,
@@ -826,25 +835,16 @@ AstSheet {
             16..16,
         ),
         ArenaIdxRange(
-            17..17,
+            19..20,
         ),
         ArenaIdxRange(
-            17..17,
+            20..22,
         ),
         ArenaIdxRange(
-            17..17,
+            22..22,
         ),
         ArenaIdxRange(
-            20..21,
-        ),
-        ArenaIdxRange(
-            21..23,
-        ),
-        ArenaIdxRange(
-            23..23,
-        ),
-        ArenaIdxRange(
-            23..33,
+            22..32,
         ),
     ],
 }

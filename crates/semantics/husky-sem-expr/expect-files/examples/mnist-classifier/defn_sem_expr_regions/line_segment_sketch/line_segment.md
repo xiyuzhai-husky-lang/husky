@@ -55,7 +55,7 @@
                             ),
                             expectation_idx_and_ty: Some(
                                 (
-                                    1,
+                                    0,
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
@@ -75,7 +75,7 @@
                             data_result: Ok(
                                 SemaExprData::Field {
                                     self_argument: SemaExprIdx(
-                                        1,
+                                        0,
                                     ),
                                     self_ty: FlyTerm {
                                         place: Some(
@@ -140,7 +140,7 @@
                             ),
                             expectation_idx_and_ty: Some(
                                 (
-                                    2,
+                                    1,
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
@@ -180,7 +180,7 @@
                             ),
                             expectation_idx_and_ty: Some(
                                 (
-                                    3,
+                                    2,
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
@@ -200,7 +200,7 @@
                             data_result: Ok(
                                 SemaExprData::Field {
                                     self_argument: SemaExprIdx(
-                                        3,
+                                        2,
                                     ),
                                     self_ty: FlyTerm {
                                         place: Some(
@@ -265,7 +265,7 @@
                             ),
                             expectation_idx_and_ty: Some(
                                 (
-                                    4,
+                                    3,
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
@@ -285,7 +285,7 @@
                             data_result: Ok(
                                 SemaExprData::MethodFnCall {
                                     self_argument_sem_expr_idx: SemaExprIdx(
-                                        2,
+                                        1,
                                     ),
                                     self_contract: Pure,
                                     dot_regional_token_idx: RegionalTokenIdx(
@@ -386,7 +386,7 @@
                                             },
                                             SemaSimpleArgument {
                                                 argument_expr_idx: SemaExprIdx(
-                                                    4,
+                                                    3,
                                                 ),
                                                 coersion_outcome: Some(
                                                     ExpectCoersionOutcome {
@@ -420,7 +420,7 @@
                             ),
                             expectation_idx_and_ty: Some(
                                 (
-                                    5,
+                                    4,
                                     FlyTerm {
                                         place: None,
                                         base: FlyTermBase::Eth(
@@ -435,7 +435,7 @@
                                 SemaExprData::Block {
                                     stmts: SemaStmtIdxRange(
                                         ArenaIdxRange(
-                                            1..2,
+                                            0..1,
                                         ),
                                     ),
                                 },
@@ -450,7 +450,7 @@
                             ),
                             expectation_idx_and_ty: Some(
                                 (
-                                    6,
+                                    5,
                                     FlyTerm {
                                         place: None,
                                         base: FlyTermBase::Eth(
@@ -470,7 +470,7 @@
                             data_result: Ok(
                                 SemaStmtData::Eval {
                                     sem_expr_idx: SemaExprIdx(
-                                        5,
+                                        4,
                                     ),
                                     outcome: Some(
                                         ExpectationOutcome::Coersion(
@@ -500,10 +500,10 @@
             ),
             sem_expr_roots: [
                 (
-                    6,
+                    5,
                     (
                         SemaExprIdx(
-                            6,
+                            5,
                         ),
                         SynExprRootKind::BlockExpr,
                     ),
@@ -540,9 +540,9 @@
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
-                                    idx: 1,
+                                    idx: 0,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 1,
+                                        syn_expr_idx: 0,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -571,9 +571,9 @@
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
-                                    idx: 2,
+                                    idx: 1,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 2,
+                                        syn_expr_idx: 1,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -602,9 +602,9 @@
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
-                                    idx: 3,
+                                    idx: 2,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 3,
+                                        syn_expr_idx: 2,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -641,9 +641,9 @@
                                     },
                                 ),
                                 state: ExpectationState {
-                                    idx: 4,
+                                    idx: 3,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 4,
+                                        syn_expr_idx: 3,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -690,9 +690,9 @@
                                     },
                                 ),
                                 state: ExpectationState {
-                                    idx: 5,
+                                    idx: 4,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 5,
+                                        syn_expr_idx: 4,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -729,9 +729,9 @@
                                     },
                                 ),
                                 state: ExpectationState {
-                                    idx: 6,
+                                    idx: 5,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 6,
+                                        syn_expr_idx: 5,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -792,7 +792,7 @@
                 infos: [
                     SelfValue,
                     Variable {
-                        current_syn_symbol_idx: 1,
+                        current_syn_symbol_idx: 0,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -802,7 +802,7 @@
                         ),
                     },
                     Variable {
-                        current_syn_symbol_idx: 2,
+                        current_syn_symbol_idx: 1,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -812,7 +812,7 @@
                         ),
                     },
                     Variable {
-                        current_syn_symbol_idx: 3,
+                        current_syn_symbol_idx: 2,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -853,7 +853,7 @@
                             ),
                             expectation_idx_and_ty: Some(
                                 (
-                                    1,
+                                    0,
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
@@ -873,7 +873,7 @@
                             data_result: Ok(
                                 SemaExprData::MethodFnCall {
                                     self_argument_sem_expr_idx: SemaExprIdx(
-                                        1,
+                                        0,
                                     ),
                                     self_contract: Pure,
                                     dot_regional_token_idx: RegionalTokenIdx(
@@ -965,7 +965,7 @@
                             ),
                             expectation_idx_and_ty: Some(
                                 (
-                                    2,
+                                    1,
                                     FlyTerm {
                                         place: None,
                                         base: FlyTermBase::Eth(
@@ -999,7 +999,7 @@
                             ),
                             expectation_idx_and_ty: Some(
                                 (
-                                    3,
+                                    2,
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
@@ -1019,7 +1019,7 @@
                             data_result: Ok(
                                 SemaExprData::Field {
                                     self_argument: SemaExprIdx(
-                                        3,
+                                        2,
                                     ),
                                     self_ty: FlyTerm {
                                         place: Some(
@@ -1084,7 +1084,7 @@
                             ),
                             expectation_idx_and_ty: Some(
                                 (
-                                    4,
+                                    3,
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
@@ -1107,7 +1107,7 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         18,
                                     ),
-                                    inherited_syn_symbol_idx: 1,
+                                    inherited_syn_symbol_idx: 0,
                                     inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                         ident: `pt`,
                                     },
@@ -1129,7 +1129,7 @@
                             ),
                             expectation_idx_and_ty: Some(
                                 (
-                                    5,
+                                    4,
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
@@ -1149,7 +1149,7 @@
                             data_result: Ok(
                                 SemaExprData::MethodFnCall {
                                     self_argument_sem_expr_idx: SemaExprIdx(
-                                        4,
+                                        3,
                                     ),
                                     self_contract: Pure,
                                     dot_regional_token_idx: RegionalTokenIdx(
@@ -1250,7 +1250,7 @@
                                             },
                                             SemaSimpleArgument {
                                                 argument_expr_idx: SemaExprIdx(
-                                                    5,
+                                                    4,
                                                 ),
                                                 coersion_outcome: Some(
                                                     ExpectCoersionOutcome {
@@ -1284,7 +1284,7 @@
                             ),
                             expectation_idx_and_ty: Some(
                                 (
-                                    6,
+                                    5,
                                     FlyTerm {
                                         place: None,
                                         base: FlyTermBase::Eth(
@@ -1301,9 +1301,9 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         21,
                                     ),
-                                    current_syn_symbol_idx: 1,
+                                    current_syn_symbol_idx: 0,
                                     current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                                        pattern_symbol_idx: 1,
+                                        pattern_symbol_idx: 0,
                                     },
                                 },
                             ),
@@ -1323,7 +1323,7 @@
                             ),
                             expectation_idx_and_ty: Some(
                                 (
-                                    7,
+                                    6,
                                     FlyTerm {
                                         place: Some(
                                             ImmutableOnStack {
@@ -1346,9 +1346,9 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         25,
                                     ),
-                                    current_syn_symbol_idx: 2,
+                                    current_syn_symbol_idx: 1,
                                     current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                                        pattern_symbol_idx: 2,
+                                        pattern_symbol_idx: 1,
                                     },
                                 },
                             ),
@@ -1368,7 +1368,7 @@
                             ),
                             expectation_idx_and_ty: Some(
                                 (
-                                    8,
+                                    7,
                                     FlyTerm {
                                         place: Some(
                                             ImmutableOnStack {
@@ -1388,7 +1388,7 @@
                             data_result: Ok(
                                 SemaExprData::MethodFnCall {
                                     self_argument_sem_expr_idx: SemaExprIdx(
-                                        7,
+                                        6,
                                     ),
                                     self_contract: Pure,
                                     dot_regional_token_idx: RegionalTokenIdx(
@@ -1489,7 +1489,7 @@
                                             },
                                             SemaSimpleArgument {
                                                 argument_expr_idx: SemaExprIdx(
-                                                    8,
+                                                    7,
                                                 ),
                                                 coersion_outcome: Some(
                                                     ExpectCoersionOutcome {
@@ -1523,7 +1523,7 @@
                             ),
                             expectation_idx_and_ty: Some(
                                 (
-                                    9,
+                                    8,
                                     FlyTerm {
                                         place: None,
                                         base: FlyTermBase::Eth(
@@ -1562,7 +1562,7 @@
                             ),
                             expectation_idx_and_ty: Some(
                                 (
-                                    10,
+                                    9,
                                     FlyTerm {
                                         place: Some(
                                             Const,
@@ -1578,7 +1578,7 @@
                             data_result: Ok(
                                 SemaExprData::Binary {
                                     lopd: SemaExprIdx(
-                                        9,
+                                        8,
                                     ),
                                     opr: Comparison(
                                         Less,
@@ -1595,7 +1595,7 @@
                                         27,
                                     ),
                                     ropd: SemaExprIdx(
-                                        10,
+                                        9,
                                     ),
                                 },
                             ),
@@ -1609,7 +1609,7 @@
                             ),
                             expectation_idx_and_ty: Some(
                                 (
-                                    11,
+                                    10,
                                     FlyTerm {
                                         place: None,
                                         base: FlyTermBase::Eth(
@@ -1626,9 +1626,9 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         30,
                                     ),
-                                    current_syn_symbol_idx: 2,
+                                    current_syn_symbol_idx: 1,
                                     current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                                        pattern_symbol_idx: 2,
+                                        pattern_symbol_idx: 1,
                                     },
                                 },
                             ),
@@ -1648,7 +1648,7 @@
                             ),
                             expectation_idx_and_ty: Some(
                                 (
-                                    12,
+                                    11,
                                     FlyTerm {
                                         place: Some(
                                             ImmutableOnStack {
@@ -1668,7 +1668,7 @@
                             data_result: Ok(
                                 SemaExprData::MethodFnCall {
                                     self_argument_sem_expr_idx: SemaExprIdx(
-                                        12,
+                                        11,
                                     ),
                                     self_contract: Pure,
                                     dot_regional_token_idx: RegionalTokenIdx(
@@ -1760,7 +1760,7 @@
                             ),
                             expectation_idx_and_ty: Some(
                                 (
-                                    13,
+                                    12,
                                     FlyTerm {
                                         place: None,
                                         base: FlyTermBase::Eth(
@@ -1794,7 +1794,7 @@
                             ),
                             expectation_idx_and_ty: Some(
                                 (
-                                    14,
+                                    13,
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
@@ -1814,7 +1814,7 @@
                             data_result: Ok(
                                 SemaExprData::Field {
                                     self_argument: SemaExprIdx(
-                                        14,
+                                        13,
                                     ),
                                     self_ty: FlyTerm {
                                         place: Some(
@@ -1879,7 +1879,7 @@
                             ),
                             expectation_idx_and_ty: Some(
                                 (
-                                    15,
+                                    14,
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
@@ -1902,7 +1902,7 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         46,
                                     ),
-                                    inherited_syn_symbol_idx: 1,
+                                    inherited_syn_symbol_idx: 0,
                                     inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                         ident: `pt`,
                                     },
@@ -1924,7 +1924,7 @@
                             ),
                             expectation_idx_and_ty: Some(
                                 (
-                                    16,
+                                    15,
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
@@ -1944,7 +1944,7 @@
                             data_result: Ok(
                                 SemaExprData::MethodFnCall {
                                     self_argument_sem_expr_idx: SemaExprIdx(
-                                        15,
+                                        14,
                                     ),
                                     self_contract: Pure,
                                     dot_regional_token_idx: RegionalTokenIdx(
@@ -2045,7 +2045,7 @@
                                             },
                                             SemaSimpleArgument {
                                                 argument_expr_idx: SemaExprIdx(
-                                                    16,
+                                                    15,
                                                 ),
                                                 coersion_outcome: Some(
                                                     ExpectCoersionOutcome {
@@ -2079,7 +2079,7 @@
                             ),
                             expectation_idx_and_ty: Some(
                                 (
-                                    17,
+                                    16,
                                     FlyTerm {
                                         place: None,
                                         base: FlyTermBase::Eth(
@@ -2096,9 +2096,9 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         49,
                                     ),
-                                    current_syn_symbol_idx: 1,
+                                    current_syn_symbol_idx: 0,
                                     current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                                        pattern_symbol_idx: 1,
+                                        pattern_symbol_idx: 0,
                                     },
                                 },
                             ),
@@ -2118,7 +2118,7 @@
                             ),
                             expectation_idx_and_ty: Some(
                                 (
-                                    18,
+                                    17,
                                     FlyTerm {
                                         place: Some(
                                             ImmutableOnStack {
@@ -2141,9 +2141,9 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         53,
                                     ),
-                                    current_syn_symbol_idx: 3,
+                                    current_syn_symbol_idx: 2,
                                     current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                                        pattern_symbol_idx: 3,
+                                        pattern_symbol_idx: 2,
                                     },
                                 },
                             ),
@@ -2163,7 +2163,7 @@
                             ),
                             expectation_idx_and_ty: Some(
                                 (
-                                    19,
+                                    18,
                                     FlyTerm {
                                         place: Some(
                                             ImmutableOnStack {
@@ -2183,7 +2183,7 @@
                             data_result: Ok(
                                 SemaExprData::MethodFnCall {
                                     self_argument_sem_expr_idx: SemaExprIdx(
-                                        18,
+                                        17,
                                     ),
                                     self_contract: Pure,
                                     dot_regional_token_idx: RegionalTokenIdx(
@@ -2284,7 +2284,7 @@
                                             },
                                             SemaSimpleArgument {
                                                 argument_expr_idx: SemaExprIdx(
-                                                    19,
+                                                    18,
                                                 ),
                                                 coersion_outcome: Some(
                                                     ExpectCoersionOutcome {
@@ -2318,7 +2318,7 @@
                             ),
                             expectation_idx_and_ty: Some(
                                 (
-                                    20,
+                                    19,
                                     FlyTerm {
                                         place: None,
                                         base: FlyTermBase::Eth(
@@ -2357,7 +2357,7 @@
                             ),
                             expectation_idx_and_ty: Some(
                                 (
-                                    21,
+                                    20,
                                     FlyTerm {
                                         place: Some(
                                             Const,
@@ -2373,7 +2373,7 @@
                             data_result: Ok(
                                 SemaExprData::Binary {
                                     lopd: SemaExprIdx(
-                                        20,
+                                        19,
                                     ),
                                     opr: Comparison(
                                         Greater,
@@ -2390,7 +2390,7 @@
                                         55,
                                     ),
                                     ropd: SemaExprIdx(
-                                        21,
+                                        20,
                                     ),
                                 },
                             ),
@@ -2404,7 +2404,7 @@
                             ),
                             expectation_idx_and_ty: Some(
                                 (
-                                    22,
+                                    21,
                                     FlyTerm {
                                         place: None,
                                         base: FlyTermBase::Eth(
@@ -2421,9 +2421,9 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         58,
                                     ),
-                                    current_syn_symbol_idx: 3,
+                                    current_syn_symbol_idx: 2,
                                     current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                                        pattern_symbol_idx: 3,
+                                        pattern_symbol_idx: 2,
                                     },
                                 },
                             ),
@@ -2443,7 +2443,7 @@
                             ),
                             expectation_idx_and_ty: Some(
                                 (
-                                    23,
+                                    22,
                                     FlyTerm {
                                         place: Some(
                                             ImmutableOnStack {
@@ -2463,7 +2463,7 @@
                             data_result: Ok(
                                 SemaExprData::MethodFnCall {
                                     self_argument_sem_expr_idx: SemaExprIdx(
-                                        23,
+                                        22,
                                     ),
                                     self_contract: Pure,
                                     dot_regional_token_idx: RegionalTokenIdx(
@@ -2555,7 +2555,7 @@
                             ),
                             expectation_idx_and_ty: Some(
                                 (
-                                    24,
+                                    23,
                                     FlyTerm {
                                         place: None,
                                         base: FlyTermBase::Eth(
@@ -2572,9 +2572,9 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         65,
                                     ),
-                                    current_syn_symbol_idx: 1,
+                                    current_syn_symbol_idx: 0,
                                     current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                                        pattern_symbol_idx: 1,
+                                        pattern_symbol_idx: 0,
                                     },
                                 },
                             ),
@@ -2594,7 +2594,7 @@
                             ),
                             expectation_idx_and_ty: Some(
                                 (
-                                    25,
+                                    24,
                                     FlyTerm {
                                         place: Some(
                                             ImmutableOnStack {
@@ -2617,9 +2617,9 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         69,
                                     ),
-                                    current_syn_symbol_idx: 2,
+                                    current_syn_symbol_idx: 1,
                                     current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                                        pattern_symbol_idx: 2,
+                                        pattern_symbol_idx: 1,
                                     },
                                 },
                             ),
@@ -2639,7 +2639,7 @@
                             ),
                             expectation_idx_and_ty: Some(
                                 (
-                                    26,
+                                    25,
                                     FlyTerm {
                                         place: Some(
                                             ImmutableOnStack {
@@ -2659,7 +2659,7 @@
                             data_result: Ok(
                                 SemaExprData::MethodFnCall {
                                     self_argument_sem_expr_idx: SemaExprIdx(
-                                        25,
+                                        24,
                                     ),
                                     self_contract: Pure,
                                     dot_regional_token_idx: RegionalTokenIdx(
@@ -2760,7 +2760,7 @@
                                             },
                                             SemaSimpleArgument {
                                                 argument_expr_idx: SemaExprIdx(
-                                                    26,
+                                                    25,
                                                 ),
                                                 coersion_outcome: Some(
                                                     ExpectCoersionOutcome {
@@ -2794,7 +2794,7 @@
                             ),
                             expectation_idx_and_ty: Some(
                                 (
-                                    27,
+                                    26,
                                     FlyTerm {
                                         place: None,
                                         base: FlyTermBase::Eth(
@@ -2808,7 +2808,7 @@
                             data_result: Ok(
                                 SemaExprData::MethodFnCall {
                                     self_argument_sem_expr_idx: SemaExprIdx(
-                                        27,
+                                        26,
                                     ),
                                     self_contract: Pure,
                                     dot_regional_token_idx: RegionalTokenIdx(
@@ -2888,7 +2888,7 @@
                             ),
                             expectation_idx_and_ty: Some(
                                 (
-                                    28,
+                                    27,
                                     FlyTerm {
                                         place: None,
                                         base: FlyTermBase::Eth(
@@ -2905,9 +2905,9 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         76,
                                     ),
-                                    current_syn_symbol_idx: 1,
+                                    current_syn_symbol_idx: 0,
                                     current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                                        pattern_symbol_idx: 1,
+                                        pattern_symbol_idx: 0,
                                     },
                                 },
                             ),
@@ -2927,7 +2927,7 @@
                             ),
                             expectation_idx_and_ty: Some(
                                 (
-                                    29,
+                                    28,
                                     FlyTerm {
                                         place: Some(
                                             ImmutableOnStack {
@@ -2947,7 +2947,7 @@
                             data_result: Ok(
                                 SemaExprData::MethodFnCall {
                                     self_argument_sem_expr_idx: SemaExprIdx(
-                                        29,
+                                        28,
                                     ),
                                     self_contract: Pure,
                                     dot_regional_token_idx: RegionalTokenIdx(
@@ -3039,7 +3039,7 @@
                             ),
                             expectation_idx_and_ty: Some(
                                 (
-                                    30,
+                                    29,
                                     FlyTerm {
                                         place: None,
                                         base: FlyTermBase::Eth(
@@ -3053,7 +3053,7 @@
                             data_result: Ok(
                                 SemaExprData::Binary {
                                     lopd: SemaExprIdx(
-                                        28,
+                                        27,
                                     ),
                                     opr: Closed(
                                         Div,
@@ -3070,7 +3070,37 @@
                                         75,
                                     ),
                                     ropd: SemaExprIdx(
-                                        30,
+                                        29,
+                                    ),
+                                },
+                            ),
+                            immediate_ty_result: Ok(
+                                FlyTerm {
+                                    place: None,
+                                    base: FlyTermBase::Eth(
+                                        EthTerm(`f32`),
+                                    ),
+                                },
+                            ),
+                            expectation_idx_and_ty: Some(
+                                (
+                                    30,
+                                    FlyTerm {
+                                        place: None,
+                                        base: FlyTermBase::Eth(
+                                            EthTerm(`f32`),
+                                        ),
+                                    },
+                                ),
+                            ),
+                        },
+                        SemaExprEntry {
+                            data_result: Ok(
+                                SemaExprData::Block {
+                                    stmts: SemaStmtIdxRange(
+                                        ArenaIdxRange(
+                                            5..8,
+                                        ),
                                     ),
                                 },
                             ),
@@ -3094,36 +3124,6 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
-                            data_result: Ok(
-                                SemaExprData::Block {
-                                    stmts: SemaStmtIdxRange(
-                                        ArenaIdxRange(
-                                            6..9,
-                                        ),
-                                    ),
-                                },
-                            ),
-                            immediate_ty_result: Ok(
-                                FlyTerm {
-                                    place: None,
-                                    base: FlyTermBase::Eth(
-                                        EthTerm(`f32`),
-                                    ),
-                                },
-                            ),
-                            expectation_idx_and_ty: Some(
-                                (
-                                    32,
-                                    FlyTerm {
-                                        place: None,
-                                        base: FlyTermBase::Eth(
-                                            EthTerm(`f32`),
-                                        ),
-                                    },
-                                ),
-                            ),
-                        },
                     ],
                 },
             ),
@@ -3134,7 +3134,7 @@
                             data_result: Ok(
                                 SemaStmtData::Eval {
                                     sem_expr_idx: SemaExprIdx(
-                                        13,
+                                        12,
                                     ),
                                     outcome: Some(
                                         ExpectationOutcome::Coersion(
@@ -3163,7 +3163,7 @@
                             data_result: Ok(
                                 SemaStmtData::Eval {
                                     sem_expr_idx: SemaExprIdx(
-                                        24,
+                                        23,
                                     ),
                                     outcome: Some(
                                         ExpectationOutcome::Coersion(
@@ -3192,7 +3192,7 @@
                             data_result: Ok(
                                 SemaStmtData::Eval {
                                     sem_expr_idx: SemaExprIdx(
-                                        31,
+                                        30,
                                     ),
                                     outcome: Some(
                                         ExpectationOutcome::Coersion(
@@ -3227,10 +3227,10 @@
                                     },
                                     let_pattern_sem_obelisk: LetVariableObelisk {
                                         syn_pattern_root: LetPatternSynExprRoot {
-                                            syn_pattern_expr_idx: 3,
+                                            syn_pattern_expr_idx: 2,
                                         },
                                         variables: ArenaIdxRange(
-                                            3..4,
+                                            2..3,
                                         ),
                                         colon_token: None,
                                         ty_sem_expr_idx: None,
@@ -3242,7 +3242,7 @@
                                         ),
                                     ),
                                     initial_value_sem_expr_idx: SemaExprIdx(
-                                        17,
+                                        16,
                                     ),
                                     coersion_outcome: None,
                                 },
@@ -3267,7 +3267,7 @@
                                         },
                                         condition: Other {
                                             sem_expr_idx: SemaExprIdx(
-                                                22,
+                                                21,
                                             ),
                                             conversion: None,
                                         },
@@ -3278,7 +3278,7 @@
                                         },
                                         stmts: SemaStmtIdxRange(
                                             ArenaIdxRange(
-                                                2..3,
+                                                1..2,
                                             ),
                                         ),
                                     },
@@ -3297,7 +3297,7 @@
                                             },
                                             stmts: SemaStmtIdxRange(
                                                 ArenaIdxRange(
-                                                    3..4,
+                                                    2..3,
                                                 ),
                                             ),
                                         },
@@ -3323,10 +3323,10 @@
                                     },
                                     let_pattern_sem_obelisk: LetVariableObelisk {
                                         syn_pattern_root: LetPatternSynExprRoot {
-                                            syn_pattern_expr_idx: 1,
+                                            syn_pattern_expr_idx: 0,
                                         },
                                         variables: ArenaIdxRange(
-                                            1..2,
+                                            0..1,
                                         ),
                                         colon_token: None,
                                         ty_sem_expr_idx: None,
@@ -3338,7 +3338,7 @@
                                         ),
                                     ),
                                     initial_value_sem_expr_idx: SemaExprIdx(
-                                        2,
+                                        1,
                                     ),
                                     coersion_outcome: None,
                                 },
@@ -3362,10 +3362,10 @@
                                     },
                                     let_pattern_sem_obelisk: LetVariableObelisk {
                                         syn_pattern_root: LetPatternSynExprRoot {
-                                            syn_pattern_expr_idx: 2,
+                                            syn_pattern_expr_idx: 1,
                                         },
                                         variables: ArenaIdxRange(
-                                            2..3,
+                                            1..2,
                                         ),
                                         colon_token: None,
                                         ty_sem_expr_idx: None,
@@ -3377,7 +3377,7 @@
                                         ),
                                     ),
                                     initial_value_sem_expr_idx: SemaExprIdx(
-                                        6,
+                                        5,
                                     ),
                                     coersion_outcome: None,
                                 },
@@ -3402,7 +3402,7 @@
                                         },
                                         condition: Other {
                                             sem_expr_idx: SemaExprIdx(
-                                                11,
+                                                10,
                                             ),
                                             conversion: None,
                                         },
@@ -3413,7 +3413,7 @@
                                         },
                                         stmts: SemaStmtIdxRange(
                                             ArenaIdxRange(
-                                                1..2,
+                                                0..1,
                                             ),
                                         ),
                                     },
@@ -3432,7 +3432,7 @@
                                             },
                                             stmts: SemaStmtIdxRange(
                                                 ArenaIdxRange(
-                                                    4..6,
+                                                    3..5,
                                                 ),
                                             ),
                                         },
@@ -3453,10 +3453,10 @@
             ),
             sem_expr_roots: [
                 (
-                    32,
+                    31,
                     (
                         SemaExprIdx(
-                            32,
+                            31,
                         ),
                         SynExprRootKind::BlockExpr,
                     ),
@@ -3597,7 +3597,7 @@
             sem_expr_terms: [
                 (
                     SemaExprIdx(
-                        10,
+                        9,
                     ),
                     Ok(
                         FlyTerm {
@@ -3610,7 +3610,7 @@
                 ),
                 (
                     SemaExprIdx(
-                        21,
+                        20,
                     ),
                     Ok(
                         FlyTerm {
@@ -3706,9 +3706,9 @@
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
-                                    idx: 1,
+                                    idx: 0,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 1,
+                                        syn_expr_idx: 0,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -3737,9 +3737,9 @@
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
-                                    idx: 2,
+                                    idx: 1,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 2,
+                                        syn_expr_idx: 1,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -3762,9 +3762,9 @@
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
-                                    idx: 3,
+                                    idx: 2,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 3,
+                                        syn_expr_idx: 2,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -3793,9 +3793,9 @@
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
-                                    idx: 4,
+                                    idx: 3,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 4,
+                                        syn_expr_idx: 3,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -3832,9 +3832,9 @@
                                     },
                                 ),
                                 state: ExpectationState {
-                                    idx: 5,
+                                    idx: 4,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 5,
+                                        syn_expr_idx: 4,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -3873,9 +3873,9 @@
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
-                                    idx: 6,
+                                    idx: 5,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 6,
+                                        syn_expr_idx: 5,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -3898,9 +3898,9 @@
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
-                                    idx: 7,
+                                    idx: 6,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 7,
+                                        syn_expr_idx: 6,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -3937,9 +3937,9 @@
                                     },
                                 ),
                                 state: ExpectationState {
-                                    idx: 8,
+                                    idx: 7,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 8,
+                                        syn_expr_idx: 7,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -3978,9 +3978,9 @@
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
-                                    idx: 9,
+                                    idx: 8,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 9,
+                                        syn_expr_idx: 8,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -4011,9 +4011,9 @@
                                     },
                                 ),
                                 state: ExpectationState {
-                                    idx: 10,
+                                    idx: 9,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 10,
+                                        syn_expr_idx: 9,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -4044,9 +4044,9 @@
                                     ExpectConditionType,
                                 ),
                                 state: ExpectationState {
-                                    idx: 11,
+                                    idx: 10,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 11,
+                                        syn_expr_idx: 10,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -4071,9 +4071,9 @@
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
-                                    idx: 12,
+                                    idx: 11,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 12,
+                                        syn_expr_idx: 11,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -4110,9 +4110,9 @@
                                     },
                                 ),
                                 state: ExpectationState {
-                                    idx: 13,
+                                    idx: 12,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 13,
+                                        syn_expr_idx: 12,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -4141,9 +4141,9 @@
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
-                                    idx: 14,
+                                    idx: 13,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 14,
+                                        syn_expr_idx: 13,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -4172,9 +4172,9 @@
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
-                                    idx: 15,
+                                    idx: 14,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 15,
+                                        syn_expr_idx: 14,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -4211,9 +4211,9 @@
                                     },
                                 ),
                                 state: ExpectationState {
-                                    idx: 16,
+                                    idx: 15,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 16,
+                                        syn_expr_idx: 15,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -4252,9 +4252,9 @@
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
-                                    idx: 17,
+                                    idx: 16,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 17,
+                                        syn_expr_idx: 16,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -4277,9 +4277,9 @@
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
-                                    idx: 18,
+                                    idx: 17,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 18,
+                                        syn_expr_idx: 17,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -4316,9 +4316,9 @@
                                     },
                                 ),
                                 state: ExpectationState {
-                                    idx: 19,
+                                    idx: 18,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 19,
+                                        syn_expr_idx: 18,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -4357,9 +4357,9 @@
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
-                                    idx: 20,
+                                    idx: 19,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 20,
+                                        syn_expr_idx: 19,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -4390,9 +4390,9 @@
                                     },
                                 ),
                                 state: ExpectationState {
-                                    idx: 21,
+                                    idx: 20,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 21,
+                                        syn_expr_idx: 20,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -4423,9 +4423,9 @@
                                     ExpectConditionType,
                                 ),
                                 state: ExpectationState {
-                                    idx: 22,
+                                    idx: 21,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 22,
+                                        syn_expr_idx: 21,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -4450,9 +4450,9 @@
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
-                                    idx: 23,
+                                    idx: 22,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 23,
+                                        syn_expr_idx: 22,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -4489,9 +4489,9 @@
                                     },
                                 ),
                                 state: ExpectationState {
-                                    idx: 24,
+                                    idx: 23,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 24,
+                                        syn_expr_idx: 23,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -4520,9 +4520,9 @@
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
-                                    idx: 25,
+                                    idx: 24,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 25,
+                                        syn_expr_idx: 24,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -4559,9 +4559,9 @@
                                     },
                                 ),
                                 state: ExpectationState {
-                                    idx: 26,
+                                    idx: 25,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 26,
+                                        syn_expr_idx: 25,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -4600,9 +4600,34 @@
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
+                                    idx: 26,
+                                    src: ExpectationSource {
+                                        syn_expr_idx: 26,
+                                        kind: Expr,
+                                    },
+                                    expectee: FlyTerm {
+                                        place: None,
+                                        base: FlyTermBase::Eth(
+                                            EthTerm(`f32`),
+                                        ),
+                                    },
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            },
+                            FlyTermExpectationEntry {
+                                expectation: Expectation::AnyOriginal(
+                                    ExpectAnyOriginal,
+                                ),
+                                state: ExpectationState {
                                     idx: 27,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 27,
+                                        syn_expr_idx: 28,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -4627,32 +4652,7 @@
                                 state: ExpectationState {
                                     idx: 28,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 29,
-                                        kind: Expr,
-                                    },
-                                    expectee: FlyTerm {
-                                        place: None,
-                                        base: FlyTermBase::Eth(
-                                            EthTerm(`f32`),
-                                        ),
-                                    },
-                                    resolve_progress: ExpectationProgress::Resolved(
-                                        Ok(
-                                            ExpectationOutcome::AnyOriginal(
-                                                ExpectAnyOriginalOutcome,
-                                            ),
-                                        ),
-                                    ),
-                                },
-                            },
-                            FlyTermExpectationEntry {
-                                expectation: Expectation::AnyOriginal(
-                                    ExpectAnyOriginal,
-                                ),
-                                state: ExpectationState {
-                                    idx: 29,
-                                    src: ExpectationSource {
-                                        syn_expr_idx: 28,
+                                        syn_expr_idx: 27,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -4680,6 +4680,45 @@
                                 expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Pure,
+                                        ty_expected: FlyTerm {
+                                            place: None,
+                                            base: FlyTermBase::Eth(
+                                                EthTerm(`f32`),
+                                            ),
+                                        },
+                                    },
+                                ),
+                                state: ExpectationState {
+                                    idx: 29,
+                                    src: ExpectationSource {
+                                        syn_expr_idx: 29,
+                                        kind: Expr,
+                                    },
+                                    expectee: FlyTerm {
+                                        place: None,
+                                        base: FlyTermBase::Eth(
+                                            EthTerm(`f32`),
+                                        ),
+                                    },
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::Coersion(
+                                                ExpectCoersionOutcome {
+                                                    coersion: Trivial(
+                                                        TrivialFlyCoersion {
+                                                            expectee_quary: Transient,
+                                                        },
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            },
+                            FlyTermExpectationEntry {
+                                expectation: Expectation::Coersion(
+                                    ExpectCoersion {
+                                        contract: Move,
                                         ty_expected: FlyTerm {
                                             place: None,
                                             base: FlyTermBase::Eth(
@@ -4731,45 +4770,6 @@
                                     idx: 31,
                                     src: ExpectationSource {
                                         syn_expr_idx: 31,
-                                        kind: Expr,
-                                    },
-                                    expectee: FlyTerm {
-                                        place: None,
-                                        base: FlyTermBase::Eth(
-                                            EthTerm(`f32`),
-                                        ),
-                                    },
-                                    resolve_progress: ExpectationProgress::Resolved(
-                                        Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
-                                                            expectee_quary: Transient,
-                                                        },
-                                                    ),
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                },
-                            },
-                            FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
-                                        contract: Move,
-                                        ty_expected: FlyTerm {
-                                            place: None,
-                                            base: FlyTermBase::Eth(
-                                                EthTerm(`f32`),
-                                            ),
-                                        },
-                                    },
-                                ),
-                                state: ExpectationState {
-                                    idx: 32,
-                                    src: ExpectationSource {
-                                        syn_expr_idx: 32,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {

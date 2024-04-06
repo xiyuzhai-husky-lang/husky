@@ -166,7 +166,7 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::PrincipalEntityPath {
-                                    path_expr_idx: 1,
+                                    path_expr_idx: 0,
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Trait(
                                             TraitPath(`core::visual::Visualize`),
@@ -186,7 +186,7 @@
                             ),
                             expectation_idx_and_ty: Some(
                                 (
-                                    1,
+                                    0,
                                     FlyTerm {
                                         place: None,
                                         base: FlyTermBase::Eth(
@@ -206,10 +206,10 @@
             ),
             sem_expr_roots: [
                 (
-                    1,
+                    0,
                     (
                         SemaExprIdx(
-                            1,
+                            0,
                         ),
                         SynExprRootKind::Trait,
                     ),
@@ -222,7 +222,7 @@
             sem_expr_terms: [
                 (
                     SemaExprIdx(
-                        1,
+                        0,
                     ),
                     Ok(
                         FlyTerm {
@@ -260,9 +260,9 @@
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
-                                    idx: 1,
+                                    idx: 0,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 1,
+                                        syn_expr_idx: 0,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -331,7 +331,7 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::PrincipalEntityPath {
-                                    path_expr_idx: 1,
+                                    path_expr_idx: 0,
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Type(
                                             TypePath(`core::visual::Visual`, `Extern`),
@@ -351,7 +351,7 @@
                             ),
                             expectation_idx_and_ty: Some(
                                 (
-                                    1,
+                                    0,
                                     FlyTerm {
                                         place: None,
                                         base: FlyTermBase::Eth(
@@ -371,10 +371,10 @@
             ),
             sem_expr_roots: [
                 (
-                    1,
+                    0,
                     (
                         SemaExprIdx(
-                            1,
+                            0,
                         ),
                         SynExprRootKind::ReturnType,
                     ),
@@ -387,7 +387,7 @@
             sem_expr_terms: [
                 (
                     SemaExprIdx(
-                        1,
+                        0,
                     ),
                     Ok(
                         FlyTerm {
@@ -429,9 +429,9 @@
                                     },
                                 ),
                                 state: ExpectationState {
-                                    idx: 1,
+                                    idx: 0,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 1,
+                                        syn_expr_idx: 0,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {

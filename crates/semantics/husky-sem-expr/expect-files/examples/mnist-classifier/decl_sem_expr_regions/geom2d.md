@@ -19,7 +19,7 @@
             place_registry: PlaceRegistry {
                 infos: [
                     Parameter {
-                        current_syn_symbol_idx: 1,
+                        current_syn_symbol_idx: 0,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -29,7 +29,7 @@
                         ),
                     },
                     Parameter {
-                        current_syn_symbol_idx: 2,
+                        current_syn_symbol_idx: 1,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -46,6 +46,39 @@
             sem_expr_arena: SemaExprArena(
                 Arena {
                     data: [
+                        SemaExprEntry {
+                            data_result: Ok(
+                                SemaExprData::PrincipalEntityPath {
+                                    path_expr_idx: 0,
+                                    path: PrincipalEntityPath::MajorItem(
+                                        MajorItemPath::Type(
+                                            TypePath(`core::num::f32`, `Extern`),
+                                        ),
+                                    ),
+                                    ty_path_disambiguation: OntologyConstructor,
+                                    instantiation: None,
+                                },
+                            ),
+                            immediate_ty_result: Ok(
+                                FlyTerm {
+                                    place: None,
+                                    base: FlyTermBase::Eth(
+                                        EthTerm(`Type`),
+                                    ),
+                                },
+                            ),
+                            expectation_idx_and_ty: Some(
+                                (
+                                    0,
+                                    FlyTerm {
+                                        place: None,
+                                        base: FlyTermBase::Eth(
+                                            EthTerm(`Type`),
+                                        ),
+                                    },
+                                ),
+                            ),
+                        },
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::PrincipalEntityPath {
@@ -79,39 +112,6 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
-                            data_result: Ok(
-                                SemaExprData::PrincipalEntityPath {
-                                    path_expr_idx: 2,
-                                    path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Type(
-                                            TypePath(`core::num::f32`, `Extern`),
-                                        ),
-                                    ),
-                                    ty_path_disambiguation: OntologyConstructor,
-                                    instantiation: None,
-                                },
-                            ),
-                            immediate_ty_result: Ok(
-                                FlyTerm {
-                                    place: None,
-                                    base: FlyTermBase::Eth(
-                                        EthTerm(`Type`),
-                                    ),
-                                },
-                            ),
-                            expectation_idx_and_ty: Some(
-                                (
-                                    2,
-                                    FlyTerm {
-                                        place: None,
-                                        base: FlyTermBase::Eth(
-                                            EthTerm(`Type`),
-                                        ),
-                                    },
-                                ),
-                            ),
-                        },
                     ],
                 },
             ),
@@ -122,10 +122,10 @@
             ),
             sem_expr_roots: [
                 (
-                    1,
+                    0,
                     (
                         SemaExprIdx(
-                            1,
+                            0,
                         ),
                         SynExprRootKind::PropsStructFieldType {
                             ident_token: IdentRegionalToken {
@@ -138,10 +138,10 @@
                     ),
                 ),
                 (
-                    2,
+                    1,
                     (
                         SemaExprIdx(
-                            2,
+                            1,
                         ),
                         SynExprRootKind::PropsStructFieldType {
                             ident_token: IdentRegionalToken {
@@ -161,7 +161,7 @@
             sem_expr_terms: [
                 (
                     SemaExprIdx(
-                        1,
+                        0,
                     ),
                     Ok(
                         FlyTerm {
@@ -174,7 +174,7 @@
                 ),
                 (
                     SemaExprIdx(
-                        2,
+                        1,
                     ),
                     Ok(
                         FlyTerm {
@@ -245,9 +245,9 @@
                                     },
                                 ),
                                 state: ExpectationState {
-                                    idx: 1,
+                                    idx: 0,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 1,
+                                        syn_expr_idx: 0,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -276,9 +276,9 @@
                                     },
                                 ),
                                 state: ExpectationState {
-                                    idx: 2,
+                                    idx: 1,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 2,
+                                        syn_expr_idx: 1,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -328,7 +328,7 @@
             place_registry: PlaceRegistry {
                 infos: [
                     Parameter {
-                        current_syn_symbol_idx: 1,
+                        current_syn_symbol_idx: 0,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -338,7 +338,7 @@
                         ),
                     },
                     Parameter {
-                        current_syn_symbol_idx: 2,
+                        current_syn_symbol_idx: 1,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -355,6 +355,39 @@
             sem_expr_arena: SemaExprArena(
                 Arena {
                     data: [
+                        SemaExprEntry {
+                            data_result: Ok(
+                                SemaExprData::PrincipalEntityPath {
+                                    path_expr_idx: 0,
+                                    path: PrincipalEntityPath::MajorItem(
+                                        MajorItemPath::Type(
+                                            TypePath(`core::num::f32`, `Extern`),
+                                        ),
+                                    ),
+                                    ty_path_disambiguation: OntologyConstructor,
+                                    instantiation: None,
+                                },
+                            ),
+                            immediate_ty_result: Ok(
+                                FlyTerm {
+                                    place: None,
+                                    base: FlyTermBase::Eth(
+                                        EthTerm(`Type`),
+                                    ),
+                                },
+                            ),
+                            expectation_idx_and_ty: Some(
+                                (
+                                    0,
+                                    FlyTerm {
+                                        place: None,
+                                        base: FlyTermBase::Eth(
+                                            EthTerm(`Type`),
+                                        ),
+                                    },
+                                ),
+                            ),
+                        },
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::PrincipalEntityPath {
@@ -388,39 +421,6 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
-                            data_result: Ok(
-                                SemaExprData::PrincipalEntityPath {
-                                    path_expr_idx: 2,
-                                    path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Type(
-                                            TypePath(`core::num::f32`, `Extern`),
-                                        ),
-                                    ),
-                                    ty_path_disambiguation: OntologyConstructor,
-                                    instantiation: None,
-                                },
-                            ),
-                            immediate_ty_result: Ok(
-                                FlyTerm {
-                                    place: None,
-                                    base: FlyTermBase::Eth(
-                                        EthTerm(`Type`),
-                                    ),
-                                },
-                            ),
-                            expectation_idx_and_ty: Some(
-                                (
-                                    2,
-                                    FlyTerm {
-                                        place: None,
-                                        base: FlyTermBase::Eth(
-                                            EthTerm(`Type`),
-                                        ),
-                                    },
-                                ),
-                            ),
-                        },
                     ],
                 },
             ),
@@ -431,10 +431,10 @@
             ),
             sem_expr_roots: [
                 (
-                    1,
+                    0,
                     (
                         SemaExprIdx(
-                            1,
+                            0,
                         ),
                         SynExprRootKind::PropsStructFieldType {
                             ident_token: IdentRegionalToken {
@@ -447,10 +447,10 @@
                     ),
                 ),
                 (
-                    2,
+                    1,
                     (
                         SemaExprIdx(
-                            2,
+                            1,
                         ),
                         SynExprRootKind::PropsStructFieldType {
                             ident_token: IdentRegionalToken {
@@ -470,7 +470,7 @@
             sem_expr_terms: [
                 (
                     SemaExprIdx(
-                        1,
+                        0,
                     ),
                     Ok(
                         FlyTerm {
@@ -483,7 +483,7 @@
                 ),
                 (
                     SemaExprIdx(
-                        2,
+                        1,
                     ),
                     Ok(
                         FlyTerm {
@@ -554,9 +554,9 @@
                                     },
                                 ),
                                 state: ExpectationState {
-                                    idx: 1,
+                                    idx: 0,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 1,
+                                        syn_expr_idx: 0,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -585,9 +585,9 @@
                                     },
                                 ),
                                 state: ExpectationState {
-                                    idx: 2,
+                                    idx: 1,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 2,
+                                        syn_expr_idx: 1,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -637,7 +637,7 @@
             place_registry: PlaceRegistry {
                 infos: [
                     Parameter {
-                        current_syn_symbol_idx: 1,
+                        current_syn_symbol_idx: 0,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -647,7 +647,7 @@
                         ),
                     },
                     Parameter {
-                        current_syn_symbol_idx: 2,
+                        current_syn_symbol_idx: 1,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -664,6 +664,39 @@
             sem_expr_arena: SemaExprArena(
                 Arena {
                     data: [
+                        SemaExprEntry {
+                            data_result: Ok(
+                                SemaExprData::PrincipalEntityPath {
+                                    path_expr_idx: 0,
+                                    path: PrincipalEntityPath::MajorItem(
+                                        MajorItemPath::Type(
+                                            TypePath(`core::num::f32`, `Extern`),
+                                        ),
+                                    ),
+                                    ty_path_disambiguation: OntologyConstructor,
+                                    instantiation: None,
+                                },
+                            ),
+                            immediate_ty_result: Ok(
+                                FlyTerm {
+                                    place: None,
+                                    base: FlyTermBase::Eth(
+                                        EthTerm(`Type`),
+                                    ),
+                                },
+                            ),
+                            expectation_idx_and_ty: Some(
+                                (
+                                    0,
+                                    FlyTerm {
+                                        place: None,
+                                        base: FlyTermBase::Eth(
+                                            EthTerm(`Type`),
+                                        ),
+                                    },
+                                ),
+                            ),
+                        },
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::PrincipalEntityPath {
@@ -697,39 +730,6 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
-                            data_result: Ok(
-                                SemaExprData::PrincipalEntityPath {
-                                    path_expr_idx: 2,
-                                    path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Type(
-                                            TypePath(`core::num::f32`, `Extern`),
-                                        ),
-                                    ),
-                                    ty_path_disambiguation: OntologyConstructor,
-                                    instantiation: None,
-                                },
-                            ),
-                            immediate_ty_result: Ok(
-                                FlyTerm {
-                                    place: None,
-                                    base: FlyTermBase::Eth(
-                                        EthTerm(`Type`),
-                                    ),
-                                },
-                            ),
-                            expectation_idx_and_ty: Some(
-                                (
-                                    2,
-                                    FlyTerm {
-                                        place: None,
-                                        base: FlyTermBase::Eth(
-                                            EthTerm(`Type`),
-                                        ),
-                                    },
-                                ),
-                            ),
-                        },
                     ],
                 },
             ),
@@ -740,10 +740,10 @@
             ),
             sem_expr_roots: [
                 (
-                    1,
+                    0,
                     (
                         SemaExprIdx(
-                            1,
+                            0,
                         ),
                         SynExprRootKind::PropsStructFieldType {
                             ident_token: IdentRegionalToken {
@@ -756,10 +756,10 @@
                     ),
                 ),
                 (
-                    2,
+                    1,
                     (
                         SemaExprIdx(
-                            2,
+                            1,
                         ),
                         SynExprRootKind::PropsStructFieldType {
                             ident_token: IdentRegionalToken {
@@ -779,7 +779,7 @@
             sem_expr_terms: [
                 (
                     SemaExprIdx(
-                        1,
+                        0,
                     ),
                     Ok(
                         FlyTerm {
@@ -792,7 +792,7 @@
                 ),
                 (
                     SemaExprIdx(
-                        2,
+                        1,
                     ),
                     Ok(
                         FlyTerm {
@@ -863,9 +863,9 @@
                                     },
                                 ),
                                 state: ExpectationState {
-                                    idx: 1,
+                                    idx: 0,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 1,
+                                        syn_expr_idx: 0,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -894,9 +894,9 @@
                                     },
                                 ),
                                 state: ExpectationState {
-                                    idx: 2,
+                                    idx: 1,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 2,
+                                        syn_expr_idx: 1,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -946,7 +946,7 @@
             place_registry: PlaceRegistry {
                 infos: [
                     Parameter {
-                        current_syn_symbol_idx: 1,
+                        current_syn_symbol_idx: 0,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -956,7 +956,7 @@
                         ),
                     },
                     Parameter {
-                        current_syn_symbol_idx: 2,
+                        current_syn_symbol_idx: 1,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -973,6 +973,39 @@
             sem_expr_arena: SemaExprArena(
                 Arena {
                     data: [
+                        SemaExprEntry {
+                            data_result: Ok(
+                                SemaExprData::PrincipalEntityPath {
+                                    path_expr_idx: 0,
+                                    path: PrincipalEntityPath::MajorItem(
+                                        MajorItemPath::Type(
+                                            TypePath(`core::num::f32`, `Extern`),
+                                        ),
+                                    ),
+                                    ty_path_disambiguation: OntologyConstructor,
+                                    instantiation: None,
+                                },
+                            ),
+                            immediate_ty_result: Ok(
+                                FlyTerm {
+                                    place: None,
+                                    base: FlyTermBase::Eth(
+                                        EthTerm(`Type`),
+                                    ),
+                                },
+                            ),
+                            expectation_idx_and_ty: Some(
+                                (
+                                    0,
+                                    FlyTerm {
+                                        place: None,
+                                        base: FlyTermBase::Eth(
+                                            EthTerm(`Type`),
+                                        ),
+                                    },
+                                ),
+                            ),
+                        },
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::PrincipalEntityPath {
@@ -1006,39 +1039,6 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
-                            data_result: Ok(
-                                SemaExprData::PrincipalEntityPath {
-                                    path_expr_idx: 2,
-                                    path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Type(
-                                            TypePath(`core::num::f32`, `Extern`),
-                                        ),
-                                    ),
-                                    ty_path_disambiguation: OntologyConstructor,
-                                    instantiation: None,
-                                },
-                            ),
-                            immediate_ty_result: Ok(
-                                FlyTerm {
-                                    place: None,
-                                    base: FlyTermBase::Eth(
-                                        EthTerm(`Type`),
-                                    ),
-                                },
-                            ),
-                            expectation_idx_and_ty: Some(
-                                (
-                                    2,
-                                    FlyTerm {
-                                        place: None,
-                                        base: FlyTermBase::Eth(
-                                            EthTerm(`Type`),
-                                        ),
-                                    },
-                                ),
-                            ),
-                        },
                     ],
                 },
             ),
@@ -1049,10 +1049,10 @@
             ),
             sem_expr_roots: [
                 (
-                    1,
+                    0,
                     (
                         SemaExprIdx(
-                            1,
+                            0,
                         ),
                         SynExprRootKind::PropsStructFieldType {
                             ident_token: IdentRegionalToken {
@@ -1065,10 +1065,10 @@
                     ),
                 ),
                 (
-                    2,
+                    1,
                     (
                         SemaExprIdx(
-                            2,
+                            1,
                         ),
                         SynExprRootKind::PropsStructFieldType {
                             ident_token: IdentRegionalToken {
@@ -1088,7 +1088,7 @@
             sem_expr_terms: [
                 (
                     SemaExprIdx(
-                        1,
+                        0,
                     ),
                     Ok(
                         FlyTerm {
@@ -1101,7 +1101,7 @@
                 ),
                 (
                     SemaExprIdx(
-                        2,
+                        1,
                     ),
                     Ok(
                         FlyTerm {
@@ -1172,9 +1172,9 @@
                                     },
                                 ),
                                 state: ExpectationState {
-                                    idx: 1,
+                                    idx: 0,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 1,
+                                        syn_expr_idx: 0,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -1203,9 +1203,9 @@
                                     },
                                 ),
                                 state: ExpectationState {
-                                    idx: 2,
+                                    idx: 1,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 2,
+                                        syn_expr_idx: 1,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -1255,7 +1255,7 @@
             place_registry: PlaceRegistry {
                 infos: [
                     Parameter {
-                        current_syn_symbol_idx: 1,
+                        current_syn_symbol_idx: 0,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -1265,7 +1265,7 @@
                         ),
                     },
                     Parameter {
-                        current_syn_symbol_idx: 2,
+                        current_syn_symbol_idx: 1,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -1282,6 +1282,39 @@
             sem_expr_arena: SemaExprArena(
                 Arena {
                     data: [
+                        SemaExprEntry {
+                            data_result: Ok(
+                                SemaExprData::PrincipalEntityPath {
+                                    path_expr_idx: 0,
+                                    path: PrincipalEntityPath::MajorItem(
+                                        MajorItemPath::Type(
+                                            TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                        ),
+                                    ),
+                                    ty_path_disambiguation: OntologyConstructor,
+                                    instantiation: None,
+                                },
+                            ),
+                            immediate_ty_result: Ok(
+                                FlyTerm {
+                                    place: None,
+                                    base: FlyTermBase::Eth(
+                                        EthTerm(`Type`),
+                                    ),
+                                },
+                            ),
+                            expectation_idx_and_ty: Some(
+                                (
+                                    0,
+                                    FlyTerm {
+                                        place: None,
+                                        base: FlyTermBase::Eth(
+                                            EthTerm(`Type`),
+                                        ),
+                                    },
+                                ),
+                            ),
+                        },
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::PrincipalEntityPath {
@@ -1315,39 +1348,6 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
-                            data_result: Ok(
-                                SemaExprData::PrincipalEntityPath {
-                                    path_expr_idx: 2,
-                                    path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Type(
-                                            TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
-                                        ),
-                                    ),
-                                    ty_path_disambiguation: OntologyConstructor,
-                                    instantiation: None,
-                                },
-                            ),
-                            immediate_ty_result: Ok(
-                                FlyTerm {
-                                    place: None,
-                                    base: FlyTermBase::Eth(
-                                        EthTerm(`Type`),
-                                    ),
-                                },
-                            ),
-                            expectation_idx_and_ty: Some(
-                                (
-                                    2,
-                                    FlyTerm {
-                                        place: None,
-                                        base: FlyTermBase::Eth(
-                                            EthTerm(`Type`),
-                                        ),
-                                    },
-                                ),
-                            ),
-                        },
                     ],
                 },
             ),
@@ -1358,10 +1358,10 @@
             ),
             sem_expr_roots: [
                 (
-                    1,
+                    0,
                     (
                         SemaExprIdx(
-                            1,
+                            0,
                         ),
                         SynExprRootKind::PropsStructFieldType {
                             ident_token: IdentRegionalToken {
@@ -1374,10 +1374,10 @@
                     ),
                 ),
                 (
-                    2,
+                    1,
                     (
                         SemaExprIdx(
-                            2,
+                            1,
                         ),
                         SynExprRootKind::PropsStructFieldType {
                             ident_token: IdentRegionalToken {
@@ -1397,7 +1397,7 @@
             sem_expr_terms: [
                 (
                     SemaExprIdx(
-                        1,
+                        0,
                     ),
                     Ok(
                         FlyTerm {
@@ -1410,7 +1410,7 @@
                 ),
                 (
                     SemaExprIdx(
-                        2,
+                        1,
                     ),
                     Ok(
                         FlyTerm {
@@ -1481,9 +1481,9 @@
                                     },
                                 ),
                                 state: ExpectationState {
-                                    idx: 1,
+                                    idx: 0,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 1,
+                                        syn_expr_idx: 0,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -1512,9 +1512,9 @@
                                     },
                                 ),
                                 state: ExpectationState {
-                                    idx: 2,
+                                    idx: 1,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 2,
+                                        syn_expr_idx: 1,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -1564,7 +1564,7 @@
             place_registry: PlaceRegistry {
                 infos: [
                     Parameter {
-                        current_syn_symbol_idx: 1,
+                        current_syn_symbol_idx: 0,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -1574,7 +1574,7 @@
                         ),
                     },
                     Parameter {
-                        current_syn_symbol_idx: 2,
+                        current_syn_symbol_idx: 1,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -1591,6 +1591,39 @@
             sem_expr_arena: SemaExprArena(
                 Arena {
                     data: [
+                        SemaExprEntry {
+                            data_result: Ok(
+                                SemaExprData::PrincipalEntityPath {
+                                    path_expr_idx: 0,
+                                    path: PrincipalEntityPath::MajorItem(
+                                        MajorItemPath::Type(
+                                            TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                        ),
+                                    ),
+                                    ty_path_disambiguation: OntologyConstructor,
+                                    instantiation: None,
+                                },
+                            ),
+                            immediate_ty_result: Ok(
+                                FlyTerm {
+                                    place: None,
+                                    base: FlyTermBase::Eth(
+                                        EthTerm(`Type`),
+                                    ),
+                                },
+                            ),
+                            expectation_idx_and_ty: Some(
+                                (
+                                    0,
+                                    FlyTerm {
+                                        place: None,
+                                        base: FlyTermBase::Eth(
+                                            EthTerm(`Type`),
+                                        ),
+                                    },
+                                ),
+                            ),
+                        },
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::PrincipalEntityPath {
@@ -1624,39 +1657,6 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
-                            data_result: Ok(
-                                SemaExprData::PrincipalEntityPath {
-                                    path_expr_idx: 2,
-                                    path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Type(
-                                            TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
-                                        ),
-                                    ),
-                                    ty_path_disambiguation: OntologyConstructor,
-                                    instantiation: None,
-                                },
-                            ),
-                            immediate_ty_result: Ok(
-                                FlyTerm {
-                                    place: None,
-                                    base: FlyTermBase::Eth(
-                                        EthTerm(`Type`),
-                                    ),
-                                },
-                            ),
-                            expectation_idx_and_ty: Some(
-                                (
-                                    2,
-                                    FlyTerm {
-                                        place: None,
-                                        base: FlyTermBase::Eth(
-                                            EthTerm(`Type`),
-                                        ),
-                                    },
-                                ),
-                            ),
-                        },
                     ],
                 },
             ),
@@ -1667,10 +1667,10 @@
             ),
             sem_expr_roots: [
                 (
-                    1,
+                    0,
                     (
                         SemaExprIdx(
-                            1,
+                            0,
                         ),
                         SynExprRootKind::PropsStructFieldType {
                             ident_token: IdentRegionalToken {
@@ -1683,10 +1683,10 @@
                     ),
                 ),
                 (
-                    2,
+                    1,
                     (
                         SemaExprIdx(
-                            2,
+                            1,
                         ),
                         SynExprRootKind::PropsStructFieldType {
                             ident_token: IdentRegionalToken {
@@ -1706,7 +1706,7 @@
             sem_expr_terms: [
                 (
                     SemaExprIdx(
-                        1,
+                        0,
                     ),
                     Ok(
                         FlyTerm {
@@ -1719,7 +1719,7 @@
                 ),
                 (
                     SemaExprIdx(
-                        2,
+                        1,
                     ),
                     Ok(
                         FlyTerm {
@@ -1790,9 +1790,9 @@
                                     },
                                 ),
                                 state: ExpectationState {
-                                    idx: 1,
+                                    idx: 0,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 1,
+                                        syn_expr_idx: 0,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -1821,9 +1821,9 @@
                                     },
                                 ),
                                 state: ExpectationState {
-                                    idx: 2,
+                                    idx: 1,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 2,
+                                        syn_expr_idx: 1,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -1894,7 +1894,7 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::PrincipalEntityPath {
-                                    path_expr_idx: 1,
+                                    path_expr_idx: 0,
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Type(
                                             TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -1914,7 +1914,7 @@
                             ),
                             expectation_idx_and_ty: Some(
                                 (
-                                    1,
+                                    0,
                                     FlyTerm {
                                         place: None,
                                         base: FlyTermBase::Eth(
@@ -1934,10 +1934,10 @@
             ),
             sem_expr_roots: [
                 (
-                    1,
+                    0,
                     (
                         SemaExprIdx(
-                            1,
+                            0,
                         ),
                         SynExprRootKind::SelfType,
                     ),
@@ -1950,7 +1950,7 @@
             sem_expr_terms: [
                 (
                     SemaExprIdx(
-                        1,
+                        0,
                     ),
                     Ok(
                         FlyTerm {
@@ -1992,9 +1992,9 @@
                                     },
                                 ),
                                 state: ExpectationState {
-                                    idx: 1,
+                                    idx: 0,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 1,
+                                        syn_expr_idx: 0,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -2048,7 +2048,7 @@
             place_registry: PlaceRegistry {
                 infos: [
                     Parameter {
-                        current_syn_symbol_idx: 1,
+                        current_syn_symbol_idx: 0,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -2058,7 +2058,7 @@
                         ),
                     },
                     Parameter {
-                        current_syn_symbol_idx: 2,
+                        current_syn_symbol_idx: 1,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -2075,6 +2075,39 @@
             sem_expr_arena: SemaExprArena(
                 Arena {
                     data: [
+                        SemaExprEntry {
+                            data_result: Ok(
+                                SemaExprData::PrincipalEntityPath {
+                                    path_expr_idx: 0,
+                                    path: PrincipalEntityPath::MajorItem(
+                                        MajorItemPath::Type(
+                                            TypePath(`core::num::i32`, `Extern`),
+                                        ),
+                                    ),
+                                    ty_path_disambiguation: OntologyConstructor,
+                                    instantiation: None,
+                                },
+                            ),
+                            immediate_ty_result: Ok(
+                                FlyTerm {
+                                    place: None,
+                                    base: FlyTermBase::Eth(
+                                        EthTerm(`Type`),
+                                    ),
+                                },
+                            ),
+                            expectation_idx_and_ty: Some(
+                                (
+                                    0,
+                                    FlyTerm {
+                                        place: None,
+                                        base: FlyTermBase::Eth(
+                                            EthTerm(`Type`),
+                                        ),
+                                    },
+                                ),
+                            ),
+                        },
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::PrincipalEntityPath {
@@ -2114,7 +2147,7 @@
                                     path_expr_idx: 2,
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Type(
-                                            TypePath(`core::num::i32`, `Extern`),
+                                            TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                         ),
                                     ),
                                     ty_path_disambiguation: OntologyConstructor,
@@ -2141,39 +2174,6 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
-                            data_result: Ok(
-                                SemaExprData::PrincipalEntityPath {
-                                    path_expr_idx: 3,
-                                    path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Type(
-                                            TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                        ),
-                                    ),
-                                    ty_path_disambiguation: OntologyConstructor,
-                                    instantiation: None,
-                                },
-                            ),
-                            immediate_ty_result: Ok(
-                                FlyTerm {
-                                    place: None,
-                                    base: FlyTermBase::Eth(
-                                        EthTerm(`Type`),
-                                    ),
-                                },
-                            ),
-                            expectation_idx_and_ty: Some(
-                                (
-                                    3,
-                                    FlyTerm {
-                                        place: None,
-                                        base: FlyTermBase::Eth(
-                                            EthTerm(`Type`),
-                                        ),
-                                    },
-                                ),
-                            ),
-                        },
                     ],
                 },
             ),
@@ -2183,6 +2183,15 @@
                 },
             ),
             sem_expr_roots: [
+                (
+                    0,
+                    (
+                        SemaExprIdx(
+                            0,
+                        ),
+                        SynExprRootKind::ExplicitParameterType,
+                    ),
+                ),
                 (
                     1,
                     (
@@ -2198,15 +2207,6 @@
                         SemaExprIdx(
                             2,
                         ),
-                        SynExprRootKind::ExplicitParameterType,
-                    ),
-                ),
-                (
-                    3,
-                    (
-                        SemaExprIdx(
-                            3,
-                        ),
                         SynExprRootKind::ReturnType,
                     ),
                 ),
@@ -2219,6 +2219,19 @@
                 ],
             },
             sem_expr_terms: [
+                (
+                    SemaExprIdx(
+                        0,
+                    ),
+                    Ok(
+                        FlyTerm {
+                            place: None,
+                            base: FlyTermBase::Eth(
+                                EthTerm(`i32`),
+                            ),
+                        },
+                    ),
+                ),
                 (
                     SemaExprIdx(
                         1,
@@ -2235,19 +2248,6 @@
                 (
                     SemaExprIdx(
                         2,
-                    ),
-                    Ok(
-                        FlyTerm {
-                            place: None,
-                            base: FlyTermBase::Eth(
-                                EthTerm(`i32`),
-                            ),
-                        },
-                    ),
-                ),
-                (
-                    SemaExprIdx(
-                        3,
                     ),
                     Ok(
                         FlyTerm {
@@ -2318,6 +2318,37 @@
                                     },
                                 ),
                                 state: ExpectationState {
+                                    idx: 0,
+                                    src: ExpectationSource {
+                                        syn_expr_idx: 0,
+                                        kind: Expr,
+                                    },
+                                    expectee: FlyTerm {
+                                        place: None,
+                                        base: FlyTermBase::Eth(
+                                            EthTerm(`Type`),
+                                        ),
+                                    },
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::EqsSort(
+                                                Universe(
+                                                    1,
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            },
+                            FlyTermExpectationEntry {
+                                expectation: Expectation::EqsSort(
+                                    ExpectSort {
+                                        smallest_universe: Universe(
+                                            1,
+                                        ),
+                                    },
+                                ),
+                                state: ExpectationState {
                                     idx: 1,
                                     src: ExpectationSource {
                                         syn_expr_idx: 1,
@@ -2352,37 +2383,6 @@
                                     idx: 2,
                                     src: ExpectationSource {
                                         syn_expr_idx: 2,
-                                        kind: Expr,
-                                    },
-                                    expectee: FlyTerm {
-                                        place: None,
-                                        base: FlyTermBase::Eth(
-                                            EthTerm(`Type`),
-                                        ),
-                                    },
-                                    resolve_progress: ExpectationProgress::Resolved(
-                                        Ok(
-                                            ExpectationOutcome::EqsSort(
-                                                Universe(
-                                                    1,
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                },
-                            },
-                            FlyTermExpectationEntry {
-                                expectation: Expectation::EqsSort(
-                                    ExpectSort {
-                                        smallest_universe: Universe(
-                                            1,
-                                        ),
-                                    },
-                                ),
-                                state: ExpectationState {
-                                    idx: 3,
-                                    src: ExpectationSource {
-                                        syn_expr_idx: 3,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -2447,7 +2447,7 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::PrincipalEntityPath {
-                                    path_expr_idx: 1,
+                                    path_expr_idx: 0,
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Type(
                                             TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -2467,7 +2467,7 @@
                             ),
                             expectation_idx_and_ty: Some(
                                 (
-                                    1,
+                                    0,
                                     FlyTerm {
                                         place: None,
                                         base: FlyTermBase::Eth(
@@ -2487,10 +2487,10 @@
             ),
             sem_expr_roots: [
                 (
-                    1,
+                    0,
                     (
                         SemaExprIdx(
-                            1,
+                            0,
                         ),
                         SynExprRootKind::ReturnType,
                     ),
@@ -2503,7 +2503,7 @@
             sem_expr_terms: [
                 (
                     SemaExprIdx(
-                        1,
+                        0,
                     ),
                     Ok(
                         FlyTerm {
@@ -2545,9 +2545,9 @@
                                     },
                                 ),
                                 state: ExpectationState {
-                                    idx: 1,
+                                    idx: 0,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 1,
+                                        syn_expr_idx: 0,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -2602,7 +2602,7 @@
                 infos: [
                     SelfValue,
                     Parameter {
-                        current_syn_symbol_idx: 1,
+                        current_syn_symbol_idx: 0,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -2622,10 +2622,43 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::PrincipalEntityPath {
-                                    path_expr_idx: 1,
+                                    path_expr_idx: 0,
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Type(
                                             TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                        ),
+                                    ),
+                                    ty_path_disambiguation: OntologyConstructor,
+                                    instantiation: None,
+                                },
+                            ),
+                            immediate_ty_result: Ok(
+                                FlyTerm {
+                                    place: None,
+                                    base: FlyTermBase::Eth(
+                                        EthTerm(`Type`),
+                                    ),
+                                },
+                            ),
+                            expectation_idx_and_ty: Some(
+                                (
+                                    0,
+                                    FlyTerm {
+                                        place: None,
+                                        base: FlyTermBase::Eth(
+                                            EthTerm(`Type`),
+                                        ),
+                                    },
+                                ),
+                            ),
+                        },
+                        SemaExprEntry {
+                            data_result: Ok(
+                                SemaExprData::PrincipalEntityPath {
+                                    path_expr_idx: 1,
+                                    path: PrincipalEntityPath::MajorItem(
+                                        MajorItemPath::Type(
+                                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                         ),
                                     ),
                                     ty_path_disambiguation: OntologyConstructor,
@@ -2652,39 +2685,6 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
-                            data_result: Ok(
-                                SemaExprData::PrincipalEntityPath {
-                                    path_expr_idx: 2,
-                                    path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Type(
-                                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                        ),
-                                    ),
-                                    ty_path_disambiguation: OntologyConstructor,
-                                    instantiation: None,
-                                },
-                            ),
-                            immediate_ty_result: Ok(
-                                FlyTerm {
-                                    place: None,
-                                    base: FlyTermBase::Eth(
-                                        EthTerm(`Type`),
-                                    ),
-                                },
-                            ),
-                            expectation_idx_and_ty: Some(
-                                (
-                                    2,
-                                    FlyTerm {
-                                        place: None,
-                                        base: FlyTermBase::Eth(
-                                            EthTerm(`Type`),
-                                        ),
-                                    },
-                                ),
-                            ),
-                        },
                     ],
                 },
             ),
@@ -2695,19 +2695,19 @@
             ),
             sem_expr_roots: [
                 (
-                    1,
+                    0,
                     (
                         SemaExprIdx(
-                            1,
+                            0,
                         ),
                         SynExprRootKind::ExplicitParameterType,
                     ),
                 ),
                 (
-                    2,
+                    1,
                     (
                         SemaExprIdx(
-                            2,
+                            1,
                         ),
                         SynExprRootKind::ReturnType,
                     ),
@@ -2722,7 +2722,7 @@
             sem_expr_terms: [
                 (
                     SemaExprIdx(
-                        1,
+                        0,
                     ),
                     Ok(
                         FlyTerm {
@@ -2735,7 +2735,7 @@
                 ),
                 (
                     SemaExprIdx(
-                        2,
+                        1,
                     ),
                     Ok(
                         FlyTerm {
@@ -2792,9 +2792,9 @@
                                     },
                                 ),
                                 state: ExpectationState {
-                                    idx: 1,
+                                    idx: 0,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 1,
+                                        syn_expr_idx: 0,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -2823,9 +2823,9 @@
                                     },
                                 ),
                                 state: ExpectationState {
-                                    idx: 2,
+                                    idx: 1,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 2,
+                                        syn_expr_idx: 1,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -2890,7 +2890,7 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::PrincipalEntityPath {
-                                    path_expr_idx: 1,
+                                    path_expr_idx: 0,
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Type(
                                             TypePath(`core::num::f32`, `Extern`),
@@ -2910,7 +2910,7 @@
                             ),
                             expectation_idx_and_ty: Some(
                                 (
-                                    1,
+                                    0,
                                     FlyTerm {
                                         place: None,
                                         base: FlyTermBase::Eth(
@@ -2930,10 +2930,10 @@
             ),
             sem_expr_roots: [
                 (
-                    1,
+                    0,
                     (
                         SemaExprIdx(
-                            1,
+                            0,
                         ),
                         SynExprRootKind::ReturnType,
                     ),
@@ -2946,7 +2946,7 @@
             sem_expr_terms: [
                 (
                     SemaExprIdx(
-                        1,
+                        0,
                     ),
                     Ok(
                         FlyTerm {
@@ -2988,9 +2988,9 @@
                                     },
                                 ),
                                 state: ExpectationState {
-                                    idx: 1,
+                                    idx: 0,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 1,
+                                        syn_expr_idx: 0,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -3045,7 +3045,7 @@
                 infos: [
                     SelfValue,
                     Parameter {
-                        current_syn_symbol_idx: 1,
+                        current_syn_symbol_idx: 0,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -3065,10 +3065,43 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::PrincipalEntityPath {
-                                    path_expr_idx: 1,
+                                    path_expr_idx: 0,
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Type(
                                             TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                        ),
+                                    ),
+                                    ty_path_disambiguation: OntologyConstructor,
+                                    instantiation: None,
+                                },
+                            ),
+                            immediate_ty_result: Ok(
+                                FlyTerm {
+                                    place: None,
+                                    base: FlyTermBase::Eth(
+                                        EthTerm(`Type`),
+                                    ),
+                                },
+                            ),
+                            expectation_idx_and_ty: Some(
+                                (
+                                    0,
+                                    FlyTerm {
+                                        place: None,
+                                        base: FlyTermBase::Eth(
+                                            EthTerm(`Type`),
+                                        ),
+                                    },
+                                ),
+                            ),
+                        },
+                        SemaExprEntry {
+                            data_result: Ok(
+                                SemaExprData::PrincipalEntityPath {
+                                    path_expr_idx: 1,
+                                    path: PrincipalEntityPath::MajorItem(
+                                        MajorItemPath::Type(
+                                            TypePath(`core::num::f32`, `Extern`),
                                         ),
                                     ),
                                     ty_path_disambiguation: OntologyConstructor,
@@ -3095,39 +3128,6 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
-                            data_result: Ok(
-                                SemaExprData::PrincipalEntityPath {
-                                    path_expr_idx: 2,
-                                    path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Type(
-                                            TypePath(`core::num::f32`, `Extern`),
-                                        ),
-                                    ),
-                                    ty_path_disambiguation: OntologyConstructor,
-                                    instantiation: None,
-                                },
-                            ),
-                            immediate_ty_result: Ok(
-                                FlyTerm {
-                                    place: None,
-                                    base: FlyTermBase::Eth(
-                                        EthTerm(`Type`),
-                                    ),
-                                },
-                            ),
-                            expectation_idx_and_ty: Some(
-                                (
-                                    2,
-                                    FlyTerm {
-                                        place: None,
-                                        base: FlyTermBase::Eth(
-                                            EthTerm(`Type`),
-                                        ),
-                                    },
-                                ),
-                            ),
-                        },
                     ],
                 },
             ),
@@ -3138,19 +3138,19 @@
             ),
             sem_expr_roots: [
                 (
-                    1,
+                    0,
                     (
                         SemaExprIdx(
-                            1,
+                            0,
                         ),
                         SynExprRootKind::ExplicitParameterType,
                     ),
                 ),
                 (
-                    2,
+                    1,
                     (
                         SemaExprIdx(
-                            2,
+                            1,
                         ),
                         SynExprRootKind::ReturnType,
                     ),
@@ -3165,7 +3165,7 @@
             sem_expr_terms: [
                 (
                     SemaExprIdx(
-                        1,
+                        0,
                     ),
                     Ok(
                         FlyTerm {
@@ -3178,7 +3178,7 @@
                 ),
                 (
                     SemaExprIdx(
-                        2,
+                        1,
                     ),
                     Ok(
                         FlyTerm {
@@ -3235,9 +3235,9 @@
                                     },
                                 ),
                                 state: ExpectationState {
-                                    idx: 1,
+                                    idx: 0,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 1,
+                                        syn_expr_idx: 0,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -3266,9 +3266,9 @@
                                     },
                                 ),
                                 state: ExpectationState {
-                                    idx: 2,
+                                    idx: 1,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 2,
+                                        syn_expr_idx: 1,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -3339,7 +3339,7 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::PrincipalEntityPath {
-                                    path_expr_idx: 1,
+                                    path_expr_idx: 0,
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Type(
                                             TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -3359,7 +3359,7 @@
                             ),
                             expectation_idx_and_ty: Some(
                                 (
-                                    1,
+                                    0,
                                     FlyTerm {
                                         place: None,
                                         base: FlyTermBase::Eth(
@@ -3379,10 +3379,10 @@
             ),
             sem_expr_roots: [
                 (
-                    1,
+                    0,
                     (
                         SemaExprIdx(
-                            1,
+                            0,
                         ),
                         SynExprRootKind::SelfType,
                     ),
@@ -3395,7 +3395,7 @@
             sem_expr_terms: [
                 (
                     SemaExprIdx(
-                        1,
+                        0,
                     ),
                     Ok(
                         FlyTerm {
@@ -3437,9 +3437,9 @@
                                     },
                                 ),
                                 state: ExpectationState {
-                                    idx: 1,
+                                    idx: 0,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 1,
+                                        syn_expr_idx: 0,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -3504,7 +3504,7 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::PrincipalEntityPath {
-                                    path_expr_idx: 1,
+                                    path_expr_idx: 0,
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Type(
                                             TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -3524,7 +3524,7 @@
                             ),
                             expectation_idx_and_ty: Some(
                                 (
-                                    1,
+                                    0,
                                     FlyTerm {
                                         place: None,
                                         base: FlyTermBase::Eth(
@@ -3544,10 +3544,10 @@
             ),
             sem_expr_roots: [
                 (
-                    1,
+                    0,
                     (
                         SemaExprIdx(
-                            1,
+                            0,
                         ),
                         SynExprRootKind::ReturnType,
                     ),
@@ -3560,7 +3560,7 @@
             sem_expr_terms: [
                 (
                     SemaExprIdx(
-                        1,
+                        0,
                     ),
                     Ok(
                         FlyTerm {
@@ -3602,9 +3602,9 @@
                                     },
                                 ),
                                 state: ExpectationState {
-                                    idx: 1,
+                                    idx: 0,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 1,
+                                        syn_expr_idx: 0,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -3659,7 +3659,7 @@
                 infos: [
                     SelfValue,
                     Parameter {
-                        current_syn_symbol_idx: 1,
+                        current_syn_symbol_idx: 0,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -3676,6 +3676,39 @@
             sem_expr_arena: SemaExprArena(
                 Arena {
                     data: [
+                        SemaExprEntry {
+                            data_result: Ok(
+                                SemaExprData::PrincipalEntityPath {
+                                    path_expr_idx: 0,
+                                    path: PrincipalEntityPath::MajorItem(
+                                        MajorItemPath::Type(
+                                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                        ),
+                                    ),
+                                    ty_path_disambiguation: OntologyConstructor,
+                                    instantiation: None,
+                                },
+                            ),
+                            immediate_ty_result: Ok(
+                                FlyTerm {
+                                    place: None,
+                                    base: FlyTermBase::Eth(
+                                        EthTerm(`Type`),
+                                    ),
+                                },
+                            ),
+                            expectation_idx_and_ty: Some(
+                                (
+                                    0,
+                                    FlyTerm {
+                                        place: None,
+                                        base: FlyTermBase::Eth(
+                                            EthTerm(`Type`),
+                                        ),
+                                    },
+                                ),
+                            ),
+                        },
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::PrincipalEntityPath {
@@ -3709,39 +3742,6 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
-                            data_result: Ok(
-                                SemaExprData::PrincipalEntityPath {
-                                    path_expr_idx: 2,
-                                    path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Type(
-                                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                        ),
-                                    ),
-                                    ty_path_disambiguation: OntologyConstructor,
-                                    instantiation: None,
-                                },
-                            ),
-                            immediate_ty_result: Ok(
-                                FlyTerm {
-                                    place: None,
-                                    base: FlyTermBase::Eth(
-                                        EthTerm(`Type`),
-                                    ),
-                                },
-                            ),
-                            expectation_idx_and_ty: Some(
-                                (
-                                    2,
-                                    FlyTerm {
-                                        place: None,
-                                        base: FlyTermBase::Eth(
-                                            EthTerm(`Type`),
-                                        ),
-                                    },
-                                ),
-                            ),
-                        },
                     ],
                 },
             ),
@@ -3752,19 +3752,19 @@
             ),
             sem_expr_roots: [
                 (
-                    1,
+                    0,
                     (
                         SemaExprIdx(
-                            1,
+                            0,
                         ),
                         SynExprRootKind::ExplicitParameterType,
                     ),
                 ),
                 (
-                    2,
+                    1,
                     (
                         SemaExprIdx(
-                            2,
+                            1,
                         ),
                         SynExprRootKind::ReturnType,
                     ),
@@ -3779,7 +3779,7 @@
             sem_expr_terms: [
                 (
                     SemaExprIdx(
-                        1,
+                        0,
                     ),
                     Ok(
                         FlyTerm {
@@ -3792,7 +3792,7 @@
                 ),
                 (
                     SemaExprIdx(
-                        2,
+                        1,
                     ),
                     Ok(
                         FlyTerm {
@@ -3849,9 +3849,9 @@
                                     },
                                 ),
                                 state: ExpectationState {
-                                    idx: 1,
+                                    idx: 0,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 1,
+                                        syn_expr_idx: 0,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -3880,9 +3880,9 @@
                                     },
                                 ),
                                 state: ExpectationState {
-                                    idx: 2,
+                                    idx: 1,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 2,
+                                        syn_expr_idx: 1,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -3947,7 +3947,7 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::PrincipalEntityPath {
-                                    path_expr_idx: 1,
+                                    path_expr_idx: 0,
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Type(
                                             TypePath(`core::num::f32`, `Extern`),
@@ -3967,7 +3967,7 @@
                             ),
                             expectation_idx_and_ty: Some(
                                 (
-                                    1,
+                                    0,
                                     FlyTerm {
                                         place: None,
                                         base: FlyTermBase::Eth(
@@ -3987,10 +3987,10 @@
             ),
             sem_expr_roots: [
                 (
-                    1,
+                    0,
                     (
                         SemaExprIdx(
-                            1,
+                            0,
                         ),
                         SynExprRootKind::ReturnType,
                     ),
@@ -4003,7 +4003,7 @@
             sem_expr_terms: [
                 (
                     SemaExprIdx(
-                        1,
+                        0,
                     ),
                     Ok(
                         FlyTerm {
@@ -4045,9 +4045,9 @@
                                     },
                                 ),
                                 state: ExpectationState {
-                                    idx: 1,
+                                    idx: 0,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 1,
+                                        syn_expr_idx: 0,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -4102,7 +4102,7 @@
                 infos: [
                     SelfValue,
                     Parameter {
-                        current_syn_symbol_idx: 1,
+                        current_syn_symbol_idx: 0,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -4122,10 +4122,43 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::PrincipalEntityPath {
-                                    path_expr_idx: 1,
+                                    path_expr_idx: 0,
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Type(
                                             TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                        ),
+                                    ),
+                                    ty_path_disambiguation: OntologyConstructor,
+                                    instantiation: None,
+                                },
+                            ),
+                            immediate_ty_result: Ok(
+                                FlyTerm {
+                                    place: None,
+                                    base: FlyTermBase::Eth(
+                                        EthTerm(`Type`),
+                                    ),
+                                },
+                            ),
+                            expectation_idx_and_ty: Some(
+                                (
+                                    0,
+                                    FlyTerm {
+                                        place: None,
+                                        base: FlyTermBase::Eth(
+                                            EthTerm(`Type`),
+                                        ),
+                                    },
+                                ),
+                            ),
+                        },
+                        SemaExprEntry {
+                            data_result: Ok(
+                                SemaExprData::PrincipalEntityPath {
+                                    path_expr_idx: 1,
+                                    path: PrincipalEntityPath::MajorItem(
+                                        MajorItemPath::Type(
+                                            TypePath(`core::num::f32`, `Extern`),
                                         ),
                                     ),
                                     ty_path_disambiguation: OntologyConstructor,
@@ -4152,39 +4185,6 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
-                            data_result: Ok(
-                                SemaExprData::PrincipalEntityPath {
-                                    path_expr_idx: 2,
-                                    path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Type(
-                                            TypePath(`core::num::f32`, `Extern`),
-                                        ),
-                                    ),
-                                    ty_path_disambiguation: OntologyConstructor,
-                                    instantiation: None,
-                                },
-                            ),
-                            immediate_ty_result: Ok(
-                                FlyTerm {
-                                    place: None,
-                                    base: FlyTermBase::Eth(
-                                        EthTerm(`Type`),
-                                    ),
-                                },
-                            ),
-                            expectation_idx_and_ty: Some(
-                                (
-                                    2,
-                                    FlyTerm {
-                                        place: None,
-                                        base: FlyTermBase::Eth(
-                                            EthTerm(`Type`),
-                                        ),
-                                    },
-                                ),
-                            ),
-                        },
                     ],
                 },
             ),
@@ -4195,19 +4195,19 @@
             ),
             sem_expr_roots: [
                 (
-                    1,
+                    0,
                     (
                         SemaExprIdx(
-                            1,
+                            0,
                         ),
                         SynExprRootKind::ExplicitParameterType,
                     ),
                 ),
                 (
-                    2,
+                    1,
                     (
                         SemaExprIdx(
-                            2,
+                            1,
                         ),
                         SynExprRootKind::ReturnType,
                     ),
@@ -4222,7 +4222,7 @@
             sem_expr_terms: [
                 (
                     SemaExprIdx(
-                        1,
+                        0,
                     ),
                     Ok(
                         FlyTerm {
@@ -4235,7 +4235,7 @@
                 ),
                 (
                     SemaExprIdx(
-                        2,
+                        1,
                     ),
                     Ok(
                         FlyTerm {
@@ -4292,9 +4292,9 @@
                                     },
                                 ),
                                 state: ExpectationState {
-                                    idx: 1,
+                                    idx: 0,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 1,
+                                        syn_expr_idx: 0,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -4323,9 +4323,9 @@
                                     },
                                 ),
                                 state: ExpectationState {
-                                    idx: 2,
+                                    idx: 1,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 2,
+                                        syn_expr_idx: 1,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -4380,7 +4380,7 @@
                 infos: [
                     SelfValue,
                     Parameter {
-                        current_syn_symbol_idx: 1,
+                        current_syn_symbol_idx: 0,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -4400,10 +4400,43 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::PrincipalEntityPath {
-                                    path_expr_idx: 1,
+                                    path_expr_idx: 0,
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Type(
                                             TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                        ),
+                                    ),
+                                    ty_path_disambiguation: OntologyConstructor,
+                                    instantiation: None,
+                                },
+                            ),
+                            immediate_ty_result: Ok(
+                                FlyTerm {
+                                    place: None,
+                                    base: FlyTermBase::Eth(
+                                        EthTerm(`Type`),
+                                    ),
+                                },
+                            ),
+                            expectation_idx_and_ty: Some(
+                                (
+                                    0,
+                                    FlyTerm {
+                                        place: None,
+                                        base: FlyTermBase::Eth(
+                                            EthTerm(`Type`),
+                                        ),
+                                    },
+                                ),
+                            ),
+                        },
+                        SemaExprEntry {
+                            data_result: Ok(
+                                SemaExprData::PrincipalEntityPath {
+                                    path_expr_idx: 1,
+                                    path: PrincipalEntityPath::MajorItem(
+                                        MajorItemPath::Type(
+                                            TypePath(`core::num::f32`, `Extern`),
                                         ),
                                     ),
                                     ty_path_disambiguation: OntologyConstructor,
@@ -4430,39 +4463,6 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
-                            data_result: Ok(
-                                SemaExprData::PrincipalEntityPath {
-                                    path_expr_idx: 2,
-                                    path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Type(
-                                            TypePath(`core::num::f32`, `Extern`),
-                                        ),
-                                    ),
-                                    ty_path_disambiguation: OntologyConstructor,
-                                    instantiation: None,
-                                },
-                            ),
-                            immediate_ty_result: Ok(
-                                FlyTerm {
-                                    place: None,
-                                    base: FlyTermBase::Eth(
-                                        EthTerm(`Type`),
-                                    ),
-                                },
-                            ),
-                            expectation_idx_and_ty: Some(
-                                (
-                                    2,
-                                    FlyTerm {
-                                        place: None,
-                                        base: FlyTermBase::Eth(
-                                            EthTerm(`Type`),
-                                        ),
-                                    },
-                                ),
-                            ),
-                        },
                     ],
                 },
             ),
@@ -4473,19 +4473,19 @@
             ),
             sem_expr_roots: [
                 (
-                    1,
+                    0,
                     (
                         SemaExprIdx(
-                            1,
+                            0,
                         ),
                         SynExprRootKind::ExplicitParameterType,
                     ),
                 ),
                 (
-                    2,
+                    1,
                     (
                         SemaExprIdx(
-                            2,
+                            1,
                         ),
                         SynExprRootKind::ReturnType,
                     ),
@@ -4500,7 +4500,7 @@
             sem_expr_terms: [
                 (
                     SemaExprIdx(
-                        1,
+                        0,
                     ),
                     Ok(
                         FlyTerm {
@@ -4513,7 +4513,7 @@
                 ),
                 (
                     SemaExprIdx(
-                        2,
+                        1,
                     ),
                     Ok(
                         FlyTerm {
@@ -4570,9 +4570,9 @@
                                     },
                                 ),
                                 state: ExpectationState {
-                                    idx: 1,
+                                    idx: 0,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 1,
+                                        syn_expr_idx: 0,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -4601,9 +4601,9 @@
                                     },
                                 ),
                                 state: ExpectationState {
-                                    idx: 2,
+                                    idx: 1,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 2,
+                                        syn_expr_idx: 1,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -4658,7 +4658,7 @@
                 infos: [
                     SelfValue,
                     Parameter {
-                        current_syn_symbol_idx: 1,
+                        current_syn_symbol_idx: 0,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -4678,10 +4678,43 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::PrincipalEntityPath {
-                                    path_expr_idx: 1,
+                                    path_expr_idx: 0,
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Type(
                                             TypePath(`core::basic::bool`, `Extern`),
+                                        ),
+                                    ),
+                                    ty_path_disambiguation: OntologyConstructor,
+                                    instantiation: None,
+                                },
+                            ),
+                            immediate_ty_result: Ok(
+                                FlyTerm {
+                                    place: None,
+                                    base: FlyTermBase::Eth(
+                                        EthTerm(`Type`),
+                                    ),
+                                },
+                            ),
+                            expectation_idx_and_ty: Some(
+                                (
+                                    0,
+                                    FlyTerm {
+                                        place: None,
+                                        base: FlyTermBase::Eth(
+                                            EthTerm(`Type`),
+                                        ),
+                                    },
+                                ),
+                            ),
+                        },
+                        SemaExprEntry {
+                            data_result: Ok(
+                                SemaExprData::PrincipalEntityPath {
+                                    path_expr_idx: 1,
+                                    path: PrincipalEntityPath::MajorItem(
+                                        MajorItemPath::Type(
+                                            TypePath(`core::num::f32`, `Extern`),
                                         ),
                                     ),
                                     ty_path_disambiguation: OntologyConstructor,
@@ -4708,39 +4741,6 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
-                            data_result: Ok(
-                                SemaExprData::PrincipalEntityPath {
-                                    path_expr_idx: 2,
-                                    path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Type(
-                                            TypePath(`core::num::f32`, `Extern`),
-                                        ),
-                                    ),
-                                    ty_path_disambiguation: OntologyConstructor,
-                                    instantiation: None,
-                                },
-                            ),
-                            immediate_ty_result: Ok(
-                                FlyTerm {
-                                    place: None,
-                                    base: FlyTermBase::Eth(
-                                        EthTerm(`Type`),
-                                    ),
-                                },
-                            ),
-                            expectation_idx_and_ty: Some(
-                                (
-                                    2,
-                                    FlyTerm {
-                                        place: None,
-                                        base: FlyTermBase::Eth(
-                                            EthTerm(`Type`),
-                                        ),
-                                    },
-                                ),
-                            ),
-                        },
                     ],
                 },
             ),
@@ -4751,19 +4751,19 @@
             ),
             sem_expr_roots: [
                 (
-                    1,
+                    0,
                     (
                         SemaExprIdx(
-                            1,
+                            0,
                         ),
                         SynExprRootKind::ExplicitParameterType,
                     ),
                 ),
                 (
-                    2,
+                    1,
                     (
                         SemaExprIdx(
-                            2,
+                            1,
                         ),
                         SynExprRootKind::ReturnType,
                     ),
@@ -4778,7 +4778,7 @@
             sem_expr_terms: [
                 (
                     SemaExprIdx(
-                        1,
+                        0,
                     ),
                     Ok(
                         FlyTerm {
@@ -4791,7 +4791,7 @@
                 ),
                 (
                     SemaExprIdx(
-                        2,
+                        1,
                     ),
                     Ok(
                         FlyTerm {
@@ -4848,9 +4848,9 @@
                                     },
                                 ),
                                 state: ExpectationState {
-                                    idx: 1,
+                                    idx: 0,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 1,
+                                        syn_expr_idx: 0,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -4879,9 +4879,9 @@
                                     },
                                 ),
                                 state: ExpectationState {
-                                    idx: 2,
+                                    idx: 1,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 2,
+                                        syn_expr_idx: 1,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -4936,7 +4936,7 @@
                 infos: [
                     SelfValue,
                     Parameter {
-                        current_syn_symbol_idx: 1,
+                        current_syn_symbol_idx: 0,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -4956,10 +4956,43 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::PrincipalEntityPath {
-                                    path_expr_idx: 1,
+                                    path_expr_idx: 0,
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Type(
                                             TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                        ),
+                                    ),
+                                    ty_path_disambiguation: OntologyConstructor,
+                                    instantiation: None,
+                                },
+                            ),
+                            immediate_ty_result: Ok(
+                                FlyTerm {
+                                    place: None,
+                                    base: FlyTermBase::Eth(
+                                        EthTerm(`Type`),
+                                    ),
+                                },
+                            ),
+                            expectation_idx_and_ty: Some(
+                                (
+                                    0,
+                                    FlyTerm {
+                                        place: None,
+                                        base: FlyTermBase::Eth(
+                                            EthTerm(`Type`),
+                                        ),
+                                    },
+                                ),
+                            ),
+                        },
+                        SemaExprEntry {
+                            data_result: Ok(
+                                SemaExprData::PrincipalEntityPath {
+                                    path_expr_idx: 1,
+                                    path: PrincipalEntityPath::MajorItem(
+                                        MajorItemPath::Type(
+                                            TypePath(`core::num::i32`, `Extern`),
                                         ),
                                     ),
                                     ty_path_disambiguation: OntologyConstructor,
@@ -4986,39 +5019,6 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
-                            data_result: Ok(
-                                SemaExprData::PrincipalEntityPath {
-                                    path_expr_idx: 2,
-                                    path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Type(
-                                            TypePath(`core::num::i32`, `Extern`),
-                                        ),
-                                    ),
-                                    ty_path_disambiguation: OntologyConstructor,
-                                    instantiation: None,
-                                },
-                            ),
-                            immediate_ty_result: Ok(
-                                FlyTerm {
-                                    place: None,
-                                    base: FlyTermBase::Eth(
-                                        EthTerm(`Type`),
-                                    ),
-                                },
-                            ),
-                            expectation_idx_and_ty: Some(
-                                (
-                                    2,
-                                    FlyTerm {
-                                        place: None,
-                                        base: FlyTermBase::Eth(
-                                            EthTerm(`Type`),
-                                        ),
-                                    },
-                                ),
-                            ),
-                        },
                     ],
                 },
             ),
@@ -5029,19 +5029,19 @@
             ),
             sem_expr_roots: [
                 (
-                    1,
+                    0,
                     (
                         SemaExprIdx(
-                            1,
+                            0,
                         ),
                         SynExprRootKind::ExplicitParameterType,
                     ),
                 ),
                 (
-                    2,
+                    1,
                     (
                         SemaExprIdx(
-                            2,
+                            1,
                         ),
                         SynExprRootKind::ReturnType,
                     ),
@@ -5056,7 +5056,7 @@
             sem_expr_terms: [
                 (
                     SemaExprIdx(
-                        1,
+                        0,
                     ),
                     Ok(
                         FlyTerm {
@@ -5069,7 +5069,7 @@
                 ),
                 (
                     SemaExprIdx(
-                        2,
+                        1,
                     ),
                     Ok(
                         FlyTerm {
@@ -5126,9 +5126,9 @@
                                     },
                                 ),
                                 state: ExpectationState {
-                                    idx: 1,
+                                    idx: 0,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 1,
+                                        syn_expr_idx: 0,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -5157,9 +5157,9 @@
                                     },
                                 ),
                                 state: ExpectationState {
-                                    idx: 2,
+                                    idx: 1,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 2,
+                                        syn_expr_idx: 1,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -5214,7 +5214,7 @@
                 infos: [
                     SelfValue,
                     Parameter {
-                        current_syn_symbol_idx: 1,
+                        current_syn_symbol_idx: 0,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -5224,7 +5224,7 @@
                         ),
                     },
                     Parameter {
-                        current_syn_symbol_idx: 2,
+                        current_syn_symbol_idx: 1,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -5244,10 +5244,43 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::PrincipalEntityPath {
-                                    path_expr_idx: 1,
+                                    path_expr_idx: 0,
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Type(
                                             TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                        ),
+                                    ),
+                                    ty_path_disambiguation: OntologyConstructor,
+                                    instantiation: None,
+                                },
+                            ),
+                            immediate_ty_result: Ok(
+                                FlyTerm {
+                                    place: None,
+                                    base: FlyTermBase::Eth(
+                                        EthTerm(`Type`),
+                                    ),
+                                },
+                            ),
+                            expectation_idx_and_ty: Some(
+                                (
+                                    0,
+                                    FlyTerm {
+                                        place: None,
+                                        base: FlyTermBase::Eth(
+                                            EthTerm(`Type`),
+                                        ),
+                                    },
+                                ),
+                            ),
+                        },
+                        SemaExprEntry {
+                            data_result: Ok(
+                                SemaExprData::PrincipalEntityPath {
+                                    path_expr_idx: 1,
+                                    path: PrincipalEntityPath::MajorItem(
+                                        MajorItemPath::Type(
+                                            TypePath(`core::basic::bool`, `Extern`),
                                         ),
                                     ),
                                     ty_path_disambiguation: OntologyConstructor,
@@ -5280,7 +5313,7 @@
                                     path_expr_idx: 2,
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Type(
-                                            TypePath(`core::basic::bool`, `Extern`),
+                                            TypePath(`core::num::f32`, `Extern`),
                                         ),
                                     ),
                                     ty_path_disambiguation: OntologyConstructor,
@@ -5307,39 +5340,6 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
-                            data_result: Ok(
-                                SemaExprData::PrincipalEntityPath {
-                                    path_expr_idx: 3,
-                                    path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Type(
-                                            TypePath(`core::num::f32`, `Extern`),
-                                        ),
-                                    ),
-                                    ty_path_disambiguation: OntologyConstructor,
-                                    instantiation: None,
-                                },
-                            ),
-                            immediate_ty_result: Ok(
-                                FlyTerm {
-                                    place: None,
-                                    base: FlyTermBase::Eth(
-                                        EthTerm(`Type`),
-                                    ),
-                                },
-                            ),
-                            expectation_idx_and_ty: Some(
-                                (
-                                    3,
-                                    FlyTerm {
-                                        place: None,
-                                        base: FlyTermBase::Eth(
-                                            EthTerm(`Type`),
-                                        ),
-                                    },
-                                ),
-                            ),
-                        },
                     ],
                 },
             ),
@@ -5349,6 +5349,15 @@
                 },
             ),
             sem_expr_roots: [
+                (
+                    0,
+                    (
+                        SemaExprIdx(
+                            0,
+                        ),
+                        SynExprRootKind::ExplicitParameterType,
+                    ),
+                ),
                 (
                     1,
                     (
@@ -5364,15 +5373,6 @@
                         SemaExprIdx(
                             2,
                         ),
-                        SynExprRootKind::ExplicitParameterType,
-                    ),
-                ),
-                (
-                    3,
-                    (
-                        SemaExprIdx(
-                            3,
-                        ),
                         SynExprRootKind::ReturnType,
                     ),
                 ),
@@ -5387,7 +5387,7 @@
             sem_expr_terms: [
                 (
                     SemaExprIdx(
-                        1,
+                        0,
                     ),
                     Ok(
                         FlyTerm {
@@ -5400,7 +5400,7 @@
                 ),
                 (
                     SemaExprIdx(
-                        2,
+                        1,
                     ),
                     Ok(
                         FlyTerm {
@@ -5413,7 +5413,7 @@
                 ),
                 (
                     SemaExprIdx(
-                        3,
+                        2,
                     ),
                     Ok(
                         FlyTerm {
@@ -5484,6 +5484,37 @@
                                     },
                                 ),
                                 state: ExpectationState {
+                                    idx: 0,
+                                    src: ExpectationSource {
+                                        syn_expr_idx: 0,
+                                        kind: Expr,
+                                    },
+                                    expectee: FlyTerm {
+                                        place: None,
+                                        base: FlyTermBase::Eth(
+                                            EthTerm(`Type`),
+                                        ),
+                                    },
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::EqsSort(
+                                                Universe(
+                                                    1,
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            },
+                            FlyTermExpectationEntry {
+                                expectation: Expectation::EqsSort(
+                                    ExpectSort {
+                                        smallest_universe: Universe(
+                                            1,
+                                        ),
+                                    },
+                                ),
+                                state: ExpectationState {
                                     idx: 1,
                                     src: ExpectationSource {
                                         syn_expr_idx: 1,
@@ -5518,37 +5549,6 @@
                                     idx: 2,
                                     src: ExpectationSource {
                                         syn_expr_idx: 2,
-                                        kind: Expr,
-                                    },
-                                    expectee: FlyTerm {
-                                        place: None,
-                                        base: FlyTermBase::Eth(
-                                            EthTerm(`Type`),
-                                        ),
-                                    },
-                                    resolve_progress: ExpectationProgress::Resolved(
-                                        Ok(
-                                            ExpectationOutcome::EqsSort(
-                                                Universe(
-                                                    1,
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                },
-                            },
-                            FlyTermExpectationEntry {
-                                expectation: Expectation::EqsSort(
-                                    ExpectSort {
-                                        smallest_universe: Universe(
-                                            1,
-                                        ),
-                                    },
-                                ),
-                                state: ExpectationState {
-                                    idx: 3,
-                                    src: ExpectationSource {
-                                        syn_expr_idx: 3,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -5619,7 +5619,7 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::PrincipalEntityPath {
-                                    path_expr_idx: 1,
+                                    path_expr_idx: 0,
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Type(
                                             TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
@@ -5639,7 +5639,7 @@
                             ),
                             expectation_idx_and_ty: Some(
                                 (
-                                    1,
+                                    0,
                                     FlyTerm {
                                         place: None,
                                         base: FlyTermBase::Eth(
@@ -5659,10 +5659,10 @@
             ),
             sem_expr_roots: [
                 (
-                    1,
+                    0,
                     (
                         SemaExprIdx(
-                            1,
+                            0,
                         ),
                         SynExprRootKind::SelfType,
                     ),
@@ -5675,7 +5675,7 @@
             sem_expr_terms: [
                 (
                     SemaExprIdx(
-                        1,
+                        0,
                     ),
                     Ok(
                         FlyTerm {
@@ -5717,9 +5717,9 @@
                                     },
                                 ),
                                 state: ExpectationState {
-                                    idx: 1,
+                                    idx: 0,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 1,
+                                        syn_expr_idx: 0,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -5774,7 +5774,7 @@
                 infos: [
                     SelfValue,
                     Parameter {
-                        current_syn_symbol_idx: 1,
+                        current_syn_symbol_idx: 0,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -5791,6 +5791,39 @@
             sem_expr_arena: SemaExprArena(
                 Arena {
                     data: [
+                        SemaExprEntry {
+                            data_result: Ok(
+                                SemaExprData::PrincipalEntityPath {
+                                    path_expr_idx: 0,
+                                    path: PrincipalEntityPath::MajorItem(
+                                        MajorItemPath::Type(
+                                            TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                        ),
+                                    ),
+                                    ty_path_disambiguation: OntologyConstructor,
+                                    instantiation: None,
+                                },
+                            ),
+                            immediate_ty_result: Ok(
+                                FlyTerm {
+                                    place: None,
+                                    base: FlyTermBase::Eth(
+                                        EthTerm(`Type`),
+                                    ),
+                                },
+                            ),
+                            expectation_idx_and_ty: Some(
+                                (
+                                    0,
+                                    FlyTerm {
+                                        place: None,
+                                        base: FlyTermBase::Eth(
+                                            EthTerm(`Type`),
+                                        ),
+                                    },
+                                ),
+                            ),
+                        },
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::PrincipalEntityPath {
@@ -5824,39 +5857,6 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
-                            data_result: Ok(
-                                SemaExprData::PrincipalEntityPath {
-                                    path_expr_idx: 2,
-                                    path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Type(
-                                            TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
-                                        ),
-                                    ),
-                                    ty_path_disambiguation: OntologyConstructor,
-                                    instantiation: None,
-                                },
-                            ),
-                            immediate_ty_result: Ok(
-                                FlyTerm {
-                                    place: None,
-                                    base: FlyTermBase::Eth(
-                                        EthTerm(`Type`),
-                                    ),
-                                },
-                            ),
-                            expectation_idx_and_ty: Some(
-                                (
-                                    2,
-                                    FlyTerm {
-                                        place: None,
-                                        base: FlyTermBase::Eth(
-                                            EthTerm(`Type`),
-                                        ),
-                                    },
-                                ),
-                            ),
-                        },
                     ],
                 },
             ),
@@ -5867,19 +5867,19 @@
             ),
             sem_expr_roots: [
                 (
-                    1,
+                    0,
                     (
                         SemaExprIdx(
-                            1,
+                            0,
                         ),
                         SynExprRootKind::ExplicitParameterType,
                     ),
                 ),
                 (
-                    2,
+                    1,
                     (
                         SemaExprIdx(
-                            2,
+                            1,
                         ),
                         SynExprRootKind::ReturnType,
                     ),
@@ -5894,7 +5894,7 @@
             sem_expr_terms: [
                 (
                     SemaExprIdx(
-                        1,
+                        0,
                     ),
                     Ok(
                         FlyTerm {
@@ -5907,7 +5907,7 @@
                 ),
                 (
                     SemaExprIdx(
-                        2,
+                        1,
                     ),
                     Ok(
                         FlyTerm {
@@ -5964,9 +5964,9 @@
                                     },
                                 ),
                                 state: ExpectationState {
-                                    idx: 1,
+                                    idx: 0,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 1,
+                                        syn_expr_idx: 0,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -5995,9 +5995,9 @@
                                     },
                                 ),
                                 state: ExpectationState {
-                                    idx: 2,
+                                    idx: 1,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 2,
+                                        syn_expr_idx: 1,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -6052,7 +6052,7 @@
                 infos: [
                     SelfValue,
                     Parameter {
-                        current_syn_symbol_idx: 1,
+                        current_syn_symbol_idx: 0,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -6069,6 +6069,39 @@
             sem_expr_arena: SemaExprArena(
                 Arena {
                     data: [
+                        SemaExprEntry {
+                            data_result: Ok(
+                                SemaExprData::PrincipalEntityPath {
+                                    path_expr_idx: 0,
+                                    path: PrincipalEntityPath::MajorItem(
+                                        MajorItemPath::Type(
+                                            TypePath(`core::num::f32`, `Extern`),
+                                        ),
+                                    ),
+                                    ty_path_disambiguation: OntologyConstructor,
+                                    instantiation: None,
+                                },
+                            ),
+                            immediate_ty_result: Ok(
+                                FlyTerm {
+                                    place: None,
+                                    base: FlyTermBase::Eth(
+                                        EthTerm(`Type`),
+                                    ),
+                                },
+                            ),
+                            expectation_idx_and_ty: Some(
+                                (
+                                    0,
+                                    FlyTerm {
+                                        place: None,
+                                        base: FlyTermBase::Eth(
+                                            EthTerm(`Type`),
+                                        ),
+                                    },
+                                ),
+                            ),
+                        },
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::PrincipalEntityPath {
@@ -6102,39 +6135,6 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
-                            data_result: Ok(
-                                SemaExprData::PrincipalEntityPath {
-                                    path_expr_idx: 2,
-                                    path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Type(
-                                            TypePath(`core::num::f32`, `Extern`),
-                                        ),
-                                    ),
-                                    ty_path_disambiguation: OntologyConstructor,
-                                    instantiation: None,
-                                },
-                            ),
-                            immediate_ty_result: Ok(
-                                FlyTerm {
-                                    place: None,
-                                    base: FlyTermBase::Eth(
-                                        EthTerm(`Type`),
-                                    ),
-                                },
-                            ),
-                            expectation_idx_and_ty: Some(
-                                (
-                                    2,
-                                    FlyTerm {
-                                        place: None,
-                                        base: FlyTermBase::Eth(
-                                            EthTerm(`Type`),
-                                        ),
-                                    },
-                                ),
-                            ),
-                        },
                     ],
                 },
             ),
@@ -6145,19 +6145,19 @@
             ),
             sem_expr_roots: [
                 (
-                    1,
+                    0,
                     (
                         SemaExprIdx(
-                            1,
+                            0,
                         ),
                         SynExprRootKind::ExplicitParameterType,
                     ),
                 ),
                 (
-                    2,
+                    1,
                     (
                         SemaExprIdx(
-                            2,
+                            1,
                         ),
                         SynExprRootKind::ReturnType,
                     ),
@@ -6172,7 +6172,7 @@
             sem_expr_terms: [
                 (
                     SemaExprIdx(
-                        1,
+                        0,
                     ),
                     Ok(
                         FlyTerm {
@@ -6185,7 +6185,7 @@
                 ),
                 (
                     SemaExprIdx(
-                        2,
+                        1,
                     ),
                     Ok(
                         FlyTerm {
@@ -6242,9 +6242,9 @@
                                     },
                                 ),
                                 state: ExpectationState {
-                                    idx: 1,
+                                    idx: 0,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 1,
+                                        syn_expr_idx: 0,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -6273,9 +6273,9 @@
                                     },
                                 ),
                                 state: ExpectationState {
-                                    idx: 2,
+                                    idx: 1,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 2,
+                                        syn_expr_idx: 1,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -6346,7 +6346,7 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::PrincipalEntityPath {
-                                    path_expr_idx: 1,
+                                    path_expr_idx: 0,
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Type(
                                             TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
@@ -6366,7 +6366,7 @@
                             ),
                             expectation_idx_and_ty: Some(
                                 (
-                                    1,
+                                    0,
                                     FlyTerm {
                                         place: None,
                                         base: FlyTermBase::Eth(
@@ -6386,10 +6386,10 @@
             ),
             sem_expr_roots: [
                 (
-                    1,
+                    0,
                     (
                         SemaExprIdx(
-                            1,
+                            0,
                         ),
                         SynExprRootKind::SelfType,
                     ),
@@ -6402,7 +6402,7 @@
             sem_expr_terms: [
                 (
                     SemaExprIdx(
-                        1,
+                        0,
                     ),
                     Ok(
                         FlyTerm {
@@ -6444,9 +6444,9 @@
                                     },
                                 ),
                                 state: ExpectationState {
-                                    idx: 1,
+                                    idx: 0,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 1,
+                                        syn_expr_idx: 0,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -6501,7 +6501,7 @@
                 infos: [
                     SelfValue,
                     Parameter {
-                        current_syn_symbol_idx: 1,
+                        current_syn_symbol_idx: 0,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -6521,10 +6521,43 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::PrincipalEntityPath {
-                                    path_expr_idx: 1,
+                                    path_expr_idx: 0,
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Type(
                                             TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                        ),
+                                    ),
+                                    ty_path_disambiguation: OntologyConstructor,
+                                    instantiation: None,
+                                },
+                            ),
+                            immediate_ty_result: Ok(
+                                FlyTerm {
+                                    place: None,
+                                    base: FlyTermBase::Eth(
+                                        EthTerm(`Type`),
+                                    ),
+                                },
+                            ),
+                            expectation_idx_and_ty: Some(
+                                (
+                                    0,
+                                    FlyTerm {
+                                        place: None,
+                                        base: FlyTermBase::Eth(
+                                            EthTerm(`Type`),
+                                        ),
+                                    },
+                                ),
+                            ),
+                        },
+                        SemaExprEntry {
+                            data_result: Ok(
+                                SemaExprData::PrincipalEntityPath {
+                                    path_expr_idx: 1,
+                                    path: PrincipalEntityPath::MajorItem(
+                                        MajorItemPath::Type(
+                                            TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                         ),
                                     ),
                                     ty_path_disambiguation: OntologyConstructor,
@@ -6551,39 +6584,6 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
-                            data_result: Ok(
-                                SemaExprData::PrincipalEntityPath {
-                                    path_expr_idx: 2,
-                                    path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Type(
-                                            TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                                        ),
-                                    ),
-                                    ty_path_disambiguation: OntologyConstructor,
-                                    instantiation: None,
-                                },
-                            ),
-                            immediate_ty_result: Ok(
-                                FlyTerm {
-                                    place: None,
-                                    base: FlyTermBase::Eth(
-                                        EthTerm(`Type`),
-                                    ),
-                                },
-                            ),
-                            expectation_idx_and_ty: Some(
-                                (
-                                    2,
-                                    FlyTerm {
-                                        place: None,
-                                        base: FlyTermBase::Eth(
-                                            EthTerm(`Type`),
-                                        ),
-                                    },
-                                ),
-                            ),
-                        },
                     ],
                 },
             ),
@@ -6594,19 +6594,19 @@
             ),
             sem_expr_roots: [
                 (
-                    1,
+                    0,
                     (
                         SemaExprIdx(
-                            1,
+                            0,
                         ),
                         SynExprRootKind::ExplicitParameterType,
                     ),
                 ),
                 (
-                    2,
+                    1,
                     (
                         SemaExprIdx(
-                            2,
+                            1,
                         ),
                         SynExprRootKind::ReturnType,
                     ),
@@ -6621,7 +6621,7 @@
             sem_expr_terms: [
                 (
                     SemaExprIdx(
-                        1,
+                        0,
                     ),
                     Ok(
                         FlyTerm {
@@ -6634,7 +6634,7 @@
                 ),
                 (
                     SemaExprIdx(
-                        2,
+                        1,
                     ),
                     Ok(
                         FlyTerm {
@@ -6691,9 +6691,9 @@
                                     },
                                 ),
                                 state: ExpectationState {
-                                    idx: 1,
+                                    idx: 0,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 1,
+                                        syn_expr_idx: 0,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -6722,9 +6722,9 @@
                                     },
                                 ),
                                 state: ExpectationState {
-                                    idx: 2,
+                                    idx: 1,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 2,
+                                        syn_expr_idx: 1,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -6779,7 +6779,7 @@
                 infos: [
                     SelfValue,
                     Parameter {
-                        current_syn_symbol_idx: 1,
+                        current_syn_symbol_idx: 0,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -6799,10 +6799,43 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::PrincipalEntityPath {
-                                    path_expr_idx: 1,
+                                    path_expr_idx: 0,
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Type(
                                             TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                        ),
+                                    ),
+                                    ty_path_disambiguation: OntologyConstructor,
+                                    instantiation: None,
+                                },
+                            ),
+                            immediate_ty_result: Ok(
+                                FlyTerm {
+                                    place: None,
+                                    base: FlyTermBase::Eth(
+                                        EthTerm(`Type`),
+                                    ),
+                                },
+                            ),
+                            expectation_idx_and_ty: Some(
+                                (
+                                    0,
+                                    FlyTerm {
+                                        place: None,
+                                        base: FlyTermBase::Eth(
+                                            EthTerm(`Type`),
+                                        ),
+                                    },
+                                ),
+                            ),
+                        },
+                        SemaExprEntry {
+                            data_result: Ok(
+                                SemaExprData::PrincipalEntityPath {
+                                    path_expr_idx: 1,
+                                    path: PrincipalEntityPath::MajorItem(
+                                        MajorItemPath::Type(
+                                            TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
                                         ),
                                     ),
                                     ty_path_disambiguation: OntologyConstructor,
@@ -6829,39 +6862,6 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
-                            data_result: Ok(
-                                SemaExprData::PrincipalEntityPath {
-                                    path_expr_idx: 2,
-                                    path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Type(
-                                            TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
-                                        ),
-                                    ),
-                                    ty_path_disambiguation: OntologyConstructor,
-                                    instantiation: None,
-                                },
-                            ),
-                            immediate_ty_result: Ok(
-                                FlyTerm {
-                                    place: None,
-                                    base: FlyTermBase::Eth(
-                                        EthTerm(`Type`),
-                                    ),
-                                },
-                            ),
-                            expectation_idx_and_ty: Some(
-                                (
-                                    2,
-                                    FlyTerm {
-                                        place: None,
-                                        base: FlyTermBase::Eth(
-                                            EthTerm(`Type`),
-                                        ),
-                                    },
-                                ),
-                            ),
-                        },
                     ],
                 },
             ),
@@ -6872,19 +6872,19 @@
             ),
             sem_expr_roots: [
                 (
-                    1,
+                    0,
                     (
                         SemaExprIdx(
-                            1,
+                            0,
                         ),
                         SynExprRootKind::ExplicitParameterType,
                     ),
                 ),
                 (
-                    2,
+                    1,
                     (
                         SemaExprIdx(
-                            2,
+                            1,
                         ),
                         SynExprRootKind::ReturnType,
                     ),
@@ -6899,7 +6899,7 @@
             sem_expr_terms: [
                 (
                     SemaExprIdx(
-                        1,
+                        0,
                     ),
                     Ok(
                         FlyTerm {
@@ -6912,7 +6912,7 @@
                 ),
                 (
                     SemaExprIdx(
-                        2,
+                        1,
                     ),
                     Ok(
                         FlyTerm {
@@ -6969,9 +6969,9 @@
                                     },
                                 ),
                                 state: ExpectationState {
-                                    idx: 1,
+                                    idx: 0,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 1,
+                                        syn_expr_idx: 0,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -7000,9 +7000,9 @@
                                     },
                                 ),
                                 state: ExpectationState {
-                                    idx: 2,
+                                    idx: 1,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 2,
+                                        syn_expr_idx: 1,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -7067,7 +7067,7 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::PrincipalEntityPath {
-                                    path_expr_idx: 1,
+                                    path_expr_idx: 0,
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Type(
                                             TypePath(`core::num::f32`, `Extern`),
@@ -7087,7 +7087,7 @@
                             ),
                             expectation_idx_and_ty: Some(
                                 (
-                                    1,
+                                    0,
                                     FlyTerm {
                                         place: None,
                                         base: FlyTermBase::Eth(
@@ -7107,10 +7107,10 @@
             ),
             sem_expr_roots: [
                 (
-                    1,
+                    0,
                     (
                         SemaExprIdx(
-                            1,
+                            0,
                         ),
                         SynExprRootKind::ReturnType,
                     ),
@@ -7123,7 +7123,7 @@
             sem_expr_terms: [
                 (
                     SemaExprIdx(
-                        1,
+                        0,
                     ),
                     Ok(
                         FlyTerm {
@@ -7165,9 +7165,9 @@
                                     },
                                 ),
                                 state: ExpectationState {
-                                    idx: 1,
+                                    idx: 0,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 1,
+                                        syn_expr_idx: 0,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -7232,7 +7232,7 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::PrincipalEntityPath {
-                                    path_expr_idx: 1,
+                                    path_expr_idx: 0,
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Type(
                                             TypePath(`core::num::f32`, `Extern`),
@@ -7252,7 +7252,7 @@
                             ),
                             expectation_idx_and_ty: Some(
                                 (
-                                    1,
+                                    0,
                                     FlyTerm {
                                         place: None,
                                         base: FlyTermBase::Eth(
@@ -7272,10 +7272,10 @@
             ),
             sem_expr_roots: [
                 (
-                    1,
+                    0,
                     (
                         SemaExprIdx(
-                            1,
+                            0,
                         ),
                         SynExprRootKind::ReturnType,
                     ),
@@ -7288,7 +7288,7 @@
             sem_expr_terms: [
                 (
                     SemaExprIdx(
-                        1,
+                        0,
                     ),
                     Ok(
                         FlyTerm {
@@ -7330,9 +7330,9 @@
                                     },
                                 ),
                                 state: ExpectationState {
-                                    idx: 1,
+                                    idx: 0,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 1,
+                                        syn_expr_idx: 0,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -7397,7 +7397,7 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::PrincipalEntityPath {
-                                    path_expr_idx: 1,
+                                    path_expr_idx: 0,
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Type(
                                             TypePath(`core::num::f32`, `Extern`),
@@ -7417,7 +7417,7 @@
                             ),
                             expectation_idx_and_ty: Some(
                                 (
-                                    1,
+                                    0,
                                     FlyTerm {
                                         place: None,
                                         base: FlyTermBase::Eth(
@@ -7437,10 +7437,10 @@
             ),
             sem_expr_roots: [
                 (
-                    1,
+                    0,
                     (
                         SemaExprIdx(
-                            1,
+                            0,
                         ),
                         SynExprRootKind::ReturnType,
                     ),
@@ -7453,7 +7453,7 @@
             sem_expr_terms: [
                 (
                     SemaExprIdx(
-                        1,
+                        0,
                     ),
                     Ok(
                         FlyTerm {
@@ -7495,9 +7495,9 @@
                                     },
                                 ),
                                 state: ExpectationState {
-                                    idx: 1,
+                                    idx: 0,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 1,
+                                        syn_expr_idx: 0,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -7562,7 +7562,7 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::PrincipalEntityPath {
-                                    path_expr_idx: 1,
+                                    path_expr_idx: 0,
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Type(
                                             TypePath(`core::num::f32`, `Extern`),
@@ -7582,7 +7582,7 @@
                             ),
                             expectation_idx_and_ty: Some(
                                 (
-                                    1,
+                                    0,
                                     FlyTerm {
                                         place: None,
                                         base: FlyTermBase::Eth(
@@ -7602,10 +7602,10 @@
             ),
             sem_expr_roots: [
                 (
-                    1,
+                    0,
                     (
                         SemaExprIdx(
-                            1,
+                            0,
                         ),
                         SynExprRootKind::ReturnType,
                     ),
@@ -7618,7 +7618,7 @@
             sem_expr_terms: [
                 (
                     SemaExprIdx(
-                        1,
+                        0,
                     ),
                     Ok(
                         FlyTerm {
@@ -7660,9 +7660,9 @@
                                     },
                                 ),
                                 state: ExpectationState {
-                                    idx: 1,
+                                    idx: 0,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 1,
+                                        syn_expr_idx: 0,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -7733,7 +7733,7 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::PrincipalEntityPath {
-                                    path_expr_idx: 1,
+                                    path_expr_idx: 0,
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Type(
                                             TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
@@ -7753,7 +7753,7 @@
                             ),
                             expectation_idx_and_ty: Some(
                                 (
-                                    1,
+                                    0,
                                     FlyTerm {
                                         place: None,
                                         base: FlyTermBase::Eth(
@@ -7773,10 +7773,10 @@
             ),
             sem_expr_roots: [
                 (
-                    1,
+                    0,
                     (
                         SemaExprIdx(
-                            1,
+                            0,
                         ),
                         SynExprRootKind::SelfType,
                     ),
@@ -7789,7 +7789,7 @@
             sem_expr_terms: [
                 (
                     SemaExprIdx(
-                        1,
+                        0,
                     ),
                     Ok(
                         FlyTerm {
@@ -7831,9 +7831,9 @@
                                     },
                                 ),
                                 state: ExpectationState {
-                                    idx: 1,
+                                    idx: 0,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 1,
+                                        syn_expr_idx: 0,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -7898,7 +7898,7 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::PrincipalEntityPath {
-                                    path_expr_idx: 1,
+                                    path_expr_idx: 0,
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Type(
                                             TypePath(`core::num::f32`, `Extern`),
@@ -7918,7 +7918,7 @@
                             ),
                             expectation_idx_and_ty: Some(
                                 (
-                                    1,
+                                    0,
                                     FlyTerm {
                                         place: None,
                                         base: FlyTermBase::Eth(
@@ -7938,10 +7938,10 @@
             ),
             sem_expr_roots: [
                 (
-                    1,
+                    0,
                     (
                         SemaExprIdx(
-                            1,
+                            0,
                         ),
                         SynExprRootKind::ReturnType,
                     ),
@@ -7954,7 +7954,7 @@
             sem_expr_terms: [
                 (
                     SemaExprIdx(
-                        1,
+                        0,
                     ),
                     Ok(
                         FlyTerm {
@@ -7996,9 +7996,9 @@
                                     },
                                 ),
                                 state: ExpectationState {
-                                    idx: 1,
+                                    idx: 0,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 1,
+                                        syn_expr_idx: 0,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -8063,7 +8063,7 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::PrincipalEntityPath {
-                                    path_expr_idx: 1,
+                                    path_expr_idx: 0,
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Type(
                                             TypePath(`core::num::f32`, `Extern`),
@@ -8083,7 +8083,7 @@
                             ),
                             expectation_idx_and_ty: Some(
                                 (
-                                    1,
+                                    0,
                                     FlyTerm {
                                         place: None,
                                         base: FlyTermBase::Eth(
@@ -8103,10 +8103,10 @@
             ),
             sem_expr_roots: [
                 (
-                    1,
+                    0,
                     (
                         SemaExprIdx(
-                            1,
+                            0,
                         ),
                         SynExprRootKind::ReturnType,
                     ),
@@ -8119,7 +8119,7 @@
             sem_expr_terms: [
                 (
                     SemaExprIdx(
-                        1,
+                        0,
                     ),
                     Ok(
                         FlyTerm {
@@ -8161,9 +8161,9 @@
                                     },
                                 ),
                                 state: ExpectationState {
-                                    idx: 1,
+                                    idx: 0,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 1,
+                                        syn_expr_idx: 0,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -8228,7 +8228,7 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::PrincipalEntityPath {
-                                    path_expr_idx: 1,
+                                    path_expr_idx: 0,
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Type(
                                             TypePath(`core::num::f32`, `Extern`),
@@ -8248,7 +8248,7 @@
                             ),
                             expectation_idx_and_ty: Some(
                                 (
-                                    1,
+                                    0,
                                     FlyTerm {
                                         place: None,
                                         base: FlyTermBase::Eth(
@@ -8268,10 +8268,10 @@
             ),
             sem_expr_roots: [
                 (
-                    1,
+                    0,
                     (
                         SemaExprIdx(
-                            1,
+                            0,
                         ),
                         SynExprRootKind::ReturnType,
                     ),
@@ -8284,7 +8284,7 @@
             sem_expr_terms: [
                 (
                     SemaExprIdx(
-                        1,
+                        0,
                     ),
                     Ok(
                         FlyTerm {
@@ -8326,9 +8326,9 @@
                                     },
                                 ),
                                 state: ExpectationState {
-                                    idx: 1,
+                                    idx: 0,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 1,
+                                        syn_expr_idx: 0,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
@@ -8393,7 +8393,7 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::PrincipalEntityPath {
-                                    path_expr_idx: 1,
+                                    path_expr_idx: 0,
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Type(
                                             TypePath(`core::num::f32`, `Extern`),
@@ -8413,7 +8413,7 @@
                             ),
                             expectation_idx_and_ty: Some(
                                 (
-                                    1,
+                                    0,
                                     FlyTerm {
                                         place: None,
                                         base: FlyTermBase::Eth(
@@ -8433,10 +8433,10 @@
             ),
             sem_expr_roots: [
                 (
-                    1,
+                    0,
                     (
                         SemaExprIdx(
-                            1,
+                            0,
                         ),
                         SynExprRootKind::ReturnType,
                     ),
@@ -8449,7 +8449,7 @@
             sem_expr_terms: [
                 (
                     SemaExprIdx(
-                        1,
+                        0,
                     ),
                     Ok(
                         FlyTerm {
@@ -8491,9 +8491,9 @@
                                     },
                                 ),
                                 state: ExpectationState {
-                                    idx: 1,
+                                    idx: 0,
                                     src: ExpectationSource {
-                                        syn_expr_idx: 1,
+                                        syn_expr_idx: 0,
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {

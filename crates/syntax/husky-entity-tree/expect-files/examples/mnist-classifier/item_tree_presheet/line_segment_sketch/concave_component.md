@@ -23,7 +23,7 @@ EntityTreePresheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 75,
+                        ast_idx: 74,
                         ident_token: IdentToken {
                             ident: `ConcaveComponent`,
                             token_idx: TokenIdx(
@@ -66,7 +66,7 @@ EntityTreePresheet {
                             )`, (0)),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 78,
+                        ast_idx: 77,
                         ident_token: IdentToken {
                             ident: `find_concave_components`,
                             token_idx: TokenIdx(
@@ -80,7 +80,7 @@ EntityTreePresheet {
                             body: Some(
                                 FugitiveBody {
                                     ast_idx_range: ArenaIdxRange(
-                                        62..70,
+                                        61..69,
                                     ),
                                 },
                             ),
@@ -102,8 +102,8 @@ EntityTreePresheet {
     once_use_rules: OnceUseRules(
         [
             OnceUseRule {
-                ast_idx: 70,
-                use_expr_idx: 3,
+                ast_idx: 69,
+                use_expr_idx: 2,
                 visibility: Scope::PubUnder(
                     `mnist_classifier::line_segment_sketch::concave_component`,
                 ),
@@ -116,15 +116,15 @@ EntityTreePresheet {
                         },
                     ),
                     children: ArenaIdxRange(
-                        2..3,
+                        1..2,
                     ),
                 },
                 parent: None,
                 state: UseOneRuleState::Unresolved,
             },
             OnceUseRule {
-                ast_idx: 71,
-                use_expr_idx: 7,
+                ast_idx: 70,
+                use_expr_idx: 6,
                 visibility: Scope::PubUnder(
                     `mnist_classifier::line_segment_sketch::concave_component`,
                 ),
@@ -137,15 +137,15 @@ EntityTreePresheet {
                         },
                     ),
                     children: ArenaIdxRange(
-                        6..7,
+                        5..6,
                     ),
                 },
                 parent: None,
                 state: UseOneRuleState::Unresolved,
             },
             OnceUseRule {
-                ast_idx: 72,
-                use_expr_idx: 11,
+                ast_idx: 71,
+                use_expr_idx: 10,
                 visibility: Scope::PubUnder(
                     `mnist_classifier::line_segment_sketch::concave_component`,
                 ),
@@ -158,15 +158,15 @@ EntityTreePresheet {
                         },
                     ),
                     children: ArenaIdxRange(
-                        10..11,
+                        9..10,
                     ),
                 },
                 parent: None,
                 state: UseOneRuleState::Unresolved,
             },
             OnceUseRule {
-                ast_idx: 73,
-                use_expr_idx: 14,
+                ast_idx: 72,
+                use_expr_idx: 13,
                 visibility: Scope::PubUnder(
                     `mnist_classifier::line_segment_sketch::concave_component`,
                 ),
@@ -179,15 +179,15 @@ EntityTreePresheet {
                         },
                     ),
                     children: ArenaIdxRange(
-                        13..14,
+                        12..13,
                     ),
                 },
                 parent: None,
                 state: UseOneRuleState::Unresolved,
             },
             OnceUseRule {
-                ast_idx: 74,
-                use_expr_idx: 16,
+                ast_idx: 73,
+                use_expr_idx: 15,
                 visibility: Scope::PubUnder(
                     `mnist_classifier::line_segment_sketch::concave_component`,
                 ),
@@ -200,7 +200,7 @@ EntityTreePresheet {
                         },
                     ),
                     children: ArenaIdxRange(
-                        15..16,
+                        14..15,
                     ),
                 },
                 parent: None,
@@ -239,7 +239,7 @@ EntityTreePresheet {
                     ),
                     children: Ok(
                         UseExprChildren::Single {
-                            child: 1,
+                            child: 0,
                         },
                     ),
                 },
@@ -262,7 +262,7 @@ EntityTreePresheet {
                     ),
                     children: Ok(
                         UseExprChildren::Single {
-                            child: 2,
+                            child: 1,
                         },
                     ),
                 },
@@ -293,7 +293,7 @@ EntityTreePresheet {
                     ),
                     children: Ok(
                         UseExprChildren::Single {
-                            child: 4,
+                            child: 3,
                         },
                     ),
                 },
@@ -317,7 +317,7 @@ EntityTreePresheet {
                     ),
                     children: Ok(
                         UseExprChildren::Single {
-                            child: 5,
+                            child: 4,
                         },
                     ),
                 },
@@ -340,7 +340,7 @@ EntityTreePresheet {
                     ),
                     children: Ok(
                         UseExprChildren::Single {
-                            child: 6,
+                            child: 5,
                         },
                     ),
                 },
@@ -371,7 +371,7 @@ EntityTreePresheet {
                     ),
                     children: Ok(
                         UseExprChildren::Single {
-                            child: 8,
+                            child: 7,
                         },
                     ),
                 },
@@ -395,7 +395,7 @@ EntityTreePresheet {
                     ),
                     children: Ok(
                         UseExprChildren::Single {
-                            child: 9,
+                            child: 8,
                         },
                     ),
                 },
@@ -418,7 +418,7 @@ EntityTreePresheet {
                     ),
                     children: Ok(
                         UseExprChildren::Single {
-                            child: 10,
+                            child: 9,
                         },
                     ),
                 },
@@ -449,7 +449,7 @@ EntityTreePresheet {
                     ),
                     children: Ok(
                         UseExprChildren::Single {
-                            child: 12,
+                            child: 11,
                         },
                     ),
                 },
@@ -472,7 +472,7 @@ EntityTreePresheet {
                     ),
                     children: Ok(
                         UseExprChildren::Single {
-                            child: 13,
+                            child: 12,
                         },
                     ),
                 },
@@ -502,7 +502,7 @@ EntityTreePresheet {
                     ),
                     children: Ok(
                         UseExprChildren::Single {
-                            child: 15,
+                            child: 14,
                         },
                     ),
                 },

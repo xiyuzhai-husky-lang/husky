@@ -276,7 +276,7 @@
                     },
                 },
                 root_expr: VmirExprIdx(
-                    2,
+                    1,
                 ),
                 vmir_expr_arena: Arena {
                     data: [
@@ -284,11 +284,11 @@
                         VmirExprData::Block {
                             stmts: VmirStmtIdxRange(
                                 ArenaIdxRange(
-                                    1..2,
+                                    0..1,
                                 ),
                             ),
                             destroyers: ArenaIdxRange(
-                                1..1,
+                                0..0,
                             ),
                         },
                     ],
@@ -297,7 +297,7 @@
                     data: [
                         VmirStmtData::Eval {
                             expr: VmirExprIdx(
-                                1,
+                                0,
                             ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
@@ -349,7 +349,7 @@
                     },
                 },
                 root_expr: VmirExprIdx(
-                    8,
+                    7,
                 ),
                 vmir_expr_arena: Arena {
                     data: [
@@ -443,7 +443,7 @@
                             arguments: [
                                 VmirArgument::Simple {
                                     expr: VmirExprIdx(
-                                        2,
+                                        1,
                                     ),
                                     coersion: VmirCoersion::Trivial,
                                 },
@@ -535,7 +535,7 @@
                             arguments: [
                                 VmirArgument::Simple {
                                     expr: VmirExprIdx(
-                                        4,
+                                        3,
                                     ),
                                     coersion: VmirCoersion::Trivial,
                                 },
@@ -631,7 +631,7 @@
                             arguments: [
                                 VmirArgument::Simple {
                                     expr: VmirExprIdx(
-                                        6,
+                                        5,
                                     ),
                                     coersion: VmirCoersion::Trivial,
                                 },
@@ -640,11 +640,11 @@
                         VmirExprData::Block {
                             stmts: VmirStmtIdxRange(
                                 ArenaIdxRange(
-                                    4..5,
+                                    3..4,
                                 ),
                             ),
                             destroyers: ArenaIdxRange(
-                                1..1,
+                                0..0,
                             ),
                         },
                     ],
@@ -653,7 +653,7 @@
                     data: [
                         VmirStmtData::Eval {
                             expr: VmirExprIdx(
-                                3,
+                                2,
                             ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
@@ -662,7 +662,7 @@
                         },
                         VmirStmtData::Eval {
                             expr: VmirExprIdx(
-                                5,
+                                4,
                             ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
@@ -671,7 +671,7 @@
                         },
                         VmirStmtData::Eval {
                             expr: VmirExprIdx(
-                                7,
+                                6,
                             ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
@@ -680,9 +680,20 @@
                         },
                         VmirStmtData::Match {
                             opd: VmirExprIdx(
-                                1,
+                                0,
                             ),
                             case_branches: [
+                                VmirCaseBranch {
+                                    pattern: VmirPattern {
+                                        restructive_pattern: VmirRestructivePattern::UnitPath,
+                                        destructive_pattern: None,
+                                    },
+                                    stmts: VmirStmtIdxRange(
+                                        ArenaIdxRange(
+                                            0..1,
+                                        ),
+                                    ),
+                                },
                                 VmirCaseBranch {
                                     pattern: VmirPattern {
                                         restructive_pattern: VmirRestructivePattern::UnitPath,
@@ -702,17 +713,6 @@
                                     stmts: VmirStmtIdxRange(
                                         ArenaIdxRange(
                                             2..3,
-                                        ),
-                                    ),
-                                },
-                                VmirCaseBranch {
-                                    pattern: VmirPattern {
-                                        restructive_pattern: VmirRestructivePattern::UnitPath,
-                                        destructive_pattern: None,
-                                    },
-                                    stmts: VmirStmtIdxRange(
-                                        ArenaIdxRange(
-                                            3..4,
                                         ),
                                     ),
                                 },
@@ -759,7 +759,7 @@
                     },
                 },
                 root_expr: VmirExprIdx(
-                    8,
+                    7,
                 ),
                 vmir_expr_arena: Arena {
                     data: [
@@ -853,7 +853,7 @@
                             arguments: [
                                 VmirArgument::Simple {
                                     expr: VmirExprIdx(
-                                        2,
+                                        1,
                                     ),
                                     coersion: VmirCoersion::Trivial,
                                 },
@@ -945,7 +945,7 @@
                             arguments: [
                                 VmirArgument::Simple {
                                     expr: VmirExprIdx(
-                                        4,
+                                        3,
                                     ),
                                     coersion: VmirCoersion::Trivial,
                                 },
@@ -1041,7 +1041,7 @@
                             arguments: [
                                 VmirArgument::Simple {
                                     expr: VmirExprIdx(
-                                        6,
+                                        5,
                                     ),
                                     coersion: VmirCoersion::Trivial,
                                 },
@@ -1050,11 +1050,11 @@
                         VmirExprData::Block {
                             stmts: VmirStmtIdxRange(
                                 ArenaIdxRange(
-                                    4..5,
+                                    3..4,
                                 ),
                             ),
                             destroyers: ArenaIdxRange(
-                                1..1,
+                                0..0,
                             ),
                         },
                     ],
@@ -1063,7 +1063,7 @@
                     data: [
                         VmirStmtData::Eval {
                             expr: VmirExprIdx(
-                                3,
+                                2,
                             ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
@@ -1072,7 +1072,7 @@
                         },
                         VmirStmtData::Eval {
                             expr: VmirExprIdx(
-                                5,
+                                4,
                             ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
@@ -1081,7 +1081,7 @@
                         },
                         VmirStmtData::Eval {
                             expr: VmirExprIdx(
-                                7,
+                                6,
                             ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
@@ -1090,9 +1090,20 @@
                         },
                         VmirStmtData::Match {
                             opd: VmirExprIdx(
-                                1,
+                                0,
                             ),
                             case_branches: [
+                                VmirCaseBranch {
+                                    pattern: VmirPattern {
+                                        restructive_pattern: VmirRestructivePattern::UnitPath,
+                                        destructive_pattern: None,
+                                    },
+                                    stmts: VmirStmtIdxRange(
+                                        ArenaIdxRange(
+                                            0..1,
+                                        ),
+                                    ),
+                                },
                                 VmirCaseBranch {
                                     pattern: VmirPattern {
                                         restructive_pattern: VmirRestructivePattern::UnitPath,
@@ -1112,17 +1123,6 @@
                                     stmts: VmirStmtIdxRange(
                                         ArenaIdxRange(
                                             2..3,
-                                        ),
-                                    ),
-                                },
-                                VmirCaseBranch {
-                                    pattern: VmirPattern {
-                                        restructive_pattern: VmirRestructivePattern::UnitPath,
-                                        destructive_pattern: None,
-                                    },
-                                    stmts: VmirStmtIdxRange(
-                                        ArenaIdxRange(
-                                            3..4,
                                         ),
                                     ),
                                 },

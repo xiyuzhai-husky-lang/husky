@@ -10,7 +10,7 @@
         ),
         Some(
             ItemSynDefn {
-                body: 3,
+                body: 2,
                 syn_expr_region: SynExprRegion {
                     data: SynExprRegionData {
                         parent: Some(
@@ -95,7 +95,7 @@
                                         4,
                                     ),
                                     stmts: ArenaIdxRange(
-                                        1..2,
+                                        0..1,
                                     ),
                                     rcurl_regional_token: NestedRcurlRegionalToken(
                                         RegionalTokenIdx(
@@ -105,7 +105,7 @@
                                 },
                                 SynExprData::Block {
                                     stmts: ArenaIdxRange(
-                                        2..3,
+                                        1..2,
                                     ),
                                 },
                             ],
@@ -116,7 +116,7 @@
                         stmt_arena: Arena {
                             data: [
                                 SynStmtData::Eval {
-                                    expr_idx: 1,
+                                    expr_idx: 0,
                                     eol_semicolon: Ok(
                                         None,
                                     ),
@@ -130,10 +130,10 @@
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
                                             syn_pattern_expr_root: LetPatternSynExprRoot {
-                                                syn_pattern_expr_idx: 1,
+                                                syn_pattern_expr_idx: 0,
                                             },
                                             variables: ArenaIdxRange(
-                                                1..2,
+                                                0..1,
                                             ),
                                             colon_token: Ok(
                                                 None,
@@ -148,7 +148,7 @@
                                             ),
                                         ),
                                     ),
-                                    initial_value: 2,
+                                    initial_value: 1,
                                 },
                             ],
                         },
@@ -174,7 +174,7 @@
                             pattern_symbol_arena: Arena {
                                 data: [
                                     SynPatternSymbol::Atom(
-                                        1,
+                                        0,
                                     ),
                                 ],
                             },
@@ -182,7 +182,7 @@
                                 [
                                     (
                                         `t`,
-                                        1,
+                                        0,
                                     ),
                                 ],
                             ],
@@ -212,7 +212,7 @@
                                         ),
                                         data: CurrentSynSymbolData::LetVariable {
                                             ident: `t`,
-                                            pattern_symbol_idx: 1,
+                                            pattern_symbol_idx: 0,
                                         },
                                     },
                                 ],
@@ -224,29 +224,29 @@
                         syn_pattern_expr_roots: [
                             SynPatternRoot {
                                 kind: SynPatternExprRootKind::Let,
-                                syn_pattern_expr_idx: 1,
+                                syn_pattern_expr_idx: 0,
                             },
                         ],
                         syn_expr_roots: [
                             SynExprRoot {
                                 kind: SynExprRootKind::EvalExpr,
-                                syn_expr_idx: 1,
+                                syn_expr_idx: 0,
                             },
                             SynExprRoot {
                                 kind: SynExprRootKind::LetStmtInitialValue,
-                                syn_expr_idx: 2,
+                                syn_expr_idx: 1,
                             },
                             SynExprRoot {
                                 kind: SynExprRootKind::BlockExpr,
-                                syn_expr_idx: 3,
+                                syn_expr_idx: 2,
                             },
                         ],
                         has_self_lifetime: false,
                         has_self_place: false,
                         syn_pattern_to_current_syn_symbol_map: [
                             (
-                                1,
-                                1,
+                                0,
+                                0,
                             ),
                         ],
                     },
@@ -264,7 +264,7 @@
         ),
         Some(
             ItemSynDefn {
-                body: 6,
+                body: 5,
                 syn_expr_region: SynExprRegion {
                     data: SynExprRegionData {
                         parent: Some(
@@ -335,7 +335,7 @@
                         syn_expr_arena: Arena {
                             data: [
                                 SynExprData::PrincipalEntityPath {
-                                    path_expr_idx: 1,
+                                    path_expr_idx: 0,
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
@@ -349,9 +349,9 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         9,
                                     ),
-                                    current_syn_symbol_idx: 2,
+                                    current_syn_symbol_idx: 1,
                                     current_syn_symbol_kind: CurrentSynSymbolKind::SimpleClosureParameter {
-                                        pattern_symbol_idx: 2,
+                                        pattern_symbol_idx: 1,
                                     },
                                 },
                                 SynExprData::Literal(
@@ -365,14 +365,14 @@
                                     ),
                                 ),
                                 SynExprData::Binary {
-                                    lopd: 2,
+                                    lopd: 1,
                                     opr: SynBinaryOpr::Closed(
                                         BinaryClosedOpr::Add,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         10,
                                     ),
-                                    ropd: 3,
+                                    ropd: 2,
                                 },
                                 SynExprData::Closure {
                                     closure_kind_regional_token_idx: None,
@@ -383,10 +383,10 @@
                                         elements: [
                                             Simple {
                                                 syn_pattern_root: ClosureSynPatternExprRoot {
-                                                    syn_pattern_expr_idx: 2,
+                                                    syn_pattern_expr_idx: 1,
                                                 },
                                                 variables: ArenaIdxRange(
-                                                    2..3,
+                                                    1..2,
                                                 ),
                                                 ty: Some(
                                                     (
@@ -395,7 +395,7 @@
                                                                 6,
                                                             ),
                                                         ),
-                                                        1,
+                                                        0,
                                                     ),
                                                 ),
                                             },
@@ -409,11 +409,11 @@
                                         ),
                                     ),
                                     return_ty: None,
-                                    body: 4,
+                                    body: 3,
                                 },
                                 SynExprData::Block {
                                     stmts: ArenaIdxRange(
-                                        1..2,
+                                        0..1,
                                     ),
                                 },
                             ],
@@ -448,10 +448,10 @@
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
                                             syn_pattern_expr_root: LetPatternSynExprRoot {
-                                                syn_pattern_expr_idx: 1,
+                                                syn_pattern_expr_idx: 0,
                                             },
                                             variables: ArenaIdxRange(
-                                                1..2,
+                                                0..1,
                                             ),
                                             colon_token: Ok(
                                                 None,
@@ -466,7 +466,7 @@
                                             ),
                                         ),
                                     ),
-                                    initial_value: 5,
+                                    initial_value: 4,
                                 },
                             ],
                         },
@@ -502,10 +502,10 @@
                             pattern_symbol_arena: Arena {
                                 data: [
                                     SynPatternSymbol::Atom(
-                                        1,
+                                        0,
                                     ),
                                     SynPatternSymbol::Atom(
-                                        2,
+                                        1,
                                     ),
                                 ],
                             },
@@ -513,13 +513,13 @@
                                 [
                                     (
                                         `t`,
-                                        1,
+                                        0,
                                     ),
                                 ],
                                 [
                                     (
                                         `x`,
-                                        2,
+                                        1,
                                     ),
                                 ],
                             ],
@@ -550,7 +550,7 @@
                                         ),
                                         data: CurrentSynSymbolData::LetVariable {
                                             ident: `t`,
-                                            pattern_symbol_idx: 1,
+                                            pattern_symbol_idx: 0,
                                         },
                                     },
                                     CurrentSynSymbolEntry {
@@ -567,7 +567,7 @@
                                         ),
                                         data: CurrentSynSymbolData::SimpleClosureParameter {
                                             ident: `x`,
-                                            pattern_symbol_idx: 2,
+                                            pattern_symbol_idx: 1,
                                         },
                                     },
                                 ],
@@ -578,12 +578,12 @@
                                 (
                                     SimpleClosureParameter {
                                         syn_pattern_root: ClosureSynPatternExprRoot {
-                                            syn_pattern_expr_idx: 2,
+                                            syn_pattern_expr_idx: 1,
                                         },
-                                        ty: 1,
+                                        ty: 0,
                                     },
                                     ArenaIdxRange(
-                                        2..3,
+                                        1..2,
                                     ),
                                 ),
                             ],
@@ -591,33 +591,33 @@
                         syn_pattern_expr_roots: [
                             SynPatternRoot {
                                 kind: SynPatternExprRootKind::Let,
-                                syn_pattern_expr_idx: 1,
+                                syn_pattern_expr_idx: 0,
                             },
                             SynPatternRoot {
                                 kind: SynPatternExprRootKind::Closure,
-                                syn_pattern_expr_idx: 2,
+                                syn_pattern_expr_idx: 1,
                             },
                         ],
                         syn_expr_roots: [
                             SynExprRoot {
                                 kind: SynExprRootKind::ExplicitParameterType,
-                                syn_expr_idx: 1,
+                                syn_expr_idx: 0,
                             },
                             SynExprRoot {
                                 kind: SynExprRootKind::LetStmtInitialValue,
-                                syn_expr_idx: 5,
+                                syn_expr_idx: 4,
                             },
                             SynExprRoot {
                                 kind: SynExprRootKind::BlockExpr,
-                                syn_expr_idx: 6,
+                                syn_expr_idx: 5,
                             },
                         ],
                         has_self_lifetime: false,
                         has_self_place: false,
                         syn_pattern_to_current_syn_symbol_map: [
                             (
-                                1,
-                                1,
+                                0,
+                                0,
                             ),
                         ],
                     },
@@ -635,7 +635,7 @@
         ),
         Some(
             ItemSynDefn {
-                body: 7,
+                body: 6,
                 syn_expr_region: SynExprRegion {
                     data: SynExprRegionData {
                         parent: Some(
@@ -706,7 +706,7 @@
                         syn_expr_arena: Arena {
                             data: [
                                 SynExprData::PrincipalEntityPath {
-                                    path_expr_idx: 1,
+                                    path_expr_idx: 0,
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
@@ -720,9 +720,9 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         10,
                                     ),
-                                    current_syn_symbol_idx: 2,
+                                    current_syn_symbol_idx: 1,
                                     current_syn_symbol_kind: CurrentSynSymbolKind::SimpleClosureParameter {
-                                        pattern_symbol_idx: 2,
+                                        pattern_symbol_idx: 1,
                                     },
                                 },
                                 SynExprData::Literal(
@@ -736,21 +736,21 @@
                                     ),
                                 ),
                                 SynExprData::Binary {
-                                    lopd: 2,
+                                    lopd: 1,
                                     opr: SynBinaryOpr::Closed(
                                         BinaryClosedOpr::Add,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         11,
                                     ),
-                                    ropd: 3,
+                                    ropd: 2,
                                 },
                                 SynExprData::NestedBlock {
                                     lcurl_regional_token_idx: RegionalTokenIdx(
                                         9,
                                     ),
                                     stmts: ArenaIdxRange(
-                                        1..2,
+                                        0..1,
                                     ),
                                     rcurl_regional_token: NestedRcurlRegionalToken(
                                         RegionalTokenIdx(
@@ -767,10 +767,10 @@
                                         elements: [
                                             Simple {
                                                 syn_pattern_root: ClosureSynPatternExprRoot {
-                                                    syn_pattern_expr_idx: 2,
+                                                    syn_pattern_expr_idx: 1,
                                                 },
                                                 variables: ArenaIdxRange(
-                                                    2..3,
+                                                    1..2,
                                                 ),
                                                 ty: Some(
                                                     (
@@ -779,7 +779,7 @@
                                                                 6,
                                                             ),
                                                         ),
-                                                        1,
+                                                        0,
                                                     ),
                                                 ),
                                             },
@@ -793,11 +793,11 @@
                                         ),
                                     ),
                                     return_ty: None,
-                                    body: 5,
+                                    body: 4,
                                 },
                                 SynExprData::Block {
                                     stmts: ArenaIdxRange(
-                                        2..3,
+                                        1..2,
                                     ),
                                 },
                             ],
@@ -824,7 +824,7 @@
                         stmt_arena: Arena {
                             data: [
                                 SynStmtData::Eval {
-                                    expr_idx: 4,
+                                    expr_idx: 3,
                                     eol_semicolon: Ok(
                                         None,
                                     ),
@@ -838,10 +838,10 @@
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
                                             syn_pattern_expr_root: LetPatternSynExprRoot {
-                                                syn_pattern_expr_idx: 1,
+                                                syn_pattern_expr_idx: 0,
                                             },
                                             variables: ArenaIdxRange(
-                                                1..2,
+                                                0..1,
                                             ),
                                             colon_token: Ok(
                                                 None,
@@ -856,7 +856,7 @@
                                             ),
                                         ),
                                     ),
-                                    initial_value: 6,
+                                    initial_value: 5,
                                 },
                             ],
                         },
@@ -892,10 +892,10 @@
                             pattern_symbol_arena: Arena {
                                 data: [
                                     SynPatternSymbol::Atom(
-                                        1,
+                                        0,
                                     ),
                                     SynPatternSymbol::Atom(
-                                        2,
+                                        1,
                                     ),
                                 ],
                             },
@@ -903,13 +903,13 @@
                                 [
                                     (
                                         `t`,
-                                        1,
+                                        0,
                                     ),
                                 ],
                                 [
                                     (
                                         `x`,
-                                        2,
+                                        1,
                                     ),
                                 ],
                             ],
@@ -940,7 +940,7 @@
                                         ),
                                         data: CurrentSynSymbolData::LetVariable {
                                             ident: `t`,
-                                            pattern_symbol_idx: 1,
+                                            pattern_symbol_idx: 0,
                                         },
                                     },
                                     CurrentSynSymbolEntry {
@@ -957,7 +957,7 @@
                                         ),
                                         data: CurrentSynSymbolData::SimpleClosureParameter {
                                             ident: `x`,
-                                            pattern_symbol_idx: 2,
+                                            pattern_symbol_idx: 1,
                                         },
                                     },
                                 ],
@@ -968,12 +968,12 @@
                                 (
                                     SimpleClosureParameter {
                                         syn_pattern_root: ClosureSynPatternExprRoot {
-                                            syn_pattern_expr_idx: 2,
+                                            syn_pattern_expr_idx: 1,
                                         },
-                                        ty: 1,
+                                        ty: 0,
                                     },
                                     ArenaIdxRange(
-                                        2..3,
+                                        1..2,
                                     ),
                                 ),
                             ],
@@ -981,37 +981,37 @@
                         syn_pattern_expr_roots: [
                             SynPatternRoot {
                                 kind: SynPatternExprRootKind::Let,
-                                syn_pattern_expr_idx: 1,
+                                syn_pattern_expr_idx: 0,
                             },
                             SynPatternRoot {
                                 kind: SynPatternExprRootKind::Closure,
-                                syn_pattern_expr_idx: 2,
+                                syn_pattern_expr_idx: 1,
                             },
                         ],
                         syn_expr_roots: [
                             SynExprRoot {
                                 kind: SynExprRootKind::ExplicitParameterType,
-                                syn_expr_idx: 1,
+                                syn_expr_idx: 0,
                             },
                             SynExprRoot {
                                 kind: SynExprRootKind::EvalExpr,
-                                syn_expr_idx: 4,
+                                syn_expr_idx: 3,
                             },
                             SynExprRoot {
                                 kind: SynExprRootKind::LetStmtInitialValue,
-                                syn_expr_idx: 6,
+                                syn_expr_idx: 5,
                             },
                             SynExprRoot {
                                 kind: SynExprRootKind::BlockExpr,
-                                syn_expr_idx: 7,
+                                syn_expr_idx: 6,
                             },
                         ],
                         has_self_lifetime: false,
                         has_self_place: false,
                         syn_pattern_to_current_syn_symbol_map: [
                             (
-                                1,
-                                1,
+                                0,
+                                0,
                             ),
                         ],
                     },

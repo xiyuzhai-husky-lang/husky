@@ -25,7 +25,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `std::ops`,
                         ),
-                        ast_idx: 4,
+                        ast_idx: 3,
                         ident_token: IdentToken {
                             ident: `Add`,
                             token_idx: TokenIdx(
@@ -37,7 +37,7 @@ EntityTreeSheet {
                             items: Some(
                                 TraitItems {
                                     ast_idx_range: ArenaIdxRange(
-                                        1..3,
+                                        0..2,
                                     ),
                                 },
                             ),

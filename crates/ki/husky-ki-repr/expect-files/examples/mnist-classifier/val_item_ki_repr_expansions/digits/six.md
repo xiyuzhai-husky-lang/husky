@@ -142,7 +142,7 @@
                                 caching_class: ValItem,
                             },
                             source: Expr {
-                                expr: 2,
+                                expr: 1,
                             },
                         },
                         caching_class: Expr,
@@ -157,6 +157,43 @@
                             ),
                         ),
                         arguments: [],
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                ),
+                                arguments: [],
+                                source: KiReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
+                            source: Expr {
+                                expr: 2,
+                            },
+                        },
+                        caching_class: Expr,
+                    },
+                    KiRepr {
+                        val_domain_repr: Omni,
+                        opn: ValOpn::Index,
+                        arguments: [
+                            Simple(
+                                KiRepr(
+                                    Id {
+                                        value: 245,
+                                    },
+                                ),
+                            ),
+                            Simple(
+                                KiRepr(
+                                    Id {
+                                        value: 246,
+                                    },
+                                ),
+                            ),
+                        ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
@@ -206,45 +243,8 @@
                                 ),
                                 caching_class: ValItem,
                             },
-                            source: Expr {
-                                expr: 4,
-                            },
-                        },
-                        caching_class: Expr,
-                    },
-                    KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::Index,
-                        arguments: [
-                            Simple(
-                                KiRepr(
-                                    Id {
-                                        value: 245,
-                                    },
-                                ),
-                            ),
-                            Simple(
-                                KiRepr(
-                                    Id {
-                                        value: 246,
-                                    },
-                                ),
-                            ),
-                        ],
-                        source: KiReprSource::Expansion {
-                            parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
-                                ),
-                                arguments: [],
-                                source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
-                                ),
-                                caching_class: ValItem,
-                            },
                             source: LetVariable {
-                                stmt: 20,
+                                stmt: 19,
                             },
                         },
                         caching_class: Variable,
@@ -313,7 +313,7 @@
                                 caching_class: ValItem,
                             },
                             source: Expr {
-                                expr: 7,
+                                expr: 6,
                             },
                         },
                         caching_class: Expr,
@@ -382,7 +382,7 @@
                                 caching_class: ValItem,
                             },
                             source: Expr {
-                                expr: 9,
+                                expr: 8,
                             },
                         },
                         caching_class: Expr,
@@ -451,7 +451,7 @@
                                 caching_class: ValItem,
                             },
                             source: Expr {
-                                expr: 11,
+                                expr: 10,
                             },
                         },
                         caching_class: Expr,
@@ -498,7 +498,7 @@
                                 caching_class: ValItem,
                             },
                             source: Expr {
-                                expr: 12,
+                                expr: 11,
                             },
                         },
                         caching_class: Expr,
@@ -548,7 +548,7 @@
                                 caching_class: ValItem,
                             },
                             source: LetVariable {
-                                stmt: 22,
+                                stmt: 21,
                             },
                         },
                         caching_class: Variable,
@@ -602,7 +602,7 @@
                                 caching_class: ValItem,
                             },
                             source: Expr {
-                                expr: 14,
+                                expr: 13,
                             },
                         },
                         caching_class: Expr,
@@ -636,7 +636,7 @@
                                 caching_class: ValItem,
                             },
                             source: Expr {
-                                expr: 15,
+                                expr: 14,
                             },
                         },
                         caching_class: Expr,
@@ -679,7 +679,7 @@
                                 caching_class: ValItem,
                             },
                             source: Expr {
-                                expr: 16,
+                                expr: 15,
                             },
                         },
                         caching_class: Expr,
@@ -748,7 +748,7 @@
                                 caching_class: ValItem,
                             },
                             source: Expr {
-                                expr: 19,
+                                expr: 18,
                             },
                         },
                         caching_class: Expr,
@@ -817,7 +817,7 @@
                                 caching_class: ValItem,
                             },
                             source: Expr {
-                                expr: 21,
+                                expr: 20,
                             },
                         },
                         caching_class: Expr,
@@ -849,7 +849,7 @@
                                 caching_class: ValItem,
                             },
                             source: Expr {
-                                expr: 22,
+                                expr: 21,
                             },
                         },
                         caching_class: Expr,
@@ -945,7 +945,7 @@
                                 caching_class: ValItem,
                             },
                             source: Expr {
-                                expr: 23,
+                                expr: 22,
                             },
                         },
                         caching_class: Expr,
@@ -1001,7 +1001,7 @@
                                 caching_class: ValItem,
                             },
                             source: Expr {
-                                expr: 24,
+                                expr: 23,
                             },
                         },
                         caching_class: Expr,
@@ -1074,7 +1074,7 @@
                                 caching_class: ValItem,
                             },
                             source: Expr {
-                                expr: 26,
+                                expr: 25,
                             },
                         },
                         caching_class: Expr,
@@ -1095,6 +1095,49 @@
                             ),
                         ),
                         arguments: [],
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                ),
+                                arguments: [],
+                                source: KiReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
+                            source: Expr {
+                                expr: 26,
+                            },
+                        },
+                        caching_class: Expr,
+                    },
+                    KiRepr {
+                        val_domain_repr: StmtNotReturned(
+                            KiRepr(
+                                Id {
+                                    value: 266,
+                                },
+                            ),
+                        ),
+                        opn: ValOpn::Index,
+                        arguments: [
+                            Simple(
+                                KiRepr(
+                                    Id {
+                                        value: 267,
+                                    },
+                                ),
+                            ),
+                            Simple(
+                                KiRepr(
+                                    Id {
+                                        value: 268,
+                                    },
+                                ),
+                            ),
+                        ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
@@ -1150,51 +1193,8 @@
                                 ),
                                 caching_class: ValItem,
                             },
-                            source: Expr {
-                                expr: 28,
-                            },
-                        },
-                        caching_class: Expr,
-                    },
-                    KiRepr {
-                        val_domain_repr: StmtNotReturned(
-                            KiRepr(
-                                Id {
-                                    value: 266,
-                                },
-                            ),
-                        ),
-                        opn: ValOpn::Index,
-                        arguments: [
-                            Simple(
-                                KiRepr(
-                                    Id {
-                                        value: 267,
-                                    },
-                                ),
-                            ),
-                            Simple(
-                                KiRepr(
-                                    Id {
-                                        value: 268,
-                                    },
-                                ),
-                            ),
-                        ],
-                        source: KiReprSource::Expansion {
-                            parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
-                                ),
-                                arguments: [],
-                                source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
-                                ),
-                                caching_class: ValItem,
-                            },
                             source: LetVariable {
-                                stmt: 7,
+                                stmt: 6,
                             },
                         },
                         caching_class: Variable,
@@ -1215,6 +1215,61 @@
                                         value: 270,
                                     },
                                 ),
+                            ),
+                        ],
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                ),
+                                arguments: [],
+                                source: KiReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
+                            source: Expr {
+                                expr: 29,
+                            },
+                        },
+                        caching_class: Expr,
+                    },
+                    KiRepr {
+                        val_domain_repr: StmtNotReturned(
+                            KiRepr(
+                                Id {
+                                    value: 266,
+                                },
+                            ),
+                        ),
+                        opn: ValOpn::Linkage(
+                            Linkage {
+                                data: LinkageData::MethodRitchie {
+                                    path: AssocItemPath::TypeItem(
+                                        TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::displacement`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                    ),
+                                    instantiation: LinInstantiation {
+                                        symbol_resolutions: [],
+                                        separator: Some(
+                                            0,
+                                        ),
+                                    },
+                                },
+                            },
+                        ),
+                        arguments: [
+                            Simple(
+                                KiRepr(
+                                    Id {
+                                        value: 271,
+                                    },
+                                ),
+                            ),
+                            RuntimeConstants(
+                                [],
                             ),
                         ],
                         source: KiReprSource::Expansion {
@@ -1284,63 +1339,8 @@
                                 ),
                                 caching_class: ValItem,
                             },
-                            source: Expr {
-                                expr: 31,
-                            },
-                        },
-                        caching_class: Expr,
-                    },
-                    KiRepr {
-                        val_domain_repr: StmtNotReturned(
-                            KiRepr(
-                                Id {
-                                    value: 266,
-                                },
-                            ),
-                        ),
-                        opn: ValOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MethodRitchie {
-                                    path: AssocItemPath::TypeItem(
-                                        TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::displacement`, `MethodRitchie(
-                                            Fn,
-                                        )`),
-                                    ),
-                                    instantiation: LinInstantiation {
-                                        symbol_resolutions: [],
-                                        separator: Some(
-                                            0,
-                                        ),
-                                    },
-                                },
-                            },
-                        ),
-                        arguments: [
-                            Simple(
-                                KiRepr(
-                                    Id {
-                                        value: 271,
-                                    },
-                                ),
-                            ),
-                            RuntimeConstants(
-                                [],
-                            ),
-                        ],
-                        source: KiReprSource::Expansion {
-                            parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
-                                ),
-                                arguments: [],
-                                source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
-                                ),
-                                caching_class: ValItem,
-                            },
                             source: LetVariable {
-                                stmt: 8,
+                                stmt: 7,
                             },
                         },
                         caching_class: Variable,
@@ -1394,7 +1394,7 @@
                                 caching_class: ValItem,
                             },
                             source: Expr {
-                                expr: 33,
+                                expr: 32,
                             },
                         },
                         caching_class: Expr,
@@ -1431,7 +1431,7 @@
                                 caching_class: ValItem,
                             },
                             source: LetVariable {
-                                stmt: 20,
+                                stmt: 19,
                             },
                         },
                         caching_class: Variable,
@@ -1467,7 +1467,7 @@
                                 caching_class: ValItem,
                             },
                             source: Expr {
-                                expr: 35,
+                                expr: 34,
                             },
                         },
                         caching_class: Expr,
@@ -1522,7 +1522,7 @@
                                 caching_class: ValItem,
                             },
                             source: Expr {
-                                expr: 36,
+                                expr: 35,
                             },
                         },
                         caching_class: Expr,
@@ -1576,7 +1576,7 @@
                                 caching_class: ValItem,
                             },
                             source: Expr {
-                                expr: 37,
+                                expr: 36,
                             },
                         },
                         caching_class: Expr,
@@ -1649,7 +1649,7 @@
                                 caching_class: ValItem,
                             },
                             source: Expr {
-                                expr: 39,
+                                expr: 38,
                             },
                         },
                         caching_class: Expr,
@@ -1718,7 +1718,7 @@
                                 caching_class: ValItem,
                             },
                             source: Expr {
-                                expr: 41,
+                                expr: 40,
                             },
                         },
                         caching_class: Expr,
@@ -1755,7 +1755,7 @@
                                 caching_class: ValItem,
                             },
                             source: Expr {
-                                expr: 42,
+                                expr: 41,
                             },
                         },
                         caching_class: Expr,
@@ -1802,7 +1802,7 @@
                                 caching_class: ValItem,
                             },
                             source: Expr {
-                                expr: 43,
+                                expr: 42,
                             },
                         },
                         caching_class: Expr,
@@ -1845,7 +1845,7 @@
                                 caching_class: ValItem,
                             },
                             source: LetVariable {
-                                stmt: 7,
+                                stmt: 6,
                             },
                         },
                         caching_class: Variable,
@@ -1899,7 +1899,7 @@
                                 caching_class: ValItem,
                             },
                             source: LetVariable {
-                                stmt: 9,
+                                stmt: 8,
                             },
                         },
                         caching_class: Variable,
@@ -1936,7 +1936,7 @@
                                 caching_class: ValItem,
                             },
                             source: Expr {
-                                expr: 46,
+                                expr: 45,
                             },
                         },
                         caching_class: Expr,
@@ -1974,7 +1974,7 @@
                                 caching_class: ValItem,
                             },
                             source: Expr {
-                                expr: 47,
+                                expr: 46,
                             },
                         },
                         caching_class: Expr,
@@ -2021,7 +2021,7 @@
                                 caching_class: ValItem,
                             },
                             source: Expr {
-                                expr: 48,
+                                expr: 47,
                             },
                         },
                         caching_class: Expr,
@@ -2077,7 +2077,7 @@
                                 caching_class: ValItem,
                             },
                             source: Expr {
-                                expr: 50,
+                                expr: 49,
                             },
                         },
                         caching_class: Expr,
@@ -2124,7 +2124,7 @@
                                 caching_class: ValItem,
                             },
                             source: Expr {
-                                expr: 51,
+                                expr: 50,
                             },
                         },
                         caching_class: Expr,
@@ -2178,7 +2178,7 @@
                                 caching_class: ValItem,
                             },
                             source: LetVariable {
-                                stmt: 10,
+                                stmt: 9,
                             },
                         },
                         caching_class: Variable,
@@ -2210,7 +2210,7 @@
                                 caching_class: ValItem,
                             },
                             source: Expr {
-                                expr: 54,
+                                expr: 53,
                             },
                         },
                         caching_class: Expr,
@@ -2301,7 +2301,7 @@
                                 caching_class: ValItem,
                             },
                             source: Expr {
-                                expr: 55,
+                                expr: 54,
                             },
                         },
                         caching_class: Expr,
@@ -2357,7 +2357,7 @@
                                 caching_class: ValItem,
                             },
                             source: Expr {
-                                expr: 56,
+                                expr: 55,
                             },
                         },
                         caching_class: Expr,
@@ -2393,7 +2393,7 @@
                                 caching_class: ValItem,
                             },
                             source: Expr {
-                                expr: 57,
+                                expr: 56,
                             },
                         },
                         caching_class: Expr,
@@ -2462,7 +2462,7 @@
                                 caching_class: ValItem,
                             },
                             source: Expr {
-                                expr: 59,
+                                expr: 58,
                             },
                         },
                         caching_class: Expr,
@@ -2499,7 +2499,7 @@
                                 caching_class: ValItem,
                             },
                             source: LetVariable {
-                                stmt: 20,
+                                stmt: 19,
                             },
                         },
                         caching_class: Variable,
@@ -2535,7 +2535,7 @@
                                 caching_class: ValItem,
                             },
                             source: Expr {
-                                expr: 61,
+                                expr: 60,
                             },
                         },
                         caching_class: Expr,
@@ -2590,7 +2590,7 @@
                                 caching_class: ValItem,
                             },
                             source: Expr {
-                                expr: 62,
+                                expr: 61,
                             },
                         },
                         caching_class: Expr,
@@ -2652,7 +2652,7 @@
                                 caching_class: ValItem,
                             },
                             source: Expr {
-                                expr: 63,
+                                expr: 62,
                             },
                         },
                         caching_class: Expr,
@@ -2706,7 +2706,7 @@
                                 caching_class: ValItem,
                             },
                             source: LetVariable {
-                                stmt: 10,
+                                stmt: 9,
                             },
                         },
                         caching_class: Variable,
@@ -2772,7 +2772,7 @@
                                 caching_class: ValItem,
                             },
                             source: LetVariable {
-                                stmt: 23,
+                                stmt: 22,
                             },
                         },
                         caching_class: Variable,
@@ -2823,7 +2823,7 @@
                                 caching_class: ValItem,
                             },
                             source: Expr {
-                                expr: 69,
+                                expr: 68,
                             },
                         },
                         caching_class: Expr,
@@ -2885,7 +2885,7 @@
                                 caching_class: ValItem,
                             },
                             source: Expr {
-                                expr: 70,
+                                expr: 69,
                             },
                         },
                         caching_class: Expr,
@@ -2917,7 +2917,7 @@
                                 caching_class: ValItem,
                             },
                             source: Expr {
-                                expr: 71,
+                                expr: 70,
                             },
                         },
                         caching_class: Expr,
@@ -3023,7 +3023,7 @@
                                 caching_class: ValItem,
                             },
                             source: Expr {
-                                expr: 72,
+                                expr: 71,
                             },
                         },
                         caching_class: Expr,
@@ -3079,7 +3079,7 @@
                                 caching_class: ValItem,
                             },
                             source: Expr {
-                                expr: 73,
+                                expr: 72,
                             },
                         },
                         caching_class: Expr,
@@ -3141,7 +3141,7 @@
                                 caching_class: ValItem,
                             },
                             source: LetVariable {
-                                stmt: 14,
+                                stmt: 13,
                             },
                         },
                         caching_class: Variable,
@@ -3195,7 +3195,7 @@
                                 caching_class: ValItem,
                             },
                             source: Expr {
-                                expr: 75,
+                                expr: 74,
                             },
                         },
                         caching_class: Expr,
@@ -3232,7 +3232,7 @@
                                 caching_class: ValItem,
                             },
                             source: Expr {
-                                expr: 76,
+                                expr: 75,
                             },
                         },
                         caching_class: Expr,
@@ -3279,7 +3279,7 @@
                                 caching_class: ValItem,
                             },
                             source: Expr {
-                                expr: 77,
+                                expr: 76,
                             },
                         },
                         caching_class: Expr,
@@ -3315,7 +3315,7 @@
                                 caching_class: ValItem,
                             },
                             source: Expr {
-                                expr: 78,
+                                expr: 77,
                             },
                         },
                         caching_class: Expr,
@@ -3351,7 +3351,7 @@
                                 caching_class: ValItem,
                             },
                             source: Expr {
-                                expr: 79,
+                                expr: 78,
                             },
                         },
                         caching_class: Expr,
@@ -3420,7 +3420,7 @@
                                 caching_class: ValItem,
                             },
                             source: Expr {
-                                expr: 82,
+                                expr: 81,
                             },
                         },
                         caching_class: Expr,
@@ -3452,7 +3452,7 @@
                                 caching_class: ValItem,
                             },
                             source: Expr {
-                                expr: 83,
+                                expr: 82,
                             },
                         },
                         caching_class: Expr,
@@ -3543,7 +3543,7 @@
                                 caching_class: ValItem,
                             },
                             source: Expr {
-                                expr: 84,
+                                expr: 83,
                             },
                         },
                         caching_class: Expr,
@@ -3599,7 +3599,7 @@
                                 caching_class: ValItem,
                             },
                             source: Expr {
-                                expr: 85,
+                                expr: 84,
                             },
                         },
                         caching_class: Expr,
@@ -3668,7 +3668,7 @@
                                 caching_class: ValItem,
                             },
                             source: Expr {
-                                expr: 87,
+                                expr: 86,
                             },
                         },
                         caching_class: Expr,
@@ -3705,7 +3705,7 @@
                                 caching_class: ValItem,
                             },
                             source: Expr {
-                                expr: 88,
+                                expr: 87,
                             },
                         },
                         caching_class: Expr,
@@ -3752,7 +3752,7 @@
                                 caching_class: ValItem,
                             },
                             source: Expr {
-                                expr: 89,
+                                expr: 88,
                             },
                         },
                         caching_class: Expr,
@@ -3821,7 +3821,7 @@
                                 caching_class: ValItem,
                             },
                             source: Expr {
-                                expr: 91,
+                                expr: 90,
                             },
                         },
                         caching_class: Expr,
@@ -3858,7 +3858,7 @@
                                 caching_class: ValItem,
                             },
                             source: Expr {
-                                expr: 92,
+                                expr: 91,
                             },
                         },
                         caching_class: Expr,
@@ -3905,7 +3905,7 @@
                                 caching_class: ValItem,
                             },
                             source: Expr {
-                                expr: 93,
+                                expr: 92,
                             },
                         },
                         caching_class: Expr,
@@ -3955,7 +3955,7 @@
                                 caching_class: ValItem,
                             },
                             source: LetVariable {
-                                stmt: 22,
+                                stmt: 21,
                             },
                         },
                         caching_class: Variable,
@@ -4009,7 +4009,7 @@
                                 caching_class: ValItem,
                             },
                             source: Expr {
-                                expr: 95,
+                                expr: 94,
                             },
                         },
                         caching_class: Expr,
@@ -4043,7 +4043,7 @@
                                 caching_class: ValItem,
                             },
                             source: Expr {
-                                expr: 96,
+                                expr: 95,
                             },
                         },
                         caching_class: Expr,
@@ -4086,7 +4086,7 @@
                                 caching_class: ValItem,
                             },
                             source: Expr {
-                                expr: 97,
+                                expr: 96,
                             },
                         },
                         caching_class: Expr,
@@ -4122,7 +4122,7 @@
                                 caching_class: ValItem,
                             },
                             source: Expr {
-                                expr: 98,
+                                expr: 97,
                             },
                         },
                         caching_class: Expr,
@@ -4172,7 +4172,7 @@
                                 caching_class: ValItem,
                             },
                             source: Expr {
-                                expr: 99,
+                                expr: 98,
                             },
                         },
                         caching_class: Expr,
@@ -4227,7 +4227,7 @@
                                 caching_class: ValItem,
                             },
                             source: Expr {
-                                expr: 100,
+                                expr: 99,
                             },
                         },
                         caching_class: Expr,
@@ -4264,7 +4264,7 @@
                                 caching_class: ValItem,
                             },
                             source: Expr {
-                                expr: 101,
+                                expr: 100,
                             },
                         },
                         caching_class: Expr,
@@ -4311,7 +4311,7 @@
                                 caching_class: ValItem,
                             },
                             source: Expr {
-                                expr: 102,
+                                expr: 101,
                             },
                         },
                         caching_class: Expr,
@@ -4361,7 +4361,7 @@
                                 caching_class: ValItem,
                             },
                             source: LetVariable {
-                                stmt: 22,
+                                stmt: 21,
                             },
                         },
                         caching_class: Variable,
@@ -4415,7 +4415,7 @@
                                 caching_class: ValItem,
                             },
                             source: Expr {
-                                expr: 104,
+                                expr: 103,
                             },
                         },
                         caching_class: Expr,
@@ -4449,7 +4449,7 @@
                                 caching_class: ValItem,
                             },
                             source: Expr {
-                                expr: 105,
+                                expr: 104,
                             },
                         },
                         caching_class: Expr,
@@ -4492,7 +4492,7 @@
                                 caching_class: ValItem,
                             },
                             source: Expr {
-                                expr: 106,
+                                expr: 105,
                             },
                         },
                         caching_class: Expr,
@@ -4542,7 +4542,7 @@
                                 caching_class: ValItem,
                             },
                             source: LetVariable {
-                                stmt: 22,
+                                stmt: 21,
                             },
                         },
                         caching_class: Variable,
@@ -4596,7 +4596,7 @@
                                 caching_class: ValItem,
                             },
                             source: Expr {
-                                expr: 108,
+                                expr: 107,
                             },
                         },
                         caching_class: Expr,
@@ -4630,7 +4630,7 @@
                                 caching_class: ValItem,
                             },
                             source: Expr {
-                                expr: 109,
+                                expr: 108,
                             },
                         },
                         caching_class: Expr,
@@ -4673,7 +4673,7 @@
                                 caching_class: ValItem,
                             },
                             source: Expr {
-                                expr: 110,
+                                expr: 109,
                             },
                         },
                         caching_class: Expr,
@@ -4709,7 +4709,7 @@
                                 caching_class: ValItem,
                             },
                             source: Expr {
-                                expr: 111,
+                                expr: 110,
                             },
                         },
                         caching_class: Expr,
@@ -4759,7 +4759,7 @@
                                 caching_class: ValItem,
                             },
                             source: Expr {
-                                expr: 112,
+                                expr: 111,
                             },
                         },
                         caching_class: Expr,
@@ -4814,7 +4814,7 @@
                                 caching_class: ValItem,
                             },
                             source: Expr {
-                                expr: 113,
+                                expr: 112,
                             },
                         },
                         caching_class: Expr,
@@ -4851,7 +4851,7 @@
                                 caching_class: ValItem,
                             },
                             source: Expr {
-                                expr: 114,
+                                expr: 113,
                             },
                         },
                         caching_class: Expr,
@@ -4898,7 +4898,7 @@
                                 caching_class: ValItem,
                             },
                             source: Expr {
-                                expr: 115,
+                                expr: 114,
                             },
                         },
                         caching_class: Expr,
@@ -4945,7 +4945,7 @@
                                 caching_class: ValItem,
                             },
                             source: LetVariable {
-                                stmt: 23,
+                                stmt: 22,
                             },
                         },
                         caching_class: Variable,
@@ -4982,7 +4982,7 @@
                                 caching_class: ValItem,
                             },
                             source: Expr {
-                                expr: 117,
+                                expr: 116,
                             },
                         },
                         caching_class: Expr,
@@ -5029,7 +5029,7 @@
                                 caching_class: ValItem,
                             },
                             source: Expr {
-                                expr: 118,
+                                expr: 117,
                             },
                         },
                         caching_class: Expr,
@@ -5065,7 +5065,7 @@
                                 caching_class: ValItem,
                             },
                             source: Expr {
-                                expr: 119,
+                                expr: 118,
                             },
                         },
                         caching_class: Expr,
@@ -5110,7 +5110,7 @@
                                 caching_class: ValItem,
                             },
                             source: Stmt {
-                                stmt: 1,
+                                stmt: 0,
                             },
                         },
                         caching_class: Stmt,
@@ -5153,7 +5153,7 @@
                                 caching_class: ValItem,
                             },
                             source: Stmt {
-                                stmt: 2,
+                                stmt: 1,
                             },
                         },
                         caching_class: Stmt,
@@ -5189,7 +5189,7 @@
                                 caching_class: ValItem,
                             },
                             source: Stmt {
-                                stmt: 4,
+                                stmt: 3,
                             },
                         },
                         caching_class: Stmt,
@@ -5225,7 +5225,7 @@
                                 caching_class: ValItem,
                             },
                             source: Stmt {
-                                stmt: 5,
+                                stmt: 4,
                             },
                         },
                         caching_class: Stmt,
@@ -5268,7 +5268,7 @@
                                 caching_class: ValItem,
                             },
                             source: Stmt {
-                                stmt: 12,
+                                stmt: 11,
                             },
                         },
                         caching_class: Stmt,
@@ -5328,7 +5328,7 @@
                                 caching_class: ValItem,
                             },
                             source: Stmt {
-                                stmt: 13,
+                                stmt: 12,
                             },
                         },
                         caching_class: Stmt,
@@ -5373,7 +5373,7 @@
                                 caching_class: ValItem,
                             },
                             source: Stmt {
-                                stmt: 16,
+                                stmt: 15,
                             },
                         },
                         caching_class: Stmt,
@@ -5409,7 +5409,7 @@
                                 caching_class: ValItem,
                             },
                             source: Stmt {
-                                stmt: 17,
+                                stmt: 16,
                             },
                         },
                         caching_class: Stmt,
@@ -5452,7 +5452,7 @@
                                 caching_class: ValItem,
                             },
                             source: Stmt {
-                                stmt: 18,
+                                stmt: 17,
                             },
                         },
                         caching_class: Stmt,
@@ -5495,7 +5495,7 @@
                                 caching_class: ValItem,
                             },
                             source: Stmt {
-                                stmt: 19,
+                                stmt: 18,
                             },
                         },
                         caching_class: Stmt,
@@ -5532,7 +5532,7 @@
                                 caching_class: ValItem,
                             },
                             source: Stmt {
-                                stmt: 21,
+                                stmt: 20,
                             },
                         },
                         caching_class: Stmt,
@@ -5602,7 +5602,7 @@
                                 caching_class: ValItem,
                             },
                             source: Stmt {
-                                stmt: 24,
+                                stmt: 23,
                             },
                         },
                         caching_class: Stmt,
@@ -5647,7 +5647,7 @@
                                 caching_class: ValItem,
                             },
                             source: Stmt {
-                                stmt: 26,
+                                stmt: 25,
                             },
                         },
                         caching_class: Stmt,
@@ -5690,7 +5690,7 @@
                                 caching_class: ValItem,
                             },
                             source: Stmt {
-                                stmt: 27,
+                                stmt: 26,
                             },
                         },
                         caching_class: Stmt,
@@ -5735,7 +5735,7 @@
                                 caching_class: ValItem,
                             },
                             source: Stmt {
-                                stmt: 28,
+                                stmt: 27,
                             },
                         },
                         caching_class: Stmt,
@@ -5778,7 +5778,7 @@
                                 caching_class: ValItem,
                             },
                             source: Stmt {
-                                stmt: 29,
+                                stmt: 28,
                             },
                         },
                         caching_class: Stmt,
@@ -5817,7 +5817,7 @@
                                 caching_class: ValItem,
                             },
                             source: Stmt {
-                                stmt: 21,
+                                stmt: 20,
                             },
                         },
                         caching_class: Stmt,
@@ -5887,7 +5887,7 @@
                                 caching_class: ValItem,
                             },
                             source: Stmt {
-                                stmt: 24,
+                                stmt: 23,
                             },
                         },
                         caching_class: Stmt,
@@ -5943,7 +5943,7 @@
                                 caching_class: ValItem,
                             },
                             source: Expr {
-                                expr: 85,
+                                expr: 84,
                             },
                         },
                         caching_class: Expr,
@@ -5988,7 +5988,7 @@
                                 caching_class: ValItem,
                             },
                             source: Stmt {
-                                stmt: 26,
+                                stmt: 25,
                             },
                         },
                         caching_class: Stmt,
@@ -6031,7 +6031,7 @@
                                 caching_class: ValItem,
                             },
                             source: Stmt {
-                                stmt: 27,
+                                stmt: 26,
                             },
                         },
                         caching_class: Stmt,
@@ -6076,7 +6076,7 @@
                                 caching_class: ValItem,
                             },
                             source: Stmt {
-                                stmt: 28,
+                                stmt: 27,
                             },
                         },
                         caching_class: Stmt,
@@ -6119,7 +6119,7 @@
                                 caching_class: ValItem,
                             },
                             source: Stmt {
-                                stmt: 29,
+                                stmt: 28,
                             },
                         },
                         caching_class: Stmt,
@@ -6155,7 +6155,7 @@
                                 caching_class: ValItem,
                             },
                             source: Expr {
-                                expr: 119,
+                                expr: 118,
                             },
                         },
                         caching_class: Expr,

@@ -42,12 +42,12 @@ AstSheet {
         ],
     },
     top_level_asts: ArenaIdxRange(
-        1..2,
+        0..1,
     ),
     nested_top_level_asts: [],
     siblings: [
         ArenaIdxRange(
-            1..2,
+            0..1,
         ),
     ],
 }

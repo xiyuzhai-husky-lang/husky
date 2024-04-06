@@ -30,15 +30,15 @@ AstSheet {
                 body: Some(
                     FugitiveBody {
                         ast_idx_range: ArenaIdxRange(
-                            2..3,
+                            1..2,
                         ),
                     },
                 ),
             },
             AstData::IfElseStmts {
-                if_branch: 3,
+                if_branch: 2,
                 elif_branches: ArenaIdxRange(
-                    4..4,
+                    3..3,
                 ),
                 else_branch: None,
             },
@@ -61,7 +61,7 @@ AstSheet {
                 body: Some(
                     FugitiveBody {
                         ast_idx_range: ArenaIdxRange(
-                            4..6,
+                            3..5,
                         ),
                     },
                 ),
@@ -76,9 +76,9 @@ AstSheet {
                 body: None,
             },
             AstData::IfElseStmts {
-                if_branch: 6,
+                if_branch: 5,
                 elif_branches: ArenaIdxRange(
-                    7..7,
+                    6..6,
                 ),
                 else_branch: None,
             },
@@ -110,15 +110,15 @@ AstSheet {
                 body: Some(
                     FugitiveBody {
                         ast_idx_range: ArenaIdxRange(
-                            10..11,
+                            9..10,
                         ),
                     },
                 ),
             },
             AstData::IfElseStmts {
-                if_branch: 11,
+                if_branch: 10,
                 elif_branches: ArenaIdxRange(
-                    12..12,
+                    11..11,
                 ),
                 else_branch: None,
             },
@@ -183,7 +183,7 @@ AstSheet {
                     body: Some(
                         FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
-                                1..2,
+                                0..1,
                             ),
                         },
                     ),
@@ -249,7 +249,7 @@ AstSheet {
                     body: Some(
                         FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
-                                7..10,
+                                6..9,
                             ),
                         },
                     ),
@@ -296,7 +296,7 @@ AstSheet {
                     body: Some(
                         FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
-                                12..14,
+                                11..13,
                             ),
                         },
                     ),
@@ -305,10 +305,19 @@ AstSheet {
         ],
     },
     top_level_asts: ArenaIdxRange(
-        14..18,
+        13..17,
     ),
     nested_top_level_asts: [],
     siblings: [
+        ArenaIdxRange(
+            0..0,
+        ),
+        ArenaIdxRange(
+            0..1,
+        ),
+        ArenaIdxRange(
+            1..1,
+        ),
         ArenaIdxRange(
             1..1,
         ),
@@ -316,40 +325,31 @@ AstSheet {
             1..2,
         ),
         ArenaIdxRange(
-            2..2,
+            3..3,
         ),
         ArenaIdxRange(
-            2..2,
+            3..5,
         ),
         ArenaIdxRange(
-            2..3,
+            6..6,
         ),
         ArenaIdxRange(
-            4..4,
+            6..9,
         ),
         ArenaIdxRange(
-            4..6,
+            9..9,
         ),
         ArenaIdxRange(
-            7..7,
+            9..10,
         ),
         ArenaIdxRange(
-            7..10,
+            11..11,
         ),
         ArenaIdxRange(
-            10..10,
+            11..13,
         ),
         ArenaIdxRange(
-            10..11,
-        ),
-        ArenaIdxRange(
-            12..12,
-        ),
-        ArenaIdxRange(
-            12..14,
-        ),
-        ArenaIdxRange(
-            14..18,
+            13..17,
         ),
     ],
 }

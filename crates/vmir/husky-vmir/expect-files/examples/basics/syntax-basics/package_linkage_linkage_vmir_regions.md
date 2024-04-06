@@ -478,7 +478,7 @@
                     },
                 },
                 root_expr: VmirExprIdx(
-                    3,
+                    2,
                 ),
                 vmir_expr_arena: Arena {
                     data: [
@@ -490,21 +490,21 @@
                         VmirExprData::Block {
                             stmts: VmirStmtIdxRange(
                                 ArenaIdxRange(
-                                    1..2,
+                                    0..1,
                                 ),
                             ),
                             destroyers: ArenaIdxRange(
-                                1..1,
+                                0..0,
                             ),
                         },
                         VmirExprData::Block {
                             stmts: VmirStmtIdxRange(
                                 ArenaIdxRange(
-                                    2..3,
+                                    1..2,
                                 ),
                             ),
                             destroyers: ArenaIdxRange(
-                                1..1,
+                                0..0,
                             ),
                         },
                     ],
@@ -513,7 +513,7 @@
                     data: [
                         VmirStmtData::Eval {
                             expr: VmirExprIdx(
-                                1,
+                                0,
                             ),
                             coersion: None,
                             discarded: false,
@@ -526,7 +526,7 @@
                                 destructive_pattern: None,
                             },
                             initial_value: VmirExprIdx(
-                                2,
+                                1,
                             ),
                             coersion: None,
                         },
@@ -561,7 +561,7 @@
                     },
                 },
                 root_expr: VmirExprIdx(
-                    2,
+                    1,
                 ),
                 vmir_expr_arena: Arena {
                     data: [
@@ -569,11 +569,11 @@
                         VmirExprData::Block {
                             stmts: VmirStmtIdxRange(
                                 ArenaIdxRange(
-                                    1..2,
+                                    0..1,
                                 ),
                             ),
                             destroyers: ArenaIdxRange(
-                                1..1,
+                                0..0,
                             ),
                         },
                     ],
@@ -588,7 +588,7 @@
                                 destructive_pattern: None,
                             },
                             initial_value: VmirExprIdx(
-                                1,
+                                0,
                             ),
                             coersion: None,
                         },
@@ -623,7 +623,7 @@
                     },
                 },
                 root_expr: VmirExprIdx(
-                    2,
+                    1,
                 ),
                 vmir_expr_arena: Arena {
                     data: [
@@ -631,11 +631,11 @@
                         VmirExprData::Block {
                             stmts: VmirStmtIdxRange(
                                 ArenaIdxRange(
-                                    1..2,
+                                    0..1,
                                 ),
                             ),
                             destroyers: ArenaIdxRange(
-                                1..1,
+                                0..0,
                             ),
                         },
                     ],
@@ -650,7 +650,7 @@
                                 destructive_pattern: None,
                             },
                             initial_value: VmirExprIdx(
-                                1,
+                                0,
                             ),
                             coersion: None,
                         },

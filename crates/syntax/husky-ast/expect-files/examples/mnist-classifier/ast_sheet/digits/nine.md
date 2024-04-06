@@ -156,7 +156,7 @@ AstSheet {
                 body: Some(
                     FugitiveBody {
                         ast_idx_range: ArenaIdxRange(
-                            3..17,
+                            2..16,
                         ),
                     },
                 ),
@@ -225,9 +225,9 @@ AstSheet {
                 body: None,
             },
             AstData::IfElseStmts {
-                if_branch: 17,
+                if_branch: 16,
                 elif_branches: ArenaIdxRange(
-                    18..18,
+                    17..17,
                 ),
                 else_branch: None,
             },
@@ -355,7 +355,7 @@ AstSheet {
                     body: Some(
                         FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
-                                1..2,
+                                0..1,
                             ),
                         },
                     ),
@@ -398,7 +398,7 @@ AstSheet {
                     body: Some(
                         FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
-                                2..3,
+                                1..2,
                             ),
                         },
                     ),
@@ -464,7 +464,7 @@ AstSheet {
                     body: Some(
                         FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
-                                18..27,
+                                17..26,
                             ),
                         },
                     ),
@@ -511,7 +511,7 @@ AstSheet {
                     body: Some(
                         FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
-                                27..30,
+                                26..29,
                             ),
                         },
                     ),
@@ -558,7 +558,7 @@ AstSheet {
                     body: Some(
                         FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
-                                30..34,
+                                29..33,
                             ),
                         },
                     ),
@@ -567,10 +567,16 @@ AstSheet {
         ],
     },
     top_level_asts: ArenaIdxRange(
-        34..40,
+        33..39,
     ),
     nested_top_level_asts: [],
     siblings: [
+        ArenaIdxRange(
+            0..0,
+        ),
+        ArenaIdxRange(
+            0..1,
+        ),
         ArenaIdxRange(
             1..1,
         ),
@@ -581,109 +587,103 @@ AstSheet {
             2..2,
         ),
         ArenaIdxRange(
-            2..3,
+            2..2,
         ),
         ArenaIdxRange(
-            3..3,
+            2..2,
         ),
         ArenaIdxRange(
-            3..3,
+            2..2,
         ),
         ArenaIdxRange(
-            3..3,
+            2..2,
         ),
         ArenaIdxRange(
-            3..3,
+            2..2,
         ),
         ArenaIdxRange(
-            3..3,
+            2..2,
         ),
         ArenaIdxRange(
-            3..3,
+            2..2,
         ),
         ArenaIdxRange(
-            3..3,
+            2..2,
         ),
         ArenaIdxRange(
-            3..3,
+            2..2,
         ),
         ArenaIdxRange(
-            3..3,
+            2..2,
         ),
         ArenaIdxRange(
-            3..3,
+            2..2,
         ),
         ArenaIdxRange(
-            3..3,
+            2..2,
         ),
         ArenaIdxRange(
-            3..3,
+            2..2,
         ),
         ArenaIdxRange(
-            3..3,
+            2..2,
         ),
         ArenaIdxRange(
-            3..3,
+            2..2,
         ),
         ArenaIdxRange(
-            3..3,
+            2..2,
         ),
         ArenaIdxRange(
-            3..3,
+            2..2,
         ),
         ArenaIdxRange(
-            3..3,
+            2..2,
         ),
         ArenaIdxRange(
-            3..3,
+            2..2,
         ),
         ArenaIdxRange(
-            3..3,
+            2..2,
         ),
         ArenaIdxRange(
-            3..3,
+            2..16,
         ),
         ArenaIdxRange(
-            3..3,
+            17..17,
         ),
         ArenaIdxRange(
-            3..17,
+            17..26,
         ),
         ArenaIdxRange(
-            18..18,
+            26..26,
         ),
         ArenaIdxRange(
-            18..27,
+            26..26,
         ),
         ArenaIdxRange(
-            27..27,
+            26..26,
         ),
         ArenaIdxRange(
-            27..27,
+            26..29,
         ),
         ArenaIdxRange(
-            27..27,
+            29..29,
         ),
         ArenaIdxRange(
-            27..30,
+            29..29,
         ),
         ArenaIdxRange(
-            30..30,
+            29..29,
         ),
         ArenaIdxRange(
-            30..30,
+            29..29,
         ),
         ArenaIdxRange(
-            30..30,
+            29..33,
         ),
         ArenaIdxRange(
-            30..30,
-        ),
-        ArenaIdxRange(
-            30..34,
-        ),
-        ArenaIdxRange(
-            34..40,
+            33..39,
         ),
     ],
 }

@@ -15,7 +15,7 @@ SynDeclSheet {
                             template_parameters: [
                                 TemplateSynParameterData {
                                     annotated_variance_token: None,
-                                    symbol: 1,
+                                    symbol: 0,
                                     variant: TemplateParameterSyndicateVariant::Constant {
                                         const_token: ConstRegionalToken {
                                             regional_token_idx: RegionalTokenIdx(
@@ -33,7 +33,7 @@ SynDeclSheet {
                                                 7,
                                             ),
                                         ),
-                                        ty_expr: 1,
+                                        ty_expr: 0,
                                     },
                                 },
                                 TemplateSynParameterData {
@@ -46,7 +46,7 @@ SynDeclSheet {
                                             },
                                         ),
                                     ),
-                                    symbol: 2,
+                                    symbol: 1,
                                     variant: TemplateParameterSyndicateVariant::Type {
                                         ident_token: IdentRegionalToken {
                                             ident: `E`,
@@ -84,7 +84,7 @@ SynDeclSheet {
                                     syn_expr_arena: Arena {
                                         data: [
                                             SynExprData::PrincipalEntityPath {
-                                                path_expr_idx: 1,
+                                                path_expr_idx: 0,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Type(
@@ -156,7 +156,7 @@ SynDeclSheet {
                                                                     6,
                                                                 ),
                                                             },
-                                                            ty_expr_idx: 1,
+                                                            ty_expr_idx: 0,
                                                         },
                                                     },
                                                 },
@@ -197,13 +197,13 @@ SynDeclSheet {
                                             (
                                                 TemplateTypeParameter,
                                                 ArenaIdxRange(
-                                                    1..2,
+                                                    0..1,
                                                 ),
                                             ),
                                             (
                                                 TemplateTypeParameter,
                                                 ArenaIdxRange(
-                                                    2..3,
+                                                    1..2,
                                                 ),
                                             ),
                                         ],
@@ -212,7 +212,7 @@ SynDeclSheet {
                                     syn_expr_roots: [
                                         SynExprRoot {
                                             kind: SynExprRootKind::ConstantImplicitParameterType,
-                                            syn_expr_idx: 1,
+                                            syn_expr_idx: 0,
                                         },
                                     ],
                                     has_self_lifetime: false,

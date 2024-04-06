@@ -25,7 +25,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `syntax_errors::ast`,
                         ),
-                        ast_idx: 3,
+                        ast_idx: 2,
                         ident_token: IdentToken {
                             ident: `A`,
                             token_idx: TokenIdx(
@@ -118,16 +118,16 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 4,
+                    ast_idx: 3,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             7,
                         ),
                     },
-                    ty_expr: 1,
+                    ty_expr: 0,
                     items: TypeItems {
                         ast_idx_range: ArenaIdxRange(
-                            1..2,
+                            0..1,
                         ),
                     },
                 },

@@ -47,7 +47,7 @@
                     hir_expr_body_and_region: Some(
                         (
                             Eager(
-                                5,
+                                4,
                             ),
                             Eager(
                                 HirEagerExprRegion(
@@ -109,7 +109,7 @@
                     hir_expr_body_and_region: Some(
                         (
                             Eager(
-                                19,
+                                18,
                             ),
                             Eager(
                                 HirEagerExprRegion(
@@ -141,7 +141,7 @@
                         parenate_parameters: HirEagerParenateParameters(
                             [
                                 HirEagerParenateParameter::Simple {
-                                    pattern_expr_idx: 1,
+                                    pattern_expr_idx: 0,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
@@ -229,7 +229,7 @@
                     },
                     eager_body_with_hir_eager_expr_region: Some(
                         (
-                            22,
+                            21,
                             HirEagerExprRegion {
                                 region_path: RegionPath::Defn(
                                     ItemPath::MajorItem(
@@ -244,7 +244,7 @@
                                     data: [
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                1,
+                                                0,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -270,7 +270,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MemoizedField {
-                                                self_argument: 1,
+                                                self_argument: 0,
                                                 self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`core::mem::Leash`, `Extern`),
@@ -312,7 +312,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodFnCall {
-                                                self_argument: 2,
+                                                self_argument: 1,
                                                 self_contract: Pure,
                                                 ident: `ymax`,
                                                 path: AssocItemPath::TypeItem(
@@ -359,11 +359,11 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 3,
+                                                lopd: 2,
                                                 opr: Comparison(
                                                     Greater,
                                                 ),
-                                                ropd: 4,
+                                                ropd: 3,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -376,7 +376,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                1,
+                                                0,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -402,7 +402,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                self_argument: 6,
+                                                self_argument: 5,
                                                 self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`core::mem::Leash`, `Extern`),
@@ -462,7 +462,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodFnCall {
-                                                self_argument: 7,
+                                                self_argument: 6,
                                                 self_contract: Pure,
                                                 ident: `first`,
                                                 path: AssocItemPath::TypeItem(
@@ -512,7 +512,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Unwrap {
-                                                opd: 8,
+                                                opd: 7,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -525,7 +525,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                self_argument: 9,
+                                                self_argument: 8,
                                                 self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`core::mem::Leash`, `Extern`),
@@ -565,7 +565,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                self_argument: 10,
+                                                self_argument: 9,
                                                 self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -595,7 +595,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                1,
+                                                0,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -621,7 +621,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                self_argument: 12,
+                                                self_argument: 11,
                                                 self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`core::mem::Leash`, `Extern`),
@@ -681,7 +681,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodFnCall {
-                                                self_argument: 13,
+                                                self_argument: 12,
                                                 self_contract: Pure,
                                                 ident: `first`,
                                                 path: AssocItemPath::TypeItem(
@@ -731,7 +731,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Unwrap {
-                                                opd: 14,
+                                                opd: 13,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -744,7 +744,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                self_argument: 15,
+                                                self_argument: 14,
                                                 self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`core::mem::Leash`, `Extern`),
@@ -784,7 +784,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                self_argument: 16,
+                                                self_argument: 15,
                                                 self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -814,11 +814,11 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 11,
+                                                lopd: 10,
                                                 opr: Comparison(
                                                     Greater,
                                                 ),
-                                                ropd: 17,
+                                                ropd: 16,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -831,7 +831,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                1,
+                                                0,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -857,7 +857,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MemoizedField {
-                                                self_argument: 19,
+                                                self_argument: 18,
                                                 self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`core::mem::Leash`, `Extern`),
@@ -899,7 +899,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodFnCall {
-                                                self_argument: 20,
+                                                self_argument: 19,
                                                 self_contract: Pure,
                                                 ident: `ymax`,
                                                 path: AssocItemPath::TypeItem(
@@ -927,7 +927,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Block {
                                                 stmts: ArenaIdxRange(
-                                                    2..4,
+                                                    1..3,
                                                 ),
                                             },
                                             contracted_quary: HirContractedQuary {
@@ -945,25 +945,25 @@
                                     data: [
                                         Require {
                                             condition: Other {
-                                                opd: 18,
+                                                opd: 17,
                                                 conversion: None,
                                             },
                                         },
                                         IfElse {
                                             if_branch: HirEagerIfBranch {
                                                 condition: Other {
-                                                    opd: 5,
+                                                    opd: 4,
                                                     conversion: None,
                                                 },
                                                 stmts: ArenaIdxRange(
-                                                    1..2,
+                                                    0..1,
                                                 ),
                                             },
                                             elif_branches: [],
                                             else_branch: None,
                                         },
                                         Eval {
-                                            expr: 21,
+                                            expr: 20,
                                             coersion: Some(
                                                 WrapInSome,
                                             ),

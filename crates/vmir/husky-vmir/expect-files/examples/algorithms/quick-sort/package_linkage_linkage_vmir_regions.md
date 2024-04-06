@@ -26,7 +26,7 @@
                     },
                 },
                 root_expr: VmirExprIdx(
-                    13,
+                    12,
                 ),
                 vmir_expr_arena: Arena {
                     data: [
@@ -53,7 +53,7 @@
                         VmirExprData::Prefix {
                             opr: Minus,
                             opd: VmirExprIdx(
-                                1,
+                                0,
                             ),
                         },
                         VmirExprData::Literal {
@@ -100,7 +100,7 @@
                             arguments: [
                                 VmirArgument::Variadic {
                                     exprs: ArenaIdxRange(
-                                        2..12,
+                                        1..11,
                                     ),
                                 },
                             ],
@@ -108,11 +108,11 @@
                         VmirExprData::Block {
                             stmts: VmirStmtIdxRange(
                                 ArenaIdxRange(
-                                    1..2,
+                                    0..1,
                                 ),
                             ),
                             destroyers: ArenaIdxRange(
-                                1..1,
+                                0..0,
                             ),
                         },
                     ],
@@ -131,7 +131,7 @@
                                 ),
                             },
                             initial_value: VmirExprIdx(
-                                12,
+                                11,
                             ),
                             coersion: Some(
                                 VmirCoersion::Trivial,
@@ -168,7 +168,7 @@
                     },
                 },
                 root_expr: VmirExprIdx(
-                    8,
+                    7,
                 ),
                 vmir_expr_arena: Arena {
                     data: [
@@ -230,7 +230,7 @@
                             arguments: [
                                 VmirArgument::Variadic {
                                     exprs: ArenaIdxRange(
-                                        1..7,
+                                        0..6,
                                     ),
                                 },
                             ],
@@ -238,11 +238,11 @@
                         VmirExprData::Block {
                             stmts: VmirStmtIdxRange(
                                 ArenaIdxRange(
-                                    1..2,
+                                    0..1,
                                 ),
                             ),
                             destroyers: ArenaIdxRange(
-                                1..1,
+                                0..0,
                             ),
                         },
                     ],
@@ -261,7 +261,7 @@
                                 ),
                             },
                             initial_value: VmirExprIdx(
-                                7,
+                                6,
                             ),
                             coersion: None,
                         },

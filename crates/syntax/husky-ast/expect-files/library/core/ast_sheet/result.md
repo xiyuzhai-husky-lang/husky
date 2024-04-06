@@ -220,7 +220,7 @@ AstSheet {
                     variants: Some(
                         TypeVariants {
                             ast_idx_range: ArenaIdxRange(
-                                1..3,
+                                0..2,
                             ),
                         },
                     ),
@@ -237,7 +237,7 @@ AstSheet {
                     TraitForType(
                         TraitForTypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                3..5,
+                                2..4,
                             ),
                         },
                     ),
@@ -246,21 +246,21 @@ AstSheet {
         ],
     },
     top_level_asts: ArenaIdxRange(
-        5..9,
+        4..8,
     ),
     nested_top_level_asts: [],
     siblings: [
         ArenaIdxRange(
-            3..3,
+            2..2,
         ),
         ArenaIdxRange(
-            3..3,
+            2..2,
         ),
         ArenaIdxRange(
-            3..5,
+            2..4,
         ),
         ArenaIdxRange(
-            5..9,
+            4..8,
         ),
     ],
 }

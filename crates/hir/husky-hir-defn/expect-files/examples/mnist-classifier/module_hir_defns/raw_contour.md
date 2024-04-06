@@ -162,7 +162,7 @@
                         parenate_parameters: HirEagerParenateParameters(
                             [
                                 HirEagerParenateParameter::Simple {
-                                    pattern_expr_idx: 1,
+                                    pattern_expr_idx: 0,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
@@ -173,7 +173,7 @@
                                     ),
                                 },
                                 HirEagerParenateParameter::Simple {
-                                    pattern_expr_idx: 2,
+                                    pattern_expr_idx: 1,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
@@ -254,7 +254,7 @@
                     },
                     eager_body_with_hir_eager_expr_region: Some(
                         (
-                            8,
+                            7,
                             HirEagerExprRegion {
                                 region_path: RegionPath::Defn(
                                     ItemPath::MajorItem(
@@ -269,7 +269,7 @@
                                     data: [
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                1,
+                                                0,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -295,7 +295,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                2,
+                                                1,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -336,11 +336,11 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 2,
+                                                lopd: 1,
                                                 opr: Closed(
                                                     Sub,
                                                 ),
-                                                ropd: 3,
+                                                ropd: 2,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -353,11 +353,11 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 1,
+                                                lopd: 0,
                                                 opr: Shift(
                                                     Shr,
                                                 ),
-                                                ropd: 4,
+                                                ropd: 3,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -398,11 +398,11 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 5,
+                                                lopd: 4,
                                                 opr: Closed(
                                                     BitAnd,
                                                 ),
-                                                ropd: 6,
+                                                ropd: 5,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -416,7 +416,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Block {
                                                 stmts: ArenaIdxRange(
-                                                    1..2,
+                                                    0..1,
                                                 ),
                                             },
                                             contracted_quary: HirContractedQuary {
@@ -433,7 +433,7 @@
                                 stmt_arena: Arena {
                                     data: [
                                         Eval {
-                                            expr: 7,
+                                            expr: 6,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -496,7 +496,7 @@
                         parenate_parameters: HirEagerParenateParameters(
                             [
                                 HirEagerParenateParameter::Simple {
-                                    pattern_expr_idx: 1,
+                                    pattern_expr_idx: 0,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
@@ -507,7 +507,7 @@
                                     ),
                                 },
                                 HirEagerParenateParameter::Simple {
-                                    pattern_expr_idx: 2,
+                                    pattern_expr_idx: 1,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
@@ -588,7 +588,7 @@
                     },
                     eager_body_with_hir_eager_expr_region: Some(
                         (
-                            6,
+                            5,
                             HirEagerExprRegion {
                                 region_path: RegionPath::Defn(
                                     ItemPath::MajorItem(
@@ -603,7 +603,7 @@
                                     data: [
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                1,
+                                                0,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -629,7 +629,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                2,
+                                                1,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -655,11 +655,11 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 1,
+                                                lopd: 0,
                                                 opr: Shift(
                                                     Shr,
                                                 ),
-                                                ropd: 2,
+                                                ropd: 1,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -700,11 +700,11 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 3,
+                                                lopd: 2,
                                                 opr: Closed(
                                                     BitAnd,
                                                 ),
-                                                ropd: 4,
+                                                ropd: 3,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -718,7 +718,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Block {
                                                 stmts: ArenaIdxRange(
-                                                    1..2,
+                                                    0..1,
                                                 ),
                                             },
                                             contracted_quary: HirContractedQuary {
@@ -735,7 +735,7 @@
                                 stmt_arena: Arena {
                                     data: [
                                         Eval {
-                                            expr: 5,
+                                            expr: 4,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -798,7 +798,7 @@
                         parenate_parameters: HirEagerParenateParameters(
                             [
                                 HirEagerParenateParameter::Simple {
-                                    pattern_expr_idx: 1,
+                                    pattern_expr_idx: 0,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
@@ -809,7 +809,7 @@
                                     ),
                                 },
                                 HirEagerParenateParameter::Simple {
-                                    pattern_expr_idx: 2,
+                                    pattern_expr_idx: 1,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
@@ -890,7 +890,7 @@
                     },
                     eager_body_with_hir_eager_expr_region: Some(
                         (
-                            8,
+                            7,
                             HirEagerExprRegion {
                                 region_path: RegionPath::Defn(
                                     ItemPath::MajorItem(
@@ -905,7 +905,7 @@
                                     data: [
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                1,
+                                                0,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -931,7 +931,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                2,
+                                                1,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -972,11 +972,11 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 2,
+                                                lopd: 1,
                                                 opr: Closed(
                                                     Sub,
                                                 ),
-                                                ropd: 3,
+                                                ropd: 2,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -989,11 +989,11 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 1,
+                                                lopd: 0,
                                                 opr: Shift(
                                                     Shr,
                                                 ),
-                                                ropd: 4,
+                                                ropd: 3,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -1034,11 +1034,11 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 5,
+                                                lopd: 4,
                                                 opr: Closed(
                                                     BitAnd,
                                                 ),
-                                                ropd: 6,
+                                                ropd: 5,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -1052,7 +1052,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Block {
                                                 stmts: ArenaIdxRange(
-                                                    1..2,
+                                                    0..1,
                                                 ),
                                             },
                                             contracted_quary: HirContractedQuary {
@@ -1069,7 +1069,7 @@
                                 stmt_arena: Arena {
                                     data: [
                                         Eval {
-                                            expr: 7,
+                                            expr: 6,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -1132,6 +1132,17 @@
                         parenate_parameters: HirEagerParenateParameters(
                             [
                                 HirEagerParenateParameter::Simple {
+                                    pattern_expr_idx: 0,
+                                    contract: Pure,
+                                    ty: HirType::PathLeading(
+                                        HirTypePathLeading {
+                                            ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
+                                            template_arguments: [],
+                                            always_copyable: true,
+                                        },
+                                    ),
+                                },
+                                HirEagerParenateParameter::Simple {
                                     pattern_expr_idx: 1,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
@@ -1144,17 +1155,6 @@
                                 },
                                 HirEagerParenateParameter::Simple {
                                     pattern_expr_idx: 2,
-                                    contract: Pure,
-                                    ty: HirType::PathLeading(
-                                        HirTypePathLeading {
-                                            ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
-                                            template_arguments: [],
-                                            always_copyable: true,
-                                        },
-                                    ),
-                                },
-                                HirEagerParenateParameter::Simple {
-                                    pattern_expr_idx: 3,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
@@ -1248,7 +1248,7 @@
                     },
                     eager_body_with_hir_eager_expr_region: Some(
                         (
-                            23,
+                            22,
                             HirEagerExprRegion {
                                 region_path: RegionPath::Defn(
                                     ItemPath::MajorItem(
@@ -1263,7 +1263,7 @@
                                     data: [
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                1,
+                                                0,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -1289,7 +1289,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                3,
+                                                2,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -1334,7 +1334,7 @@
                                                                 ),
                                                             ),
                                                         },
-                                                        1,
+                                                        0,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_quary: StackPure {
@@ -1356,7 +1356,7 @@
                                                                 ),
                                                             ),
                                                         },
-                                                        2,
+                                                        1,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_quary: StackPure {
@@ -1380,7 +1380,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                2,
+                                                1,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -1406,7 +1406,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                3,
+                                                2,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -1451,7 +1451,7 @@
                                                                 ),
                                                             ),
                                                         },
-                                                        4,
+                                                        3,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_quary: StackPure {
@@ -1473,7 +1473,7 @@
                                                                 ),
                                                             ),
                                                         },
-                                                        5,
+                                                        4,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_quary: StackPure {
@@ -1497,7 +1497,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                4,
+                                                3,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -1523,7 +1523,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                5,
+                                                4,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -1623,7 +1623,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                5,
+                                                4,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -1723,7 +1723,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                5,
+                                                4,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -1814,7 +1814,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Block {
                                                 stmts: ArenaIdxRange(
-                                                    16..19,
+                                                    15..18,
                                                 ),
                                             },
                                             contracted_quary: HirContractedQuary {
@@ -1831,6 +1831,17 @@
                                 stmt_arena: Arena {
                                     data: [
                                         Eval {
+                                            expr: 8,
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoersion {
+                                                        expectee_quary: Transient,
+                                                    },
+                                                ),
+                                            ),
+                                            discarded: false,
+                                        },
+                                        Eval {
                                             expr: 9,
                                             coersion: Some(
                                                 Trivial(
@@ -1844,24 +1855,19 @@
                                         Eval {
                                             expr: 10,
                                             coersion: Some(
-                                                Trivial(
-                                                    TrivialHirEagerCoersion {
-                                                        expectee_quary: Transient,
-                                                    },
-                                                ),
-                                            ),
-                                            discarded: false,
-                                        },
-                                        Eval {
-                                            expr: 11,
-                                            coersion: Some(
                                                 Never,
                                             ),
                                             discarded: false,
                                         },
                                         Match {
-                                            opd: 8,
+                                            opd: 7,
                                             case_branches: [
+                                                HirEagerCaseBranch {
+                                                    pattern: 5,
+                                                    stmts: ArenaIdxRange(
+                                                        0..1,
+                                                    ),
+                                                },
                                                 HirEagerCaseBranch {
                                                     pattern: 6,
                                                     stmts: ArenaIdxRange(
@@ -1874,16 +1880,21 @@
                                                         2..3,
                                                     ),
                                                 },
-                                                HirEagerCaseBranch {
-                                                    pattern: 8,
-                                                    stmts: ArenaIdxRange(
-                                                        3..4,
-                                                    ),
-                                                },
                                             ],
                                         },
                                         Eval {
-                                            expr: 12,
+                                            expr: 11,
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoersion {
+                                                        expectee_quary: Transient,
+                                                    },
+                                                ),
+                                            ),
+                                            discarded: false,
+                                        },
+                                        Eval {
+                                            expr: 13,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -1918,26 +1929,21 @@
                                         Eval {
                                             expr: 16,
                                             coersion: Some(
-                                                Trivial(
-                                                    TrivialHirEagerCoersion {
-                                                        expectee_quary: Transient,
-                                                    },
-                                                ),
-                                            ),
-                                            discarded: false,
-                                        },
-                                        Eval {
-                                            expr: 17,
-                                            coersion: Some(
                                                 Never,
                                             ),
                                             discarded: false,
                                         },
                                         Match {
-                                            opd: 13,
+                                            opd: 12,
                                             case_branches: [
                                                 HirEagerCaseBranch {
-                                                    pattern: 11,
+                                                    pattern: 10,
+                                                    stmts: ArenaIdxRange(
+                                                        5..6,
+                                                    ),
+                                                },
+                                                HirEagerCaseBranch {
+                                                    pattern: 13,
                                                     stmts: ArenaIdxRange(
                                                         6..7,
                                                     ),
@@ -1954,13 +1960,18 @@
                                                         8..9,
                                                     ),
                                                 },
-                                                HirEagerCaseBranch {
-                                                    pattern: 16,
-                                                    stmts: ArenaIdxRange(
-                                                        9..10,
-                                                    ),
-                                                },
                                             ],
+                                        },
+                                        Eval {
+                                            expr: 18,
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoersion {
+                                                        expectee_quary: Transient,
+                                                    },
+                                                ),
+                                            ),
+                                            discarded: false,
                                         },
                                         Eval {
                                             expr: 19,
@@ -1976,24 +1987,19 @@
                                         Eval {
                                             expr: 20,
                                             coersion: Some(
-                                                Trivial(
-                                                    TrivialHirEagerCoersion {
-                                                        expectee_quary: Transient,
-                                                    },
-                                                ),
-                                            ),
-                                            discarded: false,
-                                        },
-                                        Eval {
-                                            expr: 21,
-                                            coersion: Some(
                                                 Never,
                                             ),
                                             discarded: false,
                                         },
                                         Match {
-                                            opd: 18,
+                                            opd: 17,
                                             case_branches: [
+                                                HirEagerCaseBranch {
+                                                    pattern: 19,
+                                                    stmts: ArenaIdxRange(
+                                                        10..11,
+                                                    ),
+                                                },
                                                 HirEagerCaseBranch {
                                                     pattern: 20,
                                                     stmts: ArenaIdxRange(
@@ -2006,16 +2012,10 @@
                                                         12..13,
                                                     ),
                                                 },
-                                                HirEagerCaseBranch {
-                                                    pattern: 22,
-                                                    stmts: ArenaIdxRange(
-                                                        13..14,
-                                                    ),
-                                                },
                                             ],
                                         },
                                         Eval {
-                                            expr: 22,
+                                            expr: 21,
                                             coersion: Some(
                                                 Never,
                                             ),
@@ -2023,27 +2023,33 @@
                                         },
                                         Let {
                                             pattern: HirEagerLetVariablesPattern {
-                                                pattern_expr_idx: 1,
+                                                pattern_expr_idx: 0,
                                                 ty: None,
                                             },
                                             contract: Pure,
-                                            initial_value: 3,
+                                            initial_value: 2,
                                             coersion: None,
                                         },
                                         Let {
                                             pattern: HirEagerLetVariablesPattern {
-                                                pattern_expr_idx: 2,
+                                                pattern_expr_idx: 1,
                                                 ty: None,
                                             },
                                             contract: Pure,
-                                            initial_value: 6,
+                                            initial_value: 5,
                                             coersion: None,
                                         },
                                         Match {
-                                            opd: 7,
+                                            opd: 6,
                                             case_branches: [
                                                 HirEagerCaseBranch {
-                                                    pattern: 3,
+                                                    pattern: 2,
+                                                    stmts: ArenaIdxRange(
+                                                        3..4,
+                                                    ),
+                                                },
+                                                HirEagerCaseBranch {
+                                                    pattern: 8,
                                                     stmts: ArenaIdxRange(
                                                         4..5,
                                                     ),
@@ -2051,25 +2057,19 @@
                                                 HirEagerCaseBranch {
                                                     pattern: 9,
                                                     stmts: ArenaIdxRange(
-                                                        5..6,
+                                                        9..10,
                                                     ),
                                                 },
                                                 HirEagerCaseBranch {
-                                                    pattern: 10,
+                                                    pattern: 16,
                                                     stmts: ArenaIdxRange(
-                                                        10..11,
+                                                        13..14,
                                                     ),
                                                 },
                                                 HirEagerCaseBranch {
-                                                    pattern: 17,
+                                                    pattern: 22,
                                                     stmts: ArenaIdxRange(
                                                         14..15,
-                                                    ),
-                                                },
-                                                HirEagerCaseBranch {
-                                                    pattern: 23,
-                                                    stmts: ArenaIdxRange(
-                                                        15..16,
                                                     ),
                                                 },
                                             ],
@@ -2119,7 +2119,7 @@
                                         HirEagerPatternEntry {
                                             data: HirEagerPatternData::OneOf {
                                                 options: ArenaIdxRange(
-                                                    4..6,
+                                                    3..5,
                                                 ),
                                             },
                                             contract: Pure,
@@ -2182,7 +2182,7 @@
                                         HirEagerPatternEntry {
                                             data: HirEagerPatternData::OneOf {
                                                 options: ArenaIdxRange(
-                                                    12..14,
+                                                    11..13,
                                                 ),
                                             },
                                             contract: Pure,
@@ -2229,7 +2229,7 @@
                                         HirEagerPatternEntry {
                                             data: HirEagerPatternData::OneOf {
                                                 options: ArenaIdxRange(
-                                                    18..20,
+                                                    17..19,
                                                 ),
                                             },
                                             contract: Pure,
@@ -2348,7 +2348,7 @@
                         parenate_parameters: HirEagerParenateParameters(
                             [
                                 HirEagerParenateParameter::Simple {
-                                    pattern_expr_idx: 1,
+                                    pattern_expr_idx: 0,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
@@ -2359,7 +2359,7 @@
                                     ),
                                 },
                                 HirEagerParenateParameter::Simple {
-                                    pattern_expr_idx: 2,
+                                    pattern_expr_idx: 1,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
@@ -2440,7 +2440,7 @@
                     },
                     eager_body_with_hir_eager_expr_region: Some(
                         (
-                            15,
+                            14,
                             HirEagerExprRegion {
                                 region_path: RegionPath::Defn(
                                     ItemPath::MajorItem(
@@ -2455,7 +2455,7 @@
                                     data: [
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                2,
+                                                1,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -2481,7 +2481,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::As {
-                                                opd: 1,
+                                                opd: 0,
                                                 ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`core::num::i32`, `Extern`),
@@ -2501,7 +2501,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                1,
+                                                0,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -2527,7 +2527,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::As {
-                                                opd: 3,
+                                                opd: 2,
                                                 ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`core::num::i32`, `Extern`),
@@ -2547,11 +2547,11 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 2,
+                                                lopd: 1,
                                                 opr: Closed(
                                                     Sub,
                                                 ),
-                                                ropd: 4,
+                                                ropd: 3,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -2564,7 +2564,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::As {
-                                                opd: 5,
+                                                opd: 4,
                                                 ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
@@ -2599,7 +2599,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodFnCall {
-                                                self_argument: 6,
+                                                self_argument: 5,
                                                 self_contract: Pure,
                                                 ident: `last_bits`,
                                                 path: AssocItemPath::TypeItem(
@@ -2625,7 +2625,7 @@
                                                                 ),
                                                             ),
                                                         },
-                                                        7,
+                                                        6,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_quary: Const,
@@ -2645,7 +2645,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                3,
+                                                2,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -2671,7 +2671,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                3,
+                                                2,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -2697,7 +2697,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::As {
-                                                opd: 10,
+                                                opd: 9,
                                                 ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`core::num::i32`, `Extern`),
@@ -2733,7 +2733,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Prefix {
                                                 opr: Minus,
-                                                opd: 12,
+                                                opd: 11,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -2758,7 +2758,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Block {
                                                 stmts: ArenaIdxRange(
-                                                    4..6,
+                                                    3..5,
                                                 ),
                                             },
                                             contracted_quary: HirContractedQuary {
@@ -2775,7 +2775,7 @@
                                 stmt_arena: Arena {
                                     data: [
                                         Eval {
-                                            expr: 11,
+                                            expr: 10,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -2786,7 +2786,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr: 13,
+                                            expr: 12,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -2797,7 +2797,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr: 14,
+                                            expr: 13,
                                             coersion: Some(
                                                 Never,
                                             ),
@@ -2805,16 +2805,22 @@
                                         },
                                         Let {
                                             pattern: HirEagerLetVariablesPattern {
-                                                pattern_expr_idx: 1,
+                                                pattern_expr_idx: 0,
                                                 ty: None,
                                             },
                                             contract: Pure,
-                                            initial_value: 8,
+                                            initial_value: 7,
                                             coersion: None,
                                         },
                                         Match {
-                                            opd: 9,
+                                            opd: 8,
                                             case_branches: [
+                                                HirEagerCaseBranch {
+                                                    pattern: 4,
+                                                    stmts: ArenaIdxRange(
+                                                        0..1,
+                                                    ),
+                                                },
                                                 HirEagerCaseBranch {
                                                     pattern: 5,
                                                     stmts: ArenaIdxRange(
@@ -2825,12 +2831,6 @@
                                                     pattern: 6,
                                                     stmts: ArenaIdxRange(
                                                         2..3,
-                                                    ),
-                                                },
-                                                HirEagerCaseBranch {
-                                                    pattern: 7,
-                                                    stmts: ArenaIdxRange(
-                                                        3..4,
                                                     ),
                                                 },
                                             ],
@@ -2873,7 +2873,7 @@
                                         HirEagerPatternEntry {
                                             data: HirEagerPatternData::OneOf {
                                                 options: ArenaIdxRange(
-                                                    2..5,
+                                                    1..4,
                                                 ),
                                             },
                                             contract: Pure,
@@ -2955,6 +2955,17 @@
                         parenate_parameters: HirEagerParenateParameters(
                             [
                                 HirEagerParenateParameter::Simple {
+                                    pattern_expr_idx: 0,
+                                    contract: Pure,
+                                    ty: HirType::PathLeading(
+                                        HirTypePathLeading {
+                                            ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
+                                            template_arguments: [],
+                                            always_copyable: true,
+                                        },
+                                    ),
+                                },
+                                HirEagerParenateParameter::Simple {
                                     pattern_expr_idx: 1,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
@@ -2970,17 +2981,6 @@
                                     contract: Pure,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
-                                            ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
-                                            template_arguments: [],
-                                            always_copyable: true,
-                                        },
-                                    ),
-                                },
-                                HirEagerParenateParameter::Simple {
-                                    pattern_expr_idx: 3,
-                                    contract: Pure,
-                                    ty: HirType::PathLeading(
-                                        HirTypePathLeading {
                                             ty_path: TypePath(`core::num::i32`, `Extern`),
                                             template_arguments: [],
                                             always_copyable: true,
@@ -2988,7 +2988,7 @@
                                     ),
                                 },
                                 HirEagerParenateParameter::Simple {
-                                    pattern_expr_idx: 4,
+                                    pattern_expr_idx: 3,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
@@ -3095,7 +3095,7 @@
                     },
                     eager_body_with_hir_eager_expr_region: Some(
                         (
-                            33,
+                            32,
                             HirEagerExprRegion {
                                 region_path: RegionPath::Defn(
                                     ItemPath::MajorItem(
@@ -3110,7 +3110,7 @@
                                     data: [
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                1,
+                                                0,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -3136,7 +3136,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                3,
+                                                2,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -3181,7 +3181,7 @@
                                                                 ),
                                                             ),
                                                         },
-                                                        1,
+                                                        0,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_quary: StackPure {
@@ -3203,7 +3203,7 @@
                                                                 ),
                                                             ),
                                                         },
-                                                        2,
+                                                        1,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_quary: StackPure {
@@ -3227,7 +3227,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                2,
+                                                1,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -3253,7 +3253,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                3,
+                                                2,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -3298,7 +3298,7 @@
                                                                 ),
                                                             ),
                                                         },
-                                                        4,
+                                                        3,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_quary: StackPure {
@@ -3320,7 +3320,7 @@
                                                                 ),
                                                             ),
                                                         },
-                                                        5,
+                                                        4,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_quary: StackPure {
@@ -3344,7 +3344,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                5,
+                                                4,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -3370,7 +3370,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                6,
+                                                5,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -3449,7 +3449,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                6,
+                                                5,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -3517,7 +3517,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                4,
+                                                3,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -3628,7 +3628,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                6,
+                                                5,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -3675,7 +3675,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                4,
+                                                3,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -3765,7 +3765,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                6,
+                                                5,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -3856,7 +3856,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Block {
                                                 stmts: ArenaIdxRange(
-                                                    26..29,
+                                                    25..28,
                                                 ),
                                             },
                                             contracted_quary: HirContractedQuary {
@@ -3873,6 +3873,17 @@
                                 stmt_arena: Arena {
                                     data: [
                                         Eval {
+                                            expr: 8,
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoersion {
+                                                        expectee_quary: Transient,
+                                                    },
+                                                ),
+                                            ),
+                                            discarded: false,
+                                        },
+                                        Eval {
                                             expr: 9,
                                             coersion: Some(
                                                 Trivial(
@@ -3886,26 +3897,21 @@
                                         Eval {
                                             expr: 10,
                                             coersion: Some(
-                                                Trivial(
-                                                    TrivialHirEagerCoersion {
-                                                        expectee_quary: Transient,
-                                                    },
-                                                ),
-                                            ),
-                                            discarded: false,
-                                        },
-                                        Eval {
-                                            expr: 11,
-                                            coersion: Some(
                                                 Never,
                                             ),
                                             discarded: false,
                                         },
                                         Match {
-                                            opd: 8,
+                                            opd: 7,
                                             case_branches: [
                                                 HirEagerCaseBranch {
-                                                    pattern: 4,
+                                                    pattern: 3,
+                                                    stmts: ArenaIdxRange(
+                                                        0..1,
+                                                    ),
+                                                },
+                                                HirEagerCaseBranch {
+                                                    pattern: 6,
                                                     stmts: ArenaIdxRange(
                                                         1..2,
                                                     ),
@@ -3916,13 +3922,18 @@
                                                         2..3,
                                                     ),
                                                 },
-                                                HirEagerCaseBranch {
-                                                    pattern: 8,
-                                                    stmts: ArenaIdxRange(
-                                                        3..4,
-                                                    ),
-                                                },
                                             ],
+                                        },
+                                        Eval {
+                                            expr: 12,
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoersion {
+                                                        expectee_quary: Transient,
+                                                    },
+                                                ),
+                                            ),
+                                            discarded: false,
                                         },
                                         Eval {
                                             expr: 13,
@@ -3936,7 +3947,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr: 14,
+                                            expr: 15,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -3960,24 +3971,19 @@
                                         Eval {
                                             expr: 17,
                                             coersion: Some(
-                                                Trivial(
-                                                    TrivialHirEagerCoersion {
-                                                        expectee_quary: Transient,
-                                                    },
-                                                ),
-                                            ),
-                                            discarded: false,
-                                        },
-                                        Eval {
-                                            expr: 18,
-                                            coersion: Some(
                                                 Never,
                                             ),
                                             discarded: false,
                                         },
                                         Match {
-                                            opd: 15,
+                                            opd: 14,
                                             case_branches: [
+                                                HirEagerCaseBranch {
+                                                    pattern: 12,
+                                                    stmts: ArenaIdxRange(
+                                                        6..7,
+                                                    ),
+                                                },
                                                 HirEagerCaseBranch {
                                                     pattern: 13,
                                                     stmts: ArenaIdxRange(
@@ -3990,16 +3996,10 @@
                                                         8..9,
                                                     ),
                                                 },
-                                                HirEagerCaseBranch {
-                                                    pattern: 15,
-                                                    stmts: ArenaIdxRange(
-                                                        9..10,
-                                                    ),
-                                                },
                                             ],
                                         },
                                         Eval {
-                                            expr: 19,
+                                            expr: 18,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -4010,15 +4010,21 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr: 20,
+                                            expr: 19,
                                             coersion: Some(
                                                 Never,
                                             ),
                                             discarded: false,
                                         },
                                         Match {
-                                            opd: 12,
+                                            opd: 11,
                                             case_branches: [
+                                                HirEagerCaseBranch {
+                                                    pattern: 9,
+                                                    stmts: ArenaIdxRange(
+                                                        4..5,
+                                                    ),
+                                                },
                                                 HirEagerCaseBranch {
                                                     pattern: 10,
                                                     stmts: ArenaIdxRange(
@@ -4028,11 +4034,11 @@
                                                 HirEagerCaseBranch {
                                                     pattern: 11,
                                                     stmts: ArenaIdxRange(
-                                                        6..7,
+                                                        9..10,
                                                     ),
                                                 },
                                                 HirEagerCaseBranch {
-                                                    pattern: 12,
+                                                    pattern: 15,
                                                     stmts: ArenaIdxRange(
                                                         10..11,
                                                     ),
@@ -4043,16 +4049,21 @@
                                                         11..12,
                                                     ),
                                                 },
-                                                HirEagerCaseBranch {
-                                                    pattern: 17,
-                                                    stmts: ArenaIdxRange(
-                                                        12..13,
-                                                    ),
-                                                },
                                             ],
                                         },
                                         Eval {
-                                            expr: 22,
+                                            expr: 21,
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoersion {
+                                                        expectee_quary: Transient,
+                                                    },
+                                                ),
+                                            ),
+                                            discarded: false,
+                                        },
+                                        Eval {
+                                            expr: 23,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -4076,24 +4087,19 @@
                                         Eval {
                                             expr: 25,
                                             coersion: Some(
-                                                Trivial(
-                                                    TrivialHirEagerCoersion {
-                                                        expectee_quary: Transient,
-                                                    },
-                                                ),
-                                            ),
-                                            discarded: false,
-                                        },
-                                        Eval {
-                                            expr: 26,
-                                            coersion: Some(
                                                 Never,
                                             ),
                                             discarded: false,
                                         },
                                         Match {
-                                            opd: 23,
+                                            opd: 22,
                                             case_branches: [
+                                                HirEagerCaseBranch {
+                                                    pattern: 23,
+                                                    stmts: ArenaIdxRange(
+                                                        14..15,
+                                                    ),
+                                                },
                                                 HirEagerCaseBranch {
                                                     pattern: 24,
                                                     stmts: ArenaIdxRange(
@@ -4106,43 +4112,48 @@
                                                         16..17,
                                                     ),
                                                 },
-                                                HirEagerCaseBranch {
-                                                    pattern: 26,
-                                                    stmts: ArenaIdxRange(
-                                                        17..18,
-                                                    ),
-                                                },
                                             ],
                                         },
                                         Eval {
-                                            expr: 27,
+                                            expr: 26,
                                             coersion: Some(
                                                 Never,
                                             ),
                                             discarded: false,
                                         },
                                         Match {
-                                            opd: 21,
+                                            opd: 20,
                                             case_branches: [
                                                 HirEagerCaseBranch {
-                                                    pattern: 22,
+                                                    pattern: 21,
                                                     stmts: ArenaIdxRange(
-                                                        14..15,
+                                                        13..14,
                                                     ),
                                                 },
                                                 HirEagerCaseBranch {
-                                                    pattern: 23,
+                                                    pattern: 22,
+                                                    stmts: ArenaIdxRange(
+                                                        17..18,
+                                                    ),
+                                                },
+                                                HirEagerCaseBranch {
+                                                    pattern: 26,
                                                     stmts: ArenaIdxRange(
                                                         18..19,
                                                     ),
                                                 },
-                                                HirEagerCaseBranch {
-                                                    pattern: 27,
-                                                    stmts: ArenaIdxRange(
-                                                        19..20,
-                                                    ),
-                                                },
                                             ],
+                                        },
+                                        Eval {
+                                            expr: 28,
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoersion {
+                                                        expectee_quary: Transient,
+                                                    },
+                                                ),
+                                            ),
+                                            discarded: false,
                                         },
                                         Eval {
                                             expr: 29,
@@ -4158,24 +4169,19 @@
                                         Eval {
                                             expr: 30,
                                             coersion: Some(
-                                                Trivial(
-                                                    TrivialHirEagerCoersion {
-                                                        expectee_quary: Transient,
-                                                    },
-                                                ),
-                                            ),
-                                            discarded: false,
-                                        },
-                                        Eval {
-                                            expr: 31,
-                                            coersion: Some(
                                                 Never,
                                             ),
                                             discarded: false,
                                         },
                                         Match {
-                                            opd: 28,
+                                            opd: 27,
                                             case_branches: [
+                                                HirEagerCaseBranch {
+                                                    pattern: 30,
+                                                    stmts: ArenaIdxRange(
+                                                        20..21,
+                                                    ),
+                                                },
                                                 HirEagerCaseBranch {
                                                     pattern: 31,
                                                     stmts: ArenaIdxRange(
@@ -4188,16 +4194,10 @@
                                                         22..23,
                                                     ),
                                                 },
-                                                HirEagerCaseBranch {
-                                                    pattern: 33,
-                                                    stmts: ArenaIdxRange(
-                                                        23..24,
-                                                    ),
-                                                },
                                             ],
                                         },
                                         Eval {
-                                            expr: 32,
+                                            expr: 31,
                                             coersion: Some(
                                                 Never,
                                             ),
@@ -4205,53 +4205,53 @@
                                         },
                                         Let {
                                             pattern: HirEagerLetVariablesPattern {
-                                                pattern_expr_idx: 1,
+                                                pattern_expr_idx: 0,
                                                 ty: None,
                                             },
                                             contract: Pure,
-                                            initial_value: 3,
+                                            initial_value: 2,
                                             coersion: None,
                                         },
                                         Let {
                                             pattern: HirEagerLetVariablesPattern {
-                                                pattern_expr_idx: 2,
+                                                pattern_expr_idx: 1,
                                                 ty: None,
                                             },
                                             contract: Pure,
-                                            initial_value: 6,
+                                            initial_value: 5,
                                             coersion: None,
                                         },
                                         Match {
-                                            opd: 7,
+                                            opd: 6,
                                             case_branches: [
                                                 HirEagerCaseBranch {
-                                                    pattern: 3,
+                                                    pattern: 2,
                                                     stmts: ArenaIdxRange(
-                                                        4..5,
+                                                        3..4,
                                                     ),
                                                 },
                                                 HirEagerCaseBranch {
-                                                    pattern: 9,
+                                                    pattern: 8,
                                                     stmts: ArenaIdxRange(
-                                                        13..14,
+                                                        12..13,
                                                     ),
                                                 },
                                                 HirEagerCaseBranch {
-                                                    pattern: 18,
+                                                    pattern: 17,
                                                     stmts: ArenaIdxRange(
-                                                        20..21,
+                                                        19..20,
                                                     ),
                                                 },
                                                 HirEagerCaseBranch {
-                                                    pattern: 28,
+                                                    pattern: 27,
+                                                    stmts: ArenaIdxRange(
+                                                        23..24,
+                                                    ),
+                                                },
+                                                HirEagerCaseBranch {
+                                                    pattern: 33,
                                                     stmts: ArenaIdxRange(
                                                         24..25,
-                                                    ),
-                                                },
-                                                HirEagerCaseBranch {
-                                                    pattern: 34,
-                                                    stmts: ArenaIdxRange(
-                                                        25..26,
                                                     ),
                                                 },
                                             ],
@@ -4309,7 +4309,7 @@
                                         HirEagerPatternEntry {
                                             data: HirEagerPatternData::OneOf {
                                                 options: ArenaIdxRange(
-                                                    5..7,
+                                                    4..6,
                                                 ),
                                             },
                                             contract: Pure,
@@ -4438,7 +4438,7 @@
                                         HirEagerPatternEntry {
                                             data: HirEagerPatternData::OneOf {
                                                 options: ArenaIdxRange(
-                                                    19..22,
+                                                    18..21,
                                                 ),
                                             },
                                             contract: Pure,
@@ -4520,7 +4520,7 @@
                                         HirEagerPatternEntry {
                                             data: HirEagerPatternData::OneOf {
                                                 options: ArenaIdxRange(
-                                                    29..31,
+                                                    28..30,
                                                 ),
                                             },
                                             contract: Pure,
@@ -4744,7 +4744,7 @@
                         parenate_parameters: HirEagerParenateParameters(
                             [
                                 HirEagerParenateParameter::Simple {
-                                    pattern_expr_idx: 1,
+                                    pattern_expr_idx: 0,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
@@ -4822,7 +4822,7 @@
                     },
                     eager_body_with_hir_eager_expr_region: Some(
                         (
-                            28,
+                            27,
                             HirEagerExprRegion {
                                 region_path: RegionPath::Defn(
                                     ItemPath::MajorItem(
@@ -4837,7 +4837,7 @@
                                     data: [
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                1,
+                                                0,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -4863,7 +4863,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodFnCall {
-                                                self_argument: 1,
+                                                self_argument: 0,
                                                 self_contract: Pure,
                                                 ident: `ilen`,
                                                 path: AssocItemPath::TypeItem(
@@ -4913,7 +4913,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                1,
+                                                0,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -4939,7 +4939,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                2,
+                                                1,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -4980,11 +4980,11 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 4,
+                                                lopd: 3,
                                                 opr: Closed(
                                                     Sub,
                                                 ),
-                                                ropd: 5,
+                                                ropd: 4,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -4997,9 +4997,9 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Index {
-                                                owner: 3,
+                                                owner: 2,
                                                 items: [
-                                                    6,
+                                                    5,
                                                 ],
                                             },
                                             contracted_quary: HirContractedQuary {
@@ -5026,7 +5026,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                1,
+                                                0,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -5052,7 +5052,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                2,
+                                                1,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -5093,11 +5093,11 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 9,
+                                                lopd: 8,
                                                 opr: Closed(
                                                     Sub,
                                                 ),
-                                                ropd: 10,
+                                                ropd: 9,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -5110,9 +5110,9 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Index {
-                                                owner: 8,
+                                                owner: 7,
                                                 items: [
-                                                    11,
+                                                    10,
                                                 ],
                                             },
                                             contracted_quary: HirContractedQuary {
@@ -5139,7 +5139,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                3,
+                                                2,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -5167,7 +5167,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                self_argument: 13,
+                                                self_argument: 12,
                                                 self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -5210,7 +5210,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                4,
+                                                3,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -5238,7 +5238,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                self_argument: 15,
+                                                self_argument: 14,
                                                 self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -5281,11 +5281,11 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 14,
+                                                lopd: 13,
                                                 opr: Closed(
                                                     Add,
                                                 ),
-                                                ropd: 16,
+                                                ropd: 15,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -5318,11 +5318,11 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 17,
+                                                lopd: 16,
                                                 opr: Closed(
                                                     Div,
                                                 ),
-                                                ropd: 18,
+                                                ropd: 17,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -5331,6 +5331,77 @@
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
+                                            },
+                                        },
+                                        HirEagerExprEntry {
+                                            data: HirEagerExprData::Variable(
+                                                2,
+                                            ),
+                                            contracted_quary: HirContractedQuary {
+                                                contract: Some(
+                                                    Pure,
+                                                ),
+                                                quary: Ref {
+                                                    guard: Left(
+                                                        Idx(
+                                                            PlaceIdx(0),
+                                                        ),
+                                                    ),
+                                                },
+                                            },
+                                            is_always_copyable: false,
+                                            place_contract_site: HirPlaceContractSite {
+                                                place_contracts: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(0),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
+                                            },
+                                        },
+                                        HirEagerExprEntry {
+                                            data: HirEagerExprData::PropsStructField {
+                                                self_argument: 19,
+                                                self_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                        template_arguments: [],
+                                                        always_copyable: false,
+                                                    },
+                                                ),
+                                                ident: `y`,
+                                                field_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                        template_arguments: [],
+                                                        always_copyable: true,
+                                                    },
+                                                ),
+                                            },
+                                            contracted_quary: HirContractedQuary {
+                                                contract: Some(
+                                                    Pure,
+                                                ),
+                                                quary: Ref {
+                                                    guard: Left(
+                                                        Idx(
+                                                            PlaceIdx(0),
+                                                        ),
+                                                    ),
+                                                },
+                                            },
+                                            is_always_copyable: true,
+                                            place_contract_site: HirPlaceContractSite {
+                                                place_contracts: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(0),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -5363,78 +5434,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                self_argument: 20,
-                                                self_ty: HirType::PathLeading(
-                                                    HirTypePathLeading {
-                                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                                        template_arguments: [],
-                                                        always_copyable: false,
-                                                    },
-                                                ),
-                                                ident: `y`,
-                                                field_ty: HirType::PathLeading(
-                                                    HirTypePathLeading {
-                                                        ty_path: TypePath(`core::num::f32`, `Extern`),
-                                                        template_arguments: [],
-                                                        always_copyable: true,
-                                                    },
-                                                ),
-                                            },
-                                            contracted_quary: HirContractedQuary {
-                                                contract: Some(
-                                                    Pure,
-                                                ),
-                                                quary: Ref {
-                                                    guard: Left(
-                                                        Idx(
-                                                            PlaceIdx(0),
-                                                        ),
-                                                    ),
-                                                },
-                                            },
-                                            is_always_copyable: true,
-                                            place_contract_site: HirPlaceContractSite {
-                                                place_contracts: [
-                                                    (
-                                                        Idx(
-                                                            PlaceIdx(0),
-                                                        ),
-                                                        Pure,
-                                                    ),
-                                                ],
-                                            },
-                                        },
-                                        HirEagerExprEntry {
-                                            data: HirEagerExprData::Variable(
-                                                4,
-                                            ),
-                                            contracted_quary: HirContractedQuary {
-                                                contract: Some(
-                                                    Pure,
-                                                ),
-                                                quary: Ref {
-                                                    guard: Left(
-                                                        Idx(
-                                                            PlaceIdx(0),
-                                                        ),
-                                                    ),
-                                                },
-                                            },
-                                            is_always_copyable: false,
-                                            place_contract_site: HirPlaceContractSite {
-                                                place_contracts: [
-                                                    (
-                                                        Idx(
-                                                            PlaceIdx(0),
-                                                        ),
-                                                        Pure,
-                                                    ),
-                                                ],
-                                            },
-                                        },
-                                        HirEagerExprEntry {
-                                            data: HirEagerExprData::PropsStructField {
-                                                self_argument: 22,
+                                                self_argument: 21,
                                                 self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -5477,11 +5477,11 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 21,
+                                                lopd: 20,
                                                 opr: Closed(
                                                     Add,
                                                 ),
-                                                ropd: 23,
+                                                ropd: 22,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -5514,11 +5514,11 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 24,
+                                                lopd: 23,
                                                 opr: Closed(
                                                     Div,
                                                 ),
-                                                ropd: 25,
+                                                ropd: 24,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -5548,7 +5548,7 @@
                                                                 ),
                                                             ),
                                                         },
-                                                        19,
+                                                        18,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_quary: Transient,
@@ -5566,7 +5566,7 @@
                                                                 ),
                                                             ),
                                                         },
-                                                        26,
+                                                        25,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_quary: Transient,
@@ -5587,7 +5587,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Block {
                                                 stmts: ArenaIdxRange(
-                                                    1..5,
+                                                    0..4,
                                                 ),
                                             },
                                             contracted_quary: HirContractedQuary {
@@ -5605,11 +5605,20 @@
                                     data: [
                                         Let {
                                             pattern: HirEagerLetVariablesPattern {
+                                                pattern_expr_idx: 0,
+                                                ty: None,
+                                            },
+                                            contract: Pure,
+                                            initial_value: 1,
+                                            coersion: None,
+                                        },
+                                        Let {
+                                            pattern: HirEagerLetVariablesPattern {
                                                 pattern_expr_idx: 1,
                                                 ty: None,
                                             },
                                             contract: Pure,
-                                            initial_value: 2,
+                                            initial_value: 6,
                                             coersion: None,
                                         },
                                         Let {
@@ -5618,20 +5627,11 @@
                                                 ty: None,
                                             },
                                             contract: Pure,
-                                            initial_value: 7,
-                                            coersion: None,
-                                        },
-                                        Let {
-                                            pattern: HirEagerLetVariablesPattern {
-                                                pattern_expr_idx: 3,
-                                                ty: None,
-                                            },
-                                            contract: Pure,
-                                            initial_value: 12,
+                                            initial_value: 11,
                                             coersion: None,
                                         },
                                         Eval {
-                                            expr: 27,
+                                            expr: 26,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -5728,7 +5728,7 @@
                         parenate_parameters: HirEagerParenateParameters(
                             [
                                 HirEagerParenateParameter::Simple {
-                                    pattern_expr_idx: 1,
+                                    pattern_expr_idx: 0,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
@@ -5816,7 +5816,7 @@
                     },
                     eager_body_with_hir_eager_expr_region: Some(
                         (
-                            298,
+                            297,
                             HirEagerExprRegion {
                                 region_path: RegionPath::Defn(
                                     ItemPath::MajorItem(
@@ -5905,7 +5905,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                1,
+                                                0,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -5931,7 +5931,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                self_argument: 5,
+                                                self_argument: 4,
                                                 self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`core::mem::Leash`, `Extern`),
@@ -5971,7 +5971,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                4,
+                                                3,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -6012,11 +6012,11 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 7,
+                                                lopd: 6,
                                                 opr: Closed(
                                                     Sub,
                                                 ),
-                                                ropd: 8,
+                                                ropd: 7,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -6042,9 +6042,9 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Index {
-                                                owner: 6,
+                                                owner: 5,
                                                 items: [
-                                                    9,
+                                                    8,
                                                 ],
                                             },
                                             contracted_quary: HirContractedQuary {
@@ -6060,7 +6060,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                1,
+                                                0,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -6086,7 +6086,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                self_argument: 11,
+                                                self_argument: 10,
                                                 self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`core::mem::Leash`, `Extern`),
@@ -6126,7 +6126,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                4,
+                                                3,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -6152,9 +6152,9 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Index {
-                                                owner: 12,
+                                                owner: 11,
                                                 items: [
-                                                    13,
+                                                    12,
                                                 ],
                                             },
                                             contracted_quary: HirContractedQuary {
@@ -6166,6 +6166,77 @@
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
+                                            },
+                                        },
+                                        HirEagerExprEntry {
+                                            data: HirEagerExprData::Variable(
+                                                4,
+                                            ),
+                                            contracted_quary: HirContractedQuary {
+                                                contract: Some(
+                                                    Pure,
+                                                ),
+                                                quary: ImmutableOnStack {
+                                                    place: Idx(
+                                                        PlaceIdx(3),
+                                                    ),
+                                                },
+                                            },
+                                            is_always_copyable: true,
+                                            place_contract_site: HirPlaceContractSite {
+                                                place_contracts: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(3),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
+                                            },
+                                        },
+                                        HirEagerExprEntry {
+                                            data: HirEagerExprData::Literal(
+                                                Literal::I32(
+                                                    1,
+                                                ),
+                                            ),
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Const,
+                                            },
+                                            is_always_copyable: true,
+                                            place_contract_site: HirPlaceContractSite {
+                                                place_contracts: [],
+                                            },
+                                        },
+                                        HirEagerExprEntry {
+                                            data: HirEagerExprData::Binary {
+                                                lopd: 14,
+                                                opr: Shift(
+                                                    Shl,
+                                                ),
+                                                ropd: 15,
+                                            },
+                                            contracted_quary: HirContractedQuary {
+                                                contract: Some(
+                                                    Pure,
+                                                ),
+                                                quary: ImmutableOnStack {
+                                                    place: Idx(
+                                                        PlaceIdx(3),
+                                                    ),
+                                                },
+                                            },
+                                            is_always_copyable: true,
+                                            place_contract_site: HirPlaceContractSite {
+                                                place_contracts: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(3),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -6178,7 +6249,7 @@
                                                 ),
                                                 quary: ImmutableOnStack {
                                                     place: Idx(
-                                                        PlaceIdx(3),
+                                                        PlaceIdx(4),
                                                     ),
                                                 },
                                             },
@@ -6187,7 +6258,7 @@
                                                 place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(3),
+                                                            PlaceIdx(4),
                                                         ),
                                                         Pure,
                                                     ),
@@ -6211,11 +6282,11 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 15,
+                                                lopd: 17,
                                                 opr: Shift(
                                                     Shl,
                                                 ),
-                                                ropd: 16,
+                                                ropd: 18,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -6223,7 +6294,7 @@
                                                 ),
                                                 quary: ImmutableOnStack {
                                                     place: Idx(
-                                                        PlaceIdx(3),
+                                                        PlaceIdx(4),
                                                     ),
                                                 },
                                             },
@@ -6232,7 +6303,7 @@
                                                 place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(3),
+                                                            PlaceIdx(4),
                                                         ),
                                                         Pure,
                                                     ),
@@ -6241,71 +6312,26 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                6,
+                                                2,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
-                                                    Pure,
+                                                    BorrowMut,
                                                 ),
-                                                quary: ImmutableOnStack {
+                                                quary: MutableOnStack {
                                                     place: Idx(
-                                                        PlaceIdx(4),
+                                                        PlaceIdx(1),
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable: true,
+                                            is_always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(4),
+                                                            PlaceIdx(1),
                                                         ),
-                                                        Pure,
-                                                    ),
-                                                ],
-                                            },
-                                        },
-                                        HirEagerExprEntry {
-                                            data: HirEagerExprData::Literal(
-                                                Literal::I32(
-                                                    1,
-                                                ),
-                                            ),
-                                            contracted_quary: HirContractedQuary {
-                                                contract: None,
-                                                quary: Const,
-                                            },
-                                            is_always_copyable: true,
-                                            place_contract_site: HirPlaceContractSite {
-                                                place_contracts: [],
-                                            },
-                                        },
-                                        HirEagerExprEntry {
-                                            data: HirEagerExprData::Binary {
-                                                lopd: 18,
-                                                opr: Shift(
-                                                    Shl,
-                                                ),
-                                                ropd: 19,
-                                            },
-                                            contracted_quary: HirContractedQuary {
-                                                contract: Some(
-                                                    Pure,
-                                                ),
-                                                quary: ImmutableOnStack {
-                                                    place: Idx(
-                                                        PlaceIdx(4),
-                                                    ),
-                                                },
-                                            },
-                                            is_always_copyable: true,
-                                            place_contract_site: HirPlaceContractSite {
-                                                place_contracts: [
-                                                    (
-                                                        Idx(
-                                                            PlaceIdx(4),
-                                                        ),
-                                                        Pure,
+                                                        BorrowMut,
                                                     ),
                                                 ],
                                             },
@@ -6318,32 +6344,6 @@
                                                 contract: Some(
                                                     BorrowMut,
                                                 ),
-                                                quary: MutableOnStack {
-                                                    place: Idx(
-                                                        PlaceIdx(1),
-                                                    ),
-                                                },
-                                            },
-                                            is_always_copyable: false,
-                                            place_contract_site: HirPlaceContractSite {
-                                                place_contracts: [
-                                                    (
-                                                        Idx(
-                                                            PlaceIdx(1),
-                                                        ),
-                                                        BorrowMut,
-                                                    ),
-                                                ],
-                                            },
-                                        },
-                                        HirEagerExprEntry {
-                                            data: HirEagerExprData::Variable(
-                                                4,
-                                            ),
-                                            contracted_quary: HirContractedQuary {
-                                                contract: Some(
-                                                    BorrowMut,
-                                                ),
                                                 quary: ImmutableOnStack {
                                                     place: Idx(
                                                         PlaceIdx(2),
@@ -6364,9 +6364,9 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Index {
-                                                owner: 21,
+                                                owner: 20,
                                                 items: [
-                                                    22,
+                                                    21,
                                                 ],
                                             },
                                             contracted_quary: HirContractedQuary {
@@ -6393,7 +6393,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                5,
+                                                4,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -6419,7 +6419,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                6,
+                                                5,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -6445,11 +6445,11 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 24,
+                                                lopd: 23,
                                                 opr: Closed(
                                                     BitOr,
                                                 ),
-                                                ropd: 25,
+                                                ropd: 24,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -6462,7 +6462,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                7,
+                                                6,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -6488,11 +6488,11 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 26,
+                                                lopd: 25,
                                                 opr: Closed(
                                                     BitOr,
                                                 ),
-                                                ropd: 27,
+                                                ropd: 26,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -6505,7 +6505,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                8,
+                                                7,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -6531,11 +6531,11 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 28,
+                                                lopd: 27,
                                                 opr: Closed(
                                                     BitOr,
                                                 ),
-                                                ropd: 29,
+                                                ropd: 28,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -6548,7 +6548,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                5,
+                                                4,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -6574,7 +6574,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                6,
+                                                5,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -6600,11 +6600,11 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 31,
+                                                lopd: 30,
                                                 opr: Closed(
                                                     BitAnd,
                                                 ),
-                                                ropd: 32,
+                                                ropd: 31,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -6617,7 +6617,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                7,
+                                                6,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -6643,11 +6643,11 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 33,
+                                                lopd: 32,
                                                 opr: Closed(
                                                     BitAnd,
                                                 ),
-                                                ropd: 34,
+                                                ropd: 33,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -6660,7 +6660,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                8,
+                                                7,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -6686,11 +6686,11 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 35,
+                                                lopd: 34,
                                                 opr: Closed(
                                                     BitAnd,
                                                 ),
-                                                ropd: 36,
+                                                ropd: 35,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -6704,7 +6704,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Prefix {
                                                 opr: BitNot,
-                                                opd: 37,
+                                                opd: 36,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -6717,11 +6717,11 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 30,
+                                                lopd: 29,
                                                 opr: Closed(
                                                     BitAnd,
                                                 ),
-                                                ropd: 38,
+                                                ropd: 37,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -6734,9 +6734,9 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 23,
+                                                lopd: 22,
                                                 opr: Assign,
-                                                ropd: 39,
+                                                ropd: 38,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -6779,7 +6779,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                3,
+                                                2,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -6805,7 +6805,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                9,
+                                                8,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -6831,9 +6831,9 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Index {
-                                                owner: 43,
+                                                owner: 42,
                                                 items: [
-                                                    44,
+                                                    43,
                                                 ],
                                             },
                                             contracted_quary: HirContractedQuary {
@@ -6880,7 +6880,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                9,
+                                                8,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -6906,7 +6906,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                3,
+                                                2,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -6932,7 +6932,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                9,
+                                                8,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -6958,9 +6958,9 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Index {
-                                                owner: 48,
+                                                owner: 47,
                                                 items: [
-                                                    49,
+                                                    48,
                                                 ],
                                             },
                                             contracted_quary: HirContractedQuary {
@@ -6987,7 +6987,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodFnCall {
-                                                self_argument: 50,
+                                                self_argument: 49,
                                                 self_contract: Pure,
                                                 ident: `ctz`,
                                                 path: AssocItemPath::TypeItem(
@@ -7014,7 +7014,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                1,
+                                                0,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -7040,7 +7040,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                self_argument: 52,
+                                                self_argument: 51,
                                                 self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`core::mem::Leash`, `Extern`),
@@ -7080,7 +7080,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                11,
+                                                10,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -7121,11 +7121,11 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 54,
+                                                lopd: 53,
                                                 opr: Closed(
                                                     Sub,
                                                 ),
-                                                ropd: 55,
+                                                ropd: 54,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -7151,9 +7151,9 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Index {
-                                                owner: 53,
+                                                owner: 52,
                                                 items: [
-                                                    56,
+                                                    55,
                                                 ],
                                             },
                                             contracted_quary: HirContractedQuary {
@@ -7169,7 +7169,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                1,
+                                                0,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -7195,7 +7195,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                self_argument: 58,
+                                                self_argument: 57,
                                                 self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`core::mem::Leash`, `Extern`),
@@ -7235,7 +7235,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                11,
+                                                10,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -7261,9 +7261,9 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Index {
-                                                owner: 59,
+                                                owner: 58,
                                                 items: [
-                                                    60,
+                                                    59,
                                                 ],
                                             },
                                             contracted_quary: HirContractedQuary {
@@ -7279,7 +7279,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                13,
+                                                12,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -7305,7 +7305,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                14,
+                                                13,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -7331,7 +7331,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                12,
+                                                11,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -7376,7 +7376,7 @@
                                                                 ),
                                                             ),
                                                         },
-                                                        62,
+                                                        61,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_quary: MutableOnStack {
@@ -7398,7 +7398,7 @@
                                                                 ),
                                                             ),
                                                         },
-                                                        63,
+                                                        62,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_quary: MutableOnStack {
@@ -7420,7 +7420,7 @@
                                                                 ),
                                                             ),
                                                         },
-                                                        64,
+                                                        63,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_quary: MutableOnStack {
@@ -7444,7 +7444,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                11,
+                                                10,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -7470,7 +7470,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                12,
+                                                11,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -7496,7 +7496,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                15,
+                                                14,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -7583,7 +7583,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Prefix {
                                                 opr: Minus,
-                                                opd: 72,
+                                                opd: 71,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -7612,7 +7612,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Prefix {
                                                 opr: Minus,
-                                                opd: 74,
+                                                opd: 73,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -7641,7 +7641,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Prefix {
                                                 opr: Minus,
-                                                opd: 76,
+                                                opd: 75,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -7654,7 +7654,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                11,
+                                                10,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -7680,7 +7680,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                16,
+                                                15,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -7706,11 +7706,11 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 78,
+                                                lopd: 77,
                                                 opr: Comparison(
                                                     Eq,
                                                 ),
-                                                ropd: 79,
+                                                ropd: 78,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -7723,7 +7723,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                12,
+                                                11,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -7749,7 +7749,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                17,
+                                                16,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -7775,9 +7775,26 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 81,
+                                                lopd: 80,
                                                 opr: Comparison(
                                                     Eq,
+                                                ),
+                                                ropd: 81,
+                                            },
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Transient,
+                                            },
+                                            is_always_copyable: true,
+                                            place_contract_site: HirPlaceContractSite {
+                                                place_contracts: [],
+                                            },
+                                        },
+                                        HirEagerExprEntry {
+                                            data: HirEagerExprData::Binary {
+                                                lopd: 79,
+                                                opr: ShortCircuitLogic(
+                                                    And,
                                                 ),
                                                 ropd: 82,
                                             },
@@ -7791,25 +7808,8 @@
                                             },
                                         },
                                         HirEagerExprEntry {
-                                            data: HirEagerExprData::Binary {
-                                                lopd: 80,
-                                                opr: ShortCircuitLogic(
-                                                    And,
-                                                ),
-                                                ropd: 83,
-                                            },
-                                            contracted_quary: HirContractedQuary {
-                                                contract: None,
-                                                quary: Transient,
-                                            },
-                                            is_always_copyable: true,
-                                            place_contract_site: HirPlaceContractSite {
-                                                place_contracts: [],
-                                            },
-                                        },
-                                        HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                15,
+                                                14,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -7835,7 +7835,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                18,
+                                                17,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -7861,9 +7861,26 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 85,
+                                                lopd: 84,
                                                 opr: Comparison(
                                                     Eq,
+                                                ),
+                                                ropd: 85,
+                                            },
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Transient,
+                                            },
+                                            is_always_copyable: true,
+                                            place_contract_site: HirPlaceContractSite {
+                                                place_contracts: [],
+                                            },
+                                        },
+                                        HirEagerExprEntry {
+                                            data: HirEagerExprData::Binary {
+                                                lopd: 83,
+                                                opr: ShortCircuitLogic(
+                                                    And,
                                                 ),
                                                 ropd: 86,
                                             },
@@ -7877,26 +7894,9 @@
                                             },
                                         },
                                         HirEagerExprEntry {
-                                            data: HirEagerExprData::Binary {
-                                                lopd: 84,
-                                                opr: ShortCircuitLogic(
-                                                    And,
-                                                ),
-                                                ropd: 87,
-                                            },
-                                            contracted_quary: HirContractedQuary {
-                                                contract: None,
-                                                quary: Transient,
-                                            },
-                                            is_always_copyable: true,
-                                            place_contract_site: HirPlaceContractSite {
-                                                place_contracts: [],
-                                            },
-                                        },
-                                        HirEagerExprEntry {
                                             data: HirEagerExprData::Prefix {
                                                 opr: NotBool,
-                                                opd: 88,
+                                                opd: 87,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -7909,7 +7909,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                13,
+                                                12,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -7935,7 +7935,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                14,
+                                                13,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -7961,7 +7961,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                12,
+                                                11,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -7987,7 +7987,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                15,
+                                                14,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -8032,7 +8032,7 @@
                                                                 ),
                                                             ),
                                                         },
-                                                        90,
+                                                        89,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_quary: MutableOnStack {
@@ -8054,7 +8054,7 @@
                                                                 ),
                                                             ),
                                                         },
-                                                        91,
+                                                        90,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_quary: MutableOnStack {
@@ -8076,7 +8076,7 @@
                                                                 ),
                                                             ),
                                                         },
-                                                        92,
+                                                        91,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_quary: MutableOnStack {
@@ -8098,7 +8098,7 @@
                                                                 ),
                                                             ),
                                                         },
-                                                        93,
+                                                        92,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_quary: MutableOnStack {
@@ -8122,7 +8122,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                15,
+                                                14,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -8148,7 +8148,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                25,
+                                                24,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -8193,7 +8193,7 @@
                                                                 ),
                                                             ),
                                                         },
-                                                        95,
+                                                        94,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_quary: MutableOnStack {
@@ -8215,7 +8215,7 @@
                                                                 ),
                                                             ),
                                                         },
-                                                        96,
+                                                        95,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_quary: ImmutableOnStack {
@@ -8239,7 +8239,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                3,
+                                                2,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -8265,7 +8265,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                11,
+                                                10,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -8291,9 +8291,9 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Index {
-                                                owner: 98,
+                                                owner: 97,
                                                 items: [
-                                                    99,
+                                                    98,
                                                 ],
                                             },
                                             contracted_quary: HirContractedQuary {
@@ -8320,7 +8320,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                3,
+                                                2,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -8346,7 +8346,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                11,
+                                                10,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -8372,9 +8372,9 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Index {
-                                                owner: 101,
+                                                owner: 100,
                                                 items: [
-                                                    102,
+                                                    101,
                                                 ],
                                             },
                                             contracted_quary: HirContractedQuary {
@@ -8416,7 +8416,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                12,
+                                                11,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -8442,11 +8442,11 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 104,
+                                                lopd: 103,
                                                 opr: Shift(
                                                     Shl,
                                                 ),
-                                                ropd: 105,
+                                                ropd: 104,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -8460,7 +8460,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Prefix {
                                                 opr: BitNot,
-                                                opd: 106,
+                                                opd: 105,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -8473,11 +8473,11 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 103,
+                                                lopd: 102,
                                                 opr: Closed(
                                                     BitAnd,
                                                 ),
-                                                ropd: 107,
+                                                ropd: 106,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -8490,9 +8490,9 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 100,
+                                                lopd: 99,
                                                 opr: Assign,
-                                                ropd: 108,
+                                                ropd: 107,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -8505,7 +8505,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                26,
+                                                25,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -8531,7 +8531,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                19,
+                                                18,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -8573,7 +8573,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Prefix {
                                                 opr: Minus,
-                                                opd: 112,
+                                                opd: 111,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -8586,11 +8586,11 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 111,
+                                                lopd: 110,
                                                 opr: Comparison(
                                                     Eq,
                                                 ),
-                                                ropd: 113,
+                                                ropd: 112,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -8603,7 +8603,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                20,
+                                                19,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -8645,7 +8645,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Prefix {
                                                 opr: Minus,
-                                                opd: 116,
+                                                opd: 115,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -8658,9 +8658,26 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 115,
+                                                lopd: 114,
                                                 opr: Comparison(
                                                     Eq,
+                                                ),
+                                                ropd: 116,
+                                            },
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Transient,
+                                            },
+                                            is_always_copyable: true,
+                                            place_contract_site: HirPlaceContractSite {
+                                                place_contracts: [],
+                                            },
+                                        },
+                                        HirEagerExprEntry {
+                                            data: HirEagerExprData::Binary {
+                                                lopd: 113,
+                                                opr: ShortCircuitLogic(
+                                                    And,
                                                 ),
                                                 ropd: 117,
                                             },
@@ -8674,25 +8691,8 @@
                                             },
                                         },
                                         HirEagerExprEntry {
-                                            data: HirEagerExprData::Binary {
-                                                lopd: 114,
-                                                opr: ShortCircuitLogic(
-                                                    And,
-                                                ),
-                                                ropd: 118,
-                                            },
-                                            contracted_quary: HirContractedQuary {
-                                                contract: None,
-                                                quary: Transient,
-                                            },
-                                            is_always_copyable: true,
-                                            place_contract_site: HirPlaceContractSite {
-                                                place_contracts: [],
-                                            },
-                                        },
-                                        HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                24,
+                                                23,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -8733,9 +8733,26 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 120,
+                                                lopd: 119,
                                                 opr: Comparison(
                                                     Eq,
+                                                ),
+                                                ropd: 120,
+                                            },
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Transient,
+                                            },
+                                            is_always_copyable: true,
+                                            place_contract_site: HirPlaceContractSite {
+                                                place_contracts: [],
+                                            },
+                                        },
+                                        HirEagerExprEntry {
+                                            data: HirEagerExprData::Binary {
+                                                lopd: 118,
+                                                opr: ShortCircuitLogic(
+                                                    And,
                                                 ),
                                                 ropd: 121,
                                             },
@@ -8749,25 +8766,8 @@
                                             },
                                         },
                                         HirEagerExprEntry {
-                                            data: HirEagerExprData::Binary {
-                                                lopd: 119,
-                                                opr: ShortCircuitLogic(
-                                                    And,
-                                                ),
-                                                ropd: 122,
-                                            },
-                                            contracted_quary: HirContractedQuary {
-                                                contract: None,
-                                                quary: Transient,
-                                            },
-                                            is_always_copyable: true,
-                                            place_contract_site: HirPlaceContractSite {
-                                                place_contracts: [],
-                                            },
-                                        },
-                                        HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                22,
+                                                21,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -8809,7 +8809,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Prefix {
                                                 opr: Minus,
-                                                opd: 125,
+                                                opd: 124,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -8822,9 +8822,26 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 124,
+                                                lopd: 123,
                                                 opr: Comparison(
                                                     Neq,
+                                                ),
+                                                ropd: 125,
+                                            },
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Transient,
+                                            },
+                                            is_always_copyable: true,
+                                            place_contract_site: HirPlaceContractSite {
+                                                place_contracts: [],
+                                            },
+                                        },
+                                        HirEagerExprEntry {
+                                            data: HirEagerExprData::Binary {
+                                                lopd: 122,
+                                                opr: ShortCircuitLogic(
+                                                    And,
                                                 ),
                                                 ropd: 126,
                                             },
@@ -8838,25 +8855,8 @@
                                             },
                                         },
                                         HirEagerExprEntry {
-                                            data: HirEagerExprData::Binary {
-                                                lopd: 123,
-                                                opr: ShortCircuitLogic(
-                                                    And,
-                                                ),
-                                                ropd: 127,
-                                            },
-                                            contracted_quary: HirContractedQuary {
-                                                contract: None,
-                                                quary: Transient,
-                                            },
-                                            is_always_copyable: true,
-                                            place_contract_site: HirPlaceContractSite {
-                                                place_contracts: [],
-                                            },
-                                        },
-                                        HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                23,
+                                                22,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -8897,9 +8897,26 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 129,
+                                                lopd: 128,
                                                 opr: Comparison(
                                                     Eq,
+                                                ),
+                                                ropd: 129,
+                                            },
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Transient,
+                                            },
+                                            is_always_copyable: true,
+                                            place_contract_site: HirPlaceContractSite {
+                                                place_contracts: [],
+                                            },
+                                        },
+                                        HirEagerExprEntry {
+                                            data: HirEagerExprData::Binary {
+                                                lopd: 127,
+                                                opr: ShortCircuitLogic(
+                                                    And,
                                                 ),
                                                 ropd: 130,
                                             },
@@ -8913,25 +8930,8 @@
                                             },
                                         },
                                         HirEagerExprEntry {
-                                            data: HirEagerExprData::Binary {
-                                                lopd: 128,
-                                                opr: ShortCircuitLogic(
-                                                    And,
-                                                ),
-                                                ropd: 131,
-                                            },
-                                            contracted_quary: HirContractedQuary {
-                                                contract: None,
-                                                quary: Transient,
-                                            },
-                                            is_always_copyable: true,
-                                            place_contract_site: HirPlaceContractSite {
-                                                place_contracts: [],
-                                            },
-                                        },
-                                        HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                10,
+                                                9,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -8957,7 +8957,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodFnCall {
-                                                self_argument: 133,
+                                                self_argument: 132,
                                                 self_contract: At,
                                                 ident: `last`,
                                                 path: AssocItemPath::TypeItem(
@@ -9031,7 +9031,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Unwrap {
-                                                opd: 134,
+                                                opd: 133,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -9057,7 +9057,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                10,
+                                                9,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -9102,7 +9102,7 @@
                                                                 ),
                                                             ),
                                                         },
-                                                        136,
+                                                        135,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_quary: MutableOnStack {
@@ -9126,9 +9126,9 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 135,
+                                                lopd: 134,
                                                 opr: Assign,
-                                                ropd: 137,
+                                                ropd: 136,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -9141,7 +9141,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                10,
+                                                9,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -9167,7 +9167,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                11,
+                                                10,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -9193,7 +9193,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                12,
+                                                11,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -9231,6 +9231,28 @@
                                                     ),
                                                 },
                                                 arguments: [
+                                                    Simple(
+                                                        HirRitchieSimpleParameter {
+                                                            contract: Pure,
+                                                            ty: PathLeading(
+                                                                HirTypePathLeading(
+                                                                    Id {
+                                                                        value: 4,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                        139,
+                                                        Trivial(
+                                                            TrivialHirEagerCoersion {
+                                                                expectee_quary: MutableOnStack {
+                                                                    place: Idx(
+                                                                        PlaceIdx(9),
+                                                                    ),
+                                                                },
+                                                            },
+                                                        ),
+                                                    ),
                                                     Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Pure,
@@ -9247,28 +9269,6 @@
                                                             TrivialHirEagerCoersion {
                                                                 expectee_quary: MutableOnStack {
                                                                     place: Idx(
-                                                                        PlaceIdx(9),
-                                                                    ),
-                                                                },
-                                                            },
-                                                        ),
-                                                    ),
-                                                    Simple(
-                                                        HirRitchieSimpleParameter {
-                                                            contract: Pure,
-                                                            ty: PathLeading(
-                                                                HirTypePathLeading(
-                                                                    Id {
-                                                                        value: 4,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        },
-                                                        141,
-                                                        Trivial(
-                                                            TrivialHirEagerCoersion {
-                                                                expectee_quary: MutableOnStack {
-                                                                    place: Idx(
                                                                         PlaceIdx(10),
                                                                     ),
                                                                 },
@@ -9288,7 +9288,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodFnCall {
-                                                self_argument: 139,
+                                                self_argument: 138,
                                                 self_contract: BorrowMut,
                                                 ident: `push`,
                                                 path: AssocItemPath::TypeItem(
@@ -9343,7 +9343,7 @@
                                                                 ),
                                                             ),
                                                         },
-                                                        142,
+                                                        141,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_quary: Transient,
@@ -9363,7 +9363,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                23,
+                                                22,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -9405,7 +9405,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Prefix {
                                                 opr: Minus,
-                                                opd: 145,
+                                                opd: 144,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -9418,9 +9418,9 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 144,
+                                                lopd: 143,
                                                 opr: Assign,
-                                                ropd: 146,
+                                                ropd: 145,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -9433,7 +9433,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                22,
+                                                21,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -9475,7 +9475,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Prefix {
                                                 opr: Minus,
-                                                opd: 149,
+                                                opd: 148,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -9488,9 +9488,9 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 148,
+                                                lopd: 147,
                                                 opr: Assign,
-                                                ropd: 150,
+                                                ropd: 149,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -9503,7 +9503,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                19,
+                                                18,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -9545,7 +9545,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Prefix {
                                                 opr: Minus,
-                                                opd: 153,
+                                                opd: 152,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -9558,11 +9558,11 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 152,
+                                                lopd: 151,
                                                 opr: Comparison(
                                                     Eq,
                                                 ),
-                                                ropd: 154,
+                                                ropd: 153,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -9575,7 +9575,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                22,
+                                                21,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -9616,9 +9616,26 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 156,
+                                                lopd: 155,
                                                 opr: Comparison(
                                                     Greater,
+                                                ),
+                                                ropd: 156,
+                                            },
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Transient,
+                                            },
+                                            is_always_copyable: true,
+                                            place_contract_site: HirPlaceContractSite {
+                                                place_contracts: [],
+                                            },
+                                        },
+                                        HirEagerExprEntry {
+                                            data: HirEagerExprData::Binary {
+                                                lopd: 154,
+                                                opr: ShortCircuitLogic(
+                                                    And,
                                                 ),
                                                 ropd: 157,
                                             },
@@ -9632,25 +9649,8 @@
                                             },
                                         },
                                         HirEagerExprEntry {
-                                            data: HirEagerExprData::Binary {
-                                                lopd: 155,
-                                                opr: ShortCircuitLogic(
-                                                    And,
-                                                ),
-                                                ropd: 158,
-                                            },
-                                            contracted_quary: HirContractedQuary {
-                                                contract: None,
-                                                quary: Transient,
-                                            },
-                                            is_always_copyable: true,
-                                            place_contract_site: HirPlaceContractSite {
-                                                place_contracts: [],
-                                            },
-                                        },
-                                        HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                22,
+                                                21,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -9691,9 +9691,26 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 160,
+                                                lopd: 159,
                                                 opr: Comparison(
                                                     Eq,
+                                                ),
+                                                ropd: 160,
+                                            },
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Transient,
+                                            },
+                                            is_always_copyable: true,
+                                            place_contract_site: HirPlaceContractSite {
+                                                place_contracts: [],
+                                            },
+                                        },
+                                        HirEagerExprEntry {
+                                            data: HirEagerExprData::Binary {
+                                                lopd: 158,
+                                                opr: ShortCircuitLogic(
+                                                    And,
                                                 ),
                                                 ropd: 161,
                                             },
@@ -9707,25 +9724,8 @@
                                             },
                                         },
                                         HirEagerExprEntry {
-                                            data: HirEagerExprData::Binary {
-                                                lopd: 159,
-                                                opr: ShortCircuitLogic(
-                                                    And,
-                                                ),
-                                                ropd: 162,
-                                            },
-                                            contracted_quary: HirContractedQuary {
-                                                contract: None,
-                                                quary: Transient,
-                                            },
-                                            is_always_copyable: true,
-                                            place_contract_site: HirPlaceContractSite {
-                                                place_contracts: [],
-                                            },
-                                        },
-                                        HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                10,
+                                                9,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -9751,7 +9751,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodFnCall {
-                                                self_argument: 164,
+                                                self_argument: 163,
                                                 self_contract: At,
                                                 ident: `last`,
                                                 path: AssocItemPath::TypeItem(
@@ -9825,7 +9825,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Unwrap {
-                                                opd: 165,
+                                                opd: 164,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -9851,7 +9851,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                11,
+                                                10,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -9877,7 +9877,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                12,
+                                                11,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -9915,6 +9915,28 @@
                                                     ),
                                                 },
                                                 arguments: [
+                                                    Simple(
+                                                        HirRitchieSimpleParameter {
+                                                            contract: Pure,
+                                                            ty: PathLeading(
+                                                                HirTypePathLeading(
+                                                                    Id {
+                                                                        value: 4,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                        166,
+                                                        Trivial(
+                                                            TrivialHirEagerCoersion {
+                                                                expectee_quary: MutableOnStack {
+                                                                    place: Idx(
+                                                                        PlaceIdx(9),
+                                                                    ),
+                                                                },
+                                                            },
+                                                        ),
+                                                    ),
                                                     Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Pure,
@@ -9931,28 +9953,6 @@
                                                             TrivialHirEagerCoersion {
                                                                 expectee_quary: MutableOnStack {
                                                                     place: Idx(
-                                                                        PlaceIdx(9),
-                                                                    ),
-                                                                },
-                                                            },
-                                                        ),
-                                                    ),
-                                                    Simple(
-                                                        HirRitchieSimpleParameter {
-                                                            contract: Pure,
-                                                            ty: PathLeading(
-                                                                HirTypePathLeading(
-                                                                    Id {
-                                                                        value: 4,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        },
-                                                        168,
-                                                        Trivial(
-                                                            TrivialHirEagerCoersion {
-                                                                expectee_quary: MutableOnStack {
-                                                                    place: Idx(
                                                                         PlaceIdx(10),
                                                                     ),
                                                                 },
@@ -9972,9 +9972,9 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 166,
+                                                lopd: 165,
                                                 opr: Assign,
-                                                ropd: 169,
+                                                ropd: 168,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -9987,7 +9987,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                23,
+                                                22,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -10013,7 +10013,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                22,
+                                                21,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -10039,9 +10039,9 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 171,
+                                                lopd: 170,
                                                 opr: Assign,
-                                                ropd: 172,
+                                                ropd: 171,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -10054,7 +10054,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                22,
+                                                21,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -10080,7 +10080,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                24,
+                                                23,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -10106,9 +10106,9 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 174,
+                                                lopd: 173,
                                                 opr: Assign,
-                                                ropd: 175,
+                                                ropd: 174,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -10121,7 +10121,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                19,
+                                                18,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -10163,7 +10163,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Prefix {
                                                 opr: Minus,
-                                                opd: 178,
+                                                opd: 177,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -10176,11 +10176,11 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 177,
+                                                lopd: 176,
                                                 opr: Comparison(
                                                     Eq,
                                                 ),
-                                                ropd: 179,
+                                                ropd: 178,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -10193,7 +10193,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                22,
+                                                21,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -10234,9 +10234,26 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 181,
+                                                lopd: 180,
                                                 opr: Comparison(
                                                     Greater,
+                                                ),
+                                                ropd: 181,
+                                            },
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Transient,
+                                            },
+                                            is_always_copyable: true,
+                                            place_contract_site: HirPlaceContractSite {
+                                                place_contracts: [],
+                                            },
+                                        },
+                                        HirEagerExprEntry {
+                                            data: HirEagerExprData::Binary {
+                                                lopd: 179,
+                                                opr: ShortCircuitLogic(
+                                                    And,
                                                 ),
                                                 ropd: 182,
                                             },
@@ -10250,25 +10267,8 @@
                                             },
                                         },
                                         HirEagerExprEntry {
-                                            data: HirEagerExprData::Binary {
-                                                lopd: 180,
-                                                opr: ShortCircuitLogic(
-                                                    And,
-                                                ),
-                                                ropd: 183,
-                                            },
-                                            contracted_quary: HirContractedQuary {
-                                                contract: None,
-                                                quary: Transient,
-                                            },
-                                            is_always_copyable: true,
-                                            place_contract_site: HirPlaceContractSite {
-                                                place_contracts: [],
-                                            },
-                                        },
-                                        HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                24,
+                                                23,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -10309,9 +10309,26 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 185,
+                                                lopd: 184,
                                                 opr: Comparison(
                                                     Eq,
+                                                ),
+                                                ropd: 185,
+                                            },
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Transient,
+                                            },
+                                            is_always_copyable: true,
+                                            place_contract_site: HirPlaceContractSite {
+                                                place_contracts: [],
+                                            },
+                                        },
+                                        HirEagerExprEntry {
+                                            data: HirEagerExprData::Binary {
+                                                lopd: 183,
+                                                opr: ShortCircuitLogic(
+                                                    And,
                                                 ),
                                                 ropd: 186,
                                             },
@@ -10325,25 +10342,8 @@
                                             },
                                         },
                                         HirEagerExprEntry {
-                                            data: HirEagerExprData::Binary {
-                                                lopd: 184,
-                                                opr: ShortCircuitLogic(
-                                                    And,
-                                                ),
-                                                ropd: 187,
-                                            },
-                                            contracted_quary: HirContractedQuary {
-                                                contract: None,
-                                                quary: Transient,
-                                            },
-                                            is_always_copyable: true,
-                                            place_contract_site: HirPlaceContractSite {
-                                                place_contracts: [],
-                                            },
-                                        },
-                                        HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                22,
+                                                21,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -10384,9 +10384,26 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 189,
+                                                lopd: 188,
                                                 opr: Comparison(
                                                     Greater,
+                                                ),
+                                                ropd: 189,
+                                            },
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Transient,
+                                            },
+                                            is_always_copyable: true,
+                                            place_contract_site: HirPlaceContractSite {
+                                                place_contracts: [],
+                                            },
+                                        },
+                                        HirEagerExprEntry {
+                                            data: HirEagerExprData::Binary {
+                                                lopd: 187,
+                                                opr: ShortCircuitLogic(
+                                                    And,
                                                 ),
                                                 ropd: 190,
                                             },
@@ -10400,25 +10417,8 @@
                                             },
                                         },
                                         HirEagerExprEntry {
-                                            data: HirEagerExprData::Binary {
-                                                lopd: 188,
-                                                opr: ShortCircuitLogic(
-                                                    And,
-                                                ),
-                                                ropd: 191,
-                                            },
-                                            contracted_quary: HirContractedQuary {
-                                                contract: None,
-                                                quary: Transient,
-                                            },
-                                            is_always_copyable: true,
-                                            place_contract_site: HirPlaceContractSite {
-                                                place_contracts: [],
-                                            },
-                                        },
-                                        HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                10,
+                                                9,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -10444,7 +10444,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodFnCall {
-                                                self_argument: 193,
+                                                self_argument: 192,
                                                 self_contract: At,
                                                 ident: `last`,
                                                 path: AssocItemPath::TypeItem(
@@ -10518,7 +10518,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Unwrap {
-                                                opd: 194,
+                                                opd: 193,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -10544,7 +10544,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                11,
+                                                10,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -10570,7 +10570,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                12,
+                                                11,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -10619,7 +10619,7 @@
                                                                 ),
                                                             ),
                                                         },
-                                                        196,
+                                                        195,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_quary: MutableOnStack {
@@ -10641,7 +10641,7 @@
                                                                 ),
                                                             ),
                                                         },
-                                                        197,
+                                                        196,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_quary: MutableOnStack {
@@ -10665,9 +10665,9 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 195,
+                                                lopd: 194,
                                                 opr: Assign,
-                                                ropd: 198,
+                                                ropd: 197,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -10680,7 +10680,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                23,
+                                                22,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -10722,7 +10722,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Prefix {
                                                 opr: Minus,
-                                                opd: 201,
+                                                opd: 200,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -10735,9 +10735,9 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 200,
+                                                lopd: 199,
                                                 opr: Assign,
-                                                ropd: 202,
+                                                ropd: 201,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -10750,7 +10750,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                22,
+                                                21,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -10792,7 +10792,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Prefix {
                                                 opr: Minus,
-                                                opd: 205,
+                                                opd: 204,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -10805,9 +10805,9 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 204,
+                                                lopd: 203,
                                                 opr: Assign,
-                                                ropd: 206,
+                                                ropd: 205,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -10820,7 +10820,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                10,
+                                                9,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -10846,7 +10846,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                11,
+                                                10,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -10872,7 +10872,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                12,
+                                                11,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -10921,7 +10921,7 @@
                                                                 ),
                                                             ),
                                                         },
-                                                        209,
+                                                        208,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_quary: MutableOnStack {
@@ -10943,7 +10943,7 @@
                                                                 ),
                                                             ),
                                                         },
-                                                        210,
+                                                        209,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_quary: MutableOnStack {
@@ -10967,7 +10967,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodFnCall {
-                                                self_argument: 208,
+                                                self_argument: 207,
                                                 self_contract: BorrowMut,
                                                 ident: `push`,
                                                 path: AssocItemPath::TypeItem(
@@ -11022,7 +11022,7 @@
                                                                 ),
                                                             ),
                                                         },
-                                                        211,
+                                                        210,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_quary: Transient,
@@ -11042,7 +11042,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                23,
+                                                22,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -11068,7 +11068,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                22,
+                                                21,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -11094,9 +11094,9 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 213,
+                                                lopd: 212,
                                                 opr: Assign,
-                                                ropd: 214,
+                                                ropd: 213,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -11109,7 +11109,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                22,
+                                                21,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -11135,7 +11135,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                24,
+                                                23,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -11161,9 +11161,9 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 216,
+                                                lopd: 215,
                                                 opr: Assign,
-                                                ropd: 217,
+                                                ropd: 216,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -11176,7 +11176,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                24,
+                                                23,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -11217,9 +11217,9 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 219,
+                                                lopd: 218,
                                                 opr: Assign,
-                                                ropd: 220,
+                                                ropd: 219,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -11232,7 +11232,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                20,
+                                                19,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -11258,7 +11258,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                19,
+                                                18,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -11284,9 +11284,9 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 222,
+                                                lopd: 221,
                                                 opr: Assign,
-                                                ropd: 223,
+                                                ropd: 222,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -11299,7 +11299,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                19,
+                                                18,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -11325,7 +11325,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                26,
+                                                25,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -11351,9 +11351,9 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 225,
+                                                lopd: 224,
                                                 opr: Assign,
-                                                ropd: 226,
+                                                ropd: 225,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -11366,7 +11366,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                25,
+                                                24,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -11392,7 +11392,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                11,
+                                                10,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -11418,7 +11418,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                11,
+                                                10,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -11459,10 +11459,25 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 230,
+                                                lopd: 229,
                                                 opr: Closed(
                                                     Sub,
                                                 ),
+                                                ropd: 230,
+                                            },
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Transient,
+                                            },
+                                            is_always_copyable: true,
+                                            place_contract_site: HirPlaceContractSite {
+                                                place_contracts: [],
+                                            },
+                                        },
+                                        HirEagerExprEntry {
+                                            data: HirEagerExprData::Binary {
+                                                lopd: 228,
+                                                opr: Assign,
                                                 ropd: 231,
                                             },
                                             contracted_quary: HirContractedQuary {
@@ -11475,23 +11490,8 @@
                                             },
                                         },
                                         HirEagerExprEntry {
-                                            data: HirEagerExprData::Binary {
-                                                lopd: 229,
-                                                opr: Assign,
-                                                ropd: 232,
-                                            },
-                                            contracted_quary: HirContractedQuary {
-                                                contract: None,
-                                                quary: Transient,
-                                            },
-                                            is_always_copyable: true,
-                                            place_contract_site: HirPlaceContractSite {
-                                                place_contracts: [],
-                                            },
-                                        },
-                                        HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                14,
+                                                13,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -11517,7 +11517,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                13,
+                                                12,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -11543,9 +11543,9 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 234,
+                                                lopd: 233,
                                                 opr: Assign,
-                                                ropd: 235,
+                                                ropd: 234,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -11558,7 +11558,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                13,
+                                                12,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -11584,7 +11584,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                1,
+                                                0,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -11610,7 +11610,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                self_argument: 238,
+                                                self_argument: 237,
                                                 self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`core::mem::Leash`, `Extern`),
@@ -11650,7 +11650,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                11,
+                                                10,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -11691,11 +11691,11 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 240,
+                                                lopd: 239,
                                                 opr: Closed(
                                                     Sub,
                                                 ),
-                                                ropd: 241,
+                                                ropd: 240,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -11708,9 +11708,9 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Index {
-                                                owner: 239,
+                                                owner: 238,
                                                 items: [
-                                                    242,
+                                                    241,
                                                 ],
                                             },
                                             contracted_quary: HirContractedQuary {
@@ -11726,9 +11726,9 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 237,
+                                                lopd: 236,
                                                 opr: Assign,
-                                                ropd: 243,
+                                                ropd: 242,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -11741,7 +11741,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                11,
+                                                10,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -11767,7 +11767,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                11,
+                                                10,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -11808,10 +11808,25 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 246,
+                                                lopd: 245,
                                                 opr: Closed(
                                                     Add,
                                                 ),
+                                                ropd: 246,
+                                            },
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Transient,
+                                            },
+                                            is_always_copyable: true,
+                                            place_contract_site: HirPlaceContractSite {
+                                                place_contracts: [],
+                                            },
+                                        },
+                                        HirEagerExprEntry {
+                                            data: HirEagerExprData::Binary {
+                                                lopd: 244,
+                                                opr: Assign,
                                                 ropd: 247,
                                             },
                                             contracted_quary: HirContractedQuary {
@@ -11824,23 +11839,8 @@
                                             },
                                         },
                                         HirEagerExprEntry {
-                                            data: HirEagerExprData::Binary {
-                                                lopd: 245,
-                                                opr: Assign,
-                                                ropd: 248,
-                                            },
-                                            contracted_quary: HirContractedQuary {
-                                                contract: None,
-                                                quary: Transient,
-                                            },
-                                            is_always_copyable: true,
-                                            place_contract_site: HirPlaceContractSite {
-                                                place_contracts: [],
-                                            },
-                                        },
-                                        HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                13,
+                                                12,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -11866,7 +11866,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                14,
+                                                13,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -11892,9 +11892,9 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 250,
+                                                lopd: 249,
                                                 opr: Assign,
-                                                ropd: 251,
+                                                ropd: 250,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -11907,7 +11907,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                14,
+                                                13,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -11933,7 +11933,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                1,
+                                                0,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -11959,7 +11959,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                self_argument: 254,
+                                                self_argument: 253,
                                                 self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`core::mem::Leash`, `Extern`),
@@ -11999,7 +11999,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                11,
+                                                10,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -12025,9 +12025,9 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Index {
-                                                owner: 255,
+                                                owner: 254,
                                                 items: [
-                                                    256,
+                                                    255,
                                                 ],
                                             },
                                             contracted_quary: HirContractedQuary {
@@ -12043,9 +12043,9 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 253,
+                                                lopd: 252,
                                                 opr: Assign,
-                                                ropd: 257,
+                                                ropd: 256,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -12058,7 +12058,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                12,
+                                                11,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -12084,7 +12084,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                12,
+                                                11,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -12125,10 +12125,25 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 260,
+                                                lopd: 259,
                                                 opr: Closed(
                                                     Add,
                                                 ),
+                                                ropd: 260,
+                                            },
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Transient,
+                                            },
+                                            is_always_copyable: true,
+                                            place_contract_site: HirPlaceContractSite {
+                                                place_contracts: [],
+                                            },
+                                        },
+                                        HirEagerExprEntry {
+                                            data: HirEagerExprData::Binary {
+                                                lopd: 258,
+                                                opr: Assign,
                                                 ropd: 261,
                                             },
                                             contracted_quary: HirContractedQuary {
@@ -12141,23 +12156,8 @@
                                             },
                                         },
                                         HirEagerExprEntry {
-                                            data: HirEagerExprData::Binary {
-                                                lopd: 259,
-                                                opr: Assign,
-                                                ropd: 262,
-                                            },
-                                            contracted_quary: HirContractedQuary {
-                                                contract: None,
-                                                quary: Transient,
-                                            },
-                                            is_always_copyable: true,
-                                            place_contract_site: HirPlaceContractSite {
-                                                place_contracts: [],
-                                            },
-                                        },
-                                        HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                12,
+                                                11,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -12183,7 +12183,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                12,
+                                                11,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -12224,11 +12224,11 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 265,
+                                                lopd: 264,
                                                 opr: Closed(
                                                     Sub,
                                                 ),
-                                                ropd: 266,
+                                                ropd: 265,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -12241,9 +12241,9 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 264,
+                                                lopd: 263,
                                                 opr: Assign,
-                                                ropd: 267,
+                                                ropd: 266,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -12256,7 +12256,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                15,
+                                                14,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -12282,7 +12282,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                25,
+                                                24,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -12308,9 +12308,9 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 269,
+                                                lopd: 268,
                                                 opr: Assign,
-                                                ropd: 270,
+                                                ropd: 269,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -12323,7 +12323,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                24,
+                                                23,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -12365,7 +12365,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Prefix {
                                                 opr: Minus,
-                                                opd: 273,
+                                                opd: 272,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -12378,11 +12378,11 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 272,
+                                                lopd: 271,
                                                 opr: Comparison(
                                                     Neq,
                                                 ),
-                                                ropd: 274,
+                                                ropd: 273,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -12395,7 +12395,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                24,
+                                                23,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -12421,7 +12421,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Suffix {
-                                                opd: 276,
+                                                opd: 275,
                                                 opr: Incr,
                                             },
                                             contracted_quary: HirContractedQuary {
@@ -12435,7 +12435,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                19,
+                                                18,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -12477,7 +12477,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Prefix {
                                                 opr: Minus,
-                                                opd: 279,
+                                                opd: 278,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -12490,11 +12490,11 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 278,
+                                                lopd: 277,
                                                 opr: Comparison(
                                                     Eq,
                                                 ),
-                                                ropd: 280,
+                                                ropd: 279,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -12507,7 +12507,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                24,
+                                                23,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -12548,9 +12548,26 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 282,
+                                                lopd: 281,
                                                 opr: Comparison(
                                                     Eq,
+                                                ),
+                                                ropd: 282,
+                                            },
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Transient,
+                                            },
+                                            is_always_copyable: true,
+                                            place_contract_site: HirPlaceContractSite {
+                                                place_contracts: [],
+                                            },
+                                        },
+                                        HirEagerExprEntry {
+                                            data: HirEagerExprData::Binary {
+                                                lopd: 280,
+                                                opr: ShortCircuitLogic(
+                                                    And,
                                                 ),
                                                 ropd: 283,
                                             },
@@ -12564,25 +12581,8 @@
                                             },
                                         },
                                         HirEagerExprEntry {
-                                            data: HirEagerExprData::Binary {
-                                                lopd: 281,
-                                                opr: ShortCircuitLogic(
-                                                    And,
-                                                ),
-                                                ropd: 284,
-                                            },
-                                            contracted_quary: HirContractedQuary {
-                                                contract: None,
-                                                quary: Transient,
-                                            },
-                                            is_always_copyable: true,
-                                            place_contract_site: HirPlaceContractSite {
-                                                place_contracts: [],
-                                            },
-                                        },
-                                        HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                22,
+                                                21,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -12623,9 +12623,26 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 286,
+                                                lopd: 285,
                                                 opr: Comparison(
                                                     Greater,
+                                                ),
+                                                ropd: 286,
+                                            },
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Transient,
+                                            },
+                                            is_always_copyable: true,
+                                            place_contract_site: HirPlaceContractSite {
+                                                place_contracts: [],
+                                            },
+                                        },
+                                        HirEagerExprEntry {
+                                            data: HirEagerExprData::Binary {
+                                                lopd: 284,
+                                                opr: ShortCircuitLogic(
+                                                    And,
                                                 ),
                                                 ropd: 287,
                                             },
@@ -12639,25 +12656,8 @@
                                             },
                                         },
                                         HirEagerExprEntry {
-                                            data: HirEagerExprData::Binary {
-                                                lopd: 285,
-                                                opr: ShortCircuitLogic(
-                                                    And,
-                                                ),
-                                                ropd: 288,
-                                            },
-                                            contracted_quary: HirContractedQuary {
-                                                contract: None,
-                                                quary: Transient,
-                                            },
-                                            is_always_copyable: true,
-                                            place_contract_site: HirPlaceContractSite {
-                                                place_contracts: [],
-                                            },
-                                        },
-                                        HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                10,
+                                                9,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -12683,7 +12683,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodFnCall {
-                                                self_argument: 290,
+                                                self_argument: 289,
                                                 self_contract: BorrowMut,
                                                 ident: `pop`,
                                                 path: AssocItemPath::TypeItem(
@@ -12739,7 +12739,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                2,
+                                                1,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -12765,7 +12765,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                1,
+                                                0,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -12791,7 +12791,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                10,
+                                                9,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -12834,7 +12834,7 @@
                                                                 ),
                                                             ),
                                                         },
-                                                        293,
+                                                        292,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_quary: StackPure {
@@ -12856,7 +12856,7 @@
                                                                 ),
                                                             ),
                                                         },
-                                                        294,
+                                                        293,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_quary: MutableOnStack {
@@ -12880,7 +12880,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodFnCall {
-                                                self_argument: 292,
+                                                self_argument: 291,
                                                 self_contract: BorrowMut,
                                                 ident: `push`,
                                                 path: AssocItemPath::TypeItem(
@@ -12935,7 +12935,7 @@
                                                                 ),
                                                             ),
                                                         },
-                                                        295,
+                                                        294,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_quary: Transient,
@@ -12955,7 +12955,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                2,
+                                                1,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -12982,7 +12982,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Block {
                                                 stmts: ArenaIdxRange(
-                                                    59..64,
+                                                    58..63,
                                                 ),
                                             },
                                             contracted_quary: HirContractedQuary {
@@ -13000,11 +13000,20 @@
                                     data: [
                                         Let {
                                             pattern: HirEagerLetVariablesPattern {
+                                                pattern_expr_idx: 2,
+                                                ty: None,
+                                            },
+                                            contract: Pure,
+                                            initial_value: 9,
+                                            coersion: None,
+                                        },
+                                        Let {
+                                            pattern: HirEagerLetVariablesPattern {
                                                 pattern_expr_idx: 3,
                                                 ty: None,
                                             },
                                             contract: Pure,
-                                            initial_value: 10,
+                                            initial_value: 13,
                                             coersion: None,
                                         },
                                         Let {
@@ -13013,7 +13022,7 @@
                                                 ty: None,
                                             },
                                             contract: Pure,
-                                            initial_value: 14,
+                                            initial_value: 16,
                                             coersion: None,
                                         },
                                         Let {
@@ -13022,20 +13031,11 @@
                                                 ty: None,
                                             },
                                             contract: Pure,
-                                            initial_value: 17,
-                                            coersion: None,
-                                        },
-                                        Let {
-                                            pattern: HirEagerLetVariablesPattern {
-                                                pattern_expr_idx: 6,
-                                                ty: None,
-                                            },
-                                            contract: Pure,
-                                            initial_value: 20,
+                                            initial_value: 19,
                                             coersion: None,
                                         },
                                         Eval {
-                                            expr: 40,
+                                            expr: 39,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -13046,7 +13046,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr: 138,
+                                            expr: 137,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -13057,7 +13057,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr: 143,
+                                            expr: 142,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -13068,7 +13068,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr: 147,
+                                            expr: 146,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -13079,7 +13079,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr: 151,
+                                            expr: 150,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -13090,7 +13090,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr: 170,
+                                            expr: 169,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -13101,7 +13101,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr: 173,
+                                            expr: 172,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -13112,7 +13112,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr: 176,
+                                            expr: 175,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -13123,7 +13123,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr: 199,
+                                            expr: 198,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -13134,7 +13134,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr: 203,
+                                            expr: 202,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -13145,7 +13145,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr: 207,
+                                            expr: 206,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -13156,7 +13156,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr: 212,
+                                            expr: 211,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -13167,7 +13167,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr: 215,
+                                            expr: 214,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -13178,7 +13178,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr: 218,
+                                            expr: 217,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -13191,43 +13191,43 @@
                                         IfElse {
                                             if_branch: HirEagerIfBranch {
                                                 condition: Other {
-                                                    opd: 132,
+                                                    opd: 131,
                                                     conversion: None,
                                                 },
                                                 stmts: ArenaIdxRange(
-                                                    6..10,
+                                                    5..9,
                                                 ),
                                             },
                                             elif_branches: [
                                                 HirEagerElifBranch {
                                                     condition: Other {
-                                                        opd: 163,
+                                                        opd: 162,
                                                         conversion: None,
                                                     },
                                                     stmts: ArenaIdxRange(
-                                                        10..13,
+                                                        9..12,
                                                     ),
                                                 },
                                                 HirEagerElifBranch {
                                                     condition: Other {
-                                                        opd: 192,
+                                                        opd: 191,
                                                         conversion: None,
                                                     },
                                                     stmts: ArenaIdxRange(
-                                                        13..16,
+                                                        12..15,
                                                     ),
                                                 },
                                             ],
                                             else_branch: Some(
                                                 HirEagerElseBranch {
                                                     stmts: ArenaIdxRange(
-                                                        16..19,
+                                                        15..18,
                                                     ),
                                                 },
                                             ),
                                         },
                                         Eval {
-                                            expr: 221,
+                                            expr: 220,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -13238,7 +13238,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr: 224,
+                                            expr: 223,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -13249,7 +13249,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr: 227,
+                                            expr: 226,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -13260,7 +13260,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr: 233,
+                                            expr: 232,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -13271,7 +13271,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr: 236,
+                                            expr: 235,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -13282,7 +13282,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr: 244,
+                                            expr: 243,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -13293,7 +13293,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr: 249,
+                                            expr: 248,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -13304,7 +13304,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr: 252,
+                                            expr: 251,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -13315,7 +13315,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr: 258,
+                                            expr: 257,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -13326,7 +13326,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr: 263,
+                                            expr: 262,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -13337,7 +13337,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr: 268,
+                                            expr: 267,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -13348,7 +13348,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr: 277,
+                                            expr: 276,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -13357,6 +13357,15 @@
                                                 ),
                                             ),
                                             discarded: false,
+                                        },
+                                        Let {
+                                            pattern: HirEagerLetVariablesPattern {
+                                                pattern_expr_idx: 21,
+                                                ty: None,
+                                            },
+                                            contract: Pure,
+                                            initial_value: 93,
+                                            coersion: None,
                                         },
                                         Let {
                                             pattern: HirEagerLetVariablesPattern {
@@ -13364,20 +13373,11 @@
                                                 ty: None,
                                             },
                                             contract: Pure,
-                                            initial_value: 94,
-                                            coersion: None,
-                                        },
-                                        Let {
-                                            pattern: HirEagerLetVariablesPattern {
-                                                pattern_expr_idx: 23,
-                                                ty: None,
-                                            },
-                                            contract: Pure,
-                                            initial_value: 97,
+                                            initial_value: 96,
                                             coersion: None,
                                         },
                                         Eval {
-                                            expr: 109,
+                                            expr: 108,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -13390,31 +13390,37 @@
                                         IfElse {
                                             if_branch: HirEagerIfBranch {
                                                 condition: Other {
-                                                    opd: 110,
+                                                    opd: 109,
                                                     conversion: IntToBool(
                                                         I32,
                                                     ),
                                                 },
                                                 stmts: ArenaIdxRange(
-                                                    19..23,
+                                                    18..22,
                                                 ),
                                             },
                                             elif_branches: [],
                                             else_branch: None,
                                         },
                                         Match {
-                                            opd: 228,
+                                            opd: 227,
                                             case_branches: [
+                                                HirEagerCaseBranch {
+                                                    pattern: 23,
+                                                    stmts: ArenaIdxRange(
+                                                        22..25,
+                                                    ),
+                                                },
                                                 HirEagerCaseBranch {
                                                     pattern: 24,
                                                     stmts: ArenaIdxRange(
-                                                        23..26,
+                                                        25..28,
                                                     ),
                                                 },
                                                 HirEagerCaseBranch {
                                                     pattern: 25,
                                                     stmts: ArenaIdxRange(
-                                                        26..29,
+                                                        28..29,
                                                     ),
                                                 },
                                                 HirEagerCaseBranch {
@@ -13423,16 +13429,10 @@
                                                         29..30,
                                                     ),
                                                 },
-                                                HirEagerCaseBranch {
-                                                    pattern: 27,
-                                                    stmts: ArenaIdxRange(
-                                                        30..31,
-                                                    ),
-                                                },
                                             ],
                                         },
                                         Eval {
-                                            expr: 271,
+                                            expr: 270,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -13445,24 +13445,24 @@
                                         IfElse {
                                             if_branch: HirEagerIfBranch {
                                                 condition: Other {
-                                                    opd: 275,
+                                                    opd: 274,
                                                     conversion: None,
                                                 },
                                                 stmts: ArenaIdxRange(
-                                                    31..32,
+                                                    30..31,
                                                 ),
                                             },
                                             elif_branches: [],
                                             else_branch: None,
                                         },
                                         Eval {
-                                            expr: 291,
+                                            expr: 290,
                                             coersion: None,
                                             discarded: true,
                                         },
                                         Let {
                                             pattern: HirEagerLetVariablesPattern {
-                                                pattern_expr_idx: 7,
+                                                pattern_expr_idx: 6,
                                                 ty: Some(
                                                     PathLeading(
                                                         HirTypePathLeading(
@@ -13474,7 +13474,7 @@
                                                 ),
                                             },
                                             contract: Move,
-                                            initial_value: 46,
+                                            initial_value: 45,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -13485,11 +13485,20 @@
                                         },
                                         Let {
                                             pattern: HirEagerLetVariablesPattern {
+                                                pattern_expr_idx: 7,
+                                                ty: None,
+                                            },
+                                            contract: Move,
+                                            initial_value: 46,
+                                            coersion: None,
+                                        },
+                                        Let {
+                                            pattern: HirEagerLetVariablesPattern {
                                                 pattern_expr_idx: 8,
                                                 ty: None,
                                             },
                                             contract: Move,
-                                            initial_value: 47,
+                                            initial_value: 50,
                                             coersion: None,
                                         },
                                         Let {
@@ -13498,7 +13507,7 @@
                                                 ty: None,
                                             },
                                             contract: Move,
-                                            initial_value: 51,
+                                            initial_value: 56,
                                             coersion: None,
                                         },
                                         Let {
@@ -13507,7 +13516,7 @@
                                                 ty: None,
                                             },
                                             contract: Move,
-                                            initial_value: 57,
+                                            initial_value: 60,
                                             coersion: None,
                                         },
                                         Let {
@@ -13516,7 +13525,7 @@
                                                 ty: None,
                                             },
                                             contract: Move,
-                                            initial_value: 61,
+                                            initial_value: 64,
                                             coersion: None,
                                         },
                                         Let {
@@ -13524,7 +13533,7 @@
                                                 pattern_expr_idx: 12,
                                                 ty: None,
                                             },
-                                            contract: Move,
+                                            contract: Pure,
                                             initial_value: 65,
                                             coersion: None,
                                         },
@@ -13551,7 +13560,7 @@
                                                 pattern_expr_idx: 15,
                                                 ty: None,
                                             },
-                                            contract: Pure,
+                                            contract: Move,
                                             initial_value: 68,
                                             coersion: None,
                                         },
@@ -13579,7 +13588,7 @@
                                                 ty: None,
                                             },
                                             contract: Move,
-                                            initial_value: 71,
+                                            initial_value: 72,
                                             coersion: None,
                                         },
                                         Let {
@@ -13588,7 +13597,7 @@
                                                 ty: None,
                                             },
                                             contract: Move,
-                                            initial_value: 73,
+                                            initial_value: 74,
                                             coersion: None,
                                         },
                                         Let {
@@ -13597,42 +13606,33 @@
                                                 ty: None,
                                             },
                                             contract: Move,
-                                            initial_value: 75,
-                                            coersion: None,
-                                        },
-                                        Let {
-                                            pattern: HirEagerLetVariablesPattern {
-                                                pattern_expr_idx: 21,
-                                                ty: None,
-                                            },
-                                            contract: Move,
-                                            initial_value: 77,
+                                            initial_value: 76,
                                             coersion: None,
                                         },
                                         DoWhile {
                                             condition: Other {
-                                                opd: 89,
+                                                opd: 88,
                                                 conversion: None,
                                             },
                                             stmts: ArenaIdxRange(
-                                                32..39,
+                                                31..38,
                                             ),
                                         },
                                         IfElse {
                                             if_branch: HirEagerIfBranch {
                                                 condition: Other {
-                                                    opd: 289,
+                                                    opd: 288,
                                                     conversion: None,
                                                 },
                                                 stmts: ArenaIdxRange(
-                                                    39..40,
+                                                    38..39,
                                                 ),
                                             },
                                             elif_branches: [],
                                             else_branch: None,
                                         },
                                         Eval {
-                                            expr: 296,
+                                            expr: 295,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -13644,18 +13644,18 @@
                                         },
                                         While {
                                             condition: Other {
-                                                opd: 45,
+                                                opd: 44,
                                                 conversion: IntToBool(
                                                     R32,
                                                 ),
                                             },
                                             stmts: ArenaIdxRange(
-                                                40..58,
+                                                39..57,
                                             ),
                                         },
                                         Let {
                                             pattern: HirEagerLetVariablesPattern {
-                                                pattern_expr_idx: 1,
+                                                pattern_expr_idx: 0,
                                                 ty: Some(
                                                     PathLeading(
                                                         HirTypePathLeading(
@@ -13667,7 +13667,7 @@
                                                 ),
                                             },
                                             contract: Move,
-                                            initial_value: 1,
+                                            initial_value: 0,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -13678,11 +13678,11 @@
                                         },
                                         Let {
                                             pattern: HirEagerLetVariablesPattern {
-                                                pattern_expr_idx: 2,
+                                                pattern_expr_idx: 1,
                                                 ty: None,
                                             },
                                             contract: Move,
-                                            initial_value: 2,
+                                            initial_value: 1,
                                             coersion: None,
                                         },
                                         ForBetween {
@@ -13697,13 +13697,13 @@
                                                 range: HirEagerForBetweenRange {
                                                     initial_boundary: HirEagerForBetweenLoopBoundary {
                                                         bound_expr: Some(
-                                                            3,
+                                                            2,
                                                         ),
                                                         kind: LowerClosed,
                                                     },
                                                     final_boundary: HirEagerForBetweenLoopBoundary {
                                                         bound_expr: Some(
-                                                            4,
+                                                            3,
                                                         ),
                                                         kind: UpperClosed,
                                                     },
@@ -13713,7 +13713,7 @@
                                                 },
                                             },
                                             stmts: ArenaIdxRange(
-                                                1..6,
+                                                0..5,
                                             ),
                                         },
                                         ForBetween {
@@ -13728,13 +13728,13 @@
                                                 range: HirEagerForBetweenRange {
                                                     initial_boundary: HirEagerForBetweenLoopBoundary {
                                                         bound_expr: Some(
-                                                            41,
+                                                            40,
                                                         ),
                                                         kind: LowerClosed,
                                                     },
                                                     final_boundary: HirEagerForBetweenLoopBoundary {
                                                         bound_expr: Some(
-                                                            42,
+                                                            41,
                                                         ),
                                                         kind: UpperClosed,
                                                     },
@@ -13744,11 +13744,11 @@
                                                 },
                                             },
                                             stmts: ArenaIdxRange(
-                                                58..59,
+                                                57..58,
                                             ),
                                         },
                                         Return {
-                                            result: 297,
+                                            result: 296,
                                             coersion: Trivial(
                                                 TrivialHirEagerCoersion {
                                                     expectee_quary: MutableOnStack {
@@ -14314,14 +14314,14 @@
                                     ],
                                 },
                                 self_value_variable: Some(
-                                    1,
+                                    0,
                                 ),
                             },
                         },
                     },
                     eager_body_with_hir_eager_expr_region: Some(
                         (
-                            4,
+                            3,
                             HirEagerExprRegion {
                                 region_path: RegionPath::Defn(
                                     ItemPath::AssocItem(
@@ -14339,7 +14339,7 @@
                                     data: [
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                1,
+                                                0,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -14365,7 +14365,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                self_argument: 1,
+                                                self_argument: 0,
                                                 self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
@@ -14426,7 +14426,7 @@
                                                                 },
                                                             ),
                                                         ),
-                                                        expr: 2,
+                                                        expr: 1,
                                                     },
                                                 ],
                                             },
@@ -14442,7 +14442,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Block {
                                                 stmts: ArenaIdxRange(
-                                                    1..2,
+                                                    0..1,
                                                 ),
                                             },
                                             contracted_quary: HirContractedQuary {
@@ -14459,7 +14459,7 @@
                                 stmt_arena: Arena {
                                     data: [
                                         Eval {
-                                            expr: 3,
+                                            expr: 2,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -14489,7 +14489,7 @@
                                         ],
                                     },
                                     self_value_variable: Some(
-                                        1,
+                                        0,
                                     ),
                                 },
                             },
@@ -14605,14 +14605,14 @@
                                     ],
                                 },
                                 self_value_variable: Some(
-                                    1,
+                                    0,
                                 ),
                             },
                         },
                     },
                     eager_body_with_hir_eager_expr_region: Some(
                         (
-                            4,
+                            3,
                             HirEagerExprRegion {
                                 region_path: RegionPath::Defn(
                                     ItemPath::AssocItem(
@@ -14625,7 +14625,7 @@
                                     data: [
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                1,
+                                                0,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -14685,7 +14685,7 @@
                                                                 ),
                                                             ),
                                                         },
-                                                        1,
+                                                        0,
                                                         PlaceToLeash,
                                                     ),
                                                     Simple(
@@ -14699,7 +14699,7 @@
                                                                 ),
                                                             ),
                                                         },
-                                                        2,
+                                                        1,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_quary: Const,
@@ -14720,7 +14720,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Block {
                                                 stmts: ArenaIdxRange(
-                                                    1..2,
+                                                    0..1,
                                                 ),
                                             },
                                             contracted_quary: HirContractedQuary {
@@ -14737,7 +14737,7 @@
                                 stmt_arena: Arena {
                                     data: [
                                         Eval {
-                                            expr: 3,
+                                            expr: 2,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -14767,7 +14767,7 @@
                                         ],
                                     },
                                     self_value_variable: Some(
-                                        1,
+                                        0,
                                     ),
                                 },
                             },
@@ -14823,14 +14823,14 @@
                                     ],
                                 },
                                 self_value_variable: Some(
-                                    1,
+                                    0,
                                 ),
                             },
                         },
                     },
                     eager_body_with_hir_eager_expr_region: Some(
                         (
-                            51,
+                            50,
                             HirEagerExprRegion {
                                 region_path: RegionPath::Defn(
                                     ItemPath::AssocItem(
@@ -14843,7 +14843,7 @@
                                     data: [
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                1,
+                                                0,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -14860,7 +14860,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                self_argument: 1,
+                                                self_argument: 0,
                                                 self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
@@ -14919,9 +14919,9 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Index {
-                                                owner: 2,
+                                                owner: 1,
                                                 items: [
-                                                    3,
+                                                    2,
                                                 ],
                                             },
                                             contracted_quary: HirContractedQuary {
@@ -14939,7 +14939,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                2,
+                                                1,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -14956,7 +14956,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                self_argument: 5,
+                                                self_argument: 4,
                                                 self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -14988,7 +14988,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                2,
+                                                1,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -15005,7 +15005,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                self_argument: 7,
+                                                self_argument: 6,
                                                 self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -15037,7 +15037,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                2,
+                                                1,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -15054,56 +15054,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                self_argument: 9,
-                                                self_ty: HirType::PathLeading(
-                                                    HirTypePathLeading {
-                                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                                        template_arguments: [],
-                                                        always_copyable: false,
-                                                    },
-                                                ),
-                                                ident: `y`,
-                                                field_ty: HirType::PathLeading(
-                                                    HirTypePathLeading {
-                                                        ty_path: TypePath(`core::num::f32`, `Extern`),
-                                                        template_arguments: [],
-                                                        always_copyable: true,
-                                                    },
-                                                ),
-                                            },
-                                            contracted_quary: HirContractedQuary {
-                                                contract: None,
-                                                quary: Leashed {
-                                                    place_idx: Some(
-                                                        PlaceIdx(1),
-                                                    ),
-                                                },
-                                            },
-                                            is_always_copyable: true,
-                                            place_contract_site: HirPlaceContractSite {
-                                                place_contracts: [],
-                                            },
-                                        },
-                                        HirEagerExprEntry {
-                                            data: HirEagerExprData::Variable(
-                                                2,
-                                            ),
-                                            contracted_quary: HirContractedQuary {
-                                                contract: None,
-                                                quary: Leashed {
-                                                    place_idx: Some(
-                                                        PlaceIdx(1),
-                                                    ),
-                                                },
-                                            },
-                                            is_always_copyable: false,
-                                            place_contract_site: HirPlaceContractSite {
-                                                place_contracts: [],
-                                            },
-                                        },
-                                        HirEagerExprEntry {
-                                            data: HirEagerExprData::PropsStructField {
-                                                self_argument: 11,
+                                                self_argument: 8,
                                                 self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -15141,6 +15092,55 @@
                                                 contract: None,
                                                 quary: Leashed {
                                                     place_idx: Some(
+                                                        PlaceIdx(1),
+                                                    ),
+                                                },
+                                            },
+                                            is_always_copyable: false,
+                                            place_contract_site: HirPlaceContractSite {
+                                                place_contracts: [],
+                                            },
+                                        },
+                                        HirEagerExprEntry {
+                                            data: HirEagerExprData::PropsStructField {
+                                                self_argument: 10,
+                                                self_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                        template_arguments: [],
+                                                        always_copyable: false,
+                                                    },
+                                                ),
+                                                ident: `y`,
+                                                field_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                        template_arguments: [],
+                                                        always_copyable: true,
+                                                    },
+                                                ),
+                                            },
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Leashed {
+                                                    place_idx: Some(
+                                                        PlaceIdx(1),
+                                                    ),
+                                                },
+                                            },
+                                            is_always_copyable: true,
+                                            place_contract_site: HirPlaceContractSite {
+                                                place_contracts: [],
+                                            },
+                                        },
+                                        HirEagerExprEntry {
+                                            data: HirEagerExprData::Variable(
+                                                0,
+                                            ),
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Leashed {
+                                                    place_idx: Some(
                                                         PlaceIdx(0),
                                                     ),
                                                 },
@@ -15152,7 +15152,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                self_argument: 13,
+                                                self_argument: 12,
                                                 self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
@@ -15194,7 +15194,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodFnCall {
-                                                self_argument: 14,
+                                                self_argument: 13,
                                                 self_contract: Pure,
                                                 ident: `ilen`,
                                                 path: AssocItemPath::TypeItem(
@@ -15244,7 +15244,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                1,
+                                                0,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -15261,7 +15261,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                self_argument: 16,
+                                                self_argument: 15,
                                                 self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
@@ -15303,7 +15303,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                7,
+                                                6,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -15329,9 +15329,9 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Index {
-                                                owner: 17,
+                                                owner: 16,
                                                 items: [
-                                                    18,
+                                                    17,
                                                 ],
                                             },
                                             contracted_quary: HirContractedQuary {
@@ -15349,7 +15349,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                3,
+                                                2,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -15375,7 +15375,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                3,
+                                                2,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -15401,7 +15401,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                8,
+                                                7,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -15418,173 +15418,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                self_argument: 22,
-                                                self_ty: HirType::PathLeading(
-                                                    HirTypePathLeading {
-                                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                                        template_arguments: [],
-                                                        always_copyable: false,
-                                                    },
-                                                ),
-                                                ident: `x`,
-                                                field_ty: HirType::PathLeading(
-                                                    HirTypePathLeading {
-                                                        ty_path: TypePath(`core::num::f32`, `Extern`),
-                                                        template_arguments: [],
-                                                        always_copyable: true,
-                                                    },
-                                                ),
-                                            },
-                                            contracted_quary: HirContractedQuary {
-                                                contract: None,
-                                                quary: Leashed {
-                                                    place_idx: Some(
-                                                        PlaceIdx(7),
-                                                    ),
-                                                },
-                                            },
-                                            is_always_copyable: true,
-                                            place_contract_site: HirPlaceContractSite {
-                                                place_contracts: [],
-                                            },
-                                        },
-                                        HirEagerExprEntry {
-                                            data: HirEagerExprData::MethodFnCall {
                                                 self_argument: 21,
-                                                self_contract: Pure,
-                                                ident: `min`,
-                                                path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`<core::num::f32(0)>::min`, `MethodRitchie(
-                                                        Fn,
-                                                    )`),
-                                                ),
-                                                instantiation: HirInstantiation {
-                                                    symbol_map: [],
-                                                    separator: Some(
-                                                        0,
-                                                    ),
-                                                },
-                                                arguments: [
-                                                    Simple(
-                                                        HirRitchieSimpleParameter {
-                                                            contract: Pure,
-                                                            ty: PathLeading(
-                                                                HirTypePathLeading(
-                                                                    Id {
-                                                                        value: 9,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        },
-                                                        23,
-                                                        Trivial(
-                                                            TrivialHirEagerCoersion {
-                                                                expectee_quary: Leashed {
-                                                                    place_idx: Some(
-                                                                        PlaceIdx(7),
-                                                                    ),
-                                                                },
-                                                            },
-                                                        ),
-                                                    ),
-                                                ],
-                                            },
-                                            contracted_quary: HirContractedQuary {
-                                                contract: None,
-                                                quary: Transient,
-                                            },
-                                            is_always_copyable: true,
-                                            place_contract_site: HirPlaceContractSite {
-                                                place_contracts: [],
-                                            },
-                                        },
-                                        HirEagerExprEntry {
-                                            data: HirEagerExprData::Binary {
-                                                lopd: 20,
-                                                opr: Assign,
-                                                ropd: 24,
-                                            },
-                                            contracted_quary: HirContractedQuary {
-                                                contract: None,
-                                                quary: Transient,
-                                            },
-                                            is_always_copyable: true,
-                                            place_contract_site: HirPlaceContractSite {
-                                                place_contracts: [],
-                                            },
-                                        },
-                                        HirEagerExprEntry {
-                                            data: HirEagerExprData::Variable(
-                                                4,
-                                            ),
-                                            contracted_quary: HirContractedQuary {
-                                                contract: Some(
-                                                    BorrowMut,
-                                                ),
-                                                quary: MutableOnStack {
-                                                    place: Idx(
-                                                        PlaceIdx(3),
-                                                    ),
-                                                },
-                                            },
-                                            is_always_copyable: true,
-                                            place_contract_site: HirPlaceContractSite {
-                                                place_contracts: [
-                                                    (
-                                                        Idx(
-                                                            PlaceIdx(3),
-                                                        ),
-                                                        BorrowMut,
-                                                    ),
-                                                ],
-                                            },
-                                        },
-                                        HirEagerExprEntry {
-                                            data: HirEagerExprData::Variable(
-                                                4,
-                                            ),
-                                            contracted_quary: HirContractedQuary {
-                                                contract: Some(
-                                                    Pure,
-                                                ),
-                                                quary: MutableOnStack {
-                                                    place: Idx(
-                                                        PlaceIdx(3),
-                                                    ),
-                                                },
-                                            },
-                                            is_always_copyable: true,
-                                            place_contract_site: HirPlaceContractSite {
-                                                place_contracts: [
-                                                    (
-                                                        Idx(
-                                                            PlaceIdx(3),
-                                                        ),
-                                                        Pure,
-                                                    ),
-                                                ],
-                                            },
-                                        },
-                                        HirEagerExprEntry {
-                                            data: HirEagerExprData::Variable(
-                                                8,
-                                            ),
-                                            contracted_quary: HirContractedQuary {
-                                                contract: None,
-                                                quary: Leashed {
-                                                    place_idx: Some(
-                                                        PlaceIdx(7),
-                                                    ),
-                                                },
-                                            },
-                                            is_always_copyable: false,
-                                            place_contract_site: HirPlaceContractSite {
-                                                place_contracts: [],
-                                            },
-                                        },
-                                        HirEagerExprEntry {
-                                            data: HirEagerExprData::PropsStructField {
-                                                self_argument: 28,
                                                 self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -15616,173 +15450,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodFnCall {
-                                                self_argument: 27,
-                                                self_contract: Pure,
-                                                ident: `max`,
-                                                path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`<core::num::f32(0)>::max`, `MethodRitchie(
-                                                        Fn,
-                                                    )`),
-                                                ),
-                                                instantiation: HirInstantiation {
-                                                    symbol_map: [],
-                                                    separator: Some(
-                                                        0,
-                                                    ),
-                                                },
-                                                arguments: [
-                                                    Simple(
-                                                        HirRitchieSimpleParameter {
-                                                            contract: Pure,
-                                                            ty: PathLeading(
-                                                                HirTypePathLeading(
-                                                                    Id {
-                                                                        value: 9,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        },
-                                                        29,
-                                                        Trivial(
-                                                            TrivialHirEagerCoersion {
-                                                                expectee_quary: Leashed {
-                                                                    place_idx: Some(
-                                                                        PlaceIdx(7),
-                                                                    ),
-                                                                },
-                                                            },
-                                                        ),
-                                                    ),
-                                                ],
-                                            },
-                                            contracted_quary: HirContractedQuary {
-                                                contract: None,
-                                                quary: Transient,
-                                            },
-                                            is_always_copyable: true,
-                                            place_contract_site: HirPlaceContractSite {
-                                                place_contracts: [],
-                                            },
-                                        },
-                                        HirEagerExprEntry {
-                                            data: HirEagerExprData::Binary {
-                                                lopd: 26,
-                                                opr: Assign,
-                                                ropd: 30,
-                                            },
-                                            contracted_quary: HirContractedQuary {
-                                                contract: None,
-                                                quary: Transient,
-                                            },
-                                            is_always_copyable: true,
-                                            place_contract_site: HirPlaceContractSite {
-                                                place_contracts: [],
-                                            },
-                                        },
-                                        HirEagerExprEntry {
-                                            data: HirEagerExprData::Variable(
-                                                5,
-                                            ),
-                                            contracted_quary: HirContractedQuary {
-                                                contract: Some(
-                                                    BorrowMut,
-                                                ),
-                                                quary: MutableOnStack {
-                                                    place: Idx(
-                                                        PlaceIdx(4),
-                                                    ),
-                                                },
-                                            },
-                                            is_always_copyable: true,
-                                            place_contract_site: HirPlaceContractSite {
-                                                place_contracts: [
-                                                    (
-                                                        Idx(
-                                                            PlaceIdx(4),
-                                                        ),
-                                                        BorrowMut,
-                                                    ),
-                                                ],
-                                            },
-                                        },
-                                        HirEagerExprEntry {
-                                            data: HirEagerExprData::Variable(
-                                                5,
-                                            ),
-                                            contracted_quary: HirContractedQuary {
-                                                contract: Some(
-                                                    Pure,
-                                                ),
-                                                quary: MutableOnStack {
-                                                    place: Idx(
-                                                        PlaceIdx(4),
-                                                    ),
-                                                },
-                                            },
-                                            is_always_copyable: true,
-                                            place_contract_site: HirPlaceContractSite {
-                                                place_contracts: [
-                                                    (
-                                                        Idx(
-                                                            PlaceIdx(4),
-                                                        ),
-                                                        Pure,
-                                                    ),
-                                                ],
-                                            },
-                                        },
-                                        HirEagerExprEntry {
-                                            data: HirEagerExprData::Variable(
-                                                8,
-                                            ),
-                                            contracted_quary: HirContractedQuary {
-                                                contract: None,
-                                                quary: Leashed {
-                                                    place_idx: Some(
-                                                        PlaceIdx(7),
-                                                    ),
-                                                },
-                                            },
-                                            is_always_copyable: false,
-                                            place_contract_site: HirPlaceContractSite {
-                                                place_contracts: [],
-                                            },
-                                        },
-                                        HirEagerExprEntry {
-                                            data: HirEagerExprData::PropsStructField {
-                                                self_argument: 34,
-                                                self_ty: HirType::PathLeading(
-                                                    HirTypePathLeading {
-                                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                                        template_arguments: [],
-                                                        always_copyable: false,
-                                                    },
-                                                ),
-                                                ident: `y`,
-                                                field_ty: HirType::PathLeading(
-                                                    HirTypePathLeading {
-                                                        ty_path: TypePath(`core::num::f32`, `Extern`),
-                                                        template_arguments: [],
-                                                        always_copyable: true,
-                                                    },
-                                                ),
-                                            },
-                                            contracted_quary: HirContractedQuary {
-                                                contract: None,
-                                                quary: Leashed {
-                                                    place_idx: Some(
-                                                        PlaceIdx(7),
-                                                    ),
-                                                },
-                                            },
-                                            is_always_copyable: true,
-                                            place_contract_site: HirPlaceContractSite {
-                                                place_contracts: [],
-                                            },
-                                        },
-                                        HirEagerExprEntry {
-                                            data: HirEagerExprData::MethodFnCall {
-                                                self_argument: 33,
+                                                self_argument: 20,
                                                 self_contract: Pure,
                                                 ident: `min`,
                                                 path: AssocItemPath::TypeItem(
@@ -15808,7 +15476,7 @@
                                                                 ),
                                                             ),
                                                         },
-                                                        35,
+                                                        22,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_quary: Leashed {
@@ -15832,9 +15500,9 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 32,
+                                                lopd: 19,
                                                 opr: Assign,
-                                                ropd: 36,
+                                                ropd: 23,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -15847,7 +15515,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                6,
+                                                3,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -15855,7 +15523,7 @@
                                                 ),
                                                 quary: MutableOnStack {
                                                     place: Idx(
-                                                        PlaceIdx(5),
+                                                        PlaceIdx(3),
                                                     ),
                                                 },
                                             },
@@ -15864,7 +15532,7 @@
                                                 place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(5),
+                                                            PlaceIdx(3),
                                                         ),
                                                         BorrowMut,
                                                     ),
@@ -15873,7 +15541,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                6,
+                                                3,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -15881,7 +15549,7 @@
                                                 ),
                                                 quary: MutableOnStack {
                                                     place: Idx(
-                                                        PlaceIdx(5),
+                                                        PlaceIdx(3),
                                                     ),
                                                 },
                                             },
@@ -15890,7 +15558,7 @@
                                                 place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(5),
+                                                            PlaceIdx(3),
                                                         ),
                                                         Pure,
                                                     ),
@@ -15899,7 +15567,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                8,
+                                                7,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -15916,7 +15584,173 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                self_argument: 40,
+                                                self_argument: 27,
+                                                self_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                        template_arguments: [],
+                                                        always_copyable: false,
+                                                    },
+                                                ),
+                                                ident: `x`,
+                                                field_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                        template_arguments: [],
+                                                        always_copyable: true,
+                                                    },
+                                                ),
+                                            },
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Leashed {
+                                                    place_idx: Some(
+                                                        PlaceIdx(7),
+                                                    ),
+                                                },
+                                            },
+                                            is_always_copyable: true,
+                                            place_contract_site: HirPlaceContractSite {
+                                                place_contracts: [],
+                                            },
+                                        },
+                                        HirEagerExprEntry {
+                                            data: HirEagerExprData::MethodFnCall {
+                                                self_argument: 26,
+                                                self_contract: Pure,
+                                                ident: `max`,
+                                                path: AssocItemPath::TypeItem(
+                                                    TypeItemPath(`<core::num::f32(0)>::max`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
+                                                ),
+                                                instantiation: HirInstantiation {
+                                                    symbol_map: [],
+                                                    separator: Some(
+                                                        0,
+                                                    ),
+                                                },
+                                                arguments: [
+                                                    Simple(
+                                                        HirRitchieSimpleParameter {
+                                                            contract: Pure,
+                                                            ty: PathLeading(
+                                                                HirTypePathLeading(
+                                                                    Id {
+                                                                        value: 9,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                        28,
+                                                        Trivial(
+                                                            TrivialHirEagerCoersion {
+                                                                expectee_quary: Leashed {
+                                                                    place_idx: Some(
+                                                                        PlaceIdx(7),
+                                                                    ),
+                                                                },
+                                                            },
+                                                        ),
+                                                    ),
+                                                ],
+                                            },
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Transient,
+                                            },
+                                            is_always_copyable: true,
+                                            place_contract_site: HirPlaceContractSite {
+                                                place_contracts: [],
+                                            },
+                                        },
+                                        HirEagerExprEntry {
+                                            data: HirEagerExprData::Binary {
+                                                lopd: 25,
+                                                opr: Assign,
+                                                ropd: 29,
+                                            },
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Transient,
+                                            },
+                                            is_always_copyable: true,
+                                            place_contract_site: HirPlaceContractSite {
+                                                place_contracts: [],
+                                            },
+                                        },
+                                        HirEagerExprEntry {
+                                            data: HirEagerExprData::Variable(
+                                                4,
+                                            ),
+                                            contracted_quary: HirContractedQuary {
+                                                contract: Some(
+                                                    BorrowMut,
+                                                ),
+                                                quary: MutableOnStack {
+                                                    place: Idx(
+                                                        PlaceIdx(4),
+                                                    ),
+                                                },
+                                            },
+                                            is_always_copyable: true,
+                                            place_contract_site: HirPlaceContractSite {
+                                                place_contracts: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(4),
+                                                        ),
+                                                        BorrowMut,
+                                                    ),
+                                                ],
+                                            },
+                                        },
+                                        HirEagerExprEntry {
+                                            data: HirEagerExprData::Variable(
+                                                4,
+                                            ),
+                                            contracted_quary: HirContractedQuary {
+                                                contract: Some(
+                                                    Pure,
+                                                ),
+                                                quary: MutableOnStack {
+                                                    place: Idx(
+                                                        PlaceIdx(4),
+                                                    ),
+                                                },
+                                            },
+                                            is_always_copyable: true,
+                                            place_contract_site: HirPlaceContractSite {
+                                                place_contracts: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(4),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
+                                            },
+                                        },
+                                        HirEagerExprEntry {
+                                            data: HirEagerExprData::Variable(
+                                                7,
+                                            ),
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Leashed {
+                                                    place_idx: Some(
+                                                        PlaceIdx(7),
+                                                    ),
+                                                },
+                                            },
+                                            is_always_copyable: false,
+                                            place_contract_site: HirPlaceContractSite {
+                                                place_contracts: [],
+                                            },
+                                        },
+                                        HirEagerExprEntry {
+                                            data: HirEagerExprData::PropsStructField {
+                                                self_argument: 33,
                                                 self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -15948,7 +15782,173 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodFnCall {
+                                                self_argument: 32,
+                                                self_contract: Pure,
+                                                ident: `min`,
+                                                path: AssocItemPath::TypeItem(
+                                                    TypeItemPath(`<core::num::f32(0)>::min`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
+                                                ),
+                                                instantiation: HirInstantiation {
+                                                    symbol_map: [],
+                                                    separator: Some(
+                                                        0,
+                                                    ),
+                                                },
+                                                arguments: [
+                                                    Simple(
+                                                        HirRitchieSimpleParameter {
+                                                            contract: Pure,
+                                                            ty: PathLeading(
+                                                                HirTypePathLeading(
+                                                                    Id {
+                                                                        value: 9,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                        34,
+                                                        Trivial(
+                                                            TrivialHirEagerCoersion {
+                                                                expectee_quary: Leashed {
+                                                                    place_idx: Some(
+                                                                        PlaceIdx(7),
+                                                                    ),
+                                                                },
+                                                            },
+                                                        ),
+                                                    ),
+                                                ],
+                                            },
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Transient,
+                                            },
+                                            is_always_copyable: true,
+                                            place_contract_site: HirPlaceContractSite {
+                                                place_contracts: [],
+                                            },
+                                        },
+                                        HirEagerExprEntry {
+                                            data: HirEagerExprData::Binary {
+                                                lopd: 31,
+                                                opr: Assign,
+                                                ropd: 35,
+                                            },
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Transient,
+                                            },
+                                            is_always_copyable: true,
+                                            place_contract_site: HirPlaceContractSite {
+                                                place_contracts: [],
+                                            },
+                                        },
+                                        HirEagerExprEntry {
+                                            data: HirEagerExprData::Variable(
+                                                5,
+                                            ),
+                                            contracted_quary: HirContractedQuary {
+                                                contract: Some(
+                                                    BorrowMut,
+                                                ),
+                                                quary: MutableOnStack {
+                                                    place: Idx(
+                                                        PlaceIdx(5),
+                                                    ),
+                                                },
+                                            },
+                                            is_always_copyable: true,
+                                            place_contract_site: HirPlaceContractSite {
+                                                place_contracts: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(5),
+                                                        ),
+                                                        BorrowMut,
+                                                    ),
+                                                ],
+                                            },
+                                        },
+                                        HirEagerExprEntry {
+                                            data: HirEagerExprData::Variable(
+                                                5,
+                                            ),
+                                            contracted_quary: HirContractedQuary {
+                                                contract: Some(
+                                                    Pure,
+                                                ),
+                                                quary: MutableOnStack {
+                                                    place: Idx(
+                                                        PlaceIdx(5),
+                                                    ),
+                                                },
+                                            },
+                                            is_always_copyable: true,
+                                            place_contract_site: HirPlaceContractSite {
+                                                place_contracts: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(5),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
+                                            },
+                                        },
+                                        HirEagerExprEntry {
+                                            data: HirEagerExprData::Variable(
+                                                7,
+                                            ),
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Leashed {
+                                                    place_idx: Some(
+                                                        PlaceIdx(7),
+                                                    ),
+                                                },
+                                            },
+                                            is_always_copyable: false,
+                                            place_contract_site: HirPlaceContractSite {
+                                                place_contracts: [],
+                                            },
+                                        },
+                                        HirEagerExprEntry {
+                                            data: HirEagerExprData::PropsStructField {
                                                 self_argument: 39,
+                                                self_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                        template_arguments: [],
+                                                        always_copyable: false,
+                                                    },
+                                                ),
+                                                ident: `y`,
+                                                field_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                        template_arguments: [],
+                                                        always_copyable: true,
+                                                    },
+                                                ),
+                                            },
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Leashed {
+                                                    place_idx: Some(
+                                                        PlaceIdx(7),
+                                                    ),
+                                                },
+                                            },
+                                            is_always_copyable: true,
+                                            place_contract_site: HirPlaceContractSite {
+                                                place_contracts: [],
+                                            },
+                                        },
+                                        HirEagerExprEntry {
+                                            data: HirEagerExprData::MethodFnCall {
+                                                self_argument: 38,
                                                 self_contract: Pure,
                                                 ident: `max`,
                                                 path: AssocItemPath::TypeItem(
@@ -15974,7 +15974,7 @@
                                                                 ),
                                                             ),
                                                         },
-                                                        41,
+                                                        40,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_quary: Leashed {
@@ -15998,9 +15998,9 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 38,
+                                                lopd: 37,
                                                 opr: Assign,
-                                                ropd: 42,
+                                                ropd: 41,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -16013,7 +16013,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                3,
+                                                2,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -16039,7 +16039,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                4,
+                                                3,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -16082,7 +16082,7 @@
                                                                 ),
                                                             ),
                                                         },
-                                                        44,
+                                                        43,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_quary: MutableOnStack {
@@ -16104,7 +16104,7 @@
                                                                 ),
                                                             ),
                                                         },
-                                                        45,
+                                                        44,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_quary: MutableOnStack {
@@ -16128,7 +16128,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                5,
+                                                4,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -16154,7 +16154,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                6,
+                                                5,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -16197,7 +16197,7 @@
                                                                 ),
                                                             ),
                                                         },
-                                                        47,
+                                                        46,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_quary: MutableOnStack {
@@ -16219,7 +16219,7 @@
                                                                 ),
                                                             ),
                                                         },
-                                                        48,
+                                                        47,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_quary: MutableOnStack {
@@ -16260,7 +16260,7 @@
                                                                 ),
                                                             ),
                                                         },
-                                                        46,
+                                                        45,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_quary: Transient,
@@ -16278,7 +16278,7 @@
                                                                 ),
                                                             ),
                                                         },
-                                                        49,
+                                                        48,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_quary: Transient,
@@ -16299,7 +16299,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Block {
                                                 stmts: ArenaIdxRange(
-                                                    6..13,
+                                                    5..12,
                                                 ),
                                             },
                                             contracted_quary: HirContractedQuary {
@@ -16317,15 +16317,15 @@
                                     data: [
                                         Let {
                                             pattern: HirEagerLetVariablesPattern {
-                                                pattern_expr_idx: 6,
+                                                pattern_expr_idx: 5,
                                                 ty: None,
                                             },
                                             contract: Pure,
-                                            initial_value: 19,
+                                            initial_value: 18,
                                             coersion: None,
                                         },
                                         Eval {
-                                            expr: 25,
+                                            expr: 24,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -16336,7 +16336,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr: 31,
+                                            expr: 30,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -16347,7 +16347,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr: 37,
+                                            expr: 36,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -16358,7 +16358,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr: 43,
+                                            expr: 42,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -16370,11 +16370,20 @@
                                         },
                                         Let {
                                             pattern: HirEagerLetVariablesPattern {
-                                                pattern_expr_idx: 1,
+                                                pattern_expr_idx: 0,
                                                 ty: None,
                                             },
                                             contract: Pure,
-                                            initial_value: 4,
+                                            initial_value: 3,
+                                            coersion: None,
+                                        },
+                                        Let {
+                                            pattern: HirEagerLetVariablesPattern {
+                                                pattern_expr_idx: 1,
+                                                ty: None,
+                                            },
+                                            contract: Move,
+                                            initial_value: 5,
                                             coersion: None,
                                         },
                                         Let {
@@ -16383,7 +16392,7 @@
                                                 ty: None,
                                             },
                                             contract: Move,
-                                            initial_value: 6,
+                                            initial_value: 7,
                                             coersion: None,
                                         },
                                         Let {
@@ -16392,7 +16401,7 @@
                                                 ty: None,
                                             },
                                             contract: Move,
-                                            initial_value: 8,
+                                            initial_value: 9,
                                             coersion: None,
                                         },
                                         Let {
@@ -16401,16 +16410,7 @@
                                                 ty: None,
                                             },
                                             contract: Move,
-                                            initial_value: 10,
-                                            coersion: None,
-                                        },
-                                        Let {
-                                            pattern: HirEagerLetVariablesPattern {
-                                                pattern_expr_idx: 5,
-                                                ty: None,
-                                            },
-                                            contract: Move,
-                                            initial_value: 12,
+                                            initial_value: 11,
                                             coersion: None,
                                         },
                                         ForBetween {
@@ -16429,7 +16429,7 @@
                                                     },
                                                     final_boundary: HirEagerForBetweenLoopBoundary {
                                                         bound_expr: Some(
-                                                            15,
+                                                            14,
                                                         ),
                                                         kind: UpperOpen,
                                                     },
@@ -16439,11 +16439,11 @@
                                                 },
                                             },
                                             stmts: ArenaIdxRange(
-                                                1..6,
+                                                0..5,
                                             ),
                                         },
                                         Return {
-                                            result: 50,
+                                            result: 49,
                                             coersion: Trivial(
                                                 TrivialHirEagerCoersion {
                                                     expectee_quary: Transient,
@@ -16563,7 +16563,7 @@
                                         ],
                                     },
                                     self_value_variable: Some(
-                                        1,
+                                        0,
                                     ),
                                 },
                             },
@@ -16619,14 +16619,14 @@
                                     ],
                                 },
                                 self_value_variable: Some(
-                                    1,
+                                    0,
                                 ),
                             },
                         },
                     },
                     eager_body_with_hir_eager_expr_region: Some(
                         (
-                            10,
+                            9,
                             HirEagerExprRegion {
                                 region_path: RegionPath::Defn(
                                     ItemPath::AssocItem(
@@ -16639,7 +16639,7 @@
                                     data: [
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                1,
+                                                0,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -16656,7 +16656,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                self_argument: 1,
+                                                self_argument: 0,
                                                 self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
@@ -16698,7 +16698,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MemoizedField {
-                                                self_argument: 2,
+                                                self_argument: 1,
                                                 self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`core::mem::Leash`, `Extern`),
@@ -16757,9 +16757,9 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Index {
-                                                owner: 3,
+                                                owner: 2,
                                                 items: [
-                                                    4,
+                                                    3,
                                                 ],
                                             },
                                             contracted_quary: HirContractedQuary {
@@ -16775,7 +16775,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MemoizedField {
-                                                self_argument: 5,
+                                                self_argument: 4,
                                                 self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
@@ -16807,7 +16807,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                1,
+                                                0,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -16824,7 +16824,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MemoizedField {
-                                                self_argument: 7,
+                                                self_argument: 6,
                                                 self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
@@ -16858,7 +16858,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodFnCall {
-                                                self_argument: 6,
+                                                self_argument: 5,
                                                 self_contract: Pure,
                                                 ident: `relative_bounding_box`,
                                                 path: AssocItemPath::TypeItem(
@@ -16884,7 +16884,7 @@
                                                                 ),
                                                             ),
                                                         },
-                                                        8,
+                                                        7,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_quary: Leashed {
@@ -16909,7 +16909,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Block {
                                                 stmts: ArenaIdxRange(
-                                                    1..2,
+                                                    0..1,
                                                 ),
                                             },
                                             contracted_quary: HirContractedQuary {
@@ -16926,7 +16926,7 @@
                                 stmt_arena: Arena {
                                     data: [
                                         Eval {
-                                            expr: 9,
+                                            expr: 8,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -16956,7 +16956,7 @@
                                         ],
                                     },
                                     self_value_variable: Some(
-                                        1,
+                                        0,
                                     ),
                                 },
                             },
@@ -17012,14 +17012,14 @@
                                     ],
                                 },
                                 self_value_variable: Some(
-                                    1,
+                                    0,
                                 ),
                             },
                         },
                     },
                     eager_body_with_hir_eager_expr_region: Some(
                         (
-                            59,
+                            58,
                             HirEagerExprRegion {
                                 region_path: RegionPath::Defn(
                                     ItemPath::AssocItem(
@@ -17067,7 +17067,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                1,
+                                                0,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -17084,7 +17084,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                self_argument: 3,
+                                                self_argument: 2,
                                                 self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
@@ -17126,7 +17126,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodFnCall {
-                                                self_argument: 4,
+                                                self_argument: 3,
                                                 self_contract: Pure,
                                                 ident: `ilen`,
                                                 path: AssocItemPath::TypeItem(
@@ -17176,7 +17176,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                1,
+                                                0,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -17193,7 +17193,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                self_argument: 6,
+                                                self_argument: 5,
                                                 self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
@@ -17235,7 +17235,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                3,
+                                                2,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -17276,11 +17276,11 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 8,
+                                                lopd: 7,
                                                 opr: Closed(
                                                     Sub,
                                                 ),
-                                                ropd: 9,
+                                                ropd: 8,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -17293,9 +17293,9 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Index {
-                                                owner: 7,
+                                                owner: 6,
                                                 items: [
-                                                    10,
+                                                    9,
                                                 ],
                                             },
                                             contracted_quary: HirContractedQuary {
@@ -17313,7 +17313,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                1,
+                                                0,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -17330,7 +17330,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                self_argument: 12,
+                                                self_argument: 11,
                                                 self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
@@ -17372,7 +17372,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                3,
+                                                2,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -17398,9 +17398,9 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Index {
-                                                owner: 13,
+                                                owner: 12,
                                                 items: [
-                                                    14,
+                                                    13,
                                                 ],
                                             },
                                             contracted_quary: HirContractedQuary {
@@ -17418,7 +17418,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                2,
+                                                1,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -17444,7 +17444,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                4,
+                                                3,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -17461,7 +17461,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                self_argument: 17,
+                                                self_argument: 16,
                                                 self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -17493,7 +17493,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                5,
+                                                4,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -17510,7 +17510,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                self_argument: 19,
+                                                self_argument: 18,
                                                 self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -17542,11 +17542,11 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 18,
+                                                lopd: 17,
                                                 opr: Closed(
                                                     Sub,
                                                 ),
-                                                ropd: 20,
+                                                ropd: 19,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -17559,7 +17559,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodFnCall {
-                                                self_argument: 21,
+                                                self_argument: 20,
                                                 self_contract: Pure,
                                                 ident: `abs`,
                                                 path: AssocItemPath::TypeItem(
@@ -17578,6 +17578,55 @@
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
                                                 quary: Transient,
+                                            },
+                                            is_always_copyable: true,
+                                            place_contract_site: HirPlaceContractSite {
+                                                place_contracts: [],
+                                            },
+                                        },
+                                        HirEagerExprEntry {
+                                            data: HirEagerExprData::Variable(
+                                                3,
+                                            ),
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Leashed {
+                                                    place_idx: Some(
+                                                        PlaceIdx(3),
+                                                    ),
+                                                },
+                                            },
+                                            is_always_copyable: false,
+                                            place_contract_site: HirPlaceContractSite {
+                                                place_contracts: [],
+                                            },
+                                        },
+                                        HirEagerExprEntry {
+                                            data: HirEagerExprData::PropsStructField {
+                                                self_argument: 22,
+                                                self_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                        template_arguments: [],
+                                                        always_copyable: false,
+                                                    },
+                                                ),
+                                                ident: `y`,
+                                                field_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                        template_arguments: [],
+                                                        always_copyable: true,
+                                                    },
+                                                ),
+                                            },
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Leashed {
+                                                    place_idx: Some(
+                                                        PlaceIdx(3),
+                                                    ),
+                                                },
                                             },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
@@ -17592,55 +17641,6 @@
                                                 contract: None,
                                                 quary: Leashed {
                                                     place_idx: Some(
-                                                        PlaceIdx(3),
-                                                    ),
-                                                },
-                                            },
-                                            is_always_copyable: false,
-                                            place_contract_site: HirPlaceContractSite {
-                                                place_contracts: [],
-                                            },
-                                        },
-                                        HirEagerExprEntry {
-                                            data: HirEagerExprData::PropsStructField {
-                                                self_argument: 23,
-                                                self_ty: HirType::PathLeading(
-                                                    HirTypePathLeading {
-                                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                                        template_arguments: [],
-                                                        always_copyable: false,
-                                                    },
-                                                ),
-                                                ident: `y`,
-                                                field_ty: HirType::PathLeading(
-                                                    HirTypePathLeading {
-                                                        ty_path: TypePath(`core::num::f32`, `Extern`),
-                                                        template_arguments: [],
-                                                        always_copyable: true,
-                                                    },
-                                                ),
-                                            },
-                                            contracted_quary: HirContractedQuary {
-                                                contract: None,
-                                                quary: Leashed {
-                                                    place_idx: Some(
-                                                        PlaceIdx(3),
-                                                    ),
-                                                },
-                                            },
-                                            is_always_copyable: true,
-                                            place_contract_site: HirPlaceContractSite {
-                                                place_contracts: [],
-                                            },
-                                        },
-                                        HirEagerExprEntry {
-                                            data: HirEagerExprData::Variable(
-                                                5,
-                                            ),
-                                            contracted_quary: HirContractedQuary {
-                                                contract: None,
-                                                quary: Leashed {
-                                                    place_idx: Some(
                                                         PlaceIdx(4),
                                                     ),
                                                 },
@@ -17652,7 +17652,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                self_argument: 25,
+                                                self_argument: 24,
                                                 self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -17684,11 +17684,11 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 24,
+                                                lopd: 23,
                                                 opr: Closed(
                                                     Sub,
                                                 ),
-                                                ropd: 26,
+                                                ropd: 25,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -17701,7 +17701,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodFnCall {
-                                                self_argument: 27,
+                                                self_argument: 26,
                                                 self_contract: Pure,
                                                 ident: `abs`,
                                                 path: AssocItemPath::TypeItem(
@@ -17728,8 +17728,25 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 22,
+                                                lopd: 21,
                                                 opr: Closed(
+                                                    Add,
+                                                ),
+                                                ropd: 27,
+                                            },
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Transient,
+                                            },
+                                            is_always_copyable: true,
+                                            place_contract_site: HirPlaceContractSite {
+                                                place_contracts: [],
+                                            },
+                                        },
+                                        HirEagerExprEntry {
+                                            data: HirEagerExprData::Binary {
+                                                lopd: 15,
+                                                opr: AssignClosed(
                                                     Add,
                                                 ),
                                                 ropd: 28,
@@ -17744,25 +17761,8 @@
                                             },
                                         },
                                         HirEagerExprEntry {
-                                            data: HirEagerExprData::Binary {
-                                                lopd: 16,
-                                                opr: AssignClosed(
-                                                    Add,
-                                                ),
-                                                ropd: 29,
-                                            },
-                                            contracted_quary: HirContractedQuary {
-                                                contract: None,
-                                                quary: Transient,
-                                            },
-                                            is_always_copyable: true,
-                                            place_contract_site: HirPlaceContractSite {
-                                                place_contracts: [],
-                                            },
-                                        },
-                                        HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                1,
+                                                0,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -17779,7 +17779,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                self_argument: 31,
+                                                self_argument: 30,
                                                 self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
@@ -17821,7 +17821,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                1,
+                                                0,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -17838,7 +17838,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                self_argument: 33,
+                                                self_argument: 32,
                                                 self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
@@ -17880,7 +17880,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodFnCall {
-                                                self_argument: 34,
+                                                self_argument: 33,
                                                 self_contract: Pure,
                                                 ident: `ilen`,
                                                 path: AssocItemPath::TypeItem(
@@ -17945,11 +17945,11 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 35,
+                                                lopd: 34,
                                                 opr: Closed(
                                                     Sub,
                                                 ),
-                                                ropd: 36,
+                                                ropd: 35,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -17962,9 +17962,9 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Index {
-                                                owner: 32,
+                                                owner: 31,
                                                 items: [
-                                                    37,
+                                                    36,
                                                 ],
                                             },
                                             contracted_quary: HirContractedQuary {
@@ -17982,7 +17982,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                1,
+                                                0,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -17999,7 +17999,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                self_argument: 39,
+                                                self_argument: 38,
                                                 self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
@@ -18058,9 +18058,9 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Index {
-                                                owner: 40,
+                                                owner: 39,
                                                 items: [
-                                                    41,
+                                                    40,
                                                 ],
                                             },
                                             contracted_quary: HirContractedQuary {
@@ -18078,7 +18078,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                2,
+                                                1,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -18104,7 +18104,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                6,
+                                                5,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -18121,7 +18121,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                self_argument: 44,
+                                                self_argument: 43,
                                                 self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -18153,7 +18153,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                7,
+                                                6,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -18170,7 +18170,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                self_argument: 46,
+                                                self_argument: 45,
                                                 self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -18202,11 +18202,11 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 45,
+                                                lopd: 44,
                                                 opr: Closed(
                                                     Sub,
                                                 ),
-                                                ropd: 47,
+                                                ropd: 46,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -18219,7 +18219,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodFnCall {
-                                                self_argument: 48,
+                                                self_argument: 47,
                                                 self_contract: Pure,
                                                 ident: `abs`,
                                                 path: AssocItemPath::TypeItem(
@@ -18238,6 +18238,55 @@
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
                                                 quary: Transient,
+                                            },
+                                            is_always_copyable: true,
+                                            place_contract_site: HirPlaceContractSite {
+                                                place_contracts: [],
+                                            },
+                                        },
+                                        HirEagerExprEntry {
+                                            data: HirEagerExprData::Variable(
+                                                5,
+                                            ),
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Leashed {
+                                                    place_idx: Some(
+                                                        PlaceIdx(5),
+                                                    ),
+                                                },
+                                            },
+                                            is_always_copyable: false,
+                                            place_contract_site: HirPlaceContractSite {
+                                                place_contracts: [],
+                                            },
+                                        },
+                                        HirEagerExprEntry {
+                                            data: HirEagerExprData::PropsStructField {
+                                                self_argument: 49,
+                                                self_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                        template_arguments: [],
+                                                        always_copyable: false,
+                                                    },
+                                                ),
+                                                ident: `y`,
+                                                field_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                        template_arguments: [],
+                                                        always_copyable: true,
+                                                    },
+                                                ),
+                                            },
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Leashed {
+                                                    place_idx: Some(
+                                                        PlaceIdx(5),
+                                                    ),
+                                                },
                                             },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
@@ -18252,55 +18301,6 @@
                                                 contract: None,
                                                 quary: Leashed {
                                                     place_idx: Some(
-                                                        PlaceIdx(5),
-                                                    ),
-                                                },
-                                            },
-                                            is_always_copyable: false,
-                                            place_contract_site: HirPlaceContractSite {
-                                                place_contracts: [],
-                                            },
-                                        },
-                                        HirEagerExprEntry {
-                                            data: HirEagerExprData::PropsStructField {
-                                                self_argument: 50,
-                                                self_ty: HirType::PathLeading(
-                                                    HirTypePathLeading {
-                                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                                        template_arguments: [],
-                                                        always_copyable: false,
-                                                    },
-                                                ),
-                                                ident: `y`,
-                                                field_ty: HirType::PathLeading(
-                                                    HirTypePathLeading {
-                                                        ty_path: TypePath(`core::num::f32`, `Extern`),
-                                                        template_arguments: [],
-                                                        always_copyable: true,
-                                                    },
-                                                ),
-                                            },
-                                            contracted_quary: HirContractedQuary {
-                                                contract: None,
-                                                quary: Leashed {
-                                                    place_idx: Some(
-                                                        PlaceIdx(5),
-                                                    ),
-                                                },
-                                            },
-                                            is_always_copyable: true,
-                                            place_contract_site: HirPlaceContractSite {
-                                                place_contracts: [],
-                                            },
-                                        },
-                                        HirEagerExprEntry {
-                                            data: HirEagerExprData::Variable(
-                                                7,
-                                            ),
-                                            contracted_quary: HirContractedQuary {
-                                                contract: None,
-                                                quary: Leashed {
-                                                    place_idx: Some(
                                                         PlaceIdx(6),
                                                     ),
                                                 },
@@ -18312,7 +18312,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                self_argument: 52,
+                                                self_argument: 51,
                                                 self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -18344,11 +18344,11 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 51,
+                                                lopd: 50,
                                                 opr: Closed(
                                                     Sub,
                                                 ),
-                                                ropd: 53,
+                                                ropd: 52,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -18361,7 +18361,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodFnCall {
-                                                self_argument: 54,
+                                                self_argument: 53,
                                                 self_contract: Pure,
                                                 ident: `abs`,
                                                 path: AssocItemPath::TypeItem(
@@ -18388,8 +18388,25 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 49,
+                                                lopd: 48,
                                                 opr: Closed(
+                                                    Add,
+                                                ),
+                                                ropd: 54,
+                                            },
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Transient,
+                                            },
+                                            is_always_copyable: true,
+                                            place_contract_site: HirPlaceContractSite {
+                                                place_contracts: [],
+                                            },
+                                        },
+                                        HirEagerExprEntry {
+                                            data: HirEagerExprData::Binary {
+                                                lopd: 42,
+                                                opr: AssignClosed(
                                                     Add,
                                                 ),
                                                 ropd: 55,
@@ -18404,25 +18421,8 @@
                                             },
                                         },
                                         HirEagerExprEntry {
-                                            data: HirEagerExprData::Binary {
-                                                lopd: 43,
-                                                opr: AssignClosed(
-                                                    Add,
-                                                ),
-                                                ropd: 56,
-                                            },
-                                            contracted_quary: HirContractedQuary {
-                                                contract: None,
-                                                quary: Transient,
-                                            },
-                                            is_always_copyable: true,
-                                            place_contract_site: HirPlaceContractSite {
-                                                place_contracts: [],
-                                            },
-                                        },
-                                        HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                2,
+                                                1,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -18449,7 +18449,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Block {
                                                 stmts: ArenaIdxRange(
-                                                    4..10,
+                                                    3..9,
                                                 ),
                                             },
                                             contracted_quary: HirContractedQuary {
@@ -18467,24 +18467,24 @@
                                     data: [
                                         Let {
                                             pattern: HirEagerLetVariablesPattern {
-                                                pattern_expr_idx: 2,
+                                                pattern_expr_idx: 1,
                                                 ty: None,
                                             },
                                             contract: Pure,
-                                            initial_value: 11,
+                                            initial_value: 10,
                                             coersion: None,
                                         },
                                         Let {
                                             pattern: HirEagerLetVariablesPattern {
-                                                pattern_expr_idx: 3,
+                                                pattern_expr_idx: 2,
                                                 ty: None,
                                             },
                                             contract: Pure,
-                                            initial_value: 15,
+                                            initial_value: 14,
                                             coersion: None,
                                         },
                                         Eval {
-                                            expr: 30,
+                                            expr: 29,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -18496,11 +18496,11 @@
                                         },
                                         Let {
                                             pattern: HirEagerLetVariablesPattern {
-                                                pattern_expr_idx: 1,
+                                                pattern_expr_idx: 0,
                                                 ty: None,
                                             },
                                             contract: Move,
-                                            initial_value: 1,
+                                            initial_value: 0,
                                             coersion: None,
                                         },
                                         ForBetween {
@@ -18515,13 +18515,13 @@
                                                 range: HirEagerForBetweenRange {
                                                     initial_boundary: HirEagerForBetweenLoopBoundary {
                                                         bound_expr: Some(
-                                                            2,
+                                                            1,
                                                         ),
                                                         kind: LowerOpen,
                                                     },
                                                     final_boundary: HirEagerForBetweenLoopBoundary {
                                                         bound_expr: Some(
-                                                            5,
+                                                            4,
                                                         ),
                                                         kind: UpperOpen,
                                                     },
@@ -18531,8 +18531,17 @@
                                                 },
                                             },
                                             stmts: ArenaIdxRange(
-                                                1..4,
+                                                0..3,
                                             ),
+                                        },
+                                        Let {
+                                            pattern: HirEagerLetVariablesPattern {
+                                                pattern_expr_idx: 3,
+                                                ty: None,
+                                            },
+                                            contract: Pure,
+                                            initial_value: 37,
+                                            coersion: None,
                                         },
                                         Let {
                                             pattern: HirEagerLetVariablesPattern {
@@ -18540,20 +18549,11 @@
                                                 ty: None,
                                             },
                                             contract: Pure,
-                                            initial_value: 38,
-                                            coersion: None,
-                                        },
-                                        Let {
-                                            pattern: HirEagerLetVariablesPattern {
-                                                pattern_expr_idx: 5,
-                                                ty: None,
-                                            },
-                                            contract: Pure,
-                                            initial_value: 42,
+                                            initial_value: 41,
                                             coersion: None,
                                         },
                                         Eval {
-                                            expr: 57,
+                                            expr: 56,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -18564,7 +18564,7 @@
                                             discarded: false,
                                         },
                                         Return {
-                                            result: 58,
+                                            result: 57,
                                             coersion: Trivial(
                                                 TrivialHirEagerCoersion {
                                                     expectee_quary: MutableOnStack {
@@ -18669,7 +18669,7 @@
                                         ],
                                     },
                                     self_value_variable: Some(
-                                        1,
+                                        0,
                                     ),
                                 },
                             },
@@ -18706,7 +18706,7 @@
                         parenate_parameters: HirEagerParenateParameters(
                             [
                                 HirEagerParenateParameter::Simple {
-                                    pattern_expr_idx: 1,
+                                    pattern_expr_idx: 0,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
@@ -18717,7 +18717,7 @@
                                     ),
                                 },
                                 HirEagerParenateParameter::Simple {
-                                    pattern_expr_idx: 2,
+                                    pattern_expr_idx: 1,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
@@ -18797,14 +18797,14 @@
                                     ],
                                 },
                                 self_value_variable: Some(
-                                    1,
+                                    0,
                                 ),
                             },
                         },
                     },
                     eager_body_with_hir_eager_expr_region: Some(
                         (
-                            19,
+                            18,
                             HirEagerExprRegion {
                                 region_path: RegionPath::Defn(
                                     ItemPath::AssocItem(
@@ -18819,7 +18819,7 @@
                                     data: [
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                1,
+                                                0,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -18845,7 +18845,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                self_argument: 1,
+                                                self_argument: 0,
                                                 self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
@@ -18896,7 +18896,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodFnCall {
-                                                self_argument: 2,
+                                                self_argument: 1,
                                                 self_contract: Pure,
                                                 ident: `ilen`,
                                                 path: AssocItemPath::TypeItem(
@@ -18946,7 +18946,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                1,
+                                                0,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -18972,7 +18972,182 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                self_argument: 4,
+                                                self_argument: 3,
+                                                self_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                        template_arguments: [],
+                                                        always_copyable: false,
+                                                    },
+                                                ),
+                                                ident: `points`,
+                                                field_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                                        template_arguments: [
+                                                            HirTemplateArgument::Type(
+                                                                HirType::PathLeading(
+                                                                    HirTypePathLeading {
+                                                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                        template_arguments: [],
+                                                                        always_copyable: false,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ],
+                                                        always_copyable: false,
+                                                    },
+                                                ),
+                                            },
+                                            contracted_quary: HirContractedQuary {
+                                                contract: Some(
+                                                    Pure,
+                                                ),
+                                                quary: StackPure {
+                                                    place: Idx(
+                                                        PlaceIdx(0),
+                                                    ),
+                                                },
+                                            },
+                                            is_always_copyable: false,
+                                            place_contract_site: HirPlaceContractSite {
+                                                place_contracts: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(0),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
+                                            },
+                                        },
+                                        HirEagerExprEntry {
+                                            data: HirEagerExprData::Variable(
+                                                1,
+                                            ),
+                                            contracted_quary: HirContractedQuary {
+                                                contract: Some(
+                                                    Pure,
+                                                ),
+                                                quary: StackPure {
+                                                    place: Idx(
+                                                        PlaceIdx(1),
+                                                    ),
+                                                },
+                                            },
+                                            is_always_copyable: true,
+                                            place_contract_site: HirPlaceContractSite {
+                                                place_contracts: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(1),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
+                                            },
+                                        },
+                                        HirEagerExprEntry {
+                                            data: HirEagerExprData::Variable(
+                                                3,
+                                            ),
+                                            contracted_quary: HirContractedQuary {
+                                                contract: Some(
+                                                    Pure,
+                                                ),
+                                                quary: ImmutableOnStack {
+                                                    place: Idx(
+                                                        PlaceIdx(1),
+                                                    ),
+                                                },
+                                            },
+                                            is_always_copyable: true,
+                                            place_contract_site: HirPlaceContractSite {
+                                                place_contracts: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(1),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
+                                            },
+                                        },
+                                        HirEagerExprEntry {
+                                            data: HirEagerExprData::Binary {
+                                                lopd: 5,
+                                                opr: Closed(
+                                                    RemEuclid,
+                                                ),
+                                                ropd: 6,
+                                            },
+                                            contracted_quary: HirContractedQuary {
+                                                contract: None,
+                                                quary: Transient,
+                                            },
+                                            is_always_copyable: true,
+                                            place_contract_site: HirPlaceContractSite {
+                                                place_contracts: [],
+                                            },
+                                        },
+                                        HirEagerExprEntry {
+                                            data: HirEagerExprData::Index {
+                                                owner: 4,
+                                                items: [
+                                                    7,
+                                                ],
+                                            },
+                                            contracted_quary: HirContractedQuary {
+                                                contract: Some(
+                                                    Pure,
+                                                ),
+                                                quary: StackPure {
+                                                    place: Idx(
+                                                        PlaceIdx(0),
+                                                    ),
+                                                },
+                                            },
+                                            is_always_copyable: false,
+                                            place_contract_site: HirPlaceContractSite {
+                                                place_contracts: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(0),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
+                                            },
+                                        },
+                                        HirEagerExprEntry {
+                                            data: HirEagerExprData::Variable(
+                                                0,
+                                            ),
+                                            contracted_quary: HirContractedQuary {
+                                                contract: Some(
+                                                    Pure,
+                                                ),
+                                                quary: StackPure {
+                                                    place: Idx(
+                                                        PlaceIdx(0),
+                                                    ),
+                                                },
+                                            },
+                                            is_always_copyable: false,
+                                            place_contract_site: HirPlaceContractSite {
+                                                place_contracts: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(0),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
+                                            },
+                                        },
+                                        HirEagerExprEntry {
+                                            data: HirEagerExprData::PropsStructField {
+                                                self_argument: 9,
                                                 self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
@@ -19031,181 +19206,6 @@
                                                 ),
                                                 quary: StackPure {
                                                     place: Idx(
-                                                        PlaceIdx(1),
-                                                    ),
-                                                },
-                                            },
-                                            is_always_copyable: true,
-                                            place_contract_site: HirPlaceContractSite {
-                                                place_contracts: [
-                                                    (
-                                                        Idx(
-                                                            PlaceIdx(1),
-                                                        ),
-                                                        Pure,
-                                                    ),
-                                                ],
-                                            },
-                                        },
-                                        HirEagerExprEntry {
-                                            data: HirEagerExprData::Variable(
-                                                4,
-                                            ),
-                                            contracted_quary: HirContractedQuary {
-                                                contract: Some(
-                                                    Pure,
-                                                ),
-                                                quary: ImmutableOnStack {
-                                                    place: Idx(
-                                                        PlaceIdx(1),
-                                                    ),
-                                                },
-                                            },
-                                            is_always_copyable: true,
-                                            place_contract_site: HirPlaceContractSite {
-                                                place_contracts: [
-                                                    (
-                                                        Idx(
-                                                            PlaceIdx(1),
-                                                        ),
-                                                        Pure,
-                                                    ),
-                                                ],
-                                            },
-                                        },
-                                        HirEagerExprEntry {
-                                            data: HirEagerExprData::Binary {
-                                                lopd: 6,
-                                                opr: Closed(
-                                                    RemEuclid,
-                                                ),
-                                                ropd: 7,
-                                            },
-                                            contracted_quary: HirContractedQuary {
-                                                contract: None,
-                                                quary: Transient,
-                                            },
-                                            is_always_copyable: true,
-                                            place_contract_site: HirPlaceContractSite {
-                                                place_contracts: [],
-                                            },
-                                        },
-                                        HirEagerExprEntry {
-                                            data: HirEagerExprData::Index {
-                                                owner: 5,
-                                                items: [
-                                                    8,
-                                                ],
-                                            },
-                                            contracted_quary: HirContractedQuary {
-                                                contract: Some(
-                                                    Pure,
-                                                ),
-                                                quary: StackPure {
-                                                    place: Idx(
-                                                        PlaceIdx(0),
-                                                    ),
-                                                },
-                                            },
-                                            is_always_copyable: false,
-                                            place_contract_site: HirPlaceContractSite {
-                                                place_contracts: [
-                                                    (
-                                                        Idx(
-                                                            PlaceIdx(0),
-                                                        ),
-                                                        Pure,
-                                                    ),
-                                                ],
-                                            },
-                                        },
-                                        HirEagerExprEntry {
-                                            data: HirEagerExprData::Variable(
-                                                1,
-                                            ),
-                                            contracted_quary: HirContractedQuary {
-                                                contract: Some(
-                                                    Pure,
-                                                ),
-                                                quary: StackPure {
-                                                    place: Idx(
-                                                        PlaceIdx(0),
-                                                    ),
-                                                },
-                                            },
-                                            is_always_copyable: false,
-                                            place_contract_site: HirPlaceContractSite {
-                                                place_contracts: [
-                                                    (
-                                                        Idx(
-                                                            PlaceIdx(0),
-                                                        ),
-                                                        Pure,
-                                                    ),
-                                                ],
-                                            },
-                                        },
-                                        HirEagerExprEntry {
-                                            data: HirEagerExprData::PropsStructField {
-                                                self_argument: 10,
-                                                self_ty: HirType::PathLeading(
-                                                    HirTypePathLeading {
-                                                        ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                        template_arguments: [],
-                                                        always_copyable: false,
-                                                    },
-                                                ),
-                                                ident: `points`,
-                                                field_ty: HirType::PathLeading(
-                                                    HirTypePathLeading {
-                                                        ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                                        template_arguments: [
-                                                            HirTemplateArgument::Type(
-                                                                HirType::PathLeading(
-                                                                    HirTypePathLeading {
-                                                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                                                        template_arguments: [],
-                                                                        always_copyable: false,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        ],
-                                                        always_copyable: false,
-                                                    },
-                                                ),
-                                            },
-                                            contracted_quary: HirContractedQuary {
-                                                contract: Some(
-                                                    Pure,
-                                                ),
-                                                quary: StackPure {
-                                                    place: Idx(
-                                                        PlaceIdx(0),
-                                                    ),
-                                                },
-                                            },
-                                            is_always_copyable: false,
-                                            place_contract_site: HirPlaceContractSite {
-                                                place_contracts: [
-                                                    (
-                                                        Idx(
-                                                            PlaceIdx(0),
-                                                        ),
-                                                        Pure,
-                                                    ),
-                                                ],
-                                            },
-                                        },
-                                        HirEagerExprEntry {
-                                            data: HirEagerExprData::Variable(
-                                                3,
-                                            ),
-                                            contracted_quary: HirContractedQuary {
-                                                contract: Some(
-                                                    Pure,
-                                                ),
-                                                quary: StackPure {
-                                                    place: Idx(
                                                         PlaceIdx(2),
                                                     ),
                                                 },
@@ -19224,7 +19224,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                4,
+                                                3,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -19250,11 +19250,11 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 12,
+                                                lopd: 11,
                                                 opr: Closed(
                                                     RemEuclid,
                                                 ),
-                                                ropd: 13,
+                                                ropd: 12,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -19267,9 +19267,9 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Index {
-                                                owner: 11,
+                                                owner: 10,
                                                 items: [
-                                                    14,
+                                                    13,
                                                 ],
                                             },
                                             contracted_quary: HirContractedQuary {
@@ -19279,6 +19279,34 @@
                                                 quary: StackPure {
                                                     place: Idx(
                                                         PlaceIdx(0),
+                                                    ),
+                                                },
+                                            },
+                                            is_always_copyable: false,
+                                            place_contract_site: HirPlaceContractSite {
+                                                place_contracts: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(0),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
+                                            },
+                                        },
+                                        HirEagerExprEntry {
+                                            data: HirEagerExprData::Variable(
+                                                4,
+                                            ),
+                                            contracted_quary: HirContractedQuary {
+                                                contract: Some(
+                                                    Pure,
+                                                ),
+                                                quary: Ref {
+                                                    guard: Left(
+                                                        Idx(
+                                                            PlaceIdx(0),
+                                                        ),
                                                     ),
                                                 },
                                             },
@@ -19323,36 +19351,8 @@
                                             },
                                         },
                                         HirEagerExprEntry {
-                                            data: HirEagerExprData::Variable(
-                                                6,
-                                            ),
-                                            contracted_quary: HirContractedQuary {
-                                                contract: Some(
-                                                    Pure,
-                                                ),
-                                                quary: Ref {
-                                                    guard: Left(
-                                                        Idx(
-                                                            PlaceIdx(0),
-                                                        ),
-                                                    ),
-                                                },
-                                            },
-                                            is_always_copyable: false,
-                                            place_contract_site: HirPlaceContractSite {
-                                                place_contracts: [
-                                                    (
-                                                        Idx(
-                                                            PlaceIdx(0),
-                                                        ),
-                                                        Pure,
-                                                    ),
-                                                ],
-                                            },
-                                        },
-                                        HirEagerExprEntry {
                                             data: HirEagerExprData::MethodFnCall {
-                                                self_argument: 16,
+                                                self_argument: 15,
                                                 self_contract: Pure,
                                                 ident: `to`,
                                                 path: AssocItemPath::TypeItem(
@@ -19378,7 +19378,7 @@
                                                                 ),
                                                             ),
                                                         },
-                                                        17,
+                                                        16,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_quary: Ref {
@@ -19405,7 +19405,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Block {
                                                 stmts: ArenaIdxRange(
-                                                    1..5,
+                                                    0..4,
                                                 ),
                                             },
                                             contracted_quary: HirContractedQuary {
@@ -19423,11 +19423,20 @@
                                     data: [
                                         Let {
                                             pattern: HirEagerLetVariablesPattern {
+                                                pattern_expr_idx: 0,
+                                                ty: None,
+                                            },
+                                            contract: Pure,
+                                            initial_value: 2,
+                                            coersion: None,
+                                        },
+                                        Let {
+                                            pattern: HirEagerLetVariablesPattern {
                                                 pattern_expr_idx: 1,
                                                 ty: None,
                                             },
                                             contract: Pure,
-                                            initial_value: 3,
+                                            initial_value: 8,
                                             coersion: None,
                                         },
                                         Let {
@@ -19436,20 +19445,11 @@
                                                 ty: None,
                                             },
                                             contract: Pure,
-                                            initial_value: 9,
-                                            coersion: None,
-                                        },
-                                        Let {
-                                            pattern: HirEagerLetVariablesPattern {
-                                                pattern_expr_idx: 3,
-                                                ty: None,
-                                            },
-                                            contract: Pure,
-                                            initial_value: 15,
+                                            initial_value: 14,
                                             coersion: None,
                                         },
                                         Eval {
-                                            expr: 18,
+                                            expr: 17,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -19531,7 +19531,7 @@
                                         ],
                                     },
                                     self_value_variable: Some(
-                                        1,
+                                        0,
                                     ),
                                 },
                             },

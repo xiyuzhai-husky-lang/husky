@@ -57,7 +57,7 @@
                     hir_expr_body_and_region: Some(
                         (
                             Eager(
-                                3,
+                                2,
                             ),
                             Eager(
                                 HirEagerExprRegion(
@@ -129,7 +129,7 @@
                     hir_expr_body_and_region: Some(
                         (
                             Eager(
-                                21,
+                                20,
                             ),
                             Eager(
                                 HirEagerExprRegion(
@@ -191,7 +191,7 @@
                     hir_expr_body_and_region: Some(
                         (
                             Eager(
-                                14,
+                                13,
                             ),
                             Eager(
                                 HirEagerExprRegion(
@@ -273,7 +273,7 @@
                     hir_expr_body_and_region: Some(
                         (
                             Eager(
-                                3,
+                                2,
                             ),
                             Eager(
                                 HirEagerExprRegion(
@@ -345,7 +345,7 @@
                     hir_expr_body_and_region: Some(
                         (
                             Eager(
-                                5,
+                                4,
                             ),
                             Eager(
                                 HirEagerExprRegion(
@@ -417,7 +417,7 @@
                     hir_expr_body_and_region: Some(
                         (
                             Eager(
-                                3,
+                                2,
                             ),
                             Eager(
                                 HirEagerExprRegion(
@@ -499,7 +499,7 @@
                     hir_expr_body_and_region: Some(
                         (
                             Eager(
-                                3,
+                                2,
                             ),
                             Eager(
                                 HirEagerExprRegion(

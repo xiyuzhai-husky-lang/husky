@@ -10,7 +10,7 @@ EntityTreePresheet {
                             FugitiveSynNodePath(`mnist_classifier::major::connected_components`, `Val`, (0)),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 20,
+                        ast_idx: 19,
                         ident_token: IdentToken {
                             ident: `connected_components`,
                             token_idx: TokenIdx(
@@ -22,7 +22,7 @@ EntityTreePresheet {
                             body: Some(
                                 FugitiveBody {
                                     ast_idx_range: ArenaIdxRange(
-                                        1..2,
+                                        0..1,
                                     ),
                                 },
                             ),
@@ -44,7 +44,7 @@ EntityTreePresheet {
                             FugitiveSynNodePath(`mnist_classifier::major::major_connected_component`, `Val`, (0)),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 21,
+                        ast_idx: 20,
                         ident_token: IdentToken {
                             ident: `major_connected_component`,
                             token_idx: TokenIdx(
@@ -56,7 +56,7 @@ EntityTreePresheet {
                             body: Some(
                                 FugitiveBody {
                                     ast_idx_range: ArenaIdxRange(
-                                        7..11,
+                                        6..10,
                                     ),
                                 },
                             ),
@@ -78,7 +78,7 @@ EntityTreePresheet {
                             FugitiveSynNodePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`, (0)),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 22,
+                        ast_idx: 21,
                         ident_token: IdentToken {
                             ident: `ignored_connected_components_row_span_sum_sum`,
                             token_idx: TokenIdx(
@@ -90,7 +90,7 @@ EntityTreePresheet {
                             body: Some(
                                 FugitiveBody {
                                     ast_idx_range: ArenaIdxRange(
-                                        12..15,
+                                        11..14,
                                     ),
                                 },
                             ),
@@ -112,7 +112,7 @@ EntityTreePresheet {
                             FugitiveSynNodePath(`mnist_classifier::major::major_raw_contours`, `Val`, (0)),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 23,
+                        ast_idx: 22,
                         ident_token: IdentToken {
                             ident: `major_raw_contours`,
                             token_idx: TokenIdx(
@@ -124,7 +124,7 @@ EntityTreePresheet {
                             body: Some(
                                 FugitiveBody {
                                     ast_idx_range: ArenaIdxRange(
-                                        15..16,
+                                        14..15,
                                     ),
                                 },
                             ),
@@ -146,7 +146,7 @@ EntityTreePresheet {
                             FugitiveSynNodePath(`mnist_classifier::major::major_raw_contour`, `Val`, (0)),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 24,
+                        ast_idx: 23,
                         ident_token: IdentToken {
                             ident: `major_raw_contour`,
                             token_idx: TokenIdx(
@@ -158,7 +158,7 @@ EntityTreePresheet {
                             body: Some(
                                 FugitiveBody {
                                     ast_idx_range: ArenaIdxRange(
-                                        16..17,
+                                        15..16,
                                     ),
                                 },
                             ),
@@ -180,7 +180,7 @@ EntityTreePresheet {
                             FugitiveSynNodePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`, (0)),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 25,
+                        ast_idx: 24,
                         ident_token: IdentToken {
                             ident: `major_line_segment_sketch`,
                             token_idx: TokenIdx(
@@ -192,7 +192,7 @@ EntityTreePresheet {
                             body: Some(
                                 FugitiveBody {
                                     ast_idx_range: ArenaIdxRange(
-                                        17..18,
+                                        16..17,
                                     ),
                                 },
                             ),
@@ -214,7 +214,7 @@ EntityTreePresheet {
                             FugitiveSynNodePath(`mnist_classifier::major::major_concave_components`, `Val`, (0)),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 26,
+                        ast_idx: 25,
                         ident_token: IdentToken {
                             ident: `major_concave_components`,
                             token_idx: TokenIdx(
@@ -226,7 +226,7 @@ EntityTreePresheet {
                             body: Some(
                                 FugitiveBody {
                                     ast_idx_range: ArenaIdxRange(
-                                        18..19,
+                                        17..18,
                                     ),
                                 },
                             ),
@@ -246,8 +246,8 @@ EntityTreePresheet {
     once_use_rules: OnceUseRules(
         [
             OnceUseRule {
-                ast_idx: 19,
-                use_expr_idx: 2,
+                ast_idx: 18,
+                use_expr_idx: 1,
                 visibility: Scope::PubUnder(
                     `mnist_classifier::major`,
                 ),
@@ -260,7 +260,7 @@ EntityTreePresheet {
                         },
                     ),
                     children: ArenaIdxRange(
-                        1..2,
+                        0..1,
                     ),
                 },
                 parent: None,
@@ -298,7 +298,7 @@ EntityTreePresheet {
                     ),
                     children: Ok(
                         UseExprChildren::Single {
-                            child: 1,
+                            child: 0,
                         },
                     ),
                 },

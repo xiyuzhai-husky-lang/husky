@@ -134,10 +134,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        1,
+                        0,
                     ),
                     hir_eager_stmt_idx: Some(
-                        1,
+                        0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -191,10 +191,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        5,
+                        4,
                     ),
                     hir_eager_expr_idx: Some(
-                        4,
+                        3,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -300,10 +300,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        5,
+                        4,
                     ),
                     hir_eager_expr_idx: Some(
-                        4,
+                        3,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -395,10 +395,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        8,
+                        7,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        8,
+                        7,
                     ),
                     lazy_stmt_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
@@ -413,7 +413,7 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                1..8,
+                                0..7,
                             ),
                         ),
                     },
@@ -485,7 +485,7 @@
                         caching_class: ValItem,
                     },
                     source: Stmt {
-                        stmt: 8,
+                        stmt: 7,
                     },
                 },
                 caching_class: Stmt,
@@ -530,10 +530,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        1,
+                        0,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        1,
+                        0,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -589,10 +589,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        2,
+                        1,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        2,
+                        1,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -647,7 +647,7 @@
                         caching_class: ValItem,
                     },
                     source: Stmt {
-                        stmt: 2,
+                        stmt: 1,
                     },
                 },
                 caching_class: Stmt,
@@ -692,10 +692,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        3,
+                        2,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        3,
+                        2,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -750,7 +750,7 @@
                         caching_class: ValItem,
                     },
                     source: Stmt {
-                        stmt: 3,
+                        stmt: 2,
                     },
                 },
                 caching_class: Stmt,
@@ -795,10 +795,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        4,
+                        3,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        4,
+                        3,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -853,7 +853,7 @@
                         caching_class: ValItem,
                     },
                     source: Stmt {
-                        stmt: 4,
+                        stmt: 3,
                     },
                 },
                 caching_class: Stmt,
@@ -898,10 +898,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        5,
+                        4,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        5,
+                        4,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -957,10 +957,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        6,
+                        5,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        6,
+                        5,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -1015,7 +1015,7 @@
                         caching_class: ValItem,
                     },
                     source: Stmt {
-                        stmt: 6,
+                        stmt: 5,
                     },
                 },
                 caching_class: Stmt,
@@ -1060,10 +1060,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        7,
+                        6,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        7,
+                        6,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -1111,7 +1111,7 @@
                         caching_class: ValItem,
                     },
                     source: Stmt {
-                        stmt: 7,
+                        stmt: 6,
                     },
                 },
                 caching_class: Stmt,
@@ -1194,10 +1194,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        2,
+                        1,
                     ),
                     hir_lazy_expr_idx: Some(
-                        2,
+                        1,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -1257,7 +1257,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 2,
+                        expr: 1,
                     },
                 },
                 caching_class: Expr,
@@ -1292,10 +1292,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        3,
+                        2,
                     ),
                     hir_lazy_expr_idx: Some(
-                        3,
+                        2,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -1383,7 +1383,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 3,
+                        expr: 2,
                     },
                 },
                 caching_class: Expr,
@@ -1420,10 +1420,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        9,
+                        8,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        9,
+                        8,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -1468,7 +1468,7 @@
                             value: 20,
                         },
                     ),
-                    syn_pattern_expr_idx: 5,
+                    syn_pattern_expr_idx: 4,
                     hir_lazy_pattern_expr_idx: None,
                     hir_lazy_variable_idxs: [
                         (
@@ -1480,7 +1480,7 @@
                                 ),
                             ),
                             Some(
-                                3,
+                                2,
                             ),
                         ),
                     ],
@@ -1527,10 +1527,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        34,
+                        33,
                     ),
                     hir_lazy_expr_idx: Some(
-                        33,
+                        32,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -1604,7 +1604,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 33,
+                        expr: 32,
                     },
                 },
                 caching_class: Expr,
@@ -1687,10 +1687,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        34,
+                        33,
                     ),
                     hir_lazy_expr_idx: Some(
-                        33,
+                        32,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -1764,7 +1764,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 33,
+                        expr: 32,
                     },
                 },
                 caching_class: Expr,
@@ -1801,10 +1801,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        10,
+                        9,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        10,
+                        9,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -1850,10 +1850,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        43,
+                        42,
                     ),
                     hir_lazy_expr_idx: Some(
-                        42,
+                        41,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -1970,7 +1970,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 42,
+                        expr: 41,
                     },
                 },
                 caching_class: Expr,
@@ -2005,10 +2005,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        36,
+                        35,
                     ),
                     hir_lazy_expr_idx: Some(
-                        35,
+                        34,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -2082,7 +2082,7 @@
                         caching_class: ValItem,
                     },
                     source: LetVariable {
-                        stmt: 9,
+                        stmt: 8,
                     },
                 },
                 caching_class: Variable,
@@ -2117,10 +2117,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        37,
+                        36,
                     ),
                     hir_lazy_expr_idx: Some(
-                        36,
+                        35,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -2186,7 +2186,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 36,
+                        expr: 35,
                     },
                 },
                 caching_class: Expr,
@@ -2221,10 +2221,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        38,
+                        37,
                     ),
                     hir_lazy_expr_idx: Some(
-                        37,
+                        36,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -2298,7 +2298,7 @@
                         caching_class: ValItem,
                     },
                     source: LetVariable {
-                        stmt: 9,
+                        stmt: 8,
                     },
                 },
                 caching_class: Variable,
@@ -2333,10 +2333,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        39,
+                        38,
                     ),
                     hir_lazy_expr_idx: Some(
-                        38,
+                        37,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -2402,7 +2402,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 38,
+                        expr: 37,
                     },
                 },
                 caching_class: Expr,
@@ -2437,10 +2437,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        40,
+                        39,
                     ),
                     hir_lazy_expr_idx: Some(
-                        39,
+                        38,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -2514,7 +2514,7 @@
                         caching_class: ValItem,
                     },
                     source: LetVariable {
-                        stmt: 9,
+                        stmt: 8,
                     },
                 },
                 caching_class: Variable,
@@ -2549,10 +2549,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        41,
+                        40,
                     ),
                     hir_lazy_expr_idx: Some(
-                        40,
+                        39,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -2618,7 +2618,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 40,
+                        expr: 39,
                     },
                 },
                 caching_class: Expr,
@@ -2653,10 +2653,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        43,
+                        42,
                     ),
                     hir_lazy_expr_idx: Some(
-                        42,
+                        41,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -2773,7 +2773,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 42,
+                        expr: 41,
                     },
                 },
                 caching_class: Expr,
@@ -2810,10 +2810,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        11,
+                        10,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        11,
+                        10,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -2868,7 +2868,7 @@
                         caching_class: ValItem,
                     },
                     source: Stmt {
-                        stmt: 11,
+                        stmt: 10,
                     },
                 },
                 caching_class: Stmt,
@@ -2903,10 +2903,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        45,
+                        44,
                     ),
                     hir_lazy_expr_idx: Some(
-                        44,
+                        43,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -2980,7 +2980,7 @@
                         caching_class: ValItem,
                     },
                     source: LetVariable {
-                        stmt: 9,
+                        stmt: 8,
                     },
                 },
                 caching_class: Variable,
@@ -3015,10 +3015,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        46,
+                        45,
                     ),
                     hir_lazy_expr_idx: Some(
-                        45,
+                        44,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -3084,7 +3084,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 45,
+                        expr: 44,
                     },
                 },
                 caching_class: Expr,
@@ -3121,10 +3121,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        12,
+                        11,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        12,
+                        11,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -3179,7 +3179,7 @@
                         caching_class: ValItem,
                     },
                     source: Stmt {
-                        stmt: 12,
+                        stmt: 11,
                     },
                 },
                 caching_class: Stmt,
@@ -3262,10 +3262,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        50,
+                        49,
                     ),
                     hir_lazy_expr_idx: Some(
-                        49,
+                        48,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -3331,7 +3331,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 49,
+                        expr: 48,
                     },
                 },
                 caching_class: Expr,
@@ -3366,10 +3366,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        51,
+                        50,
                     ),
                     hir_lazy_expr_idx: Some(
-                        50,
+                        49,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -3439,7 +3439,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 50,
+                        expr: 49,
                     },
                 },
                 caching_class: Expr,
@@ -3476,10 +3476,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        13,
+                        12,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        13,
+                        12,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -3534,7 +3534,7 @@
                         caching_class: ValItem,
                     },
                     source: Stmt {
-                        stmt: 13,
+                        stmt: 12,
                     },
                 },
                 caching_class: Stmt,
@@ -3617,10 +3617,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        56,
+                        55,
                     ),
                     hir_lazy_expr_idx: Some(
-                        54,
+                        53,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -3686,7 +3686,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 54,
+                        expr: 53,
                     },
                 },
                 caching_class: Expr,
@@ -3721,10 +3721,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        57,
+                        56,
                     ),
                     hir_lazy_expr_idx: Some(
-                        55,
+                        54,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -3794,7 +3794,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 55,
+                        expr: 54,
                     },
                 },
                 caching_class: Expr,
@@ -3831,10 +3831,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        14,
+                        13,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        14,
+                        13,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -3879,7 +3879,7 @@
                             value: 25,
                         },
                     ),
-                    syn_pattern_expr_idx: 9,
+                    syn_pattern_expr_idx: 8,
                     hir_lazy_pattern_expr_idx: None,
                     hir_lazy_variable_idxs: [
                         (
@@ -3891,7 +3891,7 @@
                                 ),
                             ),
                             Some(
-                                4,
+                                3,
                             ),
                         ),
                     ],
@@ -3986,10 +3986,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        62,
+                        61,
                     ),
                     hir_lazy_expr_idx: Some(
-                        59,
+                        58,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -4055,7 +4055,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 59,
+                        expr: 58,
                     },
                 },
                 caching_class: Expr,
@@ -4090,10 +4090,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        63,
+                        62,
                     ),
                     hir_lazy_expr_idx: Some(
-                        60,
+                        59,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -4163,7 +4163,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 60,
+                        expr: 59,
                     },
                 },
                 caching_class: Expr,
@@ -4200,10 +4200,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        15,
+                        14,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        15,
+                        14,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -4248,7 +4248,7 @@
                             value: 26,
                         },
                     ),
-                    syn_pattern_expr_idx: 10,
+                    syn_pattern_expr_idx: 9,
                     hir_lazy_pattern_expr_idx: None,
                     hir_lazy_variable_idxs: [
                         (
@@ -4260,7 +4260,7 @@
                                 ),
                             ),
                             Some(
-                                5,
+                                4,
                             ),
                         ),
                     ],
@@ -4307,10 +4307,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        66,
+                        65,
                     ),
                     hir_lazy_expr_idx: Some(
-                        63,
+                        62,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -4369,7 +4369,7 @@
                         caching_class: ValItem,
                     },
                     source: LetVariable {
-                        stmt: 14,
+                        stmt: 13,
                     },
                 },
                 caching_class: Variable,
@@ -4404,10 +4404,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        68,
+                        67,
                     ),
                     hir_lazy_expr_idx: Some(
-                        65,
+                        64,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -4473,7 +4473,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 65,
+                        expr: 64,
                     },
                 },
                 caching_class: Expr,
@@ -4508,10 +4508,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        69,
+                        68,
                     ),
                     hir_lazy_expr_idx: Some(
-                        66,
+                        65,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -4582,7 +4582,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 66,
+                        expr: 65,
                     },
                 },
                 caching_class: Expr,
@@ -4617,10 +4617,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        70,
+                        69,
                     ),
                     hir_lazy_expr_idx: Some(
-                        67,
+                        66,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -4679,7 +4679,7 @@
                         caching_class: ValItem,
                     },
                     source: LetVariable {
-                        stmt: 14,
+                        stmt: 13,
                     },
                 },
                 caching_class: Variable,
@@ -4714,10 +4714,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        72,
+                        71,
                     ),
                     hir_lazy_expr_idx: Some(
-                        69,
+                        68,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -4783,7 +4783,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 69,
+                        expr: 68,
                     },
                 },
                 caching_class: Expr,
@@ -4818,10 +4818,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        73,
+                        72,
                     ),
                     hir_lazy_expr_idx: Some(
-                        70,
+                        69,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -4892,7 +4892,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 70,
+                        expr: 69,
                     },
                 },
                 caching_class: Expr,
@@ -4929,10 +4929,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        16,
+                        15,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        16,
+                        15,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -4977,7 +4977,7 @@
                             value: 27,
                         },
                     ),
-                    syn_pattern_expr_idx: 11,
+                    syn_pattern_expr_idx: 10,
                     hir_lazy_pattern_expr_idx: None,
                     hir_lazy_variable_idxs: [
                         (
@@ -4989,7 +4989,7 @@
                                 ),
                             ),
                             Some(
-                                6,
+                                5,
                             ),
                         ),
                     ],
@@ -5084,10 +5084,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        76,
+                        75,
                     ),
                     hir_lazy_expr_idx: Some(
-                        73,
+                        72,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -5153,7 +5153,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 73,
+                        expr: 72,
                     },
                 },
                 caching_class: Expr,
@@ -5188,10 +5188,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        77,
+                        76,
                     ),
                     hir_lazy_expr_idx: Some(
-                        74,
+                        73,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -5262,7 +5262,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 74,
+                        expr: 73,
                     },
                 },
                 caching_class: Expr,
@@ -5345,10 +5345,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        79,
+                        78,
                     ),
                     hir_lazy_expr_idx: Some(
-                        76,
+                        75,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -5414,7 +5414,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 76,
+                        expr: 75,
                     },
                 },
                 caching_class: Expr,
@@ -5449,10 +5449,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        80,
+                        79,
                     ),
                     hir_lazy_expr_idx: Some(
-                        77,
+                        76,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -5523,7 +5523,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 77,
+                        expr: 76,
                     },
                 },
                 caching_class: Expr,
@@ -5560,10 +5560,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        17,
+                        16,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        17,
+                        16,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -5608,7 +5608,7 @@
                             value: 28,
                         },
                     ),
-                    syn_pattern_expr_idx: 12,
+                    syn_pattern_expr_idx: 11,
                     hir_lazy_pattern_expr_idx: None,
                     hir_lazy_variable_idxs: [
                         (
@@ -5620,7 +5620,7 @@
                                 ),
                             ),
                             Some(
-                                7,
+                                6,
                             ),
                         ),
                     ],
@@ -5667,10 +5667,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        82,
+                        81,
                     ),
                     hir_lazy_expr_idx: Some(
-                        79,
+                        78,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -5733,7 +5733,7 @@
                         caching_class: ValItem,
                     },
                     source: LetVariable {
-                        stmt: 15,
+                        stmt: 14,
                     },
                 },
                 caching_class: Variable,
@@ -5768,10 +5768,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        83,
+                        82,
                     ),
                     hir_lazy_expr_idx: Some(
-                        80,
+                        79,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -5834,7 +5834,7 @@
                         caching_class: ValItem,
                     },
                     source: LetVariable {
-                        stmt: 16,
+                        stmt: 15,
                     },
                 },
                 caching_class: Variable,
@@ -5871,10 +5871,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        18,
+                        17,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        18,
+                        17,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -5929,7 +5929,7 @@
                         caching_class: ValItem,
                     },
                     source: Stmt {
-                        stmt: 18,
+                        stmt: 17,
                     },
                 },
                 caching_class: Stmt,
@@ -5964,10 +5964,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        85,
+                        84,
                     ),
                     hir_lazy_expr_idx: Some(
-                        82,
+                        81,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -6030,7 +6030,7 @@
                         caching_class: ValItem,
                     },
                     source: LetVariable {
-                        stmt: 17,
+                        stmt: 16,
                     },
                 },
                 caching_class: Variable,
@@ -6067,10 +6067,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        19,
+                        18,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        19,
+                        18,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -6115,7 +6115,7 @@
                             value: 30,
                         },
                     ),
-                    syn_pattern_expr_idx: 13,
+                    syn_pattern_expr_idx: 12,
                     hir_lazy_pattern_expr_idx: None,
                     hir_lazy_variable_idxs: [
                         (
@@ -6127,7 +6127,7 @@
                                 ),
                             ),
                             Some(
-                                8,
+                                7,
                             ),
                         ),
                     ],
@@ -6174,10 +6174,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        88,
+                        87,
                     ),
                     hir_lazy_expr_idx: Some(
-                        85,
+                        84,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -6251,7 +6251,7 @@
                         caching_class: ValItem,
                     },
                     source: LetVariable {
-                        stmt: 9,
+                        stmt: 8,
                     },
                 },
                 caching_class: Variable,
@@ -6286,10 +6286,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        89,
+                        88,
                     ),
                     hir_lazy_expr_idx: Some(
-                        86,
+                        85,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -6355,7 +6355,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 86,
+                        expr: 85,
                     },
                 },
                 caching_class: Expr,
@@ -6392,10 +6392,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        20,
+                        19,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        20,
+                        19,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -6518,10 +6518,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        1,
+                        0,
                     ),
                     hir_eager_stmt_idx: Some(
-                        1,
+                        0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -6575,10 +6575,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        7,
+                        6,
                     ),
                     hir_eager_expr_idx: Some(
-                        6,
+                        5,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -6684,10 +6684,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        7,
+                        6,
                     ),
                     hir_eager_expr_idx: Some(
-                        6,
+                        5,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -6779,10 +6779,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        42,
+                        41,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        42,
+                        41,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -6828,10 +6828,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        6,
+                        5,
                     ),
                     hir_lazy_expr_idx: Some(
-                        6,
+                        5,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -6937,7 +6937,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 6,
+                        expr: 5,
                     },
                 },
                 caching_class: Expr,
@@ -7020,10 +7020,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        3,
+                        2,
                     ),
                     hir_lazy_expr_idx: Some(
-                        3,
+                        2,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -7083,7 +7083,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 3,
+                        expr: 2,
                     },
                 },
                 caching_class: Expr,
@@ -7166,10 +7166,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        6,
+                        5,
                     ),
                     hir_lazy_expr_idx: Some(
-                        6,
+                        5,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -7275,7 +7275,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 6,
+                        expr: 5,
                     },
                 },
                 caching_class: Expr,
@@ -7312,10 +7312,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        43,
+                        42,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        43,
+                        42,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -7360,7 +7360,7 @@
                             value: 91,
                         },
                     ),
-                    syn_pattern_expr_idx: 1,
+                    syn_pattern_expr_idx: 0,
                     hir_lazy_pattern_expr_idx: None,
                     hir_lazy_variable_idxs: [
                         (
@@ -7372,7 +7372,7 @@
                                 ),
                             ),
                             Some(
-                                1,
+                                0,
                             ),
                         ),
                     ],
@@ -7419,10 +7419,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        11,
+                        10,
                     ),
                     hir_lazy_expr_idx: Some(
-                        11,
+                        10,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -7496,7 +7496,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 11,
+                        expr: 10,
                     },
                 },
                 caching_class: Expr,
@@ -7579,10 +7579,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        11,
+                        10,
                     ),
                     hir_lazy_expr_idx: Some(
-                        11,
+                        10,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -7656,7 +7656,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 11,
+                        expr: 10,
                     },
                 },
                 caching_class: Expr,
@@ -7693,10 +7693,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        44,
+                        43,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        44,
+                        43,
                     ),
                     lazy_stmt_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
@@ -7711,7 +7711,7 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                2..5,
+                                1..4,
                             ),
                         ),
                     },
@@ -7854,7 +7854,7 @@
                         caching_class: ValItem,
                     },
                     source: Stmt {
-                        stmt: 44,
+                        stmt: 43,
                     },
                 },
                 caching_class: Stmt,
@@ -7899,10 +7899,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        2,
+                        1,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        2,
+                        1,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -7958,10 +7958,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        3,
+                        2,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        3,
+                        2,
                     ),
                     lazy_stmt_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
@@ -7976,7 +7976,7 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                1..2,
+                                0..1,
                             ),
                         ),
                     },
@@ -8034,7 +8034,7 @@
                         caching_class: ValItem,
                     },
                     source: Stmt {
-                        stmt: 3,
+                        stmt: 2,
                     },
                 },
                 caching_class: Stmt,
@@ -8079,10 +8079,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        4,
+                        3,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        4,
+                        3,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -8128,10 +8128,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        12,
+                        11,
                     ),
                     hir_lazy_expr_idx: Some(
-                        12,
+                        11,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -8205,7 +8205,7 @@
                         caching_class: ValItem,
                     },
                     source: LetVariable {
-                        stmt: 43,
+                        stmt: 42,
                     },
                 },
                 caching_class: Variable,
@@ -8240,10 +8240,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        13,
+                        12,
                     ),
                     hir_lazy_expr_idx: Some(
-                        13,
+                        12,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -8309,7 +8309,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 13,
+                        expr: 12,
                     },
                 },
                 caching_class: Expr,
@@ -8346,10 +8346,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        44,
+                        43,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        44,
+                        43,
                     ),
                     lazy_stmt_sketch: ElseBranch {
                         else_regional_token: ElseRegionalToken {
@@ -8364,7 +8364,7 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                16..42,
+                                15..41,
                             ),
                         ),
                     },
@@ -8507,7 +8507,7 @@
                         caching_class: ValItem,
                     },
                     source: Stmt {
-                        stmt: 44,
+                        stmt: 43,
                     },
                 },
                 caching_class: Stmt,
@@ -8552,10 +8552,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        16,
+                        15,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        16,
+                        15,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -8610,7 +8610,7 @@
                         caching_class: ValItem,
                     },
                     source: Stmt {
-                        stmt: 16,
+                        stmt: 15,
                     },
                 },
                 caching_class: Stmt,
@@ -8655,10 +8655,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        17,
+                        16,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        17,
+                        16,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -8713,7 +8713,7 @@
                         caching_class: ValItem,
                     },
                     source: Stmt {
-                        stmt: 17,
+                        stmt: 16,
                     },
                 },
                 caching_class: Stmt,
@@ -8758,10 +8758,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        18,
+                        17,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        18,
+                        17,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -8817,10 +8817,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        19,
+                        18,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        19,
+                        18,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -8876,10 +8876,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        20,
+                        19,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        20,
+                        19,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -8935,10 +8935,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        21,
+                        20,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        21,
+                        20,
                     ),
                     lazy_stmt_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
@@ -8953,7 +8953,7 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                5..9,
+                                4..8,
                             ),
                         ),
                     },
@@ -9026,7 +9026,7 @@
                         caching_class: ValItem,
                     },
                     source: Stmt {
-                        stmt: 21,
+                        stmt: 20,
                     },
                 },
                 caching_class: Stmt,
@@ -9071,10 +9071,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        22,
+                        21,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        22,
+                        21,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -9130,10 +9130,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        23,
+                        22,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        23,
+                        22,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -9188,7 +9188,7 @@
                         caching_class: ValItem,
                     },
                     source: Stmt {
-                        stmt: 23,
+                        stmt: 22,
                     },
                 },
                 caching_class: Stmt,
@@ -9233,10 +9233,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        24,
+                        23,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        24,
+                        23,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -9292,10 +9292,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        25,
+                        24,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        25,
+                        24,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -9351,10 +9351,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        26,
+                        25,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        26,
+                        25,
                     ),
                     lazy_stmt_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
@@ -9369,7 +9369,7 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                9..15,
+                                8..14,
                             ),
                         ),
                     },
@@ -9442,7 +9442,7 @@
                         caching_class: ValItem,
                     },
                     source: Stmt {
-                        stmt: 26,
+                        stmt: 25,
                     },
                 },
                 caching_class: Stmt,
@@ -9487,10 +9487,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        27,
+                        26,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        27,
+                        26,
                     ),
                     lazy_stmt_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
@@ -9505,7 +9505,7 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                15..16,
+                                14..15,
                             ),
                         ),
                     },
@@ -9563,7 +9563,7 @@
                         caching_class: ValItem,
                     },
                     source: Stmt {
-                        stmt: 27,
+                        stmt: 26,
                     },
                 },
                 caching_class: Stmt,
@@ -9608,10 +9608,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        28,
+                        27,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        28,
+                        27,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -9666,7 +9666,7 @@
                         caching_class: ValItem,
                     },
                     source: Stmt {
-                        stmt: 28,
+                        stmt: 27,
                     },
                 },
                 caching_class: Stmt,
@@ -9711,10 +9711,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        29,
+                        28,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        29,
+                        28,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -9770,10 +9770,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        30,
+                        29,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        30,
+                        29,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -9829,10 +9829,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        31,
+                        30,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        31,
+                        30,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -9888,10 +9888,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        32,
+                        31,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        32,
+                        31,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -9947,10 +9947,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        33,
+                        32,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        33,
+                        32,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -10006,10 +10006,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        34,
+                        33,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        34,
+                        33,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -10064,7 +10064,7 @@
                         caching_class: ValItem,
                     },
                     source: Stmt {
-                        stmt: 34,
+                        stmt: 33,
                     },
                 },
                 caching_class: Stmt,
@@ -10109,10 +10109,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        35,
+                        34,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        35,
+                        34,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -10168,10 +10168,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        36,
+                        35,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        36,
+                        35,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -10227,10 +10227,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        37,
+                        36,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        37,
+                        36,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -10286,10 +10286,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        38,
+                        37,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        38,
+                        37,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -10345,10 +10345,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        39,
+                        38,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        39,
+                        38,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -10403,7 +10403,7 @@
                         caching_class: ValItem,
                     },
                     source: Stmt {
-                        stmt: 39,
+                        stmt: 38,
                     },
                 },
                 caching_class: Stmt,
@@ -10448,10 +10448,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        40,
+                        39,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        40,
+                        39,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -10506,7 +10506,7 @@
                         caching_class: ValItem,
                     },
                     source: Stmt {
-                        stmt: 40,
+                        stmt: 39,
                     },
                 },
                 caching_class: Stmt,
@@ -10551,10 +10551,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        41,
+                        40,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        41,
+                        40,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -10677,10 +10677,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        1,
+                        0,
                     ),
                     hir_eager_stmt_idx: Some(
-                        1,
+                        0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -10734,10 +10734,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        5,
+                        4,
                     ),
                     hir_eager_expr_idx: Some(
-                        4,
+                        3,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -10843,10 +10843,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        5,
+                        4,
                     ),
                     hir_eager_expr_idx: Some(
-                        4,
+                        3,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -10944,10 +10944,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        1,
+                        0,
                     ),
                     hir_eager_stmt_idx: Some(
-                        1,
+                        0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -11001,10 +11001,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        6,
+                        5,
                     ),
                     hir_eager_expr_idx: Some(
-                        5,
+                        4,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -11110,10 +11110,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        6,
+                        5,
                     ),
                     hir_eager_expr_idx: Some(
-                        5,
+                        4,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -11205,10 +11205,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        20,
+                        19,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        20,
+                        19,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -11253,7 +11253,7 @@
                             value: 141,
                         },
                     ),
-                    syn_pattern_expr_idx: 1,
+                    syn_pattern_expr_idx: 0,
                     hir_lazy_pattern_expr_idx: None,
                     hir_lazy_variable_idxs: [
                         (
@@ -11265,7 +11265,7 @@
                                 ),
                             ),
                             Some(
-                                1,
+                                0,
                             ),
                         ),
                     ],
@@ -11360,10 +11360,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        2,
+                        1,
                     ),
                     hir_lazy_expr_idx: Some(
-                        2,
+                        1,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -11427,7 +11427,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 2,
+                        expr: 1,
                     },
                 },
                 caching_class: Expr,
@@ -11464,10 +11464,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        21,
+                        20,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        21,
+                        20,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -11516,7 +11516,7 @@
                         caching_class: ValItem,
                     },
                     source: Stmt {
-                        stmt: 21,
+                        stmt: 20,
                     },
                 },
                 caching_class: Stmt,
@@ -11551,10 +11551,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        5,
+                        4,
                     ),
                     hir_lazy_expr_idx: Some(
-                        5,
+                        4,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -11607,7 +11607,7 @@
                         caching_class: ValItem,
                     },
                     source: LetVariable {
-                        stmt: 20,
+                        stmt: 19,
                     },
                 },
                 caching_class: Variable,
@@ -11644,10 +11644,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        22,
+                        21,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        22,
+                        21,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -11692,7 +11692,7 @@
                             value: 143,
                         },
                     ),
-                    syn_pattern_expr_idx: 4,
+                    syn_pattern_expr_idx: 3,
                     hir_lazy_pattern_expr_idx: None,
                     hir_lazy_variable_idxs: [
                         (
@@ -11704,7 +11704,7 @@
                                 ),
                             ),
                             Some(
-                                2,
+                                1,
                             ),
                         ),
                     ],
@@ -11799,10 +11799,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        8,
+                        7,
                     ),
                     hir_lazy_expr_idx: Some(
-                        7,
+                        6,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -11868,7 +11868,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 7,
+                        expr: 6,
                     },
                 },
                 caching_class: Expr,
@@ -11905,10 +11905,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        23,
+                        22,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        23,
+                        22,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -11953,7 +11953,7 @@
                             value: 144,
                         },
                     ),
-                    syn_pattern_expr_idx: 5,
+                    syn_pattern_expr_idx: 4,
                     hir_lazy_pattern_expr_idx: None,
                     hir_lazy_variable_idxs: [
                         (
@@ -11965,7 +11965,7 @@
                                 ),
                             ),
                             Some(
-                                3,
+                                2,
                             ),
                         ),
                     ],
@@ -12060,10 +12060,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        10,
+                        9,
                     ),
                     hir_lazy_expr_idx: Some(
-                        9,
+                        8,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -12129,7 +12129,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 9,
+                        expr: 8,
                     },
                 },
                 caching_class: Expr,
@@ -12212,10 +12212,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        12,
+                        11,
                     ),
                     hir_lazy_expr_idx: Some(
-                        11,
+                        10,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -12281,7 +12281,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 11,
+                        expr: 10,
                     },
                 },
                 caching_class: Expr,
@@ -12318,10 +12318,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        24,
+                        23,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        24,
+                        23,
                     ),
                     lazy_stmt_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
@@ -12336,7 +12336,7 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                6..18,
+                                5..17,
                             ),
                         ),
                     },
@@ -12419,7 +12419,7 @@
                         caching_class: ValItem,
                     },
                     source: Stmt {
-                        stmt: 24,
+                        stmt: 23,
                     },
                 },
                 caching_class: Stmt,
@@ -12464,10 +12464,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        6,
+                        5,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        6,
+                        5,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -12523,10 +12523,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        7,
+                        6,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        7,
+                        6,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -12582,10 +12582,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        8,
+                        7,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        8,
+                        7,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -12641,10 +12641,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        9,
+                        8,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        9,
+                        8,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -12700,10 +12700,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        10,
+                        9,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        10,
+                        9,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -12759,10 +12759,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        11,
+                        10,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        11,
+                        10,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -12818,10 +12818,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        12,
+                        11,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        12,
+                        11,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -12876,7 +12876,7 @@
                         caching_class: ValItem,
                     },
                     source: Stmt {
-                        stmt: 12,
+                        stmt: 11,
                     },
                 },
                 caching_class: Stmt,
@@ -12921,10 +12921,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        13,
+                        12,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        13,
+                        12,
                     ),
                     lazy_stmt_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
@@ -12939,7 +12939,7 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                1..5,
+                                0..4,
                             ),
                         ),
                     },
@@ -13012,7 +13012,7 @@
                         caching_class: ValItem,
                     },
                     source: Stmt {
-                        stmt: 13,
+                        stmt: 12,
                     },
                 },
                 caching_class: Stmt,
@@ -13057,10 +13057,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        14,
+                        13,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        14,
+                        13,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -13116,10 +13116,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        15,
+                        14,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        15,
+                        14,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -13175,10 +13175,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        16,
+                        15,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        16,
+                        15,
                     ),
                     lazy_stmt_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
@@ -13193,7 +13193,7 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                5..6,
+                                4..5,
                             ),
                         ),
                     },
@@ -13251,7 +13251,7 @@
                         caching_class: ValItem,
                     },
                     source: Stmt {
-                        stmt: 16,
+                        stmt: 15,
                     },
                 },
                 caching_class: Stmt,
@@ -13296,10 +13296,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        17,
+                        16,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        17,
+                        16,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -13347,7 +13347,7 @@
                         caching_class: ValItem,
                     },
                     source: Stmt {
-                        stmt: 17,
+                        stmt: 16,
                     },
                 },
                 caching_class: Stmt,
@@ -13382,10 +13382,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        14,
+                        13,
                     ),
                     hir_lazy_expr_idx: Some(
-                        13,
+                        12,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -13451,7 +13451,7 @@
                         caching_class: ValItem,
                     },
                     source: LetVariable {
-                        stmt: 22,
+                        stmt: 21,
                     },
                 },
                 caching_class: Variable,
@@ -13486,10 +13486,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        15,
+                        14,
                     ),
                     hir_lazy_expr_idx: Some(
-                        14,
+                        13,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -13559,7 +13559,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 14,
+                        expr: 13,
                     },
                 },
                 caching_class: Expr,
@@ -13596,10 +13596,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        25,
+                        24,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        25,
+                        24,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -13645,10 +13645,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        87,
+                        86,
                     ),
                     hir_lazy_expr_idx: Some(
-                        84,
+                        83,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -13755,7 +13755,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 84,
+                        expr: 83,
                     },
                 },
                 caching_class: Expr,
@@ -13838,10 +13838,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        85,
+                        84,
                     ),
                     hir_lazy_expr_idx: Some(
-                        82,
+                        81,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -13907,7 +13907,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 82,
+                        expr: 81,
                     },
                 },
                 caching_class: Expr,
@@ -13942,10 +13942,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        87,
+                        86,
                     ),
                     hir_lazy_expr_idx: Some(
-                        84,
+                        83,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -14052,7 +14052,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 84,
+                        expr: 83,
                     },
                 },
                 caching_class: Expr,
@@ -14089,10 +14089,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        26,
+                        25,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        26,
+                        25,
                     ),
                     lazy_stmt_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
@@ -14107,7 +14107,7 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                18..19,
+                                17..18,
                             ),
                         ),
                     },
@@ -14165,7 +14165,7 @@
                         caching_class: ValItem,
                     },
                     source: Stmt {
-                        stmt: 26,
+                        stmt: 25,
                     },
                 },
                 caching_class: Stmt,
@@ -14210,10 +14210,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        18,
+                        17,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        18,
+                        17,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -14268,7 +14268,7 @@
                         caching_class: ValItem,
                     },
                     source: Stmt {
-                        stmt: 18,
+                        stmt: 17,
                     },
                 },
                 caching_class: Stmt,
@@ -14351,10 +14351,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        90,
+                        89,
                     ),
                     hir_lazy_expr_idx: Some(
-                        87,
+                        86,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -14420,7 +14420,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 87,
+                        expr: 86,
                     },
                 },
                 caching_class: Expr,
@@ -14457,10 +14457,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        27,
+                        26,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        27,
+                        26,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -14515,7 +14515,7 @@
                         caching_class: ValItem,
                     },
                     source: Stmt {
-                        stmt: 27,
+                        stmt: 26,
                     },
                 },
                 caching_class: Stmt,
@@ -14550,10 +14550,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        97,
+                        96,
                     ),
                     hir_lazy_expr_idx: Some(
-                        94,
+                        93,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -14619,7 +14619,7 @@
                         caching_class: ValItem,
                     },
                     source: LetVariable {
-                        stmt: 22,
+                        stmt: 21,
                     },
                 },
                 caching_class: Variable,
@@ -14654,10 +14654,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        98,
+                        97,
                     ),
                     hir_lazy_expr_idx: Some(
-                        95,
+                        94,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -14727,7 +14727,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 95,
+                        expr: 94,
                     },
                 },
                 caching_class: Expr,
@@ -14762,10 +14762,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        102,
+                        101,
                     ),
                     hir_lazy_expr_idx: Some(
-                        99,
+                        98,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -14831,7 +14831,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 99,
+                        expr: 98,
                     },
                 },
                 caching_class: Expr,
@@ -14866,10 +14866,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        103,
+                        102,
                     ),
                     hir_lazy_expr_idx: Some(
-                        100,
+                        99,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -14940,7 +14940,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 100,
+                        expr: 99,
                     },
                 },
                 caching_class: Expr,
@@ -14977,10 +14977,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        28,
+                        27,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        28,
+                        27,
                     ),
                     lazy_stmt_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
@@ -14995,7 +14995,7 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                19..20,
+                                18..19,
                             ),
                         ),
                     },
@@ -15053,7 +15053,7 @@
                         caching_class: ValItem,
                     },
                     source: Stmt {
-                        stmt: 28,
+                        stmt: 27,
                     },
                 },
                 caching_class: Stmt,
@@ -15098,10 +15098,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        19,
+                        18,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        19,
+                        18,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -15156,7 +15156,7 @@
                         caching_class: ValItem,
                     },
                     source: Stmt {
-                        stmt: 19,
+                        stmt: 18,
                     },
                 },
                 caching_class: Stmt,
@@ -15191,10 +15191,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        106,
+                        105,
                     ),
                     hir_lazy_expr_idx: Some(
-                        103,
+                        102,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -15260,7 +15260,7 @@
                         caching_class: ValItem,
                     },
                     source: LetVariable {
-                        stmt: 22,
+                        stmt: 21,
                     },
                 },
                 caching_class: Variable,
@@ -15295,10 +15295,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        107,
+                        106,
                     ),
                     hir_lazy_expr_idx: Some(
-                        104,
+                        103,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -15368,7 +15368,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 104,
+                        expr: 103,
                     },
                 },
                 caching_class: Expr,
@@ -15405,10 +15405,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        29,
+                        28,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        29,
+                        28,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -15463,7 +15463,7 @@
                         caching_class: ValItem,
                     },
                     source: Stmt {
-                        stmt: 29,
+                        stmt: 28,
                     },
                 },
                 caching_class: Stmt,
@@ -15498,10 +15498,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        120,
+                        119,
                     ),
                     hir_lazy_expr_idx: Some(
-                        116,
+                        115,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -15564,7 +15564,7 @@
                         caching_class: ValItem,
                     },
                     source: LetVariable {
-                        stmt: 23,
+                        stmt: 22,
                     },
                 },
                 caching_class: Variable,
@@ -15601,10 +15601,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        30,
+                        29,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        30,
+                        29,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -15727,10 +15727,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        1,
+                        0,
                     ),
                     hir_eager_stmt_idx: Some(
-                        1,
+                        0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -15784,10 +15784,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        7,
+                        6,
                     ),
                     hir_eager_expr_idx: Some(
-                        6,
+                        5,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -15893,10 +15893,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        7,
+                        6,
                     ),
                     hir_eager_expr_idx: Some(
-                        6,
+                        5,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -15994,10 +15994,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        1,
+                        0,
                     ),
                     hir_eager_stmt_idx: Some(
-                        1,
+                        0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -16099,10 +16099,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        2,
+                        1,
                     ),
                     hir_eager_expr_idx: Some(
-                        2,
+                        1,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -16152,10 +16152,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        2,
+                        1,
                     ),
                     hir_eager_stmt_idx: Some(
-                        2,
+                        1,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -16257,10 +16257,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        6,
+                        5,
                     ),
                     hir_eager_expr_idx: Some(
-                        6,
+                        5,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -16310,10 +16310,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        3,
+                        2,
                     ),
                     hir_eager_stmt_idx: Some(
-                        3,
+                        2,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -16358,13 +16358,223 @@
                             value: 199,
                         },
                     ),
-                    syn_pattern_expr_idx: 1,
+                    syn_pattern_expr_idx: 0,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
                                 Coword(
                                     Id {
                                         value: 328,
+                                    },
+                                ),
+                            ),
+                            Some(
+                                0,
+                            ),
+                        ),
+                    ],
+                    sem_expr_region: SemaExprRegion(
+                        Id {
+                            value: 41,
+                        },
+                    ),
+                },
+            ),
+        },
+        None,
+    ),
+    (
+        Trace {
+            path: TracePath {
+                data: TracePathData::ValItem(
+                    ValItemTracePathData {
+                        val_item_path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                    },
+                ),
+            },
+            data: ValItem(
+                ValItemTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 176,
+                        },
+                    ),
+                    val_item_path: FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 77,
+                            },
+                        ),
+                    ),
+                },
+            ),
+        },
+        Some(
+            KiRepr {
+                val_domain_repr: Omni,
+                opn: ValOpn::Linkage(
+                    Linkage {
+                        data: LinkageData::MajorVal {
+                            path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                            instantiation: LinInstantiation {
+                                symbol_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
+                ),
+                arguments: [],
+                source: KiReprSource::ValItem(
+                    FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                ),
+                caching_class: ValItem,
+            },
+        ),
+    ),
+    (
+        Trace {
+            path: TracePath {
+                data: TracePathData::EagerExpr(
+                    EagerExprTracePathData {
+                        biological_parent_path: TracePath {
+                            data: TracePathData::EagerStmt(
+                                EagerStmtTracePathData {
+                                    biological_parent_path: TracePath(
+                                        Id {
+                                            value: 177,
+                                        },
+                                    ),
+                                    essence: Let,
+                                    disambiguator: 0,
+                                },
+                            ),
+                        },
+                        essence: EagerExprEssence::Haha,
+                        disambiguator: 0,
+                    },
+                ),
+            },
+            data: EagerExpr(
+                EagerExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 200,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 199,
+                        },
+                    ),
+                    sem_expr_idx: SemaExprIdx(
+                        9,
+                    ),
+                    hir_eager_expr_idx: Some(
+                        9,
+                    ),
+                    sem_expr_region: SemaExprRegion(
+                        Id {
+                            value: 41,
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion(
+                        Id {
+                            value: 25,
+                        },
+                    ),
+                    hir_eager_expr_source_map: HirEagerExprSourceMap(
+                        Id {
+                            value: 25,
+                        },
+                    ),
+                },
+            ),
+        },
+        None,
+    ),
+    (
+        Trace {
+            path: TracePath {
+                data: TracePathData::EagerStmt(
+                    EagerStmtTracePathData {
+                        biological_parent_path: TracePath(
+                            Id {
+                                value: 177,
+                            },
+                        ),
+                        essence: Let,
+                        disambiguator: 1,
+                    },
+                ),
+            },
+            data: EagerStmt(
+                EagerStmtTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 183,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 193,
+                        },
+                    ),
+                    sem_stmt_idx: SemaStmtIdx(
+                        3,
+                    ),
+                    hir_eager_stmt_idx: Some(
+                        3,
+                    ),
+                    eager_stmt_data_sketch: BasicStmt,
+                    sem_expr_region: SemaExprRegion(
+                        Id {
+                            value: 41,
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion(
+                        Id {
+                            value: 25,
+                        },
+                    ),
+                },
+            ),
+        },
+        None,
+    ),
+    (
+        Trace {
+            path: TracePath {
+                data: TracePathData::EagerPatternExpr(
+                    EagerPatternExprTracePathData {
+                        biological_parent_path: TracePath(
+                            Id {
+                                value: 183,
+                            },
+                        ),
+                        essence: Haha,
+                        disambiguator: 0,
+                    },
+                ),
+            },
+            data: EagerPatternExpr(
+                EagerPatternExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 201,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 200,
+                        },
+                    ),
+                    syn_pattern_expr_idx: 1,
+                    hir_eager_runtime_symbol_idxs: [
+                        (
+                            Ident(
+                                Coword(
+                                    Id {
+                                        value: 329,
                                     },
                                 ),
                             ),
@@ -16445,7 +16655,7 @@
                                         },
                                     ),
                                     essence: Let,
-                                    disambiguator: 0,
+                                    disambiguator: 1,
                                 },
                             ),
                         },
@@ -16458,19 +16668,19 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 200,
+                            value: 202,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 199,
+                            value: 200,
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        10,
+                        13,
                     ),
                     hir_eager_expr_idx: Some(
-                        10,
+                        13,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -16503,7 +16713,7 @@
                             },
                         ),
                         essence: Let,
-                        disambiguator: 1,
+                        disambiguator: 2,
                     },
                 ),
             },
@@ -16511,7 +16721,7 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 183,
+                            value: 184,
                         },
                     ),
                     biological_parent: Trace(
@@ -16548,7 +16758,7 @@
                     EagerPatternExprTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 183,
+                                value: 184,
                             },
                         ),
                         essence: Haha,
@@ -16560,12 +16770,12 @@
                 EagerPatternExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 201,
+                            value: 203,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 200,
+                            value: 201,
                         },
                     ),
                     syn_pattern_expr_idx: 2,
@@ -16574,7 +16784,7 @@
                             Ident(
                                 Coword(
                                     Id {
-                                        value: 329,
+                                        value: 330,
                                     },
                                 ),
                             ),
@@ -16655,216 +16865,6 @@
                                         },
                                     ),
                                     essence: Let,
-                                    disambiguator: 1,
-                                },
-                            ),
-                        },
-                        essence: EagerExprEssence::Haha,
-                        disambiguator: 0,
-                    },
-                ),
-            },
-            data: EagerExpr(
-                EagerExprTraceData {
-                    path: TracePath(
-                        Id {
-                            value: 202,
-                        },
-                    ),
-                    biological_parent: Trace(
-                        Id {
-                            value: 200,
-                        },
-                    ),
-                    sem_expr_idx: SemaExprIdx(
-                        14,
-                    ),
-                    hir_eager_expr_idx: Some(
-                        14,
-                    ),
-                    sem_expr_region: SemaExprRegion(
-                        Id {
-                            value: 41,
-                        },
-                    ),
-                    hir_eager_expr_region: HirEagerExprRegion(
-                        Id {
-                            value: 25,
-                        },
-                    ),
-                    hir_eager_expr_source_map: HirEagerExprSourceMap(
-                        Id {
-                            value: 25,
-                        },
-                    ),
-                },
-            ),
-        },
-        None,
-    ),
-    (
-        Trace {
-            path: TracePath {
-                data: TracePathData::EagerStmt(
-                    EagerStmtTracePathData {
-                        biological_parent_path: TracePath(
-                            Id {
-                                value: 177,
-                            },
-                        ),
-                        essence: Let,
-                        disambiguator: 2,
-                    },
-                ),
-            },
-            data: EagerStmt(
-                EagerStmtTraceData {
-                    path: TracePath(
-                        Id {
-                            value: 184,
-                        },
-                    ),
-                    biological_parent: Trace(
-                        Id {
-                            value: 193,
-                        },
-                    ),
-                    sem_stmt_idx: SemaStmtIdx(
-                        5,
-                    ),
-                    hir_eager_stmt_idx: Some(
-                        5,
-                    ),
-                    eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
-                        Id {
-                            value: 41,
-                        },
-                    ),
-                    hir_eager_expr_region: HirEagerExprRegion(
-                        Id {
-                            value: 25,
-                        },
-                    ),
-                },
-            ),
-        },
-        None,
-    ),
-    (
-        Trace {
-            path: TracePath {
-                data: TracePathData::EagerPatternExpr(
-                    EagerPatternExprTracePathData {
-                        biological_parent_path: TracePath(
-                            Id {
-                                value: 184,
-                            },
-                        ),
-                        essence: Haha,
-                        disambiguator: 0,
-                    },
-                ),
-            },
-            data: EagerPatternExpr(
-                EagerPatternExprTraceData {
-                    path: TracePath(
-                        Id {
-                            value: 203,
-                        },
-                    ),
-                    biological_parent: Trace(
-                        Id {
-                            value: 201,
-                        },
-                    ),
-                    syn_pattern_expr_idx: 3,
-                    hir_eager_runtime_symbol_idxs: [
-                        (
-                            Ident(
-                                Coword(
-                                    Id {
-                                        value: 330,
-                                    },
-                                ),
-                            ),
-                            Some(
-                                3,
-                            ),
-                        ),
-                    ],
-                    sem_expr_region: SemaExprRegion(
-                        Id {
-                            value: 41,
-                        },
-                    ),
-                },
-            ),
-        },
-        None,
-    ),
-    (
-        Trace {
-            path: TracePath {
-                data: TracePathData::ValItem(
-                    ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
-                    },
-                ),
-            },
-            data: ValItem(
-                ValItemTraceData {
-                    path: TracePath(
-                        Id {
-                            value: 176,
-                        },
-                    ),
-                    val_item_path: FugitivePath(
-                        ItemPathId(
-                            Id {
-                                value: 77,
-                            },
-                        ),
-                    ),
-                },
-            ),
-        },
-        Some(
-            KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
-                    Linkage {
-                        data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
-                            instantiation: LinInstantiation {
-                                symbol_resolutions: [],
-                                separator: None,
-                            },
-                        },
-                    },
-                ),
-                arguments: [],
-                source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
-                ),
-                caching_class: ValItem,
-            },
-        ),
-    ),
-    (
-        Trace {
-            path: TracePath {
-                data: TracePathData::EagerExpr(
-                    EagerExprTracePathData {
-                        biological_parent_path: TracePath {
-                            data: TracePathData::EagerStmt(
-                                EagerStmtTracePathData {
-                                    biological_parent_path: TracePath(
-                                        Id {
-                                            value: 177,
-                                        },
-                                    ),
-                                    essence: Let,
                                     disambiguator: 2,
                                 },
                             ),
@@ -16887,10 +16887,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        18,
+                        17,
                     ),
                     hir_eager_expr_idx: Some(
-                        18,
+                        17,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -16940,10 +16940,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        6,
+                        5,
                     ),
                     hir_eager_stmt_idx: Some(
-                        6,
+                        5,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -16997,10 +16997,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        21,
+                        20,
                     ),
                     hir_eager_expr_idx: Some(
-                        21,
+                        20,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -17050,10 +17050,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        7,
+                        6,
                     ),
                     hir_eager_stmt_idx: Some(
-                        7,
+                        6,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -17107,10 +17107,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        23,
+                        22,
                     ),
                     hir_eager_expr_idx: Some(
-                        22,
+                        21,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -17168,10 +17168,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        25,
+                        24,
                     ),
                     hir_eager_expr_idx: Some(
-                        24,
+                        23,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -17221,10 +17221,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        8,
+                        7,
                     ),
                     hir_eager_stmt_idx: Some(
-                        8,
+                        7,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -17278,10 +17278,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        28,
+                        27,
                     ),
                     hir_eager_expr_idx: Some(
-                        27,
+                        26,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -17331,10 +17331,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        9,
+                        8,
                     ),
                     hir_eager_stmt_idx: Some(
-                        9,
+                        8,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -17379,7 +17379,7 @@
                             value: 205,
                         },
                     ),
-                    syn_pattern_expr_idx: 8,
+                    syn_pattern_expr_idx: 7,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -17390,7 +17390,7 @@
                                 ),
                             ),
                             Some(
-                                4,
+                                3,
                             ),
                         ),
                     ],
@@ -17440,10 +17440,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        30,
+                        29,
                     ),
                     hir_eager_expr_idx: Some(
-                        28,
+                        27,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -17501,10 +17501,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        32,
+                        31,
                     ),
                     hir_eager_expr_idx: Some(
-                        30,
+                        29,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -17562,10 +17562,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        34,
+                        33,
                     ),
                     hir_eager_expr_idx: Some(
-                        32,
+                        31,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -17615,10 +17615,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        10,
+                        9,
                     ),
                     hir_eager_stmt_idx: Some(
-                        10,
+                        9,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -17672,10 +17672,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        35,
+                        34,
                     ),
                     hir_eager_expr_idx: Some(
-                        33,
+                        32,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -17733,10 +17733,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        38,
+                        37,
                     ),
                     hir_eager_expr_idx: Some(
-                        36,
+                        35,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -17786,10 +17786,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        11,
+                        10,
                     ),
                     hir_eager_stmt_idx: Some(
-                        11,
+                        10,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -17834,7 +17834,7 @@
                             value: 207,
                         },
                     ),
-                    syn_pattern_expr_idx: 9,
+                    syn_pattern_expr_idx: 8,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -17845,7 +17845,7 @@
                                 ),
                             ),
                             Some(
-                                5,
+                                4,
                             ),
                         ),
                     ],
@@ -17895,10 +17895,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        43,
+                        42,
                     ),
                     hir_eager_expr_idx: Some(
-                        41,
+                        40,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -17956,10 +17956,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        45,
+                        44,
                     ),
                     hir_eager_expr_idx: Some(
-                        43,
+                        42,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -18009,10 +18009,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        12,
+                        11,
                     ),
                     hir_eager_stmt_idx: Some(
-                        12,
+                        11,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -18057,7 +18057,7 @@
                             value: 208,
                         },
                     ),
-                    syn_pattern_expr_idx: 10,
+                    syn_pattern_expr_idx: 9,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -18068,7 +18068,7 @@
                                 ),
                             ),
                             Some(
-                                6,
+                                5,
                             ),
                         ),
                     ],
@@ -18118,10 +18118,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        46,
+                        45,
                     ),
                     hir_eager_expr_idx: Some(
-                        44,
+                        43,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -18179,10 +18179,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        48,
+                        47,
                     ),
                     hir_eager_expr_idx: Some(
-                        46,
+                        45,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -18232,10 +18232,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        13,
+                        12,
                     ),
                     hir_eager_stmt_idx: Some(
-                        13,
+                        12,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -18280,7 +18280,7 @@
                             value: 209,
                         },
                     ),
-                    syn_pattern_expr_idx: 11,
+                    syn_pattern_expr_idx: 10,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -18291,7 +18291,7 @@
                                 ),
                             ),
                             Some(
-                                7,
+                                6,
                             ),
                         ),
                     ],
@@ -18341,10 +18341,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        49,
+                        48,
                     ),
                     hir_eager_expr_idx: Some(
-                        47,
+                        46,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -18402,10 +18402,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        51,
+                        50,
                     ),
                     hir_eager_expr_idx: Some(
-                        49,
+                        48,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -18463,10 +18463,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        50,
+                        49,
                     ),
                     hir_eager_expr_idx: Some(
-                        48,
+                        47,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -18516,10 +18516,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        14,
+                        13,
                     ),
                     hir_eager_stmt_idx: Some(
-                        14,
+                        13,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -18573,10 +18573,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        52,
+                        51,
                     ),
                     hir_eager_expr_idx: Some(
-                        50,
+                        49,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -18626,10 +18626,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        15,
+                        14,
                     ),
                     hir_eager_stmt_idx: Some(
-                        15,
+                        14,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -18731,10 +18731,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        56,
+                        55,
                     ),
                     hir_eager_expr_idx: Some(
-                        54,
+                        53,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -18784,10 +18784,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        16,
+                        15,
                     ),
                     hir_eager_stmt_idx: Some(
-                        16,
+                        15,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -18841,10 +18841,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        59,
+                        58,
                     ),
                     hir_eager_expr_idx: Some(
-                        57,
+                        56,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -18902,10 +18902,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        61,
+                        60,
                     ),
                     hir_eager_expr_idx: Some(
-                        59,
+                        58,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -18955,10 +18955,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        17,
+                        16,
                     ),
                     hir_eager_stmt_idx: Some(
-                        17,
+                        16,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -19081,10 +19081,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        1,
+                        0,
                     ),
                     hir_eager_stmt_idx: Some(
-                        1,
+                        0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -19138,10 +19138,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        6,
+                        5,
                     ),
                     hir_eager_expr_idx: Some(
-                        5,
+                        4,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -19247,10 +19247,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        6,
+                        5,
                     ),
                     hir_eager_expr_idx: Some(
-                        5,
+                        4,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -19348,10 +19348,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        1,
+                        0,
                     ),
                     hir_eager_stmt_idx: Some(
-                        1,
+                        0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -19405,10 +19405,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        5,
+                        4,
                     ),
                     hir_eager_expr_idx: Some(
-                        4,
+                        3,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -19514,10 +19514,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        5,
+                        4,
                     ),
                     hir_eager_expr_idx: Some(
-                        4,
+                        3,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -19615,10 +19615,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        1,
+                        0,
                     ),
                     hir_eager_stmt_idx: Some(
-                        1,
+                        0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -19672,10 +19672,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        5,
+                        4,
                     ),
                     hir_eager_expr_idx: Some(
-                        4,
+                        3,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -19781,10 +19781,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        5,
+                        4,
                     ),
                     hir_eager_expr_idx: Some(
-                        4,
+                        3,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -19882,10 +19882,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        15,
+                        14,
                     ),
                     hir_eager_stmt_idx: Some(
-                        15,
+                        14,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -19987,10 +19987,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        2,
+                        1,
                     ),
                     hir_eager_expr_idx: Some(
-                        2,
+                        1,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -20040,10 +20040,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        16,
+                        15,
                     ),
                     hir_eager_stmt_idx: Some(
-                        16,
+                        15,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -20145,10 +20145,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        7,
+                        6,
                     ),
                     hir_eager_expr_idx: Some(
-                        6,
+                        5,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -20198,10 +20198,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        17,
+                        16,
                     ),
                     hir_eager_stmt_idx: Some(
-                        17,
+                        16,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -20246,7 +20246,7 @@
                             value: 267,
                         },
                     ),
-                    syn_pattern_expr_idx: 5,
+                    syn_pattern_expr_idx: 4,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -20257,7 +20257,7 @@
                                 ),
                             ),
                             Some(
-                                1,
+                                0,
                             ),
                         ),
                     ],
@@ -20355,10 +20355,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        12,
+                        11,
                     ),
                     hir_eager_expr_idx: Some(
-                        10,
+                        9,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -20408,10 +20408,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        18,
+                        17,
                     ),
                     hir_eager_stmt_idx: Some(
-                        18,
+                        17,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -20465,10 +20465,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        13,
+                        12,
                     ),
                     hir_eager_expr_idx: Some(
-                        11,
+                        10,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -20526,10 +20526,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        14,
+                        13,
                     ),
                     hir_eager_expr_idx: Some(
-                        12,
+                        11,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -20579,10 +20579,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        19,
+                        18,
                     ),
                     hir_eager_stmt_idx: Some(
-                        19,
+                        18,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -20627,7 +20627,7 @@
                             value: 269,
                         },
                     ),
-                    syn_pattern_expr_idx: 7,
+                    syn_pattern_expr_idx: 6,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -20638,7 +20638,7 @@
                                 ),
                             ),
                             Some(
-                                2,
+                                1,
                             ),
                         ),
                     ],
@@ -20736,10 +20736,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        19,
+                        18,
                     ),
                     hir_eager_expr_idx: Some(
-                        16,
+                        15,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -20789,10 +20789,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        20,
+                        19,
                     ),
                     hir_eager_stmt_idx: Some(
-                        20,
+                        19,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -20846,10 +20846,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        22,
+                        21,
                     ),
                     hir_eager_expr_idx: Some(
-                        19,
+                        18,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -20899,10 +20899,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        21,
+                        20,
                     ),
                     hir_eager_stmt_idx: Some(
-                        21,
+                        20,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -20947,7 +20947,7 @@
                             value: 271,
                         },
                     ),
-                    syn_pattern_expr_idx: 10,
+                    syn_pattern_expr_idx: 9,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -20958,7 +20958,7 @@
                                 ),
                             ),
                             Some(
-                                3,
+                                2,
                             ),
                         ),
                     ],
@@ -21008,10 +21008,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        24,
+                        23,
                     ),
                     hir_eager_expr_idx: Some(
-                        20,
+                        19,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -21069,10 +21069,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        26,
+                        25,
                     ),
                     hir_eager_expr_idx: Some(
-                        22,
+                        21,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -21130,10 +21130,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        27,
+                        26,
                     ),
                     hir_eager_expr_idx: Some(
-                        23,
+                        22,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -21183,10 +21183,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        22,
+                        21,
                     ),
                     hir_eager_stmt_idx: Some(
-                        22,
+                        21,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -21231,7 +21231,7 @@
                             value: 272,
                         },
                     ),
-                    syn_pattern_expr_idx: 11,
+                    syn_pattern_expr_idx: 10,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -21242,7 +21242,7 @@
                                 ),
                             ),
                             Some(
-                                4,
+                                3,
                             ),
                         ),
                     ],
@@ -21340,10 +21340,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        29,
+                        28,
                     ),
                     hir_eager_expr_idx: Some(
-                        25,
+                        24,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -21449,10 +21449,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        31,
+                        30,
                     ),
                     hir_eager_expr_idx: Some(
-                        27,
+                        26,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -21502,10 +21502,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        23,
+                        22,
                     ),
                     hir_eager_stmt_idx: Some(
-                        23,
+                        22,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -21559,10 +21559,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        33,
+                        32,
                     ),
                     hir_eager_expr_idx: Some(
-                        29,
+                        28,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -21612,10 +21612,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        24,
+                        23,
                     ),
                     hir_eager_stmt_idx: Some(
-                        24,
+                        23,
                     ),
                     eager_stmt_data_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
@@ -21630,7 +21630,7 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                1..15,
+                                0..14,
                             ),
                         ),
                     },
@@ -21677,10 +21677,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        1,
+                        0,
                     ),
                     hir_eager_stmt_idx: Some(
-                        1,
+                        0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -21726,10 +21726,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        2,
+                        1,
                     ),
                     hir_eager_stmt_idx: Some(
-                        2,
+                        1,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -21775,10 +21775,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        3,
+                        2,
                     ),
                     hir_eager_stmt_idx: Some(
-                        3,
+                        2,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -21824,10 +21824,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        4,
+                        3,
                     ),
                     hir_eager_stmt_idx: Some(
-                        4,
+                        3,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -21873,10 +21873,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        5,
+                        4,
                     ),
                     hir_eager_stmt_idx: Some(
-                        5,
+                        4,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -21922,10 +21922,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        6,
+                        5,
                     ),
                     hir_eager_stmt_idx: Some(
-                        6,
+                        5,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -21971,10 +21971,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        7,
+                        6,
                     ),
                     hir_eager_stmt_idx: Some(
-                        7,
+                        6,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -22020,10 +22020,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        8,
+                        7,
                     ),
                     hir_eager_stmt_idx: Some(
-                        8,
+                        7,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -22069,10 +22069,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        9,
+                        8,
                     ),
                     hir_eager_stmt_idx: Some(
-                        9,
+                        8,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -22118,10 +22118,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        10,
+                        9,
                     ),
                     hir_eager_stmt_idx: Some(
-                        10,
+                        9,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -22167,10 +22167,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        11,
+                        10,
                     ),
                     hir_eager_stmt_idx: Some(
-                        11,
+                        10,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -22216,10 +22216,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        12,
+                        11,
                     ),
                     hir_eager_stmt_idx: Some(
-                        12,
+                        11,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -22265,10 +22265,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        13,
+                        12,
                     ),
                     hir_eager_stmt_idx: Some(
-                        13,
+                        12,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -22314,10 +22314,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        14,
+                        13,
                     ),
                     hir_eager_stmt_idx: Some(
-                        14,
+                        13,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -22371,10 +22371,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        36,
+                        35,
                     ),
                     hir_eager_expr_idx: Some(
-                        32,
+                        31,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -22432,10 +22432,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        37,
+                        36,
                     ),
                     hir_eager_expr_idx: Some(
-                        33,
+                        32,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -22485,10 +22485,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        25,
+                        24,
                     ),
                     hir_eager_stmt_idx: Some(
-                        25,
+                        24,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -22611,10 +22611,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        1,
+                        0,
                     ),
                     hir_eager_stmt_idx: Some(
-                        1,
+                        0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -22737,10 +22737,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        1,
+                        0,
                     ),
                     hir_eager_stmt_idx: Some(
-                        1,
+                        0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -22794,10 +22794,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        5,
+                        4,
                     ),
                     hir_eager_expr_idx: Some(
-                        4,
+                        3,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -22903,10 +22903,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        5,
+                        4,
                     ),
                     hir_eager_expr_idx: Some(
-                        4,
+                        3,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -23004,10 +23004,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        1,
+                        0,
                     ),
                     hir_eager_stmt_idx: Some(
-                        1,
+                        0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -23061,10 +23061,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        6,
+                        5,
                     ),
                     hir_eager_expr_idx: Some(
-                        5,
+                        4,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -23170,10 +23170,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        6,
+                        5,
                     ),
                     hir_eager_expr_idx: Some(
-                        5,
+                        4,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -23271,10 +23271,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        11,
+                        10,
                     ),
                     hir_eager_stmt_idx: Some(
-                        11,
+                        10,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -23376,10 +23376,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        2,
+                        1,
                     ),
                     hir_eager_expr_idx: Some(
-                        2,
+                        1,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -23429,10 +23429,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        12,
+                        11,
                     ),
                     hir_eager_stmt_idx: Some(
-                        12,
+                        11,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -23477,7 +23477,7 @@
                             value: 327,
                         },
                     ),
-                    syn_pattern_expr_idx: 1,
+                    syn_pattern_expr_idx: 0,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -23488,7 +23488,7 @@
                                 ),
                             ),
                             Some(
-                                1,
+                                0,
                             ),
                         ),
                     ],
@@ -23586,10 +23586,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        6,
+                        5,
                     ),
                     hir_eager_expr_idx: Some(
-                        6,
+                        5,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -23639,10 +23639,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        13,
+                        12,
                     ),
                     hir_eager_stmt_idx: Some(
-                        13,
+                        12,
                     ),
                     eager_stmt_data_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
@@ -23657,7 +23657,7 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                4..8,
+                                3..7,
                             ),
                         ),
                     },
@@ -23704,10 +23704,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        4,
+                        3,
                     ),
                     hir_eager_stmt_idx: Some(
-                        4,
+                        3,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -23753,10 +23753,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        5,
+                        4,
                     ),
                     hir_eager_stmt_idx: Some(
-                        5,
+                        4,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -23802,10 +23802,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        6,
+                        5,
                     ),
                     hir_eager_stmt_idx: Some(
-                        6,
+                        5,
                     ),
                     eager_stmt_data_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
@@ -23820,7 +23820,7 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                1..4,
+                                0..3,
                             ),
                         ),
                     },
@@ -23867,10 +23867,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        7,
+                        6,
                     ),
                     hir_eager_stmt_idx: Some(
-                        7,
+                        6,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -23924,10 +23924,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        7,
+                        6,
                     ),
                     hir_eager_expr_idx: Some(
-                        7,
+                        6,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -23977,10 +23977,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        14,
+                        13,
                     ),
                     hir_eager_stmt_idx: Some(
-                        14,
+                        13,
                     ),
                     eager_stmt_data_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
@@ -23995,7 +23995,7 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                8..11,
+                                7..10,
                             ),
                         ),
                     },
@@ -24042,10 +24042,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        8,
+                        7,
                     ),
                     hir_eager_stmt_idx: Some(
-                        8,
+                        7,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -24091,10 +24091,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        9,
+                        8,
                     ),
                     hir_eager_stmt_idx: Some(
-                        9,
+                        8,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -24140,10 +24140,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        10,
+                        9,
                     ),
                     hir_eager_stmt_idx: Some(
-                        10,
+                        9,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -24197,10 +24197,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        36,
+                        35,
                     ),
                     hir_eager_expr_idx: Some(
-                        35,
+                        34,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -24250,10 +24250,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        15,
+                        14,
                     ),
                     hir_eager_stmt_idx: Some(
-                        15,
+                        14,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -24355,10 +24355,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        49,
+                        48,
                     ),
                     hir_eager_expr_idx: Some(
-                        48,
+                        47,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -24408,10 +24408,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        16,
+                        15,
                     ),
                     hir_eager_stmt_idx: Some(
-                        16,
+                        15,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -24456,7 +24456,7 @@
                             value: 331,
                         },
                     ),
-                    syn_pattern_expr_idx: 10,
+                    syn_pattern_expr_idx: 9,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -24467,7 +24467,7 @@
                                 ),
                             ),
                             Some(
-                                6,
+                                5,
                             ),
                         ),
                     ],
@@ -24565,10 +24565,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        54,
+                        53,
                     ),
                     hir_eager_expr_idx: Some(
-                        52,
+                        51,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -24618,10 +24618,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        17,
+                        16,
                     ),
                     hir_eager_stmt_idx: Some(
-                        17,
+                        16,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -24667,10 +24667,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        18,
+                        17,
                     ),
                     hir_eager_stmt_idx: Some(
-                        18,
+                        17,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -24793,10 +24793,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        1,
+                        0,
                     ),
                     hir_eager_stmt_idx: Some(
-                        1,
+                        0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -24850,10 +24850,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        5,
+                        4,
                     ),
                     hir_eager_expr_idx: Some(
-                        4,
+                        3,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -24959,10 +24959,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        5,
+                        4,
                     ),
                     hir_eager_expr_idx: Some(
-                        4,
+                        3,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -25060,10 +25060,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        4,
+                        3,
                     ),
                     hir_eager_stmt_idx: Some(
-                        4,
+                        3,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -25108,7 +25108,7 @@
                             value: 358,
                         },
                     ),
-                    syn_pattern_expr_idx: 1,
+                    syn_pattern_expr_idx: 0,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -25119,7 +25119,7 @@
                                 ),
                             ),
                             Some(
-                                1,
+                                0,
                             ),
                         ),
                     ],
@@ -25217,10 +25217,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        2,
+                        1,
                     ),
                     hir_eager_expr_idx: Some(
-                        2,
+                        1,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -25326,10 +25326,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        4,
+                        3,
                     ),
                     hir_eager_expr_idx: Some(
-                        4,
+                        3,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -25379,10 +25379,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        5,
+                        4,
                     ),
                     hir_eager_stmt_idx: Some(
-                        5,
+                        4,
                     ),
                     eager_stmt_data_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
@@ -25397,7 +25397,7 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                2..4,
+                                1..3,
                             ),
                         ),
                     },
@@ -25444,10 +25444,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        2,
+                        1,
                     ),
                     hir_eager_stmt_idx: Some(
-                        2,
+                        1,
                     ),
                     eager_stmt_data_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
@@ -25462,7 +25462,7 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                1..2,
+                                0..1,
                             ),
                         ),
                     },
@@ -25509,10 +25509,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        3,
+                        2,
                     ),
                     hir_eager_stmt_idx: Some(
-                        3,
+                        2,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -25614,10 +25614,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        7,
+                        6,
                     ),
                     hir_eager_expr_idx: Some(
-                        7,
+                        6,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -25675,10 +25675,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        8,
+                        7,
                     ),
                     hir_eager_expr_idx: Some(
-                        8,
+                        7,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -25728,10 +25728,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        6,
+                        5,
                     ),
                     hir_eager_stmt_idx: Some(
-                        6,
+                        5,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -25854,10 +25854,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        1,
+                        0,
                     ),
                     hir_eager_stmt_idx: Some(
-                        1,
+                        0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -25911,10 +25911,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        5,
+                        4,
                     ),
                     hir_eager_expr_idx: Some(
-                        4,
+                        3,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -26020,10 +26020,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        5,
+                        4,
                     ),
                     hir_eager_expr_idx: Some(
-                        4,
+                        3,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -26121,10 +26121,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        1,
+                        0,
                     ),
                     hir_eager_stmt_idx: Some(
-                        1,
+                        0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -26178,10 +26178,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        5,
+                        4,
                     ),
                     hir_eager_expr_idx: Some(
-                        4,
+                        3,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -26287,10 +26287,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        5,
+                        4,
                     ),
                     hir_eager_expr_idx: Some(
-                        4,
+                        3,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -26388,10 +26388,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        15,
+                        14,
                     ),
                     hir_eager_stmt_idx: Some(
-                        15,
+                        14,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -26436,7 +26436,7 @@
                             value: 380,
                         },
                     ),
-                    syn_pattern_expr_idx: 1,
+                    syn_pattern_expr_idx: 0,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -26447,7 +26447,7 @@
                                 ),
                             ),
                             Some(
-                                1,
+                                0,
                             ),
                         ),
                     ],
@@ -26545,10 +26545,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        2,
+                        1,
                     ),
                     hir_eager_expr_idx: Some(
-                        2,
+                        1,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -26598,10 +26598,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        16,
+                        15,
                     ),
                     hir_eager_stmt_idx: Some(
-                        16,
+                        15,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -26655,10 +26655,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        3,
+                        2,
                     ),
                     hir_eager_expr_idx: Some(
-                        3,
+                        2,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -26716,10 +26716,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        4,
+                        3,
                     ),
                     hir_eager_expr_idx: Some(
-                        4,
+                        3,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -26769,10 +26769,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        17,
+                        16,
                     ),
                     hir_eager_stmt_idx: Some(
-                        17,
+                        16,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -26817,7 +26817,7 @@
                             value: 382,
                         },
                     ),
-                    syn_pattern_expr_idx: 3,
+                    syn_pattern_expr_idx: 2,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -26828,7 +26828,7 @@
                                 ),
                             ),
                             Some(
-                                2,
+                                1,
                             ),
                         ),
                     ],
@@ -26926,10 +26926,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        9,
+                        8,
                     ),
                     hir_eager_expr_idx: Some(
-                        8,
+                        7,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -26979,10 +26979,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        18,
+                        17,
                     ),
                     hir_eager_stmt_idx: Some(
-                        18,
+                        17,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -27036,10 +27036,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        12,
+                        11,
                     ),
                     hir_eager_expr_idx: Some(
-                        11,
+                        10,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -27089,10 +27089,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        19,
+                        18,
                     ),
                     hir_eager_stmt_idx: Some(
-                        19,
+                        18,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -27137,7 +27137,7 @@
                             value: 384,
                         },
                     ),
-                    syn_pattern_expr_idx: 6,
+                    syn_pattern_expr_idx: 5,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -27148,7 +27148,7 @@
                                 ),
                             ),
                             Some(
-                                3,
+                                2,
                             ),
                         ),
                     ],
@@ -27198,10 +27198,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        14,
+                        13,
                     ),
                     hir_eager_expr_idx: Some(
-                        12,
+                        11,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -27259,10 +27259,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        16,
+                        15,
                     ),
                     hir_eager_expr_idx: Some(
-                        14,
+                        13,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -27320,10 +27320,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        17,
+                        16,
                     ),
                     hir_eager_expr_idx: Some(
-                        15,
+                        14,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -27373,10 +27373,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        20,
+                        19,
                     ),
                     hir_eager_stmt_idx: Some(
-                        20,
+                        19,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -27421,7 +27421,7 @@
                             value: 385,
                         },
                     ),
-                    syn_pattern_expr_idx: 7,
+                    syn_pattern_expr_idx: 6,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -27432,7 +27432,7 @@
                                 ),
                             ),
                             Some(
-                                4,
+                                3,
                             ),
                         ),
                     ],
@@ -27530,10 +27530,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        19,
+                        18,
                     ),
                     hir_eager_expr_idx: Some(
-                        17,
+                        16,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -27639,10 +27639,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        21,
+                        20,
                     ),
                     hir_eager_expr_idx: Some(
-                        19,
+                        18,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -27692,10 +27692,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        21,
+                        20,
                     ),
                     hir_eager_stmt_idx: Some(
-                        21,
+                        20,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -27749,10 +27749,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        23,
+                        22,
                     ),
                     hir_eager_expr_idx: Some(
-                        21,
+                        20,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -27802,10 +27802,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        22,
+                        21,
                     ),
                     hir_eager_stmt_idx: Some(
-                        22,
+                        21,
                     ),
                     eager_stmt_data_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
@@ -27820,7 +27820,7 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                1..15,
+                                0..14,
                             ),
                         ),
                     },
@@ -27867,10 +27867,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        1,
+                        0,
                     ),
                     hir_eager_stmt_idx: Some(
-                        1,
+                        0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -27916,10 +27916,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        2,
+                        1,
                     ),
                     hir_eager_stmt_idx: Some(
-                        2,
+                        1,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -27965,10 +27965,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        3,
+                        2,
                     ),
                     hir_eager_stmt_idx: Some(
-                        3,
+                        2,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -28014,10 +28014,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        4,
+                        3,
                     ),
                     hir_eager_stmt_idx: Some(
-                        4,
+                        3,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -28063,10 +28063,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        5,
+                        4,
                     ),
                     hir_eager_stmt_idx: Some(
-                        5,
+                        4,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -28112,10 +28112,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        6,
+                        5,
                     ),
                     hir_eager_stmt_idx: Some(
-                        6,
+                        5,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -28161,10 +28161,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        7,
+                        6,
                     ),
                     hir_eager_stmt_idx: Some(
-                        7,
+                        6,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -28210,10 +28210,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        8,
+                        7,
                     ),
                     hir_eager_stmt_idx: Some(
-                        8,
+                        7,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -28259,10 +28259,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        9,
+                        8,
                     ),
                     hir_eager_stmt_idx: Some(
-                        9,
+                        8,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -28308,10 +28308,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        10,
+                        9,
                     ),
                     hir_eager_stmt_idx: Some(
-                        10,
+                        9,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -28357,10 +28357,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        11,
+                        10,
                     ),
                     hir_eager_stmt_idx: Some(
-                        11,
+                        10,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -28406,10 +28406,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        12,
+                        11,
                     ),
                     hir_eager_stmt_idx: Some(
-                        12,
+                        11,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -28455,10 +28455,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        13,
+                        12,
                     ),
                     hir_eager_stmt_idx: Some(
-                        13,
+                        12,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -28504,10 +28504,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        14,
+                        13,
                     ),
                     hir_eager_stmt_idx: Some(
-                        14,
+                        13,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -28561,10 +28561,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        26,
+                        25,
                     ),
                     hir_eager_expr_idx: Some(
-                        24,
+                        23,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -28622,10 +28622,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        27,
+                        26,
                     ),
                     hir_eager_expr_idx: Some(
-                        25,
+                        24,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -28675,10 +28675,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        23,
+                        22,
                     ),
                     hir_eager_stmt_idx: Some(
-                        23,
+                        22,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -28801,10 +28801,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        1,
+                        0,
                     ),
                     hir_eager_stmt_idx: Some(
-                        1,
+                        0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -28858,10 +28858,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        7,
+                        6,
                     ),
                     hir_eager_expr_idx: Some(
-                        6,
+                        5,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -28967,10 +28967,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        7,
+                        6,
                     ),
                     hir_eager_expr_idx: Some(
-                        6,
+                        5,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -29068,10 +29068,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        20,
+                        19,
                     ),
                     hir_eager_stmt_idx: Some(
-                        20,
+                        19,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -29116,7 +29116,7 @@
                             value: 429,
                         },
                     ),
-                    syn_pattern_expr_idx: 1,
+                    syn_pattern_expr_idx: 0,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -29127,7 +29127,7 @@
                                 ),
                             ),
                             Some(
-                                1,
+                                0,
                             ),
                         ),
                     ],
@@ -29225,10 +29225,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        2,
+                        1,
                     ),
                     hir_eager_expr_idx: Some(
-                        2,
+                        1,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -29278,10 +29278,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        21,
+                        20,
                     ),
                     hir_eager_stmt_idx: Some(
-                        21,
+                        20,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -29326,7 +29326,7 @@
                             value: 430,
                         },
                     ),
-                    syn_pattern_expr_idx: 2,
+                    syn_pattern_expr_idx: 1,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -29337,7 +29337,7 @@
                                 ),
                             ),
                             Some(
-                                2,
+                                1,
                             ),
                         ),
                     ],
@@ -29435,10 +29435,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        4,
+                        3,
                     ),
                     hir_eager_expr_idx: Some(
-                        4,
+                        3,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -29488,10 +29488,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        22,
+                        21,
                     ),
                     hir_eager_stmt_idx: Some(
-                        22,
+                        21,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -29545,10 +29545,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        5,
+                        4,
                     ),
                     hir_eager_expr_idx: Some(
-                        5,
+                        4,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -29606,10 +29606,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        6,
+                        5,
                     ),
                     hir_eager_expr_idx: Some(
-                        6,
+                        5,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -29659,10 +29659,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        23,
+                        22,
                     ),
                     hir_eager_stmt_idx: Some(
-                        23,
+                        22,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -29707,7 +29707,7 @@
                             value: 432,
                         },
                     ),
-                    syn_pattern_expr_idx: 4,
+                    syn_pattern_expr_idx: 3,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -29718,7 +29718,7 @@
                                 ),
                             ),
                             Some(
-                                3,
+                                2,
                             ),
                         ),
                     ],
@@ -29816,10 +29816,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        11,
+                        10,
                     ),
                     hir_eager_expr_idx: Some(
-                        10,
+                        9,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -29869,10 +29869,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        24,
+                        23,
                     ),
                     hir_eager_stmt_idx: Some(
-                        24,
+                        23,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -29917,7 +29917,7 @@
                             value: 433,
                         },
                     ),
-                    syn_pattern_expr_idx: 5,
+                    syn_pattern_expr_idx: 4,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -29928,7 +29928,7 @@
                                 ),
                             ),
                             Some(
-                                4,
+                                3,
                             ),
                         ),
                     ],
@@ -30026,10 +30026,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        15,
+                        14,
                     ),
                     hir_eager_expr_idx: Some(
-                        14,
+                        13,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -30079,10 +30079,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        25,
+                        24,
                     ),
                     hir_eager_stmt_idx: Some(
-                        25,
+                        24,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -30127,7 +30127,7 @@
                             value: 434,
                         },
                     ),
-                    syn_pattern_expr_idx: 6,
+                    syn_pattern_expr_idx: 5,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -30138,7 +30138,7 @@
                                 ),
                             ),
                             Some(
-                                5,
+                                4,
                             ),
                         ),
                     ],
@@ -30236,10 +30236,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        19,
+                        18,
                     ),
                     hir_eager_expr_idx: Some(
-                        18,
+                        17,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -30289,10 +30289,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        26,
+                        25,
                     ),
                     hir_eager_stmt_idx: Some(
-                        26,
+                        25,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -30346,10 +30346,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        22,
+                        21,
                     ),
                     hir_eager_expr_idx: Some(
-                        21,
+                        20,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -30399,10 +30399,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        27,
+                        26,
                     ),
                     hir_eager_stmt_idx: Some(
-                        27,
+                        26,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -30447,7 +30447,7 @@
                             value: 436,
                         },
                     ),
-                    syn_pattern_expr_idx: 7,
+                    syn_pattern_expr_idx: 6,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -30458,7 +30458,7 @@
                                 ),
                             ),
                             Some(
-                                6,
+                                5,
                             ),
                         ),
                     ],
@@ -30556,10 +30556,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        26,
+                        25,
                     ),
                     hir_eager_expr_idx: Some(
-                        25,
+                        24,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -30665,10 +30665,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        28,
+                        27,
                     ),
                     hir_eager_expr_idx: Some(
-                        27,
+                        26,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -30718,10 +30718,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        28,
+                        27,
                     ),
                     hir_eager_stmt_idx: Some(
-                        28,
+                        27,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -30775,10 +30775,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        30,
+                        29,
                     ),
                     hir_eager_expr_idx: Some(
-                        29,
+                        28,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -30828,10 +30828,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        29,
+                        28,
                     ),
                     hir_eager_stmt_idx: Some(
-                        29,
+                        28,
                     ),
                     eager_stmt_data_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
@@ -30846,7 +30846,7 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                1..15,
+                                0..14,
                             ),
                         ),
                     },
@@ -30893,10 +30893,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        1,
+                        0,
                     ),
                     hir_eager_stmt_idx: Some(
-                        1,
+                        0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -30942,10 +30942,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        2,
+                        1,
                     ),
                     hir_eager_stmt_idx: Some(
-                        2,
+                        1,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -30991,10 +30991,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        3,
+                        2,
                     ),
                     hir_eager_stmt_idx: Some(
-                        3,
+                        2,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -31040,10 +31040,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        4,
+                        3,
                     ),
                     hir_eager_stmt_idx: Some(
-                        4,
+                        3,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -31089,10 +31089,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        5,
+                        4,
                     ),
                     hir_eager_stmt_idx: Some(
-                        5,
+                        4,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -31138,10 +31138,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        6,
+                        5,
                     ),
                     hir_eager_stmt_idx: Some(
-                        6,
+                        5,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -31187,10 +31187,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        7,
+                        6,
                     ),
                     hir_eager_stmt_idx: Some(
-                        7,
+                        6,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -31236,10 +31236,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        8,
+                        7,
                     ),
                     hir_eager_stmt_idx: Some(
-                        8,
+                        7,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -31285,10 +31285,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        9,
+                        8,
                     ),
                     hir_eager_stmt_idx: Some(
-                        9,
+                        8,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -31334,10 +31334,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        10,
+                        9,
                     ),
                     hir_eager_stmt_idx: Some(
-                        10,
+                        9,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -31383,10 +31383,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        11,
+                        10,
                     ),
                     hir_eager_stmt_idx: Some(
-                        11,
+                        10,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -31432,10 +31432,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        12,
+                        11,
                     ),
                     hir_eager_stmt_idx: Some(
-                        12,
+                        11,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -31481,10 +31481,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        13,
+                        12,
                     ),
                     hir_eager_stmt_idx: Some(
-                        13,
+                        12,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -31530,10 +31530,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        14,
+                        13,
                     ),
                     hir_eager_stmt_idx: Some(
-                        14,
+                        13,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -31587,10 +31587,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        33,
+                        32,
                     ),
                     hir_eager_expr_idx: Some(
-                        32,
+                        31,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -31640,10 +31640,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        30,
+                        29,
                     ),
                     hir_eager_stmt_idx: Some(
-                        30,
+                        29,
                     ),
                     eager_stmt_data_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
@@ -31658,7 +31658,7 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                15..20,
+                                14..19,
                             ),
                         ),
                     },
@@ -31705,10 +31705,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        15,
+                        14,
                     ),
                     hir_eager_stmt_idx: Some(
-                        15,
+                        14,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -31754,10 +31754,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        16,
+                        15,
                     ),
                     hir_eager_stmt_idx: Some(
-                        16,
+                        15,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -31803,10 +31803,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        17,
+                        16,
                     ),
                     hir_eager_stmt_idx: Some(
-                        17,
+                        16,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -31852,10 +31852,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        18,
+                        17,
                     ),
                     hir_eager_stmt_idx: Some(
-                        18,
+                        17,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -31901,10 +31901,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        19,
+                        18,
                     ),
                     hir_eager_stmt_idx: Some(
-                        19,
+                        18,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -31958,10 +31958,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        91,
+                        90,
                     ),
                     hir_eager_expr_idx: Some(
-                        86,
+                        85,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -32011,10 +32011,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        31,
+                        30,
                     ),
                     hir_eager_stmt_idx: Some(
-                        31,
+                        30,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -32137,10 +32137,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        1,
+                        0,
                     ),
                     hir_eager_stmt_idx: Some(
-                        1,
+                        0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -32194,10 +32194,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        3,
+                        2,
                     ),
                     hir_eager_expr_idx: Some(
-                        2,
+                        1,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -32246,10 +32246,10 @@
                     ),
                     input_sketch: Simple {
                         argument_sem_expr_idx: SemaExprIdx(
-                            2,
+                            1,
                         ),
                         argument_hir_eager_expr_idx: Some(
-                            1,
+                            0,
                         ),
                     },
                     caller_sem_expr_region: SemaExprRegion(
@@ -32403,10 +32403,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        3,
+                        2,
                     ),
                     hir_eager_expr_idx: Some(
-                        2,
+                        1,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -32455,10 +32455,10 @@
                     ),
                     input_sketch: Simple {
                         argument_sem_expr_idx: SemaExprIdx(
-                            2,
+                            1,
                         ),
                         argument_hir_eager_expr_idx: Some(
-                            1,
+                            0,
                         ),
                     },
                     caller_sem_expr_region: SemaExprRegion(
@@ -32604,10 +32604,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        5,
+                        4,
                     ),
                     hir_eager_stmt_idx: Some(
-                        5,
+                        4,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -32652,7 +32652,7 @@
                             value: 498,
                         },
                     ),
-                    syn_pattern_expr_idx: 1,
+                    syn_pattern_expr_idx: 0,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -32663,7 +32663,7 @@
                                 ),
                             ),
                             Some(
-                                1,
+                                0,
                             ),
                         ),
                     ],
@@ -32705,10 +32705,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        6,
+                        5,
                     ),
                     hir_eager_stmt_idx: Some(
-                        6,
+                        5,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -32753,7 +32753,7 @@
                             value: 499,
                         },
                     ),
-                    syn_pattern_expr_idx: 2,
+                    syn_pattern_expr_idx: 1,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -32764,7 +32764,7 @@
                                 ),
                             ),
                             Some(
-                                2,
+                                1,
                             ),
                         ),
                     ],
@@ -32806,10 +32806,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        7,
+                        6,
                     ),
                     hir_eager_stmt_idx: Some(
-                        7,
+                        6,
                     ),
                     eager_stmt_data_sketch: ForBetween {
                         for_regional_token: StmtForRegionalToken {
@@ -32826,7 +32826,7 @@
                         ),
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                3..5,
+                                2..4,
                             ),
                         ),
                     },
@@ -32873,10 +32873,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        3,
+                        2,
                     ),
                     hir_eager_stmt_idx: Some(
-                        3,
+                        2,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -32921,7 +32921,7 @@
                             value: 504,
                         },
                     ),
-                    syn_pattern_expr_idx: 3,
+                    syn_pattern_expr_idx: 2,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -32932,7 +32932,7 @@
                                 ),
                             ),
                             Some(
-                                4,
+                                3,
                             ),
                         ),
                     ],
@@ -33030,10 +33030,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        7,
+                        6,
                     ),
                     hir_eager_expr_idx: Some(
-                        6,
+                        5,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -33091,10 +33091,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        9,
+                        8,
                     ),
                     hir_eager_expr_idx: Some(
-                        8,
+                        7,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -33144,10 +33144,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        4,
+                        3,
                     ),
                     hir_eager_stmt_idx: Some(
-                        4,
+                        3,
                     ),
                     eager_stmt_data_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
@@ -33162,7 +33162,7 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                1..3,
+                                0..2,
                             ),
                         ),
                     },
@@ -33209,10 +33209,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        1,
+                        0,
                     ),
                     hir_eager_stmt_idx: Some(
-                        1,
+                        0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -33258,10 +33258,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        2,
+                        1,
                     ),
                     hir_eager_stmt_idx: Some(
-                        2,
+                        1,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -33315,10 +33315,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        10,
+                        9,
                     ),
                     hir_eager_expr_idx: Some(
-                        9,
+                        8,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -33376,10 +33376,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        11,
+                        10,
                     ),
                     hir_eager_expr_idx: Some(
-                        10,
+                        9,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -33437,7 +33437,7 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        5,
+                        4,
                     ),
                     hir_eager_expr_idx: None,
                     sem_expr_region: SemaExprRegion(
@@ -33536,10 +33536,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        1,
+                        0,
                     ),
                     hir_eager_stmt_idx: Some(
-                        1,
+                        0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -33593,10 +33593,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        4,
+                        3,
                     ),
                     hir_eager_expr_idx: Some(
-                        4,
+                        3,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -33698,10 +33698,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        8,
+                        7,
                     ),
                     hir_eager_stmt_idx: Some(
-                        8,
+                        7,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -33795,10 +33795,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        1,
+                        0,
                     ),
                     hir_eager_stmt_idx: Some(
-                        1,
+                        0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -33852,10 +33852,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        20,
+                        19,
                     ),
                     hir_eager_expr_idx: Some(
-                        19,
+                        18,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -33953,10 +33953,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        2,
+                        1,
                     ),
                     hir_eager_stmt_idx: Some(
-                        2,
+                        1,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -34001,7 +34001,7 @@
                             value: 522,
                         },
                     ),
-                    syn_pattern_expr_idx: 1,
+                    syn_pattern_expr_idx: 0,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -34012,7 +34012,7 @@
                                 ),
                             ),
                             Some(
-                                1,
+                                0,
                             ),
                         ),
                     ],
@@ -34054,10 +34054,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        3,
+                        2,
                     ),
                     hir_eager_stmt_idx: Some(
-                        3,
+                        2,
                     ),
                     eager_stmt_data_sketch: ForBetween {
                         for_regional_token: StmtForRegionalToken {
@@ -34074,7 +34074,7 @@
                         ),
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                1..2,
+                                0..1,
                             ),
                         ),
                     },
@@ -34121,10 +34121,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        1,
+                        0,
                     ),
                     hir_eager_stmt_idx: Some(
-                        1,
+                        0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -34178,10 +34178,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        5,
+                        4,
                     ),
                     hir_eager_expr_idx: Some(
-                        4,
+                        3,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -34287,10 +34287,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        7,
+                        6,
                     ),
                     hir_eager_expr_idx: Some(
-                        6,
+                        5,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -34348,10 +34348,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        9,
+                        8,
                     ),
                     hir_eager_expr_idx: Some(
-                        8,
+                        7,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -34409,7 +34409,7 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        4,
+                        3,
                     ),
                     hir_eager_expr_idx: None,
                     sem_expr_region: SemaExprRegion(
@@ -34508,10 +34508,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        1,
+                        0,
                     ),
                     hir_eager_stmt_idx: Some(
-                        1,
+                        0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -34565,10 +34565,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        3,
+                        2,
                     ),
                     hir_eager_expr_idx: Some(
-                        3,
+                        2,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -34670,10 +34670,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        4,
+                        3,
                     ),
                     hir_eager_stmt_idx: Some(
-                        4,
+                        3,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -34727,10 +34727,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        11,
+                        10,
                     ),
                     hir_eager_expr_idx: Some(
-                        10,
+                        9,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -34828,10 +34828,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        5,
+                        4,
                     ),
                     hir_eager_stmt_idx: Some(
-                        5,
+                        4,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -34877,10 +34877,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        6,
+                        5,
                     ),
                     hir_eager_stmt_idx: Some(
-                        6,
+                        5,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -34926,10 +34926,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        7,
+                        6,
                     ),
                     hir_eager_stmt_idx: Some(
-                        7,
+                        6,
                     ),
                     eager_stmt_data_sketch: ForBetween {
                         for_regional_token: StmtForRegionalToken {
@@ -34946,7 +34946,7 @@
                         ),
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                3..5,
+                                2..4,
                             ),
                         ),
                     },
@@ -34993,10 +34993,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        8,
+                        7,
                     ),
                     hir_eager_stmt_idx: Some(
-                        8,
+                        7,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -35050,10 +35050,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        13,
+                        12,
                     ),
                     hir_eager_expr_idx: Some(
-                        12,
+                        11,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -35151,10 +35151,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        1,
+                        0,
                     ),
                     hir_eager_stmt_idx: Some(
-                        1,
+                        0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -35248,10 +35248,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        5,
+                        4,
                     ),
                     hir_eager_stmt_idx: Some(
-                        5,
+                        4,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -35297,10 +35297,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        6,
+                        5,
                     ),
                     hir_eager_stmt_idx: Some(
-                        6,
+                        5,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -35346,10 +35346,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        7,
+                        6,
                     ),
                     hir_eager_stmt_idx: Some(
-                        7,
+                        6,
                     ),
                     eager_stmt_data_sketch: ForBetween {
                         for_regional_token: StmtForRegionalToken {
@@ -35366,7 +35366,7 @@
                         ),
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                3..5,
+                                2..4,
                             ),
                         ),
                     },
@@ -35413,10 +35413,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        8,
+                        7,
                     ),
                     hir_eager_stmt_idx: Some(
-                        8,
+                        7,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -35470,10 +35470,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        2,
+                        1,
                     ),
                     hir_eager_expr_idx: Some(
-                        2,
+                        1,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -35571,10 +35571,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        1,
+                        0,
                     ),
                     hir_eager_stmt_idx: Some(
-                        1,
+                        0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -35668,10 +35668,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        5,
+                        4,
                     ),
                     hir_eager_stmt_idx: Some(
-                        5,
+                        4,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -35717,10 +35717,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        6,
+                        5,
                     ),
                     hir_eager_stmt_idx: Some(
-                        6,
+                        5,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -35766,10 +35766,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        7,
+                        6,
                     ),
                     hir_eager_stmt_idx: Some(
-                        7,
+                        6,
                     ),
                     eager_stmt_data_sketch: ForBetween {
                         for_regional_token: StmtForRegionalToken {
@@ -35786,7 +35786,7 @@
                         ),
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                3..5,
+                                2..4,
                             ),
                         ),
                     },
@@ -35833,10 +35833,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        8,
+                        7,
                     ),
                     hir_eager_stmt_idx: Some(
-                        8,
+                        7,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -35890,10 +35890,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        2,
+                        1,
                     ),
                     hir_eager_expr_idx: Some(
-                        2,
+                        1,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -35991,10 +35991,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        1,
+                        0,
                     ),
                     hir_eager_stmt_idx: Some(
-                        1,
+                        0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -36088,10 +36088,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        1,
+                        0,
                     ),
                     hir_eager_stmt_idx: Some(
-                        1,
+                        0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -36145,10 +36145,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        2,
+                        1,
                     ),
                     hir_eager_expr_idx: Some(
-                        2,
+                        1,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -36246,10 +36246,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        1,
+                        0,
                     ),
                     hir_eager_stmt_idx: Some(
-                        1,
+                        0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -36343,10 +36343,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        1,
+                        0,
                     ),
                     hir_eager_stmt_idx: Some(
-                        1,
+                        0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -36400,10 +36400,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        2,
+                        1,
                     ),
                     hir_eager_expr_idx: Some(
-                        2,
+                        1,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -36501,10 +36501,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        1,
+                        0,
                     ),
                     hir_eager_stmt_idx: Some(
-                        1,
+                        0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -36592,10 +36592,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        42,
+                        41,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        42,
+                        41,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -36641,10 +36641,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        6,
+                        5,
                     ),
                     hir_lazy_expr_idx: Some(
-                        6,
+                        5,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -36750,7 +36750,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 6,
+                        expr: 5,
                     },
                 },
                 caching_class: Expr,
@@ -36833,10 +36833,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        3,
+                        2,
                     ),
                     hir_lazy_expr_idx: Some(
-                        3,
+                        2,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -36896,7 +36896,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 3,
+                        expr: 2,
                     },
                 },
                 caching_class: Expr,
@@ -36979,10 +36979,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        6,
+                        5,
                     ),
                     hir_lazy_expr_idx: Some(
-                        6,
+                        5,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -37088,7 +37088,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 6,
+                        expr: 5,
                     },
                 },
                 caching_class: Expr,
@@ -37125,10 +37125,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        43,
+                        42,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        43,
+                        42,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -37173,7 +37173,7 @@
                             value: 577,
                         },
                     ),
-                    syn_pattern_expr_idx: 1,
+                    syn_pattern_expr_idx: 0,
                     hir_lazy_pattern_expr_idx: None,
                     hir_lazy_variable_idxs: [
                         (
@@ -37185,7 +37185,7 @@
                                 ),
                             ),
                             Some(
-                                1,
+                                0,
                             ),
                         ),
                     ],
@@ -37232,10 +37232,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        11,
+                        10,
                     ),
                     hir_lazy_expr_idx: Some(
-                        11,
+                        10,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -37309,7 +37309,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 11,
+                        expr: 10,
                     },
                 },
                 caching_class: Expr,
@@ -37392,10 +37392,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        11,
+                        10,
                     ),
                     hir_lazy_expr_idx: Some(
-                        11,
+                        10,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -37469,7 +37469,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 11,
+                        expr: 10,
                     },
                 },
                 caching_class: Expr,
@@ -37506,10 +37506,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        44,
+                        43,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        44,
+                        43,
                     ),
                     lazy_stmt_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
@@ -37524,7 +37524,7 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                2..5,
+                                1..4,
                             ),
                         ),
                     },
@@ -37667,7 +37667,7 @@
                         caching_class: ValItem,
                     },
                     source: Stmt {
-                        stmt: 44,
+                        stmt: 43,
                     },
                 },
                 caching_class: Stmt,
@@ -37712,10 +37712,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        2,
+                        1,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        2,
+                        1,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -37771,10 +37771,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        3,
+                        2,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        3,
+                        2,
                     ),
                     lazy_stmt_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
@@ -37789,7 +37789,7 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                1..2,
+                                0..1,
                             ),
                         ),
                     },
@@ -37847,7 +37847,7 @@
                         caching_class: ValItem,
                     },
                     source: Stmt {
-                        stmt: 3,
+                        stmt: 2,
                     },
                 },
                 caching_class: Stmt,
@@ -37892,10 +37892,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        4,
+                        3,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        4,
+                        3,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -37941,10 +37941,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        12,
+                        11,
                     ),
                     hir_lazy_expr_idx: Some(
-                        12,
+                        11,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -38018,7 +38018,7 @@
                         caching_class: ValItem,
                     },
                     source: LetVariable {
-                        stmt: 43,
+                        stmt: 42,
                     },
                 },
                 caching_class: Variable,
@@ -38053,10 +38053,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        13,
+                        12,
                     ),
                     hir_lazy_expr_idx: Some(
-                        13,
+                        12,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -38122,7 +38122,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 13,
+                        expr: 12,
                     },
                 },
                 caching_class: Expr,
@@ -38159,10 +38159,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        44,
+                        43,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        44,
+                        43,
                     ),
                     lazy_stmt_sketch: ElseBranch {
                         else_regional_token: ElseRegionalToken {
@@ -38177,7 +38177,7 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                16..42,
+                                15..41,
                             ),
                         ),
                     },
@@ -38320,7 +38320,7 @@
                         caching_class: ValItem,
                     },
                     source: Stmt {
-                        stmt: 44,
+                        stmt: 43,
                     },
                 },
                 caching_class: Stmt,
@@ -38365,10 +38365,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        16,
+                        15,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        16,
+                        15,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -38423,7 +38423,7 @@
                         caching_class: ValItem,
                     },
                     source: Stmt {
-                        stmt: 16,
+                        stmt: 15,
                     },
                 },
                 caching_class: Stmt,
@@ -38468,10 +38468,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        17,
+                        16,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        17,
+                        16,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -38526,7 +38526,7 @@
                         caching_class: ValItem,
                     },
                     source: Stmt {
-                        stmt: 17,
+                        stmt: 16,
                     },
                 },
                 caching_class: Stmt,
@@ -38571,10 +38571,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        18,
+                        17,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        18,
+                        17,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -38630,10 +38630,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        19,
+                        18,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        19,
+                        18,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -38689,10 +38689,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        20,
+                        19,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        20,
+                        19,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -38748,10 +38748,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        21,
+                        20,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        21,
+                        20,
                     ),
                     lazy_stmt_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
@@ -38766,7 +38766,7 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                5..9,
+                                4..8,
                             ),
                         ),
                     },
@@ -38839,7 +38839,7 @@
                         caching_class: ValItem,
                     },
                     source: Stmt {
-                        stmt: 21,
+                        stmt: 20,
                     },
                 },
                 caching_class: Stmt,
@@ -38884,10 +38884,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        22,
+                        21,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        22,
+                        21,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -38943,10 +38943,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        23,
+                        22,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        23,
+                        22,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -39001,7 +39001,7 @@
                         caching_class: ValItem,
                     },
                     source: Stmt {
-                        stmt: 23,
+                        stmt: 22,
                     },
                 },
                 caching_class: Stmt,
@@ -39046,10 +39046,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        24,
+                        23,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        24,
+                        23,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -39105,10 +39105,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        25,
+                        24,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        25,
+                        24,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -39164,10 +39164,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        26,
+                        25,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        26,
+                        25,
                     ),
                     lazy_stmt_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
@@ -39182,7 +39182,7 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                9..15,
+                                8..14,
                             ),
                         ),
                     },
@@ -39255,7 +39255,7 @@
                         caching_class: ValItem,
                     },
                     source: Stmt {
-                        stmt: 26,
+                        stmt: 25,
                     },
                 },
                 caching_class: Stmt,
@@ -39300,10 +39300,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        27,
+                        26,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        27,
+                        26,
                     ),
                     lazy_stmt_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
@@ -39318,7 +39318,7 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                15..16,
+                                14..15,
                             ),
                         ),
                     },
@@ -39376,7 +39376,7 @@
                         caching_class: ValItem,
                     },
                     source: Stmt {
-                        stmt: 27,
+                        stmt: 26,
                     },
                 },
                 caching_class: Stmt,
@@ -39421,10 +39421,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        28,
+                        27,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        28,
+                        27,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -39479,7 +39479,7 @@
                         caching_class: ValItem,
                     },
                     source: Stmt {
-                        stmt: 28,
+                        stmt: 27,
                     },
                 },
                 caching_class: Stmt,
@@ -39524,10 +39524,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        29,
+                        28,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        29,
+                        28,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -39583,10 +39583,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        30,
+                        29,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        30,
+                        29,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -39642,10 +39642,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        31,
+                        30,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        31,
+                        30,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -39701,10 +39701,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        32,
+                        31,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        32,
+                        31,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -39760,10 +39760,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        33,
+                        32,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        33,
+                        32,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -39819,10 +39819,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        34,
+                        33,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        34,
+                        33,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -39877,7 +39877,7 @@
                         caching_class: ValItem,
                     },
                     source: Stmt {
-                        stmt: 34,
+                        stmt: 33,
                     },
                 },
                 caching_class: Stmt,
@@ -39922,10 +39922,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        35,
+                        34,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        35,
+                        34,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -39981,10 +39981,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        36,
+                        35,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        36,
+                        35,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -40040,10 +40040,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        37,
+                        36,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        37,
+                        36,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -40099,10 +40099,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        38,
+                        37,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        38,
+                        37,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -40158,10 +40158,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        39,
+                        38,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        39,
+                        38,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -40216,7 +40216,7 @@
                         caching_class: ValItem,
                     },
                     source: Stmt {
-                        stmt: 39,
+                        stmt: 38,
                     },
                 },
                 caching_class: Stmt,
@@ -40261,10 +40261,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        40,
+                        39,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        40,
+                        39,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -40319,7 +40319,7 @@
                         caching_class: ValItem,
                     },
                     source: Stmt {
-                        stmt: 40,
+                        stmt: 39,
                     },
                 },
                 caching_class: Stmt,
@@ -40364,10 +40364,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        41,
+                        40,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        41,
+                        40,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -40413,10 +40413,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        2,
+                        1,
                     ),
                     hir_eager_stmt_idx: Some(
-                        2,
+                        1,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -40504,10 +40504,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        20,
+                        19,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        20,
+                        19,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -40552,7 +40552,7 @@
                             value: 619,
                         },
                     ),
-                    syn_pattern_expr_idx: 1,
+                    syn_pattern_expr_idx: 0,
                     hir_lazy_pattern_expr_idx: None,
                     hir_lazy_variable_idxs: [
                         (
@@ -40564,7 +40564,7 @@
                                 ),
                             ),
                             Some(
-                                1,
+                                0,
                             ),
                         ),
                     ],
@@ -40659,10 +40659,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        2,
+                        1,
                     ),
                     hir_lazy_expr_idx: Some(
-                        2,
+                        1,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -40726,7 +40726,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 2,
+                        expr: 1,
                     },
                 },
                 caching_class: Expr,
@@ -40763,10 +40763,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        21,
+                        20,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        21,
+                        20,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -40815,7 +40815,7 @@
                         caching_class: ValItem,
                     },
                     source: Stmt {
-                        stmt: 21,
+                        stmt: 20,
                     },
                 },
                 caching_class: Stmt,
@@ -40850,10 +40850,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        5,
+                        4,
                     ),
                     hir_lazy_expr_idx: Some(
-                        5,
+                        4,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -40906,7 +40906,7 @@
                         caching_class: ValItem,
                     },
                     source: LetVariable {
-                        stmt: 20,
+                        stmt: 19,
                     },
                 },
                 caching_class: Variable,
@@ -40943,10 +40943,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        22,
+                        21,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        22,
+                        21,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -40991,7 +40991,7 @@
                             value: 621,
                         },
                     ),
-                    syn_pattern_expr_idx: 4,
+                    syn_pattern_expr_idx: 3,
                     hir_lazy_pattern_expr_idx: None,
                     hir_lazy_variable_idxs: [
                         (
@@ -41003,7 +41003,7 @@
                                 ),
                             ),
                             Some(
-                                2,
+                                1,
                             ),
                         ),
                     ],
@@ -41098,10 +41098,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        8,
+                        7,
                     ),
                     hir_lazy_expr_idx: Some(
-                        7,
+                        6,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -41167,7 +41167,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 7,
+                        expr: 6,
                     },
                 },
                 caching_class: Expr,
@@ -41204,10 +41204,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        23,
+                        22,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        23,
+                        22,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -41252,7 +41252,7 @@
                             value: 622,
                         },
                     ),
-                    syn_pattern_expr_idx: 5,
+                    syn_pattern_expr_idx: 4,
                     hir_lazy_pattern_expr_idx: None,
                     hir_lazy_variable_idxs: [
                         (
@@ -41264,7 +41264,7 @@
                                 ),
                             ),
                             Some(
-                                3,
+                                2,
                             ),
                         ),
                     ],
@@ -41359,10 +41359,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        10,
+                        9,
                     ),
                     hir_lazy_expr_idx: Some(
-                        9,
+                        8,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -41428,7 +41428,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 9,
+                        expr: 8,
                     },
                 },
                 caching_class: Expr,
@@ -41511,10 +41511,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        12,
+                        11,
                     ),
                     hir_lazy_expr_idx: Some(
-                        11,
+                        10,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -41580,7 +41580,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 11,
+                        expr: 10,
                     },
                 },
                 caching_class: Expr,
@@ -41617,10 +41617,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        24,
+                        23,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        24,
+                        23,
                     ),
                     lazy_stmt_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
@@ -41635,7 +41635,7 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                6..18,
+                                5..17,
                             ),
                         ),
                     },
@@ -41718,7 +41718,7 @@
                         caching_class: ValItem,
                     },
                     source: Stmt {
-                        stmt: 24,
+                        stmt: 23,
                     },
                 },
                 caching_class: Stmt,
@@ -41763,10 +41763,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        6,
+                        5,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        6,
+                        5,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -41822,10 +41822,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        7,
+                        6,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        7,
+                        6,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -41881,10 +41881,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        8,
+                        7,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        8,
+                        7,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -41940,10 +41940,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        9,
+                        8,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        9,
+                        8,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -41999,10 +41999,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        10,
+                        9,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        10,
+                        9,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -42058,10 +42058,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        11,
+                        10,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        11,
+                        10,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -42117,10 +42117,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        12,
+                        11,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        12,
+                        11,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -42175,7 +42175,7 @@
                         caching_class: ValItem,
                     },
                     source: Stmt {
-                        stmt: 12,
+                        stmt: 11,
                     },
                 },
                 caching_class: Stmt,
@@ -42220,10 +42220,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        13,
+                        12,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        13,
+                        12,
                     ),
                     lazy_stmt_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
@@ -42238,7 +42238,7 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                1..5,
+                                0..4,
                             ),
                         ),
                     },
@@ -42311,7 +42311,7 @@
                         caching_class: ValItem,
                     },
                     source: Stmt {
-                        stmt: 13,
+                        stmt: 12,
                     },
                 },
                 caching_class: Stmt,
@@ -42356,10 +42356,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        14,
+                        13,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        14,
+                        13,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -42415,10 +42415,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        15,
+                        14,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        15,
+                        14,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -42474,10 +42474,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        16,
+                        15,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        16,
+                        15,
                     ),
                     lazy_stmt_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
@@ -42492,7 +42492,7 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                5..6,
+                                4..5,
                             ),
                         ),
                     },
@@ -42550,7 +42550,7 @@
                         caching_class: ValItem,
                     },
                     source: Stmt {
-                        stmt: 16,
+                        stmt: 15,
                     },
                 },
                 caching_class: Stmt,
@@ -42595,10 +42595,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        17,
+                        16,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        17,
+                        16,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -42646,7 +42646,7 @@
                         caching_class: ValItem,
                     },
                     source: Stmt {
-                        stmt: 17,
+                        stmt: 16,
                     },
                 },
                 caching_class: Stmt,
@@ -42681,10 +42681,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        14,
+                        13,
                     ),
                     hir_lazy_expr_idx: Some(
-                        13,
+                        12,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -42750,7 +42750,7 @@
                         caching_class: ValItem,
                     },
                     source: LetVariable {
-                        stmt: 22,
+                        stmt: 21,
                     },
                 },
                 caching_class: Variable,
@@ -42785,10 +42785,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        15,
+                        14,
                     ),
                     hir_lazy_expr_idx: Some(
-                        14,
+                        13,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -42858,7 +42858,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 14,
+                        expr: 13,
                     },
                 },
                 caching_class: Expr,
@@ -42895,10 +42895,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        25,
+                        24,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        25,
+                        24,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -42944,10 +42944,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        87,
+                        86,
                     ),
                     hir_lazy_expr_idx: Some(
-                        84,
+                        83,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -43054,7 +43054,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 84,
+                        expr: 83,
                     },
                 },
                 caching_class: Expr,
@@ -43137,10 +43137,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        85,
+                        84,
                     ),
                     hir_lazy_expr_idx: Some(
-                        82,
+                        81,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -43206,7 +43206,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 82,
+                        expr: 81,
                     },
                 },
                 caching_class: Expr,
@@ -43241,10 +43241,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        87,
+                        86,
                     ),
                     hir_lazy_expr_idx: Some(
-                        84,
+                        83,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -43351,7 +43351,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 84,
+                        expr: 83,
                     },
                 },
                 caching_class: Expr,
@@ -43388,10 +43388,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        26,
+                        25,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        26,
+                        25,
                     ),
                     lazy_stmt_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
@@ -43406,7 +43406,7 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                18..19,
+                                17..18,
                             ),
                         ),
                     },
@@ -43464,7 +43464,7 @@
                         caching_class: ValItem,
                     },
                     source: Stmt {
-                        stmt: 26,
+                        stmt: 25,
                     },
                 },
                 caching_class: Stmt,
@@ -43509,10 +43509,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        18,
+                        17,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        18,
+                        17,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -43567,7 +43567,7 @@
                         caching_class: ValItem,
                     },
                     source: Stmt {
-                        stmt: 18,
+                        stmt: 17,
                     },
                 },
                 caching_class: Stmt,
@@ -43650,10 +43650,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        90,
+                        89,
                     ),
                     hir_lazy_expr_idx: Some(
-                        87,
+                        86,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -43719,7 +43719,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 87,
+                        expr: 86,
                     },
                 },
                 caching_class: Expr,
@@ -43756,10 +43756,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        27,
+                        26,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        27,
+                        26,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -43814,7 +43814,7 @@
                         caching_class: ValItem,
                     },
                     source: Stmt {
-                        stmt: 27,
+                        stmt: 26,
                     },
                 },
                 caching_class: Stmt,
@@ -43849,10 +43849,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        97,
+                        96,
                     ),
                     hir_lazy_expr_idx: Some(
-                        94,
+                        93,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -43918,7 +43918,7 @@
                         caching_class: ValItem,
                     },
                     source: LetVariable {
-                        stmt: 22,
+                        stmt: 21,
                     },
                 },
                 caching_class: Variable,
@@ -43953,10 +43953,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        98,
+                        97,
                     ),
                     hir_lazy_expr_idx: Some(
-                        95,
+                        94,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -44026,7 +44026,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 95,
+                        expr: 94,
                     },
                 },
                 caching_class: Expr,
@@ -44061,10 +44061,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        102,
+                        101,
                     ),
                     hir_lazy_expr_idx: Some(
-                        99,
+                        98,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -44130,7 +44130,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 99,
+                        expr: 98,
                     },
                 },
                 caching_class: Expr,
@@ -44165,10 +44165,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        103,
+                        102,
                     ),
                     hir_lazy_expr_idx: Some(
-                        100,
+                        99,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -44239,7 +44239,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 100,
+                        expr: 99,
                     },
                 },
                 caching_class: Expr,
@@ -44276,10 +44276,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        28,
+                        27,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        28,
+                        27,
                     ),
                     lazy_stmt_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
@@ -44294,7 +44294,7 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                19..20,
+                                18..19,
                             ),
                         ),
                     },
@@ -44352,7 +44352,7 @@
                         caching_class: ValItem,
                     },
                     source: Stmt {
-                        stmt: 28,
+                        stmt: 27,
                     },
                 },
                 caching_class: Stmt,
@@ -44397,10 +44397,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        19,
+                        18,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        19,
+                        18,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -44455,7 +44455,7 @@
                         caching_class: ValItem,
                     },
                     source: Stmt {
-                        stmt: 19,
+                        stmt: 18,
                     },
                 },
                 caching_class: Stmt,
@@ -44490,10 +44490,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        106,
+                        105,
                     ),
                     hir_lazy_expr_idx: Some(
-                        103,
+                        102,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -44559,7 +44559,7 @@
                         caching_class: ValItem,
                     },
                     source: LetVariable {
-                        stmt: 22,
+                        stmt: 21,
                     },
                 },
                 caching_class: Variable,
@@ -44594,10 +44594,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        107,
+                        106,
                     ),
                     hir_lazy_expr_idx: Some(
-                        104,
+                        103,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -44667,7 +44667,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 104,
+                        expr: 103,
                     },
                 },
                 caching_class: Expr,
@@ -44704,10 +44704,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        29,
+                        28,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        29,
+                        28,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -44762,7 +44762,7 @@
                         caching_class: ValItem,
                     },
                     source: Stmt {
-                        stmt: 29,
+                        stmt: 28,
                     },
                 },
                 caching_class: Stmt,
@@ -44797,10 +44797,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        120,
+                        119,
                     ),
                     hir_lazy_expr_idx: Some(
-                        116,
+                        115,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -44863,7 +44863,7 @@
                         caching_class: ValItem,
                     },
                     source: LetVariable {
-                        stmt: 23,
+                        stmt: 22,
                     },
                 },
                 caching_class: Variable,
@@ -44900,10 +44900,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        30,
+                        29,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        30,
+                        29,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -44949,10 +44949,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        3,
+                        2,
                     ),
                     hir_eager_stmt_idx: Some(
-                        3,
+                        2,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -45040,10 +45040,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        8,
+                        7,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        8,
+                        7,
                     ),
                     lazy_stmt_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
@@ -45058,7 +45058,7 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                1..8,
+                                0..7,
                             ),
                         ),
                     },
@@ -45130,7 +45130,7 @@
                         caching_class: ValItem,
                     },
                     source: Stmt {
-                        stmt: 8,
+                        stmt: 7,
                     },
                 },
                 caching_class: Stmt,
@@ -45175,10 +45175,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        1,
+                        0,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        1,
+                        0,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -45234,10 +45234,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        2,
+                        1,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        2,
+                        1,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -45292,7 +45292,7 @@
                         caching_class: ValItem,
                     },
                     source: Stmt {
-                        stmt: 2,
+                        stmt: 1,
                     },
                 },
                 caching_class: Stmt,
@@ -45337,10 +45337,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        3,
+                        2,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        3,
+                        2,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -45395,7 +45395,7 @@
                         caching_class: ValItem,
                     },
                     source: Stmt {
-                        stmt: 3,
+                        stmt: 2,
                     },
                 },
                 caching_class: Stmt,
@@ -45440,10 +45440,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        4,
+                        3,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        4,
+                        3,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -45498,7 +45498,7 @@
                         caching_class: ValItem,
                     },
                     source: Stmt {
-                        stmt: 4,
+                        stmt: 3,
                     },
                 },
                 caching_class: Stmt,
@@ -45543,10 +45543,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        5,
+                        4,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        5,
+                        4,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -45602,10 +45602,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        6,
+                        5,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        6,
+                        5,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -45660,7 +45660,7 @@
                         caching_class: ValItem,
                     },
                     source: Stmt {
-                        stmt: 6,
+                        stmt: 5,
                     },
                 },
                 caching_class: Stmt,
@@ -45705,10 +45705,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        7,
+                        6,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        7,
+                        6,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -45756,7 +45756,7 @@
                         caching_class: ValItem,
                     },
                     source: Stmt {
-                        stmt: 7,
+                        stmt: 6,
                     },
                 },
                 caching_class: Stmt,
@@ -45839,10 +45839,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        2,
+                        1,
                     ),
                     hir_lazy_expr_idx: Some(
-                        2,
+                        1,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -45902,7 +45902,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 2,
+                        expr: 1,
                     },
                 },
                 caching_class: Expr,
@@ -45937,10 +45937,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        3,
+                        2,
                     ),
                     hir_lazy_expr_idx: Some(
-                        3,
+                        2,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -46028,7 +46028,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 3,
+                        expr: 2,
                     },
                 },
                 caching_class: Expr,
@@ -46065,10 +46065,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        9,
+                        8,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        9,
+                        8,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -46113,7 +46113,7 @@
                             value: 672,
                         },
                     ),
-                    syn_pattern_expr_idx: 5,
+                    syn_pattern_expr_idx: 4,
                     hir_lazy_pattern_expr_idx: None,
                     hir_lazy_variable_idxs: [
                         (
@@ -46125,7 +46125,7 @@
                                 ),
                             ),
                             Some(
-                                3,
+                                2,
                             ),
                         ),
                     ],
@@ -46172,10 +46172,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        34,
+                        33,
                     ),
                     hir_lazy_expr_idx: Some(
-                        33,
+                        32,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -46249,7 +46249,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 33,
+                        expr: 32,
                     },
                 },
                 caching_class: Expr,
@@ -46332,10 +46332,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        34,
+                        33,
                     ),
                     hir_lazy_expr_idx: Some(
-                        33,
+                        32,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -46409,7 +46409,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 33,
+                        expr: 32,
                     },
                 },
                 caching_class: Expr,
@@ -46446,10 +46446,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        10,
+                        9,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        10,
+                        9,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -46495,10 +46495,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        43,
+                        42,
                     ),
                     hir_lazy_expr_idx: Some(
-                        42,
+                        41,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -46615,7 +46615,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 42,
+                        expr: 41,
                     },
                 },
                 caching_class: Expr,
@@ -46650,10 +46650,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        36,
+                        35,
                     ),
                     hir_lazy_expr_idx: Some(
-                        35,
+                        34,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -46727,7 +46727,7 @@
                         caching_class: ValItem,
                     },
                     source: LetVariable {
-                        stmt: 9,
+                        stmt: 8,
                     },
                 },
                 caching_class: Variable,
@@ -46762,10 +46762,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        37,
+                        36,
                     ),
                     hir_lazy_expr_idx: Some(
-                        36,
+                        35,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -46831,7 +46831,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 36,
+                        expr: 35,
                     },
                 },
                 caching_class: Expr,
@@ -46866,10 +46866,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        38,
+                        37,
                     ),
                     hir_lazy_expr_idx: Some(
-                        37,
+                        36,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -46943,7 +46943,7 @@
                         caching_class: ValItem,
                     },
                     source: LetVariable {
-                        stmt: 9,
+                        stmt: 8,
                     },
                 },
                 caching_class: Variable,
@@ -46978,10 +46978,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        39,
+                        38,
                     ),
                     hir_lazy_expr_idx: Some(
-                        38,
+                        37,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -47047,7 +47047,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 38,
+                        expr: 37,
                     },
                 },
                 caching_class: Expr,
@@ -47082,10 +47082,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        40,
+                        39,
                     ),
                     hir_lazy_expr_idx: Some(
-                        39,
+                        38,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -47159,7 +47159,7 @@
                         caching_class: ValItem,
                     },
                     source: LetVariable {
-                        stmt: 9,
+                        stmt: 8,
                     },
                 },
                 caching_class: Variable,
@@ -47194,10 +47194,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        41,
+                        40,
                     ),
                     hir_lazy_expr_idx: Some(
-                        40,
+                        39,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -47263,7 +47263,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 40,
+                        expr: 39,
                     },
                 },
                 caching_class: Expr,
@@ -47298,10 +47298,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        43,
+                        42,
                     ),
                     hir_lazy_expr_idx: Some(
-                        42,
+                        41,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -47418,7 +47418,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 42,
+                        expr: 41,
                     },
                 },
                 caching_class: Expr,
@@ -47455,10 +47455,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        11,
+                        10,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        11,
+                        10,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -47513,7 +47513,7 @@
                         caching_class: ValItem,
                     },
                     source: Stmt {
-                        stmt: 11,
+                        stmt: 10,
                     },
                 },
                 caching_class: Stmt,
@@ -47548,10 +47548,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        45,
+                        44,
                     ),
                     hir_lazy_expr_idx: Some(
-                        44,
+                        43,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -47625,7 +47625,7 @@
                         caching_class: ValItem,
                     },
                     source: LetVariable {
-                        stmt: 9,
+                        stmt: 8,
                     },
                 },
                 caching_class: Variable,
@@ -47660,10 +47660,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        46,
+                        45,
                     ),
                     hir_lazy_expr_idx: Some(
-                        45,
+                        44,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -47729,7 +47729,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 45,
+                        expr: 44,
                     },
                 },
                 caching_class: Expr,
@@ -47766,10 +47766,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        12,
+                        11,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        12,
+                        11,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -47824,7 +47824,7 @@
                         caching_class: ValItem,
                     },
                     source: Stmt {
-                        stmt: 12,
+                        stmt: 11,
                     },
                 },
                 caching_class: Stmt,
@@ -47907,10 +47907,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        50,
+                        49,
                     ),
                     hir_lazy_expr_idx: Some(
-                        49,
+                        48,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -47976,7 +47976,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 49,
+                        expr: 48,
                     },
                 },
                 caching_class: Expr,
@@ -48011,10 +48011,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        51,
+                        50,
                     ),
                     hir_lazy_expr_idx: Some(
-                        50,
+                        49,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -48084,7 +48084,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 50,
+                        expr: 49,
                     },
                 },
                 caching_class: Expr,
@@ -48121,10 +48121,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        13,
+                        12,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        13,
+                        12,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -48179,7 +48179,7 @@
                         caching_class: ValItem,
                     },
                     source: Stmt {
-                        stmt: 13,
+                        stmt: 12,
                     },
                 },
                 caching_class: Stmt,
@@ -48262,10 +48262,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        56,
+                        55,
                     ),
                     hir_lazy_expr_idx: Some(
-                        54,
+                        53,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -48331,7 +48331,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 54,
+                        expr: 53,
                     },
                 },
                 caching_class: Expr,
@@ -48366,10 +48366,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        57,
+                        56,
                     ),
                     hir_lazy_expr_idx: Some(
-                        55,
+                        54,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -48439,7 +48439,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 55,
+                        expr: 54,
                     },
                 },
                 caching_class: Expr,
@@ -48476,10 +48476,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        14,
+                        13,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        14,
+                        13,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -48524,7 +48524,7 @@
                             value: 677,
                         },
                     ),
-                    syn_pattern_expr_idx: 9,
+                    syn_pattern_expr_idx: 8,
                     hir_lazy_pattern_expr_idx: None,
                     hir_lazy_variable_idxs: [
                         (
@@ -48536,7 +48536,7 @@
                                 ),
                             ),
                             Some(
-                                4,
+                                3,
                             ),
                         ),
                     ],
@@ -48631,10 +48631,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        62,
+                        61,
                     ),
                     hir_lazy_expr_idx: Some(
-                        59,
+                        58,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -48700,7 +48700,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 59,
+                        expr: 58,
                     },
                 },
                 caching_class: Expr,
@@ -48735,10 +48735,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        63,
+                        62,
                     ),
                     hir_lazy_expr_idx: Some(
-                        60,
+                        59,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -48808,7 +48808,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 60,
+                        expr: 59,
                     },
                 },
                 caching_class: Expr,
@@ -48845,10 +48845,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        15,
+                        14,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        15,
+                        14,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -48893,7 +48893,7 @@
                             value: 678,
                         },
                     ),
-                    syn_pattern_expr_idx: 10,
+                    syn_pattern_expr_idx: 9,
                     hir_lazy_pattern_expr_idx: None,
                     hir_lazy_variable_idxs: [
                         (
@@ -48905,7 +48905,7 @@
                                 ),
                             ),
                             Some(
-                                5,
+                                4,
                             ),
                         ),
                     ],
@@ -48952,10 +48952,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        66,
+                        65,
                     ),
                     hir_lazy_expr_idx: Some(
-                        63,
+                        62,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -49014,7 +49014,7 @@
                         caching_class: ValItem,
                     },
                     source: LetVariable {
-                        stmt: 14,
+                        stmt: 13,
                     },
                 },
                 caching_class: Variable,
@@ -49049,10 +49049,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        68,
+                        67,
                     ),
                     hir_lazy_expr_idx: Some(
-                        65,
+                        64,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -49118,7 +49118,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 65,
+                        expr: 64,
                     },
                 },
                 caching_class: Expr,
@@ -49153,10 +49153,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        69,
+                        68,
                     ),
                     hir_lazy_expr_idx: Some(
-                        66,
+                        65,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -49227,7 +49227,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 66,
+                        expr: 65,
                     },
                 },
                 caching_class: Expr,
@@ -49262,10 +49262,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        70,
+                        69,
                     ),
                     hir_lazy_expr_idx: Some(
-                        67,
+                        66,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -49324,7 +49324,7 @@
                         caching_class: ValItem,
                     },
                     source: LetVariable {
-                        stmt: 14,
+                        stmt: 13,
                     },
                 },
                 caching_class: Variable,
@@ -49359,10 +49359,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        72,
+                        71,
                     ),
                     hir_lazy_expr_idx: Some(
-                        69,
+                        68,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -49428,7 +49428,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 69,
+                        expr: 68,
                     },
                 },
                 caching_class: Expr,
@@ -49463,10 +49463,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        73,
+                        72,
                     ),
                     hir_lazy_expr_idx: Some(
-                        70,
+                        69,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -49537,7 +49537,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 70,
+                        expr: 69,
                     },
                 },
                 caching_class: Expr,
@@ -49574,10 +49574,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        16,
+                        15,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        16,
+                        15,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -49622,7 +49622,7 @@
                             value: 679,
                         },
                     ),
-                    syn_pattern_expr_idx: 11,
+                    syn_pattern_expr_idx: 10,
                     hir_lazy_pattern_expr_idx: None,
                     hir_lazy_variable_idxs: [
                         (
@@ -49634,7 +49634,7 @@
                                 ),
                             ),
                             Some(
-                                6,
+                                5,
                             ),
                         ),
                     ],
@@ -49729,10 +49729,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        76,
+                        75,
                     ),
                     hir_lazy_expr_idx: Some(
-                        73,
+                        72,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -49798,7 +49798,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 73,
+                        expr: 72,
                     },
                 },
                 caching_class: Expr,
@@ -49833,10 +49833,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        77,
+                        76,
                     ),
                     hir_lazy_expr_idx: Some(
-                        74,
+                        73,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -49907,7 +49907,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 74,
+                        expr: 73,
                     },
                 },
                 caching_class: Expr,
@@ -49990,10 +49990,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        79,
+                        78,
                     ),
                     hir_lazy_expr_idx: Some(
-                        76,
+                        75,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -50059,7 +50059,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 76,
+                        expr: 75,
                     },
                 },
                 caching_class: Expr,
@@ -50094,10 +50094,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        80,
+                        79,
                     ),
                     hir_lazy_expr_idx: Some(
-                        77,
+                        76,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -50168,7 +50168,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 77,
+                        expr: 76,
                     },
                 },
                 caching_class: Expr,
@@ -50205,10 +50205,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        17,
+                        16,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        17,
+                        16,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -50253,7 +50253,7 @@
                             value: 680,
                         },
                     ),
-                    syn_pattern_expr_idx: 12,
+                    syn_pattern_expr_idx: 11,
                     hir_lazy_pattern_expr_idx: None,
                     hir_lazy_variable_idxs: [
                         (
@@ -50265,7 +50265,7 @@
                                 ),
                             ),
                             Some(
-                                7,
+                                6,
                             ),
                         ),
                     ],
@@ -50312,10 +50312,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        82,
+                        81,
                     ),
                     hir_lazy_expr_idx: Some(
-                        79,
+                        78,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -50378,7 +50378,7 @@
                         caching_class: ValItem,
                     },
                     source: LetVariable {
-                        stmt: 15,
+                        stmt: 14,
                     },
                 },
                 caching_class: Variable,
@@ -50413,10 +50413,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        83,
+                        82,
                     ),
                     hir_lazy_expr_idx: Some(
-                        80,
+                        79,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -50479,7 +50479,7 @@
                         caching_class: ValItem,
                     },
                     source: LetVariable {
-                        stmt: 16,
+                        stmt: 15,
                     },
                 },
                 caching_class: Variable,
@@ -50516,10 +50516,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        18,
+                        17,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        18,
+                        17,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -50574,7 +50574,7 @@
                         caching_class: ValItem,
                     },
                     source: Stmt {
-                        stmt: 18,
+                        stmt: 17,
                     },
                 },
                 caching_class: Stmt,
@@ -50609,10 +50609,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        85,
+                        84,
                     ),
                     hir_lazy_expr_idx: Some(
-                        82,
+                        81,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -50675,7 +50675,7 @@
                         caching_class: ValItem,
                     },
                     source: LetVariable {
-                        stmt: 17,
+                        stmt: 16,
                     },
                 },
                 caching_class: Variable,
@@ -50712,10 +50712,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        19,
+                        18,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        19,
+                        18,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -50760,7 +50760,7 @@
                             value: 682,
                         },
                     ),
-                    syn_pattern_expr_idx: 13,
+                    syn_pattern_expr_idx: 12,
                     hir_lazy_pattern_expr_idx: None,
                     hir_lazy_variable_idxs: [
                         (
@@ -50772,7 +50772,7 @@
                                 ),
                             ),
                             Some(
-                                8,
+                                7,
                             ),
                         ),
                     ],
@@ -50819,10 +50819,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        88,
+                        87,
                     ),
                     hir_lazy_expr_idx: Some(
-                        85,
+                        84,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -50896,7 +50896,7 @@
                         caching_class: ValItem,
                     },
                     source: LetVariable {
-                        stmt: 9,
+                        stmt: 8,
                     },
                 },
                 caching_class: Variable,
@@ -50931,10 +50931,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        89,
+                        88,
                     ),
                     hir_lazy_expr_idx: Some(
-                        86,
+                        85,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -51000,7 +51000,7 @@
                         caching_class: ValItem,
                     },
                     source: Expr {
-                        expr: 86,
+                        expr: 85,
                     },
                 },
                 caching_class: Expr,
@@ -51037,10 +51037,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        20,
+                        19,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        20,
+                        19,
                     ),
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -51086,10 +51086,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        4,
+                        3,
                     ),
                     hir_eager_stmt_idx: Some(
-                        4,
+                        3,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -51183,10 +51183,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        11,
+                        10,
                     ),
                     hir_eager_stmt_idx: Some(
-                        11,
+                        10,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -51288,10 +51288,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        2,
+                        1,
                     ),
                     hir_eager_expr_idx: Some(
-                        2,
+                        1,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -51341,10 +51341,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        12,
+                        11,
                     ),
                     hir_eager_stmt_idx: Some(
-                        12,
+                        11,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -51389,7 +51389,7 @@
                             value: 739,
                         },
                     ),
-                    syn_pattern_expr_idx: 1,
+                    syn_pattern_expr_idx: 0,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -51400,7 +51400,7 @@
                                 ),
                             ),
                             Some(
-                                1,
+                                0,
                             ),
                         ),
                     ],
@@ -51498,10 +51498,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        6,
+                        5,
                     ),
                     hir_eager_expr_idx: Some(
-                        6,
+                        5,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -51551,10 +51551,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        13,
+                        12,
                     ),
                     hir_eager_stmt_idx: Some(
-                        13,
+                        12,
                     ),
                     eager_stmt_data_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
@@ -51569,7 +51569,7 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                4..8,
+                                3..7,
                             ),
                         ),
                     },
@@ -51616,10 +51616,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        4,
+                        3,
                     ),
                     hir_eager_stmt_idx: Some(
-                        4,
+                        3,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -51665,10 +51665,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        5,
+                        4,
                     ),
                     hir_eager_stmt_idx: Some(
-                        5,
+                        4,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -51714,10 +51714,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        6,
+                        5,
                     ),
                     hir_eager_stmt_idx: Some(
-                        6,
+                        5,
                     ),
                     eager_stmt_data_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
@@ -51732,7 +51732,7 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                1..4,
+                                0..3,
                             ),
                         ),
                     },
@@ -51779,10 +51779,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        7,
+                        6,
                     ),
                     hir_eager_stmt_idx: Some(
-                        7,
+                        6,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -51836,10 +51836,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        7,
+                        6,
                     ),
                     hir_eager_expr_idx: Some(
-                        7,
+                        6,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -51889,10 +51889,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        14,
+                        13,
                     ),
                     hir_eager_stmt_idx: Some(
-                        14,
+                        13,
                     ),
                     eager_stmt_data_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
@@ -51907,7 +51907,7 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                8..11,
+                                7..10,
                             ),
                         ),
                     },
@@ -51954,10 +51954,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        8,
+                        7,
                     ),
                     hir_eager_stmt_idx: Some(
-                        8,
+                        7,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -52003,10 +52003,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        9,
+                        8,
                     ),
                     hir_eager_stmt_idx: Some(
-                        9,
+                        8,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -52052,10 +52052,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        10,
+                        9,
                     ),
                     hir_eager_stmt_idx: Some(
-                        10,
+                        9,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -52109,10 +52109,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        36,
+                        35,
                     ),
                     hir_eager_expr_idx: Some(
-                        35,
+                        34,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -52162,10 +52162,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        15,
+                        14,
                     ),
                     hir_eager_stmt_idx: Some(
-                        15,
+                        14,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -52267,10 +52267,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        49,
+                        48,
                     ),
                     hir_eager_expr_idx: Some(
-                        48,
+                        47,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -52320,10 +52320,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        16,
+                        15,
                     ),
                     hir_eager_stmt_idx: Some(
-                        16,
+                        15,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -52368,7 +52368,7 @@
                             value: 743,
                         },
                     ),
-                    syn_pattern_expr_idx: 10,
+                    syn_pattern_expr_idx: 9,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -52379,7 +52379,7 @@
                                 ),
                             ),
                             Some(
-                                6,
+                                5,
                             ),
                         ),
                     ],
@@ -52477,10 +52477,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        54,
+                        53,
                     ),
                     hir_eager_expr_idx: Some(
-                        52,
+                        51,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -52530,10 +52530,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        17,
+                        16,
                     ),
                     hir_eager_stmt_idx: Some(
-                        17,
+                        16,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -52579,10 +52579,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        18,
+                        17,
                     ),
                     hir_eager_stmt_idx: Some(
-                        18,
+                        17,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -52628,10 +52628,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        5,
+                        4,
                     ),
                     hir_eager_stmt_idx: Some(
-                        5,
+                        4,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -52725,10 +52725,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        4,
+                        3,
                     ),
                     hir_eager_stmt_idx: Some(
-                        4,
+                        3,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -52773,7 +52773,7 @@
                             value: 766,
                         },
                     ),
-                    syn_pattern_expr_idx: 1,
+                    syn_pattern_expr_idx: 0,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -52784,7 +52784,7 @@
                                 ),
                             ),
                             Some(
-                                1,
+                                0,
                             ),
                         ),
                     ],
@@ -52882,10 +52882,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        2,
+                        1,
                     ),
                     hir_eager_expr_idx: Some(
-                        2,
+                        1,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -52991,10 +52991,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        4,
+                        3,
                     ),
                     hir_eager_expr_idx: Some(
-                        4,
+                        3,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -53044,10 +53044,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        5,
+                        4,
                     ),
                     hir_eager_stmt_idx: Some(
-                        5,
+                        4,
                     ),
                     eager_stmt_data_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
@@ -53062,7 +53062,7 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                2..4,
+                                1..3,
                             ),
                         ),
                     },
@@ -53109,10 +53109,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        2,
+                        1,
                     ),
                     hir_eager_stmt_idx: Some(
-                        2,
+                        1,
                     ),
                     eager_stmt_data_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
@@ -53127,7 +53127,7 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                1..2,
+                                0..1,
                             ),
                         ),
                     },
@@ -53174,10 +53174,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        3,
+                        2,
                     ),
                     hir_eager_stmt_idx: Some(
-                        3,
+                        2,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -53279,10 +53279,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        7,
+                        6,
                     ),
                     hir_eager_expr_idx: Some(
-                        7,
+                        6,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -53340,10 +53340,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        8,
+                        7,
                     ),
                     hir_eager_expr_idx: Some(
-                        8,
+                        7,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -53393,10 +53393,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        6,
+                        5,
                     ),
                     hir_eager_stmt_idx: Some(
-                        6,
+                        5,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -53442,10 +53442,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        6,
+                        5,
                     ),
                     hir_eager_stmt_idx: Some(
-                        6,
+                        5,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -53539,10 +53539,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        1,
+                        0,
                     ),
                     hir_eager_stmt_idx: Some(
-                        1,
+                        0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -53644,10 +53644,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        2,
+                        1,
                     ),
                     hir_eager_expr_idx: Some(
-                        2,
+                        1,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -53697,10 +53697,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        2,
+                        1,
                     ),
                     hir_eager_stmt_idx: Some(
-                        2,
+                        1,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -53802,10 +53802,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        6,
+                        5,
                     ),
                     hir_eager_expr_idx: Some(
-                        6,
+                        5,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -53855,10 +53855,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        3,
+                        2,
                     ),
                     hir_eager_stmt_idx: Some(
-                        3,
+                        2,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -53903,7 +53903,7 @@
                             value: 782,
                         },
                     ),
-                    syn_pattern_expr_idx: 1,
+                    syn_pattern_expr_idx: 0,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -53914,7 +53914,7 @@
                                 ),
                             ),
                             Some(
-                                1,
+                                0,
                             ),
                         ),
                     ],
@@ -54012,10 +54012,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        10,
+                        9,
                     ),
                     hir_eager_expr_idx: Some(
-                        10,
+                        9,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -54065,10 +54065,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        4,
+                        3,
                     ),
                     hir_eager_stmt_idx: Some(
-                        4,
+                        3,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -54113,7 +54113,7 @@
                             value: 783,
                         },
                     ),
-                    syn_pattern_expr_idx: 2,
+                    syn_pattern_expr_idx: 1,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -54124,7 +54124,7 @@
                                 ),
                             ),
                             Some(
-                                2,
+                                1,
                             ),
                         ),
                     ],
@@ -54222,10 +54222,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        14,
+                        13,
                     ),
                     hir_eager_expr_idx: Some(
-                        14,
+                        13,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -54275,10 +54275,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        5,
+                        4,
                     ),
                     hir_eager_stmt_idx: Some(
-                        5,
+                        4,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -54323,7 +54323,7 @@
                             value: 784,
                         },
                     ),
-                    syn_pattern_expr_idx: 3,
+                    syn_pattern_expr_idx: 2,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -54334,7 +54334,7 @@
                                 ),
                             ),
                             Some(
-                                3,
+                                2,
                             ),
                         ),
                     ],
@@ -54432,10 +54432,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        18,
+                        17,
                     ),
                     hir_eager_expr_idx: Some(
-                        18,
+                        17,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -54485,10 +54485,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        6,
+                        5,
                     ),
                     hir_eager_stmt_idx: Some(
-                        6,
+                        5,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -54542,10 +54542,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        21,
+                        20,
                     ),
                     hir_eager_expr_idx: Some(
-                        21,
+                        20,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -54595,10 +54595,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        7,
+                        6,
                     ),
                     hir_eager_stmt_idx: Some(
-                        7,
+                        6,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -54652,10 +54652,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        23,
+                        22,
                     ),
                     hir_eager_expr_idx: Some(
-                        22,
+                        21,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -54713,10 +54713,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        25,
+                        24,
                     ),
                     hir_eager_expr_idx: Some(
-                        24,
+                        23,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -54766,10 +54766,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        8,
+                        7,
                     ),
                     hir_eager_stmt_idx: Some(
-                        8,
+                        7,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -54823,10 +54823,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        28,
+                        27,
                     ),
                     hir_eager_expr_idx: Some(
-                        27,
+                        26,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -54876,10 +54876,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        9,
+                        8,
                     ),
                     hir_eager_stmt_idx: Some(
-                        9,
+                        8,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -54924,7 +54924,7 @@
                             value: 788,
                         },
                     ),
-                    syn_pattern_expr_idx: 8,
+                    syn_pattern_expr_idx: 7,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -54935,7 +54935,7 @@
                                 ),
                             ),
                             Some(
-                                4,
+                                3,
                             ),
                         ),
                     ],
@@ -54985,10 +54985,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        30,
+                        29,
                     ),
                     hir_eager_expr_idx: Some(
-                        28,
+                        27,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -55046,10 +55046,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        32,
+                        31,
                     ),
                     hir_eager_expr_idx: Some(
-                        30,
+                        29,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -55107,10 +55107,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        34,
+                        33,
                     ),
                     hir_eager_expr_idx: Some(
-                        32,
+                        31,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -55160,10 +55160,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        10,
+                        9,
                     ),
                     hir_eager_stmt_idx: Some(
-                        10,
+                        9,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -55217,10 +55217,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        35,
+                        34,
                     ),
                     hir_eager_expr_idx: Some(
-                        33,
+                        32,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -55278,10 +55278,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        38,
+                        37,
                     ),
                     hir_eager_expr_idx: Some(
-                        36,
+                        35,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -55331,10 +55331,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        11,
+                        10,
                     ),
                     hir_eager_stmt_idx: Some(
-                        11,
+                        10,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -55379,7 +55379,7 @@
                             value: 790,
                         },
                     ),
-                    syn_pattern_expr_idx: 9,
+                    syn_pattern_expr_idx: 8,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -55390,7 +55390,7 @@
                                 ),
                             ),
                             Some(
-                                5,
+                                4,
                             ),
                         ),
                     ],
@@ -55440,10 +55440,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        43,
+                        42,
                     ),
                     hir_eager_expr_idx: Some(
-                        41,
+                        40,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -55501,10 +55501,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        45,
+                        44,
                     ),
                     hir_eager_expr_idx: Some(
-                        43,
+                        42,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -55554,10 +55554,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        12,
+                        11,
                     ),
                     hir_eager_stmt_idx: Some(
-                        12,
+                        11,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -55602,7 +55602,7 @@
                             value: 791,
                         },
                     ),
-                    syn_pattern_expr_idx: 10,
+                    syn_pattern_expr_idx: 9,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -55613,7 +55613,7 @@
                                 ),
                             ),
                             Some(
-                                6,
+                                5,
                             ),
                         ),
                     ],
@@ -55663,10 +55663,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        46,
+                        45,
                     ),
                     hir_eager_expr_idx: Some(
-                        44,
+                        43,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -55724,10 +55724,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        48,
+                        47,
                     ),
                     hir_eager_expr_idx: Some(
-                        46,
+                        45,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -55777,10 +55777,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        13,
+                        12,
                     ),
                     hir_eager_stmt_idx: Some(
-                        13,
+                        12,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -55825,7 +55825,7 @@
                             value: 792,
                         },
                     ),
-                    syn_pattern_expr_idx: 11,
+                    syn_pattern_expr_idx: 10,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -55836,7 +55836,7 @@
                                 ),
                             ),
                             Some(
-                                7,
+                                6,
                             ),
                         ),
                     ],
@@ -55886,10 +55886,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        49,
+                        48,
                     ),
                     hir_eager_expr_idx: Some(
-                        47,
+                        46,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -55947,10 +55947,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        51,
+                        50,
                     ),
                     hir_eager_expr_idx: Some(
-                        49,
+                        48,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -56008,10 +56008,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        50,
+                        49,
                     ),
                     hir_eager_expr_idx: Some(
-                        48,
+                        47,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -56061,10 +56061,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        14,
+                        13,
                     ),
                     hir_eager_stmt_idx: Some(
-                        14,
+                        13,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -56118,10 +56118,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        52,
+                        51,
                     ),
                     hir_eager_expr_idx: Some(
-                        50,
+                        49,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -56171,10 +56171,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        15,
+                        14,
                     ),
                     hir_eager_stmt_idx: Some(
-                        15,
+                        14,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -56276,10 +56276,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        56,
+                        55,
                     ),
                     hir_eager_expr_idx: Some(
-                        54,
+                        53,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -56329,10 +56329,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        16,
+                        15,
                     ),
                     hir_eager_stmt_idx: Some(
-                        16,
+                        15,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -56386,10 +56386,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        59,
+                        58,
                     ),
                     hir_eager_expr_idx: Some(
-                        57,
+                        56,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -56447,10 +56447,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        61,
+                        60,
                     ),
                     hir_eager_expr_idx: Some(
-                        59,
+                        58,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -56500,10 +56500,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        17,
+                        16,
                     ),
                     hir_eager_stmt_idx: Some(
-                        17,
+                        16,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -56549,10 +56549,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        7,
+                        6,
                     ),
                     hir_eager_stmt_idx: Some(
-                        7,
+                        6,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -56646,10 +56646,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        15,
+                        14,
                     ),
                     hir_eager_stmt_idx: Some(
-                        15,
+                        14,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -56694,7 +56694,7 @@
                             value: 836,
                         },
                     ),
-                    syn_pattern_expr_idx: 1,
+                    syn_pattern_expr_idx: 0,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -56705,7 +56705,7 @@
                                 ),
                             ),
                             Some(
-                                1,
+                                0,
                             ),
                         ),
                     ],
@@ -56803,10 +56803,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        2,
+                        1,
                     ),
                     hir_eager_expr_idx: Some(
-                        2,
+                        1,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -56856,10 +56856,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        16,
+                        15,
                     ),
                     hir_eager_stmt_idx: Some(
-                        16,
+                        15,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -56913,10 +56913,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        3,
+                        2,
                     ),
                     hir_eager_expr_idx: Some(
-                        3,
+                        2,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -56974,10 +56974,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        4,
+                        3,
                     ),
                     hir_eager_expr_idx: Some(
-                        4,
+                        3,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -57027,10 +57027,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        17,
+                        16,
                     ),
                     hir_eager_stmt_idx: Some(
-                        17,
+                        16,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -57075,7 +57075,7 @@
                             value: 838,
                         },
                     ),
-                    syn_pattern_expr_idx: 3,
+                    syn_pattern_expr_idx: 2,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -57086,7 +57086,7 @@
                                 ),
                             ),
                             Some(
-                                2,
+                                1,
                             ),
                         ),
                     ],
@@ -57184,10 +57184,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        9,
+                        8,
                     ),
                     hir_eager_expr_idx: Some(
-                        8,
+                        7,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -57237,10 +57237,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        18,
+                        17,
                     ),
                     hir_eager_stmt_idx: Some(
-                        18,
+                        17,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -57294,10 +57294,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        12,
+                        11,
                     ),
                     hir_eager_expr_idx: Some(
-                        11,
+                        10,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -57347,10 +57347,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        19,
+                        18,
                     ),
                     hir_eager_stmt_idx: Some(
-                        19,
+                        18,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -57395,7 +57395,7 @@
                             value: 840,
                         },
                     ),
-                    syn_pattern_expr_idx: 6,
+                    syn_pattern_expr_idx: 5,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -57406,7 +57406,7 @@
                                 ),
                             ),
                             Some(
-                                3,
+                                2,
                             ),
                         ),
                     ],
@@ -57456,10 +57456,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        14,
+                        13,
                     ),
                     hir_eager_expr_idx: Some(
-                        12,
+                        11,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -57517,10 +57517,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        16,
+                        15,
                     ),
                     hir_eager_expr_idx: Some(
-                        14,
+                        13,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -57578,10 +57578,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        17,
+                        16,
                     ),
                     hir_eager_expr_idx: Some(
-                        15,
+                        14,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -57631,10 +57631,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        20,
+                        19,
                     ),
                     hir_eager_stmt_idx: Some(
-                        20,
+                        19,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -57679,7 +57679,7 @@
                             value: 841,
                         },
                     ),
-                    syn_pattern_expr_idx: 7,
+                    syn_pattern_expr_idx: 6,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -57690,7 +57690,7 @@
                                 ),
                             ),
                             Some(
-                                4,
+                                3,
                             ),
                         ),
                     ],
@@ -57788,10 +57788,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        19,
+                        18,
                     ),
                     hir_eager_expr_idx: Some(
-                        17,
+                        16,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -57897,10 +57897,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        21,
+                        20,
                     ),
                     hir_eager_expr_idx: Some(
-                        19,
+                        18,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -57950,10 +57950,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        21,
+                        20,
                     ),
                     hir_eager_stmt_idx: Some(
-                        21,
+                        20,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -58007,10 +58007,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        23,
+                        22,
                     ),
                     hir_eager_expr_idx: Some(
-                        21,
+                        20,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -58060,10 +58060,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        22,
+                        21,
                     ),
                     hir_eager_stmt_idx: Some(
-                        22,
+                        21,
                     ),
                     eager_stmt_data_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
@@ -58078,7 +58078,7 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                1..15,
+                                0..14,
                             ),
                         ),
                     },
@@ -58125,10 +58125,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        1,
+                        0,
                     ),
                     hir_eager_stmt_idx: Some(
-                        1,
+                        0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -58174,10 +58174,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        2,
+                        1,
                     ),
                     hir_eager_stmt_idx: Some(
-                        2,
+                        1,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -58223,10 +58223,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        3,
+                        2,
                     ),
                     hir_eager_stmt_idx: Some(
-                        3,
+                        2,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -58272,10 +58272,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        4,
+                        3,
                     ),
                     hir_eager_stmt_idx: Some(
-                        4,
+                        3,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -58321,10 +58321,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        5,
+                        4,
                     ),
                     hir_eager_stmt_idx: Some(
-                        5,
+                        4,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -58370,10 +58370,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        6,
+                        5,
                     ),
                     hir_eager_stmt_idx: Some(
-                        6,
+                        5,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -58419,10 +58419,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        7,
+                        6,
                     ),
                     hir_eager_stmt_idx: Some(
-                        7,
+                        6,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -58468,10 +58468,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        8,
+                        7,
                     ),
                     hir_eager_stmt_idx: Some(
-                        8,
+                        7,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -58517,10 +58517,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        9,
+                        8,
                     ),
                     hir_eager_stmt_idx: Some(
-                        9,
+                        8,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -58566,10 +58566,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        10,
+                        9,
                     ),
                     hir_eager_stmt_idx: Some(
-                        10,
+                        9,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -58615,10 +58615,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        11,
+                        10,
                     ),
                     hir_eager_stmt_idx: Some(
-                        11,
+                        10,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -58664,10 +58664,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        12,
+                        11,
                     ),
                     hir_eager_stmt_idx: Some(
-                        12,
+                        11,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -58713,10 +58713,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        13,
+                        12,
                     ),
                     hir_eager_stmt_idx: Some(
-                        13,
+                        12,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -58762,10 +58762,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        14,
+                        13,
                     ),
                     hir_eager_stmt_idx: Some(
-                        14,
+                        13,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -58819,10 +58819,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        26,
+                        25,
                     ),
                     hir_eager_expr_idx: Some(
-                        24,
+                        23,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -58880,10 +58880,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        27,
+                        26,
                     ),
                     hir_eager_expr_idx: Some(
-                        25,
+                        24,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -58933,10 +58933,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        23,
+                        22,
                     ),
                     hir_eager_stmt_idx: Some(
-                        23,
+                        22,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -58982,10 +58982,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        8,
+                        7,
                     ),
                     hir_eager_stmt_idx: Some(
-                        8,
+                        7,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -59079,10 +59079,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        1,
+                        0,
                     ),
                     hir_eager_stmt_idx: Some(
-                        1,
+                        0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -59128,10 +59128,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        9,
+                        8,
                     ),
                     hir_eager_stmt_idx: Some(
-                        9,
+                        8,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -59225,10 +59225,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        20,
+                        19,
                     ),
                     hir_eager_stmt_idx: Some(
-                        20,
+                        19,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -59273,7 +59273,7 @@
                             value: 883,
                         },
                     ),
-                    syn_pattern_expr_idx: 1,
+                    syn_pattern_expr_idx: 0,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -59284,7 +59284,7 @@
                                 ),
                             ),
                             Some(
-                                1,
+                                0,
                             ),
                         ),
                     ],
@@ -59382,10 +59382,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        2,
+                        1,
                     ),
                     hir_eager_expr_idx: Some(
-                        2,
+                        1,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -59435,10 +59435,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        21,
+                        20,
                     ),
                     hir_eager_stmt_idx: Some(
-                        21,
+                        20,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -59483,7 +59483,7 @@
                             value: 884,
                         },
                     ),
-                    syn_pattern_expr_idx: 2,
+                    syn_pattern_expr_idx: 1,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -59494,7 +59494,7 @@
                                 ),
                             ),
                             Some(
-                                2,
+                                1,
                             ),
                         ),
                     ],
@@ -59592,10 +59592,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        4,
+                        3,
                     ),
                     hir_eager_expr_idx: Some(
-                        4,
+                        3,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -59645,10 +59645,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        22,
+                        21,
                     ),
                     hir_eager_stmt_idx: Some(
-                        22,
+                        21,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -59702,10 +59702,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        5,
+                        4,
                     ),
                     hir_eager_expr_idx: Some(
-                        5,
+                        4,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -59763,10 +59763,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        6,
+                        5,
                     ),
                     hir_eager_expr_idx: Some(
-                        6,
+                        5,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -59816,10 +59816,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        23,
+                        22,
                     ),
                     hir_eager_stmt_idx: Some(
-                        23,
+                        22,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -59864,7 +59864,7 @@
                             value: 886,
                         },
                     ),
-                    syn_pattern_expr_idx: 4,
+                    syn_pattern_expr_idx: 3,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -59875,7 +59875,7 @@
                                 ),
                             ),
                             Some(
-                                3,
+                                2,
                             ),
                         ),
                     ],
@@ -59973,10 +59973,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        11,
+                        10,
                     ),
                     hir_eager_expr_idx: Some(
-                        10,
+                        9,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -60026,10 +60026,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        24,
+                        23,
                     ),
                     hir_eager_stmt_idx: Some(
-                        24,
+                        23,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -60074,7 +60074,7 @@
                             value: 887,
                         },
                     ),
-                    syn_pattern_expr_idx: 5,
+                    syn_pattern_expr_idx: 4,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -60085,7 +60085,7 @@
                                 ),
                             ),
                             Some(
-                                4,
+                                3,
                             ),
                         ),
                     ],
@@ -60183,10 +60183,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        15,
+                        14,
                     ),
                     hir_eager_expr_idx: Some(
-                        14,
+                        13,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -60236,10 +60236,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        25,
+                        24,
                     ),
                     hir_eager_stmt_idx: Some(
-                        25,
+                        24,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -60284,7 +60284,7 @@
                             value: 888,
                         },
                     ),
-                    syn_pattern_expr_idx: 6,
+                    syn_pattern_expr_idx: 5,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -60295,7 +60295,7 @@
                                 ),
                             ),
                             Some(
-                                5,
+                                4,
                             ),
                         ),
                     ],
@@ -60393,10 +60393,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        19,
+                        18,
                     ),
                     hir_eager_expr_idx: Some(
-                        18,
+                        17,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -60446,10 +60446,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        26,
+                        25,
                     ),
                     hir_eager_stmt_idx: Some(
-                        26,
+                        25,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -60503,10 +60503,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        22,
+                        21,
                     ),
                     hir_eager_expr_idx: Some(
-                        21,
+                        20,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -60556,10 +60556,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        27,
+                        26,
                     ),
                     hir_eager_stmt_idx: Some(
-                        27,
+                        26,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -60604,7 +60604,7 @@
                             value: 890,
                         },
                     ),
-                    syn_pattern_expr_idx: 7,
+                    syn_pattern_expr_idx: 6,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -60615,7 +60615,7 @@
                                 ),
                             ),
                             Some(
-                                6,
+                                5,
                             ),
                         ),
                     ],
@@ -60713,10 +60713,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        26,
+                        25,
                     ),
                     hir_eager_expr_idx: Some(
-                        25,
+                        24,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -60822,10 +60822,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        28,
+                        27,
                     ),
                     hir_eager_expr_idx: Some(
-                        27,
+                        26,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -60875,10 +60875,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        28,
+                        27,
                     ),
                     hir_eager_stmt_idx: Some(
-                        28,
+                        27,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -60932,10 +60932,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        30,
+                        29,
                     ),
                     hir_eager_expr_idx: Some(
-                        29,
+                        28,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -60985,10 +60985,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        29,
+                        28,
                     ),
                     hir_eager_stmt_idx: Some(
-                        29,
+                        28,
                     ),
                     eager_stmt_data_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
@@ -61003,7 +61003,7 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                1..15,
+                                0..14,
                             ),
                         ),
                     },
@@ -61050,10 +61050,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        1,
+                        0,
                     ),
                     hir_eager_stmt_idx: Some(
-                        1,
+                        0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -61099,10 +61099,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        2,
+                        1,
                     ),
                     hir_eager_stmt_idx: Some(
-                        2,
+                        1,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -61148,10 +61148,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        3,
+                        2,
                     ),
                     hir_eager_stmt_idx: Some(
-                        3,
+                        2,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -61197,10 +61197,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        4,
+                        3,
                     ),
                     hir_eager_stmt_idx: Some(
-                        4,
+                        3,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -61246,10 +61246,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        5,
+                        4,
                     ),
                     hir_eager_stmt_idx: Some(
-                        5,
+                        4,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -61295,10 +61295,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        6,
+                        5,
                     ),
                     hir_eager_stmt_idx: Some(
-                        6,
+                        5,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -61344,10 +61344,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        7,
+                        6,
                     ),
                     hir_eager_stmt_idx: Some(
-                        7,
+                        6,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -61393,10 +61393,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        8,
+                        7,
                     ),
                     hir_eager_stmt_idx: Some(
-                        8,
+                        7,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -61442,10 +61442,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        9,
+                        8,
                     ),
                     hir_eager_stmt_idx: Some(
-                        9,
+                        8,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -61491,10 +61491,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        10,
+                        9,
                     ),
                     hir_eager_stmt_idx: Some(
-                        10,
+                        9,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -61540,10 +61540,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        11,
+                        10,
                     ),
                     hir_eager_stmt_idx: Some(
-                        11,
+                        10,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -61589,10 +61589,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        12,
+                        11,
                     ),
                     hir_eager_stmt_idx: Some(
-                        12,
+                        11,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -61638,10 +61638,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        13,
+                        12,
                     ),
                     hir_eager_stmt_idx: Some(
-                        13,
+                        12,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -61687,10 +61687,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        14,
+                        13,
                     ),
                     hir_eager_stmt_idx: Some(
-                        14,
+                        13,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -61744,10 +61744,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        33,
+                        32,
                     ),
                     hir_eager_expr_idx: Some(
-                        32,
+                        31,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -61797,10 +61797,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        30,
+                        29,
                     ),
                     hir_eager_stmt_idx: Some(
-                        30,
+                        29,
                     ),
                     eager_stmt_data_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
@@ -61815,7 +61815,7 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                15..20,
+                                14..19,
                             ),
                         ),
                     },
@@ -61862,10 +61862,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        15,
+                        14,
                     ),
                     hir_eager_stmt_idx: Some(
-                        15,
+                        14,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -61911,10 +61911,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        16,
+                        15,
                     ),
                     hir_eager_stmt_idx: Some(
-                        16,
+                        15,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -61960,10 +61960,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        17,
+                        16,
                     ),
                     hir_eager_stmt_idx: Some(
-                        17,
+                        16,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -62009,10 +62009,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        18,
+                        17,
                     ),
                     hir_eager_stmt_idx: Some(
-                        18,
+                        17,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -62058,10 +62058,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        19,
+                        18,
                     ),
                     hir_eager_stmt_idx: Some(
-                        19,
+                        18,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -62115,10 +62115,10 @@
                         },
                     ),
                     sem_expr_idx: SemaExprIdx(
-                        91,
+                        90,
                     ),
                     hir_eager_expr_idx: Some(
-                        86,
+                        85,
                     ),
                     sem_expr_region: SemaExprRegion(
                         Id {
@@ -62168,10 +62168,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        31,
+                        30,
                     ),
                     hir_eager_stmt_idx: Some(
-                        31,
+                        30,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(
@@ -62217,10 +62217,10 @@
                         },
                     ),
                     sem_stmt_idx: SemaStmtIdx(
-                        10,
+                        9,
                     ),
                     hir_eager_stmt_idx: Some(
-                        10,
+                        9,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemaExprRegion(

@@ -12,7 +12,7 @@ EntityTreePresheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::nine`,
                         ),
-                        ast_idx: 35,
+                        ast_idx: 34,
                         ident_token: IdentToken {
                             ident: `nine_match`,
                             token_idx: TokenIdx(
@@ -24,7 +24,7 @@ EntityTreePresheet {
                             body: Some(
                                 FugitiveBody {
                                     ast_idx_range: ArenaIdxRange(
-                                        1..2,
+                                        0..1,
                                     ),
                                 },
                             ),
@@ -50,7 +50,7 @@ EntityTreePresheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::nine`,
                         ),
-                        ast_idx: 36,
+                        ast_idx: 35,
                         ident_token: IdentToken {
                             ident: `nine_match_refine`,
                             token_idx: TokenIdx(
@@ -62,7 +62,7 @@ EntityTreePresheet {
                             body: Some(
                                 FugitiveBody {
                                     ast_idx_range: ArenaIdxRange(
-                                        2..3,
+                                        1..2,
                                     ),
                                 },
                             ),
@@ -88,7 +88,7 @@ EntityTreePresheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits`,
                         ),
-                        ast_idx: 37,
+                        ast_idx: 36,
                         ident_token: IdentToken {
                             ident: `is_nine`,
                             token_idx: TokenIdx(
@@ -100,7 +100,7 @@ EntityTreePresheet {
                             body: Some(
                                 FugitiveBody {
                                     ast_idx_range: ArenaIdxRange(
-                                        18..27,
+                                        17..26,
                                     ),
                                 },
                             ),
@@ -128,7 +128,7 @@ EntityTreePresheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::nine`,
                         ),
-                        ast_idx: 38,
+                        ast_idx: 37,
                         ident_token: IdentToken {
                             ident: `downmost`,
                             token_idx: TokenIdx(
@@ -142,7 +142,7 @@ EntityTreePresheet {
                             body: Some(
                                 FugitiveBody {
                                     ast_idx_range: ArenaIdxRange(
-                                        27..30,
+                                        26..29,
                                     ),
                                 },
                             ),
@@ -172,7 +172,7 @@ EntityTreePresheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::nine`,
                         ),
-                        ast_idx: 39,
+                        ast_idx: 38,
                         ident_token: IdentToken {
                             ident: `big_cc`,
                             token_idx: TokenIdx(
@@ -186,7 +186,7 @@ EntityTreePresheet {
                             body: Some(
                                 FugitiveBody {
                                     ast_idx_range: ArenaIdxRange(
-                                        30..34,
+                                        29..33,
                                     ),
                                 },
                             ),
@@ -210,8 +210,8 @@ EntityTreePresheet {
     once_use_rules: OnceUseRules(
         [
             OnceUseRule {
-                ast_idx: 34,
-                use_expr_idx: 2,
+                ast_idx: 33,
+                use_expr_idx: 1,
                 visibility: Scope::PubUnder(
                     `mnist_classifier::digits::nine`,
                 ),
@@ -224,7 +224,7 @@ EntityTreePresheet {
                         },
                     ),
                     children: ArenaIdxRange(
-                        1..2,
+                        0..1,
                     ),
                 },
                 parent: None,
@@ -262,7 +262,7 @@ EntityTreePresheet {
                     ),
                     children: Ok(
                         UseExprChildren::Single {
-                            child: 1,
+                            child: 0,
                         },
                     ),
                 },

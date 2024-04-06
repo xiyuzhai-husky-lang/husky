@@ -430,14 +430,14 @@
                                     ],
                                 },
                                 self_value_variable: Some(
-                                    1,
+                                    0,
                                 ),
                             },
                         },
                     },
                     eager_body_with_hir_eager_expr_region: Some(
                         (
-                            2,
+                            1,
                             HirEagerExprRegion {
                                 region_path: RegionPath::Defn(
                                     ItemPath::AssocItem(
@@ -477,7 +477,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Block {
                                                 stmts: ArenaIdxRange(
-                                                    1..2,
+                                                    0..1,
                                                 ),
                                             },
                                             contracted_quary: HirContractedQuary {
@@ -494,7 +494,7 @@
                                 stmt_arena: Arena {
                                     data: [
                                         Eval {
-                                            expr: 1,
+                                            expr: 0,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -815,7 +815,7 @@
                         parenate_parameters: HirEagerParenateParameters(
                             [
                                 HirEagerParenateParameter::Simple {
-                                    pattern_expr_idx: 1,
+                                    pattern_expr_idx: 0,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
@@ -957,14 +957,14 @@
                                     ],
                                 },
                                 self_value_variable: Some(
-                                    1,
+                                    0,
                                 ),
                             },
                         },
                     },
                     eager_body_with_hir_eager_expr_region: Some(
                         (
-                            7,
+                            6,
                             HirEagerExprRegion {
                                 region_path: RegionPath::Defn(
                                     ItemPath::AssocItem(
@@ -982,7 +982,7 @@
                                     data: [
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                1,
+                                                0,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -1071,7 +1071,7 @@
                                                                 },
                                                             ),
                                                         },
-                                                        2,
+                                                        1,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_quary: Const,
@@ -1171,7 +1171,7 @@
                                                                 ),
                                                             ),
                                                         },
-                                                        3,
+                                                        2,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_quary: Transient,
@@ -1286,7 +1286,7 @@
                                                                 ),
                                                             ),
                                                         },
-                                                        5,
+                                                        4,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_quary: Transient,
@@ -1307,7 +1307,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Block {
                                                 stmts: ArenaIdxRange(
-                                                    3..4,
+                                                    2..3,
                                                 ),
                                             },
                                             contracted_quary: HirContractedQuary {
@@ -1324,7 +1324,7 @@
                                 stmt_arena: Arena {
                                     data: [
                                         Eval {
-                                            expr: 4,
+                                            expr: 3,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -1335,7 +1335,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr: 6,
+                                            expr: 5,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -1346,18 +1346,18 @@
                                             discarded: false,
                                         },
                                         Match {
-                                            opd: 1,
+                                            opd: 0,
                                             case_branches: [
+                                                HirEagerCaseBranch {
+                                                    pattern: 0,
+                                                    stmts: ArenaIdxRange(
+                                                        0..1,
+                                                    ),
+                                                },
                                                 HirEagerCaseBranch {
                                                     pattern: 1,
                                                     stmts: ArenaIdxRange(
                                                         1..2,
-                                                    ),
-                                                },
-                                                HirEagerCaseBranch {
-                                                    pattern: 2,
-                                                    stmts: ArenaIdxRange(
-                                                        2..3,
                                                     ),
                                                 },
                                             ],
@@ -1607,7 +1607,7 @@
                         parenate_parameters: HirEagerParenateParameters(
                             [
                                 HirEagerParenateParameter::Simple {
-                                    pattern_expr_idx: 1,
+                                    pattern_expr_idx: 0,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
@@ -1696,14 +1696,14 @@
                                     ],
                                 },
                                 self_value_variable: Some(
-                                    1,
+                                    0,
                                 ),
                             },
                         },
                     },
                     eager_body_with_hir_eager_expr_region: Some(
                         (
-                            8,
+                            7,
                             HirEagerExprRegion {
                                 region_path: RegionPath::Defn(
                                     ItemPath::AssocItem(
@@ -1721,7 +1721,7 @@
                                     data: [
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                1,
+                                                0,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -1836,7 +1836,7 @@
                                                                 ),
                                                             ),
                                                         },
-                                                        2,
+                                                        1,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_quary: Transient,
@@ -1945,7 +1945,7 @@
                                                                 ),
                                                             ),
                                                         },
-                                                        4,
+                                                        3,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_quary: Transient,
@@ -2048,7 +2048,7 @@
                                                                 ),
                                                             ),
                                                         },
-                                                        6,
+                                                        5,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_quary: Transient,
@@ -2069,7 +2069,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Block {
                                                 stmts: ArenaIdxRange(
-                                                    4..5,
+                                                    3..4,
                                                 ),
                                             },
                                             contracted_quary: HirContractedQuary {
@@ -2086,7 +2086,7 @@
                                 stmt_arena: Arena {
                                     data: [
                                         Eval {
-                                            expr: 3,
+                                            expr: 2,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -2097,7 +2097,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr: 5,
+                                            expr: 4,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -2108,7 +2108,7 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr: 7,
+                                            expr: 6,
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
@@ -2119,8 +2119,14 @@
                                             discarded: false,
                                         },
                                         Match {
-                                            opd: 1,
+                                            opd: 0,
                                             case_branches: [
+                                                HirEagerCaseBranch {
+                                                    pattern: 0,
+                                                    stmts: ArenaIdxRange(
+                                                        0..1,
+                                                    ),
+                                                },
                                                 HirEagerCaseBranch {
                                                     pattern: 1,
                                                     stmts: ArenaIdxRange(
@@ -2131,12 +2137,6 @@
                                                     pattern: 2,
                                                     stmts: ArenaIdxRange(
                                                         2..3,
-                                                    ),
-                                                },
-                                                HirEagerCaseBranch {
-                                                    pattern: 3,
-                                                    stmts: ArenaIdxRange(
-                                                        3..4,
                                                     ),
                                                 },
                                             ],

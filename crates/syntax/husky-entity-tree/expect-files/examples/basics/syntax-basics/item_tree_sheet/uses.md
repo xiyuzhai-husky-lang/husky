@@ -28,8 +28,8 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `syntax_basics::uses`,
                         ),
-                        ast_idx: 1,
-                        use_expr_idx: 1,
+                        ast_idx: 0,
+                        use_expr_idx: 0,
                     },
                 ),
             },
@@ -55,8 +55,8 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `syntax_basics::uses`,
                         ),
-                        ast_idx: 1,
-                        use_expr_idx: 1,
+                        ast_idx: 0,
+                        use_expr_idx: 0,
                     },
                 ),
             },
@@ -82,8 +82,8 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `syntax_basics::uses`,
                         ),
-                        ast_idx: 1,
-                        use_expr_idx: 1,
+                        ast_idx: 0,
+                        use_expr_idx: 0,
                     },
                 ),
             },
@@ -109,8 +109,8 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `syntax_basics::uses`,
                         ),
-                        ast_idx: 1,
-                        use_expr_idx: 1,
+                        ast_idx: 0,
+                        use_expr_idx: 0,
                     },
                 ),
             },
@@ -120,8 +120,8 @@ EntityTreeSheet {
     once_use_rules: OnceUseRules(
         [
             OnceUseRule {
-                ast_idx: 1,
-                use_expr_idx: 2,
+                ast_idx: 0,
+                use_expr_idx: 1,
                 visibility: Scope::PubUnder(
                     `syntax_basics::uses`,
                 ),
@@ -134,7 +134,7 @@ EntityTreeSheet {
                         },
                     ),
                     children: ArenaIdxRange(
-                        1..2,
+                        0..1,
                     ),
                 },
                 parent: None,
@@ -153,8 +153,8 @@ EntityTreeSheet {
             UseAllRule {
                 parent_module_path: `syntax_basics`,
                 is_same_crate: true,
-                ast_idx: 1,
-                use_expr_idx: 1,
+                ast_idx: 0,
+                use_expr_idx: 0,
                 visibility: Scope::PubUnder(
                     `syntax_basics::uses`,
                 ),

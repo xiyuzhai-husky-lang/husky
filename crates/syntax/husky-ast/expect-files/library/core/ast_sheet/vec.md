@@ -406,7 +406,7 @@ AstSheet {
                     Type(
                         TypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                1..9,
+                                0..8,
                             ),
                         },
                     ),
@@ -415,39 +415,39 @@ AstSheet {
         ],
     },
     top_level_asts: ArenaIdxRange(
-        9..13,
+        8..12,
     ),
     nested_top_level_asts: [],
     siblings: [
         ArenaIdxRange(
-            1..1,
+            0..0,
         ),
         ArenaIdxRange(
-            1..1,
+            0..0,
         ),
         ArenaIdxRange(
-            1..1,
+            0..0,
         ),
         ArenaIdxRange(
-            1..1,
+            0..0,
         ),
         ArenaIdxRange(
-            1..1,
+            0..0,
         ),
         ArenaIdxRange(
-            1..1,
+            0..0,
         ),
         ArenaIdxRange(
-            1..1,
+            0..0,
         ),
         ArenaIdxRange(
-            1..1,
+            0..0,
         ),
         ArenaIdxRange(
-            1..9,
+            0..8,
         ),
         ArenaIdxRange(
-            9..13,
+            8..12,
         ),
     ],
 }

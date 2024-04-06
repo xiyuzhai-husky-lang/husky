@@ -12,7 +12,7 @@ EntityTreeSheet {
                             )`, (0)),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 27,
+                        ast_idx: 26,
                         ident_token: IdentToken {
                             ident: `quick_sort`,
                             token_idx: TokenIdx(
@@ -26,7 +26,7 @@ EntityTreeSheet {
                             body: Some(
                                 FugitiveBody {
                                     ast_idx_range: ArenaIdxRange(
-                                        1..3,
+                                        0..2,
                                     ),
                                 },
                             ),
@@ -54,7 +54,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `quick_sort`,
                         ),
-                        ast_idx: 28,
+                        ast_idx: 27,
                         ident_token: IdentToken {
                             ident: `quick_sort_aux`,
                             token_idx: TokenIdx(
@@ -68,7 +68,7 @@ EntityTreeSheet {
                             body: Some(
                                 FugitiveBody {
                                     ast_idx_range: ArenaIdxRange(
-                                        7..8,
+                                        6..7,
                                     ),
                                 },
                             ),
@@ -98,7 +98,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `quick_sort`,
                         ),
-                        ast_idx: 29,
+                        ast_idx: 28,
                         ident_token: IdentToken {
                             ident: `partition`,
                             token_idx: TokenIdx(
@@ -112,7 +112,7 @@ EntityTreeSheet {
                             body: Some(
                                 FugitiveBody {
                                     ast_idx_range: ArenaIdxRange(
-                                        19..25,
+                                        18..24,
                                     ),
                                 },
                             ),
@@ -142,7 +142,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `quick_sort`,
                         ),
-                        ast_idx: 31,
+                        ast_idx: 30,
                         ident_token: IdentToken {
                             ident: `quick_sort_works_for_integers`,
                             token_idx: TokenIdx(
@@ -156,7 +156,7 @@ EntityTreeSheet {
                             body: Some(
                                 FugitiveBody {
                                     ast_idx_range: ArenaIdxRange(
-                                        25..26,
+                                        24..25,
                                     ),
                                 },
                             ),
@@ -186,7 +186,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `quick_sort`,
                         ),
-                        ast_idx: 33,
+                        ast_idx: 32,
                         ident_token: IdentToken {
                             ident: `quick_sort_works_for_strs`,
                             token_idx: TokenIdx(
@@ -200,7 +200,7 @@ EntityTreeSheet {
                             body: Some(
                                 FugitiveBody {
                                     ast_idx_range: ArenaIdxRange(
-                                        26..27,
+                                        25..26,
                                     ),
                                 },
                             ),

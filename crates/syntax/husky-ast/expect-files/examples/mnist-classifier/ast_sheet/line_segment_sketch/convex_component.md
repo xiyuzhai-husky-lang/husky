@@ -48,7 +48,7 @@ AstSheet {
                     body: Some(
                         FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
-                                1..2,
+                                0..1,
                             ),
                         },
                     ),
@@ -117,7 +117,7 @@ AstSheet {
                     TraitForType(
                         TraitForTypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                2..3,
+                                1..2,
                             ),
                         },
                     ),
@@ -126,21 +126,21 @@ AstSheet {
         ],
     },
     top_level_asts: ArenaIdxRange(
-        3..6,
+        2..5,
     ),
     nested_top_level_asts: [],
     siblings: [
         ArenaIdxRange(
-            1..1,
+            0..0,
+        ),
+        ArenaIdxRange(
+            0..1,
         ),
         ArenaIdxRange(
             1..2,
         ),
         ArenaIdxRange(
-            2..3,
-        ),
-        ArenaIdxRange(
-            3..6,
+            2..5,
         ),
     ],
 }

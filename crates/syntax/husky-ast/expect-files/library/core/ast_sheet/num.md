@@ -1796,7 +1796,7 @@ AstSheet {
                     Type(
                         TypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                1..3,
+                                0..2,
                             ),
                         },
                     ),
@@ -1813,7 +1813,7 @@ AstSheet {
                     TraitForType(
                         TraitForTypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                3..4,
+                                2..3,
                             ),
                         },
                     ),
@@ -1888,7 +1888,7 @@ AstSheet {
                     Type(
                         TypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                4..6,
+                                3..5,
                             ),
                         },
                     ),
@@ -1905,7 +1905,7 @@ AstSheet {
                     TraitForType(
                         TraitForTypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                6..7,
+                                5..6,
                             ),
                         },
                     ),
@@ -1980,7 +1980,7 @@ AstSheet {
                     Type(
                         TypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                7..10,
+                                6..9,
                             ),
                         },
                     ),
@@ -1997,7 +1997,7 @@ AstSheet {
                     TraitForType(
                         TraitForTypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                10..11,
+                                9..10,
                             ),
                         },
                     ),
@@ -2072,7 +2072,7 @@ AstSheet {
                     Type(
                         TypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                11..12,
+                                10..11,
                             ),
                         },
                     ),
@@ -2089,7 +2089,7 @@ AstSheet {
                     TraitForType(
                         TraitForTypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                12..13,
+                                11..12,
                             ),
                         },
                     ),
@@ -2164,7 +2164,7 @@ AstSheet {
                     Type(
                         TypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                13..14,
+                                12..13,
                             ),
                         },
                     ),
@@ -2181,7 +2181,7 @@ AstSheet {
                     TraitForType(
                         TraitForTypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                14..15,
+                                13..14,
                             ),
                         },
                     ),
@@ -2256,7 +2256,7 @@ AstSheet {
                     Type(
                         TypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                15..16,
+                                14..15,
                             ),
                         },
                     ),
@@ -2273,7 +2273,7 @@ AstSheet {
                     TraitForType(
                         TraitForTypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                16..17,
+                                15..16,
                             ),
                         },
                     ),
@@ -2348,7 +2348,7 @@ AstSheet {
                     Type(
                         TypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                17..18,
+                                16..17,
                             ),
                         },
                     ),
@@ -2365,7 +2365,7 @@ AstSheet {
                     TraitForType(
                         TraitForTypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                18..19,
+                                17..18,
                             ),
                         },
                     ),
@@ -2440,7 +2440,7 @@ AstSheet {
                     Type(
                         TypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                19..20,
+                                18..19,
                             ),
                         },
                     ),
@@ -2457,7 +2457,7 @@ AstSheet {
                     TraitForType(
                         TraitForTypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                20..21,
+                                19..20,
                             ),
                         },
                     ),
@@ -2532,7 +2532,7 @@ AstSheet {
                     Type(
                         TypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                21..22,
+                                20..21,
                             ),
                         },
                     ),
@@ -2549,7 +2549,7 @@ AstSheet {
                     TraitForType(
                         TraitForTypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                22..23,
+                                21..22,
                             ),
                         },
                     ),
@@ -2624,7 +2624,7 @@ AstSheet {
                     Type(
                         TypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                23..24,
+                                22..23,
                             ),
                         },
                     ),
@@ -2641,7 +2641,7 @@ AstSheet {
                     TraitForType(
                         TraitForTypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                24..25,
+                                23..24,
                             ),
                         },
                     ),
@@ -2716,7 +2716,7 @@ AstSheet {
                     Type(
                         TypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                25..26,
+                                24..25,
                             ),
                         },
                     ),
@@ -2733,7 +2733,7 @@ AstSheet {
                     TraitForType(
                         TraitForTypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                26..27,
+                                25..26,
                             ),
                         },
                     ),
@@ -2808,7 +2808,7 @@ AstSheet {
                     Type(
                         TypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                27..28,
+                                26..27,
                             ),
                         },
                     ),
@@ -2825,7 +2825,7 @@ AstSheet {
                     TraitForType(
                         TraitForTypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                28..29,
+                                27..28,
                             ),
                         },
                     ),
@@ -2900,7 +2900,7 @@ AstSheet {
                     Type(
                         TypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                29..43,
+                                28..42,
                             ),
                         },
                     ),
@@ -2917,7 +2917,7 @@ AstSheet {
                     TraitForType(
                         TraitForTypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                43..45,
+                                42..44,
                             ),
                         },
                     ),
@@ -2992,7 +2992,7 @@ AstSheet {
                     Type(
                         TypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                45..47,
+                                44..46,
                             ),
                         },
                     ),
@@ -3009,7 +3009,7 @@ AstSheet {
                     TraitForType(
                         TraitForTypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                47..48,
+                                46..47,
                             ),
                         },
                     ),
@@ -3018,51 +3018,57 @@ AstSheet {
         ],
     },
     top_level_asts: ArenaIdxRange(
-        48..120,
+        47..119,
     ),
     nested_top_level_asts: [],
     siblings: [
         ArenaIdxRange(
-            1..1,
+            0..0,
         ),
         ArenaIdxRange(
-            1..1,
+            0..0,
         ),
         ArenaIdxRange(
-            1..3,
+            0..2,
+        ),
+        ArenaIdxRange(
+            2..2,
+        ),
+        ArenaIdxRange(
+            2..3,
         ),
         ArenaIdxRange(
             3..3,
         ),
         ArenaIdxRange(
-            3..4,
+            3..3,
         ),
         ArenaIdxRange(
-            4..4,
+            3..5,
         ),
         ArenaIdxRange(
-            4..4,
+            5..5,
         ),
         ArenaIdxRange(
-            4..6,
+            5..6,
         ),
         ArenaIdxRange(
             6..6,
         ),
         ArenaIdxRange(
-            6..7,
+            6..6,
         ),
         ArenaIdxRange(
-            7..7,
+            6..6,
         ),
         ArenaIdxRange(
-            7..7,
+            6..9,
         ),
         ArenaIdxRange(
-            7..7,
+            9..9,
         ),
         ArenaIdxRange(
-            7..10,
+            9..10,
         ),
         ArenaIdxRange(
             10..10,
@@ -3176,58 +3182,52 @@ AstSheet {
             28..28,
         ),
         ArenaIdxRange(
-            28..29,
+            28..28,
         ),
         ArenaIdxRange(
-            29..29,
+            28..28,
         ),
         ArenaIdxRange(
-            29..29,
+            28..28,
         ),
         ArenaIdxRange(
-            29..29,
+            28..28,
         ),
         ArenaIdxRange(
-            29..29,
+            28..28,
         ),
         ArenaIdxRange(
-            29..29,
+            28..28,
         ),
         ArenaIdxRange(
-            29..29,
+            28..28,
         ),
         ArenaIdxRange(
-            29..29,
+            28..42,
         ),
         ArenaIdxRange(
-            29..29,
+            42..42,
         ),
         ArenaIdxRange(
-            29..43,
+            42..44,
         ),
         ArenaIdxRange(
-            43..43,
+            44..44,
         ),
         ArenaIdxRange(
-            43..45,
+            44..44,
         ),
         ArenaIdxRange(
-            45..45,
+            44..46,
         ),
         ArenaIdxRange(
-            45..45,
+            46..46,
         ),
         ArenaIdxRange(
-            45..47,
+            46..47,
         ),
         ArenaIdxRange(
-            47..47,
-        ),
-        ArenaIdxRange(
-            47..48,
-        ),
-        ArenaIdxRange(
-            48..120,
+            47..119,
         ),
     ],
 }
