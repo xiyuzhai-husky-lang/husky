@@ -7,8 +7,8 @@ EntityTreePresheet {
     once_use_rules: OnceUseRules(
         [
             OnceUseRule {
-                ast_idx: 1,
-                use_expr_idx: 3,
+                ast_idx: 0,
+                use_expr_idx: 2,
                 visibility: Scope::Pub,
                 variant: OnceUseRuleVariant::Parent {
                     parent_name_token: PathNameToken::CrateRoot(
@@ -19,15 +19,15 @@ EntityTreePresheet {
                         },
                     ),
                     children: ArenaIdxRange(
-                        2..3,
+                        1..2,
                     ),
                 },
                 parent: None,
                 state: UseOneRuleState::Unresolved,
             },
             OnceUseRule {
-                ast_idx: 2,
-                use_expr_idx: 6,
+                ast_idx: 1,
+                use_expr_idx: 5,
                 visibility: Scope::Pub,
                 variant: OnceUseRuleVariant::Parent {
                     parent_name_token: PathNameToken::CrateRoot(
@@ -38,15 +38,15 @@ EntityTreePresheet {
                         },
                     ),
                     children: ArenaIdxRange(
-                        5..6,
+                        4..5,
                     ),
                 },
                 parent: None,
                 state: UseOneRuleState::Unresolved,
             },
             OnceUseRule {
-                ast_idx: 3,
-                use_expr_idx: 9,
+                ast_idx: 2,
+                use_expr_idx: 8,
                 visibility: Scope::Pub,
                 variant: OnceUseRuleVariant::Parent {
                     parent_name_token: PathNameToken::CrateRoot(
@@ -57,15 +57,15 @@ EntityTreePresheet {
                         },
                     ),
                     children: ArenaIdxRange(
-                        8..9,
+                        7..8,
                     ),
                 },
                 parent: None,
                 state: UseOneRuleState::Unresolved,
             },
             OnceUseRule {
-                ast_idx: 4,
-                use_expr_idx: 12,
+                ast_idx: 3,
+                use_expr_idx: 11,
                 visibility: Scope::Pub,
                 variant: OnceUseRuleVariant::Parent {
                     parent_name_token: PathNameToken::CrateRoot(
@@ -76,15 +76,15 @@ EntityTreePresheet {
                         },
                     ),
                     children: ArenaIdxRange(
-                        11..12,
+                        10..11,
                     ),
                 },
                 parent: None,
                 state: UseOneRuleState::Unresolved,
             },
             OnceUseRule {
-                ast_idx: 5,
-                use_expr_idx: 15,
+                ast_idx: 4,
+                use_expr_idx: 14,
                 visibility: Scope::Pub,
                 variant: OnceUseRuleVariant::Parent {
                     parent_name_token: PathNameToken::CrateRoot(
@@ -95,15 +95,15 @@ EntityTreePresheet {
                         },
                     ),
                     children: ArenaIdxRange(
-                        14..15,
+                        13..14,
                     ),
                 },
                 parent: None,
                 state: UseOneRuleState::Unresolved,
             },
             OnceUseRule {
-                ast_idx: 6,
-                use_expr_idx: 18,
+                ast_idx: 5,
+                use_expr_idx: 17,
                 visibility: Scope::Pub,
                 variant: OnceUseRuleVariant::Parent {
                     parent_name_token: PathNameToken::CrateRoot(
@@ -114,15 +114,15 @@ EntityTreePresheet {
                         },
                     ),
                     children: ArenaIdxRange(
-                        17..18,
+                        16..17,
                     ),
                 },
                 parent: None,
                 state: UseOneRuleState::Unresolved,
             },
             OnceUseRule {
-                ast_idx: 7,
-                use_expr_idx: 21,
+                ast_idx: 6,
+                use_expr_idx: 20,
                 visibility: Scope::Pub,
                 variant: OnceUseRuleVariant::Parent {
                     parent_name_token: PathNameToken::CrateRoot(
@@ -133,15 +133,15 @@ EntityTreePresheet {
                         },
                     ),
                     children: ArenaIdxRange(
-                        20..21,
+                        19..20,
                     ),
                 },
                 parent: None,
                 state: UseOneRuleState::Unresolved,
             },
             OnceUseRule {
-                ast_idx: 8,
-                use_expr_idx: 24,
+                ast_idx: 7,
+                use_expr_idx: 23,
                 visibility: Scope::Pub,
                 variant: OnceUseRuleVariant::Parent {
                     parent_name_token: PathNameToken::CrateRoot(
@@ -152,15 +152,15 @@ EntityTreePresheet {
                         },
                     ),
                     children: ArenaIdxRange(
-                        23..24,
+                        22..23,
                     ),
                 },
                 parent: None,
                 state: UseOneRuleState::Unresolved,
             },
             OnceUseRule {
-                ast_idx: 9,
-                use_expr_idx: 27,
+                ast_idx: 8,
+                use_expr_idx: 26,
                 visibility: Scope::Pub,
                 variant: OnceUseRuleVariant::Parent {
                     parent_name_token: PathNameToken::CrateRoot(
@@ -171,15 +171,15 @@ EntityTreePresheet {
                         },
                     ),
                     children: ArenaIdxRange(
-                        26..27,
+                        25..26,
                     ),
                 },
                 parent: None,
                 state: UseOneRuleState::Unresolved,
             },
             OnceUseRule {
-                ast_idx: 10,
-                use_expr_idx: 30,
+                ast_idx: 9,
+                use_expr_idx: 29,
                 visibility: Scope::Pub,
                 variant: OnceUseRuleVariant::Parent {
                     parent_name_token: PathNameToken::CrateRoot(
@@ -190,15 +190,15 @@ EntityTreePresheet {
                         },
                     ),
                     children: ArenaIdxRange(
-                        29..30,
+                        28..29,
                     ),
                 },
                 parent: None,
                 state: UseOneRuleState::Unresolved,
             },
             OnceUseRule {
-                ast_idx: 11,
-                use_expr_idx: 33,
+                ast_idx: 10,
+                use_expr_idx: 32,
                 visibility: Scope::Pub,
                 variant: OnceUseRuleVariant::Parent {
                     parent_name_token: PathNameToken::CrateRoot(
@@ -209,15 +209,15 @@ EntityTreePresheet {
                         },
                     ),
                     children: ArenaIdxRange(
-                        32..33,
+                        31..32,
                     ),
                 },
                 parent: None,
                 state: UseOneRuleState::Unresolved,
             },
             OnceUseRule {
-                ast_idx: 12,
-                use_expr_idx: 36,
+                ast_idx: 11,
+                use_expr_idx: 35,
                 visibility: Scope::Pub,
                 variant: OnceUseRuleVariant::Parent {
                     parent_name_token: PathNameToken::CrateRoot(
@@ -228,7 +228,7 @@ EntityTreePresheet {
                         },
                     ),
                     children: ArenaIdxRange(
-                        35..36,
+                        34..35,
                     ),
                 },
                 parent: None,
@@ -267,7 +267,7 @@ EntityTreePresheet {
                     ),
                     children: Ok(
                         UseExprChildren::Single {
-                            child: 1,
+                            child: 0,
                         },
                     ),
                 },
@@ -290,7 +290,7 @@ EntityTreePresheet {
                     ),
                     children: Ok(
                         UseExprChildren::Single {
-                            child: 2,
+                            child: 1,
                         },
                     ),
                 },
@@ -321,7 +321,7 @@ EntityTreePresheet {
                     ),
                     children: Ok(
                         UseExprChildren::Single {
-                            child: 4,
+                            child: 3,
                         },
                     ),
                 },
@@ -344,7 +344,7 @@ EntityTreePresheet {
                     ),
                     children: Ok(
                         UseExprChildren::Single {
-                            child: 5,
+                            child: 4,
                         },
                     ),
                 },
@@ -375,7 +375,7 @@ EntityTreePresheet {
                     ),
                     children: Ok(
                         UseExprChildren::Single {
-                            child: 7,
+                            child: 6,
                         },
                     ),
                 },
@@ -398,7 +398,7 @@ EntityTreePresheet {
                     ),
                     children: Ok(
                         UseExprChildren::Single {
-                            child: 8,
+                            child: 7,
                         },
                     ),
                 },
@@ -429,7 +429,7 @@ EntityTreePresheet {
                     ),
                     children: Ok(
                         UseExprChildren::Single {
-                            child: 10,
+                            child: 9,
                         },
                     ),
                 },
@@ -452,7 +452,7 @@ EntityTreePresheet {
                     ),
                     children: Ok(
                         UseExprChildren::Single {
-                            child: 11,
+                            child: 10,
                         },
                     ),
                 },
@@ -483,7 +483,7 @@ EntityTreePresheet {
                     ),
                     children: Ok(
                         UseExprChildren::Single {
-                            child: 13,
+                            child: 12,
                         },
                     ),
                 },
@@ -506,7 +506,7 @@ EntityTreePresheet {
                     ),
                     children: Ok(
                         UseExprChildren::Single {
-                            child: 14,
+                            child: 13,
                         },
                     ),
                 },
@@ -537,7 +537,7 @@ EntityTreePresheet {
                     ),
                     children: Ok(
                         UseExprChildren::Single {
-                            child: 16,
+                            child: 15,
                         },
                     ),
                 },
@@ -560,7 +560,7 @@ EntityTreePresheet {
                     ),
                     children: Ok(
                         UseExprChildren::Single {
-                            child: 17,
+                            child: 16,
                         },
                     ),
                 },
@@ -591,7 +591,7 @@ EntityTreePresheet {
                     ),
                     children: Ok(
                         UseExprChildren::Single {
-                            child: 19,
+                            child: 18,
                         },
                     ),
                 },
@@ -614,7 +614,7 @@ EntityTreePresheet {
                     ),
                     children: Ok(
                         UseExprChildren::Single {
-                            child: 20,
+                            child: 19,
                         },
                     ),
                 },
@@ -645,7 +645,7 @@ EntityTreePresheet {
                     ),
                     children: Ok(
                         UseExprChildren::Single {
-                            child: 22,
+                            child: 21,
                         },
                     ),
                 },
@@ -668,7 +668,7 @@ EntityTreePresheet {
                     ),
                     children: Ok(
                         UseExprChildren::Single {
-                            child: 23,
+                            child: 22,
                         },
                     ),
                 },
@@ -699,7 +699,7 @@ EntityTreePresheet {
                     ),
                     children: Ok(
                         UseExprChildren::Single {
-                            child: 25,
+                            child: 24,
                         },
                     ),
                 },
@@ -722,7 +722,7 @@ EntityTreePresheet {
                     ),
                     children: Ok(
                         UseExprChildren::Single {
-                            child: 26,
+                            child: 25,
                         },
                     ),
                 },
@@ -753,7 +753,7 @@ EntityTreePresheet {
                     ),
                     children: Ok(
                         UseExprChildren::Single {
-                            child: 28,
+                            child: 27,
                         },
                     ),
                 },
@@ -776,7 +776,7 @@ EntityTreePresheet {
                     ),
                     children: Ok(
                         UseExprChildren::Single {
-                            child: 29,
+                            child: 28,
                         },
                     ),
                 },
@@ -807,7 +807,7 @@ EntityTreePresheet {
                     ),
                     children: Ok(
                         UseExprChildren::Single {
-                            child: 31,
+                            child: 30,
                         },
                     ),
                 },
@@ -830,7 +830,7 @@ EntityTreePresheet {
                     ),
                     children: Ok(
                         UseExprChildren::Single {
-                            child: 32,
+                            child: 31,
                         },
                     ),
                 },
@@ -861,7 +861,7 @@ EntityTreePresheet {
                     ),
                     children: Ok(
                         UseExprChildren::Single {
-                            child: 34,
+                            child: 33,
                         },
                     ),
                 },
@@ -884,7 +884,7 @@ EntityTreePresheet {
                     ),
                     children: Ok(
                         UseExprChildren::Single {
-                            child: 35,
+                            child: 34,
                         },
                     ),
                 },

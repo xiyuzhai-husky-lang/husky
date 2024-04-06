@@ -8,7 +8,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
+                        0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Trait(
                                 TraitPath(`core::fmt::Debug`),
@@ -19,6 +19,26 @@ Ok(
                         EntityPath::MajorItem(
                             MajorItemPath::Trait(
                                 TraitPath(`core::fmt::Debug`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        1,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::clone::Clone`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::clone::Clone`),
                             ),
                         ),
                     ),
@@ -29,26 +49,6 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         2,
-                        PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Trait(
-                                TraitPath(`core::clone::Clone`),
-                            ),
-                        ),
-                    ),
-                    data: TokenInfoData::Entity(
-                        EntityPath::MajorItem(
-                            MajorItemPath::Trait(
-                                TraitPath(`core::clone::Clone`),
-                            ),
-                        ),
-                    ),
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        3,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Trait(
                                 TraitPath(`core::marker::Copy`),
@@ -102,10 +102,10 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::TemplateParameter(
-                        1,
+                        0,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
+                        current_syn_symbol_idx: 0,
                         current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
@@ -134,7 +134,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
+                        0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Trait(
                                 TraitPath(`core::fmt::Debug`),
@@ -145,6 +145,26 @@ Ok(
                         EntityPath::MajorItem(
                             MajorItemPath::Trait(
                                 TraitPath(`core::fmt::Debug`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        1,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::clone::Clone`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::clone::Clone`),
                             ),
                         ),
                     ),
@@ -155,26 +175,6 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         2,
-                        PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Trait(
-                                TraitPath(`core::clone::Clone`),
-                            ),
-                        ),
-                    ),
-                    data: TokenInfoData::Entity(
-                        EntityPath::MajorItem(
-                            MajorItemPath::Trait(
-                                TraitPath(`core::clone::Clone`),
-                            ),
-                        ),
-                    ),
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        3,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Trait(
                                 TraitPath(`core::marker::Copy`),
@@ -230,10 +230,10 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::TemplateParameter(
-                        1,
+                        0,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
+                        current_syn_symbol_idx: 0,
                         current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
@@ -255,10 +255,10 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::TemplateParameter(
-                        2,
+                        1,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 2,
+                        current_syn_symbol_idx: 1,
                         current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Constant {
                                 ident_token: IdentRegionalToken {
@@ -278,11 +278,11 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            1,
+                            0,
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
+                        current_syn_symbol_idx: 0,
                         current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
@@ -309,10 +309,10 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::TemplateParameter(
-                        1,
+                        0,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
+                        current_syn_symbol_idx: 0,
                         current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
@@ -334,10 +334,10 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::TemplateParameter(
-                        2,
+                        1,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 2,
+                        current_syn_symbol_idx: 1,
                         current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Constant {
                                 ident_token: IdentRegionalToken {
@@ -357,11 +357,11 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            1,
+                            0,
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
+                        current_syn_symbol_idx: 0,
                         current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
@@ -374,6 +374,26 @@ Ok(
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        0,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::default::Default`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::default::Default`),
+                            ),
+                        ),
+                    ),
                 },
             ),
             None,
@@ -382,26 +402,6 @@ Ok(
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         1,
                         PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Trait(
-                                TraitPath(`core::default::Default`),
-                            ),
-                        ),
-                    ),
-                    data: TokenInfoData::Entity(
-                        EntityPath::MajorItem(
-                            MajorItemPath::Trait(
-                                TraitPath(`core::default::Default`),
-                            ),
-                        ),
-                    ),
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        2,
-                        PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`malamute::OneVsAll`, `Enum`),
                             ),
@@ -420,11 +420,11 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            4,
+                            3,
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
+                        current_syn_symbol_idx: 0,
                         current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
@@ -443,11 +443,11 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            6,
+                            5,
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 2,
+                        current_syn_symbol_idx: 1,
                         current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Constant {
                                 ident_token: IdentRegionalToken {
@@ -509,7 +509,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            1,
+                            0,
                         ),
                     ),
                     data: TokenInfoData::SelfType,
@@ -519,7 +519,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
+                        0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`malamute::OneVsAll`, `Enum`),
@@ -539,7 +539,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        2,
+                        1,
                         PrincipalEntityPath::TypeVariant(
                             TypeVariantPath(
                                 ItemPathId(
@@ -569,10 +569,10 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::TemplateParameter(
-                        1,
+                        0,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
+                        current_syn_symbol_idx: 0,
                         current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
@@ -594,10 +594,10 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::TemplateParameter(
-                        2,
+                        1,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 2,
+                        current_syn_symbol_idx: 1,
                         current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Constant {
                                 ident_token: IdentRegionalToken {
@@ -617,11 +617,11 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            1,
+                            0,
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
+                        current_syn_symbol_idx: 0,
                         current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
@@ -634,6 +634,22 @@ Ok(
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        0,
+                        PrincipalEntityPath::Module(
+                            `core`,
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::Module(
+                            `core`,
+                        ),
+                    ),
                 },
             ),
             None,
@@ -642,12 +658,12 @@ Ok(
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         1,
                         PrincipalEntityPath::Module(
-                            `core`,
+                            `core::ops`,
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::Module(
-                            `core`,
+                            `core::ops`,
                         ),
                     ),
                 },
@@ -657,22 +673,6 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         2,
-                        PrincipalEntityPath::Module(
-                            `core::ops`,
-                        ),
-                    ),
-                    data: TokenInfoData::Entity(
-                        EntityPath::Module(
-                            `core::ops`,
-                        ),
-                    ),
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        3,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Trait(
                                 TraitPath(`core::ops::Unveil`),
@@ -691,7 +691,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        4,
+                        3,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`malamute::OneVsAll`, `Enum`),
@@ -711,11 +711,11 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            5,
+                            4,
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
+                        current_syn_symbol_idx: 0,
                         current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
@@ -734,11 +734,11 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            7,
+                            6,
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 2,
+                        current_syn_symbol_idx: 1,
                         current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Constant {
                                 ident_token: IdentRegionalToken {
@@ -757,7 +757,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        5,
+                        4,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`malamute::Class`, `Enum`),
@@ -777,11 +777,11 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            10,
+                            9,
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
+                        current_syn_symbol_idx: 0,
                         current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
@@ -836,7 +836,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            1,
+                            0,
                         ),
                     ),
                     data: TokenInfoData::UnitLeftParenthesis,
@@ -846,7 +846,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            1,
+                            0,
                         ),
                     ),
                     data: TokenInfoData::UnitRightParenthesis,
@@ -895,12 +895,12 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::PatternExpr(
-                        1,
+                        0,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
+                        current_syn_symbol_idx: 0,
                         current_syn_symbol_kind: CurrentSynSymbolKind::SimpleParenateParameter {
-                            pattern_symbol_idx: 1,
+                            pattern_symbol_idx: 0,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -910,7 +910,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
+                        0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`malamute::OneVsAll`, `Enum`),
@@ -930,11 +930,11 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            2,
+                            1,
                         ),
                     ),
                     data: TokenInfoData::InheritedSynSymbol {
-                        inherited_syn_symbol_idx: 1,
+                        inherited_syn_symbol_idx: 0,
                         inherited_syn_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
                             InheritedTemplateParameterSynSymbol::Type {
                                 ident: `Label`,
@@ -948,11 +948,11 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            4,
+                            3,
                         ),
                     ),
                     data: TokenInfoData::InheritedSynSymbol {
-                        inherited_syn_symbol_idx: 2,
+                        inherited_syn_symbol_idx: 1,
                         inherited_syn_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
                             InheritedTemplateParameterSynSymbol::Constant {
                                 ident: `label`,
@@ -967,7 +967,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        2,
+                        1,
                         PrincipalEntityPath::Module(
                             `core`,
                         ),
@@ -975,6 +975,22 @@ Ok(
                     data: TokenInfoData::Entity(
                         EntityPath::Module(
                             `core`,
+                        ),
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        2,
+                        PrincipalEntityPath::Module(
+                            `core::ops`,
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::Module(
+                            `core::ops`,
                         ),
                     ),
                 },
@@ -984,22 +1000,6 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         3,
-                        PrincipalEntityPath::Module(
-                            `core::ops`,
-                        ),
-                    ),
-                    data: TokenInfoData::Entity(
-                        EntityPath::Module(
-                            `core::ops`,
-                        ),
-                    ),
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        4,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`core::ops::ControlFlow`, `Enum`),
@@ -1019,7 +1019,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            7,
+                            6,
                         ),
                     ),
                     data: TokenInfoData::SelfType,
@@ -1029,7 +1029,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            9,
+                            8,
                         ),
                     ),
                     data: TokenInfoData::UnitLeftParenthesis,
@@ -1039,7 +1039,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            9,
+                            8,
                         ),
                     ),
                     data: TokenInfoData::UnitRightParenthesis,
@@ -1051,11 +1051,11 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            1,
+                            0,
                         ),
                     ),
                     data: TokenInfoData::InheritedSynSymbol {
-                        inherited_syn_symbol_idx: 3,
+                        inherited_syn_symbol_idx: 2,
                         inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                             ident: `one_vs_all`,
                         },
@@ -1068,7 +1068,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
+                        0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`malamute::OneVsAll`, `Enum`),
@@ -1079,6 +1079,35 @@ Ok(
                         EntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`malamute::OneVsAll`, `Enum`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        1,
+                        PrincipalEntityPath::TypeVariant(
+                            TypeVariantPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 5,
+                                    },
+                                ),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::TypeVariant(
+                            Room32,
+                            TypeVariantPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 5,
+                                    },
+                                ),
                             ),
                         ),
                     ),
@@ -1089,26 +1118,13 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         2,
-                        PrincipalEntityPath::TypeVariant(
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 5,
-                                    },
-                                ),
-                            ),
+                        PrincipalEntityPath::Module(
+                            `core`,
                         ),
                     ),
                     data: TokenInfoData::Entity(
-                        EntityPath::TypeVariant(
-                            Room32,
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 5,
-                                    },
-                                ),
-                            ),
+                        EntityPath::Module(
+                            `core`,
                         ),
                     ),
                 },
@@ -1119,12 +1135,12 @@ Ok(
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         3,
                         PrincipalEntityPath::Module(
-                            `core`,
+                            `core::ops`,
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::Module(
-                            `core`,
+                            `core::ops`,
                         ),
                     ),
                 },
@@ -1134,13 +1150,17 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         4,
-                        PrincipalEntityPath::Module(
-                            `core::ops`,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`core::ops::ControlFlow`, `Enum`),
+                            ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
-                        EntityPath::Module(
-                            `core::ops`,
+                        EntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`core::ops::ControlFlow`, `Enum`),
+                            ),
                         ),
                     ),
                 },
@@ -1150,26 +1170,6 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         5,
-                        PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Type(
-                                TypePath(`core::ops::ControlFlow`, `Enum`),
-                            ),
-                        ),
-                    ),
-                    data: TokenInfoData::Entity(
-                        EntityPath::MajorItem(
-                            MajorItemPath::Type(
-                                TypePath(`core::ops::ControlFlow`, `Enum`),
-                            ),
-                        ),
-                    ),
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        6,
                         PrincipalEntityPath::TypeVariant(
                             TypeVariantPath(
                                 ItemPathId(
@@ -1187,64 +1187,6 @@ Ok(
                                 ItemPathId(
                                     Id {
                                         value: 101,
-                                    },
-                                ),
-                            ),
-                        ),
-                    ),
-                },
-            ),
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            6,
-                        ),
-                    ),
-                    data: TokenInfoData::CallPar,
-                },
-            ),
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        7,
-                        PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Type(
-                                TypePath(`malamute::Class`, `Enum`),
-                            ),
-                        ),
-                    ),
-                    data: TokenInfoData::Entity(
-                        EntityPath::MajorItem(
-                            MajorItemPath::Type(
-                                TypePath(`malamute::Class`, `Enum`),
-                            ),
-                        ),
-                    ),
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        8,
-                        PrincipalEntityPath::TypeVariant(
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 2,
-                                    },
-                                ),
-                            ),
-                        ),
-                    ),
-                    data: TokenInfoData::Entity(
-                        EntityPath::TypeVariant(
-                            Room32,
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 2,
                                     },
                                 ),
                             ),
@@ -1264,13 +1206,71 @@ Ok(
             ),
             Some(
                 TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        6,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`malamute::Class`, `Enum`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`malamute::Class`, `Enum`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        7,
+                        PrincipalEntityPath::TypeVariant(
+                            TypeVariantPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 2,
+                                    },
+                                ),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::TypeVariant(
+                            Room32,
+                            TypeVariantPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 2,
+                                    },
+                                ),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            Some(
+                TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
                             4,
                         ),
                     ),
+                    data: TokenInfoData::CallPar,
+                },
+            ),
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            3,
+                        ),
+                    ),
                     data: TokenInfoData::InheritedSynSymbol {
-                        inherited_syn_symbol_idx: 2,
+                        inherited_syn_symbol_idx: 1,
                         inherited_syn_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
                             InheritedTemplateParameterSynSymbol::Constant {
                                 ident: `label`,
@@ -1284,7 +1284,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            5,
+                            4,
                         ),
                     ),
                     data: TokenInfoData::CallPar,
@@ -1294,7 +1294,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            6,
+                            5,
                         ),
                     ),
                     data: TokenInfoData::CallPar,
@@ -1304,7 +1304,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        9,
+                        8,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`malamute::OneVsAll`, `Enum`),
@@ -1315,6 +1315,35 @@ Ok(
                         EntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`malamute::OneVsAll`, `Enum`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        9,
+                        PrincipalEntityPath::TypeVariant(
+                            TypeVariantPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 6,
+                                    },
+                                ),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::TypeVariant(
+                            Room32,
+                            TypeVariantPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 6,
+                                    },
+                                ),
                             ),
                         ),
                     ),
@@ -1325,26 +1354,13 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         10,
-                        PrincipalEntityPath::TypeVariant(
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 6,
-                                    },
-                                ),
-                            ),
+                        PrincipalEntityPath::Module(
+                            `core`,
                         ),
                     ),
                     data: TokenInfoData::Entity(
-                        EntityPath::TypeVariant(
-                            Room32,
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 6,
-                                    },
-                                ),
-                            ),
+                        EntityPath::Module(
+                            `core`,
                         ),
                     ),
                 },
@@ -1355,12 +1371,12 @@ Ok(
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         11,
                         PrincipalEntityPath::Module(
-                            `core`,
+                            `core::ops`,
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::Module(
-                            `core`,
+                            `core::ops`,
                         ),
                     ),
                 },
@@ -1370,22 +1386,6 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         12,
-                        PrincipalEntityPath::Module(
-                            `core::ops`,
-                        ),
-                    ),
-                    data: TokenInfoData::Entity(
-                        EntityPath::Module(
-                            `core::ops`,
-                        ),
-                    ),
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        13,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`core::ops::ControlFlow`, `Enum`),
@@ -1405,7 +1405,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        14,
+                        13,
                         PrincipalEntityPath::TypeVariant(
                             TypeVariantPath(
                                 ItemPathId(
@@ -1434,7 +1434,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            9,
+                            8,
                         ),
                     ),
                     data: TokenInfoData::CallPar,
@@ -1444,7 +1444,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            8,
+                            7,
                         ),
                     ),
                     data: TokenInfoData::UnitLeftParenthesis,
@@ -1454,7 +1454,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            8,
+                            7,
                         ),
                     ),
                     data: TokenInfoData::UnitRightParenthesis,
@@ -1464,7 +1464,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            9,
+                            8,
                         ),
                     ),
                     data: TokenInfoData::CallPar,
@@ -1476,7 +1476,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
+                        0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Trait(
                                 TraitPath(`core::fmt::Debug`),
@@ -1487,6 +1487,26 @@ Ok(
                         EntityPath::MajorItem(
                             MajorItemPath::Trait(
                                 TraitPath(`core::fmt::Debug`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        1,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::clone::Clone`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::clone::Clone`),
                             ),
                         ),
                     ),
@@ -1497,26 +1517,6 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         2,
-                        PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Trait(
-                                TraitPath(`core::clone::Clone`),
-                            ),
-                        ),
-                    ),
-                    data: TokenInfoData::Entity(
-                        EntityPath::MajorItem(
-                            MajorItemPath::Trait(
-                                TraitPath(`core::clone::Clone`),
-                            ),
-                        ),
-                    ),
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        3,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Trait(
                                 TraitPath(`core::marker::Copy`),
@@ -1572,10 +1572,10 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::TemplateParameter(
-                        1,
+                        0,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
+                        current_syn_symbol_idx: 0,
                         current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
@@ -1597,10 +1597,10 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::TemplateParameter(
-                        2,
+                        1,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 2,
+                        current_syn_symbol_idx: 1,
                         current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Constant {
                                 ident_token: IdentRegionalToken {
@@ -1620,11 +1620,11 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            1,
+                            0,
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
+                        current_syn_symbol_idx: 0,
                         current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
@@ -1653,10 +1653,10 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::TemplateParameter(
-                        1,
+                        0,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
+                        current_syn_symbol_idx: 0,
                         current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
@@ -1678,10 +1678,10 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::TemplateParameter(
-                        2,
+                        1,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 2,
+                        current_syn_symbol_idx: 1,
                         current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Constant {
                                 ident_token: IdentRegionalToken {
@@ -1701,11 +1701,11 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            1,
+                            0,
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
+                        current_syn_symbol_idx: 0,
                         current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
@@ -1718,6 +1718,22 @@ Ok(
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        0,
+                        PrincipalEntityPath::Module(
+                            `core`,
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::Module(
+                            `core`,
+                        ),
+                    ),
                 },
             ),
             None,
@@ -1726,12 +1742,12 @@ Ok(
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         1,
                         PrincipalEntityPath::Module(
-                            `core`,
+                            `core::ops`,
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::Module(
-                            `core`,
+                            `core::ops`,
                         ),
                     ),
                 },
@@ -1741,22 +1757,6 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         2,
-                        PrincipalEntityPath::Module(
-                            `core::ops`,
-                        ),
-                    ),
-                    data: TokenInfoData::Entity(
-                        EntityPath::Module(
-                            `core::ops`,
-                        ),
-                    ),
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        3,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Trait(
                                 TraitPath(`core::ops::Unveil`),
@@ -1775,7 +1775,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        4,
+                        3,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`malamute::OneVsAllResult`, `Enum`),
@@ -1795,11 +1795,11 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            5,
+                            4,
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
+                        current_syn_symbol_idx: 0,
                         current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
@@ -1818,11 +1818,11 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            7,
+                            6,
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 2,
+                        current_syn_symbol_idx: 1,
                         current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Constant {
                                 ident_token: IdentRegionalToken {
@@ -1841,7 +1841,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        5,
+                        4,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`malamute::OneVsAll`, `Enum`),
@@ -1861,11 +1861,11 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            10,
+                            9,
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
+                        current_syn_symbol_idx: 0,
                         current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
@@ -1884,11 +1884,11 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            12,
+                            11,
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 2,
+                        current_syn_symbol_idx: 1,
                         current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Constant {
                                 ident_token: IdentRegionalToken {
@@ -1943,7 +1943,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            1,
+                            0,
                         ),
                     ),
                     data: TokenInfoData::UnitLeftParenthesis,
@@ -1953,7 +1953,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            1,
+                            0,
                         ),
                     ),
                     data: TokenInfoData::UnitRightParenthesis,
@@ -2002,12 +2002,12 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::PatternExpr(
-                        1,
+                        0,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
+                        current_syn_symbol_idx: 0,
                         current_syn_symbol_kind: CurrentSynSymbolKind::SimpleParenateParameter {
-                            pattern_symbol_idx: 1,
+                            pattern_symbol_idx: 0,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -2017,7 +2017,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
+                        0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`malamute::OneVsAllResult`, `Enum`),
@@ -2037,11 +2037,11 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            2,
+                            1,
                         ),
                     ),
                     data: TokenInfoData::InheritedSynSymbol {
-                        inherited_syn_symbol_idx: 1,
+                        inherited_syn_symbol_idx: 0,
                         inherited_syn_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
                             InheritedTemplateParameterSynSymbol::Type {
                                 ident: `Label`,
@@ -2055,11 +2055,11 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            4,
+                            3,
                         ),
                     ),
                     data: TokenInfoData::InheritedSynSymbol {
-                        inherited_syn_symbol_idx: 2,
+                        inherited_syn_symbol_idx: 1,
                         inherited_syn_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
                             InheritedTemplateParameterSynSymbol::Constant {
                                 ident: `label`,
@@ -2074,7 +2074,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        2,
+                        1,
                         PrincipalEntityPath::Module(
                             `core`,
                         ),
@@ -2082,6 +2082,22 @@ Ok(
                     data: TokenInfoData::Entity(
                         EntityPath::Module(
                             `core`,
+                        ),
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        2,
+                        PrincipalEntityPath::Module(
+                            `core::ops`,
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::Module(
+                            `core::ops`,
                         ),
                     ),
                 },
@@ -2091,22 +2107,6 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         3,
-                        PrincipalEntityPath::Module(
-                            `core::ops`,
-                        ),
-                    ),
-                    data: TokenInfoData::Entity(
-                        EntityPath::Module(
-                            `core::ops`,
-                        ),
-                    ),
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        4,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`core::ops::ControlFlow`, `Enum`),
@@ -2126,7 +2126,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            7,
+                            6,
                         ),
                     ),
                     data: TokenInfoData::SelfType,
@@ -2136,7 +2136,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            9,
+                            8,
                         ),
                     ),
                     data: TokenInfoData::UnitLeftParenthesis,
@@ -2146,7 +2146,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            9,
+                            8,
                         ),
                     ),
                     data: TokenInfoData::UnitRightParenthesis,
@@ -2158,11 +2158,11 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            1,
+                            0,
                         ),
                     ),
                     data: TokenInfoData::InheritedSynSymbol {
-                        inherited_syn_symbol_idx: 3,
+                        inherited_syn_symbol_idx: 2,
                         inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                             ident: `one_vs_all_result`,
                         },
@@ -2175,7 +2175,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
+                        0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`malamute::OneVsAllResult`, `Enum`),
@@ -2186,6 +2186,35 @@ Ok(
                         EntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`malamute::OneVsAllResult`, `Enum`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        1,
+                        PrincipalEntityPath::TypeVariant(
+                            TypeVariantPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 8,
+                                    },
+                                ),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::TypeVariant(
+                            Room32,
+                            TypeVariantPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 8,
+                                    },
+                                ),
                             ),
                         ),
                     ),
@@ -2196,26 +2225,13 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         2,
-                        PrincipalEntityPath::TypeVariant(
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 8,
-                                    },
-                                ),
-                            ),
+                        PrincipalEntityPath::Module(
+                            `core`,
                         ),
                     ),
                     data: TokenInfoData::Entity(
-                        EntityPath::TypeVariant(
-                            Room32,
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 8,
-                                    },
-                                ),
-                            ),
+                        EntityPath::Module(
+                            `core`,
                         ),
                     ),
                 },
@@ -2226,12 +2242,12 @@ Ok(
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         3,
                         PrincipalEntityPath::Module(
-                            `core`,
+                            `core::ops`,
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::Module(
-                            `core`,
+                            `core::ops`,
                         ),
                     ),
                 },
@@ -2241,13 +2257,17 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         4,
-                        PrincipalEntityPath::Module(
-                            `core::ops`,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`core::ops::ControlFlow`, `Enum`),
+                            ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
-                        EntityPath::Module(
-                            `core::ops`,
+                        EntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`core::ops::ControlFlow`, `Enum`),
+                            ),
                         ),
                     ),
                 },
@@ -2257,26 +2277,6 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         5,
-                        PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Type(
-                                TypePath(`core::ops::ControlFlow`, `Enum`),
-                            ),
-                        ),
-                    ),
-                    data: TokenInfoData::Entity(
-                        EntityPath::MajorItem(
-                            MajorItemPath::Type(
-                                TypePath(`core::ops::ControlFlow`, `Enum`),
-                            ),
-                        ),
-                    ),
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        6,
                         PrincipalEntityPath::TypeVariant(
                             TypeVariantPath(
                                 ItemPathId(
@@ -2305,7 +2305,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            4,
+                            3,
                         ),
                     ),
                     data: TokenInfoData::CallPar,
@@ -2314,7 +2314,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        7,
+                        6,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`malamute::OneVsAll`, `Enum`),
@@ -2328,6 +2328,45 @@ Ok(
                             ),
                         ),
                     ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        7,
+                        PrincipalEntityPath::TypeVariant(
+                            TypeVariantPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 5,
+                                    },
+                                ),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::TypeVariant(
+                            Room32,
+                            TypeVariantPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 5,
+                                    },
+                                ),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            3,
+                        ),
+                    ),
+                    data: TokenInfoData::CallPar,
                 },
             ),
             None,
@@ -2335,11 +2374,31 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         8,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`malamute::OneVsAllResult`, `Enum`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`malamute::OneVsAllResult`, `Enum`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        9,
                         PrincipalEntityPath::TypeVariant(
                             TypeVariantPath(
                                 ItemPathId(
                                     Id {
-                                        value: 5,
+                                        value: 9,
                                     },
                                 ),
                             ),
@@ -2351,39 +2410,9 @@ Ok(
                             TypeVariantPath(
                                 ItemPathId(
                                     Id {
-                                        value: 5,
+                                        value: 9,
                                     },
                                 ),
-                            ),
-                        ),
-                    ),
-                },
-            ),
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            4,
-                        ),
-                    ),
-                    data: TokenInfoData::CallPar,
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        9,
-                        PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Type(
-                                TypePath(`malamute::OneVsAllResult`, `Enum`),
-                            ),
-                        ),
-                    ),
-                    data: TokenInfoData::Entity(
-                        EntityPath::MajorItem(
-                            MajorItemPath::Type(
-                                TypePath(`malamute::OneVsAllResult`, `Enum`),
                             ),
                         ),
                     ),
@@ -2394,26 +2423,13 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         10,
-                        PrincipalEntityPath::TypeVariant(
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 9,
-                                    },
-                                ),
-                            ),
+                        PrincipalEntityPath::Module(
+                            `core`,
                         ),
                     ),
                     data: TokenInfoData::Entity(
-                        EntityPath::TypeVariant(
-                            Room32,
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 9,
-                                    },
-                                ),
-                            ),
+                        EntityPath::Module(
+                            `core`,
                         ),
                     ),
                 },
@@ -2424,12 +2440,12 @@ Ok(
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         11,
                         PrincipalEntityPath::Module(
-                            `core`,
+                            `core::ops`,
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::Module(
-                            `core`,
+                            `core::ops`,
                         ),
                     ),
                 },
@@ -2439,13 +2455,17 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         12,
-                        PrincipalEntityPath::Module(
-                            `core::ops`,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`core::ops::ControlFlow`, `Enum`),
+                            ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
-                        EntityPath::Module(
-                            `core::ops`,
+                        EntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`core::ops::ControlFlow`, `Enum`),
+                            ),
                         ),
                     ),
                 },
@@ -2455,26 +2475,6 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         13,
-                        PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Type(
-                                TypePath(`core::ops::ControlFlow`, `Enum`),
-                            ),
-                        ),
-                    ),
-                    data: TokenInfoData::Entity(
-                        EntityPath::MajorItem(
-                            MajorItemPath::Type(
-                                TypePath(`core::ops::ControlFlow`, `Enum`),
-                            ),
-                        ),
-                    ),
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        14,
                         PrincipalEntityPath::TypeVariant(
                             TypeVariantPath(
                                 ItemPathId(
@@ -2503,7 +2503,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            7,
+                            6,
                         ),
                     ),
                     data: TokenInfoData::CallPar,
@@ -2512,7 +2512,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        15,
+                        14,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`malamute::OneVsAll`, `Enum`),
@@ -2526,6 +2526,45 @@ Ok(
                             ),
                         ),
                     ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        15,
+                        PrincipalEntityPath::TypeVariant(
+                            TypeVariantPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 6,
+                                    },
+                                ),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::TypeVariant(
+                            Room32,
+                            TypeVariantPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 6,
+                                    },
+                                ),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            6,
+                        ),
+                    ),
+                    data: TokenInfoData::CallPar,
                 },
             ),
             None,
@@ -2533,11 +2572,31 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         16,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`malamute::OneVsAllResult`, `Enum`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`malamute::OneVsAllResult`, `Enum`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        17,
                         PrincipalEntityPath::TypeVariant(
                             TypeVariantPath(
                                 ItemPathId(
                                     Id {
-                                        value: 6,
+                                        value: 10,
                                     },
                                 ),
                             ),
@@ -2549,39 +2608,9 @@ Ok(
                             TypeVariantPath(
                                 ItemPathId(
                                     Id {
-                                        value: 6,
+                                        value: 10,
                                     },
                                 ),
-                            ),
-                        ),
-                    ),
-                },
-            ),
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            7,
-                        ),
-                    ),
-                    data: TokenInfoData::CallPar,
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        17,
-                        PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Type(
-                                TypePath(`malamute::OneVsAllResult`, `Enum`),
-                            ),
-                        ),
-                    ),
-                    data: TokenInfoData::Entity(
-                        EntityPath::MajorItem(
-                            MajorItemPath::Type(
-                                TypePath(`malamute::OneVsAllResult`, `Enum`),
                             ),
                         ),
                     ),
@@ -2592,26 +2621,13 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         18,
-                        PrincipalEntityPath::TypeVariant(
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 10,
-                                    },
-                                ),
-                            ),
+                        PrincipalEntityPath::Module(
+                            `core`,
                         ),
                     ),
                     data: TokenInfoData::Entity(
-                        EntityPath::TypeVariant(
-                            Room32,
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 10,
-                                    },
-                                ),
-                            ),
+                        EntityPath::Module(
+                            `core`,
                         ),
                     ),
                 },
@@ -2622,12 +2638,12 @@ Ok(
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         19,
                         PrincipalEntityPath::Module(
-                            `core`,
+                            `core::ops`,
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::Module(
-                            `core`,
+                            `core::ops`,
                         ),
                     ),
                 },
@@ -2637,22 +2653,6 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         20,
-                        PrincipalEntityPath::Module(
-                            `core::ops`,
-                        ),
-                    ),
-                    data: TokenInfoData::Entity(
-                        EntityPath::Module(
-                            `core::ops`,
-                        ),
-                    ),
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        21,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`core::ops::ControlFlow`, `Enum`),
@@ -2672,7 +2672,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        22,
+                        21,
                         PrincipalEntityPath::TypeVariant(
                             TypeVariantPath(
                                 ItemPathId(
@@ -2701,7 +2701,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            10,
+                            9,
                         ),
                     ),
                     data: TokenInfoData::CallPar,
@@ -2711,7 +2711,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            9,
+                            8,
                         ),
                     ),
                     data: TokenInfoData::UnitLeftParenthesis,
@@ -2721,7 +2721,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            9,
+                            8,
                         ),
                     ),
                     data: TokenInfoData::UnitRightParenthesis,
@@ -2731,7 +2731,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            10,
+                            9,
                         ),
                     ),
                     data: TokenInfoData::CallPar,
@@ -2765,10 +2765,10 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::TemplateParameter(
-                        1,
+                        0,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
+                        current_syn_symbol_idx: 0,
                         current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
@@ -2790,10 +2790,10 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::TemplateParameter(
-                        2,
+                        1,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 2,
+                        current_syn_symbol_idx: 1,
                         current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Constant {
                                 ident_token: IdentRegionalToken {
@@ -2813,11 +2813,11 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            1,
+                            0,
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
+                        current_syn_symbol_idx: 0,
                         current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
@@ -2840,10 +2840,10 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::TemplateParameter(
-                        3,
+                        2,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 3,
+                        current_syn_symbol_idx: 2,
                         current_syn_symbol_kind: CurrentSynSymbolKind::VariadicParenateParameter {
                             ident_token: IdentRegionalToken {
                                 ident: `f`,
@@ -2860,7 +2860,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
+                        0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`core::num::f32`, `Extern`),
@@ -2880,12 +2880,12 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::PatternExpr(
-                        1,
+                        0,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 4,
+                        current_syn_symbol_idx: 3,
                         current_syn_symbol_kind: CurrentSynSymbolKind::SimpleParenateParameter {
-                            pattern_symbol_idx: 1,
+                            pattern_symbol_idx: 0,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -2895,7 +2895,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        2,
+                        1,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`core::num::i32`, `Extern`),
@@ -2919,7 +2919,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        3,
+                        2,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`malamute::OneVsAllResult`, `Enum`),
@@ -2939,11 +2939,11 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            6,
+                            5,
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
+                        current_syn_symbol_idx: 0,
                         current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
@@ -2962,11 +2962,11 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            8,
+                            7,
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 2,
+                        current_syn_symbol_idx: 1,
                         current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Constant {
                                 ident_token: IdentRegionalToken {

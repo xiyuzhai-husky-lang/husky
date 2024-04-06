@@ -86,7 +86,7 @@ AstSheet {
                     Type(
                         TypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                1..2,
+                                0..1,
                             ),
                         },
                     ),
@@ -95,15 +95,15 @@ AstSheet {
         ],
     },
     top_level_asts: ArenaIdxRange(
-        2..5,
+        1..4,
     ),
     nested_top_level_asts: [],
     siblings: [
         ArenaIdxRange(
-            1..2,
+            0..1,
         ),
         ArenaIdxRange(
-            2..5,
+            1..4,
         ),
     ],
 }

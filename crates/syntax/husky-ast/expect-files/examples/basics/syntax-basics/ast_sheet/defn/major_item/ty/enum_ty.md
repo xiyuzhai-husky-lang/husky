@@ -199,7 +199,7 @@ AstSheet {
                     variants: Some(
                         TypeVariants {
                             ast_idx_range: ArenaIdxRange(
-                                1..6,
+                                0..5,
                             ),
                         },
                     ),
@@ -208,12 +208,12 @@ AstSheet {
         ],
     },
     top_level_asts: ArenaIdxRange(
-        6..7,
+        5..6,
     ),
     nested_top_level_asts: [],
     siblings: [
         ArenaIdxRange(
-            6..7,
+            5..6,
         ),
     ],
 }

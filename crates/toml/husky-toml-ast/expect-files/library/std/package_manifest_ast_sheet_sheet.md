@@ -60,7 +60,7 @@ Ok(
                                     },
                                 ),
                                 value: Some(
-                                    1,
+                                    0,
                                 ),
                             },
                             TomlSectionEntry {
@@ -73,7 +73,7 @@ Ok(
                                     },
                                 ),
                                 value: Some(
-                                    2,
+                                    1,
                                 ),
                             },
                             TomlSectionEntry {
@@ -86,7 +86,7 @@ Ok(
                                     },
                                 ),
                                 value: Some(
-                                    3,
+                                    2,
                                 ),
                             },
                             TomlSectionEntry {
@@ -99,7 +99,7 @@ Ok(
                                     },
                                 ),
                                 value: Some(
-                                    4,
+                                    3,
                                 ),
                             },
                             TomlSectionEntry {
@@ -112,7 +112,7 @@ Ok(
                                     },
                                 ),
                                 value: Some(
-                                    5,
+                                    4,
                                 ),
                             },
                             TomlSectionEntry {
@@ -125,7 +125,7 @@ Ok(
                                     },
                                 ),
                                 value: Some(
-                                    6,
+                                    5,
                                 ),
                             },
                             TomlSectionEntry {
@@ -138,7 +138,7 @@ Ok(
                                     },
                                 ),
                                 value: Some(
-                                    7,
+                                    6,
                                 ),
                             },
                             TomlSectionEntry {
@@ -151,7 +151,7 @@ Ok(
                                     },
                                 ),
                                 value: Some(
-                                    8,
+                                    7,
                                 ),
                             },
                         ],
@@ -178,7 +178,7 @@ Ok(
                                     },
                                 ),
                                 value: Some(
-                                    9,
+                                    8,
                                 ),
                             },
                             TomlSectionEntry {
@@ -191,7 +191,7 @@ Ok(
                                     },
                                 ),
                                 value: Some(
-                                    10,
+                                    9,
                                 ),
                             },
                         ],
@@ -214,7 +214,7 @@ Ok(
                     "name",
                 ),
                 Some(
-                    1,
+                    0,
                 ),
             ),
             TomlLineGroup::KeyValue(
@@ -222,7 +222,7 @@ Ok(
                     "version",
                 ),
                 Some(
-                    2,
+                    1,
                 ),
             ),
             TomlLineGroup::KeyValue(
@@ -230,7 +230,7 @@ Ok(
                     "license",
                 ),
                 Some(
-                    3,
+                    2,
                 ),
             ),
             TomlLineGroup::KeyValue(
@@ -238,7 +238,7 @@ Ok(
                     "repository",
                 ),
                 Some(
-                    4,
+                    3,
                 ),
             ),
             TomlLineGroup::KeyValue(
@@ -246,7 +246,7 @@ Ok(
                     "description",
                 ),
                 Some(
-                    5,
+                    4,
                 ),
             ),
             TomlLineGroup::KeyValue(
@@ -254,7 +254,7 @@ Ok(
                     "autotests",
                 ),
                 Some(
-                    6,
+                    5,
                 ),
             ),
             TomlLineGroup::KeyValue(
@@ -262,7 +262,7 @@ Ok(
                     "autobenches",
                 ),
                 Some(
-                    7,
+                    6,
                 ),
             ),
             TomlLineGroup::Comment,
@@ -272,7 +272,7 @@ Ok(
                     "edition",
                 ),
                 Some(
-                    8,
+                    7,
                 ),
             ),
             TomlLineGroup::SectionTitle {
@@ -288,7 +288,7 @@ Ok(
                     "test",
                 ),
                 Some(
-                    9,
+                    8,
                 ),
             ),
             TomlLineGroup::KeyValue(
@@ -296,7 +296,7 @@ Ok(
                     "bench",
                 ),
                 Some(
-                    10,
+                    9,
                 ),
             ),
         ],
@@ -307,14 +307,14 @@ Ok(
                         value: 2,
                     },
                 ): Section(
-                    1,
+                    0,
                 ),
                 Coword(
                     Id {
                         value: 12,
                     },
                 ): Section(
-                    2,
+                    1,
                 ),
             },
         },

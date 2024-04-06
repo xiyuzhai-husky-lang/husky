@@ -35,12 +35,12 @@ AstSheet {
         ],
     },
     top_level_asts: ArenaIdxRange(
-        1..3,
+        0..2,
     ),
     nested_top_level_asts: [],
     siblings: [
         ArenaIdxRange(
-            1..3,
+            0..2,
         ),
     ],
 }

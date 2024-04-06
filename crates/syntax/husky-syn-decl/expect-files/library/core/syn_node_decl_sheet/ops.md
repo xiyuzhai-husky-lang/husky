@@ -48,7 +48,7 @@ SynNodeDeclSheet {
                                     template_parameters: [
                                         TemplateSynParameterData {
                                             annotated_variance_token: None,
-                                            symbol: 1,
+                                            symbol: 0,
                                             variant: TemplateParameterSyndicateVariant::Type {
                                                 ident_token: IdentRegionalToken {
                                                     ident: `Rhs`,
@@ -154,7 +154,7 @@ SynNodeDeclSheet {
                                         (
                                             TemplateTypeParameter,
                                             ArenaIdxRange(
-                                                1..2,
+                                                0..1,
                                             ),
                                         ),
                                     ],
@@ -217,7 +217,7 @@ SynNodeDeclSheet {
                                     template_parameters: [
                                         TemplateSynParameterData {
                                             annotated_variance_token: None,
-                                            symbol: 1,
+                                            symbol: 0,
                                             variant: TemplateParameterSyndicateVariant::Type {
                                                 ident_token: IdentRegionalToken {
                                                     ident: `Rhs`,
@@ -323,7 +323,7 @@ SynNodeDeclSheet {
                                         (
                                             TemplateTypeParameter,
                                             ArenaIdxRange(
-                                                1..2,
+                                                0..1,
                                             ),
                                         ),
                                     ],
@@ -386,7 +386,7 @@ SynNodeDeclSheet {
                                     template_parameters: [
                                         TemplateSynParameterData {
                                             annotated_variance_token: None,
-                                            symbol: 1,
+                                            symbol: 0,
                                             variant: TemplateParameterSyndicateVariant::Type {
                                                 ident_token: IdentRegionalToken {
                                                     ident: `Rhs`,
@@ -492,7 +492,7 @@ SynNodeDeclSheet {
                                         (
                                             TemplateTypeParameter,
                                             ArenaIdxRange(
-                                                1..2,
+                                                0..1,
                                             ),
                                         ),
                                     ],
@@ -555,7 +555,7 @@ SynNodeDeclSheet {
                                     template_parameters: [
                                         TemplateSynParameterData {
                                             annotated_variance_token: None,
-                                            symbol: 1,
+                                            symbol: 0,
                                             variant: TemplateParameterSyndicateVariant::Type {
                                                 ident_token: IdentRegionalToken {
                                                     ident: `Rhs`,
@@ -661,7 +661,7 @@ SynNodeDeclSheet {
                                         (
                                             TemplateTypeParameter,
                                             ArenaIdxRange(
-                                                1..2,
+                                                0..1,
                                             ),
                                         ),
                                     ],
@@ -724,7 +724,7 @@ SynNodeDeclSheet {
                                     template_parameters: [
                                         TemplateSynParameterData {
                                             annotated_variance_token: None,
-                                            symbol: 1,
+                                            symbol: 0,
                                             variant: TemplateParameterSyndicateVariant::Type {
                                                 ident_token: IdentRegionalToken {
                                                     ident: `Rhs`,
@@ -830,7 +830,7 @@ SynNodeDeclSheet {
                                         (
                                             TemplateTypeParameter,
                                             ArenaIdxRange(
-                                                1..2,
+                                                0..1,
                                             ),
                                         ),
                                     ],
@@ -893,7 +893,7 @@ SynNodeDeclSheet {
                                     template_parameters: [
                                         TemplateSynParameterData {
                                             annotated_variance_token: None,
-                                            symbol: 1,
+                                            symbol: 0,
                                             variant: TemplateParameterSyndicateVariant::Type {
                                                 ident_token: IdentRegionalToken {
                                                     ident: `Rhs`,
@@ -999,7 +999,7 @@ SynNodeDeclSheet {
                                         (
                                             TemplateTypeParameter,
                                             ArenaIdxRange(
-                                                1..2,
+                                                0..1,
                                             ),
                                         ),
                                     ],
@@ -1062,7 +1062,7 @@ SynNodeDeclSheet {
                                     template_parameters: [
                                         TemplateSynParameterData {
                                             annotated_variance_token: None,
-                                            symbol: 1,
+                                            symbol: 0,
                                             variant: TemplateParameterSyndicateVariant::Type {
                                                 ident_token: IdentRegionalToken {
                                                     ident: `Rhs`,
@@ -1168,7 +1168,7 @@ SynNodeDeclSheet {
                                         (
                                             TemplateTypeParameter,
                                             ArenaIdxRange(
-                                                1..2,
+                                                0..1,
                                             ),
                                         ),
                                     ],
@@ -1231,7 +1231,7 @@ SynNodeDeclSheet {
                                     template_parameters: [
                                         TemplateSynParameterData {
                                             annotated_variance_token: None,
-                                            symbol: 1,
+                                            symbol: 0,
                                             variant: TemplateParameterSyndicateVariant::Type {
                                                 ident_token: IdentRegionalToken {
                                                     ident: `Rhs`,
@@ -1337,7 +1337,7 @@ SynNodeDeclSheet {
                                         (
                                             TemplateTypeParameter,
                                             ArenaIdxRange(
-                                                1..2,
+                                                0..1,
                                             ),
                                         ),
                                     ],
@@ -1400,7 +1400,7 @@ SynNodeDeclSheet {
                                     template_parameters: [
                                         TemplateSynParameterData {
                                             annotated_variance_token: None,
-                                            symbol: 1,
+                                            symbol: 0,
                                             variant: TemplateParameterSyndicateVariant::Type {
                                                 ident_token: IdentRegionalToken {
                                                     ident: `Rhs`,
@@ -1506,7 +1506,7 @@ SynNodeDeclSheet {
                                         (
                                             TemplateTypeParameter,
                                             ArenaIdxRange(
-                                                1..2,
+                                                0..1,
                                             ),
                                         ),
                                     ],
@@ -1569,7 +1569,7 @@ SynNodeDeclSheet {
                                     template_parameters: [
                                         TemplateSynParameterData {
                                             annotated_variance_token: None,
-                                            symbol: 1,
+                                            symbol: 0,
                                             variant: TemplateParameterSyndicateVariant::Type {
                                                 ident_token: IdentRegionalToken {
                                                     ident: `Rhs`,
@@ -1675,7 +1675,7 @@ SynNodeDeclSheet {
                                         (
                                             TemplateTypeParameter,
                                             ArenaIdxRange(
-                                                1..2,
+                                                0..1,
                                             ),
                                         ),
                                     ],
@@ -1846,7 +1846,7 @@ SynNodeDeclSheet {
                                     template_parameters: [
                                         TemplateSynParameterData {
                                             annotated_variance_token: None,
-                                            symbol: 1,
+                                            symbol: 0,
                                             variant: TemplateParameterSyndicateVariant::Type {
                                                 ident_token: IdentRegionalToken {
                                                     ident: `Rhs`,
@@ -1952,7 +1952,7 @@ SynNodeDeclSheet {
                                         (
                                             TemplateTypeParameter,
                                             ArenaIdxRange(
-                                                1..2,
+                                                0..1,
                                             ),
                                         ),
                                     ],
@@ -2015,7 +2015,7 @@ SynNodeDeclSheet {
                                     template_parameters: [
                                         TemplateSynParameterData {
                                             annotated_variance_token: None,
-                                            symbol: 1,
+                                            symbol: 0,
                                             variant: TemplateParameterSyndicateVariant::Type {
                                                 ident_token: IdentRegionalToken {
                                                     ident: `Rhs`,
@@ -2121,7 +2121,7 @@ SynNodeDeclSheet {
                                         (
                                             TemplateTypeParameter,
                                             ArenaIdxRange(
-                                                1..2,
+                                                0..1,
                                             ),
                                         ),
                                     ],
@@ -2400,7 +2400,7 @@ SynNodeDeclSheet {
                                     template_parameters: [
                                         TemplateSynParameterData {
                                             annotated_variance_token: None,
-                                            symbol: 1,
+                                            symbol: 0,
                                             variant: TemplateParameterSyndicateVariant::Type {
                                                 ident_token: IdentRegionalToken {
                                                     ident: `Rhs`,
@@ -2506,7 +2506,7 @@ SynNodeDeclSheet {
                                         (
                                             TemplateTypeParameter,
                                             ArenaIdxRange(
-                                                1..2,
+                                                0..1,
                                             ),
                                         ),
                                     ],
@@ -2569,7 +2569,7 @@ SynNodeDeclSheet {
                                     template_parameters: [
                                         TemplateSynParameterData {
                                             annotated_variance_token: None,
-                                            symbol: 1,
+                                            symbol: 0,
                                             variant: TemplateParameterSyndicateVariant::Type {
                                                 ident_token: IdentRegionalToken {
                                                     ident: `T`,
@@ -2675,7 +2675,7 @@ SynNodeDeclSheet {
                                         (
                                             TemplateTypeParameter,
                                             ArenaIdxRange(
-                                                1..2,
+                                                0..1,
                                             ),
                                         ),
                                     ],
@@ -2739,7 +2739,7 @@ SynNodeDeclSheet {
                                         template_parameters: [
                                             TemplateSynParameterData {
                                                 annotated_variance_token: None,
-                                                symbol: 1,
+                                                symbol: 0,
                                                 variant: TemplateParameterSyndicateVariant::Type {
                                                     ident_token: IdentRegionalToken {
                                                         ident: `B`,
@@ -2752,7 +2752,7 @@ SynNodeDeclSheet {
                                             },
                                             TemplateSynParameterData {
                                                 annotated_variance_token: None,
-                                                symbol: 2,
+                                                symbol: 1,
                                                 variant: TemplateParameterSyndicateVariant::Type {
                                                     ident_token: IdentRegionalToken {
                                                         ident: `C`,
@@ -2885,13 +2885,13 @@ SynNodeDeclSheet {
                                             (
                                                 TemplateTypeParameter,
                                                 ArenaIdxRange(
-                                                    1..2,
+                                                    0..1,
                                                 ),
                                             ),
                                             (
                                                 TemplateTypeParameter,
                                                 ArenaIdxRange(
-                                                    2..3,
+                                                    1..2,
                                                 ),
                                             ),
                                         ],

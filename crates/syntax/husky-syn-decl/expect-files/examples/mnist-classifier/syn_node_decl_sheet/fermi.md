@@ -67,9 +67,9 @@ SynNodeDeclSheet {
                                                     6,
                                                 ),
                                             ),
-                                            ty: 5,
+                                            ty: 4,
                                             initialization: None,
-                                            variable: 1,
+                                            variable: 0,
                                         },
                                         PropsFieldSyndicate {
                                             decorators: [],
@@ -85,9 +85,9 @@ SynNodeDeclSheet {
                                                     14,
                                                 ),
                                             ),
-                                            ty: 9,
+                                            ty: 8,
                                             initialization: None,
-                                            variable: 2,
+                                            variable: 1,
                                         },
                                     ],
                                     separators: [
@@ -139,7 +139,7 @@ SynNodeDeclSheet {
                                     syn_expr_arena: Arena {
                                         data: [
                                             SynExprData::PrincipalEntityPath {
-                                                path_expr_idx: 1,
+                                                path_expr_idx: 0,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Type(
@@ -153,7 +153,7 @@ SynNodeDeclSheet {
                                                 opr_regional_token_idx: RegionalTokenIdx(
                                                     10,
                                                 ),
-                                                opd: 1,
+                                                opd: 0,
                                             },
                                             SynExprData::List {
                                                 lbox_regional_token_idx: RegionalTokenIdx(
@@ -169,14 +169,14 @@ SynNodeDeclSheet {
                                                 opr_regional_token_idx: RegionalTokenIdx(
                                                     9,
                                                 ),
-                                                opd: 2,
+                                                opd: 1,
                                             },
                                             SynExprData::ExplicitApplication {
-                                                function_expr_idx: 3,
-                                                argument_expr_idx: 4,
+                                                function_expr_idx: 2,
+                                                argument_expr_idx: 3,
                                             },
                                             SynExprData::PrincipalEntityPath {
-                                                path_expr_idx: 2,
+                                                path_expr_idx: 1,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Type(
@@ -199,11 +199,11 @@ SynNodeDeclSheet {
                                                 opr_regional_token_idx: RegionalTokenIdx(
                                                     17,
                                                 ),
-                                                opd: 6,
+                                                opd: 5,
                                             },
                                             SynExprData::ExplicitApplication {
-                                                function_expr_idx: 7,
-                                                argument_expr_idx: 8,
+                                                function_expr_idx: 6,
+                                                argument_expr_idx: 7,
                                             },
                                         ],
                                     },
@@ -314,10 +314,10 @@ SynNodeDeclSheet {
                                                             5,
                                                         ),
                                                     },
-                                                    ty_expr_idx: 5,
+                                                    ty_expr_idx: 4,
                                                 },
                                                 ArenaIdxRange(
-                                                    1..2,
+                                                    0..1,
                                                 ),
                                             ),
                                             (
@@ -334,10 +334,10 @@ SynNodeDeclSheet {
                                                             13,
                                                         ),
                                                     },
-                                                    ty_expr_idx: 9,
+                                                    ty_expr_idx: 8,
                                                 },
                                                 ArenaIdxRange(
-                                                    2..3,
+                                                    1..2,
                                                 ),
                                             ),
                                         ],
@@ -353,7 +353,7 @@ SynNodeDeclSheet {
                                                     ),
                                                 },
                                             },
-                                            syn_expr_idx: 5,
+                                            syn_expr_idx: 4,
                                         },
                                         SynExprRoot {
                                             kind: SynExprRootKind::PropsStructFieldType {
@@ -364,7 +364,7 @@ SynNodeDeclSheet {
                                                     ),
                                                 },
                                             },
-                                            syn_expr_idx: 9,
+                                            syn_expr_idx: 8,
                                         },
                                     ],
                                     has_self_lifetime: false,
@@ -407,6 +407,20 @@ SynNodeDeclSheet {
                                     parenate_parameters: [
                                         ParenateParameterSyndicate::Simple {
                                             syn_pattern_root: ParenateParameterSynPatternExprRoot {
+                                                syn_pattern_expr_idx: 0,
+                                            },
+                                            variables: ArenaIdxRange(
+                                                0..1,
+                                            ),
+                                            colon: ColonRegionalToken(
+                                                RegionalTokenIdx(
+                                                    6,
+                                                ),
+                                            ),
+                                            ty: 3,
+                                        },
+                                        ParenateParameterSyndicate::Simple {
+                                            syn_pattern_root: ParenateParameterSynPatternExprRoot {
                                                 syn_pattern_expr_idx: 1,
                                             },
                                             variables: ArenaIdxRange(
@@ -414,24 +428,10 @@ SynNodeDeclSheet {
                                             ),
                                             colon: ColonRegionalToken(
                                                 RegionalTokenIdx(
-                                                    6,
-                                                ),
-                                            ),
-                                            ty: 4,
-                                        },
-                                        ParenateParameterSyndicate::Simple {
-                                            syn_pattern_root: ParenateParameterSynPatternExprRoot {
-                                                syn_pattern_expr_idx: 2,
-                                            },
-                                            variables: ArenaIdxRange(
-                                                2..3,
-                                            ),
-                                            colon: ColonRegionalToken(
-                                                RegionalTokenIdx(
                                                     13,
                                                 ),
                                             ),
-                                            ty: 11,
+                                            ty: 10,
                                         },
                                     ],
                                     commas: [
@@ -460,7 +460,7 @@ SynNodeDeclSheet {
                             return_ty: Ok(
                                 Some(
                                     ReturnTypeBeforeColonSyndicate {
-                                        syn_expr_idx: 12,
+                                        syn_expr_idx: 11,
                                     },
                                 ),
                             ),
@@ -497,7 +497,7 @@ SynNodeDeclSheet {
                                                 ),
                                             },
                                             SynExprData::PrincipalEntityPath {
-                                                path_expr_idx: 1,
+                                                path_expr_idx: 0,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Type(
@@ -507,15 +507,15 @@ SynNodeDeclSheet {
                                                 ),
                                             },
                                             SynExprData::ExplicitApplication {
-                                                function_expr_idx: 1,
-                                                argument_expr_idx: 2,
+                                                function_expr_idx: 0,
+                                                argument_expr_idx: 1,
                                             },
                                             SynExprData::Prefix {
                                                 opr: Tilde,
                                                 opr_regional_token_idx: RegionalTokenIdx(
                                                     7,
                                                 ),
-                                                opd: 3,
+                                                opd: 2,
                                             },
                                             SynExprData::List {
                                                 lbox_regional_token_idx: RegionalTokenIdx(
@@ -527,7 +527,7 @@ SynNodeDeclSheet {
                                                 ),
                                             },
                                             SynExprData::PrincipalEntityPath {
-                                                path_expr_idx: 2,
+                                                path_expr_idx: 1,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Type(
@@ -541,10 +541,10 @@ SynNodeDeclSheet {
                                                 opr_regional_token_idx: RegionalTokenIdx(
                                                     19,
                                                 ),
-                                                opd: 6,
+                                                opd: 5,
                                             },
                                             SynExprData::PrincipalEntityPath {
-                                                path_expr_idx: 3,
+                                                path_expr_idx: 2,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Type(
@@ -558,7 +558,7 @@ SynNodeDeclSheet {
                                                 opr_regional_token_idx: RegionalTokenIdx(
                                                     23,
                                                 ),
-                                                opd: 8,
+                                                opd: 7,
                                             },
                                             SynExprData::Ritchie {
                                                 ritchie_kind: RitchieKind::Type(
@@ -576,7 +576,7 @@ SynNodeDeclSheet {
                                                 ),
                                                 parameter_ty_items: [
                                                     SynCommaListItem {
-                                                        syn_expr_idx: 7,
+                                                        syn_expr_idx: 6,
                                                         comma_regional_token_idx: None,
                                                     },
                                                 ],
@@ -591,18 +591,18 @@ SynNodeDeclSheet {
                                                     ),
                                                 ),
                                                 return_ty_syn_expr_idx: Some(
-                                                    9,
+                                                    8,
                                                 ),
                                             },
                                             SynExprData::FunctionApplicationOrCall {
-                                                function: 5,
+                                                function: 4,
                                                 template_arguments: None,
                                                 lpar_regional_token_idx: RegionalTokenIdx(
                                                     16,
                                                 ),
                                                 items: [
                                                     SynCommaListItem {
-                                                        syn_expr_idx: 10,
+                                                        syn_expr_idx: 9,
                                                         comma_regional_token_idx: None,
                                                     },
                                                 ],
@@ -611,7 +611,7 @@ SynNodeDeclSheet {
                                                 ),
                                             },
                                             SynExprData::PrincipalEntityPath {
-                                                path_expr_idx: 4,
+                                                path_expr_idx: 3,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Type(
@@ -721,10 +721,10 @@ SynNodeDeclSheet {
                                         pattern_symbol_arena: Arena {
                                             data: [
                                                 SynPatternSymbol::Atom(
-                                                    1,
+                                                    0,
                                                 ),
                                                 SynPatternSymbol::Atom(
-                                                    2,
+                                                    1,
                                                 ),
                                             ],
                                         },
@@ -732,13 +732,13 @@ SynNodeDeclSheet {
                                             [
                                                 (
                                                     `concave_components`,
-                                                    1,
+                                                    0,
                                                 ),
                                             ],
                                             [
                                                 (
                                                     `templates`,
-                                                    2,
+                                                    1,
                                                 ),
                                             ],
                                         ],
@@ -763,7 +763,7 @@ SynNodeDeclSheet {
                                                     access_end: None,
                                                     data: CurrentSynSymbolData::SimpleParenateParameter {
                                                         ident: `concave_components`,
-                                                        pattern_symbol_idx: 1,
+                                                        pattern_symbol_idx: 0,
                                                     },
                                                 },
                                                 CurrentSynSymbolEntry {
@@ -774,7 +774,7 @@ SynNodeDeclSheet {
                                                     access_end: None,
                                                     data: CurrentSynSymbolData::SimpleParenateParameter {
                                                         ident: `templates`,
-                                                        pattern_symbol_idx: 2,
+                                                        pattern_symbol_idx: 1,
                                                     },
                                                 },
                                             ],
@@ -785,23 +785,23 @@ SynNodeDeclSheet {
                                             (
                                                 SimpleParenateParameter {
                                                     syn_pattern_root: ParenateParameterSynPatternExprRoot {
-                                                        syn_pattern_expr_idx: 1,
+                                                        syn_pattern_expr_idx: 0,
                                                     },
-                                                    ty: 4,
+                                                    ty: 3,
                                                 },
                                                 ArenaIdxRange(
-                                                    1..2,
+                                                    0..1,
                                                 ),
                                             ),
                                             (
                                                 SimpleParenateParameter {
                                                     syn_pattern_root: ParenateParameterSynPatternExprRoot {
-                                                        syn_pattern_expr_idx: 2,
+                                                        syn_pattern_expr_idx: 1,
                                                     },
-                                                    ty: 11,
+                                                    ty: 10,
                                                 },
                                                 ArenaIdxRange(
-                                                    2..3,
+                                                    1..2,
                                                 ),
                                             ),
                                         ],
@@ -809,37 +809,37 @@ SynNodeDeclSheet {
                                     syn_pattern_expr_roots: [
                                         SynPatternRoot {
                                             kind: SynPatternExprRootKind::Parenate,
-                                            syn_pattern_expr_idx: 1,
+                                            syn_pattern_expr_idx: 0,
                                         },
                                         SynPatternRoot {
                                             kind: SynPatternExprRootKind::Parenate,
-                                            syn_pattern_expr_idx: 2,
+                                            syn_pattern_expr_idx: 1,
                                         },
                                     ],
                                     syn_expr_roots: [
                                         SynExprRoot {
                                             kind: SynExprRootKind::ExplicitParameterType,
-                                            syn_expr_idx: 4,
+                                            syn_expr_idx: 3,
                                         },
                                         SynExprRoot {
                                             kind: SynExprRootKind::ExplicitParameterType,
-                                            syn_expr_idx: 11,
+                                            syn_expr_idx: 10,
                                         },
                                         SynExprRoot {
                                             kind: SynExprRootKind::ReturnType,
-                                            syn_expr_idx: 12,
+                                            syn_expr_idx: 11,
                                         },
                                     ],
                                     has_self_lifetime: false,
                                     has_self_place: false,
                                     syn_pattern_to_current_syn_symbol_map: [
                                         (
-                                            1,
-                                            1,
+                                            0,
+                                            0,
                                         ),
                                         (
-                                            2,
-                                            2,
+                                            1,
+                                            1,
                                         ),
                                     ],
                                 },
@@ -900,7 +900,7 @@ SynNodeDeclSheet {
                             None,
                         ),
                         self_ty_expr: SelfTypeSyndicate {
-                            expr: 1,
+                            expr: 0,
                         },
                         eol_colon: Ok(
                             EolRegionalToken::Colon(
@@ -940,7 +940,7 @@ SynNodeDeclSheet {
                                 syn_expr_arena: Arena {
                                     data: [
                                         SynExprData::PrincipalEntityPath {
-                                            path_expr_idx: 1,
+                                            path_expr_idx: 0,
                                             opt_path: Some(
                                                 PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Type(
@@ -1003,7 +1003,7 @@ SynNodeDeclSheet {
                                 syn_expr_roots: [
                                     SynExprRoot {
                                         kind: SynExprRootKind::SelfType,
-                                        syn_expr_idx: 1,
+                                        syn_expr_idx: 0,
                                     },
                                 ],
                                 has_self_lifetime: false,
@@ -1064,7 +1064,7 @@ SynNodeDeclSheet {
                             return_ty: Ok(
                                 Some(
                                     ReturnTypeBeforeEqSyndicate {
-                                        expr: 1,
+                                        expr: 0,
                                     },
                                 ),
                             ),
@@ -1108,7 +1108,7 @@ SynNodeDeclSheet {
                                                 syn_expr_arena: Arena {
                                                     data: [
                                                         SynExprData::PrincipalEntityPath {
-                                                            path_expr_idx: 1,
+                                                            path_expr_idx: 0,
                                                             opt_path: Some(
                                                                 PrincipalEntityPath::MajorItem(
                                                                     MajorItemPath::Type(
@@ -1171,7 +1171,7 @@ SynNodeDeclSheet {
                                                 syn_expr_roots: [
                                                     SynExprRoot {
                                                         kind: SynExprRootKind::SelfType,
-                                                        syn_expr_idx: 1,
+                                                        syn_expr_idx: 0,
                                                     },
                                                 ],
                                                 has_self_lifetime: false,
@@ -1203,7 +1203,7 @@ SynNodeDeclSheet {
                                     syn_expr_arena: Arena {
                                         data: [
                                             SynExprData::PrincipalEntityPath {
-                                                path_expr_idx: 1,
+                                                path_expr_idx: 0,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Type(
@@ -1266,7 +1266,7 @@ SynNodeDeclSheet {
                                     syn_expr_roots: [
                                         SynExprRoot {
                                             kind: SynExprRootKind::ReturnType,
-                                            syn_expr_idx: 1,
+                                            syn_expr_idx: 0,
                                         },
                                     ],
                                     has_self_lifetime: false,
@@ -1328,7 +1328,7 @@ SynNodeDeclSheet {
                             return_ty: Ok(
                                 Some(
                                     ReturnTypeBeforeEqSyndicate {
-                                        expr: 1,
+                                        expr: 0,
                                     },
                                 ),
                             ),
@@ -1372,7 +1372,7 @@ SynNodeDeclSheet {
                                                 syn_expr_arena: Arena {
                                                     data: [
                                                         SynExprData::PrincipalEntityPath {
-                                                            path_expr_idx: 1,
+                                                            path_expr_idx: 0,
                                                             opt_path: Some(
                                                                 PrincipalEntityPath::MajorItem(
                                                                     MajorItemPath::Type(
@@ -1435,7 +1435,7 @@ SynNodeDeclSheet {
                                                 syn_expr_roots: [
                                                     SynExprRoot {
                                                         kind: SynExprRootKind::SelfType,
-                                                        syn_expr_idx: 1,
+                                                        syn_expr_idx: 0,
                                                     },
                                                 ],
                                                 has_self_lifetime: false,
@@ -1467,7 +1467,7 @@ SynNodeDeclSheet {
                                     syn_expr_arena: Arena {
                                         data: [
                                             SynExprData::PrincipalEntityPath {
-                                                path_expr_idx: 1,
+                                                path_expr_idx: 0,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Type(
@@ -1530,7 +1530,7 @@ SynNodeDeclSheet {
                                     syn_expr_roots: [
                                         SynExprRoot {
                                             kind: SynExprRootKind::ReturnType,
-                                            syn_expr_idx: 1,
+                                            syn_expr_idx: 0,
                                         },
                                     ],
                                     has_self_lifetime: false,
@@ -1592,7 +1592,7 @@ SynNodeDeclSheet {
                             return_ty: Ok(
                                 Some(
                                     ReturnTypeBeforeEqSyndicate {
-                                        expr: 1,
+                                        expr: 0,
                                     },
                                 ),
                             ),
@@ -1636,7 +1636,7 @@ SynNodeDeclSheet {
                                                 syn_expr_arena: Arena {
                                                     data: [
                                                         SynExprData::PrincipalEntityPath {
-                                                            path_expr_idx: 1,
+                                                            path_expr_idx: 0,
                                                             opt_path: Some(
                                                                 PrincipalEntityPath::MajorItem(
                                                                     MajorItemPath::Type(
@@ -1699,7 +1699,7 @@ SynNodeDeclSheet {
                                                 syn_expr_roots: [
                                                     SynExprRoot {
                                                         kind: SynExprRootKind::SelfType,
-                                                        syn_expr_idx: 1,
+                                                        syn_expr_idx: 0,
                                                     },
                                                 ],
                                                 has_self_lifetime: false,
@@ -1731,7 +1731,7 @@ SynNodeDeclSheet {
                                     syn_expr_arena: Arena {
                                         data: [
                                             SynExprData::PrincipalEntityPath {
-                                                path_expr_idx: 1,
+                                                path_expr_idx: 0,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Type(
@@ -1794,7 +1794,7 @@ SynNodeDeclSheet {
                                     syn_expr_roots: [
                                         SynExprRoot {
                                             kind: SynExprRootKind::ReturnType,
-                                            syn_expr_idx: 1,
+                                            syn_expr_idx: 0,
                                         },
                                     ],
                                     has_self_lifetime: false,

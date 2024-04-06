@@ -142,15 +142,15 @@ fn parse_tex_input_into_asts_works() {
         "",
         TexMode::Math,
         expect![[r#"
-        (
-            Arena {
-                data: [],
-            },
-            ArenaIdxRange(
-                1..1,
-            ),
-        )
-    "#]],
+            (
+                Arena {
+                    data: [],
+                },
+                ArenaIdxRange(
+                    0..0,
+                ),
+            )
+        "#]],
     );
     t(
         "x",
@@ -161,7 +161,7 @@ fn parse_tex_input_into_asts_works() {
                     data: [],
                 },
                 ArenaIdxRange(
-                    1..1,
+                    0..0,
                 ),
             )
         "#]],
@@ -186,7 +186,7 @@ fn parse_tex_input_into_asts_works() {
                     ],
                 },
                 ArenaIdxRange(
-                    1..3,
+                    0..2,
                 ),
             )
         "#]],
@@ -210,9 +210,9 @@ fn parse_tex_input_into_asts_works() {
                         ),
                         TexAstData::Math(
                             TexMathAstData::Attach {
-                                base: 1,
+                                base: 0,
                                 superscript: Some(
-                                    2,
+                                    1,
                                 ),
                                 subscript: None,
                             },
@@ -220,7 +220,7 @@ fn parse_tex_input_into_asts_works() {
                     ],
                 },
                 ArenaIdxRange(
-                    3..4,
+                    2..3,
                 ),
             )
         "#]],
@@ -244,17 +244,17 @@ fn parse_tex_input_into_asts_works() {
                         ),
                         TexAstData::Math(
                             TexMathAstData::Attach {
-                                base: 1,
+                                base: 0,
                                 superscript: None,
                                 subscript: Some(
-                                    2,
+                                    1,
                                 ),
                             },
                         ),
                     ],
                 },
                 ArenaIdxRange(
-                    3..4,
+                    2..3,
                 ),
             )
         "#]],
@@ -295,7 +295,7 @@ fn parse_tex_input_into_asts_works() {
                                 ),
                                 left_delimiter: Curl,
                                 asts: ArenaIdxRange(
-                                    2..5,
+                                    1..4,
                                 ),
                                 right_delimiter_token_idx: TexTokenIdx(
                                     ShiftedU32(
@@ -307,9 +307,9 @@ fn parse_tex_input_into_asts_works() {
                         ),
                         TexAstData::Math(
                             TexMathAstData::Attach {
-                                base: 1,
+                                base: 0,
                                 superscript: Some(
-                                    5,
+                                    4,
                                 ),
                                 subscript: None,
                             },
@@ -317,7 +317,7 @@ fn parse_tex_input_into_asts_works() {
                     ],
                 },
                 ArenaIdxRange(
-                    6..7,
+                    5..6,
                 ),
             )
         "#]],

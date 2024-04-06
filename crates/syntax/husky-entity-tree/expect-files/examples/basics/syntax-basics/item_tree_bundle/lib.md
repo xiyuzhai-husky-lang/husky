@@ -29,7 +29,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `syntax_basics`,
                                 ),
-                                ast_idx: 1,
+                                ast_idx: 0,
                                 ident_token: IdentToken {
                                     ident: `ast`,
                                     token_idx: TokenIdx(
@@ -88,7 +88,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `syntax_basics`,
                                 ),
-                                ast_idx: 2,
+                                ast_idx: 1,
                                 ident_token: IdentToken {
                                     ident: `uses`,
                                     token_idx: TokenIdx(
@@ -147,7 +147,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `syntax_basics`,
                                 ),
-                                ast_idx: 3,
+                                ast_idx: 2,
                                 ident_token: IdentToken {
                                     ident: `defn`,
                                     token_idx: TokenIdx(
@@ -206,7 +206,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `syntax_basics`,
                                 ),
-                                ast_idx: 4,
+                                ast_idx: 3,
                                 ident_token: IdentToken {
                                     ident: `expr`,
                                     token_idx: TokenIdx(
@@ -344,7 +344,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `syntax_basics::ast`,
                                 ),
-                                ast_idx: 1,
+                                ast_idx: 0,
                                 ident_token: IdentToken {
                                     ident: `submodule_name`,
                                     token_idx: TokenIdx(
@@ -455,8 +455,8 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `syntax_basics::uses`,
                                 ),
-                                ast_idx: 1,
-                                use_expr_idx: 1,
+                                ast_idx: 0,
+                                use_expr_idx: 0,
                             },
                         ),
                     },
@@ -482,8 +482,8 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `syntax_basics::uses`,
                                 ),
-                                ast_idx: 1,
-                                use_expr_idx: 1,
+                                ast_idx: 0,
+                                use_expr_idx: 0,
                             },
                         ),
                     },
@@ -509,8 +509,8 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `syntax_basics::uses`,
                                 ),
-                                ast_idx: 1,
-                                use_expr_idx: 1,
+                                ast_idx: 0,
+                                use_expr_idx: 0,
                             },
                         ),
                     },
@@ -536,8 +536,8 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `syntax_basics::uses`,
                                 ),
-                                ast_idx: 1,
-                                use_expr_idx: 1,
+                                ast_idx: 0,
+                                use_expr_idx: 0,
                             },
                         ),
                     },
@@ -547,8 +547,8 @@ EntityTreeCrateBundle {
             once_use_rules: OnceUseRules(
                 [
                     OnceUseRule {
-                        ast_idx: 1,
-                        use_expr_idx: 2,
+                        ast_idx: 0,
+                        use_expr_idx: 1,
                         visibility: Scope::PubUnder(
                             `syntax_basics::uses`,
                         ),
@@ -561,7 +561,7 @@ EntityTreeCrateBundle {
                                 },
                             ),
                             children: ArenaIdxRange(
-                                1..2,
+                                0..1,
                             ),
                         },
                         parent: None,
@@ -580,8 +580,8 @@ EntityTreeCrateBundle {
                     UseAllRule {
                         parent_module_path: `syntax_basics`,
                         is_same_crate: true,
-                        ast_idx: 1,
-                        use_expr_idx: 1,
+                        ast_idx: 0,
+                        use_expr_idx: 0,
                         visibility: Scope::PubUnder(
                             `syntax_basics::uses`,
                         ),
@@ -621,7 +621,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `syntax_basics::defn`,
                                 ),
-                                ast_idx: 1,
+                                ast_idx: 0,
                                 ident_token: IdentToken {
                                     ident: `major_item`,
                                     token_idx: TokenIdx(
@@ -714,7 +714,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `syntax_basics::defn::major_item`,
                                 ),
-                                ast_idx: 1,
+                                ast_idx: 0,
                                 ident_token: IdentToken {
                                     ident: `ty`,
                                     token_idx: TokenIdx(
@@ -807,7 +807,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `syntax_basics::defn::major_item::ty`,
                                 ),
-                                ast_idx: 1,
+                                ast_idx: 0,
                                 ident_token: IdentToken {
                                     ident: `enum_ty`,
                                     token_idx: TokenIdx(
@@ -898,7 +898,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `syntax_basics::defn::major_item::ty::enum_ty`,
                                 ),
-                                ast_idx: 6,
+                                ast_idx: 5,
                                 ident_token: IdentToken {
                                     ident: `A`,
                                     token_idx: TokenIdx(
@@ -910,7 +910,7 @@ EntityTreeCrateBundle {
                                     variants: Some(
                                         TypeVariants {
                                             ast_idx_range: ArenaIdxRange(
-                                                1..6,
+                                                0..5,
                                             ),
                                         },
                                     ),
@@ -981,7 +981,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `syntax_basics::expr`,
                                 ),
-                                ast_idx: 4,
+                                ast_idx: 3,
                                 ident_token: IdentToken {
                                     ident: `nested`,
                                     token_idx: TokenIdx(
@@ -995,7 +995,7 @@ EntityTreeCrateBundle {
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
-                                                1..2,
+                                                0..1,
                                             ),
                                         },
                                     ),
@@ -1025,7 +1025,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `syntax_basics::expr`,
                                 ),
-                                ast_idx: 5,
+                                ast_idx: 4,
                                 ident_token: IdentToken {
                                     ident: `closure_inline`,
                                     token_idx: TokenIdx(
@@ -1039,7 +1039,7 @@ EntityTreeCrateBundle {
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
-                                                2..3,
+                                                1..2,
                                             ),
                                         },
                                     ),
@@ -1069,7 +1069,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `syntax_basics::expr`,
                                 ),
-                                ast_idx: 6,
+                                ast_idx: 5,
                                 ident_token: IdentToken {
                                     ident: `closure_nested`,
                                     token_idx: TokenIdx(
@@ -1083,7 +1083,7 @@ EntityTreeCrateBundle {
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
-                                                3..4,
+                                                2..3,
                                             ),
                                         },
                                     ),

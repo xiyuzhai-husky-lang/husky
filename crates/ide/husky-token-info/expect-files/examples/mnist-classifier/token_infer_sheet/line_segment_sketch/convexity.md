@@ -6,10 +6,10 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::UseExpr(
-                        3,
+                        2,
                     ),
                     data: TokenInfoData::UseExpr {
-                        use_expr_idx: 3,
+                        use_expr_idx: 2,
                         rule_idx: OnceUseRuleIdx(
                             0,
                         ),
@@ -27,10 +27,10 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::UseExpr(
-                        2,
+                        1,
                     ),
                     data: TokenInfoData::UseExpr {
-                        use_expr_idx: 2,
+                        use_expr_idx: 1,
                         rule_idx: OnceUseRuleIdx(
                             3,
                         ),
@@ -56,10 +56,10 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::UseExpr(
-                        6,
+                        5,
                     ),
                     data: TokenInfoData::UseExpr {
-                        use_expr_idx: 6,
+                        use_expr_idx: 5,
                         rule_idx: OnceUseRuleIdx(
                             1,
                         ),
@@ -77,10 +77,10 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::UseExpr(
-                        5,
+                        4,
                     ),
                     data: TokenInfoData::UseExpr {
-                        use_expr_idx: 5,
+                        use_expr_idx: 4,
                         rule_idx: OnceUseRuleIdx(
                             4,
                         ),
@@ -106,10 +106,10 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::UseExpr(
-                        9,
+                        8,
                     ),
                     data: TokenInfoData::UseExpr {
-                        use_expr_idx: 9,
+                        use_expr_idx: 8,
                         rule_idx: OnceUseRuleIdx(
                             2,
                         ),
@@ -127,10 +127,10 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::UseExpr(
-                        8,
+                        7,
                     ),
                     data: TokenInfoData::UseExpr {
-                        use_expr_idx: 8,
+                        use_expr_idx: 7,
                         rule_idx: OnceUseRuleIdx(
                             5,
                         ),
@@ -180,12 +180,12 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::PatternExpr(
-                        1,
+                        0,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
+                        current_syn_symbol_idx: 0,
                         current_syn_symbol_kind: CurrentSynSymbolKind::SimpleParenateParameter {
-                            pattern_symbol_idx: 1,
+                            pattern_symbol_idx: 0,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -195,7 +195,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
+                        0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
@@ -215,12 +215,12 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::PatternExpr(
-                        2,
+                        1,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 2,
+                        current_syn_symbol_idx: 1,
                         current_syn_symbol_kind: CurrentSynSymbolKind::SimpleParenateParameter {
-                            pattern_symbol_idx: 2,
+                            pattern_symbol_idx: 1,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -230,7 +230,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        2,
+                        1,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`core::num::i32`, `Extern`),
@@ -251,7 +251,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        3,
+                        2,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`core::basic::bool`, `Extern`),
@@ -267,6 +267,62 @@ Ok(
                     ),
                 },
             ),
+            None,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::PatternExpr(
+                        0,
+                    ),
+                    data: TokenInfoData::CurrentSynSymbol {
+                        current_syn_symbol_idx: 0,
+                        current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
+                            pattern_symbol_idx: 0,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            0,
+                        ),
+                    ),
+                    data: TokenInfoData::InheritedSynSymbol {
+                        inherited_syn_symbol_idx: 0,
+                        inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                            ident: `line_segment_sketch`,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            1,
+                        ),
+                    ),
+                    data: TokenInfoData::Field,
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            2,
+                        ),
+                    ),
+                    data: TokenInfoData::Method,
+                },
+            ),
+            None,
             None,
             None,
             Some(
@@ -288,11 +344,11 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            1,
+                            3,
                         ),
                     ),
                     data: TokenInfoData::InheritedSynSymbol {
-                        inherited_syn_symbol_idx: 1,
+                        inherited_syn_symbol_idx: 0,
                         inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                             ident: `line_segment_sketch`,
                         },
@@ -305,7 +361,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            2,
+                            4,
                         ),
                     ),
                     data: TokenInfoData::Field,
@@ -316,7 +372,42 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            3,
+                            5,
+                        ),
+                    ),
+                    data: TokenInfoData::InheritedSynSymbol {
+                        inherited_syn_symbol_idx: 1,
+                        inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                            ident: `index`,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            6,
+                        ),
+                    ),
+                    data: TokenInfoData::CurrentSynSymbol {
+                        current_syn_symbol_idx: 0,
+                        current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
+                            pattern_symbol_idx: 0,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            9,
                         ),
                     ),
                     data: TokenInfoData::Method,
@@ -344,11 +435,11 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            4,
+                            10,
                         ),
                     ),
                     data: TokenInfoData::InheritedSynSymbol {
-                        inherited_syn_symbol_idx: 1,
+                        inherited_syn_symbol_idx: 0,
                         inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                             ident: `line_segment_sketch`,
                         },
@@ -361,22 +452,23 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            5,
+                            11,
                         ),
                     ),
                     data: TokenInfoData::Field,
                 },
             ),
             None,
+            None,
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            6,
+                            12,
                         ),
                     ),
                     data: TokenInfoData::InheritedSynSymbol {
-                        inherited_syn_symbol_idx: 2,
+                        inherited_syn_symbol_idx: 1,
                         inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                             ident: `index`,
                         },
@@ -385,17 +477,20 @@ Ok(
                 },
             ),
             None,
+            None,
+            None,
+            None,
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            7,
+                            16,
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
+                        current_syn_symbol_idx: 0,
                         current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 1,
+                            pattern_symbol_idx: 0,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -407,7 +502,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            10,
+                            19,
                         ),
                     ),
                     data: TokenInfoData::Method,
@@ -435,13 +530,13 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            11,
+                            20,
                         ),
                     ),
-                    data: TokenInfoData::InheritedSynSymbol {
-                        inherited_syn_symbol_idx: 1,
-                        inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
-                            ident: `line_segment_sketch`,
+                    data: TokenInfoData::CurrentSynSymbol {
+                        current_syn_symbol_idx: 2,
+                        current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
+                            pattern_symbol_idx: 2,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -452,39 +547,18 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            12,
+                            22,
                         ),
                     ),
-                    data: TokenInfoData::Field,
+                    data: TokenInfoData::Method,
                 },
             ),
-            None,
             None,
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            13,
-                        ),
-                    ),
-                    data: TokenInfoData::InheritedSynSymbol {
-                        inherited_syn_symbol_idx: 2,
-                        inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
-                            ident: `index`,
-                        },
-                        syn_expr_region: ExprRegionLeash(_),
-                    },
-                },
-            ),
-            None,
-            None,
-            None,
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            17,
+                            21,
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
@@ -502,12 +576,20 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            20,
+                            23,
                         ),
                     ),
-                    data: TokenInfoData::Method,
+                    data: TokenInfoData::CurrentSynSymbol {
+                        current_syn_symbol_idx: 3,
+                        current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
+                            pattern_symbol_idx: 3,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
                 },
             ),
+            None,
+            None,
             None,
             None,
             None,
@@ -525,70 +607,6 @@ Ok(
                     },
                 },
             ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            21,
-                        ),
-                    ),
-                    data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 3,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 3,
-                        },
-                        syn_expr_region: ExprRegionLeash(_),
-                    },
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            23,
-                        ),
-                    ),
-                    data: TokenInfoData::Method,
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            22,
-                        ),
-                    ),
-                    data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 2,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 2,
-                        },
-                        syn_expr_region: ExprRegionLeash(_),
-                    },
-                },
-            ),
-            None,
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            24,
-                        ),
-                    ),
-                    data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 4,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 4,
-                        },
-                        syn_expr_region: ExprRegionLeash(_),
-                    },
-                },
-            ),
-            None,
             None,
             None,
             None,
@@ -608,18 +626,17 @@ Ok(
                 },
             ),
             None,
-            None,
-            None,
-            None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::PatternExpr(
-                        6,
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            28,
+                        ),
                     ),
-                    data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 6,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 6,
+                    data: TokenInfoData::InheritedSynSymbol {
+                        inherited_syn_symbol_idx: 0,
+                        inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                            ident: `line_segment_sketch`,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -633,23 +650,6 @@ Ok(
                             29,
                         ),
                     ),
-                    data: TokenInfoData::InheritedSynSymbol {
-                        inherited_syn_symbol_idx: 1,
-                        inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
-                            ident: `line_segment_sketch`,
-                        },
-                        syn_expr_region: ExprRegionLeash(_),
-                    },
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            30,
-                        ),
-                    ),
                     data: TokenInfoData::Field,
                 },
             ),
@@ -659,11 +659,11 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            31,
+                            30,
                         ),
                     ),
                     data: TokenInfoData::InheritedSynSymbol {
-                        inherited_syn_symbol_idx: 2,
+                        inherited_syn_symbol_idx: 1,
                         inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                             ident: `index`,
                         },
@@ -679,13 +679,13 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            35,
+                            34,
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
+                        current_syn_symbol_idx: 0,
                         current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 1,
+                            pattern_symbol_idx: 0,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -697,7 +697,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            38,
+                            37,
                         ),
                     ),
                     data: TokenInfoData::Field,
@@ -708,14 +708,44 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
+                            38,
+                        ),
+                    ),
+                    data: TokenInfoData::CurrentSynSymbol {
+                        current_syn_symbol_idx: 5,
+                        current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
+                            pattern_symbol_idx: 5,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
                             39,
+                        ),
+                    ),
+                    data: TokenInfoData::Method,
+                },
+            ),
+            None,
+            None,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            42,
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 6,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 6,
-                        },
+                        current_syn_symbol_kind: CurrentSynSymbolKind::LoopVariable(
+                            40,
+                        ),
                         syn_expr_region: ExprRegionLeash(_),
                     },
                 },
@@ -728,40 +758,10 @@ Ok(
                             40,
                         ),
                     ),
-                    data: TokenInfoData::Method,
-                },
-            ),
-            None,
-            None,
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            43,
-                        ),
-                    ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 7,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::LoopVariable(
-                            41,
-                        ),
-                        syn_expr_region: ExprRegionLeash(_),
-                    },
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            41,
-                        ),
-                    ),
-                    data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 6,
+                        current_syn_symbol_idx: 5,
                         current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 6,
+                            pattern_symbol_idx: 5,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -772,7 +772,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            42,
+                            41,
                         ),
                     ),
                     data: TokenInfoData::Method,
@@ -785,12 +785,29 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::PatternExpr(
-                        7,
+                        6,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 8,
+                        current_syn_symbol_idx: 7,
                         current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 7,
+                            pattern_symbol_idx: 6,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            43,
+                        ),
+                    ),
+                    data: TokenInfoData::InheritedSynSymbol {
+                        inherited_syn_symbol_idx: 0,
+                        inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                            ident: `line_segment_sketch`,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -804,13 +821,18 @@ Ok(
                             44,
                         ),
                     ),
-                    data: TokenInfoData::InheritedSynSymbol {
-                        inherited_syn_symbol_idx: 1,
-                        inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
-                            ident: `line_segment_sketch`,
-                        },
-                        syn_expr_region: ExprRegionLeash(_),
-                    },
+                    data: TokenInfoData::Field,
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            48,
+                        ),
+                    ),
+                    data: TokenInfoData::Method,
                 },
             ),
             None,
@@ -821,32 +843,10 @@ Ok(
                             45,
                         ),
                     ),
-                    data: TokenInfoData::Field,
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            49,
-                        ),
-                    ),
-                    data: TokenInfoData::Method,
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            46,
-                        ),
-                    ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 6,
+                        current_syn_symbol_idx: 5,
                         current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 6,
+                            pattern_symbol_idx: 5,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -857,7 +857,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            47,
+                            46,
                         ),
                     ),
                     data: TokenInfoData::Method,
@@ -870,14 +870,31 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            48,
+                            47,
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 7,
+                        current_syn_symbol_idx: 6,
                         current_syn_symbol_kind: CurrentSynSymbolKind::LoopVariable(
-                            41,
+                            40,
                         ),
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            49,
+                        ),
+                    ),
+                    data: TokenInfoData::CurrentSynSymbol {
+                        current_syn_symbol_idx: 4,
+                        current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
+                            pattern_symbol_idx: 4,
+                        },
                         syn_expr_region: ExprRegionLeash(_),
                     },
                 },
@@ -891,54 +908,9 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 5,
+                        current_syn_symbol_idx: 4,
                         current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 5,
-                        },
-                        syn_expr_region: ExprRegionLeash(_),
-                    },
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            51,
-                        ),
-                    ),
-                    data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 5,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 5,
-                        },
-                        syn_expr_region: ExprRegionLeash(_),
-                    },
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            55,
-                        ),
-                    ),
-                    data: TokenInfoData::Method,
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            52,
-                        ),
-                    ),
-                    data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 2,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 2,
+                            pattern_symbol_idx: 4,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -960,8 +932,54 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
+                            51,
+                        ),
+                    ),
+                    data: TokenInfoData::CurrentSynSymbol {
+                        current_syn_symbol_idx: 1,
+                        current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
+                            pattern_symbol_idx: 1,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
                             53,
                         ),
+                    ),
+                    data: TokenInfoData::Method,
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            52,
+                        ),
+                    ),
+                    data: TokenInfoData::CurrentSynSymbol {
+                        current_syn_symbol_idx: 7,
+                        current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
+                            pattern_symbol_idx: 6,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            None,
+            None,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::PatternExpr(
+                        7,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 8,
@@ -991,18 +1009,17 @@ Ok(
                 },
             ),
             None,
-            None,
-            None,
-            None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::PatternExpr(
-                        9,
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            58,
+                        ),
                     ),
-                    data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 10,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 9,
+                    data: TokenInfoData::InheritedSynSymbol {
+                        inherited_syn_symbol_idx: 0,
+                        inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                            ident: `line_segment_sketch`,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -1016,13 +1033,7 @@ Ok(
                             59,
                         ),
                     ),
-                    data: TokenInfoData::InheritedSynSymbol {
-                        inherited_syn_symbol_idx: 1,
-                        inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
-                            ident: `line_segment_sketch`,
-                        },
-                        syn_expr_region: ExprRegionLeash(_),
-                    },
+                    data: TokenInfoData::Field,
                 },
             ),
             None,
@@ -1033,19 +1044,8 @@ Ok(
                             60,
                         ),
                     ),
-                    data: TokenInfoData::Field,
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            61,
-                        ),
-                    ),
                     data: TokenInfoData::InheritedSynSymbol {
-                        inherited_syn_symbol_idx: 2,
+                        inherited_syn_symbol_idx: 1,
                         inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                             ident: `index`,
                         },
@@ -1058,13 +1058,13 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            62,
+                            61,
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
+                        current_syn_symbol_idx: 0,
                         current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 1,
+                            pattern_symbol_idx: 0,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -1076,7 +1076,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            65,
+                            64,
                         ),
                     ),
                     data: TokenInfoData::Field,
@@ -1087,14 +1087,44 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
+                            65,
+                        ),
+                    ),
+                    data: TokenInfoData::CurrentSynSymbol {
+                        current_syn_symbol_idx: 9,
+                        current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
+                            pattern_symbol_idx: 8,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
                             66,
+                        ),
+                    ),
+                    data: TokenInfoData::Method,
+                },
+            ),
+            None,
+            None,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            69,
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 10,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 9,
-                        },
+                        current_syn_symbol_kind: CurrentSynSymbolKind::LoopVariable(
+                            69,
+                        ),
                         syn_expr_region: ExprRegionLeash(_),
                     },
                 },
@@ -1107,24 +1137,11 @@ Ok(
                             67,
                         ),
                     ),
-                    data: TokenInfoData::Method,
-                },
-            ),
-            None,
-            None,
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            70,
-                        ),
-                    ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 11,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::LoopVariable(
-                            70,
-                        ),
+                        current_syn_symbol_idx: 9,
+                        current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
+                            pattern_symbol_idx: 8,
+                        },
                         syn_expr_region: ExprRegionLeash(_),
                     },
                 },
@@ -1137,8 +1154,20 @@ Ok(
                             68,
                         ),
                     ),
+                    data: TokenInfoData::Method,
+                },
+            ),
+            None,
+            None,
+            None,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::PatternExpr(
+                        9,
+                    ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 10,
+                        current_syn_symbol_idx: 11,
                         current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                             pattern_symbol_idx: 9,
                         },
@@ -1151,25 +1180,13 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            69,
+                            70,
                         ),
                     ),
-                    data: TokenInfoData::Method,
-                },
-            ),
-            None,
-            None,
-            None,
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::PatternExpr(
-                        10,
-                    ),
-                    data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 12,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 10,
+                    data: TokenInfoData::InheritedSynSymbol {
+                        inherited_syn_symbol_idx: 0,
+                        inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                            ident: `line_segment_sketch`,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -1183,13 +1200,18 @@ Ok(
                             71,
                         ),
                     ),
-                    data: TokenInfoData::InheritedSynSymbol {
-                        inherited_syn_symbol_idx: 1,
-                        inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
-                            ident: `line_segment_sketch`,
-                        },
-                        syn_expr_region: ExprRegionLeash(_),
-                    },
+                    data: TokenInfoData::Field,
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            75,
+                        ),
+                    ),
+                    data: TokenInfoData::Method,
                 },
             ),
             None,
@@ -1200,32 +1222,10 @@ Ok(
                             72,
                         ),
                     ),
-                    data: TokenInfoData::Field,
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            76,
-                        ),
-                    ),
-                    data: TokenInfoData::Method,
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            73,
-                        ),
-                    ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 6,
+                        current_syn_symbol_idx: 5,
                         current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 6,
+                            pattern_symbol_idx: 5,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -1236,7 +1236,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            74,
+                            73,
                         ),
                     ),
                     data: TokenInfoData::Method,
@@ -1249,14 +1249,31 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            75,
+                            74,
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 11,
+                        current_syn_symbol_idx: 10,
                         current_syn_symbol_kind: CurrentSynSymbolKind::LoopVariable(
-                            70,
+                            69,
                         ),
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            76,
+                        ),
+                    ),
+                    data: TokenInfoData::CurrentSynSymbol {
+                        current_syn_symbol_idx: 8,
+                        current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
+                            pattern_symbol_idx: 7,
+                        },
                         syn_expr_region: ExprRegionLeash(_),
                     },
                 },
@@ -1270,54 +1287,9 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 9,
+                        current_syn_symbol_idx: 8,
                         current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 8,
-                        },
-                        syn_expr_region: ExprRegionLeash(_),
-                    },
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            78,
-                        ),
-                    ),
-                    data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 9,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 8,
-                        },
-                        syn_expr_region: ExprRegionLeash(_),
-                    },
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            82,
-                        ),
-                    ),
-                    data: TokenInfoData::Method,
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            79,
-                        ),
-                    ),
-                    data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 2,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 2,
+                            pattern_symbol_idx: 7,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -1339,13 +1311,41 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            80,
+                            78,
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 12,
+                        current_syn_symbol_idx: 1,
                         current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 10,
+                            pattern_symbol_idx: 1,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            80,
+                        ),
+                    ),
+                    data: TokenInfoData::Method,
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            79,
+                        ),
+                    ),
+                    data: TokenInfoData::CurrentSynSymbol {
+                        current_syn_symbol_idx: 11,
+                        current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
+                            pattern_symbol_idx: 9,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -1353,6 +1353,23 @@ Ok(
             ),
             None,
             None,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            83,
+                        ),
+                    ),
+                    data: TokenInfoData::CurrentSynSymbol {
+                        current_syn_symbol_idx: 8,
+                        current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
+                            pattern_symbol_idx: 7,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
             None,
             Some(
                 TokenInfo {
@@ -1362,45 +1379,28 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 9,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 8,
-                        },
-                        syn_expr_region: ExprRegionLeash(_),
-                    },
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            85,
-                        ),
-                    ),
-                    data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 5,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 5,
-                        },
-                        syn_expr_region: ExprRegionLeash(_),
-                    },
-                },
-            ),
-            None,
-            None,
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            87,
-                        ),
-                    ),
-                    data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 4,
                         current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                             pattern_symbol_idx: 4,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            None,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            86,
+                        ),
+                    ),
+                    data: TokenInfoData::CurrentSynSymbol {
+                        current_syn_symbol_idx: 3,
+                        current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
+                            pattern_symbol_idx: 3,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },

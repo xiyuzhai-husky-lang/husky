@@ -148,7 +148,7 @@
                     hir_expr_body_and_region: Some(
                         (
                             Eager(
-                                20,
+                                19,
                             ),
                             Eager(
                                 HirEagerExprRegion(

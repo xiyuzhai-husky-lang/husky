@@ -216,10 +216,10 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::UseExpr(
-                        3,
+                        2,
                     ),
                     data: TokenInfoData::UseExpr {
-                        use_expr_idx: 3,
+                        use_expr_idx: 2,
                         rule_idx: OnceUseRuleIdx(
                             0,
                         ),
@@ -237,10 +237,10 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::UseExpr(
-                        2,
+                        1,
                     ),
                     data: TokenInfoData::UseExpr {
-                        use_expr_idx: 2,
+                        use_expr_idx: 1,
                         rule_idx: OnceUseRuleIdx(
                             8,
                         ),
@@ -266,10 +266,10 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::UseExpr(
-                        6,
+                        5,
                     ),
                     data: TokenInfoData::UseExpr {
-                        use_expr_idx: 6,
+                        use_expr_idx: 5,
                         rule_idx: OnceUseRuleIdx(
                             1,
                         ),
@@ -287,10 +287,10 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::UseExpr(
-                        5,
+                        4,
                     ),
                     data: TokenInfoData::UseExpr {
-                        use_expr_idx: 5,
+                        use_expr_idx: 4,
                         rule_idx: OnceUseRuleIdx(
                             9,
                         ),
@@ -316,10 +316,10 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::UseExpr(
-                        9,
+                        8,
                     ),
                     data: TokenInfoData::UseExpr {
-                        use_expr_idx: 9,
+                        use_expr_idx: 8,
                         rule_idx: OnceUseRuleIdx(
                             2,
                         ),
@@ -337,10 +337,10 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::UseExpr(
-                        8,
+                        7,
                     ),
                     data: TokenInfoData::UseExpr {
-                        use_expr_idx: 8,
+                        use_expr_idx: 7,
                         rule_idx: OnceUseRuleIdx(
                             10,
                         ),
@@ -367,10 +367,10 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::UseExpr(
-                        12,
+                        11,
                     ),
                     data: TokenInfoData::UseExpr {
-                        use_expr_idx: 12,
+                        use_expr_idx: 11,
                         rule_idx: OnceUseRuleIdx(
                             3,
                         ),
@@ -388,10 +388,10 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::UseExpr(
-                        11,
+                        10,
                     ),
                     data: TokenInfoData::UseExpr {
-                        use_expr_idx: 11,
+                        use_expr_idx: 10,
                         rule_idx: OnceUseRuleIdx(
                             11,
                         ),
@@ -417,10 +417,10 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::UseExpr(
-                        15,
+                        14,
                     ),
                     data: TokenInfoData::UseExpr {
-                        use_expr_idx: 15,
+                        use_expr_idx: 14,
                         rule_idx: OnceUseRuleIdx(
                             4,
                         ),
@@ -438,10 +438,10 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::UseExpr(
-                        14,
+                        13,
                     ),
                     data: TokenInfoData::UseExpr {
-                        use_expr_idx: 14,
+                        use_expr_idx: 13,
                         rule_idx: OnceUseRuleIdx(
                             12,
                         ),
@@ -467,10 +467,10 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::UseExpr(
-                        18,
+                        17,
                     ),
                     data: TokenInfoData::UseExpr {
-                        use_expr_idx: 18,
+                        use_expr_idx: 17,
                         rule_idx: OnceUseRuleIdx(
                             5,
                         ),
@@ -488,10 +488,10 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::UseExpr(
-                        17,
+                        16,
                     ),
                     data: TokenInfoData::UseExpr {
-                        use_expr_idx: 17,
+                        use_expr_idx: 16,
                         rule_idx: OnceUseRuleIdx(
                             13,
                         ),
@@ -517,10 +517,10 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::UseExpr(
-                        20,
+                        19,
                     ),
                     data: TokenInfoData::UseExpr {
-                        use_expr_idx: 20,
+                        use_expr_idx: 19,
                         rule_idx: OnceUseRuleIdx(
                             6,
                         ),
@@ -542,10 +542,10 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::UseExpr(
-                        22,
+                        21,
                     ),
                     data: TokenInfoData::UseExpr {
-                        use_expr_idx: 22,
+                        use_expr_idx: 21,
                         rule_idx: OnceUseRuleIdx(
                             7,
                         ),
@@ -586,7 +586,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
+                        0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`malamute::Class`, `Enum`),
@@ -605,7 +605,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        2,
+                        1,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`mnist::MnistLabel`, `Enum`),
@@ -625,7 +625,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
+                        0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Fugitive(
                                 FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
@@ -645,7 +645,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        2,
+                        1,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Fugitive(
                                 FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
@@ -656,6 +656,26 @@ Ok(
                         EntityPath::MajorItem(
                             MajorItemPath::Fugitive(
                                 FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        2,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Fugitive(
+                                FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Fugitive(
+                                FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                             ),
                         ),
                     ),
@@ -668,14 +688,14 @@ Ok(
                         3,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
                             ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
                             ),
                         ),
                     ),
@@ -688,14 +708,14 @@ Ok(
                         4,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
+                                FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
                             ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
+                                FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
                             ),
                         ),
                     ),
@@ -708,14 +728,14 @@ Ok(
                         5,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
+                                FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
                             ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
+                                FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
                             ),
                         ),
                     ),
@@ -728,14 +748,14 @@ Ok(
                         6,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
+                                FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),
                             ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
+                                FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),
                             ),
                         ),
                     ),
@@ -748,14 +768,14 @@ Ok(
                         7,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),
+                                FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
                             ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),
+                                FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
                             ),
                         ),
                     ),
@@ -768,14 +788,14 @@ Ok(
                         8,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
+                                FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
                             ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
+                                FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
                             ),
                         ),
                     ),
@@ -787,15 +807,15 @@ Ok(
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         9,
                         PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
+                            MajorItemPath::Type(
+                                TypePath(`malamute::Class`, `Enum`),
                             ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
+                            MajorItemPath::Type(
+                                TypePath(`malamute::Class`, `Enum`),
                             ),
                         ),
                     ),
@@ -806,26 +826,6 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         10,
-                        PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Type(
-                                TypePath(`malamute::Class`, `Enum`),
-                            ),
-                        ),
-                    ),
-                    data: TokenInfoData::Entity(
-                        EntityPath::MajorItem(
-                            MajorItemPath::Type(
-                                TypePath(`malamute::Class`, `Enum`),
-                            ),
-                        ),
-                    ),
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        11,
                         PrincipalEntityPath::TypeVariant(
                             TypeVariantPath(
                                 ItemPathId(

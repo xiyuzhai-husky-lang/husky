@@ -589,7 +589,7 @@ AstSheet {
                     variants: Some(
                         TypeVariants {
                             ast_idx_range: ArenaIdxRange(
-                                1..11,
+                                0..10,
                             ),
                         },
                     ),
@@ -656,7 +656,7 @@ AstSheet {
                     TraitForType(
                         TraitForTypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                11..12,
+                                10..11,
                             ),
                         },
                     ),
@@ -673,7 +673,7 @@ AstSheet {
                     Type(
                         TypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                12..13,
+                                11..12,
                             ),
                         },
                     ),
@@ -690,7 +690,7 @@ AstSheet {
                     TraitForType(
                         TraitForTypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                13..14,
+                                12..13,
                             ),
                         },
                     ),
@@ -748,7 +748,7 @@ AstSheet {
                     TraitForType(
                         TraitForTypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                14..15,
+                                13..14,
                             ),
                         },
                     ),
@@ -765,7 +765,7 @@ AstSheet {
                     Type(
                         TypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                15..16,
+                                14..15,
                             ),
                         },
                     ),
@@ -782,7 +782,7 @@ AstSheet {
                     TraitForType(
                         TraitForTypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                16..17,
+                                15..16,
                             ),
                         },
                     ),
@@ -832,10 +832,16 @@ AstSheet {
         ],
     },
     top_level_asts: ArenaIdxRange(
-        17..28,
+        16..27,
     ),
     nested_top_level_asts: [],
     siblings: [
+        ArenaIdxRange(
+            10..10,
+        ),
+        ArenaIdxRange(
+            10..11,
+        ),
         ArenaIdxRange(
             11..11,
         ),
@@ -870,13 +876,7 @@ AstSheet {
             16..16,
         ),
         ArenaIdxRange(
-            16..17,
-        ),
-        ArenaIdxRange(
-            17..17,
-        ),
-        ArenaIdxRange(
-            17..28,
+            16..27,
         ),
     ],
 }

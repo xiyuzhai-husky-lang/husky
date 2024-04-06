@@ -12,7 +12,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
-                        ast_idx: 26,
+                        ast_idx: 25,
                         ident_token: IdentToken {
                             ident: `open_one_match`,
                             token_idx: TokenIdx(
@@ -24,7 +24,7 @@ EntityTreeSheet {
                             body: Some(
                                 FugitiveBody {
                                     ast_idx_range: ArenaIdxRange(
-                                        1..2,
+                                        0..1,
                                     ),
                                 },
                             ),
@@ -52,7 +52,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
-                        ast_idx: 27,
+                        ast_idx: 26,
                         ident_token: IdentToken {
                             ident: `almost_closed`,
                             token_idx: TokenIdx(
@@ -66,7 +66,7 @@ EntityTreeSheet {
                             body: Some(
                                 FugitiveBody {
                                     ast_idx_range: ArenaIdxRange(
-                                        2..4,
+                                        1..3,
                                     ),
                                 },
                             ),
@@ -94,7 +94,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits`,
                         ),
-                        ast_idx: 28,
+                        ast_idx: 27,
                         ident_token: IdentToken {
                             ident: `is_zero`,
                             token_idx: TokenIdx(
@@ -106,7 +106,7 @@ EntityTreeSheet {
                             body: Some(
                                 FugitiveBody {
                                     ast_idx_range: ArenaIdxRange(
-                                        12..25,
+                                        11..24,
                                     ),
                                 },
                             ),
@@ -184,8 +184,8 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
-                        ast_idx: 25,
-                        use_expr_idx: 1,
+                        ast_idx: 24,
+                        use_expr_idx: 0,
                     },
                 ),
             },
@@ -211,8 +211,8 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
-                        ast_idx: 25,
-                        use_expr_idx: 1,
+                        ast_idx: 24,
+                        use_expr_idx: 0,
                     },
                 ),
             },
@@ -238,8 +238,8 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
-                        ast_idx: 25,
-                        use_expr_idx: 1,
+                        ast_idx: 24,
+                        use_expr_idx: 0,
                     },
                 ),
             },
@@ -265,8 +265,8 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
-                        ast_idx: 25,
-                        use_expr_idx: 1,
+                        ast_idx: 24,
+                        use_expr_idx: 0,
                     },
                 ),
             },
@@ -292,8 +292,8 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
-                        ast_idx: 25,
-                        use_expr_idx: 1,
+                        ast_idx: 24,
+                        use_expr_idx: 0,
                     },
                 ),
             },
@@ -319,8 +319,8 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
-                        ast_idx: 25,
-                        use_expr_idx: 1,
+                        ast_idx: 24,
+                        use_expr_idx: 0,
                     },
                 ),
             },
@@ -346,8 +346,8 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
-                        ast_idx: 25,
-                        use_expr_idx: 1,
+                        ast_idx: 24,
+                        use_expr_idx: 0,
                     },
                 ),
             },
@@ -373,8 +373,8 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
-                        ast_idx: 25,
-                        use_expr_idx: 1,
+                        ast_idx: 24,
+                        use_expr_idx: 0,
                     },
                 ),
             },
@@ -400,8 +400,8 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
-                        ast_idx: 25,
-                        use_expr_idx: 1,
+                        ast_idx: 24,
+                        use_expr_idx: 0,
                     },
                 ),
             },
@@ -427,8 +427,8 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
-                        ast_idx: 25,
-                        use_expr_idx: 1,
+                        ast_idx: 24,
+                        use_expr_idx: 0,
                     },
                 ),
             },
@@ -452,8 +452,8 @@ EntityTreeSheet {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 11,
-                                use_expr_idx: 1,
+                                ast_idx: 10,
+                                use_expr_idx: 0,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -464,8 +464,8 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
-                        ast_idx: 25,
-                        use_expr_idx: 1,
+                        ast_idx: 24,
+                        use_expr_idx: 0,
                     },
                 ),
             },
@@ -493,8 +493,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 27,
+                                ast_idx: 19,
+                                use_expr_idx: 26,
                             },
                         ),
                         path: PrincipalEntityPath::Module(
@@ -503,8 +503,8 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
-                        ast_idx: 25,
-                        use_expr_idx: 1,
+                        ast_idx: 24,
+                        use_expr_idx: 0,
                     },
                 ),
             },
@@ -532,8 +532,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 27,
+                                ast_idx: 19,
+                                use_expr_idx: 26,
                             },
                         ),
                         path: PrincipalEntityPath::Module(
@@ -542,8 +542,8 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
-                        ast_idx: 25,
-                        use_expr_idx: 1,
+                        ast_idx: 24,
+                        use_expr_idx: 0,
                     },
                 ),
             },
@@ -571,8 +571,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 27,
+                                ast_idx: 19,
+                                use_expr_idx: 26,
                             },
                         ),
                         path: PrincipalEntityPath::Module(
@@ -581,8 +581,8 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
-                        ast_idx: 25,
-                        use_expr_idx: 1,
+                        ast_idx: 24,
+                        use_expr_idx: 0,
                     },
                 ),
             },
@@ -610,8 +610,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 27,
+                                ast_idx: 19,
+                                use_expr_idx: 26,
                             },
                         ),
                         path: PrincipalEntityPath::Module(
@@ -620,8 +620,8 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
-                        ast_idx: 25,
-                        use_expr_idx: 1,
+                        ast_idx: 24,
+                        use_expr_idx: 0,
                     },
                 ),
             },
@@ -649,8 +649,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 27,
+                                ast_idx: 19,
+                                use_expr_idx: 26,
                             },
                         ),
                         path: PrincipalEntityPath::Module(
@@ -659,8 +659,8 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
-                        ast_idx: 25,
-                        use_expr_idx: 1,
+                        ast_idx: 24,
+                        use_expr_idx: 0,
                     },
                 ),
             },
@@ -688,8 +688,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 27,
+                                ast_idx: 19,
+                                use_expr_idx: 26,
                             },
                         ),
                         path: PrincipalEntityPath::Module(
@@ -698,8 +698,8 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
-                        ast_idx: 25,
-                        use_expr_idx: 1,
+                        ast_idx: 24,
+                        use_expr_idx: 0,
                     },
                 ),
             },
@@ -727,8 +727,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 27,
+                                ast_idx: 19,
+                                use_expr_idx: 26,
                             },
                         ),
                         path: PrincipalEntityPath::Module(
@@ -737,8 +737,8 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
-                        ast_idx: 25,
-                        use_expr_idx: 1,
+                        ast_idx: 24,
+                        use_expr_idx: 0,
                     },
                 ),
             },
@@ -764,8 +764,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 27,
+                                ast_idx: 19,
+                                use_expr_idx: 26,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -776,8 +776,8 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
-                        ast_idx: 25,
-                        use_expr_idx: 1,
+                        ast_idx: 24,
+                        use_expr_idx: 0,
                     },
                 ),
             },
@@ -805,8 +805,8 @@ EntityTreeSheet {
                                         visibility: Scope::PubUnder(
                                             `mnist_classifier`,
                                         ),
-                                        ast_idx: 24,
-                                        use_expr_idx: 19,
+                                        ast_idx: 23,
+                                        use_expr_idx: 18,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -817,8 +817,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 27,
+                                ast_idx: 19,
+                                use_expr_idx: 26,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -829,8 +829,8 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
-                        ast_idx: 25,
-                        use_expr_idx: 1,
+                        ast_idx: 24,
+                        use_expr_idx: 0,
                     },
                 ),
             },
@@ -858,8 +858,8 @@ EntityTreeSheet {
                                         visibility: Scope::PubUnder(
                                             `mnist_classifier`,
                                         ),
-                                        ast_idx: 24,
-                                        use_expr_idx: 19,
+                                        ast_idx: 23,
+                                        use_expr_idx: 18,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -870,8 +870,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 27,
+                                ast_idx: 19,
+                                use_expr_idx: 26,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -882,8 +882,8 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
-                        ast_idx: 25,
-                        use_expr_idx: 1,
+                        ast_idx: 24,
+                        use_expr_idx: 0,
                     },
                 ),
             },
@@ -911,8 +911,8 @@ EntityTreeSheet {
                                         visibility: Scope::PubUnder(
                                             `mnist_classifier`,
                                         ),
-                                        ast_idx: 24,
-                                        use_expr_idx: 19,
+                                        ast_idx: 23,
+                                        use_expr_idx: 18,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -923,8 +923,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 27,
+                                ast_idx: 19,
+                                use_expr_idx: 26,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -935,8 +935,8 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
-                        ast_idx: 25,
-                        use_expr_idx: 1,
+                        ast_idx: 24,
+                        use_expr_idx: 0,
                     },
                 ),
             },
@@ -968,8 +968,8 @@ EntityTreeSheet {
                                         visibility: Scope::PubUnder(
                                             `mnist_classifier`,
                                         ),
-                                        ast_idx: 24,
-                                        use_expr_idx: 19,
+                                        ast_idx: 23,
+                                        use_expr_idx: 18,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -982,8 +982,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 27,
+                                ast_idx: 19,
+                                use_expr_idx: 26,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -996,8 +996,8 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
-                        ast_idx: 25,
-                        use_expr_idx: 1,
+                        ast_idx: 24,
+                        use_expr_idx: 0,
                     },
                 ),
             },
@@ -1025,8 +1025,8 @@ EntityTreeSheet {
                                         visibility: Scope::PubUnder(
                                             `mnist_classifier`,
                                         ),
-                                        ast_idx: 25,
-                                        use_expr_idx: 21,
+                                        ast_idx: 24,
+                                        use_expr_idx: 20,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -1037,8 +1037,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 27,
+                                ast_idx: 19,
+                                use_expr_idx: 26,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -1049,8 +1049,8 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
-                        ast_idx: 25,
-                        use_expr_idx: 1,
+                        ast_idx: 24,
+                        use_expr_idx: 0,
                     },
                 ),
             },
@@ -1078,8 +1078,8 @@ EntityTreeSheet {
                                         visibility: Scope::PubUnder(
                                             `mnist_classifier`,
                                         ),
-                                        ast_idx: 25,
-                                        use_expr_idx: 21,
+                                        ast_idx: 24,
+                                        use_expr_idx: 20,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -1090,8 +1090,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 27,
+                                ast_idx: 19,
+                                use_expr_idx: 26,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -1102,8 +1102,8 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
-                        ast_idx: 25,
-                        use_expr_idx: 1,
+                        ast_idx: 24,
+                        use_expr_idx: 0,
                     },
                 ),
             },
@@ -1131,8 +1131,8 @@ EntityTreeSheet {
                                         visibility: Scope::PubUnder(
                                             `mnist_classifier`,
                                         ),
-                                        ast_idx: 25,
-                                        use_expr_idx: 21,
+                                        ast_idx: 24,
+                                        use_expr_idx: 20,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -1143,8 +1143,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 27,
+                                ast_idx: 19,
+                                use_expr_idx: 26,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -1155,8 +1155,8 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
-                        ast_idx: 25,
-                        use_expr_idx: 1,
+                        ast_idx: 24,
+                        use_expr_idx: 0,
                     },
                 ),
             },
@@ -1184,8 +1184,8 @@ EntityTreeSheet {
                                         visibility: Scope::PubUnder(
                                             `mnist_classifier`,
                                         ),
-                                        ast_idx: 25,
-                                        use_expr_idx: 21,
+                                        ast_idx: 24,
+                                        use_expr_idx: 20,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -1196,8 +1196,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 27,
+                                ast_idx: 19,
+                                use_expr_idx: 26,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -1208,8 +1208,8 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
-                        ast_idx: 25,
-                        use_expr_idx: 1,
+                        ast_idx: 24,
+                        use_expr_idx: 0,
                     },
                 ),
             },
@@ -1233,8 +1233,8 @@ EntityTreeSheet {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 12,
-                                use_expr_idx: 3,
+                                ast_idx: 11,
+                                use_expr_idx: 2,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -1245,8 +1245,8 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
-                        ast_idx: 25,
-                        use_expr_idx: 1,
+                        ast_idx: 24,
+                        use_expr_idx: 0,
                     },
                 ),
             },
@@ -1270,8 +1270,8 @@ EntityTreeSheet {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 13,
-                                use_expr_idx: 6,
+                                ast_idx: 12,
+                                use_expr_idx: 5,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -1282,8 +1282,8 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
-                        ast_idx: 25,
-                        use_expr_idx: 1,
+                        ast_idx: 24,
+                        use_expr_idx: 0,
                     },
                 ),
             },
@@ -1307,8 +1307,8 @@ EntityTreeSheet {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 14,
-                                use_expr_idx: 9,
+                                ast_idx: 13,
+                                use_expr_idx: 8,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -1319,8 +1319,8 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
-                        ast_idx: 25,
-                        use_expr_idx: 1,
+                        ast_idx: 24,
+                        use_expr_idx: 0,
                     },
                 ),
             },
@@ -1344,8 +1344,8 @@ EntityTreeSheet {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 15,
-                                use_expr_idx: 12,
+                                ast_idx: 14,
+                                use_expr_idx: 11,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -1356,8 +1356,8 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
-                        ast_idx: 25,
-                        use_expr_idx: 1,
+                        ast_idx: 24,
+                        use_expr_idx: 0,
                     },
                 ),
             },
@@ -1381,8 +1381,8 @@ EntityTreeSheet {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 16,
-                                use_expr_idx: 15,
+                                ast_idx: 15,
+                                use_expr_idx: 14,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -1393,8 +1393,8 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
-                        ast_idx: 25,
-                        use_expr_idx: 1,
+                        ast_idx: 24,
+                        use_expr_idx: 0,
                     },
                 ),
             },
@@ -1418,8 +1418,8 @@ EntityTreeSheet {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 17,
-                                use_expr_idx: 18,
+                                ast_idx: 16,
+                                use_expr_idx: 17,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -1430,8 +1430,8 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
-                        ast_idx: 25,
-                        use_expr_idx: 1,
+                        ast_idx: 24,
+                        use_expr_idx: 0,
                     },
                 ),
             },
@@ -1455,8 +1455,8 @@ EntityTreeSheet {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 18,
-                                use_expr_idx: 21,
+                                ast_idx: 17,
+                                use_expr_idx: 20,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -1467,8 +1467,8 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
-                        ast_idx: 25,
-                        use_expr_idx: 1,
+                        ast_idx: 24,
+                        use_expr_idx: 0,
                     },
                 ),
             },
@@ -1492,8 +1492,8 @@ EntityTreeSheet {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 19,
-                                use_expr_idx: 24,
+                                ast_idx: 18,
+                                use_expr_idx: 23,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -1504,8 +1504,8 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
-                        ast_idx: 25,
-                        use_expr_idx: 1,
+                        ast_idx: 24,
+                        use_expr_idx: 0,
                     },
                 ),
             },
@@ -1533,8 +1533,8 @@ EntityTreeSheet {
                                         visibility: Scope::PubUnder(
                                             `mnist_classifier`,
                                         ),
-                                        ast_idx: 18,
-                                        use_expr_idx: 1,
+                                        ast_idx: 17,
+                                        use_expr_idx: 0,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -1545,8 +1545,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 27,
+                                ast_idx: 19,
+                                use_expr_idx: 26,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -1557,8 +1557,8 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
-                        ast_idx: 25,
-                        use_expr_idx: 1,
+                        ast_idx: 24,
+                        use_expr_idx: 0,
                     },
                 ),
             },
@@ -1586,8 +1586,8 @@ EntityTreeSheet {
                                         visibility: Scope::PubUnder(
                                             `mnist_classifier`,
                                         ),
-                                        ast_idx: 18,
-                                        use_expr_idx: 1,
+                                        ast_idx: 17,
+                                        use_expr_idx: 0,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -1598,8 +1598,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 27,
+                                ast_idx: 19,
+                                use_expr_idx: 26,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -1610,8 +1610,8 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
-                        ast_idx: 25,
-                        use_expr_idx: 1,
+                        ast_idx: 24,
+                        use_expr_idx: 0,
                     },
                 ),
             },
@@ -1639,8 +1639,8 @@ EntityTreeSheet {
                                         visibility: Scope::PubUnder(
                                             `mnist_classifier`,
                                         ),
-                                        ast_idx: 18,
-                                        use_expr_idx: 1,
+                                        ast_idx: 17,
+                                        use_expr_idx: 0,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -1651,8 +1651,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 27,
+                                ast_idx: 19,
+                                use_expr_idx: 26,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -1663,8 +1663,8 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
-                        ast_idx: 25,
-                        use_expr_idx: 1,
+                        ast_idx: 24,
+                        use_expr_idx: 0,
                     },
                 ),
             },
@@ -1692,8 +1692,8 @@ EntityTreeSheet {
                                         visibility: Scope::PubUnder(
                                             `mnist_classifier`,
                                         ),
-                                        ast_idx: 18,
-                                        use_expr_idx: 1,
+                                        ast_idx: 17,
+                                        use_expr_idx: 0,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -1704,8 +1704,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 27,
+                                ast_idx: 19,
+                                use_expr_idx: 26,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -1716,8 +1716,8 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
-                        ast_idx: 25,
-                        use_expr_idx: 1,
+                        ast_idx: 24,
+                        use_expr_idx: 0,
                     },
                 ),
             },
@@ -1745,8 +1745,8 @@ EntityTreeSheet {
                                         visibility: Scope::PubUnder(
                                             `mnist_classifier`,
                                         ),
-                                        ast_idx: 18,
-                                        use_expr_idx: 1,
+                                        ast_idx: 17,
+                                        use_expr_idx: 0,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -1757,8 +1757,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 27,
+                                ast_idx: 19,
+                                use_expr_idx: 26,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -1769,8 +1769,8 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
-                        ast_idx: 25,
-                        use_expr_idx: 1,
+                        ast_idx: 24,
+                        use_expr_idx: 0,
                     },
                 ),
             },
@@ -1798,8 +1798,8 @@ EntityTreeSheet {
                                         visibility: Scope::PubUnder(
                                             `mnist_classifier`,
                                         ),
-                                        ast_idx: 18,
-                                        use_expr_idx: 1,
+                                        ast_idx: 17,
+                                        use_expr_idx: 0,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -1810,8 +1810,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 27,
+                                ast_idx: 19,
+                                use_expr_idx: 26,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -1822,8 +1822,8 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
-                        ast_idx: 25,
-                        use_expr_idx: 1,
+                        ast_idx: 24,
+                        use_expr_idx: 0,
                     },
                 ),
             },
@@ -1851,8 +1851,8 @@ EntityTreeSheet {
                                         visibility: Scope::PubUnder(
                                             `mnist_classifier`,
                                         ),
-                                        ast_idx: 18,
-                                        use_expr_idx: 1,
+                                        ast_idx: 17,
+                                        use_expr_idx: 0,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -1863,8 +1863,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 27,
+                                ast_idx: 19,
+                                use_expr_idx: 26,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -1875,8 +1875,8 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
-                        ast_idx: 25,
-                        use_expr_idx: 1,
+                        ast_idx: 24,
+                        use_expr_idx: 0,
                     },
                 ),
             },
@@ -1904,8 +1904,8 @@ EntityTreeSheet {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 11,
-                                                use_expr_idx: 1,
+                                                ast_idx: 10,
+                                                use_expr_idx: 0,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -1916,8 +1916,8 @@ EntityTreeSheet {
                                         visibility: Scope::PubUnder(
                                             `mnist_classifier`,
                                         ),
-                                        ast_idx: 19,
-                                        use_expr_idx: 4,
+                                        ast_idx: 18,
+                                        use_expr_idx: 3,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -1928,8 +1928,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 27,
+                                ast_idx: 19,
+                                use_expr_idx: 26,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -1940,8 +1940,8 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
-                        ast_idx: 25,
-                        use_expr_idx: 1,
+                        ast_idx: 24,
+                        use_expr_idx: 0,
                     },
                 ),
             },
@@ -1969,8 +1969,8 @@ EntityTreeSheet {
                                         visibility: Scope::PubUnder(
                                             `mnist_classifier`,
                                         ),
-                                        ast_idx: 20,
-                                        use_expr_idx: 7,
+                                        ast_idx: 19,
+                                        use_expr_idx: 6,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -1981,8 +1981,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 27,
+                                ast_idx: 19,
+                                use_expr_idx: 26,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -1993,8 +1993,8 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
-                        ast_idx: 25,
-                        use_expr_idx: 1,
+                        ast_idx: 24,
+                        use_expr_idx: 0,
                     },
                 ),
             },
@@ -2026,8 +2026,8 @@ EntityTreeSheet {
                                         visibility: Scope::PubUnder(
                                             `mnist_classifier`,
                                         ),
-                                        ast_idx: 20,
-                                        use_expr_idx: 7,
+                                        ast_idx: 19,
+                                        use_expr_idx: 6,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -2040,8 +2040,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 27,
+                                ast_idx: 19,
+                                use_expr_idx: 26,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -2054,8 +2054,8 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
-                        ast_idx: 25,
-                        use_expr_idx: 1,
+                        ast_idx: 24,
+                        use_expr_idx: 0,
                     },
                 ),
             },
@@ -2083,8 +2083,8 @@ EntityTreeSheet {
                                         visibility: Scope::PubUnder(
                                             `mnist_classifier`,
                                         ),
-                                        ast_idx: 21,
-                                        use_expr_idx: 10,
+                                        ast_idx: 20,
+                                        use_expr_idx: 9,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -2095,8 +2095,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 27,
+                                ast_idx: 19,
+                                use_expr_idx: 26,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -2107,8 +2107,8 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
-                        ast_idx: 25,
-                        use_expr_idx: 1,
+                        ast_idx: 24,
+                        use_expr_idx: 0,
                     },
                 ),
             },
@@ -2140,8 +2140,8 @@ EntityTreeSheet {
                                         visibility: Scope::PubUnder(
                                             `mnist_classifier`,
                                         ),
-                                        ast_idx: 21,
-                                        use_expr_idx: 10,
+                                        ast_idx: 20,
+                                        use_expr_idx: 9,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -2154,8 +2154,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 27,
+                                ast_idx: 19,
+                                use_expr_idx: 26,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -2168,8 +2168,8 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
-                        ast_idx: 25,
-                        use_expr_idx: 1,
+                        ast_idx: 24,
+                        use_expr_idx: 0,
                     },
                 ),
             },
@@ -2197,8 +2197,8 @@ EntityTreeSheet {
                                         visibility: Scope::PubUnder(
                                             `mnist_classifier`,
                                         ),
-                                        ast_idx: 22,
-                                        use_expr_idx: 13,
+                                        ast_idx: 21,
+                                        use_expr_idx: 12,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -2209,8 +2209,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 27,
+                                ast_idx: 19,
+                                use_expr_idx: 26,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -2221,8 +2221,8 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
-                        ast_idx: 25,
-                        use_expr_idx: 1,
+                        ast_idx: 24,
+                        use_expr_idx: 0,
                     },
                 ),
             },
@@ -2250,8 +2250,8 @@ EntityTreeSheet {
                                         visibility: Scope::PubUnder(
                                             `mnist_classifier`,
                                         ),
-                                        ast_idx: 22,
-                                        use_expr_idx: 13,
+                                        ast_idx: 21,
+                                        use_expr_idx: 12,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -2262,8 +2262,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 27,
+                                ast_idx: 19,
+                                use_expr_idx: 26,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -2274,8 +2274,8 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
-                        ast_idx: 25,
-                        use_expr_idx: 1,
+                        ast_idx: 24,
+                        use_expr_idx: 0,
                     },
                 ),
             },
@@ -2303,8 +2303,8 @@ EntityTreeSheet {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 164,
-                                                use_expr_idx: 1,
+                                                ast_idx: 163,
+                                                use_expr_idx: 0,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -2315,8 +2315,8 @@ EntityTreeSheet {
                                         visibility: Scope::PubUnder(
                                             `mnist_classifier`,
                                         ),
-                                        ast_idx: 22,
-                                        use_expr_idx: 13,
+                                        ast_idx: 21,
+                                        use_expr_idx: 12,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -2327,8 +2327,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 27,
+                                ast_idx: 19,
+                                use_expr_idx: 26,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -2339,8 +2339,8 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
-                        ast_idx: 25,
-                        use_expr_idx: 1,
+                        ast_idx: 24,
+                        use_expr_idx: 0,
                     },
                 ),
             },
@@ -2372,8 +2372,8 @@ EntityTreeSheet {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 164,
-                                                use_expr_idx: 1,
+                                                ast_idx: 163,
+                                                use_expr_idx: 0,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -2386,8 +2386,8 @@ EntityTreeSheet {
                                         visibility: Scope::PubUnder(
                                             `mnist_classifier`,
                                         ),
-                                        ast_idx: 22,
-                                        use_expr_idx: 13,
+                                        ast_idx: 21,
+                                        use_expr_idx: 12,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -2400,8 +2400,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 27,
+                                ast_idx: 19,
+                                use_expr_idx: 26,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -2414,8 +2414,8 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
-                        ast_idx: 25,
-                        use_expr_idx: 1,
+                        ast_idx: 24,
+                        use_expr_idx: 0,
                     },
                 ),
             },
@@ -2443,8 +2443,8 @@ EntityTreeSheet {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 166,
-                                                use_expr_idx: 5,
+                                                ast_idx: 165,
+                                                use_expr_idx: 4,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -2455,8 +2455,8 @@ EntityTreeSheet {
                                         visibility: Scope::PubUnder(
                                             `mnist_classifier`,
                                         ),
-                                        ast_idx: 22,
-                                        use_expr_idx: 13,
+                                        ast_idx: 21,
+                                        use_expr_idx: 12,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -2467,8 +2467,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 27,
+                                ast_idx: 19,
+                                use_expr_idx: 26,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -2479,8 +2479,8 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
-                        ast_idx: 25,
-                        use_expr_idx: 1,
+                        ast_idx: 24,
+                        use_expr_idx: 0,
                     },
                 ),
             },
@@ -2508,8 +2508,8 @@ EntityTreeSheet {
                                         visibility: Scope::PubUnder(
                                             `mnist_classifier`,
                                         ),
-                                        ast_idx: 23,
-                                        use_expr_idx: 16,
+                                        ast_idx: 22,
+                                        use_expr_idx: 15,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -2520,8 +2520,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 27,
+                                ast_idx: 19,
+                                use_expr_idx: 26,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -2532,8 +2532,8 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
-                        ast_idx: 25,
-                        use_expr_idx: 1,
+                        ast_idx: 24,
+                        use_expr_idx: 0,
                     },
                 ),
             },
@@ -2561,8 +2561,8 @@ EntityTreeSheet {
                                         visibility: Scope::PubUnder(
                                             `mnist_classifier`,
                                         ),
-                                        ast_idx: 23,
-                                        use_expr_idx: 16,
+                                        ast_idx: 22,
+                                        use_expr_idx: 15,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -2573,8 +2573,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 27,
+                                ast_idx: 19,
+                                use_expr_idx: 26,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -2585,8 +2585,8 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
-                        ast_idx: 25,
-                        use_expr_idx: 1,
+                        ast_idx: 24,
+                        use_expr_idx: 0,
                     },
                 ),
             },
@@ -2614,8 +2614,8 @@ EntityTreeSheet {
                                         visibility: Scope::PubUnder(
                                             `mnist_classifier`,
                                         ),
-                                        ast_idx: 23,
-                                        use_expr_idx: 16,
+                                        ast_idx: 22,
+                                        use_expr_idx: 15,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -2626,8 +2626,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 27,
+                                ast_idx: 19,
+                                use_expr_idx: 26,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -2638,8 +2638,8 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
-                        ast_idx: 25,
-                        use_expr_idx: 1,
+                        ast_idx: 24,
+                        use_expr_idx: 0,
                     },
                 ),
             },
@@ -2671,8 +2671,8 @@ EntityTreeSheet {
                                         visibility: Scope::PubUnder(
                                             `mnist_classifier`,
                                         ),
-                                        ast_idx: 23,
-                                        use_expr_idx: 16,
+                                        ast_idx: 22,
+                                        use_expr_idx: 15,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -2685,8 +2685,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 27,
+                                ast_idx: 19,
+                                use_expr_idx: 26,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -2699,8 +2699,8 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
-                        ast_idx: 25,
-                        use_expr_idx: 1,
+                        ast_idx: 24,
+                        use_expr_idx: 0,
                     },
                 ),
             },
@@ -2728,8 +2728,8 @@ EntityTreeSheet {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 12,
-                                                use_expr_idx: 3,
+                                                ast_idx: 11,
+                                                use_expr_idx: 2,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -2740,8 +2740,8 @@ EntityTreeSheet {
                                         visibility: Scope::PubUnder(
                                             `mnist_classifier`,
                                         ),
-                                        ast_idx: 19,
-                                        use_expr_idx: 4,
+                                        ast_idx: 18,
+                                        use_expr_idx: 3,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -2752,8 +2752,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 27,
+                                ast_idx: 19,
+                                use_expr_idx: 26,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -2764,8 +2764,8 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
-                        ast_idx: 25,
-                        use_expr_idx: 1,
+                        ast_idx: 24,
+                        use_expr_idx: 0,
                     },
                 ),
             },
@@ -2793,8 +2793,8 @@ EntityTreeSheet {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 13,
-                                                use_expr_idx: 6,
+                                                ast_idx: 12,
+                                                use_expr_idx: 5,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -2805,8 +2805,8 @@ EntityTreeSheet {
                                         visibility: Scope::PubUnder(
                                             `mnist_classifier`,
                                         ),
-                                        ast_idx: 19,
-                                        use_expr_idx: 4,
+                                        ast_idx: 18,
+                                        use_expr_idx: 3,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -2817,8 +2817,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 27,
+                                ast_idx: 19,
+                                use_expr_idx: 26,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -2829,8 +2829,8 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
-                        ast_idx: 25,
-                        use_expr_idx: 1,
+                        ast_idx: 24,
+                        use_expr_idx: 0,
                     },
                 ),
             },
@@ -2858,8 +2858,8 @@ EntityTreeSheet {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 14,
-                                                use_expr_idx: 9,
+                                                ast_idx: 13,
+                                                use_expr_idx: 8,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -2870,8 +2870,8 @@ EntityTreeSheet {
                                         visibility: Scope::PubUnder(
                                             `mnist_classifier`,
                                         ),
-                                        ast_idx: 19,
-                                        use_expr_idx: 4,
+                                        ast_idx: 18,
+                                        use_expr_idx: 3,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -2882,8 +2882,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 27,
+                                ast_idx: 19,
+                                use_expr_idx: 26,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -2894,8 +2894,8 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
-                        ast_idx: 25,
-                        use_expr_idx: 1,
+                        ast_idx: 24,
+                        use_expr_idx: 0,
                     },
                 ),
             },
@@ -2923,8 +2923,8 @@ EntityTreeSheet {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 15,
-                                                use_expr_idx: 12,
+                                                ast_idx: 14,
+                                                use_expr_idx: 11,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -2935,8 +2935,8 @@ EntityTreeSheet {
                                         visibility: Scope::PubUnder(
                                             `mnist_classifier`,
                                         ),
-                                        ast_idx: 19,
-                                        use_expr_idx: 4,
+                                        ast_idx: 18,
+                                        use_expr_idx: 3,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -2947,8 +2947,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 27,
+                                ast_idx: 19,
+                                use_expr_idx: 26,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -2959,8 +2959,8 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
-                        ast_idx: 25,
-                        use_expr_idx: 1,
+                        ast_idx: 24,
+                        use_expr_idx: 0,
                     },
                 ),
             },
@@ -2988,8 +2988,8 @@ EntityTreeSheet {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 16,
-                                                use_expr_idx: 15,
+                                                ast_idx: 15,
+                                                use_expr_idx: 14,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -3000,8 +3000,8 @@ EntityTreeSheet {
                                         visibility: Scope::PubUnder(
                                             `mnist_classifier`,
                                         ),
-                                        ast_idx: 19,
-                                        use_expr_idx: 4,
+                                        ast_idx: 18,
+                                        use_expr_idx: 3,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -3012,8 +3012,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 27,
+                                ast_idx: 19,
+                                use_expr_idx: 26,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -3024,8 +3024,8 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
-                        ast_idx: 25,
-                        use_expr_idx: 1,
+                        ast_idx: 24,
+                        use_expr_idx: 0,
                     },
                 ),
             },
@@ -3053,8 +3053,8 @@ EntityTreeSheet {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 17,
-                                                use_expr_idx: 18,
+                                                ast_idx: 16,
+                                                use_expr_idx: 17,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -3065,8 +3065,8 @@ EntityTreeSheet {
                                         visibility: Scope::PubUnder(
                                             `mnist_classifier`,
                                         ),
-                                        ast_idx: 19,
-                                        use_expr_idx: 4,
+                                        ast_idx: 18,
+                                        use_expr_idx: 3,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -3077,8 +3077,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 27,
+                                ast_idx: 19,
+                                use_expr_idx: 26,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -3089,8 +3089,8 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
-                        ast_idx: 25,
-                        use_expr_idx: 1,
+                        ast_idx: 24,
+                        use_expr_idx: 0,
                     },
                 ),
             },
@@ -3118,8 +3118,8 @@ EntityTreeSheet {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 18,
-                                                use_expr_idx: 21,
+                                                ast_idx: 17,
+                                                use_expr_idx: 20,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -3130,8 +3130,8 @@ EntityTreeSheet {
                                         visibility: Scope::PubUnder(
                                             `mnist_classifier`,
                                         ),
-                                        ast_idx: 19,
-                                        use_expr_idx: 4,
+                                        ast_idx: 18,
+                                        use_expr_idx: 3,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -3142,8 +3142,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 27,
+                                ast_idx: 19,
+                                use_expr_idx: 26,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -3154,8 +3154,8 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
-                        ast_idx: 25,
-                        use_expr_idx: 1,
+                        ast_idx: 24,
+                        use_expr_idx: 0,
                     },
                 ),
             },
@@ -3183,8 +3183,8 @@ EntityTreeSheet {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 19,
-                                                use_expr_idx: 24,
+                                                ast_idx: 18,
+                                                use_expr_idx: 23,
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
@@ -3195,8 +3195,8 @@ EntityTreeSheet {
                                         visibility: Scope::PubUnder(
                                             `mnist_classifier`,
                                         ),
-                                        ast_idx: 19,
-                                        use_expr_idx: 4,
+                                        ast_idx: 18,
+                                        use_expr_idx: 3,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -3207,8 +3207,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 27,
+                                ast_idx: 19,
+                                use_expr_idx: 26,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -3219,8 +3219,8 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
-                        ast_idx: 25,
-                        use_expr_idx: 1,
+                        ast_idx: 24,
+                        use_expr_idx: 0,
                     },
                 ),
             },
@@ -3230,8 +3230,8 @@ EntityTreeSheet {
     once_use_rules: OnceUseRules(
         [
             OnceUseRule {
-                ast_idx: 25,
-                use_expr_idx: 2,
+                ast_idx: 24,
+                use_expr_idx: 1,
                 visibility: Scope::PubUnder(
                     `mnist_classifier::digits::zero`,
                 ),
@@ -3244,7 +3244,7 @@ EntityTreeSheet {
                         },
                     ),
                     children: ArenaIdxRange(
-                        1..2,
+                        0..1,
                     ),
                 },
                 parent: None,
@@ -3264,8 +3264,8 @@ EntityTreeSheet {
             UseAllRule {
                 parent_module_path: `mnist_classifier::digits`,
                 is_same_crate: true,
-                ast_idx: 25,
-                use_expr_idx: 1,
+                ast_idx: 24,
+                use_expr_idx: 0,
                 visibility: Scope::PubUnder(
                     `mnist_classifier::digits::zero`,
                 ),

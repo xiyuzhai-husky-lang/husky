@@ -95,7 +95,7 @@
                             ),
                             initialization: Some(
                                 Bind {
-                                    value: 4,
+                                    value: 3,
                                 },
                             ),
                         },
@@ -110,7 +110,7 @@
                             ),
                             initialization: Some(
                                 Bind {
-                                    value: 8,
+                                    value: 7,
                                 },
                             ),
                         },
@@ -127,7 +127,7 @@
                             data: [
                                 HirEagerExprEntry {
                                     data: HirEagerExprData::Variable(
-                                        1,
+                                        0,
                                     ),
                                     contracted_quary: HirContractedQuary {
                                         contract: Some(
@@ -153,7 +153,7 @@
                                 },
                                 HirEagerExprEntry {
                                     data: HirEagerExprData::MethodFnCall {
-                                        self_argument: 1,
+                                        self_argument: 0,
                                         self_contract: Pure,
                                         ident: `first`,
                                         path: AssocItemPath::TypeItem(
@@ -203,7 +203,7 @@
                                 },
                                 HirEagerExprEntry {
                                     data: HirEagerExprData::Unwrap {
-                                        opd: 2,
+                                        opd: 1,
                                     },
                                     contracted_quary: HirContractedQuary {
                                         contract: None,
@@ -216,7 +216,7 @@
                                 },
                                 HirEagerExprEntry {
                                     data: HirEagerExprData::MethodFnCall {
-                                        self_argument: 3,
+                                        self_argument: 2,
                                         self_contract: Pure,
                                         ident: `clone`,
                                         path: AssocItemPath::TraitForTypeItem(
@@ -263,7 +263,7 @@
                                 },
                                 HirEagerExprEntry {
                                     data: HirEagerExprData::Variable(
-                                        1,
+                                        0,
                                     ),
                                     contracted_quary: HirContractedQuary {
                                         contract: Some(
@@ -289,7 +289,7 @@
                                 },
                                 HirEagerExprEntry {
                                     data: HirEagerExprData::MethodFnCall {
-                                        self_argument: 5,
+                                        self_argument: 4,
                                         self_contract: Pure,
                                         ident: `last`,
                                         path: AssocItemPath::TypeItem(
@@ -339,7 +339,7 @@
                                 },
                                 HirEagerExprEntry {
                                     data: HirEagerExprData::Unwrap {
-                                        opd: 6,
+                                        opd: 5,
                                     },
                                     contracted_quary: HirContractedQuary {
                                         contract: None,
@@ -352,7 +352,7 @@
                                 },
                                 HirEagerExprEntry {
                                     data: HirEagerExprData::MethodFnCall {
-                                        self_argument: 7,
+                                        self_argument: 6,
                                         self_contract: Pure,
                                         ident: `clone`,
                                         path: AssocItemPath::TraitForTypeItem(
@@ -551,7 +551,7 @@
                     parenate_parameters: HirEagerParenateParameters(
                         [
                             HirEagerParenateParameter::Simple {
-                                pattern_expr_idx: 1,
+                                pattern_expr_idx: 0,
                                 contract: Pure,
                                 ty: HirType::PathLeading(
                                     HirTypePathLeading {
@@ -562,7 +562,7 @@
                                 ),
                             },
                             HirEagerParenateParameter::Simple {
-                                pattern_expr_idx: 2,
+                                pattern_expr_idx: 1,
                                 contract: Pure,
                                 ty: HirType::PathLeading(
                                     HirTypePathLeading {
@@ -657,7 +657,7 @@
                     parenate_parameters: HirEagerParenateParameters(
                         [
                             HirEagerParenateParameter::Simple {
-                                pattern_expr_idx: 1,
+                                pattern_expr_idx: 0,
                                 contract: Pure,
                                 ty: HirType::PathLeading(
                                     HirTypePathLeading {
@@ -668,7 +668,7 @@
                                 ),
                             },
                             HirEagerParenateParameter::Simple {
-                                pattern_expr_idx: 2,
+                                pattern_expr_idx: 1,
                                 contract: Pure,
                                 ty: HirType::PathLeading(
                                     HirTypePathLeading {
@@ -763,7 +763,7 @@
                     parenate_parameters: HirEagerParenateParameters(
                         [
                             HirEagerParenateParameter::Simple {
-                                pattern_expr_idx: 1,
+                                pattern_expr_idx: 0,
                                 contract: Pure,
                                 ty: HirType::PathLeading(
                                     HirTypePathLeading {
@@ -784,7 +784,7 @@
                                 ),
                             },
                             HirEagerParenateParameter::Simple {
-                                pattern_expr_idx: 2,
+                                pattern_expr_idx: 1,
                                 contract: Pure,
                                 ty: HirType::PathLeading(
                                     HirTypePathLeading {
@@ -795,7 +795,7 @@
                                 ),
                             },
                             HirEagerParenateParameter::Simple {
-                                pattern_expr_idx: 3,
+                                pattern_expr_idx: 2,
                                 contract: Pure,
                                 ty: HirType::PathLeading(
                                     HirTypePathLeading {
@@ -903,7 +903,7 @@
                     parenate_parameters: HirEagerParenateParameters(
                         [
                             HirEagerParenateParameter::Simple {
-                                pattern_expr_idx: 1,
+                                pattern_expr_idx: 0,
                                 contract: Pure,
                                 ty: HirType::PathLeading(
                                     HirTypePathLeading {
@@ -924,6 +924,17 @@
                                 ),
                             },
                             HirEagerParenateParameter::Simple {
+                                pattern_expr_idx: 1,
+                                contract: Pure,
+                                ty: HirType::PathLeading(
+                                    HirTypePathLeading {
+                                        ty_path: TypePath(`core::num::i32`, `Extern`),
+                                        template_arguments: [],
+                                        always_copyable: true,
+                                    },
+                                ),
+                            },
+                            HirEagerParenateParameter::Simple {
                                 pattern_expr_idx: 2,
                                 contract: Pure,
                                 ty: HirType::PathLeading(
@@ -936,17 +947,6 @@
                             },
                             HirEagerParenateParameter::Simple {
                                 pattern_expr_idx: 3,
-                                contract: Pure,
-                                ty: HirType::PathLeading(
-                                    HirTypePathLeading {
-                                        ty_path: TypePath(`core::num::i32`, `Extern`),
-                                        template_arguments: [],
-                                        always_copyable: true,
-                                    },
-                                ),
-                            },
-                            HirEagerParenateParameter::Simple {
-                                pattern_expr_idx: 4,
                                 contract: Pure,
                                 ty: HirType::PathLeading(
                                     HirTypePathLeading {
@@ -1067,7 +1067,7 @@
                     parenate_parameters: HirEagerParenateParameters(
                         [
                             HirEagerParenateParameter::Simple {
-                                pattern_expr_idx: 1,
+                                pattern_expr_idx: 0,
                                 contract: Pure,
                                 ty: HirType::PathLeading(
                                     HirTypePathLeading {
@@ -1088,7 +1088,7 @@
                                 ),
                             },
                             HirEagerParenateParameter::Simple {
-                                pattern_expr_idx: 2,
+                                pattern_expr_idx: 1,
                                 contract: Pure,
                                 ty: HirType::PathLeading(
                                     HirTypePathLeading {
@@ -1300,7 +1300,7 @@
                                 ],
                             },
                             self_value_variable: Some(
-                                1,
+                                0,
                             ),
                         },
                     },
@@ -1379,7 +1379,7 @@
                     parenate_parameters: HirEagerParenateParameters(
                         [
                             HirEagerParenateParameter::Simple {
-                                pattern_expr_idx: 1,
+                                pattern_expr_idx: 0,
                                 contract: Pure,
                                 ty: HirType::PathLeading(
                                     HirTypePathLeading {
@@ -1400,7 +1400,7 @@
                                 ),
                             },
                             HirEagerParenateParameter::Simple {
-                                pattern_expr_idx: 2,
+                                pattern_expr_idx: 1,
                                 contract: Pure,
                                 ty: HirType::PathLeading(
                                     HirTypePathLeading {
@@ -1411,7 +1411,7 @@
                                 ),
                             },
                             HirEagerParenateParameter::Simple {
-                                pattern_expr_idx: 3,
+                                pattern_expr_idx: 2,
                                 contract: Pure,
                                 ty: HirType::PathLeading(
                                     HirTypePathLeading {
@@ -1504,7 +1504,7 @@
                                 ],
                             },
                             self_value_variable: Some(
-                                1,
+                                0,
                             ),
                         },
                     },
@@ -1576,7 +1576,7 @@
                                 ],
                             },
                             self_value_variable: Some(
-                                1,
+                                0,
                             ),
                         },
                     },
@@ -1704,7 +1704,7 @@
                                 ],
                             },
                             self_value_variable: Some(
-                                1,
+                                0,
                             ),
                         },
                     },
@@ -1824,7 +1824,7 @@
                                 ],
                             },
                             self_value_variable: Some(
-                                1,
+                                0,
                             ),
                         },
                     },
@@ -1876,7 +1876,7 @@
                                 ],
                             },
                             self_value_variable: Some(
-                                1,
+                                0,
                             ),
                         },
                     },
@@ -1897,7 +1897,7 @@
                     parenate_parameters: HirEagerParenateParameters(
                         [
                             HirEagerParenateParameter::Simple {
-                                pattern_expr_idx: 1,
+                                pattern_expr_idx: 0,
                                 contract: Pure,
                                 ty: HirType::PathLeading(
                                     HirTypePathLeading {
@@ -1918,7 +1918,7 @@
                                 ),
                             },
                             HirEagerParenateParameter::Simple {
-                                pattern_expr_idx: 2,
+                                pattern_expr_idx: 1,
                                 contract: Pure,
                                 ty: HirType::PathLeading(
                                     HirTypePathLeading {
@@ -1998,7 +1998,7 @@
                                 ],
                             },
                             self_value_variable: Some(
-                                1,
+                                0,
                             ),
                         },
                     },

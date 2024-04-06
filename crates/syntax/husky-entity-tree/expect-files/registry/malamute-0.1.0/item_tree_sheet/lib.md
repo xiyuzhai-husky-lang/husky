@@ -23,7 +23,7 @@ EntityTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 24,
+                        ast_idx: 23,
                         ident_token: IdentToken {
                             ident: `Class`,
                             token_idx: TokenIdx(
@@ -35,7 +35,7 @@ EntityTreeSheet {
                             variants: Some(
                                 TypeVariants {
                                     ast_idx_range: ArenaIdxRange(
-                                        1..3,
+                                        0..2,
                                     ),
                                 },
                             ),
@@ -83,7 +83,7 @@ EntityTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 26,
+                        ast_idx: 25,
                         ident_token: IdentToken {
                             ident: `OneVsAll`,
                             token_idx: TokenIdx(
@@ -95,7 +95,7 @@ EntityTreeSheet {
                             variants: Some(
                                 TypeVariants {
                                     ast_idx_range: ArenaIdxRange(
-                                        3..5,
+                                        2..4,
                                     ),
                                 },
                             ),
@@ -143,7 +143,7 @@ EntityTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 30,
+                        ast_idx: 29,
                         ident_token: IdentToken {
                             ident: `OneVsAllResult`,
                             token_idx: TokenIdx(
@@ -155,7 +155,7 @@ EntityTreeSheet {
                             variants: Some(
                                 TypeVariants {
                                     ast_idx_range: ArenaIdxRange(
-                                        13..16,
+                                        12..15,
                                     ),
                                 },
                             ),
@@ -192,7 +192,7 @@ EntityTreeSheet {
                             )`, (0)),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 32,
+                        ast_idx: 31,
                         ident_token: IdentToken {
                             ident: `narrow_down`,
                             token_idx: TokenIdx(
@@ -289,24 +289,24 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 27,
+                    ast_idx: 26,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             51,
                         ),
                     },
-                    trai_expr: 1,
+                    trai_expr: 0,
                     for_token: TokenIdx(
                         65,
                     ),
                     ty_sketch_expr: Path(
-                        2,
+                        1,
                     ),
                     items: Some(
                         TraitForType(
                             TraitForTypeItems {
                                 ast_idx_range: ArenaIdxRange(
-                                    6..7,
+                                    5..6,
                                 ),
                             },
                         ),
@@ -341,24 +341,24 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 28,
+                    ast_idx: 27,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             81,
                         ),
                     },
-                    trai_expr: 5,
+                    trai_expr: 4,
                     for_token: TokenIdx(
                         100,
                     ),
                     ty_sketch_expr: Path(
-                        6,
+                        5,
                     ),
                     items: Some(
                         TraitForType(
                             TraitForTypeItems {
                                 ast_idx_range: ArenaIdxRange(
-                                    11..13,
+                                    10..12,
                                 ),
                             },
                         ),
@@ -393,24 +393,24 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 31,
+                    ast_idx: 30,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             198,
                         ),
                     },
-                    trai_expr: 9,
+                    trai_expr: 8,
                     for_token: TokenIdx(
                         219,
                     ),
                     ty_sketch_expr: Path(
-                        10,
+                        9,
                     ),
                     items: Some(
                         TraitForType(
                             TraitForTypeItems {
                                 ast_idx_range: ArenaIdxRange(
-                                    21..23,
+                                    20..22,
                                 ),
                             },
                         ),

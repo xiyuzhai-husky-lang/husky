@@ -23,7 +23,7 @@ EntityTreePresheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 33,
+                        ast_idx: 32,
                         ident_token: IdentToken {
                             ident: `Add`,
                             token_idx: TokenIdx(
@@ -35,7 +35,7 @@ EntityTreePresheet {
                             items: Some(
                                 TraitItems {
                                     ast_idx_range: ArenaIdxRange(
-                                        1..3,
+                                        0..2,
                                     ),
                                 },
                             ),
@@ -83,7 +83,7 @@ EntityTreePresheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 35,
+                        ast_idx: 34,
                         ident_token: IdentToken {
                             ident: `AddAssign`,
                             token_idx: TokenIdx(
@@ -95,7 +95,7 @@ EntityTreePresheet {
                             items: Some(
                                 TraitItems {
                                     ast_idx_range: ArenaIdxRange(
-                                        3..5,
+                                        2..4,
                                     ),
                                 },
                             ),
@@ -143,7 +143,7 @@ EntityTreePresheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 37,
+                        ast_idx: 36,
                         ident_token: IdentToken {
                             ident: `BitAnd`,
                             token_idx: TokenIdx(
@@ -155,7 +155,7 @@ EntityTreePresheet {
                             items: Some(
                                 TraitItems {
                                     ast_idx_range: ArenaIdxRange(
-                                        5..7,
+                                        4..6,
                                     ),
                                 },
                             ),
@@ -203,7 +203,7 @@ EntityTreePresheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 39,
+                        ast_idx: 38,
                         ident_token: IdentToken {
                             ident: `BitAndAssign`,
                             token_idx: TokenIdx(
@@ -215,7 +215,7 @@ EntityTreePresheet {
                             items: Some(
                                 TraitItems {
                                     ast_idx_range: ArenaIdxRange(
-                                        7..8,
+                                        6..7,
                                     ),
                                 },
                             ),
@@ -263,7 +263,7 @@ EntityTreePresheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 41,
+                        ast_idx: 40,
                         ident_token: IdentToken {
                             ident: `BitOr`,
                             token_idx: TokenIdx(
@@ -275,7 +275,7 @@ EntityTreePresheet {
                             items: Some(
                                 TraitItems {
                                     ast_idx_range: ArenaIdxRange(
-                                        8..10,
+                                        7..9,
                                     ),
                                 },
                             ),
@@ -323,7 +323,7 @@ EntityTreePresheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 43,
+                        ast_idx: 42,
                         ident_token: IdentToken {
                             ident: `BitOrAssign`,
                             token_idx: TokenIdx(
@@ -335,7 +335,7 @@ EntityTreePresheet {
                             items: Some(
                                 TraitItems {
                                     ast_idx_range: ArenaIdxRange(
-                                        10..11,
+                                        9..10,
                                     ),
                                 },
                             ),
@@ -383,7 +383,7 @@ EntityTreePresheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 45,
+                        ast_idx: 44,
                         ident_token: IdentToken {
                             ident: `BitXor`,
                             token_idx: TokenIdx(
@@ -395,7 +395,7 @@ EntityTreePresheet {
                             items: Some(
                                 TraitItems {
                                     ast_idx_range: ArenaIdxRange(
-                                        11..13,
+                                        10..12,
                                     ),
                                 },
                             ),
@@ -443,7 +443,7 @@ EntityTreePresheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 47,
+                        ast_idx: 46,
                         ident_token: IdentToken {
                             ident: `BitXorAssign`,
                             token_idx: TokenIdx(
@@ -455,7 +455,7 @@ EntityTreePresheet {
                             items: Some(
                                 TraitItems {
                                     ast_idx_range: ArenaIdxRange(
-                                        13..14,
+                                        12..13,
                                     ),
                                 },
                             ),
@@ -503,7 +503,7 @@ EntityTreePresheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 49,
+                        ast_idx: 48,
                         ident_token: IdentToken {
                             ident: `Div`,
                             token_idx: TokenIdx(
@@ -515,7 +515,7 @@ EntityTreePresheet {
                             items: Some(
                                 TraitItems {
                                     ast_idx_range: ArenaIdxRange(
-                                        14..16,
+                                        13..15,
                                     ),
                                 },
                             ),
@@ -563,7 +563,7 @@ EntityTreePresheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 51,
+                        ast_idx: 50,
                         ident_token: IdentToken {
                             ident: `DivAssign`,
                             token_idx: TokenIdx(
@@ -575,7 +575,7 @@ EntityTreePresheet {
                             items: Some(
                                 TraitItems {
                                     ast_idx_range: ArenaIdxRange(
-                                        16..17,
+                                        15..16,
                                     ),
                                 },
                             ),
@@ -623,7 +623,7 @@ EntityTreePresheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 52,
+                        ast_idx: 51,
                         ident_token: IdentToken {
                             ident: `IntIndex`,
                             token_idx: TokenIdx(
@@ -635,7 +635,7 @@ EntityTreePresheet {
                             items: Some(
                                 TraitItems {
                                     ast_idx_range: ArenaIdxRange(
-                                        17..18,
+                                        16..17,
                                     ),
                                 },
                             ),
@@ -683,7 +683,7 @@ EntityTreePresheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 54,
+                        ast_idx: 53,
                         ident_token: IdentToken {
                             ident: `Mul`,
                             token_idx: TokenIdx(
@@ -695,7 +695,7 @@ EntityTreePresheet {
                             items: Some(
                                 TraitItems {
                                     ast_idx_range: ArenaIdxRange(
-                                        18..20,
+                                        17..19,
                                     ),
                                 },
                             ),
@@ -743,7 +743,7 @@ EntityTreePresheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 56,
+                        ast_idx: 55,
                         ident_token: IdentToken {
                             ident: `MulAssign`,
                             token_idx: TokenIdx(
@@ -755,7 +755,7 @@ EntityTreePresheet {
                             items: Some(
                                 TraitItems {
                                     ast_idx_range: ArenaIdxRange(
-                                        20..21,
+                                        19..20,
                                     ),
                                 },
                             ),
@@ -803,7 +803,7 @@ EntityTreePresheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 58,
+                        ast_idx: 57,
                         ident_token: IdentToken {
                             ident: `Neg`,
                             token_idx: TokenIdx(
@@ -815,7 +815,7 @@ EntityTreePresheet {
                             items: Some(
                                 TraitItems {
                                     ast_idx_range: ArenaIdxRange(
-                                        21..23,
+                                        20..22,
                                     ),
                                 },
                             ),
@@ -863,7 +863,7 @@ EntityTreePresheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 60,
+                        ast_idx: 59,
                         ident_token: IdentToken {
                             ident: `Not`,
                             token_idx: TokenIdx(
@@ -875,7 +875,7 @@ EntityTreePresheet {
                             items: Some(
                                 TraitItems {
                                     ast_idx_range: ArenaIdxRange(
-                                        23..25,
+                                        22..24,
                                     ),
                                 },
                             ),
@@ -923,7 +923,7 @@ EntityTreePresheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 62,
+                        ast_idx: 61,
                         ident_token: IdentToken {
                             ident: `Sub`,
                             token_idx: TokenIdx(
@@ -935,7 +935,7 @@ EntityTreePresheet {
                             items: Some(
                                 TraitItems {
                                     ast_idx_range: ArenaIdxRange(
-                                        25..27,
+                                        24..26,
                                     ),
                                 },
                             ),
@@ -983,7 +983,7 @@ EntityTreePresheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 63,
+                        ast_idx: 62,
                         ident_token: IdentToken {
                             ident: `Unveil`,
                             token_idx: TokenIdx(
@@ -995,7 +995,7 @@ EntityTreePresheet {
                             items: Some(
                                 TraitItems {
                                     ast_idx_range: ArenaIdxRange(
-                                        27..29,
+                                        26..28,
                                     ),
                                 },
                             ),
@@ -1043,7 +1043,7 @@ EntityTreePresheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 64,
+                        ast_idx: 63,
                         ident_token: IdentToken {
                             ident: `ControlFlow`,
                             token_idx: TokenIdx(
@@ -1055,7 +1055,7 @@ EntityTreePresheet {
                             variants: Some(
                                 TypeVariants {
                                     ast_idx_range: ArenaIdxRange(
-                                        29..31,
+                                        28..30,
                                     ),
                                 },
                             ),
@@ -1088,8 +1088,8 @@ EntityTreePresheet {
     once_use_rules: OnceUseRules(
         [
             OnceUseRule {
-                ast_idx: 31,
-                use_expr_idx: 2,
+                ast_idx: 30,
+                use_expr_idx: 1,
                 visibility: Scope::PubUnder(
                     `core::ops`,
                 ),
@@ -1102,7 +1102,7 @@ EntityTreePresheet {
                         },
                     ),
                     children: ArenaIdxRange(
-                        1..2,
+                        0..1,
                     ),
                 },
                 parent: None,
@@ -1140,7 +1140,7 @@ EntityTreePresheet {
                     ),
                     children: Ok(
                         UseExprChildren::Single {
-                            child: 1,
+                            child: 0,
                         },
                     ),
                 },

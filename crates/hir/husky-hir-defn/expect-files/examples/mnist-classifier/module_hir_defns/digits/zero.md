@@ -47,7 +47,7 @@
                     hir_expr_body_and_region: Some(
                         (
                             Eager(
-                                5,
+                                4,
                             ),
                             Eager(
                                 HirEagerExprRegion(
@@ -79,7 +79,7 @@
                         parenate_parameters: HirEagerParenateParameters(
                             [
                                 HirEagerParenateParameter::Simple {
-                                    pattern_expr_idx: 1,
+                                    pattern_expr_idx: 0,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
@@ -167,7 +167,7 @@
                     },
                     eager_body_with_hir_eager_expr_region: Some(
                         (
-                            13,
+                            12,
                             HirEagerExprRegion {
                                 region_path: RegionPath::Defn(
                                     ItemPath::MajorItem(
@@ -182,7 +182,7 @@
                                     data: [
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                1,
+                                                0,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -208,7 +208,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MemoizedField {
-                                                self_argument: 1,
+                                                self_argument: 0,
                                                 self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`core::mem::Leash`, `Extern`),
@@ -270,11 +270,11 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 2,
+                                                lopd: 1,
                                                 opr: Closed(
                                                     Add,
                                                 ),
-                                                ropd: 3,
+                                                ropd: 2,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -308,7 +308,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Prefix {
                                                 opr: Minus,
-                                                opd: 5,
+                                                opd: 4,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -321,11 +321,11 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 4,
+                                                lopd: 3,
                                                 opr: Comparison(
                                                     Less,
                                                 ),
-                                                ropd: 6,
+                                                ropd: 5,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -338,7 +338,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                1,
+                                                0,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -364,7 +364,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MemoizedField {
-                                                self_argument: 8,
+                                                self_argument: 7,
                                                 self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`core::mem::Leash`, `Extern`),
@@ -407,7 +407,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Prefix {
                                                 opr: Minus,
-                                                opd: 9,
+                                                opd: 8,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -442,11 +442,11 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
-                                                lopd: 10,
+                                                lopd: 9,
                                                 opr: Closed(
                                                     Add,
                                                 ),
-                                                ropd: 11,
+                                                ropd: 10,
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -460,7 +460,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Block {
                                                 stmts: ArenaIdxRange(
-                                                    1..3,
+                                                    0..2,
                                                 ),
                                             },
                                             contracted_quary: HirContractedQuary {
@@ -478,12 +478,12 @@
                                     data: [
                                         Require {
                                             condition: Other {
-                                                opd: 7,
+                                                opd: 6,
                                                 conversion: None,
                                             },
                                         },
                                         Eval {
-                                            expr: 12,
+                                            expr: 11,
                                             coersion: Some(
                                                 WrapInSome,
                                             ),
@@ -566,7 +566,7 @@
                     hir_expr_body_and_region: Some(
                         (
                             Lazy(
-                                88,
+                                87,
                             ),
                             Lazy(
                                 HirLazyExprRegion(

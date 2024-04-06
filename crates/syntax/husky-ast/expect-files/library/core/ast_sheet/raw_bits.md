@@ -291,7 +291,7 @@ AstSheet {
                     Type(
                         TypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                1..6,
+                                0..5,
                             ),
                         },
                     ),
@@ -300,30 +300,30 @@ AstSheet {
         ],
     },
     top_level_asts: ArenaIdxRange(
-        6..11,
+        5..10,
     ),
     nested_top_level_asts: [],
     siblings: [
         ArenaIdxRange(
-            1..1,
+            0..0,
         ),
         ArenaIdxRange(
-            1..1,
+            0..0,
         ),
         ArenaIdxRange(
-            1..1,
+            0..0,
         ),
         ArenaIdxRange(
-            1..1,
+            0..0,
         ),
         ArenaIdxRange(
-            1..1,
+            0..0,
         ),
         ArenaIdxRange(
-            1..6,
+            0..5,
         ),
         ArenaIdxRange(
-            6..11,
+            5..10,
         ),
     ],
 }

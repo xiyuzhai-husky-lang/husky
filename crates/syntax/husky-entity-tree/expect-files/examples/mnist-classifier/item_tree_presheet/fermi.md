@@ -23,7 +23,7 @@ EntityTreePresheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 23,
+                        ast_idx: 22,
                         ident_token: IdentToken {
                             ident: `FermiMatchResult`,
                             token_idx: TokenIdx(
@@ -66,7 +66,7 @@ EntityTreePresheet {
                             )`, (0)),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 25,
+                        ast_idx: 24,
                         ident_token: IdentToken {
                             ident: `fermi_match`,
                             token_idx: TokenIdx(
@@ -80,7 +80,7 @@ EntityTreePresheet {
                             body: Some(
                                 FugitiveBody {
                                     ast_idx_range: ArenaIdxRange(
-                                        18..22,
+                                        17..21,
                                     ),
                                 },
                             ),
@@ -102,8 +102,8 @@ EntityTreePresheet {
     once_use_rules: OnceUseRules(
         [
             OnceUseRule {
-                ast_idx: 22,
-                use_expr_idx: 2,
+                ast_idx: 21,
+                use_expr_idx: 1,
                 visibility: Scope::PubUnder(
                     `mnist_classifier::fermi`,
                 ),
@@ -116,7 +116,7 @@ EntityTreePresheet {
                         },
                     ),
                     children: ArenaIdxRange(
-                        1..2,
+                        0..1,
                     ),
                 },
                 parent: None,
@@ -154,7 +154,7 @@ EntityTreePresheet {
                     ),
                     children: Ok(
                         UseExprChildren::Single {
-                            child: 1,
+                            child: 0,
                         },
                     ),
                 },

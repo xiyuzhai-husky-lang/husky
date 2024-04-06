@@ -391,7 +391,7 @@ AstSheet {
                     Type(
                         TypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                1..3,
+                                0..2,
                             ),
                         },
                     ),
@@ -458,7 +458,7 @@ AstSheet {
                     TraitForType(
                         TraitForTypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                3..4,
+                                2..3,
                             ),
                         },
                     ),
@@ -475,7 +475,7 @@ AstSheet {
                     Type(
                         TypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                4..9,
+                                3..8,
                             ),
                         },
                     ),
@@ -484,45 +484,45 @@ AstSheet {
         ],
     },
     top_level_asts: ArenaIdxRange(
-        9..16,
+        8..15,
     ),
     nested_top_level_asts: [],
     siblings: [
         ArenaIdxRange(
-            1..1,
+            0..0,
         ),
         ArenaIdxRange(
-            1..1,
+            0..0,
         ),
         ArenaIdxRange(
-            1..3,
+            0..2,
+        ),
+        ArenaIdxRange(
+            2..2,
+        ),
+        ArenaIdxRange(
+            2..3,
         ),
         ArenaIdxRange(
             3..3,
         ),
         ArenaIdxRange(
-            3..4,
+            3..3,
         ),
         ArenaIdxRange(
-            4..4,
+            3..3,
         ),
         ArenaIdxRange(
-            4..4,
+            3..3,
         ),
         ArenaIdxRange(
-            4..4,
+            3..3,
         ),
         ArenaIdxRange(
-            4..4,
+            3..8,
         ),
         ArenaIdxRange(
-            4..4,
-        ),
-        ArenaIdxRange(
-            4..9,
-        ),
-        ArenaIdxRange(
-            9..16,
+            8..15,
         ),
     ],
 }

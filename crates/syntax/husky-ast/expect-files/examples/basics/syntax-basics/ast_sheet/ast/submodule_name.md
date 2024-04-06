@@ -4,12 +4,12 @@ AstSheet {
         data: [],
     },
     top_level_asts: ArenaIdxRange(
-        1..1,
+        0..0,
     ),
     nested_top_level_asts: [],
     siblings: [
         ArenaIdxRange(
-            1..1,
+            0..0,
         ),
     ],
 }

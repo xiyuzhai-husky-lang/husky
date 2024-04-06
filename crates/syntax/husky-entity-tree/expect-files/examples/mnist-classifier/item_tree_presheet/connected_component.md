@@ -23,7 +23,7 @@ EntityTreePresheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 121,
+                        ast_idx: 120,
                         ident_token: IdentToken {
                             ident: `ConnectedComponentDistribution`,
                             token_idx: TokenIdx(
@@ -77,7 +77,7 @@ EntityTreePresheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 122,
+                        ast_idx: 121,
                         ident_token: IdentToken {
                             ident: `EffHoles`,
                             token_idx: TokenIdx(
@@ -122,7 +122,7 @@ EntityTreePresheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::connected_component`,
                         ),
-                        ast_idx: 123,
+                        ast_idx: 122,
                         ident_token: IdentToken {
                             ident: `hole_tmpl`,
                             token_idx: TokenIdx(
@@ -136,7 +136,7 @@ EntityTreePresheet {
                             body: Some(
                                 FugitiveBody {
                                     ast_idx_range: ArenaIdxRange(
-                                        1..4,
+                                        0..3,
                                     ),
                                 },
                             ),
@@ -175,7 +175,7 @@ EntityTreePresheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 124,
+                        ast_idx: 123,
                         ident_token: IdentToken {
                             ident: `ConnectedComponent`,
                             token_idx: TokenIdx(
@@ -220,7 +220,7 @@ EntityTreePresheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::connected_component`,
                         ),
-                        ast_idx: 127,
+                        ast_idx: 126,
                         ident_token: IdentToken {
                             ident: `horizontal_extend`,
                             token_idx: TokenIdx(
@@ -234,7 +234,7 @@ EntityTreePresheet {
                             body: Some(
                                 FugitiveBody {
                                     ast_idx_range: ArenaIdxRange(
-                                        82..86,
+                                        81..85,
                                     ),
                                 },
                             ),
@@ -262,7 +262,7 @@ EntityTreePresheet {
                             )`, (0)),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 128,
+                        ast_idx: 127,
                         ident_token: IdentToken {
                             ident: `find_connected_components`,
                             token_idx: TokenIdx(
@@ -276,7 +276,7 @@ EntityTreePresheet {
                             body: Some(
                                 FugitiveBody {
                                     ast_idx_range: ArenaIdxRange(
-                                        115..119,
+                                        114..118,
                                     ),
                                 },
                             ),
@@ -298,8 +298,8 @@ EntityTreePresheet {
     once_use_rules: OnceUseRules(
         [
             OnceUseRule {
-                ast_idx: 119,
-                use_expr_idx: 3,
+                ast_idx: 118,
+                use_expr_idx: 2,
                 visibility: Scope::PubUnder(
                     `mnist_classifier::connected_component`,
                 ),
@@ -312,15 +312,15 @@ EntityTreePresheet {
                         },
                     ),
                     children: ArenaIdxRange(
-                        2..3,
+                        1..2,
                     ),
                 },
                 parent: None,
                 state: UseOneRuleState::Unresolved,
             },
             OnceUseRule {
-                ast_idx: 120,
-                use_expr_idx: 5,
+                ast_idx: 119,
+                use_expr_idx: 4,
                 visibility: Scope::PubUnder(
                     `mnist_classifier::connected_component`,
                 ),
@@ -333,7 +333,7 @@ EntityTreePresheet {
                         },
                     ),
                     children: ArenaIdxRange(
-                        4..5,
+                        3..4,
                     ),
                 },
                 parent: None,
@@ -372,7 +372,7 @@ EntityTreePresheet {
                     ),
                     children: Ok(
                         UseExprChildren::Single {
-                            child: 1,
+                            child: 0,
                         },
                     ),
                 },
@@ -395,7 +395,7 @@ EntityTreePresheet {
                     ),
                     children: Ok(
                         UseExprChildren::Single {
-                            child: 2,
+                            child: 1,
                         },
                     ),
                 },
@@ -425,7 +425,7 @@ EntityTreePresheet {
                     ),
                     children: Ok(
                         UseExprChildren::Single {
-                            child: 4,
+                            child: 3,
                         },
                     ),
                 },

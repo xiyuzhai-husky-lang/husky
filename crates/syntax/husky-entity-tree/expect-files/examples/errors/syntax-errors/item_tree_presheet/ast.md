@@ -25,7 +25,7 @@ EntityTreePresheet {
                         visibility: Scope::PubUnder(
                             `syntax_errors::ast`,
                         ),
-                        ast_idx: 3,
+                        ast_idx: 2,
                         ident_token: IdentToken {
                             ident: `A`,
                             token_idx: TokenIdx(

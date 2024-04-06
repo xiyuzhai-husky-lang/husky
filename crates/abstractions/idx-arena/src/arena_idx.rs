@@ -101,7 +101,7 @@ impl<T> std::ops::Sub<usize> for ArenaIdx<T> {
 
 impl<T> Debug for ArenaIdx<T> {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        self.raw.fmt(f)
+        self.index().fmt(f)
     }
 }
 
@@ -111,13 +111,13 @@ impl<T> salsa::DebugWithDb for ArenaIdx<T> {
         f: &mut std::fmt::Formatter<'_>,
         _db: &::salsa::Db,
     ) -> std::fmt::Result {
-        Debug::fmt(&self.raw, f)
+        Debug::fmt(&self.index(), f)
     }
 }
 
 impl<T> std::fmt::Display for ArenaIdx<T> {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, "{}", self.raw)
+        write!(f, "{}", self.index())
     }
 }
 

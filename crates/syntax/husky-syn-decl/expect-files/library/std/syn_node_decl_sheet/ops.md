@@ -48,7 +48,7 @@ SynNodeDeclSheet {
                                     template_parameters: [
                                         TemplateSynParameterData {
                                             annotated_variance_token: None,
-                                            symbol: 1,
+                                            symbol: 0,
                                             variant: TemplateParameterSyndicateVariant::Type {
                                                 ident_token: IdentRegionalToken {
                                                     ident: `B`,
@@ -154,7 +154,7 @@ SynNodeDeclSheet {
                                         (
                                             TemplateTypeParameter,
                                             ArenaIdxRange(
-                                                1..2,
+                                                0..1,
                                             ),
                                         ),
                                     ],

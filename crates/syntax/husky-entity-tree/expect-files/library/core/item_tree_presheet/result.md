@@ -23,7 +23,7 @@ EntityTreePresheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 7,
+                        ast_idx: 6,
                         ident_token: IdentToken {
                             ident: `Result`,
                             token_idx: TokenIdx(
@@ -35,7 +35,7 @@ EntityTreePresheet {
                             variants: Some(
                                 TypeVariants {
                                     ast_idx_range: ArenaIdxRange(
-                                        1..3,
+                                        0..2,
                                     ),
                                 },
                             ),
@@ -68,8 +68,8 @@ EntityTreePresheet {
     once_use_rules: OnceUseRules(
         [
             OnceUseRule {
-                ast_idx: 5,
-                use_expr_idx: 2,
+                ast_idx: 4,
+                use_expr_idx: 1,
                 visibility: Scope::PubUnder(
                     `core::result`,
                 ),
@@ -82,15 +82,15 @@ EntityTreePresheet {
                         },
                     ),
                     children: ArenaIdxRange(
-                        1..2,
+                        0..1,
                     ),
                 },
                 parent: None,
                 state: UseOneRuleState::Unresolved,
             },
             OnceUseRule {
-                ast_idx: 6,
-                use_expr_idx: 4,
+                ast_idx: 5,
+                use_expr_idx: 3,
                 visibility: Scope::Pub,
                 variant: OnceUseRuleVariant::Parent {
                     parent_name_token: PathNameToken::Ident(
@@ -102,7 +102,7 @@ EntityTreePresheet {
                         },
                     ),
                     children: ArenaIdxRange(
-                        3..4,
+                        2..3,
                     ),
                 },
                 parent: None,
@@ -140,7 +140,7 @@ EntityTreePresheet {
                     ),
                     children: Ok(
                         UseExprChildren::Single {
-                            child: 1,
+                            child: 0,
                         },
                     ),
                 },
@@ -171,7 +171,7 @@ EntityTreePresheet {
                     ),
                     children: Ok(
                         UseExprChildren::Single {
-                            child: 3,
+                            child: 2,
                         },
                     ),
                 },

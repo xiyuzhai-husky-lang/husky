@@ -93,7 +93,7 @@ AstSheet {
                     items: Some(
                         TraitItems {
                             ast_idx_range: ArenaIdxRange(
-                                1..2,
+                                0..1,
                             ),
                         },
                     ),
@@ -102,18 +102,18 @@ AstSheet {
         ],
     },
     top_level_asts: ArenaIdxRange(
-        2..4,
+        1..3,
     ),
     nested_top_level_asts: [],
     siblings: [
         ArenaIdxRange(
-            1..1,
+            0..0,
         ),
         ArenaIdxRange(
-            1..2,
+            0..1,
         ),
         ArenaIdxRange(
-            2..4,
+            1..3,
         ),
     ],
 }

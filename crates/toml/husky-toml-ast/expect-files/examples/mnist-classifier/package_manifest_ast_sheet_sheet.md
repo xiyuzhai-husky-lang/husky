@@ -45,7 +45,7 @@ Ok(
                                     },
                                 ),
                                 value: Some(
-                                    1,
+                                    0,
                                 ),
                             },
                             TomlSectionEntry {
@@ -58,7 +58,7 @@ Ok(
                                     },
                                 ),
                                 value: Some(
-                                    2,
+                                    1,
                                 ),
                             },
                             TomlSectionEntry {
@@ -71,7 +71,7 @@ Ok(
                                     },
                                 ),
                                 value: Some(
-                                    3,
+                                    2,
                                 ),
                             },
                         ],
@@ -98,7 +98,7 @@ Ok(
                                     },
                                 ),
                                 value: Some(
-                                    4,
+                                    3,
                                 ),
                             },
                             TomlSectionEntry {
@@ -111,7 +111,7 @@ Ok(
                                     },
                                 ),
                                 value: Some(
-                                    5,
+                                    4,
                                 ),
                             },
                         ],
@@ -134,7 +134,7 @@ Ok(
                     "name",
                 ),
                 Some(
-                    1,
+                    0,
                 ),
             ),
             TomlLineGroup::Err,
@@ -143,7 +143,7 @@ Ok(
                     "description",
                 ),
                 Some(
-                    2,
+                    1,
                 ),
             ),
             TomlLineGroup::KeyValue(
@@ -151,7 +151,7 @@ Ok(
                     "license",
                 ),
                 Some(
-                    3,
+                    2,
                 ),
             ),
             TomlLineGroup::SectionTitle {
@@ -167,7 +167,7 @@ Ok(
                     "malamute",
                 ),
                 Some(
-                    4,
+                    3,
                 ),
             ),
             TomlLineGroup::KeyValue(
@@ -175,7 +175,7 @@ Ok(
                     "mnist",
                 ),
                 Some(
-                    5,
+                    4,
                 ),
             ),
         ],
@@ -186,14 +186,14 @@ Ok(
                         value: 2,
                     },
                 ): Section(
-                    1,
+                    0,
                 ),
                 Coword(
                     Id {
                         value: 9,
                     },
                 ): Section(
-                    2,
+                    1,
                 ),
             },
         },

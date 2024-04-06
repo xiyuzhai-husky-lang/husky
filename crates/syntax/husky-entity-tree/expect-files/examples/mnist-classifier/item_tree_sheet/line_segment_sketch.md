@@ -27,7 +27,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch`,
                         ),
-                        ast_idx: 160,
+                        ast_idx: 159,
                         ident_token: IdentToken {
                             ident: `concave_component`,
                             token_idx: TokenIdx(
@@ -86,7 +86,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch`,
                         ),
-                        ast_idx: 161,
+                        ast_idx: 160,
                         ident_token: IdentToken {
                             ident: `convex_component`,
                             token_idx: TokenIdx(
@@ -145,7 +145,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch`,
                         ),
-                        ast_idx: 162,
+                        ast_idx: 161,
                         ident_token: IdentToken {
                             ident: `convexity`,
                             token_idx: TokenIdx(
@@ -204,7 +204,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch`,
                         ),
-                        ast_idx: 163,
+                        ast_idx: 162,
                         ident_token: IdentToken {
                             ident: `line_segment`,
                             token_idx: TokenIdx(
@@ -259,7 +259,7 @@ EntityTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 170,
+                        ast_idx: 169,
                         ident_token: IdentToken {
                             ident: `LineSegmentStroke`,
                             token_idx: TokenIdx(
@@ -313,7 +313,7 @@ EntityTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 173,
+                        ast_idx: 172,
                         ident_token: IdentToken {
                             ident: `LineSegmentSketch`,
                             token_idx: TokenIdx(
@@ -358,7 +358,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch`,
                         ),
-                        ast_idx: 176,
+                        ast_idx: 175,
                         ident_token: IdentToken {
                             ident: `go_right`,
                             token_idx: TokenIdx(
@@ -372,7 +372,7 @@ EntityTreeSheet {
                             body: Some(
                                 FugitiveBody {
                                     ast_idx_range: ArenaIdxRange(
-                                        27..33,
+                                        26..32,
                                     ),
                                 },
                             ),
@@ -402,7 +402,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch`,
                         ),
-                        ast_idx: 177,
+                        ast_idx: 176,
                         ident_token: IdentToken {
                             ident: `go_left`,
                             token_idx: TokenIdx(
@@ -416,7 +416,7 @@ EntityTreeSheet {
                             body: Some(
                                 FugitiveBody {
                                     ast_idx_range: ArenaIdxRange(
-                                        33..39,
+                                        32..38,
                                     ),
                                 },
                             ),
@@ -446,7 +446,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch`,
                         ),
-                        ast_idx: 178,
+                        ast_idx: 177,
                         ident_token: IdentToken {
                             ident: `extend_end`,
                             token_idx: TokenIdx(
@@ -460,7 +460,7 @@ EntityTreeSheet {
                             body: Some(
                                 FugitiveBody {
                                     ast_idx_range: ArenaIdxRange(
-                                        61..73,
+                                        60..72,
                                     ),
                                 },
                             ),
@@ -490,7 +490,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch`,
                         ),
-                        ast_idx: 179,
+                        ast_idx: 178,
                         ident_token: IdentToken {
                             ident: `extend_start`,
                             token_idx: TokenIdx(
@@ -504,7 +504,7 @@ EntityTreeSheet {
                             body: Some(
                                 FugitiveBody {
                                     ast_idx_range: ArenaIdxRange(
-                                        106..116,
+                                        105..115,
                                     ),
                                 },
                             ),
@@ -534,7 +534,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch`,
                         ),
-                        ast_idx: 180,
+                        ast_idx: 179,
                         ident_token: IdentToken {
                             ident: `find_line_segments`,
                             token_idx: TokenIdx(
@@ -548,7 +548,7 @@ EntityTreeSheet {
                             body: Some(
                                 FugitiveBody {
                                     ast_idx_range: ArenaIdxRange(
-                                        150..160,
+                                        149..159,
                                     ),
                                 },
                             ),
@@ -730,8 +730,8 @@ EntityTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 164,
-                        use_expr_idx: 1,
+                        ast_idx: 163,
+                        use_expr_idx: 0,
                     },
                 ),
             },
@@ -755,8 +755,8 @@ EntityTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 164,
-                        use_expr_idx: 1,
+                        ast_idx: 163,
+                        use_expr_idx: 0,
                     },
                 ),
             },
@@ -776,8 +776,8 @@ EntityTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 166,
-                        use_expr_idx: 5,
+                        ast_idx: 165,
+                        use_expr_idx: 4,
                     },
                 ),
             },
@@ -801,8 +801,8 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch`,
                         ),
-                        ast_idx: 169,
-                        use_expr_idx: 13,
+                        ast_idx: 168,
+                        use_expr_idx: 12,
                     },
                 ),
             },
@@ -826,8 +826,8 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch`,
                         ),
-                        ast_idx: 168,
-                        use_expr_idx: 10,
+                        ast_idx: 167,
+                        use_expr_idx: 9,
                     },
                 ),
             },
@@ -851,8 +851,8 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch`,
                         ),
-                        ast_idx: 167,
-                        use_expr_idx: 7,
+                        ast_idx: 166,
+                        use_expr_idx: 6,
                     },
                 ),
             },
@@ -876,8 +876,8 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch`,
                         ),
-                        ast_idx: 167,
-                        use_expr_idx: 7,
+                        ast_idx: 166,
+                        use_expr_idx: 6,
                     },
                 ),
             },
@@ -901,8 +901,8 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch`,
                         ),
-                        ast_idx: 167,
-                        use_expr_idx: 7,
+                        ast_idx: 166,
+                        use_expr_idx: 6,
                     },
                 ),
             },
@@ -926,8 +926,8 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch`,
                         ),
-                        ast_idx: 167,
-                        use_expr_idx: 7,
+                        ast_idx: 166,
+                        use_expr_idx: 6,
                     },
                 ),
             },
@@ -951,8 +951,8 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch`,
                         ),
-                        ast_idx: 167,
-                        use_expr_idx: 7,
+                        ast_idx: 166,
+                        use_expr_idx: 6,
                     },
                 ),
             },
@@ -976,8 +976,8 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch`,
                         ),
-                        ast_idx: 167,
-                        use_expr_idx: 7,
+                        ast_idx: 166,
+                        use_expr_idx: 6,
                     },
                 ),
             },
@@ -1011,24 +1011,24 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 171,
+                    ast_idx: 170,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             81,
                         ),
                     },
-                    trai_expr: 12,
+                    trai_expr: 11,
                     for_token: TokenIdx(
                         83,
                     ),
                     ty_sketch_expr: Path(
-                        13,
+                        12,
                     ),
                     items: Some(
                         TraitForType(
                             TraitForTypeItems {
                                 ast_idx_range: ArenaIdxRange(
-                                    2..3,
+                                    1..2,
                                 ),
                             },
                         ),
@@ -1075,16 +1075,16 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 172,
+                    ast_idx: 171,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             110,
                         ),
                     },
-                    ty_expr: 14,
+                    ty_expr: 13,
                     items: TypeItems {
                         ast_idx_range: ArenaIdxRange(
-                            6..8,
+                            5..7,
                         ),
                     },
                 },
@@ -1117,24 +1117,24 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 174,
+                    ast_idx: 173,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             185,
                         ),
                     },
-                    trai_expr: 15,
+                    trai_expr: 14,
                     for_token: TokenIdx(
                         187,
                     ),
                     ty_sketch_expr: Path(
-                        16,
+                        15,
                     ),
                     items: Some(
                         TraitForType(
                             TraitForTypeItems {
                                 ast_idx_range: ArenaIdxRange(
-                                    9..10,
+                                    8..9,
                                 ),
                             },
                         ),
@@ -1181,16 +1181,16 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 175,
+                    ast_idx: 174,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             204,
                         ),
                     },
-                    ty_expr: 17,
+                    ty_expr: 16,
                     items: TypeItems {
                         ast_idx_range: ArenaIdxRange(
-                            24..27,
+                            23..26,
                         ),
                     },
                 },
@@ -1200,8 +1200,8 @@ EntityTreeSheet {
     once_use_rules: OnceUseRules(
         [
             OnceUseRule {
-                ast_idx: 164,
-                use_expr_idx: 2,
+                ast_idx: 163,
+                use_expr_idx: 1,
                 visibility: Scope::Pub,
                 variant: OnceUseRuleVariant::Parent {
                     parent_name_token: PathNameToken::Ident(
@@ -1213,7 +1213,7 @@ EntityTreeSheet {
                         },
                     ),
                     children: ArenaIdxRange(
-                        1..2,
+                        0..1,
                     ),
                 },
                 parent: None,
@@ -1232,8 +1232,8 @@ EntityTreeSheet {
                 },
             },
             OnceUseRule {
-                ast_idx: 165,
-                use_expr_idx: 4,
+                ast_idx: 164,
+                use_expr_idx: 3,
                 visibility: Scope::Pub,
                 variant: OnceUseRuleVariant::Parent {
                     parent_name_token: PathNameToken::Ident(
@@ -1245,7 +1245,7 @@ EntityTreeSheet {
                         },
                     ),
                     children: ArenaIdxRange(
-                        3..4,
+                        2..3,
                     ),
                 },
                 parent: None,
@@ -1264,8 +1264,8 @@ EntityTreeSheet {
                 },
             },
             OnceUseRule {
-                ast_idx: 166,
-                use_expr_idx: 6,
+                ast_idx: 165,
+                use_expr_idx: 5,
                 visibility: Scope::Pub,
                 variant: OnceUseRuleVariant::Parent {
                     parent_name_token: PathNameToken::Ident(
@@ -1277,7 +1277,7 @@ EntityTreeSheet {
                         },
                     ),
                     children: ArenaIdxRange(
-                        5..6,
+                        4..5,
                     ),
                 },
                 parent: None,
@@ -1296,8 +1296,8 @@ EntityTreeSheet {
                 },
             },
             OnceUseRule {
-                ast_idx: 167,
-                use_expr_idx: 9,
+                ast_idx: 166,
+                use_expr_idx: 8,
                 visibility: Scope::PubUnder(
                     `mnist_classifier::line_segment_sketch`,
                 ),
@@ -1310,7 +1310,34 @@ EntityTreeSheet {
                         },
                     ),
                     children: ArenaIdxRange(
-                        8..9,
+                        7..8,
+                    ),
+                },
+                parent: None,
+                state: UseOneRuleState::Resolved {
+                    original_symbol: Some(
+                        EntitySymbol::CrateRoot {
+                            root_module_path: `mnist_classifier`,
+                        },
+                    ),
+                },
+            },
+            OnceUseRule {
+                ast_idx: 167,
+                use_expr_idx: 11,
+                visibility: Scope::PubUnder(
+                    `mnist_classifier::line_segment_sketch`,
+                ),
+                variant: OnceUseRuleVariant::Parent {
+                    parent_name_token: PathNameToken::CrateRoot(
+                        CrateToken {
+                            token_idx: TokenIdx(
+                                31,
+                            ),
+                        },
+                    ),
+                    children: ArenaIdxRange(
+                        10..11,
                     ),
                 },
                 parent: None,
@@ -1324,34 +1351,7 @@ EntityTreeSheet {
             },
             OnceUseRule {
                 ast_idx: 168,
-                use_expr_idx: 12,
-                visibility: Scope::PubUnder(
-                    `mnist_classifier::line_segment_sketch`,
-                ),
-                variant: OnceUseRuleVariant::Parent {
-                    parent_name_token: PathNameToken::CrateRoot(
-                        CrateToken {
-                            token_idx: TokenIdx(
-                                31,
-                            ),
-                        },
-                    ),
-                    children: ArenaIdxRange(
-                        11..12,
-                    ),
-                },
-                parent: None,
-                state: UseOneRuleState::Resolved {
-                    original_symbol: Some(
-                        EntitySymbol::CrateRoot {
-                            root_module_path: `mnist_classifier`,
-                        },
-                    ),
-                },
-            },
-            OnceUseRule {
-                ast_idx: 169,
-                use_expr_idx: 14,
+                use_expr_idx: 13,
                 visibility: Scope::PubUnder(
                     `mnist_classifier::line_segment_sketch`,
                 ),
@@ -1365,7 +1365,7 @@ EntityTreeSheet {
                         },
                     ),
                     children: ArenaIdxRange(
-                        13..14,
+                        12..13,
                     ),
                 },
                 parent: None,
@@ -1384,8 +1384,8 @@ EntityTreeSheet {
                 },
             },
             OnceUseRule {
-                ast_idx: 167,
-                use_expr_idx: 8,
+                ast_idx: 166,
+                use_expr_idx: 7,
                 visibility: Scope::PubUnder(
                     `mnist_classifier::line_segment_sketch`,
                 ),
@@ -1399,7 +1399,7 @@ EntityTreeSheet {
                         },
                     ),
                     children: ArenaIdxRange(
-                        7..8,
+                        6..7,
                     ),
                 },
                 parent: Some(
@@ -1427,8 +1427,8 @@ EntityTreeSheet {
                 },
             },
             OnceUseRule {
-                ast_idx: 168,
-                use_expr_idx: 11,
+                ast_idx: 167,
+                use_expr_idx: 10,
                 visibility: Scope::PubUnder(
                     `mnist_classifier::line_segment_sketch`,
                 ),
@@ -1442,7 +1442,7 @@ EntityTreeSheet {
                         },
                     ),
                     children: ArenaIdxRange(
-                        10..11,
+                        9..10,
                     ),
                 },
                 parent: Some(
@@ -1470,8 +1470,8 @@ EntityTreeSheet {
                 },
             },
             OnceUseRule {
-                ast_idx: 168,
-                use_expr_idx: 10,
+                ast_idx: 167,
+                use_expr_idx: 9,
                 visibility: Scope::PubUnder(
                     `mnist_classifier::line_segment_sketch`,
                 ),
@@ -1516,8 +1516,8 @@ EntityTreeSheet {
             UseAllRule {
                 parent_module_path: `mnist_classifier::line_segment_sketch::concave_component`,
                 is_same_crate: true,
-                ast_idx: 164,
-                use_expr_idx: 1,
+                ast_idx: 163,
+                use_expr_idx: 0,
                 visibility: Scope::Pub,
                 progress: Ok(
                     77,
@@ -1526,8 +1526,8 @@ EntityTreeSheet {
             UseAllRule {
                 parent_module_path: `mnist_classifier::line_segment_sketch::convex_component`,
                 is_same_crate: true,
-                ast_idx: 165,
-                use_expr_idx: 3,
+                ast_idx: 164,
+                use_expr_idx: 2,
                 visibility: Scope::Pub,
                 progress: Ok(
                     23,
@@ -1536,8 +1536,8 @@ EntityTreeSheet {
             UseAllRule {
                 parent_module_path: `mnist_classifier::line_segment_sketch::line_segment`,
                 is_same_crate: true,
-                ast_idx: 166,
-                use_expr_idx: 5,
+                ast_idx: 165,
+                use_expr_idx: 4,
                 visibility: Scope::Pub,
                 progress: Ok(
                     7,
@@ -1546,8 +1546,8 @@ EntityTreeSheet {
             UseAllRule {
                 parent_module_path: `mnist_classifier::line_segment_sketch::line_segment`,
                 is_same_crate: true,
-                ast_idx: 169,
-                use_expr_idx: 13,
+                ast_idx: 168,
+                use_expr_idx: 12,
                 visibility: Scope::PubUnder(
                     `mnist_classifier::line_segment_sketch`,
                 ),
@@ -1558,8 +1558,8 @@ EntityTreeSheet {
             UseAllRule {
                 parent_module_path: `mnist_classifier::geom2d`,
                 is_same_crate: true,
-                ast_idx: 167,
-                use_expr_idx: 7,
+                ast_idx: 166,
+                use_expr_idx: 6,
                 visibility: Scope::PubUnder(
                     `mnist_classifier::line_segment_sketch`,
                 ),

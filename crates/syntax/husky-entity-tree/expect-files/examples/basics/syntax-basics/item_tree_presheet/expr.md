@@ -14,7 +14,7 @@ EntityTreePresheet {
                         visibility: Scope::PubUnder(
                             `syntax_basics::expr`,
                         ),
-                        ast_idx: 4,
+                        ast_idx: 3,
                         ident_token: IdentToken {
                             ident: `nested`,
                             token_idx: TokenIdx(
@@ -28,7 +28,7 @@ EntityTreePresheet {
                             body: Some(
                                 FugitiveBody {
                                     ast_idx_range: ArenaIdxRange(
-                                        1..2,
+                                        0..1,
                                     ),
                                 },
                             ),
@@ -58,7 +58,7 @@ EntityTreePresheet {
                         visibility: Scope::PubUnder(
                             `syntax_basics::expr`,
                         ),
-                        ast_idx: 5,
+                        ast_idx: 4,
                         ident_token: IdentToken {
                             ident: `closure_inline`,
                             token_idx: TokenIdx(
@@ -72,7 +72,7 @@ EntityTreePresheet {
                             body: Some(
                                 FugitiveBody {
                                     ast_idx_range: ArenaIdxRange(
-                                        2..3,
+                                        1..2,
                                     ),
                                 },
                             ),
@@ -102,7 +102,7 @@ EntityTreePresheet {
                         visibility: Scope::PubUnder(
                             `syntax_basics::expr`,
                         ),
-                        ast_idx: 6,
+                        ast_idx: 5,
                         ident_token: IdentToken {
                             ident: `closure_nested`,
                             token_idx: TokenIdx(
@@ -116,7 +116,7 @@ EntityTreePresheet {
                             body: Some(
                                 FugitiveBody {
                                     ast_idx_range: ArenaIdxRange(
-                                        3..4,
+                                        2..3,
                                     ),
                                 },
                             ),
