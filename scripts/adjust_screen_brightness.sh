@@ -11,7 +11,7 @@ DURATION=$3
 CURRENT_BRIGHTNESS=$(xrandr --verbose | grep -m 1 -i brightness | cut -f2 -d ' ')
 
 # Calculate steps for smooth transition
-STEPS=100
+STEPS=10
 SLEEP_DURATION=$(echo "$DURATION / $STEPS" | bc -l)
 
 # Calculate brightness difference
