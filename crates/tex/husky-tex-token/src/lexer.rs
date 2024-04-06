@@ -1,4 +1,5 @@
 use crate::{data::TexTokenData, idx::TexTokenIdx, storage::TexTokenStorage, *};
+use husky_coword::Coword;
 use husky_tex_prelude::mode::TexMode;
 use husky_text_protocol::{char_iter::TextCharIter, range::TextRange};
 
@@ -31,5 +32,13 @@ impl<'a> TexLexer<'a> {
             mode,
             storage: Default::default(),
         }
+    }
+
+    pub(crate) fn next_coword_with(&mut self, predicate: impl Fn(char) -> bool) -> Option<Coword> {
+        let coword_str_slice = self.chars.next_str_slice_with(|c| c.is_alphanumeric());
+        if coword_str_slice.is_empty() {
+            return None;
+        }
+        Some(Coword::from_ref(self.db, coword_str_slice))
     }
 }

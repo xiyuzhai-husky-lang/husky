@@ -6170,6 +6170,7 @@ dependencies = [
  "expect-test",
  "husky-coword",
  "husky-print-utils",
+ "husky-tex-command",
  "husky-tex-math-letter",
  "husky-tex-prelude",
  "husky-text-protocol",
