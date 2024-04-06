@@ -45,14 +45,14 @@ Ok(
         line_groups: [
             TomlLineGroup::SectionTitle {
                 title: [
-                    Word(
+                    Coword(
                         "package",
                     ),
                 ],
                 kind: TomlSectionKind::Normal,
             },
             TomlLineGroup::KeyValue(
-                Word(
+                Coword(
                     "name",
                 ),
                 Some(

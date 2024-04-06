@@ -62,16 +62,16 @@ fn next_text_token_data_works() {
     t(
         "hello",
         &expect![[r#"
-    [
-        TexTokenData::Text(
-            TexTextTokenData::Word(
-                Word(
-                    "hello",
+            [
+                TexTokenData::Text(
+                    TexTextTokenData::Word(
+                        Coword(
+                            "hello",
+                        ),
+                    ),
                 ),
-            ),
-        ),
-    ]
-"#]],
+            ]
+        "#]],
     );
     t(
         "0",
@@ -92,7 +92,7 @@ fn next_text_token_data_works() {
                 TexTokenData::Text(
                     TexTextTokenData::Command(
                         TexCommandPath::Coword(
-                            Word(
+                            Coword(
                                 "emph",
                             ),
                         ),

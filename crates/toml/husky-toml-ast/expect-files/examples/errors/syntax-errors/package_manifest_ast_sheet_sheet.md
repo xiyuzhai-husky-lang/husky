@@ -90,14 +90,14 @@ Ok(
         line_groups: [
             TomlLineGroup::SectionTitle {
                 title: [
-                    Word(
+                    Coword(
                         "package",
                     ),
                 ],
                 kind: TomlSectionKind::Normal,
             },
             TomlLineGroup::KeyValue(
-                Word(
+                Coword(
                     "name",
                 ),
                 Some(
@@ -106,7 +106,7 @@ Ok(
             ),
             TomlLineGroup::Err,
             TomlLineGroup::KeyValue(
-                Word(
+                Coword(
                     "description",
                 ),
                 Some(
@@ -114,7 +114,7 @@ Ok(
                 ),
             ),
             TomlLineGroup::KeyValue(
-                Word(
+                Coword(
                     "license",
                 ),
                 Some(
@@ -123,7 +123,7 @@ Ok(
             ),
             TomlLineGroup::SectionTitle {
                 title: [
-                    Word(
+                    Coword(
                         "dependencies",
                     ),
                 ],
