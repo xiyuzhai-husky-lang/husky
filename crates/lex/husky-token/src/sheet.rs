@@ -1,5 +1,5 @@
 use crate::{
-    tokenize,
+    lex_tracked,
     verse::{idx::TokenVerseIdx, iter::TokenVerseIter, start::TokenVerseStart, TokenVerses},
     TokenIdx, TokenIdxRange, TokenJar, TokenStreamState,
 };
@@ -140,7 +140,7 @@ impl RangedTokenSheet {
 
 #[salsa::tracked(jar = TokenJar, return_ref)]
 pub(crate) fn ranged_token_sheet(db: &::salsa::Db, module_path: ModulePath) -> RangedTokenSheet {
-    tokenize::tokenize(db, module_path.raw_text(db))
+    crate::lex::lex_tracked(db, module_path.raw_text(db))
 }
 
 #[salsa::tracked(jar = TokenJar)]

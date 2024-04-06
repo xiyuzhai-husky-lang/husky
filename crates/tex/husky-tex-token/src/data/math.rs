@@ -152,7 +152,9 @@ fn next_text_token_data_works() {
             ]
         "#]],
     );
-    t("{", &expect![[r#"
+    t(
+        "{",
+        &expect![[r#"
         [
             TexTokenData::Math(
                 TexMathTokenData::LeftDelimiter(
@@ -160,8 +162,11 @@ fn next_text_token_data_works() {
                 ),
             ),
         ]
-    "#]]);
-    t("}", &expect![[r#"
+    "#]],
+    );
+    t(
+        "}",
+        &expect![[r#"
         [
             TexTokenData::Math(
                 TexMathTokenData::RightDelimiter(
@@ -169,8 +174,11 @@ fn next_text_token_data_works() {
                 ),
             ),
         ]
-    "#]]);
-    t("(", &expect![[r#"
+    "#]],
+    );
+    t(
+        "(",
+        &expect![[r#"
         [
             TexTokenData::Math(
                 TexMathTokenData::LeftDelimiter(
@@ -178,8 +186,11 @@ fn next_text_token_data_works() {
                 ),
             ),
         ]
-    "#]]);
-    t(")", &expect![[r#"
+    "#]],
+    );
+    t(
+        ")",
+        &expect![[r#"
         [
             TexTokenData::Math(
                 TexMathTokenData::RightDelimiter(
@@ -187,8 +198,11 @@ fn next_text_token_data_works() {
                 ),
             ),
         ]
-    "#]]);
-    t("[", &expect![[r#"
+    "#]],
+    );
+    t(
+        "[",
+        &expect![[r#"
         [
             TexTokenData::Math(
                 TexMathTokenData::LeftDelimiter(
@@ -196,8 +210,11 @@ fn next_text_token_data_works() {
                 ),
             ),
         ]
-    "#]]);
-    t("]", &expect![[r#"
+    "#]],
+    );
+    t(
+        "]",
+        &expect![[r#"
         [
             TexTokenData::Math(
                 TexMathTokenData::RightDelimiter(
@@ -205,8 +222,11 @@ fn next_text_token_data_works() {
                 ),
             ),
         ]
-    "#]]);
-    t("\\{", &expect![[r#"
+    "#]],
+    );
+    t(
+        "\\{",
+        &expect![[r#"
         [
             TexTokenData::Math(
                 TexMathTokenData::LeftDelimiter(
@@ -214,8 +234,11 @@ fn next_text_token_data_works() {
                 ),
             ),
         ]
-    "#]]);
-    t("\\}", &expect![[r#"
+    "#]],
+    );
+    t(
+        "\\}",
+        &expect![[r#"
         [
             TexTokenData::Math(
                 TexMathTokenData::RightDelimiter(
@@ -223,5 +246,6 @@ fn next_text_token_data_works() {
                 ),
             ),
         ]
-    "#]]);
+    "#]],
+    );
 }
