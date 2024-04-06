@@ -21,6 +21,7 @@ husky-coword.workspace = true
 # protocols
 husky-text-protocol.workspace = true
 # tex
+husky-tex-command.workspace = true
 husky-tex-math-letter.workspace = true
 husky-tex-prelude.workspace = true
 # utils

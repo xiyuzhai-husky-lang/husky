@@ -1,25 +1,17 @@
 use super::*;
+use husky_coword::Coword;
+use husky_tex_command::path::TexCommandPath;
 use husky_tex_math_letter::TexMathLetter;
 
 #[salsa::derive_debug_with_db]
 #[enum_class::from_variants]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum TexMathTokenData {
-    Command(TexMathCommand),
+    Command(TexCommandPath),
     Delimiter(TexMathDelimiter),
     Letter(TexMathLetter),
     Nat32(u32),
     Other(char),
-}
-
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum TexMathCommand {
-    Frac,
-    Abs,
-    Norm,
-    Ang,
-    Perp,
-    Int,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -41,8 +33,22 @@ pub enum Script {}
 impl<'a> TexLexer<'a> {
     pub(super) fn next_math_token_data(&mut self) -> Option<TexMathTokenData> {
         match self.chars.peek()? {
-            '\\' => todo!(),
-            numeric if numeric.is_numeric() => {
+            '\\' => {
+                self.chars.eat_char();
+                match self.chars.peek() {
+                    Some(c) => match c {
+                        c if c.is_alphanumeric() => Some(
+                            TexCommandPath::Coword(
+                                self.next_coword_with(|c| c.is_alphanumeric()).unwrap(),
+                            )
+                            .into(),
+                        ),
+                        _ => todo!(),
+                    },
+                    None => todo!(),
+                }
+            }
+            n if n.is_numeric() => {
                 let numeric_str_slice = self.chars.next_numeric_str_slice();
                 match numeric_str_slice.parse::<u32>() {
                     Ok(number) => Some(number.into()), // ad hoc
@@ -117,5 +123,21 @@ fn next_text_token_data_works() {
                 ),
             ]
         "#]],
-    )
+    );
+    t(
+        "\\alpha",
+        &expect![[r#"
+            [
+                TexTokenData::Math(
+                    TexMathTokenData::Command(
+                        TexCommandPath::Coword(
+                            Word(
+                                "alpha",
+                            ),
+                        ),
+                    ),
+                ),
+            ]
+        "#]],
+    );
 }

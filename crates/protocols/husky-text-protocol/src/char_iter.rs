@@ -62,7 +62,7 @@ impl<'a> TextCharIter<'a> {
         }
     }
 
-    fn eat_char(&mut self) {
+    pub fn eat_char(&mut self) {
         self.next().expect("what");
     }
 
