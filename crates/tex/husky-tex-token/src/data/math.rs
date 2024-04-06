@@ -152,7 +152,7 @@ fn next_text_token_data_works() {
                 TexTokenData::Math(
                     TexMathTokenData::Command(
                         TexCommandPath::Coword(
-                            Word(
+                            Coword(
                                 "alpha",
                             ),
                         ),

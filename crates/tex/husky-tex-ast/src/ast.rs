@@ -73,7 +73,10 @@ fn parse_tex_input_into_asts_works() {
             )
         "#]],
     );
-    t("x+1", TexMode::Math, expect![[r#"
+    t(
+        "x+1",
+        TexMode::Math,
+        expect![[r#"
         (
             Arena {
                 data: [
@@ -92,7 +95,8 @@ fn parse_tex_input_into_asts_works() {
                 1..4,
             ),
         )
-    "#]]);
+    "#]],
+    );
 }
 
 impl<'a> TexAstParser<'a> {

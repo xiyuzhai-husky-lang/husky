@@ -82,7 +82,7 @@ impl ::salsa::DebugWithDb for Coword {
         f: &mut ::std::fmt::Formatter<'_>,
         db: &::salsa::Db,
     ) -> ::std::fmt::Result {
-        f.debug_tuple("Word").field(&self.data(db)).finish()
+        f.debug_tuple("Coword").field(&self.data(db)).finish()
     }
 }
 

@@ -10,7 +10,7 @@ fn word_debug_works() {
     let db = &*db;
     let haha = Coword::from_ref(db, "haha");
     expect_test::expect![[r#"
-        Word(
+        Coword(
             "haha",
         )
     "#]]
