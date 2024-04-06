@@ -1,14 +1,13 @@
 use super::*;
-use husky_coword::Coword;
 use husky_tex_command::path::TexCommandPath;
 use husky_tex_math_letter::TexMathLetter;
 
 #[salsa::derive_debug_with_db]
-#[enum_class::from_variants]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum TexMathTokenData {
     Command(TexCommandPath),
-    Delimiter(TexMathDelimiter),
+    LeftDelimiter(TexMathDelimiter),
+    RightDelimiter(TexMathDelimiter),
     Letter(TexMathLetter),
     Nat32(u32),
     Other(char),
@@ -18,14 +17,12 @@ pub enum TexMathTokenData {
 pub enum TexMathDelimiter {
     /// `{`,  `}`
     Curl,
-    /// `[`, `]`
-    Box,
     /// `(`, `)`
     Par,
+    /// `[`, `]`
+    Box,
     /// `\{`, `\}`
     Set,
-    /// `{`, `}`
-    Attach,
 }
 
 pub enum Script {}
@@ -37,13 +34,21 @@ impl<'a> TexLexer<'a> {
                 self.chars.eat_char();
                 match self.chars.peek() {
                     Some(c) => match c {
-                        c if c.is_alphanumeric() => Some(
-                            TexCommandPath::Coword(
+                        c if c.is_alphanumeric() => {
+                            Some(TexMathTokenData::Command(TexCommandPath::Coword(
                                 self.next_coword_with(|c| c.is_alphanumeric()).unwrap(),
-                            )
-                            .into(),
-                        ),
-                        _ => todo!(),
+                            )))
+                        }
+                        c => {
+                            self.chars.eat_char();
+                            match c {
+                                '{' => Some(TexMathTokenData::LeftDelimiter(TexMathDelimiter::Set)),
+                                '}' => {
+                                    Some(TexMathTokenData::RightDelimiter(TexMathDelimiter::Set))
+                                }
+                                _ => todo!(),
+                            }
+                        }
                     },
                     None => todo!(),
                 }
@@ -51,7 +56,7 @@ impl<'a> TexLexer<'a> {
             n if n.is_numeric() => {
                 let numeric_str_slice = self.chars.next_numeric_str_slice();
                 match numeric_str_slice.parse::<u32>() {
-                    Ok(number) => Some(number.into()), // ad hoc
+                    Ok(number) => Some(TexMathTokenData::Nat32(number)), // ad hoc
                     Err(_) => {
                         use husky_print_utils::p;
 
@@ -60,12 +65,19 @@ impl<'a> TexLexer<'a> {
                     }
                 }
             }
-            '{' => todo!(),
             c => {
-                self.chars.next();
-                match TexMathLetter::try_from_char(c) {
-                    Some(letter) => Some(letter.into()),
-                    None => Some(c.into()),
+                self.chars.eat_char();
+                match c {
+                    '{' => Some(TexMathTokenData::LeftDelimiter(TexMathDelimiter::Curl)),
+                    '}' => Some(TexMathTokenData::RightDelimiter(TexMathDelimiter::Curl)),
+                    '(' => Some(TexMathTokenData::LeftDelimiter(TexMathDelimiter::Par)),
+                    ')' => Some(TexMathTokenData::RightDelimiter(TexMathDelimiter::Par)),
+                    '[' => Some(TexMathTokenData::LeftDelimiter(TexMathDelimiter::Box)),
+                    ']' => Some(TexMathTokenData::RightDelimiter(TexMathDelimiter::Box)),
+                    c => match TexMathLetter::try_from_char(c) {
+                        Some(letter) => Some(TexMathTokenData::Letter(letter)),
+                        None => Some(TexMathTokenData::Other(c)),
+                    },
                 }
             }
         }
@@ -140,4 +152,76 @@ fn next_text_token_data_works() {
             ]
         "#]],
     );
+    t("{", &expect![[r#"
+        [
+            TexTokenData::Math(
+                TexMathTokenData::LeftDelimiter(
+                    Curl,
+                ),
+            ),
+        ]
+    "#]]);
+    t("}", &expect![[r#"
+        [
+            TexTokenData::Math(
+                TexMathTokenData::RightDelimiter(
+                    Curl,
+                ),
+            ),
+        ]
+    "#]]);
+    t("(", &expect![[r#"
+        [
+            TexTokenData::Math(
+                TexMathTokenData::LeftDelimiter(
+                    Par,
+                ),
+            ),
+        ]
+    "#]]);
+    t(")", &expect![[r#"
+        [
+            TexTokenData::Math(
+                TexMathTokenData::RightDelimiter(
+                    Par,
+                ),
+            ),
+        ]
+    "#]]);
+    t("[", &expect![[r#"
+        [
+            TexTokenData::Math(
+                TexMathTokenData::LeftDelimiter(
+                    Box,
+                ),
+            ),
+        ]
+    "#]]);
+    t("]", &expect![[r#"
+        [
+            TexTokenData::Math(
+                TexMathTokenData::RightDelimiter(
+                    Box,
+                ),
+            ),
+        ]
+    "#]]);
+    t("\\{", &expect![[r#"
+        [
+            TexTokenData::Math(
+                TexMathTokenData::LeftDelimiter(
+                    Set,
+                ),
+            ),
+        ]
+    "#]]);
+    t("\\}", &expect![[r#"
+        [
+            TexTokenData::Math(
+                TexMathTokenData::RightDelimiter(
+                    Set,
+                ),
+            ),
+        ]
+    "#]]);
 }
