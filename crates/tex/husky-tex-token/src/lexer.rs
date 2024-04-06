@@ -37,6 +37,7 @@ impl<'a> Iterator for TexLexer<'a> {
     type Item = (TexTokenIdx, TexTokenData);
 
     fn next(&mut self) -> Option<Self::Item> {
+        self.chars.eat_chars_with(|c| c == ' ');
         let start = self.chars.current_position();
         let token_data = self.next_token_data()?;
         let range = TextRange {

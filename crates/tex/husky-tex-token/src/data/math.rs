@@ -32,10 +32,6 @@ pub enum TexMathDelimiter {
 impl<'a> TexLexer<'a> {
     pub(super) fn next_math_token_data(&mut self) -> Option<TexMathTokenData> {
         match self.chars.peek()? {
-            ' ' => {
-                self.chars.eat_char_with(|c| c == ' ');
-                self.next_math_token_data()
-            }
             '\\' => {
                 self.chars.eat_char();
                 match self.chars.peek() {
