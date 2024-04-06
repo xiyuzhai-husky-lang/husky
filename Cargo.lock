@@ -6119,6 +6119,7 @@ name = "husky-tex-ast"
 version = "0.1.0"
 dependencies = [
  "egui",
+ "enum-class",
  "expect-test",
  "husky-coword",
  "husky-tex-math-letter",
