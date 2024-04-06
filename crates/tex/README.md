@@ -17,3 +17,7 @@ HuskyTex differs from LaTex in that
 - ...
 
 However, HuskyTex is designed to be as backward-compatible with LaTex as possible for easier data acquirement.
+
+Modes:
+- root.
+- rose. English. Rose as a word can mean a stylized representation of the flower in heraldry or decoration, typically with five petals (especially as a national emblem of England).
