@@ -63,9 +63,7 @@
                         ),
                     },
                 ],
-                next: ShiftedU32(
-                    5,
-                ),
+                next: 4,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
@@ -3038,9 +3036,7 @@
                         ),
                     },
                 ],
-                next: ShiftedU32(
-                    4,
-                ),
+                next: 3,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
@@ -5092,9 +5088,7 @@
                         ),
                     },
                 ],
-                next: ShiftedU32(
-                    4,
-                ),
+                next: 3,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
@@ -7146,9 +7140,7 @@
                         ),
                     },
                 ],
-                next: ShiftedU32(
-                    4,
-                ),
+                next: 3,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {

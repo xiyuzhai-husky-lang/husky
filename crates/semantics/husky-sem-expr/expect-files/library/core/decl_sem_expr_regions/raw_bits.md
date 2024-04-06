@@ -18,9 +18,7 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [],
-                next: ShiftedU32(
-                    1,
-                ),
+                next: 0,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
@@ -99,9 +97,7 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [],
-                next: ShiftedU32(
-                    1,
-                ),
+                next: 0,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
@@ -274,9 +270,7 @@
                         ),
                     },
                 ],
-                next: ShiftedU32(
-                    3,
-                ),
+                next: 2,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
@@ -542,9 +536,7 @@
                 infos: [
                     SelfValue,
                 ],
-                next: ShiftedU32(
-                    2,
-                ),
+                next: 1,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
@@ -707,9 +699,7 @@
                 infos: [
                     SelfValue,
                 ],
-                next: ShiftedU32(
-                    2,
-                ),
+                next: 1,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
@@ -872,9 +862,7 @@
                 infos: [
                     SelfValue,
                 ],
-                next: ShiftedU32(
-                    2,
-                ),
+                next: 1,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
@@ -1037,9 +1025,7 @@
                 infos: [
                     SelfValue,
                 ],
-                next: ShiftedU32(
-                    2,
-                ),
+                next: 1,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {

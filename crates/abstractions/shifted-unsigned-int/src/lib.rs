@@ -52,10 +52,16 @@ impl Into<usize> for ShiftedU16 {
     }
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
+#[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
 #[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
 #[cfg_attr(feature = "serde", serde(from = "usize", into = "usize"))]
 pub struct ShiftedU32(NonZeroU32);
+
+impl std::fmt::Debug for ShiftedU32 {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        self.index().fmt(f)
+    }
+}
 
 impl Default for ShiftedU32 {
     fn default() -> Self {

@@ -289,18 +289,14 @@ fn parse_tex_input_into_asts_works() {
                         TexAstData::Math(
                             TexMathAstData::Delimited {
                                 left_delimiter_token_idx: TexTokenIdx(
-                                    ShiftedU32(
-                                        3,
-                                    ),
+                                    2,
                                 ),
                                 left_delimiter: Curl,
                                 asts: ArenaIdxRange(
                                     1..4,
                                 ),
                                 right_delimiter_token_idx: TexTokenIdx(
-                                    ShiftedU32(
-                                        7,
-                                    ),
+                                    6,
                                 ),
                                 right_delimiter: Curl,
                             },

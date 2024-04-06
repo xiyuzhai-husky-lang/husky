@@ -33,9 +33,7 @@
                         ),
                     },
                 ],
-                next: ShiftedU32(
-                    2,
-                ),
+                next: 1,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
@@ -1084,9 +1082,7 @@
                         ),
                     },
                 ],
-                next: ShiftedU32(
-                    3,
-                ),
+                next: 2,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
@@ -6243,9 +6239,7 @@
                         ),
                     },
                 ],
-                next: ShiftedU32(
-                    14,
-                ),
+                next: 13,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
@@ -19235,9 +19229,7 @@
                 infos: [
                     SelfValue,
                 ],
-                next: ShiftedU32(
-                    2,
-                ),
+                next: 1,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
@@ -19752,9 +19744,7 @@
                 infos: [
                     SelfValue,
                 ],
-                next: ShiftedU32(
-                    2,
-                ),
+                next: 1,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
@@ -20238,9 +20228,7 @@
                         ),
                     },
                 ],
-                next: ShiftedU32(
-                    4,
-                ),
+                next: 3,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
@@ -23480,9 +23468,7 @@
                         ),
                     },
                 ],
-                next: ShiftedU32(
-                    6,
-                ),
+                next: 5,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
@@ -26193,9 +26179,7 @@
                         ),
                     },
                 ],
-                next: ShiftedU32(
-                    4,
-                ),
+                next: 3,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
@@ -28297,9 +28281,7 @@
                         ),
                     },
                 ],
-                next: ShiftedU32(
-                    4,
-                ),
+                next: 3,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
@@ -30137,9 +30119,7 @@
                         ),
                     },
                 ],
-                next: ShiftedU32(
-                    10,
-                ),
+                next: 9,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
@@ -36833,9 +36813,7 @@
                 infos: [
                     SelfValue,
                 ],
-                next: ShiftedU32(
-                    2,
-                ),
+                next: 1,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
@@ -37502,9 +37480,7 @@
                 infos: [
                     SelfValue,
                 ],
-                next: ShiftedU32(
-                    2,
-                ),
+                next: 1,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
@@ -38205,9 +38181,7 @@
                         ),
                     },
                 ],
-                next: ShiftedU32(
-                    5,
-                ),
+                next: 4,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
@@ -41327,9 +41301,7 @@
                         ),
                     },
                 ],
-                next: ShiftedU32(
-                    5,
-                ),
+                next: 4,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
