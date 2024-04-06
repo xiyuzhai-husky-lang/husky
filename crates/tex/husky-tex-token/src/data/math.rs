@@ -15,6 +15,7 @@ pub enum TexMathTokenData {
     Other(char),
     Subscript,
     Superscript,
+    Error(TexMathTokenError),
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -27,6 +28,12 @@ pub enum TexMathDelimiter {
     Box,
     /// `\{`, `\}`
     Set,
+}
+
+#[salsa::derive_debug_with_db]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub enum TexMathTokenError {
+    UnexpectedNewParagraph,
 }
 
 impl<'a> TexLexer<'a> {
@@ -146,16 +153,68 @@ fn next_text_token_data_works() {
         "#]],
     );
     t(
-        "\\alpha",
+        "0",
         &expect![[r#"
             [
                 TexTokenData::Math(
-                    TexMathTokenData::Command(
-                        TexCommandPath::Coword(
-                            Coword(
-                                "alpha",
-                            ),
-                        ),
+                    TexMathTokenData::Nat32(
+                        0,
+                    ),
+                ),
+            ]
+        "#]],
+    );
+    t(
+        "0 0",
+        &expect![[r#"
+            [
+                TexTokenData::Math(
+                    TexMathTokenData::Nat32(
+                        0,
+                    ),
+                ),
+                TexTokenData::Math(
+                    TexMathTokenData::Nat32(
+                        0,
+                    ),
+                ),
+            ]
+        "#]],
+    );
+    t(
+        "0\n0",
+        &expect![[r#"
+            [
+                TexTokenData::Math(
+                    TexMathTokenData::Nat32(
+                        0,
+                    ),
+                ),
+                TexTokenData::Math(
+                    TexMathTokenData::Nat32(
+                        0,
+                    ),
+                ),
+            ]
+        "#]],
+    );
+    t(
+        "0\n\n0",
+        &expect![[r#"
+            [
+                TexTokenData::Math(
+                    TexMathTokenData::Nat32(
+                        0,
+                    ),
+                ),
+                TexTokenData::Math(
+                    TexMathTokenData::Error(
+                        TexMathTokenError::UnexpectedNewParagraph,
+                    ),
+                ),
+                TexTokenData::Math(
+                    TexMathTokenData::Nat32(
+                        0,
                     ),
                 ),
             ]

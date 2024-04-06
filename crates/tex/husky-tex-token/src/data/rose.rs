@@ -10,6 +10,7 @@ pub enum TexRoseTokenData {
     Command(TexCommandPath),
     Dollar,
     Nat32(u32),
+    NewParagraph,
 }
 
 impl<'a> TexLexer<'a> {
@@ -58,8 +59,8 @@ impl<'a> TexLexer<'a> {
 fn next_text_token_data_works() {
     fn t(input: &str, expected: &Expect) {
         let db = &DB::default();
-        let tokenizer = TexLexer::new(db, input, TexMode::Rose);
-        let tokens: Vec<_> = tokenizer.map(|(_, token_data)| token_data).collect();
+        let lexer = TexLexer::new(db, input, TexMode::Rose);
+        let tokens: Vec<_> = lexer.map(|(_, token_data)| token_data).collect();
         expected.assert_debug_eq(&(tokens.debug(db)));
     }
     t(
@@ -79,6 +80,22 @@ fn next_text_token_data_works() {
         &expect![[r#"
         []
     "#]],
+    );
+    t(
+        "\n",
+        &expect![[r#"
+        []
+    "#]],
+    );
+    t(
+        "\n\n",
+        &expect![[r#"
+            [
+                TexTokenData::Rose(
+                    TexRoseTokenData::NewParagraph,
+                ),
+            ]
+        "#]],
     );
     t(
         "hello",
@@ -120,6 +137,23 @@ fn next_text_token_data_works() {
     );
     t(
         "0 0",
+        &expect![[r#"
+        [
+            TexTokenData::Rose(
+                TexRoseTokenData::Nat32(
+                    0,
+                ),
+            ),
+            TexTokenData::Rose(
+                TexRoseTokenData::Nat32(
+                    0,
+                ),
+            ),
+        ]
+    "#]],
+    );
+    t(
+        "0\n0",
         &expect![[r#"
         [
             TexTokenData::Rose(

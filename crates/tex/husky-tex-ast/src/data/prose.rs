@@ -18,6 +18,7 @@ impl<'a> TexAstParser<'a> {
             TexRoseTokenData::Command(_) => todo!(),
             TexRoseTokenData::Dollar => todo!(),
             TexRoseTokenData::Nat32(_) => todo!(),
+            TexRoseTokenData::NewParagraph => todo!(),
         }
     }
 }

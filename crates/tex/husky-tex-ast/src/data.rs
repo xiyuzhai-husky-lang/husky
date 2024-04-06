@@ -110,6 +110,7 @@ impl<'a> TexAstParser<'a> {
                     TexMathTokenData::Other(_) => todo!(),
                     TexMathTokenData::Subscript => todo!(),
                     TexMathTokenData::Superscript => todo!(),
+                    TexMathTokenData::Error(_) => todo!(),
                 };
             }
             TexTokenData::Rose(token) => match token {
@@ -117,6 +118,7 @@ impl<'a> TexAstParser<'a> {
                 TexRoseTokenData::Command(_) => todo!(),
                 TexRoseTokenData::Dollar => todo!(),
                 TexRoseTokenData::Nat32(_) => todo!(),
+                TexRoseTokenData::NewParagraph => todo!(),
             },
             TexTokenData::Code(_) => todo!(),
         }
