@@ -292,7 +292,7 @@ fn next_text_token_data_works() {
     "#]],
     );
     t(
-        "x_1+1",
+        "x_1^a+1",
         &expect![[r#"
             [
                 TexTokenData::Math(
@@ -306,6 +306,14 @@ fn next_text_token_data_works() {
                 TexTokenData::Math(
                     TexMathTokenData::Nat32(
                         1,
+                    ),
+                ),
+                TexTokenData::Math(
+                    TexMathTokenData::Superscript,
+                ),
+                TexTokenData::Math(
+                    TexMathTokenData::Letter(
+                        LowerA,
                     ),
                 ),
                 TexTokenData::Math(
