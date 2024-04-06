@@ -46,6 +46,16 @@ impl<T> std::fmt::Debug for ArenaIdxRange<T> {
     }
 }
 
+impl<T> salsa::DebugWithDb for ArenaIdxRange<T> {
+    fn debug_with_db_fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &salsa::Db,
+    ) -> std::fmt::Result {
+        self.fmt(f)
+    }
+}
+
 impl<T> Clone for ArenaIdxRange<T> {
     fn clone(&self) -> Self {
         Self {

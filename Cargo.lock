@@ -6119,8 +6119,14 @@ name = "husky-tex-ast"
 version = "0.1.0"
 dependencies = [
  "egui",
+ "expect-test",
+ "husky-coword",
+ "husky-tex-math-letter",
+ "husky-tex-math-opr",
+ "husky-tex-prelude",
  "husky-tex-token",
  "idx-arena",
+ "salsa",
  "time-capsule",
 ]
 
