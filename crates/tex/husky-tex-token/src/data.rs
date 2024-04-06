@@ -2,7 +2,7 @@ pub mod math;
 pub mod text;
 
 use self::{math::TexMathTokenData, text::TexTextTokenData};
-use crate::lexer::TexTokenizer;
+use crate::lexer::TexLexer;
 #[cfg(test)]
 use crate::*;
 use husky_tex_prelude::mode::TexMode;
@@ -15,7 +15,7 @@ pub enum TexTokenData {
     Text(TexTextTokenData),
 }
 
-impl<'a> TexTokenizer<'a> {
+impl<'a> TexLexer<'a> {
     pub(crate) fn next_token_data(&mut self) -> Option<TexTokenData> {
         match self.mode {
             TexMode::Text => self.next_text_token_data().map(Into::into),

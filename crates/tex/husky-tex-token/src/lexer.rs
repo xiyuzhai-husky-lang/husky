@@ -2,14 +2,14 @@ use crate::{data::TexTokenData, idx::TexTokenIdx, storage::TexTokenStorage, *};
 use husky_tex_prelude::mode::TexMode;
 use husky_text_protocol::{char_iter::TextCharIter, range::TextRange};
 
-pub struct TexTokenizer<'a> {
+pub struct TexLexer<'a> {
     pub(crate) db: &'a ::salsa::Db,
     pub(crate) chars: TextCharIter<'a>,
     pub(crate) mode: TexMode,
     pub(crate) storage: TexTokenStorage,
 }
 
-impl<'a> Iterator for TexTokenizer<'a> {
+impl<'a> Iterator for TexLexer<'a> {
     type Item = (TexTokenIdx, TexTokenData);
 
     fn next(&mut self) -> Option<Self::Item> {
@@ -23,7 +23,7 @@ impl<'a> Iterator for TexTokenizer<'a> {
     }
 }
 
-impl<'a> TexTokenizer<'a> {
+impl<'a> TexLexer<'a> {
     pub(crate) fn new(db: &'a ::salsa::Db, input: &'a str, mode: TexMode) -> Self {
         Self {
             db,

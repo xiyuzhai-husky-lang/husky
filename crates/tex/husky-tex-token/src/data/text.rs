@@ -10,7 +10,7 @@ pub enum TexTextTokenData {
     Nat32(u32),
 }
 
-impl<'a> TexTokenizer<'a> {
+impl<'a> TexLexer<'a> {
     pub(super) fn next_text_token_data(&mut self) -> Option<TexTextTokenData> {
         match self.chars.peek()? {
             n if n.is_numeric() => {
@@ -38,7 +38,7 @@ impl<'a> TexTokenizer<'a> {
 fn next_text_token_data_works() {
     fn t(input: &str, expected: &Expect) {
         let db = &DB::default();
-        let tokenizer = TexTokenizer::new(db, input, TexMode::Text);
+        let tokenizer = TexLexer::new(db, input, TexMode::Text);
         let tokens: Vec<_> = tokenizer.map(|(_, token_data)| token_data).collect();
         expected.assert_debug_eq(&(tokens.debug(db)));
     }

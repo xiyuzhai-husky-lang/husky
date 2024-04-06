@@ -38,7 +38,7 @@ pub enum TexMathDelimiter {
 
 pub enum Script {}
 
-impl<'a> TexTokenizer<'a> {
+impl<'a> TexLexer<'a> {
     pub(super) fn next_math_token_data(&mut self) -> Option<TexMathTokenData> {
         match self.chars.peek()? {
             '\\' => todo!(),
@@ -70,7 +70,7 @@ impl<'a> TexTokenizer<'a> {
 fn next_text_token_data_works() {
     fn t(input: &str, expected: &Expect) {
         let db = &DB::default();
-        let tokenizer = TexTokenizer::new(db, input, TexMode::Math);
+        let tokenizer = TexLexer::new(db, input, TexMode::Math);
         let tokens: Vec<_> = tokenizer.map(|(_, token_data)| token_data).collect();
         expected.assert_debug_eq(&(tokens.debug(db)));
     }
