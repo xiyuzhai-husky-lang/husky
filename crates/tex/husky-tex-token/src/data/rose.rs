@@ -15,10 +15,6 @@ pub enum TexRoseTokenData {
 impl<'a> TexLexer<'a> {
     pub(super) fn next_text_token_data(&mut self) -> Option<TexRoseTokenData> {
         match self.chars.peek()? {
-            ' ' => {
-                self.chars.eat_char_with(|c| c == ' ');
-                self.next_text_token_data()
-            }
             '\\' => {
                 self.chars.eat_char();
                 match self.chars.peek() {
@@ -49,6 +45,9 @@ impl<'a> TexLexer<'a> {
                 .into(),
             ),
             c => {
+                use husky_print_utils::p;
+
+                p!(c);
                 todo!()
             }
         }
@@ -69,12 +68,18 @@ fn next_text_token_data_works() {
         []
     "#]],
     );
-    t(" ", &expect![[r#"
+    t(
+        " ",
+        &expect![[r#"
         []
-    "#]]);
-    t("  ", &expect![[r#"
+    "#]],
+    );
+    t(
+        "  ",
+        &expect![[r#"
         []
-    "#]]);
+    "#]],
+    );
     t(
         "hello",
         &expect![[r#"
@@ -101,7 +106,9 @@ fn next_text_token_data_works() {
             ]
         "#]],
     );
-    t(" 0", &expect![[r#"
+    t(
+        " 0",
+        &expect![[r#"
         [
             TexTokenData::Rose(
                 TexRoseTokenData::Nat32(
@@ -109,22 +116,11 @@ fn next_text_token_data_works() {
                 ),
             ),
         ]
-    "#]]);
-    t("0 0", &expect![[r#"
-        [
-            TexTokenData::Rose(
-                TexRoseTokenData::Nat32(
-                    0,
-                ),
-            ),
-            TexTokenData::Rose(
-                TexRoseTokenData::Nat32(
-                    0,
-                ),
-            ),
-        ]
-    "#]]);
-    t("0  0", &expect![[r#"
+    "#]],
+    );
+    t(
+        "0 0",
+        &expect![[r#"
         [
             TexTokenData::Rose(
                 TexRoseTokenData::Nat32(
@@ -137,7 +133,41 @@ fn next_text_token_data_works() {
                 ),
             ),
         ]
-    "#]]);
+    "#]],
+    );
+    t(
+        "0  0",
+        &expect![[r#"
+        [
+            TexTokenData::Rose(
+                TexRoseTokenData::Nat32(
+                    0,
+                ),
+            ),
+            TexTokenData::Rose(
+                TexRoseTokenData::Nat32(
+                    0,
+                ),
+            ),
+        ]
+    "#]],
+    );
+    t(
+        "\\emph",
+        &expect![[r#"
+            [
+                TexTokenData::Rose(
+                    TexRoseTokenData::Command(
+                        TexCommandPath::Coword(
+                            Coword(
+                                "emph",
+                            ),
+                        ),
+                    ),
+                ),
+            ]
+        "#]],
+    );
     t(
         "\\emph",
         &expect![[r#"

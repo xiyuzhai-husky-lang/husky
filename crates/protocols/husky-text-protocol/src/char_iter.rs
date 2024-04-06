@@ -76,7 +76,7 @@ impl<'a> TextCharIter<'a> {
         }
     }
 
-    fn eat_chars_with(&mut self, predicate: impl Fn(char) -> bool) {
+    pub fn eat_chars_with(&mut self, predicate: impl Fn(char) -> bool) {
         while let Some(c) = self.peek() {
             if predicate(c) {
                 self.eat_char();
