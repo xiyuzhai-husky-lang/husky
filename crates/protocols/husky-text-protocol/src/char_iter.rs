@@ -66,6 +66,16 @@ impl<'a> TextCharIter<'a> {
         self.next().expect("what");
     }
 
+    fn eat_char_with(&mut self, predicate: impl Fn(char) -> bool) -> bool {
+        let Some(c) = self.peek() else { return false };
+        if predicate(c) {
+            self.eat_char();
+            true
+        } else {
+            false
+        }
+    }
+
     fn eat_chars_with(&mut self, predicate: impl Fn(char) -> bool) {
         while let Some(c) = self.peek() {
             if predicate(c) {
@@ -76,10 +86,37 @@ impl<'a> TextCharIter<'a> {
         }
     }
 
-    pub fn get_str_slice_with(&mut self, predicate: impl Fn(char) -> bool) -> &'a str {
+    pub fn next_str_slice_with(&mut self, predicate: impl Fn(char) -> bool) -> &'a str {
         let slice = self.iter.as_slice();
         let start = self.current_offset;
         self.eat_chars_with(predicate);
+        let end = self.current_offset;
+        unsafe { std::str::from_utf8_unchecked(&slice[..(end - start)]) }
+    }
+
+    /// scientific number included
+    /// ```
+    /// use husky_text_protocol::char_iter::TextCharIter;
+    ///
+    /// fn t(input: &str, output:&str ) {
+    ///     let mut iter = TextCharIter::new(input);
+    ///     assert_eq!(iter.next_numeric_str_slice(), output);
+    /// }
+    ///
+    /// t("1", "1");
+    /// t("2.3", "2.3");
+    /// ```
+    pub fn next_numeric_str_slice(&mut self) -> &'a str {
+        let slice = self.iter.as_slice();
+        let start = self.current_offset;
+        self.eat_chars_with(|c| c.is_numeric());
+        if self.eat_char_with(|c| c == '.') {
+            self.eat_chars_with(|c| c.is_numeric());
+        }
+        if self.eat_char_with(|c| matches!(c, 'E' | 'e')) {
+            self.eat_char_with(|c| matches!(c, '+' | '-'));
+            self.eat_chars_with(|c| c.is_numeric());
+        }
         let end = self.current_offset;
         unsafe { std::str::from_utf8_unchecked(&slice[..(end - start)]) }
     }
@@ -209,7 +246,7 @@ mod tests {
             for _ in 0..n {
                 char_iter.next();
             }
-            assert_eq!(char_iter.get_str_slice_with(predicate), expect);
+            assert_eq!(char_iter.next_str_slice_with(predicate), expect);
         }
 
         t("a\n\r\n", 0, |_| true, "a\n\r\n");

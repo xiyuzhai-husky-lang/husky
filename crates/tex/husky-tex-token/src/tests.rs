@@ -1,7 +1,7 @@
 pub(crate) use expect_test::*;
-use husky_coword::CowordJar;
+pub(crate) use salsa::DebugWithDb;
 
-use crate::*;
+use husky_coword::CowordJar;
 
 #[salsa::db(CowordJar)]
 pub struct DB {}
