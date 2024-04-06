@@ -61,14 +61,10 @@ fn parse_tex_input_into_asts_works() {
         expect![[r#"
             (
                 Arena {
-                    data: [
-                        TexAstData::MathLetter(
-                            LowerX,
-                        ),
-                    ],
+                    data: [],
                 },
                 ArenaIdxRange(
-                    1..2,
+                    1..1,
                 ),
             )
         "#]],
@@ -77,25 +73,22 @@ fn parse_tex_input_into_asts_works() {
         "x+1",
         TexMode::Math,
         expect![[r#"
-        (
-            Arena {
-                data: [
-                    TexAstData::MathLetter(
-                        LowerX,
-                    ),
-                    TexAstData::MathOpr(
-                        Add,
-                    ),
-                    TexAstData::MathNat32(
-                        1,
-                    ),
-                ],
-            },
-            ArenaIdxRange(
-                1..4,
-            ),
-        )
-    "#]],
+            (
+                Arena {
+                    data: [
+                        TexAstData::MathLetter(
+                            LowerX,
+                        ),
+                        TexAstData::MathOpr(
+                            Add,
+                        ),
+                    ],
+                },
+                ArenaIdxRange(
+                    1..3,
+                ),
+            )
+        "#]],
     );
 }
 
@@ -130,6 +123,19 @@ impl<'a> TexAstParser<'a> {
                 TexTextTokenData::Nat32(_) => todo!(),
             },
         }
+        let mut ast = self.parse_ast_inner()?;
+        match self.peek()? {
+            TexTokenData::Math(token) => match token {
+                TexMathTokenData::Subscript => todo!(),
+                TexMathTokenData::Superscript => todo!(),
+                _ => (),
+            },
+            TexTokenData::Text(token) => (),
+        };
+        Some(ast)
+    }
+
+    fn parse_ast_inner(&mut self) -> Option<TexAstData> {
         let (idx, token) = self.next_token().unwrap();
         match token {
             TexTokenData::Math(token) => match token {
