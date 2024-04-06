@@ -14,7 +14,7 @@ cleanup() {
 trap cleanup EXIT
 
 # Set the screen brightness to very low
-scripts/adjust_screen_brightness.sh 0.1 HDMI-1-0 $DURATION
+scripts/adjust_screen_brightness.sh 0.0 HDMI-1-0 $DURATION
 
 # Format the Rust project
 cargo fmt

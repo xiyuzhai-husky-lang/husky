@@ -66,7 +66,7 @@ impl<'a> TextCharIter<'a> {
         self.next().expect("what");
     }
 
-    fn eat_char_with(&mut self, predicate: impl Fn(char) -> bool) -> bool {
+    pub fn eat_char_with(&mut self, predicate: impl Fn(char) -> bool) -> bool {
         let Some(c) = self.peek() else { return false };
         if predicate(c) {
             self.eat_char();
