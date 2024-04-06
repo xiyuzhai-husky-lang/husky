@@ -43,9 +43,7 @@
                         ),
                     },
                 ],
-                next: ShiftedU32(
-                    3,
-                ),
+                next: 2,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {

@@ -73,9 +73,7 @@
                         ),
                     },
                 ],
-                next: ShiftedU32(
-                    6,
-                ),
+                next: 5,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
@@ -7152,9 +7150,7 @@
                 infos: [
                     SelfValue,
                 ],
-                next: ShiftedU32(
-                    2,
-                ),
+                next: 1,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
@@ -7679,9 +7675,7 @@
                 infos: [
                     SelfValue,
                 ],
-                next: ShiftedU32(
-                    2,
-                ),
+                next: 1,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
@@ -8115,9 +8109,7 @@
                 infos: [
                     SelfValue,
                 ],
-                next: ShiftedU32(
-                    2,
-                ),
+                next: 1,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
@@ -8996,9 +8988,7 @@
                         ),
                     },
                 ],
-                next: ShiftedU32(
-                    9,
-                ),
+                next: 8,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
@@ -13303,9 +13293,7 @@
                         ),
                     },
                 ],
-                next: ShiftedU32(
-                    6,
-                ),
+                next: 5,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
@@ -17124,9 +17112,7 @@
                         ),
                     },
                 ],
-                next: ShiftedU32(
-                    9,
-                ),
+                next: 8,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
@@ -24301,9 +24287,7 @@
                 infos: [
                     SelfValue,
                 ],
-                next: ShiftedU32(
-                    2,
-                ),
+                next: 1,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
@@ -25203,9 +25187,7 @@
                 infos: [
                     SelfValue,
                 ],
-                next: ShiftedU32(
-                    2,
-                ),
+                next: 1,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
@@ -26905,9 +26887,7 @@
                 infos: [
                     SelfValue,
                 ],
-                next: ShiftedU32(
-                    2,
-                ),
+                next: 1,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
@@ -27729,9 +27709,7 @@
                 infos: [
                     SelfValue,
                 ],
-                next: ShiftedU32(
-                    2,
-                ),
+                next: 1,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
@@ -28553,9 +28531,7 @@
                 infos: [
                     SelfValue,
                 ],
-                next: ShiftedU32(
-                    2,
-                ),
+                next: 1,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
@@ -29076,9 +29052,7 @@
                 infos: [
                     SelfValue,
                 ],
-                next: ShiftedU32(
-                    2,
-                ),
+                next: 1,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
@@ -29787,9 +29761,7 @@
                 infos: [
                     SelfValue,
                 ],
-                next: ShiftedU32(
-                    2,
-                ),
+                next: 1,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {

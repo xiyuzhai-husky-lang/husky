@@ -18,9 +18,7 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [],
-                next: ShiftedU32(
-                    1,
-                ),
+                next: 0,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
@@ -543,9 +541,7 @@
                         ),
                     },
                 ],
-                next: ShiftedU32(
-                    5,
-                ),
+                next: 4,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
@@ -3178,9 +3174,7 @@
                         ),
                     },
                 ],
-                next: ShiftedU32(
-                    3,
-                ),
+                next: 2,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
@@ -4945,9 +4939,7 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [],
-                next: ShiftedU32(
-                    1,
-                ),
+                next: 0,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
@@ -5345,9 +5337,7 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [],
-                next: ShiftedU32(
-                    1,
-                ),
+                next: 0,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
@@ -6000,9 +5990,7 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [],
-                next: ShiftedU32(
-                    1,
-                ),
+                next: 0,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
@@ -6400,9 +6388,7 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [],
-                next: ShiftedU32(
-                    1,
-                ),
+                next: 0,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {

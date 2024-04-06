@@ -30,9 +30,7 @@
                 infos: [
                     SelfValue,
                 ],
-                next: ShiftedU32(
-                    2,
-                ),
+                next: 1,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
