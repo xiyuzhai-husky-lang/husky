@@ -1,4 +1,13 @@
-use crate::{data::TexTokenData, idx::TexTokenIdx, storage::TexTokenStorage, *};
+use crate::{
+    data::{
+        code::TexCodeTokenData,
+        math::{TexMathTokenData, TexMathTokenError},
+        rose::TexRoseTokenData,
+        TexTokenData,
+    },
+    idx::TexTokenIdx,
+    storage::TexTokenStorage,
+};
 use husky_coword::Coword;
 use husky_tex_prelude::mode::TexMode;
 use husky_text_protocol::{char_iter::TextCharIter, range::TextRange};
@@ -37,9 +46,36 @@ impl<'a> Iterator for TexLexer<'a> {
     type Item = (TexTokenIdx, TexTokenData);
 
     fn next(&mut self) -> Option<Self::Item> {
-        self.chars.eat_chars_with(|c| c == ' ');
-        let start = self.chars.current_position();
-        let token_data = self.next_token_data()?;
+        self.chars.eat_chars_while(|c| c == ' ');
+        let mut start = self.chars.current_position();
+
+        let token_data = if self.chars.eat_char_if(|c| c == '\n') {
+            match self.mode {
+                TexMode::Code => {
+                    self.chars.eat_chars_while(|c| c == '\n');
+                    TexCodeTokenData::NewParagraph.into()
+                }
+                TexMode::Rose => {
+                    if self.chars.eat_char_if(|c| c == '\n') {
+                        self.chars.eat_chars_while(|c| c == '\n');
+                        TexRoseTokenData::NewParagraph.into()
+                    } else {
+                        start = self.chars.current_position();
+                        self.next_token_data()?
+                    }
+                }
+                TexMode::Math => {
+                    if self.chars.eat_char_if(|c| c == '\n') {
+                        TexMathTokenData::Error(TexMathTokenError::UnexpectedNewParagraph).into()
+                    } else {
+                        start = self.chars.current_position();
+                        self.next_token_data()?
+                    }
+                }
+            }
+        } else {
+            self.next_token_data()?
+        };
         let range = TextRange {
             start,
             end: self.chars.current_position(),

@@ -66,7 +66,7 @@ impl<'a> TextCharIter<'a> {
         self.next().expect("what");
     }
 
-    pub fn eat_char_with(&mut self, predicate: impl Fn(char) -> bool) -> bool {
+    pub fn eat_char_if(&mut self, predicate: impl Fn(char) -> bool) -> bool {
         let Some(c) = self.peek() else { return false };
         if predicate(c) {
             self.eat_char();
@@ -76,7 +76,7 @@ impl<'a> TextCharIter<'a> {
         }
     }
 
-    pub fn eat_chars_with(&mut self, predicate: impl Fn(char) -> bool) {
+    pub fn eat_chars_while(&mut self, predicate: impl Fn(char) -> bool) {
         while let Some(c) = self.peek() {
             if predicate(c) {
                 self.eat_char();
@@ -89,7 +89,7 @@ impl<'a> TextCharIter<'a> {
     pub fn next_str_slice_with(&mut self, predicate: impl Fn(char) -> bool) -> &'a str {
         let slice = self.iter.as_slice();
         let start = self.current_offset;
-        self.eat_chars_with(predicate);
+        self.eat_chars_while(predicate);
         let end = self.current_offset;
         unsafe { std::str::from_utf8_unchecked(&slice[..(end - start)]) }
     }
@@ -109,13 +109,13 @@ impl<'a> TextCharIter<'a> {
     pub fn next_numeric_str_slice(&mut self) -> &'a str {
         let slice = self.iter.as_slice();
         let start = self.current_offset;
-        self.eat_chars_with(|c| c.is_numeric());
-        if self.eat_char_with(|c| c == '.') {
-            self.eat_chars_with(|c| c.is_numeric());
+        self.eat_chars_while(|c| c.is_numeric());
+        if self.eat_char_if(|c| c == '.') {
+            self.eat_chars_while(|c| c.is_numeric());
         }
-        if self.eat_char_with(|c| matches!(c, 'E' | 'e')) {
-            self.eat_char_with(|c| matches!(c, '+' | '-'));
-            self.eat_chars_with(|c| c.is_numeric());
+        if self.eat_char_if(|c| matches!(c, 'E' | 'e')) {
+            self.eat_char_if(|c| matches!(c, '+' | '-'));
+            self.eat_chars_while(|c| c.is_numeric());
         }
         let end = self.current_offset;
         unsafe { std::str::from_utf8_unchecked(&slice[..(end - start)]) }

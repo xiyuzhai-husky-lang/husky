@@ -41,6 +41,7 @@ impl<'a> TexAstParser<'a> {
             TexMathTokenData::Other(_) => todo!(),
             TexMathTokenData::Subscript => todo!(),
             TexMathTokenData::Superscript => todo!(),
+            TexMathTokenData::Error(_) => todo!(),
         }
     }
 
@@ -70,6 +71,7 @@ impl<'a> TexAstParser<'a> {
                 TexMathTokenData::Other(_) => todo!(),
                 TexMathTokenData::Subscript => todo!(),
                 TexMathTokenData::Superscript => todo!(),
+                TexMathTokenData::Error(_) => todo!(),
             },
             TexTokenData::Rose(_) => todo!(),
             TexTokenData::Code(_) => todo!(),
