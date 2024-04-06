@@ -1,5 +1,5 @@
 use super::{action::text_edit::MathAstTextEditAction, TexAstSheetTimeCapsule};
-use crate::data::{math::TexMathAstData, text::TexTextAstData, TexAstData, TexAstIdx};
+use crate::data::{math::TexMathAstData, prose::TexProseAstData, TexAstData, TexAstIdx};
 
 pub struct TexAstSheetView<'a> {
     time_capsule: &'a mut TexAstSheetTimeCapsule,
@@ -20,7 +20,7 @@ impl<'a> TexAstView<'a> {
                     }))
                 })
             }
-            TexAstData::Text(TexTextAstData::TextEdit { .. }) => {
+            TexAstData::Prose(TexProseAstData::TextEdit { .. }) => {
                 self.time_capsule.add_event(|event_builder| {
                     event_builder.add_action(MathAstTextEditAction::new(self.ast_idx, |text| {
                         ui.text_edit_singleline(text);

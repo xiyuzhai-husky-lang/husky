@@ -1,20 +1,22 @@
 pub mod math;
-pub mod text;
+pub mod prose;
+mod root;
 
-use self::{math::TexMathAstData, text::TexTextAstData};
+use self::{math::TexMathAstData, prose::TexProseAstData, root::TexRootAstData};
 use crate::{parser::TexAstParser, sheet::TexAstSheet, *};
 use husky_tex_math_letter::TexMathLetter;
 use husky_tex_math_opr::TexMathOpr;
 use husky_tex_prelude::mode::TexMode;
-use husky_tex_token::data::{math::TexMathTokenData, text::TexTextTokenData, TexTokenData};
+use husky_tex_token::data::{math::TexMathTokenData, rose::TexRoseTokenData, TexTokenData};
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
 
 #[enum_class::from_variants]
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum TexAstData {
+    Root(TexRootAstData),
     Math(TexMathAstData),
-    Text(TexTextAstData),
+    Prose(TexProseAstData),
 }
 
 pub type TexAstArena = Arena<TexAstData>;
@@ -44,56 +46,53 @@ impl<'a> TexAstParser<'a> {
     fn parse_ast(&mut self) -> Option<TexAstData> {
         let mut ast = self.parse_atomic_ast()?;
         match self.peek_token()? {
-            TexTokenData::Math(token) => match token {
-                TexMathTokenData::Subscript | TexMathTokenData::Superscript => {
-                    let (idx, TexTokenData::Math(token)) = self.next_token().unwrap() else {
-                        unreachable!()
-                    };
-                    ast = match ast {
-                        TexAstData::Math(TexMathAstData::Attach {
-                            base,
-                            superscript,
-                            subscript,
-                        }) => ast,
-                        base => {
-                            let base = self.alloc_ast(base.into());
-                            TexMathAstData::Attach {
-                                base,
-                                superscript: None,
-                                subscript: None,
-                            }
-                            .into()
-                        }
-                    };
-                    let TexAstData::Math(TexMathAstData::Attach {
+            TexTokenData::Math(TexMathTokenData::Subscript | TexMathTokenData::Superscript) => {
+                let (idx, TexTokenData::Math(token)) = self.next_token().unwrap() else {
+                    unreachable!()
+                };
+                ast = match ast {
+                    TexAstData::Math(TexMathAstData::Attach {
                         base,
                         superscript,
                         subscript,
-                    }) = &mut ast
-                    else {
-                        unreachable!()
-                    };
-                    match token {
-                        TexMathTokenData::Subscript => match self.parse_atomic_ast() {
-                            Some(new_subscript) => match subscript {
-                                Some(_) => todo!("err: expected subscript"),
-                                None => *subscript = Some(self.alloc_ast(new_subscript)),
-                            },
-                            None => todo!("err: expected subscript"),
-                        },
-                        TexMathTokenData::Superscript => match self.parse_atomic_ast() {
-                            Some(new_superscript) => match superscript {
-                                Some(_) => todo!(),
-                                None => *superscript = Some(self.alloc_ast(new_superscript)),
-                            },
-                            None => todo!("err: expected superscript"),
-                        },
-                        _ => unreachable!(),
+                    }) => ast,
+                    base => {
+                        let base = self.alloc_ast(base.into());
+                        TexMathAstData::Attach {
+                            base,
+                            superscript: None,
+                            subscript: None,
+                        }
+                        .into()
                     }
+                };
+                let TexAstData::Math(TexMathAstData::Attach {
+                    superscript,
+                    subscript,
+                    ..
+                }) = &mut ast
+                else {
+                    unreachable!()
+                };
+                match token {
+                    TexMathTokenData::Subscript => match self.parse_atomic_ast() {
+                        Some(new_subscript) => match subscript {
+                            Some(_) => todo!("err: expected subscript"),
+                            None => *subscript = Some(self.alloc_ast(new_subscript)),
+                        },
+                        None => todo!("err: expected subscript"),
+                    },
+                    TexMathTokenData::Superscript => match self.parse_atomic_ast() {
+                        Some(new_superscript) => match superscript {
+                            Some(_) => todo!(),
+                            None => *superscript = Some(self.alloc_ast(new_superscript)),
+                        },
+                        None => todo!("err: expected superscript"),
+                    },
+                    _ => unreachable!(),
                 }
-                _ => (),
-            },
-            TexTokenData::Text(token) => (),
+            }
+            _ => (),
         };
         Some(ast)
     }
@@ -113,17 +112,19 @@ impl<'a> TexAstParser<'a> {
                     TexMathTokenData::Superscript => todo!(),
                 };
             }
-            TexTokenData::Text(token) => match token {
-                TexTextTokenData::Word(_) => todo!(),
-                TexTextTokenData::Command(_) => todo!(),
-                TexTextTokenData::Dollar => todo!(),
-                TexTextTokenData::Nat32(_) => todo!(),
+            TexTokenData::Rose(token) => match token {
+                TexRoseTokenData::Word(_) => todo!(),
+                TexRoseTokenData::Command(_) => todo!(),
+                TexRoseTokenData::Dollar => todo!(),
+                TexRoseTokenData::Nat32(_) => todo!(),
             },
+            TexTokenData::Code(_) => todo!(),
         }
         let (idx, token) = self.next_token().unwrap();
         Some(match token {
             TexTokenData::Math(token) => self.parse_atomic_math_ast(idx, token).into(),
-            TexTokenData::Text(token) => self.parse_atomic_text_ast(idx, token).into(),
+            TexTokenData::Rose(token) => self.parse_atomic_text_ast(idx, token).into(),
+            TexTokenData::Code(token) => todo!(),
         })
     }
 }

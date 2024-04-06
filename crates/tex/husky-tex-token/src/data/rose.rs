@@ -5,7 +5,7 @@ use husky_tex_command::path::TexCommandPath;
 #[salsa::derive_debug_with_db]
 #[enum_class::from_variants]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum TexTextTokenData {
+pub enum TexRoseTokenData {
     Word(Coword),
     Command(TexCommandPath),
     Dollar,
@@ -13,7 +13,7 @@ pub enum TexTextTokenData {
 }
 
 impl<'a> TexLexer<'a> {
-    pub(super) fn next_text_token_data(&mut self) -> Option<TexTextTokenData> {
+    pub(super) fn next_text_token_data(&mut self) -> Option<TexRoseTokenData> {
         match self.chars.peek()? {
             '\\' => {
                 self.chars.eat_char();
@@ -55,7 +55,7 @@ impl<'a> TexLexer<'a> {
 fn next_text_token_data_works() {
     fn t(input: &str, expected: &Expect) {
         let db = &DB::default();
-        let tokenizer = TexLexer::new(db, input, TexMode::Text);
+        let tokenizer = TexLexer::new(db, input, TexMode::Rose);
         let tokens: Vec<_> = tokenizer.map(|(_, token_data)| token_data).collect();
         expected.assert_debug_eq(&(tokens.debug(db)));
     }
@@ -63,8 +63,8 @@ fn next_text_token_data_works() {
         "hello",
         &expect![[r#"
             [
-                TexTokenData::Text(
-                    TexTextTokenData::Word(
+                TexTokenData::Rose(
+                    TexRoseTokenData::Word(
                         Coword(
                             "hello",
                         ),
@@ -77,8 +77,8 @@ fn next_text_token_data_works() {
         "0",
         &expect![[r#"
             [
-                TexTokenData::Text(
-                    TexTextTokenData::Nat32(
+                TexTokenData::Rose(
+                    TexRoseTokenData::Nat32(
                         0,
                     ),
                 ),
@@ -89,8 +89,8 @@ fn next_text_token_data_works() {
         "\\emph",
         &expect![[r#"
             [
-                TexTokenData::Text(
-                    TexTextTokenData::Command(
+                TexTokenData::Rose(
+                    TexRoseTokenData::Command(
                         TexCommandPath::Coword(
                             Coword(
                                 "emph",

@@ -71,7 +71,8 @@ impl<'a> TexAstParser<'a> {
                 TexMathTokenData::Subscript => todo!(),
                 TexMathTokenData::Superscript => todo!(),
             },
-            TexTokenData::Text(_) => todo!(),
+            TexTokenData::Rose(_) => todo!(),
+            TexTokenData::Code(_) => todo!(),
         }
     }
 }
