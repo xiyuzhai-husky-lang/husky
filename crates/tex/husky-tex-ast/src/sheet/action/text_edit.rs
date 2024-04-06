@@ -33,7 +33,7 @@ where
     fn exec(self, sheet: &mut TexAstSheet) -> Self::Outcome {
         sheet.arena.update(self.ast_idx, |ast| match ast {
             TexAstData::TextEdit { ref mut buffer, .. } => (self.f)(buffer),
-            TexAstData::Other => unreachable!("shouldn't use this"),
+            _ => unreachable!("shouldn't use this"),
         })
     }
 }

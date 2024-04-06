@@ -18,7 +18,7 @@ impl<'a> TexAstView<'a> {
                     ui.text_edit_singleline(text);
                 }))
             }),
-            TexAstData::Other => todo!(),
+            _ => todo!(),
         }
     }
 }

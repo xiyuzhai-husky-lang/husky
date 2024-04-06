@@ -10,6 +10,29 @@ pub struct TexLexer<'a> {
     pub(crate) storage: TexTokenStorage,
 }
 
+/// # constructor
+impl<'a> TexLexer<'a> {
+    pub fn new(db: &'a ::salsa::Db, input: &'a str, mode: TexMode) -> Self {
+        Self {
+            db,
+            chars: TextCharIter::new(input),
+            mode,
+            storage: Default::default(),
+        }
+    }
+}
+
+/// # actions
+impl<'a> TexLexer<'a> {
+    pub(crate) fn next_coword_with(&mut self, predicate: impl Fn(char) -> bool) -> Option<Coword> {
+        let coword_str_slice = self.chars.next_str_slice_with(|c| c.is_alphanumeric());
+        if coword_str_slice.is_empty() {
+            return None;
+        }
+        Some(Coword::from_ref(self.db, coword_str_slice))
+    }
+}
+
 impl<'a> Iterator for TexLexer<'a> {
     type Item = (TexTokenIdx, TexTokenData);
 
@@ -21,24 +44,5 @@ impl<'a> Iterator for TexLexer<'a> {
             end: self.chars.current_position(),
         };
         Some((self.storage.alloc(range, token_data), token_data))
-    }
-}
-
-impl<'a> TexLexer<'a> {
-    pub(crate) fn new(db: &'a ::salsa::Db, input: &'a str, mode: TexMode) -> Self {
-        Self {
-            db,
-            chars: TextCharIter::new(input),
-            mode,
-            storage: Default::default(),
-        }
-    }
-
-    pub(crate) fn next_coword_with(&mut self, predicate: impl Fn(char) -> bool) -> Option<Coword> {
-        let coword_str_slice = self.chars.next_str_slice_with(|c| c.is_alphanumeric());
-        if coword_str_slice.is_empty() {
-            return None;
-        }
-        Some(Coword::from_ref(self.db, coword_str_slice))
     }
 }
