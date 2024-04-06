@@ -31,11 +31,14 @@ count-todo:
 	scripts/pattern_statistics.py "todo!()" crates 2 10
 
 update-expect:
-	cargo fmt
-	cargo check --tests
-	UPDATE_EXPECT=1 cargo test --features "allow-print" -- --nocapture\
-		|| scripts/play_update_expect_failure_music.sh
-	scripts/play_update_expect_success_music.sh
+	scripts/update-expect.sh
+	# xrandr --output HDMI-1-0 --brightness 0.01
+	# cargo fmt
+	# cargo check --tests
+	# UPDATE_EXPECT=1 cargo test --features "allow-print" -- --nocapture\
+	# 	|| scripts/play_update_expect_failure_music.sh
+	# scripts/play_update_expect_success_music.sh
+	# xrandr --output HDMI-1-0 --brightness 1.0
 
 update-expect-local:
 	cargo fmt
