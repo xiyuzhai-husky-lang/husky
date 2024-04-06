@@ -32,6 +32,102 @@ pub fn parse_tex_input_into_asts<'a>(
     asts
 }
 
+impl<'a> TexAstParser<'a> {
+    pub(crate) fn parse_asts(&mut self) -> TexAstIdxRange {
+        let mut asts = vec![];
+        while let Some(ast) = self.parse_ast() {
+            asts.push(ast)
+        }
+        self.alloc_asts(asts)
+    }
+
+    fn parse_ast(&mut self) -> Option<TexAstData> {
+        let mut ast = self.parse_atomic_ast()?;
+        match self.peek_token()? {
+            TexTokenData::Math(token) => match token {
+                TexMathTokenData::Subscript | TexMathTokenData::Superscript => {
+                    let (idx, TexTokenData::Math(token)) = self.next_token().unwrap() else {
+                        unreachable!()
+                    };
+                    ast = match ast {
+                        TexAstData::Math(TexMathAstData::Attach {
+                            base,
+                            superscript,
+                            subscript,
+                        }) => ast,
+                        base => {
+                            let base = self.alloc_ast(base.into());
+                            TexMathAstData::Attach {
+                                base,
+                                superscript: None,
+                                subscript: None,
+                            }
+                            .into()
+                        }
+                    };
+                    let TexAstData::Math(TexMathAstData::Attach {
+                        base,
+                        superscript,
+                        subscript,
+                    }) = &mut ast
+                    else {
+                        unreachable!()
+                    };
+                    match token {
+                        TexMathTokenData::Subscript => match self.parse_atomic_ast() {
+                            Some(new_subscript) => match subscript {
+                                Some(_) => todo!("err: expected subscript"),
+                                None => *subscript = Some(self.alloc_ast(new_subscript)),
+                            },
+                            None => todo!("err: expected subscript"),
+                        },
+                        TexMathTokenData::Superscript => match self.parse_atomic_ast() {
+                            Some(new_superscript) => match superscript {
+                                Some(_) => todo!(),
+                                None => *superscript = Some(self.alloc_ast(new_superscript)),
+                            },
+                            None => todo!("err: expected superscript"),
+                        },
+                        _ => unreachable!(),
+                    }
+                }
+                _ => (),
+            },
+            TexTokenData::Text(token) => (),
+        };
+        Some(ast)
+    }
+
+    fn parse_atomic_ast(&mut self) -> Option<TexAstData> {
+        match self.peek_token()? {
+            TexTokenData::Math(token) => {
+                match token {
+                    TexMathTokenData::Command(_) => todo!(),
+                    TexMathTokenData::LeftDelimiter(_) => (),
+                    TexMathTokenData::RightDelimiter(_) => return None,
+                    TexMathTokenData::Letter(_) => (),
+                    TexMathTokenData::Opr(_) => (),
+                    TexMathTokenData::Nat32(_) => (),
+                    TexMathTokenData::Other(_) => todo!(),
+                    TexMathTokenData::Subscript => todo!(),
+                    TexMathTokenData::Superscript => todo!(),
+                };
+            }
+            TexTokenData::Text(token) => match token {
+                TexTextTokenData::Word(_) => todo!(),
+                TexTextTokenData::Command(_) => todo!(),
+                TexTextTokenData::Dollar => todo!(),
+                TexTextTokenData::Nat32(_) => todo!(),
+            },
+        }
+        let (idx, token) = self.next_token().unwrap();
+        Some(match token {
+            TexTokenData::Math(token) => self.parse_atomic_math_ast(idx, token).into(),
+            TexTokenData::Text(token) => self.parse_atomic_text_ast(idx, token).into(),
+        })
+    }
+}
+
 #[test]
 fn parse_tex_input_into_asts_works() {
     use expect_test::Expect;
@@ -95,56 +191,135 @@ fn parse_tex_input_into_asts_works() {
             )
         "#]],
     );
-}
-
-impl<'a> TexAstParser<'a> {
-    pub(crate) fn parse_asts(&mut self) -> TexAstIdxRange {
-        let mut asts = vec![];
-        while let Some(ast) = self.parse_ast() {
-            asts.push(ast)
-        }
-        self.alloc_asts(asts)
-    }
-
-    fn parse_ast(&mut self) -> Option<TexAstData> {
-        let mut ast = self.parse_atomic_ast()?;
-        match self.peek()? {
-            TexTokenData::Math(token) => match token {
-                TexMathTokenData::Subscript => todo!(),
-                TexMathTokenData::Superscript => todo!(),
-                _ => (),
-            },
-            TexTokenData::Text(token) => (),
-        };
-        Some(ast)
-    }
-
-    fn parse_atomic_ast(&mut self) -> Option<TexAstData> {
-        match self.peek()? {
-            TexTokenData::Math(token) => {
-                match token {
-                    TexMathTokenData::Command(_) => todo!(),
-                    TexMathTokenData::LeftDelimiter(_) => todo!(),
-                    TexMathTokenData::RightDelimiter(_) => todo!(),
-                    TexMathTokenData::Letter(_) => (),
-                    TexMathTokenData::Opr(_) => (),
-                    TexMathTokenData::Nat32(_) => (),
-                    TexMathTokenData::Other(_) => todo!(),
-                    TexMathTokenData::Subscript => todo!(),
-                    TexMathTokenData::Superscript => todo!(),
-                };
-            }
-            TexTokenData::Text(token) => match token {
-                TexTextTokenData::Word(_) => todo!(),
-                TexTextTokenData::Command(_) => todo!(),
-                TexTextTokenData::Dollar => todo!(),
-                TexTextTokenData::Nat32(_) => todo!(),
-            },
-        }
-        let (idx, token) = self.next_token().unwrap();
-        Some(match token {
-            TexTokenData::Math(token) => self.parse_atomic_math_ast(token).into(),
-            TexTokenData::Text(token) => self.parse_atomic_text_ast(token).into(),
-        })
-    }
+    t(
+        "x^2",
+        TexMode::Math,
+        expect![[r#"
+            (
+                Arena {
+                    data: [
+                        TexAstData::Math(
+                            TexMathAstData::Letter(
+                                LowerX,
+                            ),
+                        ),
+                        TexAstData::Math(
+                            TexMathAstData::Nat32(
+                                2,
+                            ),
+                        ),
+                        TexAstData::Math(
+                            TexMathAstData::Attach {
+                                base: 1,
+                                superscript: Some(
+                                    2,
+                                ),
+                                subscript: None,
+                            },
+                        ),
+                    ],
+                },
+                ArenaIdxRange(
+                    3..4,
+                ),
+            )
+        "#]],
+    );
+    t(
+        "x_2",
+        TexMode::Math,
+        expect![[r#"
+            (
+                Arena {
+                    data: [
+                        TexAstData::Math(
+                            TexMathAstData::Letter(
+                                LowerX,
+                            ),
+                        ),
+                        TexAstData::Math(
+                            TexMathAstData::Nat32(
+                                2,
+                            ),
+                        ),
+                        TexAstData::Math(
+                            TexMathAstData::Attach {
+                                base: 1,
+                                superscript: None,
+                                subscript: Some(
+                                    2,
+                                ),
+                            },
+                        ),
+                    ],
+                },
+                ArenaIdxRange(
+                    3..4,
+                ),
+            )
+        "#]],
+    );
+    t(
+        "x^{i+2}",
+        TexMode::Math,
+        expect![[r#"
+            (
+                Arena {
+                    data: [
+                        TexAstData::Math(
+                            TexMathAstData::Letter(
+                                LowerX,
+                            ),
+                        ),
+                        TexAstData::Math(
+                            TexMathAstData::Letter(
+                                LowerI,
+                            ),
+                        ),
+                        TexAstData::Math(
+                            TexMathAstData::Opr(
+                                Add,
+                            ),
+                        ),
+                        TexAstData::Math(
+                            TexMathAstData::Nat32(
+                                2,
+                            ),
+                        ),
+                        TexAstData::Math(
+                            TexMathAstData::Delimited {
+                                left_delimiter_token_idx: TexTokenIdx(
+                                    ShiftedU32(
+                                        3,
+                                    ),
+                                ),
+                                left_delimiter: Curl,
+                                asts: ArenaIdxRange(
+                                    2..5,
+                                ),
+                                right_delimiter_token_idx: TexTokenIdx(
+                                    ShiftedU32(
+                                        7,
+                                    ),
+                                ),
+                                right_delimiter: Curl,
+                            },
+                        ),
+                        TexAstData::Math(
+                            TexMathAstData::Attach {
+                                base: 1,
+                                superscript: Some(
+                                    5,
+                                ),
+                                subscript: None,
+                            },
+                        ),
+                    ],
+                },
+                ArenaIdxRange(
+                    6..7,
+                ),
+            )
+        "#]],
+    );
 }
