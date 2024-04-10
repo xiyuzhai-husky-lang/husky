@@ -5500,8 +5500,10 @@ dependencies = [
 name = "husky-namekian-ast"
 version = "0.1.0"
 dependencies = [
+ "expect-test",
  "husky-text-protocol",
  "idx-arena",
+ "salsa",
 ]
 
 [[package]]

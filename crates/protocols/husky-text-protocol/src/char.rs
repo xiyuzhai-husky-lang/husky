@@ -96,7 +96,7 @@ impl<'a> TextCharIter<'a> {
 
     /// scientific number included
     /// ```
-    /// use husky_text_protocol::char_iter::TextCharIter;
+    /// use husky_text_protocol::char::TextCharIter;
     ///
     /// fn t(input: &str, output:&str ) {
     ///     let mut iter = TextCharIter::new(input);
