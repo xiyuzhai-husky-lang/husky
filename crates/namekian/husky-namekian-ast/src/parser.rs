@@ -29,7 +29,7 @@ impl<'a> NamParser<'a> {
         r
     }
 
-    pub(crate) fn next_paragraph_within_current_level(&mut self) -> Option<NamParagraph> {
+    pub(crate) fn next_paragraph_within_current_level(&mut self) -> Option<NamParagraph<'a>> {
         let paragraph = self.paragraph_iter.peek()?;
         if paragraph.lead.level() <= self.level {
             return None;
