@@ -437,7 +437,7 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
     }
 
     fn get_str_slice_with(&mut self, predicate: impl Fn(char) -> bool) -> &'b str {
-        self.char_iter.next_str_slice_with(predicate)
+        self.char_iter.next_str_slice_while(predicate)
     }
 
     fn next_punctuation(&mut self, c_start: char) -> Option<Pretoken> {

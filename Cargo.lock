@@ -5234,6 +5234,22 @@ dependencies = [
 ]
 
 [[package]]
+name = "husky-lean-ast"
+version = "0.1.0"
+
+[[package]]
+name = "husky-lean-sem-expr"
+version = "0.1.0"
+
+[[package]]
+name = "husky-lean-syn-expr"
+version = "0.1.0"
+
+[[package]]
+name = "husky-lean-token"
+version = "0.1.0"
+
+[[package]]
 name = "husky-lifetime-utils"
 version = "0.1.0"
 
@@ -5478,6 +5494,13 @@ dependencies = [
  "smallvec",
  "vec-like",
  "version-stamp",
+]
+
+[[package]]
+name = "husky-namekian-ast"
+version = "0.1.0"
+dependencies = [
+ "husky-text-protocol",
 ]
 
 [[package]]
