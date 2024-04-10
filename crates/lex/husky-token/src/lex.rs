@@ -9,7 +9,7 @@ use self::lexer::*;
 use self::pretoken::*;
 use self::word::*;
 use crate::*;
-use husky_text_protocol::char_iter::TextCharIter;
+use husky_text_protocol::char::TextCharIter;
 
 // must be used inside tracked context
 pub(crate) fn lex_tracked<'a>(db: &::salsa::Db, input: &str) -> RangedTokenSheet {

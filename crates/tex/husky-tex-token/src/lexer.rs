@@ -10,7 +10,7 @@ use crate::{
 };
 use husky_coword::Coword;
 use husky_tex_prelude::mode::TexMode;
-use husky_text_protocol::{char_iter::TextCharIter, range::TextRange};
+use husky_text_protocol::{char::TextCharIter, range::TextRange};
 
 pub struct TexLexer<'a> {
     pub(crate) db: &'a ::salsa::Db,
@@ -34,7 +34,7 @@ impl<'a> TexLexer<'a> {
 /// # actions
 impl<'a> TexLexer<'a> {
     pub(crate) fn next_coword_with(&mut self, predicate: impl Fn(char) -> bool) -> Option<Coword> {
-        let coword_str_slice = self.chars.next_str_slice_with(|c| c.is_alphanumeric());
+        let coword_str_slice = self.chars.next_str_slice_while(|c| c.is_alphanumeric());
         if coword_str_slice.is_empty() {
             return None;
         }

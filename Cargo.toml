@@ -15,6 +15,7 @@ members = [
     "crates/kernel/*",
     "crates/ki/*",
     "crates/lex/*",
+    "crates/lean/*",
     "crates/linkage/*",
     "crates/linktime/*",
     "crates/mir/*",
@@ -30,7 +31,7 @@ members = [
     "crates/vm/*",
     "crates/vmir/*",
     "library/core",
-    "registry/*",
+    "registry/*"
 ]
 resolver = "2"
 

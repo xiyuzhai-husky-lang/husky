@@ -41,7 +41,7 @@ impl<'a> TexLexer<'a> {
             a if a.is_alphabetic() => Some(
                 Coword::from_ref(
                     self.db,
-                    self.chars.next_str_slice_with(|c| c.is_alphabetic()),
+                    self.chars.next_str_slice_while(|c| c.is_alphabetic()),
                 )
                 .into(),
             ),
