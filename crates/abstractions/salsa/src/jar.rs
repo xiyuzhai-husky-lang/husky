@@ -168,6 +168,7 @@ pub enum JarIndex {
     TomlAstJar,
     CorgiConfigAstJar,
     // tex
+    TexAstJar,
     TexCommandJar,
     // vm
     VmirJar,

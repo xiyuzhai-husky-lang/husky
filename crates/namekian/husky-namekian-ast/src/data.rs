@@ -1,15 +1,8 @@
 pub mod division;
-pub mod notion;
-pub mod semantics;
-pub mod statement;
-pub mod syntax;
+pub mod entry;
 
-use self::{
-    notion::NamNotionAst, paragraph::NamParagraphLead, semantics::NamSemanticsAst,
-    statement::NamStatementAst, syntax::NamSyntaxAst,
-};
-use crate::*;
-use crate::{data::division::NamDivisionKind, parser::NamParser};
+use self::paragraph::NamParagraphLead;
+use crate::{data::division::NamDivisionKind, parser::NamParser, region::NamAstRegion, *};
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
 
 #[salsa::derive_debug_with_db]
@@ -19,10 +12,7 @@ pub enum NamAstData {
         kind: NamDivisionKind,
         items: NamAstIdxRange,
     },
-    Syntax(NamSyntaxAst),
-    Notion(NamNotionAst),
-    Semantics(NamSemanticsAst),
-    Statement(NamStatementAst),
+    Entry(NamAstRegion),
 }
 
 pub type NamAstArena = Arena<NamAstData>;
