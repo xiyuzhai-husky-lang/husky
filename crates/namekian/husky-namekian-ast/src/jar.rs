@@ -1,7 +1,2 @@
 #[salsa::jar]
-pub struct NamAstJar(
-    crate::data::syntax::NamSyntaxAst,
-    crate::data::notion::NamNotionAst,
-    crate::data::semantics::NamSemanticsAst,
-    crate::data::statement::NamStatementAst,
-);
+pub struct NamAstJar(crate::district::NamAstDistrict, crate::region::NamAstRegion);
