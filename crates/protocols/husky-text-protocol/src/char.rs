@@ -3,7 +3,7 @@ use crate::*;
 #[derive(Clone)]
 pub struct TextCharIter<'a> {
     pub(super) iter: core::slice::Iter<'a, u8>,
-    pub(super) current_offset: usize,
+    current_offset: usize,
     current_position: TextPosition,
 }
 
@@ -76,7 +76,7 @@ impl<'a> TextCharIter<'a> {
         }
     }
 
-    pub fn eat_chars_while(&mut self, predicate: impl Fn(char) -> bool) {
+    pub fn eat_chars_while(&mut self, mut predicate: impl FnMut(char) -> bool) {
         while let Some(c) = self.peek() {
             if predicate(c) {
                 self.eat_char();
@@ -86,7 +86,7 @@ impl<'a> TextCharIter<'a> {
         }
     }
 
-    pub fn next_str_slice_with(&mut self, predicate: impl Fn(char) -> bool) -> &'a str {
+    pub fn next_str_slice_while(&mut self, predicate: impl FnMut(char) -> bool) -> &'a str {
         let slice = self.iter.as_slice();
         let start = self.current_offset;
         self.eat_chars_while(predicate);
@@ -246,7 +246,7 @@ mod tests {
             for _ in 0..n {
                 char_iter.next();
             }
-            assert_eq!(char_iter.next_str_slice_with(predicate), expect);
+            assert_eq!(char_iter.next_str_slice_while(predicate), expect);
         }
 
         t("a\n\r\n", 0, |_| true, "a\n\r\n");
