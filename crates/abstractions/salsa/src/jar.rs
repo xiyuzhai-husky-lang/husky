@@ -151,6 +151,8 @@ pub enum JarIndex {
     // linkage
     JavelinJar,
     LinkageJar,
+    // namekian
+    NamAstJar,
     // semantics
     SemaExprJar,
     SemaPlaceContractJar,

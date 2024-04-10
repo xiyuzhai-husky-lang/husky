@@ -1,4 +1,5 @@
 use crate::{
+    data::{NamAstArena, NamAstIdxRange},
     level::NamAstLevel,
     paragraph::{NamParagraph, NamParagraphIter},
 };
@@ -8,6 +9,7 @@ pub struct NamParser<'a> {
     input: &'a str,
     paragraph_iter: Peekable<NamParagraphIter<'a>>,
     level: NamAstLevel,
+    arena: NamAstArena,
 }
 
 impl<'a> NamParser<'a> {
@@ -16,6 +18,7 @@ impl<'a> NamParser<'a> {
             input,
             paragraph_iter: NamParagraphIter::new(input).peekable(),
             level: NamAstLevel::Book,
+            arena: Default::default(),
         }
     }
 
@@ -26,11 +29,19 @@ impl<'a> NamParser<'a> {
         r
     }
 
-    pub(crate) fn next_paragraph(&mut self) -> Option<NamParagraph> {
+    pub(crate) fn next_paragraph_within_current_level(&mut self) -> Option<NamParagraph> {
         let paragraph = self.paragraph_iter.peek()?;
         if paragraph.lead.level() <= self.level {
             return None;
         }
         self.paragraph_iter.next()
+    }
+
+    pub(crate) fn alloc_asts(&mut self, asts: Vec<crate::data::NamAstData>) -> NamAstIdxRange {
+        self.arena.alloc_batch(asts)
+    }
+
+    pub(crate) fn finish(self) -> NamAstArena {
+        self.arena
     }
 }
