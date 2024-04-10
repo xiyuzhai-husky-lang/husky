@@ -5501,6 +5501,7 @@ name = "husky-namekian-ast"
 version = "0.1.0"
 dependencies = [
  "husky-text-protocol",
+ "idx-arena",
 ]
 
 [[package]]
