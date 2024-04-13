@@ -1,6 +1,7 @@
 pub mod code;
 pub mod math;
 pub mod rose;
+pub mod tree;
 
 use self::{code::TexCodeTokenData, math::TexMathTokenData, rose::TexRoseTokenData};
 use crate::lexer::TexLexer;

@@ -1,5 +1,5 @@
 use super::*;
-use crate::data::{math::TexMathAstData, prose::TexProseAstData};
+use crate::data::{math::TexMathAstData, rose::TexRoseAstData};
 
 pub(in crate::sheet) struct MathAstTextEditAction<F>
 where
@@ -34,7 +34,7 @@ where
     fn exec(self, sheet: &mut TexAstSheet) -> Self::Outcome {
         sheet.arena.update(self.ast_idx, |ast| match ast {
             TexAstData::Math(TexMathAstData::TextEdit { ref mut buffer, .. }) => (self.f)(buffer),
-            TexAstData::Prose(TexProseAstData::TextEdit { ref mut buffer, .. }) => (self.f)(buffer),
+            TexAstData::Rose(TexRoseAstData::TextEdit { ref mut buffer, .. }) => (self.f)(buffer),
             _ => unreachable!("shouldn't use this"),
         })
     }
