@@ -5336,6 +5336,9 @@ dependencies = [
 [[package]]
 name = "husky-logicm-prototype"
 version = "0.1.0"
+dependencies = [
+ "salsa",
+]
 
 [[package]]
 name = "husky-manifest"
