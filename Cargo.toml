@@ -21,6 +21,7 @@ members = [
     "crates/mir/*",
     "crates/namekian/*",
     "crates/protocols/*",
+    "crates/prototypes/*",
     "crates/runtime/*",
     "crates/semantics/*",
     "crates/syntax/*",
@@ -31,8 +32,7 @@ members = [
     "crates/vm/*",
     "crates/vmir/*",
     "library/core",
-    "registry/*"
-]
+    "registry/*"]
 resolver = "2"
 
 [workspace.package]
