@@ -5334,6 +5334,10 @@ dependencies = [
 ]
 
 [[package]]
+name = "husky-logicm-prototype"
+version = "0.1.0"
+
+[[package]]
 name = "husky-manifest"
 version = "0.1.0"
 dependencies = [
@@ -5596,6 +5600,10 @@ dependencies = [
 ]
 
 [[package]]
+name = "husky-pn-prototype"
+version = "0.1.0"
+
+[[package]]
 name = "husky-primitive-value"
 version = "0.1.0"
 
@@ -5628,6 +5636,10 @@ dependencies = [
 
 [[package]]
 name = "husky-proof-protocol"
+version = "0.1.0"
+
+[[package]]
+name = "husky-qn-prototype"
 version = "0.1.0"
 
 [[package]]
@@ -6246,6 +6258,10 @@ name = "husky-text-span"
 version = "0.1.0"
 
 [[package]]
+name = "husky-tn-prototype"
+version = "0.1.0"
+
+[[package]]
 name = "husky-token"
 version = "0.0.0"
 dependencies = [
@@ -6679,6 +6695,10 @@ dependencies = [
  "shifted-unsigned-int",
  "smallvec",
 ]
+
+[[package]]
+name = "husky-vn-prototype"
+version = "0.1.0"
 
 [[package]]
 name = "husky-websocket-utils"
