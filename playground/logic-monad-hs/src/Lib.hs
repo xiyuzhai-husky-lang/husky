@@ -1,5 +1,3 @@
-{-# LANGUAGE TupleSections #-}
-
 module Lib
     ( printStatement, LogicM
     ) where
@@ -18,6 +16,7 @@ statement = aArb dog
 
 data Term = Noun String
     | NounPhrase String [NounModifier]
+    | TermIntro
     deriving Show
 
 data NounModifier = Adjective String
@@ -31,6 +30,9 @@ dog = pure $ Noun "dog"
 aArb::LogicM Term -> LogicM Term
 aArb term = do
     a <- term
-    return (case a of
-        Noun word -> undefined
-        NounPhrase word modifiers -> undefined)
+    case a of
+        Noun word -> do
+            new_intro <- introArbFromNounM word
+            return TermIntro
+        NounPhrase word modifiers -> undefined
+        TermIntro -> undefined
