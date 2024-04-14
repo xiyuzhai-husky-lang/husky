@@ -967,9 +967,9 @@ dependencies = [
 
 [[package]]
 name = "cargo"
-version = "0.78.0"
+version = "0.78.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "40aa4f7f65beb7840194ee32d91f7d0ee0165bbf85e368bbb2c8d6389ea4fabb"
+checksum = "d6305e39d08315644d79a5ae09a0745dfb3a43b5b5e318e55dbda3f12031c5dc"
 dependencies = [
  "annotate-snippets",
  "anstream",
@@ -1121,9 +1121,9 @@ dependencies = [
 
 [[package]]
 name = "cargo-manifest"
-version = "0.13.0"
+version = "0.14.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "bf6ff49a028a52bf61913e19f5ba3b9bd34145cc97eb1649865576c8f06b408d"
+checksum = "7db7ad32d2729eca70d1669bae38b6a29dabc30a16f1892cc00977873f450d0a"
 dependencies = [
  "serde",
  "thiserror",
