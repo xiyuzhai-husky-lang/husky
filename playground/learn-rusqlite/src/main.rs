@@ -8,7 +8,7 @@ struct Person {
 }
 
 fn main() -> Result<()> {
-    let conn = Connection::open_in_memory()?;
+    let conn = Connection::open("toy.db")?;
 
     conn.execute(
         "CREATE TABLE person (
@@ -41,8 +41,4 @@ fn main() -> Result<()> {
         println!("Found person {:?}", person.unwrap());
     }
     Ok(())
-}
-
-fn main() {
-    println!("Hello, world!");
 }
