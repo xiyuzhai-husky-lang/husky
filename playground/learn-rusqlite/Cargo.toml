@@ -1,0 +1,7 @@
+[package]
+name = "learn-rusqlite"
+
+[workspace]
+
+[dependencies]
+rusqlite.workspace = true
