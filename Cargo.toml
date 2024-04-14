@@ -33,7 +33,7 @@ members = [
     "crates/vmir/*",
     "library/core",
     "registry/*",
-    # "playground/learn-rusqlite"
+    "playground/learn-rusqlite"
 ]
 resolver = "2"
 
