@@ -5,7 +5,7 @@ use husky_print_utils::p;
 use husky_regional_token::{
     EphemSymbolModifierRegionalTokens, RegionalTokenIdxRange, RegionalTokenIdxRangeEnd,
 };
-use husky_syn_expr::entity_path::{PrincipalEntityPathSynExprIdx, SynPrincipalEntityPathExpr};
+use husky_syn_expr::entity_path::{SynPrincipalEntityPathExpr, SynPrincipalEntityPathSynExprIdx};
 use husky_vfs::ModulePath;
 
 #[salsa::tracked(db = SemaExprDb, jar = SemaExprJar)]
@@ -99,10 +99,10 @@ fn defn_sem_expr_range_regions_works() {
     );
 }
 
-impl std::ops::Index<PrincipalEntityPathSynExprIdx> for SemaExprRangeRegionData {
+impl std::ops::Index<SynPrincipalEntityPathSynExprIdx> for SemaExprRangeRegionData {
     type Output = RegionalTokenIdxRange;
 
-    fn index(&self, index: PrincipalEntityPathSynExprIdx) -> &Self::Output {
+    fn index(&self, index: SynPrincipalEntityPathSynExprIdx) -> &Self::Output {
         &self.principal_entity_path_expr_ranges[index.index()]
     }
 }
@@ -140,18 +140,18 @@ struct SemaExprRangeCalculator<'a> {
     stmt_ranges: SemaStmtMap<RegionalTokenIdxRange>,
 }
 
-impl<'a> std::ops::Index<PrincipalEntityPathSynExprIdx> for SemaExprRangeCalculator<'a> {
+impl<'a> std::ops::Index<SynPrincipalEntityPathSynExprIdx> for SemaExprRangeCalculator<'a> {
     type Output = RegionalTokenIdxRange;
 
-    fn index(&self, index: PrincipalEntityPathSynExprIdx) -> &Self::Output {
+    fn index(&self, index: SynPrincipalEntityPathSynExprIdx) -> &Self::Output {
         &self.principal_entity_path_expr_ranges[index.index()]
     }
 }
 
-impl<'a> std::ops::Index<&PrincipalEntityPathSynExprIdx> for SemaExprRangeCalculator<'a> {
+impl<'a> std::ops::Index<&SynPrincipalEntityPathSynExprIdx> for SemaExprRangeCalculator<'a> {
     type Output = RegionalTokenIdxRange;
 
-    fn index(&self, index: &PrincipalEntityPathSynExprIdx) -> &Self::Output {
+    fn index(&self, index: &SynPrincipalEntityPathSynExprIdx) -> &Self::Output {
         &self.principal_entity_path_expr_ranges[index.index()]
     }
 }

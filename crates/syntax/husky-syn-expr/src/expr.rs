@@ -15,11 +15,11 @@ use parsec::PunctuatedSmallList;
 pub enum SynExprData {
     Literal(RegionalTokenIdx, LiteralTokenData),
     PrincipalEntityPath {
-        path_expr_idx: PrincipalEntityPathSynExprIdx,
+        path_expr_idx: SynPrincipalEntityPathSynExprIdx,
         opt_path: Option<PrincipalEntityPath>,
     },
     AssocItem {
-        parent_expr_idx: PrincipalEntityPathSynExprIdx,
+        parent_expr_idx: SynPrincipalEntityPathSynExprIdx,
         parent_path: MajorItemPath,
         colon_colon_regional_token: ColonColonRegionalToken,
         ident_token: IdentRegionalToken,
@@ -221,17 +221,17 @@ pub enum SynExprData {
     Err(SynExprError),
 }
 
-impl From<IdentifiableEntityPathExpr> for SynExprData {
-    fn from(expr: IdentifiableEntityPathExpr) -> Self {
+impl From<ItemPathExpr> for SynExprData {
+    fn from(expr: ItemPathExpr) -> Self {
         match expr {
-            IdentifiableEntityPathExpr::Principal {
+            ItemPathExpr::Principal {
                 path_expr_idx,
                 opt_path,
             } => SynExprData::PrincipalEntityPath {
                 path_expr_idx,
                 opt_path,
             },
-            IdentifiableEntityPathExpr::AssocItem {
+            ItemPathExpr::AssocItem {
                 parent_expr_idx,
                 parent_path,
                 colon_colon_regional_token,

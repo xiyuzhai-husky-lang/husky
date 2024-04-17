@@ -17,10 +17,10 @@ pub(crate) fn syn_expr_range_region(
     SynExprRangeCalculator::new(db, expr_region).calc_all()
 }
 
-impl std::ops::Index<PrincipalEntityPathSynExprIdx> for SynExprRangeRegion {
+impl std::ops::Index<SynPrincipalEntityPathSynExprIdx> for SynExprRangeRegion {
     type Output = RegionalTokenIdxRange;
 
-    fn index(&self, index: PrincipalEntityPathSynExprIdx) -> &Self::Output {
+    fn index(&self, index: SynPrincipalEntityPathSynExprIdx) -> &Self::Output {
         &self.item_path_expr_ranges[index.index()]
     }
 }
@@ -49,18 +49,18 @@ struct SynExprRangeCalculator<'a> {
     stmt_ranges: SynStmtMap<RegionalTokenIdxRange>,
 }
 
-impl<'a> std::ops::Index<PrincipalEntityPathSynExprIdx> for SynExprRangeCalculator<'a> {
+impl<'a> std::ops::Index<SynPrincipalEntityPathSynExprIdx> for SynExprRangeCalculator<'a> {
     type Output = RegionalTokenIdxRange;
 
-    fn index(&self, index: PrincipalEntityPathSynExprIdx) -> &Self::Output {
+    fn index(&self, index: SynPrincipalEntityPathSynExprIdx) -> &Self::Output {
         &self.principal_entity_path_expr_ranges[index.index()]
     }
 }
 
-impl<'a> std::ops::Index<&PrincipalEntityPathSynExprIdx> for SynExprRangeCalculator<'a> {
+impl<'a> std::ops::Index<&SynPrincipalEntityPathSynExprIdx> for SynExprRangeCalculator<'a> {
     type Output = RegionalTokenIdxRange;
 
-    fn index(&self, index: &PrincipalEntityPathSynExprIdx) -> &Self::Output {
+    fn index(&self, index: &SynPrincipalEntityPathSynExprIdx) -> &Self::Output {
         &self.principal_entity_path_expr_ranges[index.index()]
     }
 }
