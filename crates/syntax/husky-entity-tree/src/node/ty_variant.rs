@@ -11,7 +11,7 @@ pub struct TypeVariantSynNodePath(ItemSynNodePathId);
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct TypeVariantSynNodePathData {
     pub parent_ty_node_path: TypeSynNodePath,
-    maybe_ambiguous_path: MaybeAmbiguousPath<TypeVariantPath>,
+    disambiguated_item_path: DisambiguatedItemPath<TypeVariantPath>,
 }
 
 impl TypeVariantSynNodePath {
@@ -25,13 +25,13 @@ impl TypeVariantSynNodePath {
             db,
             ItemSynNodePathData::TypeVariant(TypeVariantSynNodePathData {
                 parent_ty_node_path,
-                maybe_ambiguous_path: registry.issue_maybe_ambiguous_path(ty_variant_path),
+                disambiguated_item_path: registry.issue_maybe_ambiguous_path(ty_variant_path),
             }),
         ))
     }
 
-    pub fn unambiguous_path(self, db: &::salsa::Db) -> Option<TypeVariantPath> {
-        Some(match self.0.path(db)? {
+    pub fn unambiguous_item_path(self, db: &::salsa::Db) -> Option<TypeVariantPath> {
+        Some(match self.0.unambiguous_item_path(db)? {
             ItemPath::TypeVariant(_, path) => path,
             _ => unreachable!(),
         })
@@ -60,12 +60,14 @@ impl TypeVariantSynNodePathData {
         TypeVariantSynNodePath(id)
     }
 
-    pub fn path(self) -> Option<TypeVariantPath> {
-        self.maybe_ambiguous_path.unambiguous_path()
+    pub fn unambiguous_item_path(self) -> Option<TypeVariantPath> {
+        self.disambiguated_item_path.unambiguous_item_path()
     }
 
     pub fn module_path(self, db: &::salsa::Db) -> ModulePath {
-        self.maybe_ambiguous_path.path.module_path(db)
+        self.disambiguated_item_path
+            .maybe_ambiguous_item_path
+            .module_path(db)
     }
 
     pub fn ast_idx(self, id: ItemSynNodePathId, db: &::salsa::Db) -> AstIdx {
@@ -90,7 +92,7 @@ impl HasSynNodePath for TypeVariantPath {
             db,
             ItemSynNodePathData::TypeVariant(TypeVariantSynNodePathData {
                 parent_ty_node_path: self.parent_ty_path(db).syn_node_path(db),
-                maybe_ambiguous_path: MaybeAmbiguousPath::from_path(self),
+                disambiguated_item_path: DisambiguatedItemPath::from_path(self),
             }),
         ))
     }
@@ -189,7 +191,7 @@ pub(crate) fn ty_variant_paths(db: &::salsa::Db, path: TypePath) -> Vec<(Ident, 
         .ty_variant_syn_nodes(db)
         .iter()
         .filter_map(|&(ident, variant_node_path, _)| {
-            Some((ident, variant_node_path.unambiguous_path(db)?))
+            Some((ident, variant_node_path.unambiguous_item_path(db)?))
         })
         .collect()
 }

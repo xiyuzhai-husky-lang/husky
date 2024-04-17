@@ -11,7 +11,7 @@ pub struct TraitItemSynNodePath(ItemSynNodePathId);
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct TraitItemSynNodePathData {
     pub parent_trai_syn_node_path: TraitSynNodePath,
-    maybe_ambiguous_path: MaybeAmbiguousPath<TraitItemPath>,
+    disambiguated_item_path: DisambiguatedItemPath<TraitItemPath>,
 }
 
 impl From<TraitItemSynNodePath> for ItemSynNodePath {
@@ -32,14 +32,14 @@ impl TraitItemSynNodePath {
             ItemSynNodePathData::AssocItem(AssocItemSynNodePathData::TraitItem(
                 TraitItemSynNodePathData {
                     parent_trai_syn_node_path,
-                    maybe_ambiguous_path: registry.issue_maybe_ambiguous_path(path),
+                    disambiguated_item_path: registry.issue_maybe_ambiguous_path(path),
                 },
             )),
         ))
     }
 
     pub fn path(self, db: &::salsa::Db) -> Option<TraitItemPath> {
-        Some(match self.0.path(db)? {
+        Some(match self.0.unambiguous_item_path(db)? {
             ItemPath::AssocItem(AssocItemPath::TraitItem(path)) => path,
             _ => unreachable!(),
         })
@@ -68,15 +68,19 @@ impl TraitItemSynNodePathData {
     }
 
     pub fn path(self) -> Option<TraitItemPath> {
-        self.maybe_ambiguous_path.unambiguous_path()
+        self.disambiguated_item_path.unambiguous_item_path()
     }
 
     pub fn module_path(self, db: &::salsa::Db) -> ModulePath {
-        self.maybe_ambiguous_path.path.module_path(db)
+        self.disambiguated_item_path
+            .maybe_ambiguous_item_path
+            .module_path(db)
     }
 
     pub fn item_kind(self, db: &::salsa::Db) -> TraitItemKind {
-        self.maybe_ambiguous_path.path.item_kind(db)
+        self.disambiguated_item_path
+            .maybe_ambiguous_item_path
+            .item_kind(db)
     }
 
     pub fn ast_idx(self, id: ItemSynNodePathId, db: &::salsa::Db) -> AstIdx {
@@ -105,7 +109,7 @@ impl HasSynNodePath for TraitItemPath {
             ItemSynNodePathData::AssocItem(AssocItemSynNodePathData::TraitItem(
                 TraitItemSynNodePathData {
                     parent_trai_syn_node_path: self.trai_path(db).syn_node_path(db),
-                    maybe_ambiguous_path: MaybeAmbiguousPath::from_path(self),
+                    disambiguated_item_path: DisambiguatedItemPath::from_path(self),
                 },
             )),
         ))
@@ -137,7 +141,10 @@ impl TraitItemSynNode {
         is_generic: bool,
     ) -> (TraitItemSynNodePath, Self) {
         let trai_item_path = TraitItemPath::new(
-            trai_syn_node_path.data(db).maybe_ambiguous_path.path,
+            trai_syn_node_path
+                .data(db)
+                .disambiguated_item_path
+                .maybe_ambiguous_item_path,
             ident,
             item_kind,
             db,

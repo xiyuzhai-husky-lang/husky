@@ -41,8 +41,8 @@ impl std::ops::Deref for AssocItemSynNodePath {
 }
 
 impl AssocItemSynNodePath {
-    pub fn path(self, db: &::salsa::Db) -> Option<AssocItemPath> {
-        Some(match (*self).path(db)? {
+    pub fn unambiguous_item_path(self, db: &::salsa::Db) -> Option<AssocItemPath> {
+        Some(match (*self).unambiguous_item_path(db)? {
             ItemPath::AssocItem(path) => path,
             _ => unreachable!(),
         })
@@ -59,7 +59,7 @@ impl AssocItemSynNodePathData {
         }
     }
 
-    pub fn path(self) -> Option<AssocItemPath> {
+    pub fn unambiguous_item_path(self) -> Option<AssocItemPath> {
         match self {
             AssocItemSynNodePathData::TypeItem(slf) => slf.path().map(Into::into),
             AssocItemSynNodePathData::TraitItem(slf) => slf.path().map(Into::into),

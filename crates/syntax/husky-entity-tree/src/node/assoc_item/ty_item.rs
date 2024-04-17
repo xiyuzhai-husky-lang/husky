@@ -16,7 +16,7 @@ pub struct TypeItemSynNodePathData {
     // pub impl_block_syn_node_path: TypeImplBlockSynNodePath,
     // ```
     // because `impl_block_syn_node_path`s are not ambiguous
-    maybe_ambiguous_path: MaybeAmbiguousPath<TypeItemPath>,
+    disambiguated_item_path: DisambiguatedItemPath<TypeItemPath>,
 }
 
 impl TypeItemSynNodePath {
@@ -30,7 +30,7 @@ impl TypeItemSynNodePath {
             db,
             ItemSynNodePathData::AssocItem(AssocItemSynNodePathData::TypeItem(
                 TypeItemSynNodePathData {
-                    maybe_ambiguous_path: registry.issue_maybe_ambiguous_path(path),
+                    disambiguated_item_path: registry.issue_maybe_ambiguous_path(path),
                 },
             )),
         ))
@@ -53,7 +53,7 @@ impl TypeItemSynNodePath {
     }
 
     pub fn path(self, db: &::salsa::Db) -> Option<TypeItemPath> {
-        Some(match self.0.path(db)? {
+        Some(match self.0.unambiguous_item_path(db)? {
             ItemPath::AssocItem(AssocItemPath::TypeItem(path)) => path,
             _ => unreachable!(),
         })
@@ -67,11 +67,13 @@ impl TypeItemSynNodePathData {
     }
 
     pub fn path(&self) -> Option<TypeItemPath> {
-        self.maybe_ambiguous_path.unambiguous_path()
+        self.disambiguated_item_path.unambiguous_item_path()
     }
 
     pub fn module_path(self, db: &::salsa::Db) -> ModulePath {
-        self.maybe_ambiguous_path.path.module_path(db)
+        self.disambiguated_item_path
+            .maybe_ambiguous_item_path
+            .module_path(db)
     }
 
     pub fn ast_idx(self, id: ItemSynNodePathId, db: &::salsa::Db) -> AstIdx {
@@ -79,14 +81,16 @@ impl TypeItemSynNodePathData {
     }
 
     pub fn impl_block(&self, db: &::salsa::Db) -> TypeImplBlockSynNodePath {
-        self.maybe_ambiguous_path
-            .path
+        self.disambiguated_item_path
+            .maybe_ambiguous_item_path
             .impl_block(db)
             .syn_node_path(db)
     }
 
     pub fn item_kind(&self, db: &::salsa::Db) -> TypeItemKind {
-        self.maybe_ambiguous_path.path.item_kind(db)
+        self.disambiguated_item_path
+            .maybe_ambiguous_item_path
+            .item_kind(db)
     }
 }
 
@@ -104,7 +108,7 @@ impl HasSynNodePath for TypeItemPath {
             db,
             ItemSynNodePathData::AssocItem(AssocItemSynNodePathData::TypeItem(
                 TypeItemSynNodePathData {
-                    maybe_ambiguous_path: MaybeAmbiguousPath::from_path(self),
+                    disambiguated_item_path: DisambiguatedItemPath::from_path(self),
                 },
             )),
         ))

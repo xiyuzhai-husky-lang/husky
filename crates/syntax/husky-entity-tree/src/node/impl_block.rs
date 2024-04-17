@@ -43,8 +43,8 @@ pub enum ImplBlockSynNodePathData {
 }
 
 impl ImplBlockSynNodePath {
-    pub fn path(self, db: &::salsa::Db) -> Option<ImplBlockPath> {
-        Some(match (*self).path(db)? {
+    pub fn unambiguous_item_path(self, db: &::salsa::Db) -> Option<ImplBlockPath> {
+        Some(match (*self).unambiguous_item_path(db)? {
             ItemPath::ImplBlock(path) => path,
             _ => unreachable!(),
         })
@@ -61,7 +61,7 @@ impl ImplBlockSynNodePathData {
         }
     }
 
-    pub fn path(self) -> Option<ImplBlockPath> {
+    pub fn unambiguous_item_path(self) -> Option<ImplBlockPath> {
         match self {
             ImplBlockSynNodePathData::TypeImplBlock(slf) => Some(slf.path().into()),
             ImplBlockSynNodePathData::TraitForTypeImplBlock(slf) => Some(slf.path.into()),

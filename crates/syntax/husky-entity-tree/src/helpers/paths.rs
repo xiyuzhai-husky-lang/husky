@@ -16,7 +16,7 @@ impl HasItemPaths for CratePath {
     }
 }
 
-// include submodules, major items, associated items
+/// include everything defined under a module, submodules, major items, associated items, impl blocks, attrs
 #[salsa::tracked(jar = EntityTreeJar, return_ref)]
 pub fn module_item_syn_node_paths(
     db: &::salsa::Db,
@@ -24,41 +24,40 @@ pub fn module_item_syn_node_paths(
 ) -> Vec<ItemSynNodePath> {
     let mut node_paths: Vec<ItemSynNodePath> = Default::default();
     let item_tree_sheet = db.item_syn_tree_sheet(module_path);
-    let mut push = |syn_node_path| {
+    let mut push_with_attrs = |syn_node_path| {
         node_paths.push(syn_node_path);
         for &(attr_syn_node_path, _) in syn_node_path.attr_syn_nodes(db) {
             node_paths.push(attr_syn_node_path.into())
         }
     };
     for syn_node_path in item_tree_sheet.major_item_syn_node_paths() {
-        push(syn_node_path);
-        // ignore this for now because I'm lazy
-        // match syn_node_path {
-        //     ItemSynNodePath::MajorItem(MajorItemSynNodePath::Trait(trai_node_path)) => {
-        //         for trai_item_syn_node_path in trai_node_path.item_node_paths(db) {
-        //             node_paths.push(trai_item_syn_node_path.into())
-        //         }
-        //     }
-        //     _ => (),
-        // }
+        push_with_attrs(syn_node_path);
+        match syn_node_path {
+            ItemSynNodePath::MajorItem(MajorItemSynNodePath::Trait(trai_node_path)) => {
+                for trai_item_syn_node_path in trai_node_path.item_node_paths(db) {
+                    push_with_attrs(trai_item_syn_node_path.into())
+                }
+            }
+            _ => (),
+        }
     }
     // todo: trait item
     for impl_block_syn_node_path in item_tree_sheet.impl_block_syn_node_paths() {
-        push(impl_block_syn_node_path.into());
+        push_with_attrs(impl_block_syn_node_path.into());
         match impl_block_syn_node_path {
             ImplBlockSynNodePath::TypeImplBlock(impl_block_syn_node_path) => {
                 for syn_node_path in impl_block_syn_node_path.item_syn_node_paths(db) {
-                    push(syn_node_path.into())
+                    push_with_attrs(syn_node_path.into())
                 }
             }
             ImplBlockSynNodePath::TraitForTypeImplBlock(impl_block_syn_node_path) => {
                 for syn_node_path in impl_block_syn_node_path.item_syn_node_paths(db) {
-                    push(syn_node_path.into())
+                    push_with_attrs(syn_node_path.into())
                 }
             }
             ImplBlockSynNodePath::IllFormedImplBlock(impl_block_syn_node_path) => {
                 for syn_node_path in impl_block_syn_node_path.item_syn_node_paths(db) {
-                    push(syn_node_path.into())
+                    push_with_attrs(syn_node_path.into())
                 }
             }
         }
@@ -74,12 +73,12 @@ pub fn module_item_paths(db: &::salsa::Db, module_path: ModulePath) -> Vec<ItemP
     let mut paths: Vec<ItemPath> = Default::default();
     let item_tree_sheet = db.item_syn_tree_sheet(module_path);
     for syn_node_path in item_tree_sheet.major_item_syn_node_paths() {
-        if let Some(path) = syn_node_path.path(db) {
+        if let Some(path) = syn_node_path.unambiguous_item_path(db) {
             paths.push(path)
         }
     }
     for syn_node_path in item_tree_sheet.impl_block_syn_node_paths() {
-        if let Some(path) = syn_node_path.path(db) {
+        if let Some(path) = syn_node_path.unambiguous_item_path(db) {
             paths.push(path.into());
             match path {
                 ImplBlockPath::TypeImplBlock(path) => {

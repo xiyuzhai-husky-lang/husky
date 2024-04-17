@@ -9,7 +9,7 @@ pub struct SubmoduleSynNodePath(ItemSynNodePathId);
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db]
 pub struct SubmoduleSynNodePathData {
-    maybe_ambiguous_path: MaybeAmbiguousPath<SubmoduleItemPath>,
+    disambiguated_item_path: DisambiguatedItemPath<SubmoduleItemPath>,
 }
 
 impl SubmoduleSynNodePath {
@@ -21,7 +21,7 @@ impl SubmoduleSynNodePath {
         Self(ItemSynNodePathId::new(
             db,
             ItemSynNodePathData::Submodule(SubmoduleSynNodePathData {
-                maybe_ambiguous_path: registry.issue_maybe_ambiguous_path(path),
+                disambiguated_item_path: registry.issue_maybe_ambiguous_path(path),
             }),
         ))
     }
@@ -33,8 +33,8 @@ impl SubmoduleSynNodePath {
         }
     }
 
-    pub fn path(self, db: &::salsa::Db) -> Option<SubmoduleItemPath> {
-        self.data(db).path()
+    pub fn unambiguous_item_path(self, db: &::salsa::Db) -> Option<SubmoduleItemPath> {
+        self.data(db).unambiguous_item_path()
     }
 
     pub(crate) fn syn_node<'a>(self, db: &'a ::salsa::Db) -> &'a SubmoduleSynNode {
@@ -53,12 +53,14 @@ impl SubmoduleSynNodePathData {
         SubmoduleSynNodePath(id)
     }
 
-    pub fn path(self) -> Option<SubmoduleItemPath> {
-        self.maybe_ambiguous_path.unambiguous_path()
+    pub fn unambiguous_item_path(self) -> Option<SubmoduleItemPath> {
+        self.disambiguated_item_path.unambiguous_item_path()
     }
 
     pub fn module_path(self, db: &::salsa::Db) -> ModulePath {
-        self.maybe_ambiguous_path.path.module_path(db)
+        self.disambiguated_item_path
+            .maybe_ambiguous_item_path
+            .module_path(db)
     }
 
     pub fn ast_idx(self, id: ItemSynNodePathId, db: &::salsa::Db) -> AstIdx {
@@ -73,7 +75,7 @@ impl HasSynNodePath for SubmoduleItemPath {
         SubmoduleSynNodePath(ItemSynNodePathId::new(
             db,
             ItemSynNodePathData::Submodule(SubmoduleSynNodePathData {
-                maybe_ambiguous_path: MaybeAmbiguousPath::from_path(self),
+                disambiguated_item_path: DisambiguatedItemPath::from_path(self),
             }),
         ))
     }
@@ -105,7 +107,7 @@ impl SubmoduleSynNode {
         }
     }
 
-    pub fn unambiguous_path(&self, db: &::salsa::Db) -> Option<SubmoduleItemPath> {
-        self.syn_node_path.path(db)
+    pub fn unambiguous_item_path(&self, db: &::salsa::Db) -> Option<SubmoduleItemPath> {
+        self.syn_node_path.unambiguous_item_path(db)
     }
 }
