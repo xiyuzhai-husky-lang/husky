@@ -3,7 +3,7 @@ use crate::*;
 use salsa::DisplayWithDb;
 
 impl DecTerm {
-    #[deprecated(note = "see eth term")]
+    #[deprecated(note = "todo: redo this, see eth term")]
     pub(crate) fn display_fmt_with_db_and_ctx(
         self,
         f: &mut std::fmt::Formatter<'_>,
@@ -22,7 +22,6 @@ impl DecTerm {
             DecTerm::Abstraction(term) => term.display_fmt_with_db_and_ctx(f, db, ctx),
             DecTerm::Application(term) => term.display_fmt_with_db_and_ctx(f, db, ctx),
             DecTerm::ApplicationOrRitchieCall(term) => term.display_fmt_with_db_and_ctx(f, db, ctx),
-            DecTerm::AssocItem(term) => term.display_fmt_with_db_and_ctx(f, db, ctx),
             DecTerm::TypeAsTraitItem(term) => term.display_fmt_with_db_and_ctx(f, db, ctx),
             DecTerm::TraitConstraint(term) => term.display_fmt_with_db_and_ctx(f, db, ctx),
             DecTerm::LeashOrBitNot(_) => f.write_str("~"),

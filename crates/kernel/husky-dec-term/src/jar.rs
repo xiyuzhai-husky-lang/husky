@@ -1,7 +1,5 @@
 use crate::*;
 
-use husky_vfs::Toolchain;
-
 pub trait DecTermDb {
     fn dec_term_menu(&self, toolchain: Toolchain) -> DecTermResultRef<&DecTermMenu>;
 }

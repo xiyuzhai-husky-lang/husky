@@ -66,8 +66,6 @@ pub enum DecTerm {
     /// `\x1 ... \xn -> $function ($argument \x1 ... \xn)`
     Application(DecApplication),
     ApplicationOrRitchieCall(DecApplicationOrRitchieCall),
-    /// ::<ident>
-    AssocItem(DecAssocItem),
     /// (<type> as <trait>)::<ident>
     TypeAsTraitItem(DecTypeAsTraitItem),
     /// <type> : <trait>
