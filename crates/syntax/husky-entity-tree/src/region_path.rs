@@ -31,8 +31,8 @@ impl SynNodeRegionPath {
     pub fn region_path(self, db: &::salsa::Db) -> Option<RegionPath> {
         Some(match self {
             SynNodeRegionPath::Snippet(path) => RegionPath::Snippet(path),
-            SynNodeRegionPath::Decl(path) => RegionPath::Decl(path.path(db)?),
-            SynNodeRegionPath::Defn(path) => RegionPath::Defn(path.path(db)?),
+            SynNodeRegionPath::Decl(path) => RegionPath::Decl(path.unambiguous_item_path(db)?),
+            SynNodeRegionPath::Defn(path) => RegionPath::Defn(path.unambiguous_item_path(db)?),
         })
     }
 }

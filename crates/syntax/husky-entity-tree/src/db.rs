@@ -62,8 +62,6 @@ pub struct EntityTreeJar(
     ParentSuperSymbol,
     // module items
     trai_item_paths,
-    ty_attrs,
-    ty_attr_paths,
     trai_item_syn_nodes,
     // ty_impl_blocks,
     ty_item_syn_node_paths,
@@ -80,6 +78,8 @@ pub struct EntityTreeJar(
     // - trai for ty impl block
     trai_for_ty_impl_block_items,
     // attr
+    item_attr_paths,
+    item_attr_syn_nodes,
     // other
     item_tree_presheet,
     item_tree_crate_bundle,

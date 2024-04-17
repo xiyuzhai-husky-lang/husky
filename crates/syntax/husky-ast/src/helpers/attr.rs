@@ -6,12 +6,12 @@ impl AstSheet {
     #[inline(always)]
     pub fn procure_attrs<'a, D, A: smallvec::Array<Item = D>>(
         &self,
-        parent: ItemPath,
+        parent_item_path: Option<ItemPath>,
         attr_parent_ast_idx: AstIdx,
-        mut f: impl FnMut(AstIdx, TokenVerseIdx, AttrItemPath) -> D,
+        mut f: impl FnMut(AstIdx, TokenVerseIdx, Result<AttrItemPath, (Ident, u8)>) -> D,
         db: &::salsa::Db,
     ) -> smallvec::SmallVec<A> {
-        let mut registry = AttrRegistry::new(parent);
+        let mut registry = AttrRegistry::new(parent_item_path);
         let mut attrs: smallvec::SmallVec<A> = smallvec::smallvec![];
         for (ast_idx, token_verse_idx, ident) in self
             .siblings()

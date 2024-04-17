@@ -11,7 +11,7 @@ pub struct TraitSynNodePath(ItemSynNodePathId);
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct TraitSynNodePathData {
-    pub maybe_ambiguous_path: MaybeAmbiguousPath<TraitPath>,
+    pub disambiguated_item_path: DisambiguatedItemPath<TraitPath>,
 }
 
 impl From<TraitSynNodePath> for ItemSynNodePath {
@@ -29,7 +29,7 @@ impl TraitSynNodePath {
         Self(ItemSynNodePathId::new(
             db,
             ItemSynNodePathData::MajorItem(MajorItemSynNodePathData::Trait(TraitSynNodePathData {
-                maybe_ambiguous_path: registry.issue_maybe_ambiguous_path(path),
+                disambiguated_item_path: registry.issue_maybe_ambiguous_path(path),
             })),
         ))
     }
@@ -42,7 +42,10 @@ impl TraitSynNodePath {
     }
 
     pub fn ident(self, db: &::salsa::Db) -> Ident {
-        self.data(db).maybe_ambiguous_path.path.ident(db)
+        self.data(db)
+            .disambiguated_item_path
+            .maybe_ambiguous_item_path
+            .ident(db)
     }
 
     pub(crate) fn syn_node<'a>(self, db: &'a ::salsa::Db) -> &'a MajorItemSynNode {
@@ -81,11 +84,13 @@ impl TraitSynNodePathData {
     }
 
     pub fn path(self) -> Option<TraitPath> {
-        self.maybe_ambiguous_path.unambiguous_path()
+        self.disambiguated_item_path.unambiguous_item_path()
     }
 
     pub fn module_path(self, db: &::salsa::Db) -> ModulePath {
-        self.maybe_ambiguous_path.path.module_path(db)
+        self.disambiguated_item_path
+            .maybe_ambiguous_item_path
+            .module_path(db)
     }
 
     pub fn ast_idx(self, id: ItemSynNodePathId, db: &::salsa::Db) -> AstIdx {
@@ -100,7 +105,7 @@ impl HasSynNodePath for TraitPath {
         TraitSynNodePath(ItemSynNodePathId::new(
             db,
             ItemSynNodePathData::MajorItem(MajorItemSynNodePathData::Trait(TraitSynNodePathData {
-                maybe_ambiguous_path: MaybeAmbiguousPath::from_path(self),
+                disambiguated_item_path: DisambiguatedItemPath::from_path(self),
             })),
         ))
     }

@@ -10,7 +10,7 @@ pub struct FugitiveSynNodePath(ItemSynNodePathId);
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct FugitiveSynNodePathData {
-    pub maybe_ambiguous_path: MaybeAmbiguousPath<FugitivePath>,
+    pub disambiguated_item_path: DisambiguatedItemPath<FugitivePath>,
 }
 
 impl From<FugitiveSynNodePath> for ItemSynNodePath {
@@ -27,7 +27,7 @@ impl HasSynNodePath for FugitivePath {
             db,
             ItemSynNodePathData::MajorItem(MajorItemSynNodePathData::Fugitive(
                 FugitiveSynNodePathData {
-                    maybe_ambiguous_path: MaybeAmbiguousPath::from_path(self),
+                    disambiguated_item_path: DisambiguatedItemPath::from_path(self),
                 },
             )),
         ))
@@ -44,7 +44,7 @@ impl FugitiveSynNodePath {
             db,
             ItemSynNodePathData::MajorItem(MajorItemSynNodePathData::Fugitive(
                 FugitiveSynNodePathData {
-                    maybe_ambiguous_path: registry.issue_maybe_ambiguous_path(path),
+                    disambiguated_item_path: registry.issue_maybe_ambiguous_path(path),
                 },
             )),
         ))
@@ -58,13 +58,16 @@ impl FugitiveSynNodePath {
     }
 
     pub fn ident(self, db: &::salsa::Db) -> Ident {
-        self.data(db).maybe_ambiguous_path.path.ident(db)
+        self.data(db)
+            .disambiguated_item_path
+            .maybe_ambiguous_item_path
+            .ident(db)
     }
 
     pub fn fugitive_kind(self, db: &::salsa::Db) -> MajorFugitiveKind {
         self.data(db)
-            .maybe_ambiguous_path
-            .path
+            .disambiguated_item_path
+            .maybe_ambiguous_item_path
             .major_fugitive_kind(db)
     }
 
@@ -90,15 +93,20 @@ impl salsa::DebugWithDb for FugitiveSynNodePath {
         use std::fmt::Debug;
 
         f.write_str("FugitiveSynNodePath(`")?;
-        let maybe_ambiguous_path = self.data(db).maybe_ambiguous_path;
-        maybe_ambiguous_path.path.show_aux(f, db)?;
+        let disambiguated_item_path = self.data(db).disambiguated_item_path;
+        disambiguated_item_path
+            .maybe_ambiguous_item_path
+            .show_aux(f, db)?;
         f.write_str("`, `")?;
         self.data(db)
-            .maybe_ambiguous_path
-            .path
+            .disambiguated_item_path
+            .maybe_ambiguous_item_path
             .major_fugitive_kind(db)
             .fmt(f)?;
-        f.write_fmt(format_args!("`, ({}))", maybe_ambiguous_path.disambiguator))
+        f.write_fmt(format_args!(
+            "`, ({}))",
+            disambiguated_item_path.disambiguator
+        ))
     }
 }
 
@@ -108,11 +116,13 @@ impl FugitiveSynNodePathData {
     }
 
     pub fn path(self) -> Option<FugitivePath> {
-        self.maybe_ambiguous_path.unambiguous_path()
+        self.disambiguated_item_path.unambiguous_item_path()
     }
 
     pub fn module_path(self, db: &::salsa::Db) -> ModulePath {
-        self.maybe_ambiguous_path.path.module_path(db)
+        self.disambiguated_item_path
+            .maybe_ambiguous_item_path
+            .module_path(db)
     }
 
     pub fn ast_idx(self, id: ItemSynNodePathId, db: &::salsa::Db) -> AstIdx {

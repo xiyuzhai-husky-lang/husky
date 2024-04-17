@@ -212,7 +212,7 @@ impl DecSvarRegion {
                     self.ty_defn_self_ty_term(
                         db,
                         ty_node_path
-                            .unambiguous_path(db)
+                            .unambiguous_item_path(db)
                             .expect("should have valid item path"),
                     ),
                 ),

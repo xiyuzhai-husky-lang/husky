@@ -49,8 +49,8 @@ impl MajorItemSynNodePath {
         }
     }
 
-    pub fn path(self, db: &::salsa::Db) -> Option<MajorItemPath> {
-        match (*self).path(db) {
+    pub fn unambiguous_item_path(self, db: &::salsa::Db) -> Option<MajorItemPath> {
+        match (*self).unambiguous_item_path(db) {
             Some(ItemPath::MajorItem(path)) => Some(path),
             None => None,
             _ => unreachable!(),
@@ -85,7 +85,7 @@ impl MajorItemSynNodePathData {
         }
     }
 
-    pub fn path(self) -> Option<MajorItemPath> {
+    pub fn unambiguous_item_path(self) -> Option<MajorItemPath> {
         match self {
             MajorItemSynNodePathData::Trait(slf) => slf.path().map(Into::into),
             MajorItemSynNodePathData::Type(slf) => slf.path().map(Into::into),
@@ -152,7 +152,7 @@ impl MajorItemSynNode {
     }
 
     /// only gives a path when valid
-    pub fn unambiguous_path(&self, db: &::salsa::Db) -> Option<MajorItemPath> {
-        self.syn_node_path.path(db)
+    pub fn unambiguous_item_path(&self, db: &::salsa::Db) -> Option<MajorItemPath> {
+        self.syn_node_path.unambiguous_item_path(db)
     }
 }
