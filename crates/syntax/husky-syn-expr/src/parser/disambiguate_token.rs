@@ -348,27 +348,13 @@ where
             match opn {
                 IncompleteSynExprData::Binary {
                     punctuation: SynBinaryOpr::ScopeResolution,
-                    lopd,
                     ..
-                } => match lopd.base_item_path(self.db(), self.context().syn_expr_arena()) {
-                    BaseEntityPath::None => {
-                        todo!()
+                } => {
+                    return DisambiguatedTokenData::AssocItem {
+                        ident,
+                        regional_token_idx,
                     }
-                    BaseEntityPath::Some(_) => {
-                        todo!()
-                    }
-                    BaseEntityPath::UncertainDueToError { .. } => {
-                        return DisambiguatedTokenData::Err(
-                            OriginalSynExprError::UnresolvedSubitem {
-                                regional_token_idx,
-                                ident,
-                            }
-                            .into(),
-                        )
-                    }
-                    BaseEntityPath::Err => todo!(),
-                    BaseEntityPath::SelfType => todo!(),
-                },
+                }
                 _ => (),
             }
         }
@@ -427,6 +413,10 @@ pub(crate) enum DisambiguatedTokenData {
         regional_token_idx: RegionalTokenIdx,
         current_syn_symbol_idx: CurrentSynSymbolIdx,
         current_syn_symbol_kind: CurrentSynSymbolKind,
+    },
+    AssocItem {
+        ident: Ident,
+        regional_token_idx: RegionalTokenIdx,
     },
     SelfType(RegionalTokenIdx),
     SelfValue(RegionalTokenIdx),

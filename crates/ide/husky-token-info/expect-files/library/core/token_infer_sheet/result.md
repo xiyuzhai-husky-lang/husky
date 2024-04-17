@@ -60,81 +60,11 @@ Ok(
             ),
             None,
             None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::AstIdentifiable,
-                    data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::MajorItem(
-                            MajorItemSynNodePath::Type(
-                                TypeSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Type(
-                                                TypeSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`core::result::Result`, `Enum`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
-                            ),
-                        ),
-                        EntityKind::MajorItem {
-                            module_item_kind: MajorItemKind::Type(
-                                TypeKind::Enum,
-                            ),
-                            connection: MajorItemConnectionKind::Connected,
-                        },
-                    ),
-                },
-            ),
             None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::TemplateParameter(
-                        0,
-                    ),
-                    data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 0,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
-                            template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
-                                ident_token: IdentRegionalToken {
-                                    ident: `T`,
-                                    regional_token_idx: RegionalTokenIdx(
-                                        5,
-                                    ),
-                                },
-                            },
-                        },
-                        syn_expr_region: ExprRegionLeash(_),
-                    },
-                },
-            ),
             None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::TemplateParameter(
-                        1,
-                    ),
-                    data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
-                            template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
-                                ident_token: IdentRegionalToken {
-                                    ident: `E`,
-                                    regional_token_idx: RegionalTokenIdx(
-                                        7,
-                                    ),
-                                },
-                            },
-                        },
-                        syn_expr_region: ExprRegionLeash(_),
-                    },
-                },
-            ),
+            None,
+            None,
+            None,
             None,
             None,
             None,
@@ -431,8 +361,8 @@ Ok(
                                         data: ItemSynNodePathData::AssocItem(
                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                 TraitForTypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TraitForTypeItemPath(
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TraitForTypeItemPath(
                                                             `<core::result::Result as core::ops::Unveil(0)>::Continue`,
                                                             TraitItemKind::AssocType,
                                                         ),
@@ -485,8 +415,8 @@ Ok(
                                         data: ItemSynNodePathData::AssocItem(
                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                 TraitForTypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TraitForTypeItemPath(
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TraitForTypeItemPath(
                                                             `<core::result::Result as core::ops::Unveil(0)>::unveil`,
                                                             TraitItemKind::AssocRitchie(
                                                                 RitchieItemKind::Fn,

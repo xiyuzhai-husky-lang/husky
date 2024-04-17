@@ -23,8 +23,8 @@ SynDeclSheet {
                                                     data: ItemSynNodePathData::MajorItem(
                                                         MajorItemSynNodePathData::Trait(
                                                             TraitSynNodePathData {
-                                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                    path: TraitPath(`core::visual::Visualize`),
+                                                                disambiguated_item_path: DisambiguatedItemPath {
+                                                                    maybe_ambiguous_item_path: TraitPath(`core::visual::Visualize`),
                                                                     disambiguator: 0,
                                                                 },
                                                             },
@@ -104,8 +104,8 @@ SynDeclSheet {
                                                         data: ItemSynNodePathData::MajorItem(
                                                             MajorItemSynNodePathData::Type(
                                                                 TypeSynNodePathData {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypePath(`core::visual::Visual`, `Extern`),
+                                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                                        maybe_ambiguous_item_path: TypePath(`core::visual::Visual`, `Extern`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -427,8 +427,8 @@ SynDeclSheet {
                                                         data: ItemSynNodePathData::AssocItem(
                                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                                 TraitForTypeItemSynNodePathData {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TraitForTypeItemPath(
+                                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                                        maybe_ambiguous_item_path: TraitForTypeItemPath(
                                                                             `<#derive _ as core::visual::Visualize(0)>::visualize`,
                                                                             TraitItemKind::MethodRitchie(
                                                                                 RitchieItemKind::Fn,

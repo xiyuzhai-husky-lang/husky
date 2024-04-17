@@ -340,8 +340,8 @@
                                                         data: ItemSynNodePathData::AssocItem(
                                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                                 TraitForTypeItemSynNodePathData {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TraitForTypeItemPath(
+                                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                                        maybe_ambiguous_item_path: TraitForTypeItemPath(
                                                                             `<malamute::OneVsAll as core::default::Default(0)>::default`,
                                                                             TraitItemKind::AssocRitchie(
                                                                                 RitchieItemKind::Fn,
@@ -442,8 +442,8 @@
                                             data: ItemSynNodePathData::AssocItem(
                                                 AssocItemSynNodePathData::TraitForTypeItem(
                                                     TraitForTypeItemSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TraitForTypeItemPath(
+                                                        disambiguated_item_path: DisambiguatedItemPath {
+                                                            maybe_ambiguous_item_path: TraitForTypeItemPath(
                                                                 `<malamute::OneVsAll as core::default::Default(0)>::default`,
                                                                 TraitItemKind::AssocRitchie(
                                                                     RitchieItemKind::Fn,
@@ -1002,8 +1002,8 @@
                                                         data: ItemSynNodePathData::AssocItem(
                                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                                 TraitForTypeItemSynNodePathData {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TraitForTypeItemPath(
+                                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                                        maybe_ambiguous_item_path: TraitForTypeItemPath(
                                                                             `<malamute::Class as core::ops::Unveil(0)>::unveil`,
                                                                             TraitItemKind::AssocRitchie(
                                                                                 RitchieItemKind::Fn,
@@ -1307,8 +1307,8 @@
                                             data: ItemSynNodePathData::AssocItem(
                                                 AssocItemSynNodePathData::TraitForTypeItem(
                                                     TraitForTypeItemSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TraitForTypeItemPath(
+                                                        disambiguated_item_path: DisambiguatedItemPath {
+                                                            maybe_ambiguous_item_path: TraitForTypeItemPath(
                                                                 `<malamute::Class as core::ops::Unveil(0)>::unveil`,
                                                                 TraitItemKind::AssocRitchie(
                                                                     RitchieItemKind::Fn,
@@ -2391,8 +2391,8 @@
                                                         data: ItemSynNodePathData::AssocItem(
                                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                                 TraitForTypeItemSynNodePathData {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TraitForTypeItemPath(
+                                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                                        maybe_ambiguous_item_path: TraitForTypeItemPath(
                                                                             `<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`,
                                                                             TraitItemKind::AssocRitchie(
                                                                                 RitchieItemKind::Fn,
@@ -2696,8 +2696,8 @@
                                             data: ItemSynNodePathData::AssocItem(
                                                 AssocItemSynNodePathData::TraitForTypeItem(
                                                     TraitForTypeItemSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TraitForTypeItemPath(
+                                                        disambiguated_item_path: DisambiguatedItemPath {
+                                                            maybe_ambiguous_item_path: TraitForTypeItemPath(
                                                                 `<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`,
                                                                 TraitItemKind::AssocRitchie(
                                                                     RitchieItemKind::Fn,

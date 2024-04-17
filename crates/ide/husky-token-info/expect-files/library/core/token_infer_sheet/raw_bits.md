@@ -35,139 +35,19 @@ Ok(
             None,
             None,
             None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        0,
-                        PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Trait(
-                                TraitPath(`core::fmt::Debug`),
-                            ),
-                        ),
-                    ),
-                    data: TokenInfoData::Entity(
-                        EntityPath::MajorItem(
-                            MajorItemPath::Trait(
-                                TraitPath(`core::fmt::Debug`),
-                            ),
-                        ),
-                    ),
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
-                        PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Trait(
-                                TraitPath(`core::cmp::PartialEq`),
-                            ),
-                        ),
-                    ),
-                    data: TokenInfoData::Entity(
-                        EntityPath::MajorItem(
-                            MajorItemPath::Trait(
-                                TraitPath(`core::cmp::PartialEq`),
-                            ),
-                        ),
-                    ),
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        2,
-                        PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Trait(
-                                TraitPath(`core::cmp::Eq`),
-                            ),
-                        ),
-                    ),
-                    data: TokenInfoData::Entity(
-                        EntityPath::MajorItem(
-                            MajorItemPath::Trait(
-                                TraitPath(`core::cmp::Eq`),
-                            ),
-                        ),
-                    ),
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        3,
-                        PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Trait(
-                                TraitPath(`core::clone::Clone`),
-                            ),
-                        ),
-                    ),
-                    data: TokenInfoData::Entity(
-                        EntityPath::MajorItem(
-                            MajorItemPath::Trait(
-                                TraitPath(`core::clone::Clone`),
-                            ),
-                        ),
-                    ),
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        4,
-                        PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Trait(
-                                TraitPath(`core::marker::Copy`),
-                            ),
-                        ),
-                    ),
-                    data: TokenInfoData::Entity(
-                        EntityPath::MajorItem(
-                            MajorItemPath::Trait(
-                                TraitPath(`core::marker::Copy`),
-                            ),
-                        ),
-                    ),
-                },
-            ),
             None,
             None,
             None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::AstIdentifiable,
-                    data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::MajorItem(
-                            MajorItemSynNodePath::Type(
-                                TypeSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Type(
-                                                TypeSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`core::raw_bits::r32`, `Extern`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
-                            ),
-                        ),
-                        EntityKind::MajorItem {
-                            module_item_kind: MajorItemKind::Type(
-                                TypeKind::Extern,
-                            ),
-                            connection: MajorItemConnectionKind::Connected,
-                        },
-                    ),
-                },
-            ),
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
             None,
             None,
             Some(
@@ -203,8 +83,8 @@ Ok(
                                         data: ItemSynNodePathData::AssocItem(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`<core::raw_bits::r32(0)>::last_bits`, `MethodRitchie(
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TypeItemPath(`<core::raw_bits::r32(0)>::last_bits`, `MethodRitchie(
                                                             Fn,
                                                         )`),
                                                         disambiguator: 0,
@@ -296,8 +176,8 @@ Ok(
                                         data: ItemSynNodePathData::AssocItem(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`<core::raw_bits::r32(0)>::ctz`, `MethodRitchie(
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TypeItemPath(`<core::raw_bits::r32(0)>::ctz`, `MethodRitchie(
                                                             Fn,
                                                         )`),
                                                         disambiguator: 0,
@@ -355,8 +235,8 @@ Ok(
                                         data: ItemSynNodePathData::AssocItem(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`<core::raw_bits::r32(0)>::co`, `MethodRitchie(
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TypeItemPath(`<core::raw_bits::r32(0)>::co`, `MethodRitchie(
                                                             Fn,
                                                         )`),
                                                         disambiguator: 0,
@@ -414,8 +294,8 @@ Ok(
                                         data: ItemSynNodePathData::AssocItem(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`<core::raw_bits::r32(0)>::span`, `MethodRitchie(
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TypeItemPath(`<core::raw_bits::r32(0)>::span`, `MethodRitchie(
                                                             Fn,
                                                         )`),
                                                         disambiguator: 0,
@@ -473,8 +353,8 @@ Ok(
                                         data: ItemSynNodePathData::AssocItem(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`<core::raw_bits::r32(0)>::right_mass`, `MethodRitchie(
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TypeItemPath(`<core::raw_bits::r32(0)>::right_mass`, `MethodRitchie(
                                                             Fn,
                                                         )`),
                                                         disambiguator: 0,

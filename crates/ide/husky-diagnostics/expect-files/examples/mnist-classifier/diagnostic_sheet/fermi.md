@@ -16,13 +16,7 @@ DiagnosticSheet {
         diagnostics: [],
     },
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
-        diagnostics: [
-            Diagnostic {
-                message: "place error cannot convert to const",
-                severity: Error,
-                range: [30:19, 30:49),
-            },
-        ],
+        diagnostics: [],
     },
 }
 ```

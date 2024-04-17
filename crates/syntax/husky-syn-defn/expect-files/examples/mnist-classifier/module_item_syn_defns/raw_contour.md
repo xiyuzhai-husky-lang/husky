@@ -9387,7 +9387,7 @@
                                         10,
                                     ),
                                 },
-                                SynExprData::AssocItem {
+                                SynExprData::PrincipalEntityPathAssocItem {
                                     parent_expr_idx: 1,
                                     parent_path: MajorItemPath::Type(
                                         TypePath(`mnist::BinaryGrid28`, `Extern`),
@@ -11078,7 +11078,7 @@
                                         pattern_symbol_idx: 6,
                                     },
                                 },
-                                SynExprData::AssocItem {
+                                SynExprData::PrincipalEntityPathAssocItem {
                                     parent_expr_idx: 7,
                                     parent_path: MajorItemPath::Type(
                                         TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -11381,7 +11381,7 @@
                                         339,
                                     ),
                                 },
-                                SynExprData::AssocItem {
+                                SynExprData::PrincipalEntityPathAssocItem {
                                     parent_expr_idx: 8,
                                     parent_path: MajorItemPath::Type(
                                         TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -11700,7 +11700,7 @@
                                         378,
                                     ),
                                 },
-                                SynExprData::AssocItem {
+                                SynExprData::PrincipalEntityPathAssocItem {
                                     parent_expr_idx: 9,
                                     parent_path: MajorItemPath::Type(
                                         TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -11856,7 +11856,7 @@
                                         pattern_symbol_idx: 6,
                                     },
                                 },
-                                SynExprData::AssocItem {
+                                SynExprData::PrincipalEntityPathAssocItem {
                                     parent_expr_idx: 10,
                                     parent_path: MajorItemPath::Type(
                                         TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -16220,8 +16220,8 @@
                                                         data: ItemSynNodePathData::AssocItem(
                                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                                 TraitForTypeItemSynNodePathData {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TraitForTypeItemPath(
+                                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                                        maybe_ambiguous_item_path: TraitForTypeItemPath(
                                                                             `<mnist_classifier::raw_contour::RawContour as core::visual::Visualize(0)>::visualize`,
                                                                             TraitItemKind::MethodRitchie(
                                                                                 RitchieItemKind::Fn,
@@ -16320,8 +16320,8 @@
                                             data: ItemSynNodePathData::AssocItem(
                                                 AssocItemSynNodePathData::TraitForTypeItem(
                                                     TraitForTypeItemSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TraitForTypeItemPath(
+                                                        disambiguated_item_path: DisambiguatedItemPath {
+                                                            maybe_ambiguous_item_path: TraitForTypeItemPath(
                                                                 `<mnist_classifier::raw_contour::RawContour as core::visual::Visualize(0)>::visualize`,
                                                                 TraitItemKind::MethodRitchie(
                                                                     RitchieItemKind::Fn,
@@ -16605,8 +16605,8 @@
                                                         data: ItemSynNodePathData::AssocItem(
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::line_segment_sketch`, `MemoizedField`),
+                                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::line_segment_sketch`, `MemoizedField`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -16700,8 +16700,8 @@
                                             data: ItemSynNodePathData::AssocItem(
                                                 AssocItemSynNodePathData::TypeItem(
                                                     TypeItemSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::line_segment_sketch`, `MemoizedField`),
+                                                        disambiguated_item_path: DisambiguatedItemPath {
+                                                            maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::line_segment_sketch`, `MemoizedField`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -16714,7 +16714,7 @@
                         ),
                         syn_expr_arena: Arena {
                             data: [
-                                SynExprData::AssocItem {
+                                SynExprData::PrincipalEntityPathAssocItem {
                                     parent_expr_idx: 0,
                                     parent_path: MajorItemPath::Type(
                                         TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
@@ -16979,8 +16979,8 @@
                                                         data: ItemSynNodePathData::AssocItem(
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::bounding_box`, `MemoizedField`),
+                                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::bounding_box`, `MemoizedField`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -17074,8 +17074,8 @@
                                             data: ItemSynNodePathData::AssocItem(
                                                 AssocItemSynNodePathData::TypeItem(
                                                     TypeItemSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::bounding_box`, `MemoizedField`),
+                                                        disambiguated_item_path: DisambiguatedItemPath {
+                                                            maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::bounding_box`, `MemoizedField`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -18616,8 +18616,8 @@
                                                         data: ItemSynNodePathData::AssocItem(
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::relative_bounding_box`, `MemoizedField`),
+                                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::relative_bounding_box`, `MemoizedField`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -18711,8 +18711,8 @@
                                             data: ItemSynNodePathData::AssocItem(
                                                 AssocItemSynNodePathData::TypeItem(
                                                     TypeItemSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::relative_bounding_box`, `MemoizedField`),
+                                                        disambiguated_item_path: DisambiguatedItemPath {
+                                                            maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::relative_bounding_box`, `MemoizedField`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -19022,8 +19022,8 @@
                                                         data: ItemSynNodePathData::AssocItem(
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::contour_len`, `MemoizedField`),
+                                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::contour_len`, `MemoizedField`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -19117,8 +19117,8 @@
                                             data: ItemSynNodePathData::AssocItem(
                                                 AssocItemSynNodePathData::TypeItem(
                                                     TypeItemSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::contour_len`, `MemoizedField`),
+                                                        disambiguated_item_path: DisambiguatedItemPath {
+                                                            maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::contour_len`, `MemoizedField`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -20548,8 +20548,8 @@
                                                         data: ItemSynNodePathData::AssocItem(
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::displacement`, `MethodRitchie(
+                                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::displacement`, `MethodRitchie(
                                                                             Fn,
                                                                         )`),
                                                                         disambiguator: 0,
@@ -20812,8 +20812,8 @@
                                             data: ItemSynNodePathData::AssocItem(
                                                 AssocItemSynNodePathData::TypeItem(
                                                     TypeItemSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::displacement`, `MethodRitchie(
+                                                        disambiguated_item_path: DisambiguatedItemPath {
+                                                            maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::displacement`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                             disambiguator: 0,

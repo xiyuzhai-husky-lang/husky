@@ -8,8 +8,8 @@ SynNodeDeclSheet {
                     ItemSynNodePathId {
                         data: ItemSynNodePathData::Submodule(
                             SubmoduleSynNodePathData {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: SubmoduleItemPath(
+                                disambiguated_item_path: DisambiguatedItemPath {
+                                    maybe_ambiguous_item_path: SubmoduleItemPath(
                                         ItemPathId(
                                             Id {
                                                 value: 1,
@@ -29,8 +29,8 @@ SynNodeDeclSheet {
                         ItemSynNodePathId {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmoduleItemPath(
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: SubmoduleItemPath(
                                             ItemPathId(
                                                 Id {
                                                     value: 1,
@@ -53,8 +53,8 @@ SynNodeDeclSheet {
                     ItemSynNodePathId {
                         data: ItemSynNodePathData::Submodule(
                             SubmoduleSynNodePathData {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: SubmoduleItemPath(
+                                disambiguated_item_path: DisambiguatedItemPath {
+                                    maybe_ambiguous_item_path: SubmoduleItemPath(
                                         ItemPathId(
                                             Id {
                                                 value: 2,
@@ -74,8 +74,8 @@ SynNodeDeclSheet {
                         ItemSynNodePathId {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmoduleItemPath(
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: SubmoduleItemPath(
                                             ItemPathId(
                                                 Id {
                                                     value: 2,
@@ -98,8 +98,8 @@ SynNodeDeclSheet {
                     ItemSynNodePathId {
                         data: ItemSynNodePathData::Submodule(
                             SubmoduleSynNodePathData {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: SubmoduleItemPath(
+                                disambiguated_item_path: DisambiguatedItemPath {
+                                    maybe_ambiguous_item_path: SubmoduleItemPath(
                                         ItemPathId(
                                             Id {
                                                 value: 3,
@@ -119,8 +119,8 @@ SynNodeDeclSheet {
                         ItemSynNodePathId {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmoduleItemPath(
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: SubmoduleItemPath(
                                             ItemPathId(
                                                 Id {
                                                     value: 3,

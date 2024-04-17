@@ -144,11 +144,6 @@ pub enum OriginalSynExprError {
         regional_token_idx: RegionalTokenIdx,
         ident: Ident,
     },
-    #[error("unrecognized identifier")]
-    UnresolvedSubitem {
-        regional_token_idx: RegionalTokenIdx,
-        ident: Ident,
-    },
     #[error("SelfTypeNotAllowed")]
     SelfTypeNotAllowed(RegionalTokenIdx),
     #[error("SelfValueNotAllowed")]
@@ -256,9 +251,6 @@ impl OriginalSynExprError {
             }
             | OriginalSynExprError::UnexpectedSheba(regional_token_idx)
             | OriginalSynExprError::UnrecognizedIdent {
-                regional_token_idx, ..
-            }
-            | OriginalSynExprError::UnresolvedSubitem {
                 regional_token_idx, ..
             }
             | OriginalSynExprError::SelfTypeNotAllowed(regional_token_idx)

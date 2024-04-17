@@ -1,27 +1,6 @@
 ```rust
 [
     (
-        ItemSynNodePath::MajorItem(
-            MajorItemSynNodePath::Type(
-                TypeSynNodePath(
-                    ItemSynNodePathId {
-                        data: ItemSynNodePathData::MajorItem(
-                            MajorItemSynNodePathData::Type(
-                                TypeSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(`core::result::Result`, `Enum`),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                        ),
-                    },
-                ),
-            ),
-        ),
-        None,
-    ),
-    (
         ItemSynNodePath::ImplBlock(
             ImplBlockSynNodePath::TraitForTypeImplBlock(
                 TraitForTypeImplBlockSynNodePath(
@@ -47,8 +26,8 @@
                         data: ItemSynNodePathData::AssocItem(
                             AssocItemSynNodePathData::TraitForTypeItem(
                                 TraitForTypeItemSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TraitForTypeItemPath(
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: TraitForTypeItemPath(
                                             `<core::result::Result as core::ops::Unveil(0)>::Continue`,
                                             TraitItemKind::AssocType,
                                         ),
@@ -71,8 +50,8 @@
                         data: ItemSynNodePathData::AssocItem(
                             AssocItemSynNodePathData::TraitForTypeItem(
                                 TraitForTypeItemSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TraitForTypeItemPath(
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: TraitForTypeItemPath(
                                             `<core::result::Result as core::ops::Unveil(0)>::unveil`,
                                             TraitItemKind::AssocRitchie(
                                                 RitchieItemKind::Fn,

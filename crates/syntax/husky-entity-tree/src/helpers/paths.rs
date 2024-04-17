@@ -30,18 +30,19 @@ pub fn module_item_syn_node_paths(
             node_paths.push(attr_syn_node_path.into())
         }
     };
-    for syn_node_path in item_tree_sheet.major_item_syn_node_paths() {
-        push_with_attrs(syn_node_path);
-        match syn_node_path {
-            ItemSynNodePath::MajorItem(MajorItemSynNodePath::Trait(trai_node_path)) => {
-                for trai_item_syn_node_path in trai_node_path.item_node_paths(db) {
-                    push_with_attrs(trai_item_syn_node_path.into())
-                }
-            }
-            _ => (),
-        }
-    }
-    // todo: trait item
+    // left for future
+    // // todo: trait item
+    // for syn_node_path in item_tree_sheet.major_item_syn_node_paths() {
+    //     push_with_attrs(syn_node_path);
+    //     match syn_node_path {
+    //         ItemSynNodePath::MajorItem(MajorItemSynNodePath::Trait(trai_node_path)) => {
+    //             for trai_item_syn_node_path in trai_node_path.item_node_paths(db) {
+    //                 push_with_attrs(trai_item_syn_node_path.into())
+    //             }
+    //         }
+    //         _ => (),
+    //     }
+    // }
     for impl_block_syn_node_path in item_tree_sheet.impl_block_syn_node_paths() {
         push_with_attrs(impl_block_syn_node_path.into());
         match impl_block_syn_node_path {

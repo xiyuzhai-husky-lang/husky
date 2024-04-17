@@ -14,8 +14,8 @@ EntityTreeCrateBundle {
                                             data: ItemSynNodePathData::MajorItem(
                                                 MajorItemSynNodePathData::Type(
                                                     TypeSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypePath(`malamute::Class`, `Enum`),
+                                                        disambiguated_item_path: DisambiguatedItemPath {
+                                                            maybe_ambiguous_item_path: TypePath(`malamute::Class`, `Enum`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -51,8 +51,8 @@ EntityTreeCrateBundle {
                                         data: ItemSynNodePathData::MajorItem(
                                             MajorItemSynNodePathData::Type(
                                                 TypeSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`malamute::Class`, `Enum`),
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TypePath(`malamute::Class`, `Enum`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -74,8 +74,8 @@ EntityTreeCrateBundle {
                                             data: ItemSynNodePathData::MajorItem(
                                                 MajorItemSynNodePathData::Type(
                                                     TypeSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                                        disambiguated_item_path: DisambiguatedItemPath {
+                                                            maybe_ambiguous_item_path: TypePath(`malamute::OneVsAll`, `Enum`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -111,8 +111,8 @@ EntityTreeCrateBundle {
                                         data: ItemSynNodePathData::MajorItem(
                                             MajorItemSynNodePathData::Type(
                                                 TypeSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TypePath(`malamute::OneVsAll`, `Enum`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -134,8 +134,8 @@ EntityTreeCrateBundle {
                                             data: ItemSynNodePathData::MajorItem(
                                                 MajorItemSynNodePathData::Type(
                                                     TypeSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypePath(`malamute::OneVsAllResult`, `Enum`),
+                                                        disambiguated_item_path: DisambiguatedItemPath {
+                                                            maybe_ambiguous_item_path: TypePath(`malamute::OneVsAllResult`, `Enum`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -171,8 +171,8 @@ EntityTreeCrateBundle {
                                         data: ItemSynNodePathData::MajorItem(
                                             MajorItemSynNodePathData::Type(
                                                 TypeSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`malamute::OneVsAllResult`, `Enum`),
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TypePath(`malamute::OneVsAllResult`, `Enum`),
                                                         disambiguator: 0,
                                                     },
                                                 },

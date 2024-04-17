@@ -160,7 +160,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 225;\n\ntoken_line_group_idx = 28\n\ntoken = TokenData::Ident(\n    `Clone`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::SynPrincipalEntityPathExpr(\n            3,\n            PrincipalEntityPath::MajorItem(\n                MajorItemPath::Trait(\n                    TraitPath(`core::clone::Clone`),\n                ),\n            ),\n        ),\n        data: TokenInfoData::Entity(\n            EntityPath::MajorItem(\n                MajorItemPath::Trait(\n                    TraitPath(`core::clone::Clone`),\n                ),\n            ),\n        ),\n    },\n);\n\n\n",
+                            value: "\ntoken_idx = 225;\n\ntoken_line_group_idx = 28\n\ntoken = TokenData::Ident(\n    `Clone`,\n);\n\ntoken_info = None;\n\n\n",
                         },
                     ),
                     range: Some(
@@ -400,7 +400,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 585;\n\ntoken_line_group_idx = 77\n\ntoken = TokenData::Ident(\n    `PartialEq`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::SynPrincipalEntityPathExpr(\n            1,\n            PrincipalEntityPath::MajorItem(\n                MajorItemPath::Trait(\n                    TraitPath(`core::cmp::PartialEq`),\n                ),\n            ),\n        ),\n        data: TokenInfoData::Entity(\n            EntityPath::MajorItem(\n                MajorItemPath::Trait(\n                    TraitPath(`core::cmp::PartialEq`),\n                ),\n            ),\n        ),\n    },\n);\n\n\n",
+                            value: "\ntoken_idx = 585;\n\ntoken_line_group_idx = 77\n\ntoken = TokenData::Ident(\n    `PartialEq`,\n);\n\ntoken_info = None;\n\n\n",
                         },
                     ),
                     range: Some(
@@ -490,18 +490,18 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "Other\ntoken_idx = 720;\n\ntoken_line_group_idx = 96\n\ntoken = TokenData::Keyword(\n    Keyword::Todo,\n);\n\ntoken_info = None;\n\n\n",
+                            value: "\ntoken_idx = 720;\n\ntoken_line_group_idx = 96\n\ntoken = TokenData::Ident(\n    `backprop`,\n);\n\ntoken_info = None;\n\n\n",
                         },
                     ),
                     range: Some(
                         Range {
                             start: Position {
                                 line: 139,
-                                character: 14,
+                                character: 5,
                             },
                             end: Position {
                                 line: 139,
-                                character: 18,
+                                character: 13,
                             },
                         },
                     ),
@@ -520,18 +520,18 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 765;\n\ntoken_line_group_idx = 101\n\ntoken = TokenData::Ident(\n    `f32`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::SynPrincipalEntityPathExpr(\n            0,\n            PrincipalEntityPath::MajorItem(\n                MajorItemPath::Type(\n                    TypePath(`core::num::f32`, `Extern`),\n                ),\n            ),\n        ),\n        data: TokenInfoData::Entity(\n            EntityPath::MajorItem(\n                MajorItemPath::Type(\n                    TypePath(`core::num::f32`, `Extern`),\n                ),\n            ),\n        ),\n    },\n);\n\n\n",
+                            value: "Other\ntoken_idx = 765;\n\ntoken_line_group_idx = 100\n\ntoken = TokenData::Keyword(\n    Keyword::Todo,\n);\n\ntoken_info = None;\n\n\n",
                         },
                     ),
                     range: Some(
                         Range {
                             start: Position {
-                                line: 146,
-                                character: 22,
+                                line: 145,
+                                character: 35,
                             },
                             end: Position {
-                                line: 146,
-                                character: 25,
+                                line: 145,
+                                character: 39,
                             },
                         },
                     ),
@@ -550,18 +550,18 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 810;\n\ntoken_line_group_idx = 106\n\ntoken = TokenData::Punctuation(\n    Punctuation(\n        PunctuationMapped::Semicolon,\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                            value: "\ntoken_idx = 810;\n\ntoken_line_group_idx = 105\n\ntoken = TokenData::Ident(\n    `cos`,\n);\n\ntoken_info = None;\n\n\n",
                         },
                     ),
                     range: Some(
                         Range {
                             start: Position {
-                                line: 154,
-                                character: 23,
+                                line: 153,
+                                character: 28,
                             },
                             end: Position {
-                                line: 154,
-                                character: 24,
+                                line: 153,
+                                character: 31,
                             },
                         },
                     ),
@@ -580,18 +580,48 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 855;\n\ntoken_line_group_idx = 112\n\ntoken = TokenData::Punctuation(\n    Punctuation(\n        PunctuationMapped::Comma,\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                            value: "\ntoken_idx = 855;\n\ntoken_line_group_idx = 111\n\ntoken = TokenData::Punctuation(\n    Punctuation(\n        PunctuationMapped::LeftDelimiter(\n            Delimiter::Box,\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
                         },
                     ),
                     range: Some(
                         Range {
                             start: Position {
-                                line: 163,
-                                character: 28,
+                                line: 162,
+                                character: 1,
                             },
                             end: Position {
-                                line: 163,
-                                character: 29,
+                                line: 162,
+                                character: 2,
+                            },
+                        },
+                    ),
+                },
+                actions: [],
+            },
+        ),
+    ),
+    (
+        TokenIdx(
+            901,
+        ),
+        Some(
+            HoverResult {
+                hover: Hover {
+                    contents: Markup(
+                        MarkupContent {
+                            kind: Markdown,
+                            value: "Other\ntoken_idx = 900;\n\ntoken_line_group_idx = 117\n\ntoken = TokenData::Keyword(\n    Keyword::Connection(\n        For,\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                        },
+                    ),
+                    range: Some(
+                        Range {
+                            start: Position {
+                                line: 171,
+                                character: 13,
+                            },
+                            end: Position {
+                                line: 171,
+                                character: 16,
                             },
                         },
                     ),

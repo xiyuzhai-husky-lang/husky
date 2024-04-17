@@ -14,8 +14,8 @@ EntityTreeCrateBundle {
                                             data: ItemSynNodePathData::MajorItem(
                                                 MajorItemSynNodePathData::Type(
                                                     TypeSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                        disambiguated_item_path: DisambiguatedItemPath {
+                                                            maybe_ambiguous_item_path: TypePath(`mnist::MnistLabel`, `Enum`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -51,8 +51,8 @@ EntityTreeCrateBundle {
                                         data: ItemSynNodePathData::MajorItem(
                                             MajorItemSynNodePathData::Type(
                                                 TypeSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TypePath(`mnist::MnistLabel`, `Enum`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -74,8 +74,8 @@ EntityTreeCrateBundle {
                                             data: ItemSynNodePathData::MajorItem(
                                                 MajorItemSynNodePathData::Type(
                                                     TypeSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypePath(`mnist::BinaryImage28`, `Extern`),
+                                                        disambiguated_item_path: DisambiguatedItemPath {
+                                                            maybe_ambiguous_item_path: TypePath(`mnist::BinaryImage28`, `Extern`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -105,8 +105,8 @@ EntityTreeCrateBundle {
                                         data: ItemSynNodePathData::MajorItem(
                                             MajorItemSynNodePathData::Type(
                                                 TypeSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`mnist::BinaryImage28`, `Extern`),
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TypePath(`mnist::BinaryImage28`, `Extern`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -128,8 +128,8 @@ EntityTreeCrateBundle {
                                             data: ItemSynNodePathData::MajorItem(
                                                 MajorItemSynNodePathData::Type(
                                                     TypeSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypePath(`mnist::BinaryGrid28`, `Extern`),
+                                                        disambiguated_item_path: DisambiguatedItemPath {
+                                                            maybe_ambiguous_item_path: TypePath(`mnist::BinaryGrid28`, `Extern`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -159,8 +159,8 @@ EntityTreeCrateBundle {
                                         data: ItemSynNodePathData::MajorItem(
                                             MajorItemSynNodePathData::Type(
                                                 TypeSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`mnist::BinaryGrid28`, `Extern`),
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TypePath(`mnist::BinaryGrid28`, `Extern`),
                                                         disambiguator: 0,
                                                     },
                                                 },

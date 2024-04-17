@@ -23,8 +23,8 @@ SynDeclSheet {
                                                     data: ItemSynNodePathData::MajorItem(
                                                         MajorItemSynNodePathData::Trait(
                                                             TraitSynNodePathData {
-                                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                    path: TraitPath(`core::marker::Copy`),
+                                                                disambiguated_item_path: DisambiguatedItemPath {
+                                                                    maybe_ambiguous_item_path: TraitPath(`core::marker::Copy`),
                                                                     disambiguator: 0,
                                                                 },
                                                             },
@@ -103,8 +103,8 @@ SynDeclSheet {
                                                     data: ItemSynNodePathData::MajorItem(
                                                         MajorItemSynNodePathData::Trait(
                                                             TraitSynNodePathData {
-                                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                    path: TraitPath(`core::marker::Sized`),
+                                                                disambiguated_item_path: DisambiguatedItemPath {
+                                                                    maybe_ambiguous_item_path: TraitPath(`core::marker::Sized`),
                                                                     disambiguator: 0,
                                                                 },
                                                             },

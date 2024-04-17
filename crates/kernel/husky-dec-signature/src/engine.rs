@@ -388,11 +388,17 @@ impl<'a> DecTermEngine<'a> {
                 })),
                 None => Err(DerivedDecTermError2::InvalidEntityPath.into()),
             },
-            SynExprData::AssocItem {
+            SynExprData::PrincipalEntityPathAssocItem {
                 parent_expr_idx,
                 parent_path,
                 colon_colon_regional_token,
                 ident_token,
+            } => todo!(),
+            SynExprData::AssocItem {
+                parent_expr_idx,
+                colon_colon_regional_token_idx,
+                ident,
+                ident_regional_token_idx,
             } => todo!(),
             SynExprData::InheritedSynSymbol {
                 inherited_syn_symbol_idx,

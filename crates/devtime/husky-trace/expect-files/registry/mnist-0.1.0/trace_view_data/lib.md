@@ -25,7 +25,7 @@
                         },
                         TraceViewTokenData {
                             text: "input",
-                            token_class: ValEntity,
+                            token_class: Ident,
                             spaces_before: 1,
                             assoc_trace_id: None,
                         },
@@ -37,7 +37,7 @@
                         },
                         TraceViewTokenData {
                             text: "BinaryImage28",
-                            token_class: TypeEntity,
+                            token_class: Ident,
                             spaces_before: 1,
                             assoc_trace_id: None,
                         },

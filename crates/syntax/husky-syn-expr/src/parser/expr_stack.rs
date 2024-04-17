@@ -67,11 +67,17 @@ impl SynExprData {
                 &Some(path) => BaseEntityPath::Some(path.into()),
                 None => todo!(),
             },
-            SynExprData::AssocItem {
+            SynExprData::PrincipalEntityPathAssocItem {
                 parent_expr_idx: _,
                 parent_path: _,
                 colon_colon_regional_token: _,
                 ident_token: _,
+            } => todo!(),
+            SynExprData::AssocItem {
+                parent_expr_idx,
+                colon_colon_regional_token_idx,
+                ident,
+                ident_regional_token_idx,
             } => todo!(),
             SynExprData::InheritedSynSymbol { .. } | SynExprData::CurrentSynSymbol { .. } => {
                 BaseEntityPath::None

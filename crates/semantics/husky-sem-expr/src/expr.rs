@@ -721,7 +721,7 @@ impl<'a> SemaExprBuilder<'a> {
                     todo!()
                 }
             },
-            SynExprData::AssocItem {
+            SynExprData::PrincipalEntityPathAssocItem {
                 parent_expr_idx,
                 parent_path,
                 colon_colon_regional_token,
@@ -739,6 +739,12 @@ impl<'a> SemaExprBuilder<'a> {
                     });
                 (data_result, ty_result)
             }
+            SynExprData::AssocItem {
+                parent_expr_idx,
+                colon_colon_regional_token_idx,
+                ident,
+                ident_regional_token_idx,
+            } => todo!(),
             SynExprData::InheritedSynSymbol {
                 ident,
                 regional_token_idx,
