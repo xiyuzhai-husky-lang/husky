@@ -52,7 +52,10 @@ use husky_vfs::*;
 pub(crate) struct DB;
 
 fn decl_sem_expr_regions(db: &::salsa::Db, module_path: ModulePath) -> Vec<SemaExprRegion> {
-    db.syn_decl_sheet(module_path)
+    use husky_syn_decl::HasSynDeclSheet;
+
+    module_path
+        .syn_decl_sheet(db)
         .decls(db)
         .iter()
         .copied()
