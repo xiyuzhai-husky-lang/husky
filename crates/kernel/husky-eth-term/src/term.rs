@@ -130,10 +130,6 @@ impl EthTerm {
                     ty_expectation,
                 )?
             }
-            DecTerm::AssocItem(_declarative_term) => {
-                todo!()
-                // EthTermSubitem::from_dec(db, declarative_term, ty_expectation)?
-            }
             DecTerm::TypeAsTraitItem(declarative_term) => {
                 EthTypeAsTraitItem::from_dec(db, declarative_term, ty_expectation)?.into()
             }

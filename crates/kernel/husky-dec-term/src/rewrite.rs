@@ -38,7 +38,6 @@ impl DecTermRewriteCopy for DecTerm {
             DecTerm::Abstraction(term) => term.substitute_copy(db, substitution).into(),
             DecTerm::Application(term) => term.substitute_copy(db, substitution).into(),
             DecTerm::ApplicationOrRitchieCall(_term) => todo!(),
-            DecTerm::AssocItem(term) => term.substitute_copy(db, substitution).into(),
             DecTerm::TypeAsTraitItem(term) => term.substitute_copy(db, substitution).into(),
             DecTerm::TraitConstraint(term) => term.substitute_copy(db, substitution).into(),
             DecTerm::Ritchie(_) => todo!(),
