@@ -1,7 +1,7 @@
 use super::*;
 
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
-pub struct TraitMethodFnSynNodeDecl {
+pub struct TraitMethodRitchieSynNodeDecl {
     #[id]
     pub syn_node_path: TraitItemSynNodePath,
     #[return_ref]
@@ -17,13 +17,13 @@ pub struct TraitMethodFnSynNodeDecl {
     pub syn_expr_region: SynExprRegion,
 }
 
-impl From<TraitMethodFnSynNodeDecl> for ItemSynNodeDecl {
-    fn from(_syn_node_decl: TraitMethodFnSynNodeDecl) -> Self {
+impl From<TraitMethodRitchieSynNodeDecl> for ItemSynNodeDecl {
+    fn from(_syn_node_decl: TraitMethodRitchieSynNodeDecl) -> Self {
         todo!()
     }
 }
 
-impl TraitMethodFnSynNodeDecl {
+impl TraitMethodRitchieSynNodeDecl {
     pub fn errors(self, db: &::salsa::Db) -> SynNodeDeclErrorRefs {
         SmallVec::from_iter(
             self.template_parameter_decl_list(db)
@@ -46,7 +46,7 @@ impl<'a> DeclParser<'a> {
     pub(super) fn parse_trai_method_fn_node_decl(
         &self,
         syn_node_path: TraitItemSynNodePath,
-    ) -> TraitMethodFnSynNodeDecl {
+    ) -> TraitMethodRitchieSynNodeDecl {
         let db = self.db();
         let parent_trai_syn_node_decl = syn_node_path
             .parent_trai_syn_node_path(db)
@@ -69,7 +69,7 @@ impl<'a> DeclParser<'a> {
             Ok(None)
         };
         let eol_colon = parser.try_parse_expected(OriginalSynNodeDeclError::ExpectedEolColon);
-        TraitMethodFnSynNodeDecl::new(
+        TraitMethodRitchieSynNodeDecl::new(
             db,
             syn_node_path,
             template_parameter_decl_list,
@@ -100,8 +100,8 @@ impl TraitMethodFnSynDecl {
     pub(super) fn from_node_decl(
         db: &::salsa::Db,
         path: TraitItemPath,
-        syn_node_decl: TraitMethodFnSynNodeDecl,
-    ) -> DeclResult<Self> {
+        syn_node_decl: TraitMethodRitchieSynNodeDecl,
+    ) -> SynDeclResult<Self> {
         let template_parameters = syn_node_decl
             .template_parameter_decl_list(db)
             .as_ref()?

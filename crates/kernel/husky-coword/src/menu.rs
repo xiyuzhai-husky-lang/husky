@@ -11,7 +11,6 @@ pub struct CowordMenu {
     unit_ident: Ident,
     never_ident: Ident,
     bool_ident: Ident,
-    derive_ident: Ident,
     i8_ident: Ident,
     i16_ident: Ident,
     i32_ident: Ident,
@@ -32,13 +31,20 @@ pub struct CowordMenu {
     rsize_ident: Ident,
     f32_ident: Ident,
     f64_ident: Ident,
+    /// `Trait`
     trai_ty_ident: Ident,
+    /// `Lifetime`
     lifetime_ty_ident: Ident,
     place_ty_ident: Ident,
     module_ident: Ident,
     crate_ident: Ident,
     camel_case_output_ident: Ident,
     snake_case_unveil_ident: Ident,
+    /// # attrs
+    backprop_ident: Ident,
+    effect_ident: Ident,
+    derive_ident: Ident,
+    test_ident: Ident,
 }
 
 impl CowordMenu {
@@ -51,7 +57,6 @@ impl CowordMenu {
             unit_ident: Ident::from_ref(db, "unit").unwrap(),
             never_ident: Ident::from_ref(db, "never").unwrap(),
             bool_ident: Ident::from_ref(db, "bool").unwrap(),
-            derive_ident: Ident::from_ref(db, "derive").unwrap(),
             i8_ident: Ident::from_ref(db, "i8").unwrap(),
             i16_ident: Ident::from_ref(db, "i16").unwrap(),
             i32_ident: Ident::from_ref(db, "i32").unwrap(),
@@ -79,6 +84,10 @@ impl CowordMenu {
             place_ty_ident: Ident::from_ref(db, "Place").unwrap(),
             camel_case_output_ident: Ident::from_ref(db, "Output").unwrap(),
             snake_case_unveil_ident: Ident::from_ref(db, "unveil").unwrap(),
+            backprop_ident: Ident::from_ref(db, "backprop").unwrap(),
+            effect_ident: Ident::from_ref(db, "effect").unwrap(),
+            derive_ident: Ident::from_ref(db, "derive").unwrap(),
+            test_ident: Ident::from_ref(db, "test").unwrap(),
         }
     }
 
@@ -210,8 +219,24 @@ impl CowordMenu {
         self.never_ident
     }
 
+    /// `backprop`
+    pub fn backprop_ident(&self) -> Ident {
+        self.backprop_ident
+    }
+
+    /// `effect`
+    pub fn effect_ident(&self) -> Ident {
+        self.effect_ident
+    }
+
+    /// `derive`
     pub fn derive_ident(&self) -> Ident {
         self.derive_ident
+    }
+
+    /// `test`
+    pub fn test_ident(&self) -> Ident {
+        self.test_ident
     }
 
     pub fn camel_case_output_ident(&self) -> Ident {

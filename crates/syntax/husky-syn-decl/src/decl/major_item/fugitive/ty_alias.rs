@@ -34,7 +34,7 @@ impl TypeAliasSynDecl {
         db: &::salsa::Db,
         path: FugitivePath,
         syn_node_decl: TypeAliasSynNodeDecl,
-    ) -> DeclResult<Self> {
+    ) -> SynDeclResult<Self> {
         let template_parameters = syn_node_decl
             .template_parameter_obelisk_list(db)
             .as_ref()?

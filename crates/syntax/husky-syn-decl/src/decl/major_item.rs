@@ -87,7 +87,7 @@ impl MajorItemSynDecl {
 impl HasSynDecl for MajorItemPath {
     type Decl = MajorItemSynDecl;
 
-    fn syn_decl(self, db: &::salsa::Db) -> DeclResult<Self::Decl> {
+    fn syn_decl(self, db: &::salsa::Db) -> SynDeclResult<Self::Decl> {
         match self {
             MajorItemPath::Type(id) => id.syn_decl(db).map(Into::into),
             MajorItemPath::Trait(id) => id.syn_decl(db).map(Into::into),

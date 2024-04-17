@@ -337,7 +337,16 @@ fn calc_self_value_ty(
                         _ => None,
                     },
                     AssocItemSynNodeDecl::TraitItem(syn_node_decl) => match syn_node_decl {
-                        TraitItemSynNodeDecl::MethodFn(_) => todo!(),
+                        TraitItemSynNodeDecl::MethodRitchie(syn_node_decl) => {
+                            Some(method_fn_self_value_modifier_from_self_value_parameter(
+                                syn_node_decl
+                                    .parenate_parameter_decl_list(db)
+                                    .as_ref()
+                                    .ok()?
+                                    .self_value_parameter(),
+                            ))
+                        }
+                        TraitItemSynNodeDecl::MemoizedField(_) => Some(SvarModifier::Le),
                         _ => None,
                     },
                     AssocItemSynNodeDecl::TraitForTypeItem(syn_node_decl) => match syn_node_decl {

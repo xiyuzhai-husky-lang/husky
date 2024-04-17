@@ -73,7 +73,7 @@ impl Diagnose for OriginalSynNodeDeclError {
             OriginalSynNodeDeclError::ExpectedValReturnType(_) => {
                 format!("Syntax Error: ExpectVariableType",)
             }
-            OriginalSynNodeDeclError::ExpectEqTokenForVariable(_) => {
+            OriginalSynNodeDeclError::ExpectEqTokenForMemo(_) => {
                 format!("Syntax Error: ExpectEqTokenForVariable",)
             }
             OriginalSynNodeDeclError::ExpectedLcurlOrLparOrSemicolonForStruct(_) => {
@@ -83,6 +83,8 @@ impl Diagnose for OriginalSynNodeDeclError {
             OriginalSynNodeDeclError::ExpectLeftDelimiterInDerive(_) => todo!(),
             OriginalSynNodeDeclError::ExpectRightDelimiterInDerive(_) => todo!(),
             OriginalSynNodeDeclError::ExpectedColonBeforeValReturnType(_) => todo!(),
+            OriginalSynNodeDeclError::ExpectEqTokenForBackpropArgument(_) => todo!(),
+            OriginalSynNodeDeclError::ExpectedExprForBackpropArgument(_) => todo!(),
         }
     }
 
@@ -115,7 +117,7 @@ impl Diagnose for OriginalSynNodeDeclError {
                 regional_token_stream_state,
             )
             | OriginalSynNodeDeclError::ExpectedValReturnType(regional_token_stream_state)
-            | OriginalSynNodeDeclError::ExpectEqTokenForVariable(regional_token_stream_state)
+            | OriginalSynNodeDeclError::ExpectEqTokenForMemo(regional_token_stream_state)
             | OriginalSynNodeDeclError::ExpectedLcurlOrLparOrSemicolonForStruct(
                 regional_token_stream_state,
             ) => ctx.token_stream_state_text_range(*regional_token_stream_state),
@@ -123,6 +125,8 @@ impl Diagnose for OriginalSynNodeDeclError {
             OriginalSynNodeDeclError::ExpectLeftDelimiterInDerive(_) => todo!(),
             OriginalSynNodeDeclError::ExpectRightDelimiterInDerive(_) => todo!(),
             OriginalSynNodeDeclError::ExpectedColonBeforeValReturnType(_) => todo!(),
+            OriginalSynNodeDeclError::ExpectEqTokenForBackpropArgument(_) => todo!(),
+            OriginalSynNodeDeclError::ExpectedExprForBackpropArgument(_) => todo!(),
         }
     }
 }

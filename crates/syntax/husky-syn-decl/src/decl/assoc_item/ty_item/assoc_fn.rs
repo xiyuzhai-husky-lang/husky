@@ -95,7 +95,7 @@ impl TypeAssocFnSynDecl {
         db: &::salsa::Db,
         path: TypeItemPath,
         syn_node_decl: TypeAssocFnSynNodeDecl,
-    ) -> DeclResult<Self> {
+    ) -> SynDeclResult<Self> {
         let template_parameters = syn_node_decl
             .template_parameter_decl_list(db)
             .as_ref()?

@@ -15,6 +15,14 @@ pub struct EffectAttrSynNodeDecl {
     pub syn_expr_region: SynExprRegion,
 }
 
+/// # constructor
+
+impl EffectAttrSynNodeDecl {
+    pub(super) fn new(db: &::salsa::Db, syn_node_path: AttrSynNodePath) -> Self {
+        todo!()
+    }
+}
+
 /// # getters
 
 impl EffectAttrSynNodeDecl {

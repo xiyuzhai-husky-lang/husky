@@ -134,30 +134,30 @@ impl Add usize for usize:
 pub extern f32;
 
 impl f32:
-    #backprop(todo)
+    #backprop(self = todo)
     pub fn abs() -> f32;
 
-    #backprop(todo)
+    #backprop(self = todo)
     pub fn sqrt() -> f32;
 
-    #backprop(todo, other = todo)
+    #backprop(self = todo, other = todo)
     pub fn max(other: f32) -> f32;
 
-    #backprop(todo, other = todo)
+    #backprop(self = todo, other = todo)
     pub fn min(other: f32) -> f32;
     
     pub fn sgnx() -> i32;
 
-    #backprop(sin)
+    #backprop(self = sin)
     pub fn cos() -> f32;
 
-    #backprop(|slf| -cos(slf))
+    #backprop(self = |slf| -cos(slf))
     pub fn sin() -> f32;
 
     pub fn acos() -> f32;
 
 impl Add f32 for f32:
-    #backprop(todo)
+    #backprop(self = todo)
     fn add(other: f32) -> f32;
 
 #[rust(f64)]

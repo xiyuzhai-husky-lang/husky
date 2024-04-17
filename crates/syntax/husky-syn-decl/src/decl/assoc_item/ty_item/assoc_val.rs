@@ -36,7 +36,7 @@ impl TypeAssocValSynDecl {
         db: &::salsa::Db,
         path: TypeItemPath,
         syn_node_decl: TypeAssocValSynNodeDecl,
-    ) -> DeclResult<Self> {
+    ) -> SynDeclResult<Self> {
         let val_ty = *syn_node_decl.return_ty(db).as_ref()?;
         let expr = syn_node_decl.expr(db);
         let syn_expr_region = syn_node_decl.syn_expr_region(db);

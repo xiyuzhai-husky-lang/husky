@@ -88,7 +88,7 @@ impl TypeMethodFnSynDecl {
         db: &::salsa::Db,
         path: TypeItemPath,
         syn_node_decl: TypeMethodFnSynNodeDecl,
-    ) -> DeclResult<Self> {
+    ) -> SynDeclResult<Self> {
         let template_parameters = syn_node_decl
             .template_parameters(db)
             .as_ref()?

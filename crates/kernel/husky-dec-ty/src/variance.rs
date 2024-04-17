@@ -40,7 +40,7 @@ pub enum OriginalVarianceError {
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub enum DerivedVarianceError {
-    DeclError,
+    SynDeclError,
     SignatureError,
     TypeItemNotFound,
 }

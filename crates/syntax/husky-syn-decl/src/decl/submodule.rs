@@ -50,7 +50,7 @@ impl SubmoduleSynDecl {
 impl HasSynDecl for SubmoduleItemPath {
     type Decl = SubmoduleSynDecl;
 
-    fn syn_decl(self, db: &::salsa::Db) -> DeclResult<Self::Decl> {
+    fn syn_decl(self, db: &::salsa::Db) -> SynDeclResult<Self::Decl> {
         submodule_decl(db, self)
     }
 }
@@ -59,7 +59,7 @@ impl HasSynDecl for SubmoduleItemPath {
 pub(crate) fn submodule_decl(
     db: &::salsa::Db,
     path: SubmoduleItemPath,
-) -> DeclResult<SubmoduleSynDecl> {
+) -> SynDeclResult<SubmoduleSynDecl> {
     let syn_node_path = path.syn_node_path(db);
     let syn_node_decl = syn_node_path.syn_node_decl(db);
     Ok(SubmoduleSynDecl::from_node_decl(db, path, syn_node_decl))

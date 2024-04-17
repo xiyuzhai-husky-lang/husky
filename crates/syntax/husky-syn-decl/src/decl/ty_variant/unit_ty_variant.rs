@@ -28,7 +28,7 @@ impl TypeUnitVariantSynDecl {
         db: &::salsa::Db,
         path: TypeVariantPath,
         syn_node_decl: TypeUnitVariantSynNodeDecl,
-    ) -> DeclResult<Self> {
+    ) -> SynDeclResult<Self> {
         Ok(Self::new(db, path, syn_node_decl.syn_expr_region(db)))
     }
 }

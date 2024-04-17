@@ -104,7 +104,7 @@ impl AssocItemSynDecl {
 impl HasSynDecl for AssocItemPath {
     type Decl = AssocItemSynDecl;
 
-    fn syn_decl(self, db: &::salsa::Db) -> DeclResult<Self::Decl> {
+    fn syn_decl(self, db: &::salsa::Db) -> SynDeclResult<Self::Decl> {
         match self {
             AssocItemPath::TypeItem(slf) => slf.syn_decl(db).map(Into::into),
             AssocItemPath::TraitItem(slf) => slf.syn_decl(db).map(Into::into),
@@ -116,5 +116,5 @@ impl HasSynDecl for AssocItemPath {
 pub trait HasItemDecls {
     type ItemDecls;
 
-    fn item_syn_decls<'a>(self, db: &'a ::salsa::Db) -> DeclResult<&'a Self::ItemDecls>;
+    fn item_syn_decls<'a>(self, db: &'a ::salsa::Db) -> SynDeclResult<&'a Self::ItemDecls>;
 }

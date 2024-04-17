@@ -19,6 +19,8 @@ pub struct DeriveAttrSynNodeDecl {
     pub syn_expr_region: SynExprRegion,
 }
 
+/// # constructor
+
 impl DeriveAttrSynNodeDecl {
     pub(super) fn new(db: &::salsa::Db, syn_node_path: AttrSynNodePath) -> Self {
         let parser_factory = DeclParser::new(db, syn_node_path.into());
@@ -31,7 +33,7 @@ impl DeriveAttrSynNodeDecl {
             AllowSelfValue::False,
             None,
         );
-        let at_token = parser
+        let pound_token = parser
             .try_parse_option()
             .expect("should be guaranteed")
             .expect("should be guaranteed");
@@ -47,7 +49,7 @@ impl DeriveAttrSynNodeDecl {
         Self::new_inner(
             db,
             syn_node_path,
-            at_token,
+            pound_token,
             derive_token,
             lpar_token,
             trais,
@@ -80,7 +82,7 @@ impl DeriveAttrSynDecl {
         db: &::salsa::Db,
         path: AttrItemPath,
         syn_node_decl: DeriveAttrSynNodeDecl,
-    ) -> DeclResult<Self> {
+    ) -> SynDeclResult<Self> {
         let trais = SmallVec::from(syn_node_decl.trais(db).as_ref()?.elements());
         let syn_expr_region = syn_node_decl.syn_expr_region(db);
         Ok(Self::new(db, path, trais, syn_expr_region))

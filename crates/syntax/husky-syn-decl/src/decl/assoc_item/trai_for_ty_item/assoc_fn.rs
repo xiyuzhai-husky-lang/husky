@@ -83,7 +83,7 @@ impl TraitForTypeAssocFnSynDecl {
         db: &::salsa::Db,
         path: TraitForTypeItemPath,
         syn_node_decl: TraitForTypeAssocFnSynNodeDecl,
-    ) -> DeclResult<Self> {
+    ) -> SynDeclResult<Self> {
         let template_parameters = syn_node_decl
             .template_parameter_decl_list(db)
             .as_ref()?

@@ -123,7 +123,7 @@ pub struct TraitForTypeImplBlockSynDecl {
 impl HasSynDecl for TraitForTypeImplBlockPath {
     type Decl = TraitForTypeImplBlockSynDecl;
 
-    fn syn_decl(self, db: &::salsa::Db) -> DeclResult<Self::Decl> {
+    fn syn_decl(self, db: &::salsa::Db) -> SynDeclResult<Self::Decl> {
         trai_for_ty_impl_block_syn_decl(db, self)
     }
 }
@@ -132,7 +132,7 @@ impl HasSynDecl for TraitForTypeImplBlockPath {
 pub(crate) fn trai_for_ty_impl_block_syn_decl(
     db: &::salsa::Db,
     path: TraitForTypeImplBlockPath,
-) -> DeclResult<TraitForTypeImplBlockSynDecl> {
+) -> SynDeclResult<TraitForTypeImplBlockSynDecl> {
     let syn_node_decl = path.syn_node_path(db).syn_node_decl(db);
     TraitForTypeImplBlockSynDecl::from_node_decl(db, path, syn_node_decl)
 }
@@ -142,7 +142,7 @@ impl TraitForTypeImplBlockSynDecl {
         db: &::salsa::Db,
         path: TraitForTypeImplBlockPath,
         syn_node_decl: TraitForTypeImplBlockSynNodeDecl,
-    ) -> DeclResult<Self> {
+    ) -> SynDeclResult<Self> {
         let template_parameters = syn_node_decl
             .template_parameter_decl_list(db)
             .as_ref()?
