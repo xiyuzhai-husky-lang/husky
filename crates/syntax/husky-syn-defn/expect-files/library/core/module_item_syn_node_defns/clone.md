@@ -1,27 +1,6 @@
 ```rust
 [
     (
-        ItemSynNodePath::MajorItem(
-            MajorItemSynNodePath::Trait(
-                TraitSynNodePath(
-                    ItemSynNodePathId {
-                        data: ItemSynNodePathData::MajorItem(
-                            MajorItemSynNodePathData::Trait(
-                                TraitSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TraitPath(`core::clone::Clone`),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                        ),
-                    },
-                ),
-            ),
-        ),
-        None,
-    ),
-    (
         ItemSynNodePath::ImplBlock(
             ImplBlockSynNodePath::TraitForTypeImplBlock(
                 TraitForTypeImplBlockSynNodePath(
@@ -47,8 +26,8 @@
                         data: ItemSynNodePathData::AssocItem(
                             AssocItemSynNodePathData::TraitForTypeItem(
                                 TraitForTypeItemSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TraitForTypeItemPath(
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: TraitForTypeItemPath(
                                             `<#derive _ as core::clone::Clone(0)>::clone`,
                                             TraitItemKind::MethodRitchie(
                                                 RitchieItemKind::Fn,

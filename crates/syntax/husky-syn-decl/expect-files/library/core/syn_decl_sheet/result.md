@@ -51,8 +51,8 @@ SynDeclSheet {
                                                         data: ItemSynNodePathData::MajorItem(
                                                             MajorItemSynNodePathData::Type(
                                                                 TypeSynNodePathData {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypePath(`core::result::Result`, `Enum`),
+                                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                                        maybe_ambiguous_item_path: TypePath(`core::result::Result`, `Enum`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -383,7 +383,7 @@ SynDeclSheet {
                                 principal_item_path_expr_arena: Arena {
                                     data: [
                                         SynPrincipalEntityPathExpr::Root {
-                                            path_name_token: PathNameRegionalToken::CrateRoot(
+                                            path_name_token: PathNameRegionalToken::CrateRootMod(
                                                 CrateRegionalToken {
                                                     token_idx: RegionalTokenIdx(
                                                         11,
@@ -796,7 +796,7 @@ SynDeclSheet {
                                                 principal_item_path_expr_arena: Arena {
                                                     data: [
                                                         SynPrincipalEntityPathExpr::Root {
-                                                            path_name_token: PathNameRegionalToken::CrateRoot(
+                                                            path_name_token: PathNameRegionalToken::CrateRootMod(
                                                                 CrateRegionalToken {
                                                                     token_idx: RegionalTokenIdx(
                                                                         11,
@@ -1047,8 +1047,8 @@ SynDeclSheet {
                                                         data: ItemSynNodePathData::AssocItem(
                                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                                 TraitForTypeItemSynNodePathData {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TraitForTypeItemPath(
+                                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                                        maybe_ambiguous_item_path: TraitForTypeItemPath(
                                                                             `<core::result::Result as core::ops::Unveil(0)>::Continue`,
                                                                             TraitItemKind::AssocType,
                                                                         ),
@@ -1363,7 +1363,7 @@ SynDeclSheet {
                                                 principal_item_path_expr_arena: Arena {
                                                     data: [
                                                         SynPrincipalEntityPathExpr::Root {
-                                                            path_name_token: PathNameRegionalToken::CrateRoot(
+                                                            path_name_token: PathNameRegionalToken::CrateRootMod(
                                                                 CrateRegionalToken {
                                                                     token_idx: RegionalTokenIdx(
                                                                         11,
@@ -1614,8 +1614,8 @@ SynDeclSheet {
                                                         data: ItemSynNodePathData::AssocItem(
                                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                                 TraitForTypeItemSynNodePathData {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TraitForTypeItemPath(
+                                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                                        maybe_ambiguous_item_path: TraitForTypeItemPath(
                                                                             `<core::result::Result as core::ops::Unveil(0)>::unveil`,
                                                                             TraitItemKind::AssocRitchie(
                                                                                 RitchieItemKind::Fn,

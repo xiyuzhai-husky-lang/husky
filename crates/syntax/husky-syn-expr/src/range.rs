@@ -246,7 +246,7 @@ impl<'a> SynExprRangeCalculator<'a> {
             }
             SynExprData::Binary { lopd, ropd, .. } => self[lopd].join(self[ropd]),
             SynExprData::PrincipalEntityPath { path_expr_idx, .. } => self[path_expr_idx],
-            SynExprData::AssocItem {
+            SynExprData::PrincipalEntityPathAssocItem {
                 parent_expr_idx,
                 ident_token,
                 ..
@@ -256,6 +256,12 @@ impl<'a> SynExprRangeCalculator<'a> {
                     ident_token.regional_token_idx(),
                 ))
             }
+            SynExprData::AssocItem {
+                parent_expr_idx,
+                colon_colon_regional_token_idx,
+                ident,
+                ident_regional_token_idx,
+            } => todo!(),
             SynExprData::Be {
                 src,
                 be_regional_token_idx,

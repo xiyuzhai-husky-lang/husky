@@ -1,119 +1,6 @@
 ```rust
 [
     (
-        ItemSynNodePath::MajorItem(
-            MajorItemSynNodePath::Type(
-                TypeSynNodePath(
-                    ItemSynNodePathId {
-                        data: ItemSynNodePathData::MajorItem(
-                            MajorItemSynNodePathData::Type(
-                                TypeSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(`mnist::MnistLabel`, `Enum`),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                        ),
-                    },
-                ),
-            ),
-        ),
-        None,
-    ),
-    (
-        ItemSynNodePath::MajorItem(
-            MajorItemSynNodePath::Type(
-                TypeSynNodePath(
-                    ItemSynNodePathId {
-                        data: ItemSynNodePathData::MajorItem(
-                            MajorItemSynNodePathData::Type(
-                                TypeSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(`mnist::BinaryImage28`, `Extern`),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                        ),
-                    },
-                ),
-            ),
-        ),
-        None,
-    ),
-    (
-        ItemSynNodePath::Attr(
-            Room32,
-            AttrSynNodePath(
-                ItemSynNodePathId {
-                    data: ItemSynNodePathData::Attr(
-                        AttrSynNodePathData {
-                            parent_syn_node_path: ItemSynNodePath::MajorItem(
-                                MajorItemSynNodePath::Type(
-                                    TypeSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Type(
-                                                    TypeSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypePath(`mnist::BinaryImage28`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                ),
-                            ),
-                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: AttrItemPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 153,
-                                        },
-                                    ),
-                                ),
-                                disambiguator: 0,
-                            },
-                        },
-                    ),
-                },
-            ),
-        ),
-        None,
-    ),
-    (
-        ItemSynNodePath::MajorItem(
-            MajorItemSynNodePath::Type(
-                TypeSynNodePath(
-                    ItemSynNodePathId {
-                        data: ItemSynNodePathData::MajorItem(
-                            MajorItemSynNodePathData::Type(
-                                TypeSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(`mnist::BinaryGrid28`, `Extern`),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                        ),
-                    },
-                ),
-            ),
-        ),
-        None,
-    ),
-    (
-        ItemSynNodePath::MajorItem(
-            MajorItemSynNodePath::Fugitive(
-                FugitiveSynNodePath(`mnist::input`, `Val`, (0)),
-            ),
-        ),
-        None,
-    ),
-    (
         ItemSynNodePath::ImplBlock(
             ImplBlockSynNodePath::TraitForTypeImplBlock(
                 TraitForTypeImplBlockSynNodePath(
@@ -139,8 +26,8 @@
                         data: ItemSynNodePathData::AssocItem(
                             AssocItemSynNodePathData::TraitForTypeItem(
                                 TraitForTypeItemSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TraitForTypeItemPath(
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: TraitForTypeItemPath(
                                             `<mnist::BinaryImage28 as core::visual::Visualize(0)>::visualize`,
                                             TraitItemKind::MethodRitchie(
                                                 RitchieItemKind::Fn,
@@ -189,8 +76,8 @@
                         data: ItemSynNodePathData::AssocItem(
                             AssocItemSynNodePathData::TypeItem(
                                 TypeItemSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath(`<mnist::BinaryImage28(0)>::new_zeros`, `AssocRitchie(
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist::BinaryImage28(0)>::new_zeros`, `AssocRitchie(
                                             Fn,
                                         )`),
                                         disambiguator: 0,
@@ -230,8 +117,8 @@
                         data: ItemSynNodePathData::AssocItem(
                             AssocItemSynNodePathData::TraitForTypeItem(
                                 TraitForTypeItemSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TraitForTypeItemPath(
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: TraitForTypeItemPath(
                                             `<mnist::BinaryImage28 as core::ops::IntIndex(0)>::Output`,
                                             TraitItemKind::AssocType,
                                         ),
@@ -272,8 +159,8 @@
                         data: ItemSynNodePathData::AssocItem(
                             AssocItemSynNodePathData::TraitForTypeItem(
                                 TraitForTypeItemSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TraitForTypeItemPath(
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: TraitForTypeItemPath(
                                             `<mnist::BinaryGrid28 as core::visual::Visualize(0)>::visualize`,
                                             TraitItemKind::MethodRitchie(
                                                 RitchieItemKind::Fn,
@@ -322,8 +209,8 @@
                         data: ItemSynNodePathData::AssocItem(
                             AssocItemSynNodePathData::TypeItem(
                                 TypeItemSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath(`<mnist::BinaryGrid28(0)>::new_zeros`, `AssocRitchie(
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist::BinaryGrid28(0)>::new_zeros`, `AssocRitchie(
                                             Fn,
                                         )`),
                                         disambiguator: 0,
@@ -363,8 +250,8 @@
                         data: ItemSynNodePathData::AssocItem(
                             AssocItemSynNodePathData::TraitForTypeItem(
                                 TraitForTypeItemSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TraitForTypeItemPath(
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: TraitForTypeItemPath(
                                             `<mnist::BinaryGrid28 as core::ops::IntIndex(0)>::Output`,
                                             TraitItemKind::AssocType,
                                         ),

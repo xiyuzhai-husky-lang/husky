@@ -9,8 +9,8 @@ SynNodeDeclSheet {
                             data: ItemSynNodePathData::MajorItem(
                                 MajorItemSynNodePathData::Trait(
                                     TraitSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TraitPath(`core::default::Default`),
+                                        disambiguated_item_path: DisambiguatedItemPath {
+                                            maybe_ambiguous_item_path: TraitPath(`core::default::Default`),
                                             disambiguator: 0,
                                         },
                                     },
@@ -28,8 +28,8 @@ SynNodeDeclSheet {
                                 data: ItemSynNodePathData::MajorItem(
                                     MajorItemSynNodePathData::Trait(
                                         TraitSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TraitPath(`core::default::Default`),
+                                            disambiguated_item_path: DisambiguatedItemPath {
+                                                maybe_ambiguous_item_path: TraitPath(`core::default::Default`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -51,8 +51,8 @@ SynNodeDeclSheet {
                                                     data: ItemSynNodePathData::MajorItem(
                                                         MajorItemSynNodePathData::Trait(
                                                             TraitSynNodePathData {
-                                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                    path: TraitPath(`core::default::Default`),
+                                                                disambiguated_item_path: DisambiguatedItemPath {
+                                                                    maybe_ambiguous_item_path: TraitPath(`core::default::Default`),
                                                                     disambiguator: 0,
                                                                 },
                                                             },

@@ -40,7 +40,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 1;\n\ntoken_line_group_idx = 0\n\ntoken = TokenData::Ident(\n    `prelude`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::AstIdentifiable,\n        data: TokenInfoData::EntityNode(\n            ItemSynNodePath::Submodule(\n                Room32,\n                SubmoduleSynNodePath(\n                    ItemSynNodePathId {\n                        data: ItemSynNodePathData::Submodule(\n                            SubmoduleSynNodePathData {\n                                maybe_ambiguous_path: MaybeAmbiguousPath {\n                                    path: SubmoduleItemPath(\n                                        ItemPathId(\n                                            Id {\n                                                value: 1,\n                                            },\n                                        ),\n                                    ),\n                                    disambiguator: 0,\n                                },\n                            },\n                        ),\n                    },\n                ),\n            ),\n            EntityKind::Module,\n        ),\n    },\n);\n\n\n",
+                            value: "\ntoken_idx = 1;\n\ntoken_line_group_idx = 0\n\ntoken = TokenData::Ident(\n    `prelude`,\n);\n\ntoken_info = None;\n\n\n",
                         },
                     ),
                     range: Some(
@@ -100,7 +100,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 3;\n\ntoken_line_group_idx = 1\n\ntoken = TokenData::Ident(\n    `logic`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::AstIdentifiable,\n        data: TokenInfoData::EntityNode(\n            ItemSynNodePath::Submodule(\n                Room32,\n                SubmoduleSynNodePath(\n                    ItemSynNodePathId {\n                        data: ItemSynNodePathData::Submodule(\n                            SubmoduleSynNodePathData {\n                                maybe_ambiguous_path: MaybeAmbiguousPath {\n                                    path: SubmoduleItemPath(\n                                        ItemPathId(\n                                            Id {\n                                                value: 2,\n                                            },\n                                        ),\n                                    ),\n                                    disambiguator: 0,\n                                },\n                            },\n                        ),\n                    },\n                ),\n            ),\n            EntityKind::Module,\n        ),\n    },\n);\n\n\n",
+                            value: "\ntoken_idx = 3;\n\ntoken_line_group_idx = 1\n\ntoken = TokenData::Ident(\n    `logic`,\n);\n\ntoken_info = None;\n\n\n",
                         },
                     ),
                     range: Some(
@@ -160,7 +160,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 5;\n\ntoken_line_group_idx = 2\n\ntoken = TokenData::Ident(\n    `ops`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::AstIdentifiable,\n        data: TokenInfoData::EntityNode(\n            ItemSynNodePath::Submodule(\n                Room32,\n                SubmoduleSynNodePath(\n                    ItemSynNodePathId {\n                        data: ItemSynNodePathData::Submodule(\n                            SubmoduleSynNodePathData {\n                                maybe_ambiguous_path: MaybeAmbiguousPath {\n                                    path: SubmoduleItemPath(\n                                        ItemPathId(\n                                            Id {\n                                                value: 3,\n                                            },\n                                        ),\n                                    ),\n                                    disambiguator: 0,\n                                },\n                            },\n                        ),\n                    },\n                ),\n            ),\n            EntityKind::Module,\n        ),\n    },\n);\n\n\n",
+                            value: "\ntoken_idx = 5;\n\ntoken_line_group_idx = 2\n\ntoken = TokenData::Ident(\n    `ops`,\n);\n\ntoken_info = None;\n\n\n",
                         },
                     ),
                     range: Some(

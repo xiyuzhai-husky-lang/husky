@@ -18,11 +18,18 @@ pub enum SynExprData {
         path_expr_idx: SynPrincipalEntityPathSynExprIdx,
         opt_path: Option<PrincipalEntityPath>,
     },
-    AssocItem {
+    PrincipalEntityPathAssocItem {
         parent_expr_idx: SynPrincipalEntityPathSynExprIdx,
         parent_path: MajorItemPath,
         colon_colon_regional_token: ColonColonRegionalToken,
         ident_token: IdentRegionalToken,
+    },
+    /// more general case
+    AssocItem {
+        parent_expr_idx: SynExprIdx,
+        colon_colon_regional_token_idx: RegionalTokenIdx,
+        ident: Ident,
+        ident_regional_token_idx: RegionalTokenIdx,
     },
     InheritedSynSymbol {
         ident: Ident,
@@ -236,7 +243,7 @@ impl From<ItemPathExpr> for SynExprData {
                 parent_path,
                 colon_colon_regional_token,
                 ident_token,
-            } => SynExprData::AssocItem {
+            } => SynExprData::PrincipalEntityPathAssocItem {
                 parent_expr_idx,
                 parent_path,
                 colon_colon_regional_token,
