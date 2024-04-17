@@ -1,6 +1,6 @@
 use crate::*;
 use husky_dec_term::term::DecTermSymbolTypeErrorKind;
-use husky_syn_decl::DeclError;
+use husky_syn_decl::SynDeclError;
 use thiserror::Error;
 
 pub type DeclarativeTypeResult<T> = Result<T, DeclarativeTypeError>;
@@ -20,8 +20,8 @@ impl From<DecTermSymbolTypeErrorKind> for DeclarativeTypeError {
     }
 }
 
-impl From<&DeclError> for DeclarativeTypeError {
-    fn from(_value: &DeclError) -> Self {
+impl From<&SynDeclError> for DeclarativeTypeError {
+    fn from(_value: &SynDeclError) -> Self {
         todo!()
     }
 }

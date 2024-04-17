@@ -79,7 +79,7 @@ impl PropsStructSynDecl {
         db: &::salsa::Db,
         path: TypePath,
         syn_node_decl: PropsStructSynNodeDecl,
-    ) -> DeclResult<Self> {
+    ) -> SynDeclResult<Self> {
         let template_parameters = syn_node_decl
             .template_parameter_decl_list(db)
             .as_ref()?

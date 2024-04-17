@@ -178,7 +178,7 @@ pub enum TypeItemDecls {
 impl HasSynDecl for TypeItemPath {
     type Decl = TypeItemSynDecl;
 
-    fn syn_decl(self, db: &::salsa::Db) -> DeclResult<Self::Decl> {
+    fn syn_decl(self, db: &::salsa::Db) -> SynDeclResult<Self::Decl> {
         ty_item_syn_decl(db, self)
     }
 }
@@ -187,7 +187,7 @@ impl HasSynDecl for TypeItemPath {
 pub(crate) fn ty_item_syn_decl(
     db: &::salsa::Db,
     path: TypeItemPath,
-) -> DeclResult<TypeItemSynDecl> {
+) -> SynDeclResult<TypeItemSynDecl> {
     match path.syn_node_path(db).syn_node_decl(db) {
         TypeItemSynNodeDecl::AssocFn(syn_node_decl) => {
             TypeAssocFnSynDecl::from_node_decl(db, path, syn_node_decl).map(Into::into)

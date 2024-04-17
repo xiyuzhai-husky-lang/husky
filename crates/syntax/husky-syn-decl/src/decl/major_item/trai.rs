@@ -63,7 +63,7 @@ impl TraitSynDecl {
         db: &::salsa::Db,
         path: TraitPath,
         syn_node_decl: TraitSynNodeDecl,
-    ) -> DeclResult<TraitSynDecl> {
+    ) -> SynDeclResult<TraitSynDecl> {
         let template_parameters = syn_node_decl
             .template_parameter_decl_list(db)
             .as_ref()?
@@ -88,13 +88,13 @@ impl TraitSynDecl {
 impl HasSynDecl for TraitPath {
     type Decl = TraitSynDecl;
 
-    fn syn_decl(self, db: &::salsa::Db) -> DeclResult<Self::Decl> {
+    fn syn_decl(self, db: &::salsa::Db) -> SynDeclResult<Self::Decl> {
         trai_syn_decl(db, self)
     }
 }
 
 #[salsa::tracked(jar = SynDeclJar)]
-pub(crate) fn trai_syn_decl(db: &::salsa::Db, path: TraitPath) -> DeclResult<TraitSynDecl> {
+pub(crate) fn trai_syn_decl(db: &::salsa::Db, path: TraitPath) -> SynDeclResult<TraitSynDecl> {
     let syn_node_decl = path.syn_node_path(db).syn_node_decl(db);
     TraitSynDecl::from_node_decl(db, path, syn_node_decl)
 }

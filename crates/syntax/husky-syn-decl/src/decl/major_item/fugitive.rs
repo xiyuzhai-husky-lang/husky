@@ -91,7 +91,7 @@ impl FugitiveSynDecl {
         db: &::salsa::Db,
         path: FugitivePath,
         syn_node_decl: FugitiveSynNodeDecl,
-    ) -> DeclResult<Self> {
+    ) -> SynDeclResult<Self> {
         Ok(match syn_node_decl {
             FugitiveSynNodeDecl::Fn(syn_node_decl) => {
                 MajorFnSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
@@ -139,7 +139,7 @@ impl FugitiveSynDecl {
 impl HasSynDecl for FugitivePath {
     type Decl = FugitiveSynDecl;
 
-    fn syn_decl(self, db: &::salsa::Db) -> DeclResult<Self::Decl> {
+    fn syn_decl(self, db: &::salsa::Db) -> SynDeclResult<Self::Decl> {
         fugitive_syn_decl(db, self)
     }
 }
@@ -148,7 +148,7 @@ impl HasSynDecl for FugitivePath {
 pub(crate) fn fugitive_syn_decl(
     db: &::salsa::Db,
     path: FugitivePath,
-) -> DeclResult<FugitiveSynDecl> {
+) -> SynDeclResult<FugitiveSynDecl> {
     let syn_node_decl = path.syn_node_path(db).syn_node_decl(db);
     FugitiveSynDecl::from_node_decl(db, path, syn_node_decl)
 }

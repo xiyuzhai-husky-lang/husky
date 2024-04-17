@@ -15,6 +15,14 @@ pub struct TestAttrSynNodeDecl {
     pub syn_expr_region: SynExprRegion,
 }
 
+/// # constructor
+
+impl TestAttrSynNodeDecl {
+    pub(super) fn new(db: &::salsa::Db, syn_node_path: AttrSynNodePath) -> Self {
+        todo!()
+    }
+}
+
 /// # getters
 
 impl TestAttrSynNodeDecl {
@@ -32,7 +40,10 @@ pub struct TestAttrSynDecl {
 }
 
 impl TestAttrSynDecl {
-    pub(super) fn from_node(node_decl: TestAttrSynNodeDecl, db: &::salsa::Db) -> DeclResult<Self> {
+    pub(super) fn from_node(
+        node_decl: TestAttrSynNodeDecl,
+        db: &::salsa::Db,
+    ) -> SynDeclResult<Self> {
         todo!()
     }
 }

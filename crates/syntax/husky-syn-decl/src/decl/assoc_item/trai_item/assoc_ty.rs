@@ -75,7 +75,7 @@ impl TraitAssocTypeSynDecl {
         _path: TraitItemPath,
         _syn_node_decl: TraitAssocTypeSynNodeDecl,
         _db: &::salsa::Db,
-    ) -> DeclResult<Self> {
+    ) -> SynDeclResult<Self> {
         todo!()
     }
 }

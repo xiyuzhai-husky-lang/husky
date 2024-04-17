@@ -25,7 +25,7 @@ impl From<TokenDataError> for SynNodeDeclError {
     }
 }
 
-impl From<SynExprError> for DeclError {
+impl From<SynExprError> for SynDeclError {
     fn from(_value: SynExprError) -> Self {
         todo!()
     }
@@ -72,8 +72,8 @@ pub enum OriginalSynNodeDeclError {
     ExpectedColonBeforeValReturnType(RegionalTokenStreamState),
     #[error("ExpectVariableType")]
     ExpectedValReturnType(RegionalTokenStreamState),
-    #[error("ExpectEqTokenForVariable")]
-    ExpectEqTokenForVariable(RegionalTokenStreamState),
+    #[error("ExpectEqTokenForMemo")]
+    ExpectEqTokenForMemo(RegionalTokenStreamState),
     #[error("expected `{{` `(` or `;` for struct")]
     ExpectedLcurlOrLparOrSemicolonForStruct(RegionalTokenStreamState),
     #[error("expected `=` for associated type")]
@@ -82,6 +82,10 @@ pub enum OriginalSynNodeDeclError {
     ExpectLeftDelimiterInDerive(RegionalTokenStreamState),
     #[error("expected `)` for derive")]
     ExpectRightDelimiterInDerive(RegionalTokenStreamState),
+    #[error("ExpectEqTokenForBackpropArgument")]
+    ExpectEqTokenForBackpropArgument(RegionalTokenStreamState),
+    #[error("ExpectedExprForBackpropArgument")]
+    ExpectedExprForBackpropArgument(RegionalTokenStreamState),
 }
 
 impl OriginalError for OriginalSynNodeDeclError {
@@ -99,7 +103,7 @@ pub enum DerivedSynNodeDeclError {
 
 #[derive(Debug, Error, PartialEq, Eq, Clone, Copy)]
 #[salsa::derive_debug_with_db]
-pub enum DeclError {
+pub enum SynDeclError {
     #[error("declaration expression error")]
     NodeDecl,
     // #[error("{0}")]
@@ -108,12 +112,12 @@ pub enum DeclError {
     // Derived(#[from] DerivedDeclError),
 }
 
-pub type DeclResult<T> = Result<T, DeclError>;
+pub type SynDeclResult<T> = Result<T, SynDeclError>;
 
-impl From<&SynNodeDeclError> for DeclError {
+impl From<&SynNodeDeclError> for SynDeclError {
     #[track_caller]
     fn from(_value: &SynNodeDeclError) -> Self {
-        todo!("not yet expect errors in from of impl From<&SynNodeDeclError> for DeclError");
-        // DeclError::NodeDecl
+        todo!("not yet expect errors in from of impl From<&SynNodeDeclError> for SynDeclError");
+        // SynDeclError::NodeDecl
     }
 }

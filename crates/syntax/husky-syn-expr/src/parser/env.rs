@@ -5,6 +5,7 @@ use husky_token_data::delimiter::Delimiter;
 pub enum ExprEnvironment {
     TypeBeforeEq,
     WithinDelimiteredParameterList(Delimiter),
+    /// the range end is for pattern variables in the condition
     Condition(RegionalTokenIdxRangeEnd),
 }
 

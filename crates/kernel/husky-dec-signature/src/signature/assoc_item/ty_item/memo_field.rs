@@ -99,7 +99,7 @@ impl TypeMemoizedFieldDecTemplate {
 //                             .collect::<DecSignatureResult<SmallVecImpl<_>>>(),
 //                     )),
 //                     Ok(_) => None,
-//                     Err(_) => Some((*ident, Err(DecSignatureError::DeclError))),
+//                     Err(_) => Some((*ident, Err(DecSignatureError::SynDeclError))),
 //                 }
 //             },
 //         ))

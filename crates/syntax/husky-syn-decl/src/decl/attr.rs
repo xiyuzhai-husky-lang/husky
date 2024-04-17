@@ -53,13 +53,22 @@ impl HasSynNodeDecl for AttrSynNodePath {
 
 #[salsa::tracked(jar = SynDeclJar)]
 fn attr_syn_node_decl(db: &::salsa::Db, syn_node_path: AttrSynNodePath) -> AttrSynNodeDecl {
-    // ad hoc
     let coword_menu = coword_menu(db);
     let attr_ident = syn_node_path.ident(db);
-    if attr_ident == coword_menu.derive_ident() {
-        AttrSynNodeDecl::Derive(DeriveAttrSynNodeDecl::new(db, syn_node_path))
-    } else {
-        todo!()
+    match attr_ident {
+        attr_ident if attr_ident == coword_menu.backprop_ident() => {
+            AttrSynNodeDecl::Backprop(BackpropAttrSynNodeDecl::new(db, syn_node_path))
+        }
+        attr_ident if attr_ident == coword_menu.derive_ident() => {
+            AttrSynNodeDecl::Derive(DeriveAttrSynNodeDecl::new(db, syn_node_path))
+        }
+        attr_ident if attr_ident == coword_menu.effect_ident() => {
+            AttrSynNodeDecl::Effect(EffectAttrSynNodeDecl::new(db, syn_node_path))
+        }
+        attr_ident if attr_ident == coword_menu.test_ident() => {
+            AttrSynNodeDecl::Test(TestAttrSynNodeDecl::new(db, syn_node_path))
+        }
+        _ => todo!(),
     }
 }
 
@@ -77,7 +86,7 @@ impl AttrSynDecl {
         db: &::salsa::Db,
         path: AttrItemPath,
         node_decl: AttrSynNodeDecl,
-    ) -> DeclResult<Self> {
+    ) -> SynDeclResult<Self> {
         Ok(match node_decl {
             AttrSynNodeDecl::Derive(node_decl) => {
                 DeriveAttrSynDecl::from_node_decl(db, path, node_decl)?.into()
@@ -109,13 +118,13 @@ impl AttrSynDecl {
 impl HasSynDecl for AttrItemPath {
     type Decl = AttrSynDecl;
 
-    fn syn_decl(self, db: &::salsa::Db) -> DeclResult<Self::Decl> {
+    fn syn_decl(self, db: &::salsa::Db) -> SynDeclResult<Self::Decl> {
         attr_syn_decl(db, self)
     }
 }
 
 #[salsa::tracked(jar = SynDeclJar)]
-pub(crate) fn attr_syn_decl(db: &::salsa::Db, path: AttrItemPath) -> DeclResult<AttrSynDecl> {
+pub(crate) fn attr_syn_decl(db: &::salsa::Db, path: AttrItemPath) -> SynDeclResult<AttrSynDecl> {
     AttrSynDecl::from_node_decl(db, path, path.syn_node_path(db).syn_node_decl(db))
 }
 

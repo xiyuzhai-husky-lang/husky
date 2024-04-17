@@ -11,7 +11,7 @@ impl TraitSyndicate {
     }
 }
 
-impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for TraitSyndicate {
+impl<'a> TryParseOptionFromStream<SynDeclExprParser<'a>> for TraitSyndicate {
     type Error = SynExprError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(

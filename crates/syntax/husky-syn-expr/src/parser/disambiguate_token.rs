@@ -348,17 +348,11 @@ where
                     punctuation: SynBinaryOpr::ScopeResolution,
                     lopd,
                     ..
-                } => match lopd.base_item_path(self.db(), &self.context().syn_expr_arena()) {
+                } => match lopd.base_item_path(self.db(), self.context().syn_expr_arena()) {
                     BaseEntityPath::None => {
                         todo!()
                     }
                     BaseEntityPath::Some(_) => {
-                        // p!(
-                        //     regional_token_idx,
-                        //     lopd,
-                        //     ident.debug(self.context.db),
-                        //     self.context.path.debug(self.context.db)
-                        // );
                         todo!()
                     }
                     BaseEntityPath::Uncertain { .. } => {

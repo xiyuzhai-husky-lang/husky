@@ -115,7 +115,7 @@ impl TraitForTypeItemSynDecl {
         db: &::salsa::Db,
         path: TraitForTypeItemPath,
         syn_node_decl: TraitForTypeItemSynNodeDecl,
-    ) -> DeclResult<Self> {
+    ) -> SynDeclResult<Self> {
         Ok(match syn_node_decl {
             TraitForTypeItemSynNodeDecl::AssocFn(syn_node_decl) => {
                 TraitForTypeAssocFnSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
@@ -176,7 +176,7 @@ impl TraitForTypeItemSynDecl {
 impl HasSynDecl for TraitForTypeItemPath {
     type Decl = TraitForTypeItemSynDecl;
 
-    fn syn_decl(self, db: &::salsa::Db) -> DeclResult<Self::Decl> {
+    fn syn_decl(self, db: &::salsa::Db) -> SynDeclResult<Self::Decl> {
         trai_for_ty_item_syn_decl(db, self)
     }
 }
@@ -185,7 +185,7 @@ impl HasSynDecl for TraitForTypeItemPath {
 pub(crate) fn trai_for_ty_item_syn_decl(
     db: &::salsa::Db,
     path: TraitForTypeItemPath,
-) -> DeclResult<TraitForTypeItemSynDecl> {
+) -> SynDeclResult<TraitForTypeItemSynDecl> {
     let syn_node_decl = path.syn_node_path(db).syn_node_decl(db);
     TraitForTypeItemSynDecl::from_node_decl(db, path, syn_node_decl)
 }
