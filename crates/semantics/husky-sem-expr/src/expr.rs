@@ -46,7 +46,7 @@ use husky_regional_token::{
 };
 use husky_sem_opr::{binary::SemaBinaryOpr, prefix::SemaPrefixOpr, suffix::SemaSuffixOpr};
 use husky_syn_expr::{
-    entity_path::PrincipalEntityPathSynExprIdx, InheritedSynSymbolIdx, InheritedSynSymbolKind,
+    entity_path::SynPrincipalEntityPathSynExprIdx, InheritedSynSymbolIdx, InheritedSynSymbolKind,
 };
 use husky_syn_opr::{SynBinaryOpr, SynPrefixOpr, SynSuffixOpr};
 use husky_term_prelude::ritchie::{RitchieKind, RitchieTypeKind};
@@ -68,14 +68,14 @@ pub enum SemaExprData {
         rpar_regional_token_idx: RegionalTokenIdx,
     },
     PrincipalEntityPath {
-        path_expr_idx: PrincipalEntityPathSynExprIdx,
+        path_expr_idx: SynPrincipalEntityPathSynExprIdx,
         path: PrincipalEntityPath,
         ty_path_disambiguation: TypePathDisambiguation,
         /// only None if `path` is an ontology constructor
         instantiation: Option<FlyInstantiation>,
     },
     AssocItem {
-        parent_expr_idx: PrincipalEntityPathSynExprIdx,
+        parent_expr_idx: SynPrincipalEntityPathSynExprIdx,
         parent_path: MajorItemPath,
         colon_colon_regional_token: ColonColonRegionalToken,
         ident_token: IdentRegionalToken,

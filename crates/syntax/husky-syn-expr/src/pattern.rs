@@ -29,7 +29,7 @@ pub enum SynPatternData {
     },
     /// example: `A::B`
     UnitTypeVariant {
-        path_expr_idx: PrincipalEntityPathSynExprIdx,
+        path_expr_idx: SynPrincipalEntityPathSynExprIdx,
         path: TypeVariantPath,
     },
     /// example: `(a, b)`
@@ -45,7 +45,7 @@ pub enum SynPatternData {
         rpar: RparRegionalToken,
     },
     TupleTypeVariant {
-        path_expr_idx: PrincipalEntityPathSynExprIdx,
+        path_expr_idx: SynPrincipalEntityPathSynExprIdx,
         path: TypeVariantPath,
         lpar: LparRegionalToken,
         fields: PunctuatedSmallList<
@@ -131,7 +131,7 @@ where
                         })
                     }
                     DisambiguatedTokenData::IdentifiableEntityPath(syn_expr) => match syn_expr {
-                        IdentifiableEntityPathExpr::Principal {
+                        ItemPathExpr::Principal {
                             path_expr_idx,
                             opt_path,
                         } => match opt_path {
@@ -192,7 +192,7 @@ where
                             },
                             None => todo!(),
                         },
-                        IdentifiableEntityPathExpr::AssocItem { .. } => todo!(),
+                        ItemPathExpr::AssocItem { .. } => todo!(),
                     },
                     DisambiguatedTokenData::InheritedSynSymbol {
                         regional_token_idx,
@@ -211,7 +211,6 @@ where
                         symbol_modifier_tokens,
                         ident_token: IdentRegionalToken::new(ident, regional_token_idx),
                     }),
-                    DisambiguatedTokenData::SelfType(_) => todo!(),
                     DisambiguatedTokenData::SelfValue(_) => todo!(),
                     DisambiguatedTokenData::LeftDelimiter(_, _) => todo!(),
                     _ => None,
@@ -234,7 +233,7 @@ where
 
 fn parse_overriding_ident_pattern<'a, C>(
     parser: &mut SynExprParser<'a, C>,
-    path_expr_idx: PrincipalEntityPathSynExprIdx,
+    path_expr_idx: SynPrincipalEntityPathSynExprIdx,
     symbol_modifier_tokens: Option<EphemSymbolModifierRegionalTokens>,
 ) -> Option<SynPatternData>
 where
@@ -248,9 +247,9 @@ where
                 symbol_modifier_tokens,
                 ident_token,
             }),
-            PathNameRegionalToken::CrateRoot(_) => todo!(),
+            PathNameRegionalToken::CrateRootMod(_) => todo!(),
             PathNameRegionalToken::SelfMod(_) => todo!(),
-            PathNameRegionalToken::Super(_) => todo!(),
+            PathNameRegionalToken::SuperMod(_) => todo!(),
         },
         SynPrincipalEntityPathExpr::Subitem { .. } => todo!(),
     }

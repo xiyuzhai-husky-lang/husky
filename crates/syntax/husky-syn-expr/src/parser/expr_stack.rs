@@ -96,7 +96,7 @@ impl SynExprData {
             SynExprData::NewTuple { .. } => todo!(),
             SynExprData::List { .. } => BaseEntityPath::None,
             SynExprData::Delimitered { item, .. } => arena[item].base_item_path(db, arena),
-            SynExprData::Err(e) => BaseEntityPath::Uncertain {
+            SynExprData::Err(e) => BaseEntityPath::UncertainDueToError {
                 inclination: match e {
                     SynExprError::Original(OriginalSynExprError::UnrecognizedIdent {
                         ident,

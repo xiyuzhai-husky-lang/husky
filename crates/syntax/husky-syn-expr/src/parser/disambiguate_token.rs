@@ -23,38 +23,40 @@ where
                     | ConnectionKeyword::Extends => return TokenDisambiguationResult::Break(()),
                 },
                 Keyword::End(_) => return TokenDisambiguationResult::Break(()),
-                Keyword::Pronoun(pronoun) => match pronoun {
-                    PronounKeyword::Crate => {
-                        let crate_root_path = self.context().crate_root_path();
-                        DisambiguatedTokenData::IdentifiableEntityPath(
+                Keyword::Pronoun(pronoun) => {
+                    let crate_root_path = self.context().crate_root_path();
+                    match pronoun {
+                        PronounKeyword::Crate => DisambiguatedTokenData::IdentifiableEntityPath(
                             self.parse_identifiable_item_path_expr(
                                 CrateRegionalToken::new(regional_token_idx).into(),
                                 crate_root_path.into(),
                             ),
-                        )
-                    }
-                    PronounKeyword::SelfType => match self.allow_self_ty() {
-                        AllowSelfType::True => DisambiguatedTokenData::SelfType(regional_token_idx),
-                        AllowSelfType::False => DisambiguatedTokenData::Err(
-                            OriginalSynExprError::SelfTypeNotAllowed(regional_token_idx).into(),
                         ),
-                    },
-                    PronounKeyword::SelfValue => match self.peek() {
-                        Some(TokenData::Punctuation(Punctuation::COLON_COLON)) => {
-                            todo!()
-                        }
-                        _ => match self.allow_self_value() {
-                            AllowSelfValue::True => {
-                                DisambiguatedTokenData::SelfValue(regional_token_idx)
+                        PronounKeyword::SelfType => match self.allow_self_ty() {
+                            AllowSelfType::True => {
+                                DisambiguatedTokenData::SelfType(regional_token_idx)
                             }
-                            AllowSelfValue::False => DisambiguatedTokenData::Err(
-                                OriginalSynExprError::SelfValueNotAllowed(regional_token_idx)
-                                    .into(),
+                            AllowSelfType::False => DisambiguatedTokenData::Err(
+                                OriginalSynExprError::SelfTypeNotAllowed(regional_token_idx).into(),
                             ),
                         },
-                    },
-                    PronounKeyword::Super => todo!(),
-                },
+                        PronounKeyword::SelfValue => match self.peek() {
+                            Some(TokenData::Punctuation(Punctuation::COLON_COLON)) => {
+                                todo!()
+                            }
+                            _ => match self.allow_self_value() {
+                                AllowSelfValue::True => {
+                                    DisambiguatedTokenData::SelfValue(regional_token_idx)
+                                }
+                                AllowSelfValue::False => DisambiguatedTokenData::Err(
+                                    OriginalSynExprError::SelfValueNotAllowed(regional_token_idx)
+                                        .into(),
+                                ),
+                            },
+                        },
+                        PronounKeyword::Super => todo!(),
+                    }
+                }
                 Keyword::Fugitive(FugitiveKeyword::Fn) => {
                     DisambiguatedTokenData::Ritchie(regional_token_idx, RitchieItemKind::Fn.into())
                 }
@@ -108,7 +110,7 @@ where
                     TopExprRef::Incomplete(_) => todo!(),
                     TopExprRef::Finished(expr) => {
                         match expr.base_item_path(self.db(), &self.context().syn_expr_arena()) {
-                            BaseEntityPath::Uncertain {
+                            BaseEntityPath::UncertainDueToError {
                                 inclination: BaseEntityPathInclination::TypeOrVariant,
                             } => DisambiguatedTokenData::LeftDelimiter(
                                 regional_token_idx,
@@ -355,7 +357,7 @@ where
                     BaseEntityPath::Some(_) => {
                         todo!()
                     }
-                    BaseEntityPath::Uncertain { .. } => {
+                    BaseEntityPath::UncertainDueToError { .. } => {
                         return DisambiguatedTokenData::Err(
                             OriginalSynExprError::UnresolvedSubitem {
                                 regional_token_idx,
@@ -413,7 +415,7 @@ where
 #[derive(Debug)]
 pub(crate) enum DisambiguatedTokenData {
     Literal(RegionalTokenIdx, LiteralTokenData),
-    IdentifiableEntityPath(IdentifiableEntityPathExpr),
+    IdentifiableEntityPath(ItemPathExpr),
     InheritedSynSymbol {
         ident: Ident,
         regional_token_idx: RegionalTokenIdx,

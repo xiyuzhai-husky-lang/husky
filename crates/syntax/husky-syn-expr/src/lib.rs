@@ -51,7 +51,7 @@ pub struct SynExprJar(
 pub enum BaseEntityPath {
     None,
     Some(EntityPath),
-    Uncertain {
+    UncertainDueToError {
         inclination: BaseEntityPathInclination,
     },
     SelfType,

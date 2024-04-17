@@ -375,7 +375,10 @@ impl<'a> DecTermEngine<'a> {
             }
             SynExprData::PrincipalEntityPath { opt_path, .. } => match opt_path {
                 Some(path) => Ok(DecTerm::EntityPath(match path {
-                    PrincipalEntityPath::Module(_) => todo!(),
+                    PrincipalEntityPath::Module(path) => {
+                        p!(self.syn_expr_region_data.path().debug(db), path.debug(db));
+                        todo!()
+                    }
                     PrincipalEntityPath::MajorItem(path) => match path {
                         MajorItemPath::Type(path) => DecItemPath::Type(path),
                         MajorItemPath::Trait(path) => path.into(),
