@@ -1,4 +1,4 @@
-use husky_eth_term::term::hvar::EthHvar;
+use husky_eth_term::term::lambda_variable::EthHvar;
 
 use super::*;
 

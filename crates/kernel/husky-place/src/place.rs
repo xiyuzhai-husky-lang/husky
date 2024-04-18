@@ -3,7 +3,7 @@ pub mod idx;
 
 use self::{field::FieldPlace, idx::PlaceIdx};
 use crate::*;
-use husky_eth_term::term::svar::EthSymbolicVariable;
+use husky_eth_term::term::symbolic_variable::EthSymbolicVariable;
 
 #[enum_class::from_variants]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]

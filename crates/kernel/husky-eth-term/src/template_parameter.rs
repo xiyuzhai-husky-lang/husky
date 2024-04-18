@@ -1,5 +1,5 @@
 /// this module is for instantiation to use
-use crate::{instantiation::*, term::svar::EthSymbolicVariable, *};
+use crate::{instantiation::*, term::symbolic_variable::EthSymbolicVariable, *};
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 #[salsa::derive_debug_with_db]

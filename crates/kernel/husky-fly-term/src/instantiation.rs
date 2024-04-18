@@ -6,7 +6,7 @@ use husky_eth_term::{
     term::{
         application::{EthApplication, TermFunctionReduced},
         ritchie::EthRitchie,
-        svar::{EthSymbolicVariable, EthTermSymbolIndexImpl},
+        symbolic_variable::{EthSymbolicVariable, EthTermSymbolIndexImpl},
     },
 };
 use salsa::fmt::WithFmtContext;

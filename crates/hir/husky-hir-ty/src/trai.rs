@@ -2,7 +2,7 @@ use crate::*;
 use husky_eth_signature::HasEthTemplate;
 use husky_eth_term::term::{
     application::{EthApplication, TermFunctionReduced},
-    svar::EthTermSymbolIndexImpl,
+    symbolic_variable::EthTermSymbolIndexImpl,
     EthTerm,
 };
 use husky_term_prelude::ItemPathTerm;

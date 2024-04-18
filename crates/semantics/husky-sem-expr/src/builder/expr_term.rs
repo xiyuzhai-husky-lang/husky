@@ -2,7 +2,9 @@ mod explicit_application;
 mod list;
 mod prefix;
 
-use husky_eth_term::term::{application::EthApplication, svar::EthSymbolicVariable, EthTerm};
+use husky_eth_term::term::{
+    application::EthApplication, symbolic_variable::EthSymbolicVariable, EthTerm,
+};
 use husky_fly_term::{
     instantiation::FlyInstantiation, signature::binary_opr::SemaBinaryOprFlySignature,
 };
