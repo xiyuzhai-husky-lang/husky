@@ -3,12 +3,12 @@ use vec_like::VecMapGetEntry;
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct TraitInUseItemsTable<'a> {
-    prelude_trait_items_table: &'a [(Ident, SmallVec<[TraitInUseItemRecord; 2]>)],
-    module_specific_trait_items_table: &'a [(Ident, SmallVec<[TraitInUseItemRecord; 2]>)],
+pub struct AvailableTraitItemsTable<'a> {
+    prelude_trait_items_table: &'a [(Ident, SmallVec<[AvailableTraitItemRecord; 2]>)],
+    module_specific_trait_items_table: &'a [(Ident, SmallVec<[AvailableTraitItemRecord; 2]>)],
 }
 
-impl<'a> TraitInUseItemsTable<'a> {
+impl<'a> AvailableTraitItemsTable<'a> {
     pub fn query(db: &'a ::salsa::Db, module_path: ModulePath) -> Self {
         let toolchain = module_path.toolchain(db);
         Self {
@@ -26,8 +26,8 @@ impl<'a> TraitInUseItemsTable<'a> {
     pub fn available_trait_items_with_given_ident(
         self,
         ident: Ident,
-    ) -> Option<TraitInUseItemsWithGivenIdent<'a>> {
-        let items = TraitInUseItemsWithGivenIdent {
+    ) -> Option<AvailableTraitItemsWithGivenIdent<'a>> {
+        let items = AvailableTraitItemsWithGivenIdent {
             prelude_trait_items: self
                 .prelude_trait_items_table
                 .get_entry(ident)
@@ -48,7 +48,7 @@ impl<'a> TraitInUseItemsTable<'a> {
 fn non_core_crate_prelude_trait_items_table(
     db: &::salsa::Db,
     toolchain: Toolchain,
-) -> TraitInUseItemsTableImpl {
+) -> AvailableTraitItemsTableImpl {
     trait_items_table_impl(
         db,
         none_core_crate_universal_prelude(db, toolchain).as_ref(),
@@ -59,17 +59,18 @@ fn non_core_crate_prelude_trait_items_table(
 fn module_specific_trait_items_table(
     db: &::salsa::Db,
     module_path: ModulePath,
-) -> TraitInUseItemsTableImpl {
+) -> AvailableTraitItemsTableImpl {
     trait_items_table_impl(db, module_path.item_tree_sheet(db).module_symbols())
 }
 
-type TraitInUseItemsTableImpl = SmallVecPairMap<Ident, SmallVec<[TraitInUseItemRecord; 2]>, 16>;
+type AvailableTraitItemsTableImpl =
+    SmallVecPairMap<Ident, SmallVec<[AvailableTraitItemRecord; 2]>, 16>;
 
 fn trait_items_table_impl(
     db: &::salsa::Db,
     item_symbol_table_ref: EntitySymbolTableRef,
-) -> TraitInUseItemsTableImpl {
-    let mut table: SmallVecPairMap<Ident, SmallVec<[TraitInUseItemRecord; 2]>, 16> =
+) -> AvailableTraitItemsTableImpl {
+    let mut table: SmallVecPairMap<Ident, SmallVec<[AvailableTraitItemRecord; 2]>, 16> =
         Default::default();
     for entry in item_symbol_table_ref.data().iter() {
         let PrincipalEntityPath::MajorItem(MajorItemPath::Trait(trai_path)) =
@@ -78,7 +79,7 @@ fn trait_items_table_impl(
             continue;
         };
         for (ident, trai_item_path) in trai_path.assoc_item_paths(db) {
-            let record = TraitInUseItemRecord {
+            let record = AvailableTraitItemRecord {
                 trai_symbol: entry.symbol(),
                 trai_path,
                 trai_item_path: *trai_item_path,
@@ -92,14 +93,14 @@ fn trait_items_table_impl(
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct TraitInUseItemRecord {
+pub struct AvailableTraitItemRecord {
     trai_symbol: EntitySymbol,
     trai_path: TraitPath,
     trai_item_path: TraitItemPath,
     scope: Scope,
 }
 
-impl TraitInUseItemRecord {
+impl AvailableTraitItemRecord {
     pub fn trai_path(&self) -> TraitPath {
         self.trai_path
     }
@@ -115,13 +116,13 @@ impl TraitInUseItemRecord {
 /// designed for
 #[derive(Debug, Clone, Copy)]
 #[salsa::derive_debug_with_db]
-pub struct TraitInUseItemsWithGivenIdent<'a> {
-    prelude_trait_items: Option<&'a [TraitInUseItemRecord]>,
-    module_specific_trait_items: Option<&'a [TraitInUseItemRecord]>,
+pub struct AvailableTraitItemsWithGivenIdent<'a> {
+    prelude_trait_items: Option<&'a [AvailableTraitItemRecord]>,
+    module_specific_trait_items: Option<&'a [AvailableTraitItemRecord]>,
 }
 
-impl<'a> TraitInUseItemsWithGivenIdent<'a> {
-    pub fn records(self) -> impl Iterator<Item = TraitInUseItemRecord> + 'a {
+impl<'a> AvailableTraitItemsWithGivenIdent<'a> {
+    pub fn records(self) -> impl Iterator<Item = AvailableTraitItemRecord> + 'a {
         self.module_specific_trait_items
             .into_iter()
             .map(|arr| arr.iter().copied())
