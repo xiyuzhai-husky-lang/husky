@@ -91,8 +91,8 @@ pub struct EntityTreeJar(
     // helpers
     crate::helpers::ty_side_trai_for_ty_impl_block_paths_map,
     crate::helpers::TraitOrderedSet,
-    crate::helpers::non_core_crate_prelude_trait_items_table,
-    crate::helpers::module_specific_trait_items_table,
+    crate::helpers::non_core_crate_prelude_trait_item_records,
+    crate::helpers::module_specific_trait_item_records,
     crate::helpers::paths::module_item_paths,
     crate::helpers::paths::module_item_syn_node_paths,
     crate::helpers::paths::crate_module_paths,

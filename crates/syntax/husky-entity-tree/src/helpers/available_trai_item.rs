@@ -17,9 +17,9 @@ impl<'a> AvailableTraitItemsTable<'a> {
             {
                 &[]
             } else {
-                non_core_crate_prelude_trait_items_table(db, toolchain)
+                non_core_crate_prelude_trait_item_records(db, toolchain)
             },
-            module_specific_trait_items_table: module_specific_trait_items_table(db, module_path),
+            module_specific_trait_items_table: module_specific_trait_item_records(db, module_path),
         }
     }
 
@@ -45,7 +45,7 @@ impl<'a> AvailableTraitItemsTable<'a> {
 }
 
 #[salsa::tracked(jar = EntityTreeJar, return_ref)]
-fn non_core_crate_prelude_trait_items_table(
+fn non_core_crate_prelude_trait_item_records(
     db: &::salsa::Db,
     toolchain: Toolchain,
 ) -> AvailableTraitItemRecords {
@@ -56,7 +56,7 @@ fn non_core_crate_prelude_trait_items_table(
 }
 
 #[salsa::tracked(jar = EntityTreeJar, return_ref)]
-fn module_specific_trait_items_table(
+fn module_specific_trait_item_records(
     db: &::salsa::Db,
     module_path: ModulePath,
 ) -> AvailableTraitItemRecords {
