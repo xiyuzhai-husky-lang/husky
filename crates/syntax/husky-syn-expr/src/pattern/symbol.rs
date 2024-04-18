@@ -24,6 +24,6 @@ impl PatternVariable {
 }
 
 pub type SynPatternSymbolArena = Arena<PatternVariable>;
-pub type SynPatternSymbolIdx = ArenaIdx<PatternVariable>;
+pub type PatternVariableIdx = ArenaIdx<PatternVariable>;
 pub type SynPatternSymbolMap<V> = ArenaMap<PatternVariable, V>;
 pub type SynPatternSymbolOrderedMap<V> = ArenaOrderedMap<PatternVariable, V>;

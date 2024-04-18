@@ -32,7 +32,7 @@ where
                     Some(access_end),
                     CurrentVariableData::CaseVariable {
                         ident: *ident,
-                        pattern_symbol_idx: *pattern_symbol,
+                        pattern_variable_idx: *pattern_symbol,
                     },
                 )
             })

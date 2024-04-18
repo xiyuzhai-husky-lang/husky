@@ -16,7 +16,7 @@ use vec_like::VecSet;
 #[salsa::interned]
 pub struct DecSymbolicVariable {
     pub toolchain: Toolchain,
-    pub ty: DecTermSymbolicVariableTypeResult<DecTerm>,
+    pub ty: DecSymbolicVariableTypeResult<DecTerm>,
     /// this is the index for all symbols with the same type
     /// so that we have better cache hits
     /// todo: change to RefinedGenericIndex
@@ -63,7 +63,7 @@ impl DecSymbolicVariable {
         registry: &mut DecSymbolicVariableRegistry,
         attrs: DeclarativeTemplateVariableAttrs,
         variance: Option<Variance>,
-    ) -> (DecTermSymbolicVariableTypeResult<DecTerm>, Self) {
+    ) -> (DecSymbolicVariableTypeResult<DecTerm>, Self) {
         let ty = Ok(menu.lifetime_ty());
         (
             ty,
@@ -84,7 +84,7 @@ impl DecSymbolicVariable {
         registry: &mut DecSymbolicVariableRegistry,
         attrs: DeclarativeTemplateVariableAttrs,
         variance: Option<Variance>,
-    ) -> (DecTermSymbolicVariableTypeResult<DecTerm>, Self) {
+    ) -> (DecSymbolicVariableTypeResult<DecTerm>, Self) {
         let ty = Ok(menu.place_ty());
         (
             ty,
@@ -105,7 +105,7 @@ impl DecSymbolicVariable {
         registry: &mut DecSymbolicVariableRegistry,
         attrs: DeclarativeTemplateVariableAttrs,
         variance: Option<Variance>,
-    ) -> (DecTermSymbolicVariableTypeResult<DecTerm>, Self) {
+    ) -> (DecSymbolicVariableTypeResult<DecTerm>, Self) {
         let ty = Ok(menu.ty0().into());
         (
             ty,
@@ -117,7 +117,7 @@ impl DecSymbolicVariable {
         db: &::salsa::Db,
         toolchain: Toolchain,
         attrs: DeclarativeTemplateVariableAttrs,
-        ty: DecTermSymbolicVariableTypeResult<DecTerm>,
+        ty: DecSymbolicVariableTypeResult<DecTerm>,
         registry: &mut DecSymbolicVariableRegistry,
     ) -> Self {
         let idx = match ty {
@@ -137,7 +137,7 @@ impl DecSymbolicVariable {
     pub fn new_ephem(
         db: &::salsa::Db,
         toolchain: Toolchain,
-        ty: DecTermSymbolicVariableTypeResult<DecTerm>,
+        ty: DecSymbolicVariableTypeResult<DecTerm>,
         registry: &mut DecSymbolicVariableRegistry,
     ) -> Self {
         let idx = match ty {
@@ -187,7 +187,7 @@ pub enum DecTermSymbolicVariableTypeErrorKind {
     CannotInferTypeExprTerm(SynNodeRegionPath),
 }
 
-pub type DecTermSymbolicVariableTypeResult<T> = Result<T, DecTermSymbolicVariableTypeErrorKind>;
+pub type DecSymbolicVariableTypeResult<T> = Result<T, DecTermSymbolicVariableTypeErrorKind>;
 
 impl salsa::DisplayWithDb for DecSymbolicVariable {
     fn display_fmt_with_db(

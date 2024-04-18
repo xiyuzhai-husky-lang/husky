@@ -128,7 +128,7 @@ impl HirEagerComptimeVariableRegionData {
                             } => todo!(),
                             CurrentVariableData::SimpleParenateParameter {
                                 ident: _,
-                                pattern_symbol_idx: _,
+                                pattern_variable_idx: _,
                             } => todo!(),
                             CurrentVariableData::VariadicParenateParameter {
                                 symbol_modifier_keyword_group: _,
@@ -136,15 +136,15 @@ impl HirEagerComptimeVariableRegionData {
                             } => todo!(),
                             CurrentVariableData::LetVariable {
                                 ident: _,
-                                pattern_symbol_idx: _,
+                                pattern_variable_idx: _,
                             } => todo!(),
                             CurrentVariableData::BeVariable {
                                 ident: _,
-                                pattern_symbol_idx: _,
+                                pattern_variable_idx: _,
                             } => todo!(),
                             CurrentVariableData::CaseVariable {
                                 ident: _,
-                                pattern_symbol_idx: _,
+                                pattern_variable_idx: _,
                             } => todo!(),
                             CurrentVariableData::FieldVariable { ident_token: _ } => {
                                 todo!()
@@ -155,7 +155,7 @@ impl HirEagerComptimeVariableRegionData {
                             } => todo!(),
                             CurrentVariableData::SimpleClosureParameter {
                                 ident,
-                                pattern_symbol_idx,
+                                pattern_variable_idx,
                             } => todo!(),
                         },
                     };

@@ -281,9 +281,9 @@ impl<'a> DecTermEngine<'a> {
         match *current_syn_symbol.data() {
             CurrentVariableData::SimpleParenateParameter {
                 ident,
-                pattern_symbol_idx,
+                pattern_variable_idx,
             } => {
-                let base_ty = self.pattern_symbol_ty_infos[pattern_symbol_idx].base_ty();
+                let base_ty = self.pattern_symbol_ty_infos[pattern_variable_idx].base_ty();
                 self.symbolic_variable_region.add_new_parenate_variable(
                     self.db,
                     current_syn_symbol_idx,

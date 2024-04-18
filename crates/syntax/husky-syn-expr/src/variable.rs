@@ -190,22 +190,22 @@ pub enum CurrentVariableKind {
         template_parameter_kind: CurrentTemplateParameterSynSymbolKind,
     },
     SimpleParenateParameter {
-        pattern_symbol_idx: SynPatternSymbolIdx,
+        pattern_variable_idx: PatternVariableIdx,
     },
     VariadicParenateParameter {
         ident_token: IdentRegionalToken,
     },
     SimpleClosureParameter {
-        pattern_symbol_idx: SynPatternSymbolIdx,
+        pattern_variable_idx: PatternVariableIdx,
     },
     LetVariable {
-        pattern_symbol_idx: SynPatternSymbolIdx,
+        pattern_variable_idx: PatternVariableIdx,
     },
     BeVariable {
-        pattern_symbol_idx: SynPatternSymbolIdx,
+        pattern_variable_idx: PatternVariableIdx,
     },
     CaseVariable {
-        pattern_symbol_idx: SynPatternSymbolIdx,
+        pattern_variable_idx: PatternVariableIdx,
     },
     FieldVariable {
         ident_token: IdentRegionalToken,
@@ -244,7 +244,7 @@ pub enum CurrentVariableData {
     },
     SimpleParenateParameter {
         ident: Ident,
-        pattern_symbol_idx: SynPatternSymbolIdx,
+        pattern_variable_idx: PatternVariableIdx,
     },
     VariadicParenateParameter {
         symbol_modifier_keyword_group: Option<EphemSymbolModifierRegionalTokens>,
@@ -252,19 +252,19 @@ pub enum CurrentVariableData {
     },
     SimpleClosureParameter {
         ident: Ident,
-        pattern_symbol_idx: SynPatternSymbolIdx,
+        pattern_variable_idx: PatternVariableIdx,
     },
     LetVariable {
         ident: Ident,
-        pattern_symbol_idx: SynPatternSymbolIdx,
+        pattern_variable_idx: PatternVariableIdx,
     },
     BeVariable {
         ident: Ident,
-        pattern_symbol_idx: SynPatternSymbolIdx,
+        pattern_variable_idx: PatternVariableIdx,
     },
     CaseVariable {
         ident: Ident,
-        pattern_symbol_idx: SynPatternSymbolIdx,
+        pattern_variable_idx: PatternVariableIdx,
     },
     FieldVariable {
         ident_token: IdentRegionalToken,
@@ -324,20 +324,25 @@ impl CurrentVariableData {
         match self {
             CurrentVariableData::TemplateParameter { .. } => VariableModifier::Const,
             CurrentVariableData::SimpleParenateParameter {
-                pattern_symbol_idx, ..
+                pattern_variable_idx,
+                ..
             }
             | CurrentVariableData::SimpleClosureParameter {
-                pattern_symbol_idx, ..
+                pattern_variable_idx,
+                ..
             }
             | CurrentVariableData::LetVariable {
-                pattern_symbol_idx, ..
+                pattern_variable_idx,
+                ..
             }
             | CurrentVariableData::BeVariable {
-                pattern_symbol_idx, ..
+                pattern_variable_idx,
+                ..
             }
             | CurrentVariableData::CaseVariable {
-                pattern_symbol_idx, ..
-            } => pattern_expr_region.pattern_symbol_modifier(*pattern_symbol_idx),
+                pattern_variable_idx,
+                ..
+            } => pattern_expr_region.pattern_symbol_modifier(*pattern_variable_idx),
             CurrentVariableData::VariadicParenateParameter {
                 symbol_modifier_keyword_group,
                 ..
@@ -408,30 +413,34 @@ impl CurrentVariableData {
                 template_parameter_kind: template_parameter_variant.kind(),
             },
             CurrentVariableData::SimpleParenateParameter {
-                pattern_symbol_idx, ..
+                pattern_variable_idx,
+                ..
             } => CurrentVariableKind::SimpleParenateParameter {
-                pattern_symbol_idx: *pattern_symbol_idx,
+                pattern_variable_idx: *pattern_variable_idx,
             },
             CurrentVariableData::SimpleClosureParameter {
                 ident,
-                pattern_symbol_idx,
+                pattern_variable_idx,
             } => CurrentVariableKind::SimpleClosureParameter {
-                pattern_symbol_idx: *pattern_symbol_idx,
+                pattern_variable_idx: *pattern_variable_idx,
             },
             CurrentVariableData::LetVariable {
-                pattern_symbol_idx, ..
+                pattern_variable_idx,
+                ..
             } => CurrentVariableKind::LetVariable {
-                pattern_symbol_idx: *pattern_symbol_idx,
+                pattern_variable_idx: *pattern_variable_idx,
             },
             CurrentVariableData::BeVariable {
-                pattern_symbol_idx, ..
+                pattern_variable_idx,
+                ..
             } => CurrentVariableKind::BeVariable {
-                pattern_symbol_idx: *pattern_symbol_idx,
+                pattern_variable_idx: *pattern_variable_idx,
             },
             CurrentVariableData::CaseVariable {
-                pattern_symbol_idx, ..
+                pattern_variable_idx,
+                ..
             } => CurrentVariableKind::CaseVariable {
-                pattern_symbol_idx: *pattern_symbol_idx,
+                pattern_variable_idx: *pattern_variable_idx,
             },
             CurrentVariableData::LoopVariable { expr_idx, .. } => {
                 CurrentVariableKind::LoopVariable(*expr_idx)

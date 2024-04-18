@@ -84,7 +84,7 @@ impl HirLazyVariableData {
             } => todo!(),
             CurrentVariableData::SimpleParenateParameter {
                 ident: _,
-                pattern_symbol_idx: _,
+                pattern_variable_idx: _,
             } => Some(HirLazyVariableData::ParenateParameter),
             CurrentVariableData::VariadicParenateParameter {
                 symbol_modifier_keyword_group: _,
@@ -92,15 +92,15 @@ impl HirLazyVariableData {
             } => Some(HirLazyVariableData::ParenateParameter),
             CurrentVariableData::LetVariable {
                 ident: _,
-                pattern_symbol_idx: _,
+                pattern_variable_idx: _,
             } => Some(HirLazyVariableData::LetVariable),
             CurrentVariableData::BeVariable {
                 ident: _,
-                pattern_symbol_idx: _,
+                pattern_variable_idx: _,
             } => Some(HirLazyVariableData::BeVariable),
             CurrentVariableData::CaseVariable {
                 ident: _,
-                pattern_symbol_idx: _,
+                pattern_variable_idx: _,
             } => Some(HirLazyVariableData::CaseVariable),
             CurrentVariableData::FieldVariable { ident_token: _ } => {
                 Some(HirLazyVariableData::FieldVariable)
@@ -111,7 +111,7 @@ impl HirLazyVariableData {
             } => Some(HirLazyVariableData::LoopVariable),
             CurrentVariableData::SimpleClosureParameter {
                 ident,
-                pattern_symbol_idx,
+                pattern_variable_idx,
             } => todo!(),
         }
     }

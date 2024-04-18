@@ -31,7 +31,7 @@ impl<'a, 'b> SynDefnExprParser<'a, 'b> {
                     Some(access_end),
                     CurrentVariableData::LetVariable {
                         ident: *ident,
-                        pattern_symbol_idx: *pattern_symbol,
+                        pattern_variable_idx: *pattern_symbol,
                     },
                 )
             })

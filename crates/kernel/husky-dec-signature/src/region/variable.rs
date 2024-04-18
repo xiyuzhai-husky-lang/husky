@@ -25,21 +25,21 @@ pub struct DecSymbolicVariableRegion {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct DecSymbolicVariableSignature {
-    kind: VariableSignatureKind,
+    kind: SymbolicVariableSignatureKind,
     term: Option<DecSymbolicVariable>,
     modifier: VariableModifier,
-    ty: DecTermSymbolicVariableTypeResult<DecTerm>,
+    ty: DecSymbolicVariableTypeResult<DecTerm>,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum VariableSignatureKind {
+pub enum SymbolicVariableSignatureKind {
     TemplateParameter,
     ParenateParameter,
     FieldVariable,
 }
 
 impl DecSymbolicVariableSignature {
-    pub fn kind(self) -> VariableSignatureKind {
+    pub fn kind(self) -> SymbolicVariableSignatureKind {
         self.kind
     }
 
@@ -51,7 +51,7 @@ impl DecSymbolicVariableSignature {
         self.modifier
     }
 
-    pub fn ty(&self) -> DecTermSymbolicVariableTypeResult<DecTerm> {
+    pub fn ty(&self) -> DecSymbolicVariableTypeResult<DecTerm> {
         self.ty
     }
 }
@@ -124,14 +124,14 @@ impl DecSymbolicVariableRegion {
         for current_syn_symbol_signature in self.signatures.current_syn_symbol_map().iter().copied()
         {
             match current_syn_symbol_signature.kind {
-                VariableSignatureKind::TemplateParameter => {
+                SymbolicVariableSignatureKind::TemplateParameter => {
                     let argument = current_syn_symbol_signature
                         .term()
                         .expect("should have term");
                     self_ty = self_ty.apply(db, argument)
                 }
-                VariableSignatureKind::ParenateParameter => unreachable!(),
-                VariableSignatureKind::FieldVariable => break,
+                SymbolicVariableSignatureKind::ParenateParameter => unreachable!(),
+                SymbolicVariableSignatureKind::FieldVariable => break,
             }
         }
         self_ty
@@ -249,7 +249,7 @@ impl DecSymbolicVariableRegion {
         &mut self,
         db: &::salsa::Db,
         idx: CurrentVariableIdx,
-        ty: DecTermSymbolicVariableTypeResult<DecTerm>,
+        ty: DecSymbolicVariableTypeResult<DecTerm>,
         term_symbol: DecSymbolicVariable,
         name: SymbolName,
     ) {
@@ -257,7 +257,7 @@ impl DecSymbolicVariableRegion {
             db,
             idx,
             DecSymbolicVariableSignature {
-                kind: VariableSignatureKind::TemplateParameter,
+                kind: SymbolicVariableSignatureKind::TemplateParameter,
                 term: Some(term_symbol),
                 ty,
                 modifier: VariableModifier::Const,
@@ -273,7 +273,7 @@ impl DecSymbolicVariableRegion {
         db: &::salsa::Db,
         current_syn_symbol: CurrentVariableIdx,
         modifier: VariableModifier,
-        ty: DecTermSymbolicVariableTypeResult<DecTerm>,
+        ty: DecSymbolicVariableTypeResult<DecTerm>,
         name: SymbolName,
     ) {
         let symbol = match modifier {
@@ -284,7 +284,7 @@ impl DecSymbolicVariableRegion {
             db,
             current_syn_symbol,
             DecSymbolicVariableSignature {
-                kind: VariableSignatureKind::ParenateParameter,
+                kind: SymbolicVariableSignatureKind::ParenateParameter,
                 modifier,
                 ty,
                 term: symbol,
@@ -299,14 +299,14 @@ impl DecSymbolicVariableRegion {
         &mut self,
         db: &::salsa::Db,
         current_syn_symbol: CurrentVariableIdx,
-        ty: DecTermSymbolicVariableTypeResult<DecTerm>,
+        ty: DecSymbolicVariableTypeResult<DecTerm>,
         ident: Ident,
     ) {
         self.add_new_current_variable(
             db,
             current_syn_symbol,
             DecSymbolicVariableSignature {
-                kind: VariableSignatureKind::FieldVariable,
+                kind: SymbolicVariableSignatureKind::FieldVariable,
                 modifier: VariableModifier::Pure,
                 ty,
                 term: None,
