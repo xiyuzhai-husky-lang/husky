@@ -127,7 +127,7 @@ EntityTreeSheet {
         [
             EntitySymbolEntry {
                 ident: `ast`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `syntax_errors`,
                 ),
                 symbol: EntitySymbol::Submodule {
@@ -142,7 +142,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `uses`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `syntax_errors`,
                 ),
                 symbol: EntitySymbol::Submodule {

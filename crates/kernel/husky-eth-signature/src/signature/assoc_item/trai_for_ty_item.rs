@@ -36,7 +36,7 @@ impl TraitForTypeItemEthTemplate {
     pub(crate) fn inherit_instantiation_builder(
         self,
         db: &::salsa::Db,
-        impl_block_signature_builder: TraitForTypeImplBlockEtherealSignatureBuilder,
+        impl_block_signature_builder: EthTraitForTypeImplBlockSignatureBuilder,
     ) -> TraitForTypeItemEtherealSignatureBuilder {
         match self {
             TraitForTypeItemEthTemplate::AssocType(item_template) => item_template

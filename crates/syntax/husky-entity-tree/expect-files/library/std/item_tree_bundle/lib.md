@@ -188,7 +188,7 @@ EntityTreeCrateBundle {
                 [
                     EntitySymbolEntry {
                         ident: `prelude`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `std`,
                         ),
                         symbol: EntitySymbol::Submodule {
@@ -203,7 +203,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `logic`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `std`,
                         ),
                         symbol: EntitySymbol::Submodule {
@@ -218,7 +218,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ops`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `std`,
                         ),
                         symbol: EntitySymbol::Submodule {
@@ -429,7 +429,7 @@ EntityTreeCrateBundle {
                 [
                     EntitySymbolEntry {
                         ident: `Add`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `std::ops`,
                         ),
                         symbol: EntitySymbol::MajorItem {

@@ -1089,7 +1089,7 @@ EntityTreeSheet {
         [
             EntitySymbolEntry {
                 ident: `Add`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::MajorItem {
                     major_item_path: MajorItemPath::Trait(
                         TraitPath(`core::ops::Add`),
@@ -1098,7 +1098,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `AddAssign`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::MajorItem {
                     major_item_path: MajorItemPath::Trait(
                         TraitPath(`core::ops::AddAssign`),
@@ -1107,7 +1107,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `BitAnd`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::MajorItem {
                     major_item_path: MajorItemPath::Trait(
                         TraitPath(`core::ops::BitAnd`),
@@ -1116,7 +1116,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `BitAndAssign`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::MajorItem {
                     major_item_path: MajorItemPath::Trait(
                         TraitPath(`core::ops::BitAndAssign`),
@@ -1125,7 +1125,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `BitOr`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::MajorItem {
                     major_item_path: MajorItemPath::Trait(
                         TraitPath(`core::ops::BitOr`),
@@ -1134,7 +1134,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `BitOrAssign`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::MajorItem {
                     major_item_path: MajorItemPath::Trait(
                         TraitPath(`core::ops::BitOrAssign`),
@@ -1143,7 +1143,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `BitXor`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::MajorItem {
                     major_item_path: MajorItemPath::Trait(
                         TraitPath(`core::ops::BitXor`),
@@ -1152,7 +1152,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `BitXorAssign`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::MajorItem {
                     major_item_path: MajorItemPath::Trait(
                         TraitPath(`core::ops::BitXorAssign`),
@@ -1161,7 +1161,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `Div`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::MajorItem {
                     major_item_path: MajorItemPath::Trait(
                         TraitPath(`core::ops::Div`),
@@ -1170,7 +1170,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `DivAssign`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::MajorItem {
                     major_item_path: MajorItemPath::Trait(
                         TraitPath(`core::ops::DivAssign`),
@@ -1179,7 +1179,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `IntIndex`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::MajorItem {
                     major_item_path: MajorItemPath::Trait(
                         TraitPath(`core::ops::IntIndex`),
@@ -1188,7 +1188,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `Mul`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::MajorItem {
                     major_item_path: MajorItemPath::Trait(
                         TraitPath(`core::ops::Mul`),
@@ -1197,7 +1197,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `MulAssign`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::MajorItem {
                     major_item_path: MajorItemPath::Trait(
                         TraitPath(`core::ops::MulAssign`),
@@ -1206,7 +1206,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `Neg`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::MajorItem {
                     major_item_path: MajorItemPath::Trait(
                         TraitPath(`core::ops::Neg`),
@@ -1215,7 +1215,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `Not`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::MajorItem {
                     major_item_path: MajorItemPath::Trait(
                         TraitPath(`core::ops::Not`),
@@ -1224,7 +1224,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `Sub`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::MajorItem {
                     major_item_path: MajorItemPath::Trait(
                         TraitPath(`core::ops::Sub`),
@@ -1233,7 +1233,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `Unveil`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::MajorItem {
                     major_item_path: MajorItemPath::Trait(
                         TraitPath(`core::ops::Unveil`),
@@ -1242,7 +1242,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `ControlFlow`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::MajorItem {
                     major_item_path: MajorItemPath::Type(
                         TypePath(`core::ops::ControlFlow`, `Enum`),
@@ -1251,7 +1251,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `array`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::ops`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -1278,7 +1278,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `basic`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::ops`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -1305,7 +1305,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `clone`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::ops`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -1332,7 +1332,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `cmp`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::ops`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -1359,7 +1359,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `default`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::ops`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -1386,7 +1386,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `fmt`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::ops`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -1413,7 +1413,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `logic`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::ops`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -1440,7 +1440,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `marker`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::ops`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -1467,7 +1467,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `mem`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::ops`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -1494,7 +1494,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `num`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::ops`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -1521,7 +1521,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `ops`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::ops`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -1548,7 +1548,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `option`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::ops`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -1575,7 +1575,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `prelude`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::ops`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -1602,7 +1602,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `raw_bits`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::ops`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -1629,7 +1629,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `result`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::ops`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -1656,7 +1656,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `vec`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::ops`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -1683,7 +1683,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `slice`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::ops`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -1710,7 +1710,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `str`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::ops`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -1737,7 +1737,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `visual`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::ops`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -1764,7 +1764,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `bool`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::ops`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -1815,7 +1815,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `never`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::ops`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -1866,7 +1866,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `unit`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::ops`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -1917,7 +1917,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `Trait`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::ops`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -1968,7 +1968,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `Module`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::ops`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -2019,7 +2019,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `Lifetime`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::ops`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -2070,7 +2070,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `Place`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::ops`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -2121,7 +2121,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `Universe`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::ops`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -2172,7 +2172,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `Default`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::ops`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -2223,7 +2223,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `i8`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::ops`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -2274,7 +2274,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `i16`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::ops`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -2325,7 +2325,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `i32`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::ops`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -2376,7 +2376,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `i64`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::ops`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -2427,7 +2427,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `i128`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::ops`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -2478,7 +2478,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `isize`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::ops`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -2529,7 +2529,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `u8`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::ops`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -2580,7 +2580,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `u16`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::ops`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -2631,7 +2631,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `u32`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::ops`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -2682,7 +2682,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `u64`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::ops`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -2733,7 +2733,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `u128`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::ops`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -2784,7 +2784,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `usize`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::ops`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -2835,7 +2835,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `f32`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::ops`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -2886,7 +2886,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `f64`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::ops`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -2937,7 +2937,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `r32`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::ops`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -2988,7 +2988,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `Debug`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::ops`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -3039,7 +3039,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `Visualize`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::ops`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -3090,7 +3090,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `Visual`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::ops`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -3141,7 +3141,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `Copy`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::ops`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -3192,7 +3192,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `Sized`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::ops`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -3243,7 +3243,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `Clone`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::ops`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -3294,7 +3294,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `Option`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::ops`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -3345,7 +3345,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `Some`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::ops`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -3428,7 +3428,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `None`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::ops`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -3511,7 +3511,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `PartialEq`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::ops`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -3562,7 +3562,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `Eq`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::ops`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -3613,7 +3613,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `PartialOrd`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::ops`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -3664,7 +3664,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `Ord`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::ops`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -3715,7 +3715,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `Slice`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::ops`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -3766,7 +3766,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `CyclicSlice`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::ops`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -3817,7 +3817,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `Vec`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::ops`,
                 ),
                 symbol: EntitySymbol::Use(

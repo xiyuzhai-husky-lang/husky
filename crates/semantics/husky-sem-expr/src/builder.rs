@@ -53,7 +53,7 @@ pub(crate) struct SemaExprBuilder<'a> {
     self_value_ty: Option<FlyTerm>,
     self_lifetime: Option<EthSvar>,
     self_place: Option<EthSvar>,
-    trai_in_use_items_table: AvailableTraitItemsTable<'a>,
+    available_trai_items_table: AvailableTraitItemsTable<'a>,
 }
 
 impl<'a> FlyTermEngine<'a> for SemaExprBuilder<'a> {
@@ -77,8 +77,8 @@ impl<'a> FlyTermEngine<'a> for SemaExprBuilder<'a> {
         self.term_menu
     }
 
-    fn trai_in_use_items_table(&self) -> AvailableTraitItemsTable<'a> {
-        self.trai_in_use_items_table
+    fn available_trai_items_table(&self) -> AvailableTraitItemsTable<'a> {
+        self.available_trai_items_table
     }
 }
 
@@ -195,7 +195,7 @@ impl<'a> SemaExprBuilder<'a> {
             self_lifetime,
             self_place,
             pattern_expr_contracts: SynPatternMap::new(pattern_expr_region.pattern_expr_arena()),
-            trai_in_use_items_table: AvailableTraitItemsTable::query(db, module_path),
+            available_trai_items_table: AvailableTraitItemsTable::new_ad_hoc(db, module_path),
             regional_tokens_data,
         }
     }

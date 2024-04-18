@@ -462,7 +462,7 @@ EntityTreeCrateBundle {
                 [
                     EntitySymbolEntry {
                         ident: `connected_component`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier`,
                         ),
                         symbol: EntitySymbol::Submodule {
@@ -477,7 +477,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `raw_contour`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier`,
                         ),
                         symbol: EntitySymbol::Submodule {
@@ -492,7 +492,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `geom2d`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier`,
                         ),
                         symbol: EntitySymbol::Submodule {
@@ -507,7 +507,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `line_segment_sketch`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier`,
                         ),
                         symbol: EntitySymbol::Submodule {
@@ -522,7 +522,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `fermi`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier`,
                         ),
                         symbol: EntitySymbol::Submodule {
@@ -537,7 +537,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `digits`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier`,
                         ),
                         symbol: EntitySymbol::Submodule {
@@ -552,7 +552,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier`,
                         ),
                         symbol: EntitySymbol::Submodule {
@@ -567,7 +567,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `main`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier`,
                         ),
                         symbol: EntitySymbol::MajorItem {
@@ -578,7 +578,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Class`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -603,7 +603,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `OneVsAll`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -628,7 +628,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `OneVsAllResult`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -653,7 +653,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `narrow_down`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -682,7 +682,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `MnistLabel`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -707,7 +707,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `BinaryImage28`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -732,7 +732,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `BinaryGrid28`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -757,7 +757,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `input`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -782,7 +782,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `connected_components`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -807,7 +807,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_connected_component`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -832,7 +832,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ignored_connected_components_row_span_sum_sum`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -857,7 +857,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_raw_contours`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -882,7 +882,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_raw_contour`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -907,7 +907,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_line_segment_sketch`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -932,7 +932,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_concave_components`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -957,7 +957,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_one`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -994,7 +994,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `FermiMatchResult`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -1019,7 +1019,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `fermi_match`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -1048,7 +1048,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `RawContour`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -1073,7 +1073,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `find_raw_contours`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -1102,7 +1102,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `LineSegmentStroke`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -1127,7 +1127,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `LineSegmentSketch`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -1152,7 +1152,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ConcaveComponent`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -1189,7 +1189,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `find_concave_components`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -1232,7 +1232,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `LineSegment`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -1269,7 +1269,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ConnectedComponentDistribution`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -1294,7 +1294,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `EffHoles`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -1319,7 +1319,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ConnectedComponent`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -1344,7 +1344,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `find_connected_components`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -1373,7 +1373,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_six`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -1410,7 +1410,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_zero`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -1447,7 +1447,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_two`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -1484,7 +1484,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_three`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -1521,7 +1521,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_five`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -1558,7 +1558,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_seven`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -1595,7 +1595,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_eight`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -1632,7 +1632,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_nine`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -2556,7 +2556,7 @@ EntityTreeCrateBundle {
                 [
                     EntitySymbolEntry {
                         ident: `ConnectedComponentDistribution`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Type(
                                 TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
@@ -2565,7 +2565,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `EffHoles`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Type(
                                 TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
@@ -2574,7 +2574,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `hole_tmpl`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::connected_component`,
                         ),
                         symbol: EntitySymbol::MajorItem {
@@ -2587,7 +2587,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ConnectedComponent`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Type(
                                 TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
@@ -2596,7 +2596,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `horizontal_extend`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::connected_component`,
                         ),
                         symbol: EntitySymbol::MajorItem {
@@ -2609,7 +2609,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `find_connected_components`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Fugitive(
                                 FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
@@ -2620,7 +2620,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `connected_component`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::connected_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -2647,7 +2647,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `raw_contour`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::connected_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -2674,7 +2674,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `geom2d`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::connected_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -2701,7 +2701,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `line_segment_sketch`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::connected_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -2728,7 +2728,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `fermi`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::connected_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -2755,7 +2755,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `digits`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::connected_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -2782,7 +2782,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::connected_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -2809,7 +2809,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `main`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::connected_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -2834,7 +2834,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Class`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::connected_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -2873,7 +2873,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `OneVsAll`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::connected_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -2912,7 +2912,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `OneVsAllResult`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::connected_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -2951,7 +2951,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `narrow_down`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::connected_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -2996,7 +2996,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `MnistLabel`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::connected_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -3035,7 +3035,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `BinaryImage28`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::connected_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -3074,7 +3074,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `BinaryGrid28`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::connected_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -3113,7 +3113,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `input`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::connected_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -3152,7 +3152,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `RawContour`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::connected_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -3177,7 +3177,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `find_raw_contours`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::connected_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -3206,7 +3206,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `connected_components`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::connected_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -3245,7 +3245,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_connected_component`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::connected_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -3284,7 +3284,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ignored_connected_components_row_span_sum_sum`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::connected_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -3323,7 +3323,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_raw_contours`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::connected_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -3362,7 +3362,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_raw_contour`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::connected_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -3401,7 +3401,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_line_segment_sketch`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::connected_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -3440,7 +3440,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_concave_components`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::connected_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -3479,7 +3479,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_one`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::connected_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -3530,7 +3530,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `FermiMatchResult`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::connected_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -3569,7 +3569,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `fermi_match`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::connected_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -3614,7 +3614,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `RawContour`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::connected_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -3653,7 +3653,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `find_raw_contours`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::connected_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -3698,7 +3698,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `LineSegmentStroke`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::connected_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -3737,7 +3737,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `LineSegmentSketch`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::connected_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -3776,7 +3776,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ConcaveComponent`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::connected_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -3827,7 +3827,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `find_concave_components`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::connected_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -3886,7 +3886,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `LineSegment`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::connected_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -3937,7 +3937,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ConnectedComponentDistribution`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::connected_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -3976,7 +3976,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `EffHoles`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::connected_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -4015,7 +4015,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ConnectedComponent`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::connected_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -4054,7 +4054,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `find_connected_components`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::connected_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -4099,7 +4099,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_six`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::connected_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -4150,7 +4150,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_zero`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::connected_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -4201,7 +4201,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_two`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::connected_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -4252,7 +4252,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_three`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::connected_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -4303,7 +4303,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_five`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::connected_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -4354,7 +4354,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_seven`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::connected_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -4405,7 +4405,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_eight`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::connected_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -4456,7 +4456,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_nine`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::connected_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -5280,7 +5280,7 @@ EntityTreeCrateBundle {
                 [
                     EntitySymbolEntry {
                         ident: `RawContour`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Type(
                                 TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
@@ -5289,7 +5289,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Direction`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
                         ),
                         symbol: EntitySymbol::MajorItem {
@@ -5300,7 +5300,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `get_pixel_pair`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
                         ),
                         symbol: EntitySymbol::MajorItem {
@@ -5313,7 +5313,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `get_pixel_to_the_left`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
                         ),
                         symbol: EntitySymbol::MajorItem {
@@ -5326,7 +5326,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `get_pixel_to_the_right`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
                         ),
                         symbol: EntitySymbol::MajorItem {
@@ -5339,7 +5339,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `get_inward_direction`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
                         ),
                         symbol: EntitySymbol::MajorItem {
@@ -5352,7 +5352,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `get_angle_change`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
                         ),
                         symbol: EntitySymbol::MajorItem {
@@ -5365,7 +5365,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `get_outward_direction`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
                         ),
                         symbol: EntitySymbol::MajorItem {
@@ -5378,7 +5378,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `StreakCache`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
                         ),
                         symbol: EntitySymbol::MajorItem {
@@ -5389,7 +5389,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `get_concave_middle_point`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
                         ),
                         symbol: EntitySymbol::MajorItem {
@@ -5402,7 +5402,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `find_raw_contours`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Fugitive(
                                 FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Ritchie(
@@ -5413,7 +5413,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `connected_component`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -5440,7 +5440,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `raw_contour`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -5467,7 +5467,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `geom2d`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -5494,7 +5494,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `line_segment_sketch`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -5521,7 +5521,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `fermi`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -5548,7 +5548,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `digits`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -5575,7 +5575,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -5602,7 +5602,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `main`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -5627,7 +5627,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Class`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -5666,7 +5666,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `OneVsAll`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -5705,7 +5705,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `OneVsAllResult`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -5744,7 +5744,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `narrow_down`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -5789,7 +5789,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `MnistLabel`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -5828,7 +5828,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `BinaryImage28`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -5867,7 +5867,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `BinaryGrid28`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -5906,7 +5906,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `input`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -5945,7 +5945,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Point2d`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -5970,7 +5970,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `RelativePoint2d`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -5995,7 +5995,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Vector2d`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -6020,7 +6020,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ClosedRange`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -6045,7 +6045,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `BoundingBox`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -6070,7 +6070,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `RelativeBoundingBox`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -6095,7 +6095,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ConnectedComponentDistribution`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -6120,7 +6120,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `EffHoles`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -6145,7 +6145,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ConnectedComponent`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -6170,7 +6170,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `find_connected_components`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -6199,7 +6199,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `LineSegmentStroke`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -6224,7 +6224,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `LineSegmentSketch`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -6249,7 +6249,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ConcaveComponent`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -6286,7 +6286,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `find_concave_components`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -6329,7 +6329,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `LineSegment`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -6366,7 +6366,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `connected_components`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -6405,7 +6405,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_connected_component`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -6444,7 +6444,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ignored_connected_components_row_span_sum_sum`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -6483,7 +6483,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_raw_contours`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -6522,7 +6522,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_raw_contour`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -6561,7 +6561,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_line_segment_sketch`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -6600,7 +6600,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_concave_components`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -6639,7 +6639,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_one`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -6690,7 +6690,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `FermiMatchResult`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -6729,7 +6729,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `fermi_match`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -6774,7 +6774,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `RawContour`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -6813,7 +6813,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `find_raw_contours`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -6858,7 +6858,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `LineSegmentStroke`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -6897,7 +6897,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `LineSegmentSketch`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -6936,7 +6936,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ConcaveComponent`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -6987,7 +6987,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `find_concave_components`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -7046,7 +7046,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `LineSegment`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -7097,7 +7097,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ConnectedComponentDistribution`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -7136,7 +7136,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `EffHoles`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -7175,7 +7175,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ConnectedComponent`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -7214,7 +7214,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `find_connected_components`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -7259,7 +7259,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_six`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -7310,7 +7310,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_zero`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -7361,7 +7361,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_two`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -7412,7 +7412,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_three`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -7463,7 +7463,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_five`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -7514,7 +7514,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_seven`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -7565,7 +7565,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_eight`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -7616,7 +7616,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_nine`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -8404,7 +8404,7 @@ EntityTreeCrateBundle {
                 [
                     EntitySymbolEntry {
                         ident: `Point2d`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Type(
                                 TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -8413,7 +8413,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `RelativePoint2d`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Type(
                                 TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
@@ -8422,7 +8422,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Vector2d`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Type(
                                 TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -8431,7 +8431,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ClosedRange`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Type(
                                 TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
@@ -8440,7 +8440,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `BoundingBox`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Type(
                                 TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
@@ -8449,7 +8449,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `RelativeBoundingBox`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Type(
                                 TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
@@ -9312,7 +9312,7 @@ EntityTreeCrateBundle {
                 [
                     EntitySymbolEntry {
                         ident: `concave_component`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch`,
                         ),
                         symbol: EntitySymbol::Submodule {
@@ -9327,7 +9327,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `convex_component`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch`,
                         ),
                         symbol: EntitySymbol::Submodule {
@@ -9342,7 +9342,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `convexity`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch`,
                         ),
                         symbol: EntitySymbol::Submodule {
@@ -9357,7 +9357,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `line_segment`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch`,
                         ),
                         symbol: EntitySymbol::Submodule {
@@ -9372,7 +9372,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `LineSegmentStroke`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Type(
                                 TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
@@ -9381,7 +9381,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `LineSegmentSketch`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Type(
                                 TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
@@ -9390,7 +9390,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `go_right`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch`,
                         ),
                         symbol: EntitySymbol::MajorItem {
@@ -9403,7 +9403,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `go_left`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch`,
                         ),
                         symbol: EntitySymbol::MajorItem {
@@ -9416,7 +9416,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `extend_end`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch`,
                         ),
                         symbol: EntitySymbol::MajorItem {
@@ -9429,7 +9429,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `extend_start`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch`,
                         ),
                         symbol: EntitySymbol::MajorItem {
@@ -9442,7 +9442,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `find_line_segments`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch`,
                         ),
                         symbol: EntitySymbol::MajorItem {
@@ -9455,7 +9455,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ConcaveComponent`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::MajorItem {
@@ -9476,7 +9476,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `find_concave_components`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::MajorItem {
@@ -9501,7 +9501,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `LineSegment`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::MajorItem {
@@ -9522,7 +9522,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `LineSegment`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -9547,7 +9547,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `RawContour`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -9572,7 +9572,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Point2d`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -9597,7 +9597,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `RelativePoint2d`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -9622,7 +9622,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Vector2d`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -9647,7 +9647,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ClosedRange`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -9672,7 +9672,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `BoundingBox`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -9697,7 +9697,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `RelativeBoundingBox`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -10414,7 +10414,7 @@ EntityTreeCrateBundle {
                 [
                     EntitySymbolEntry {
                         ident: `ConcaveComponent`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Type(
                                 TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
@@ -10423,7 +10423,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `find_concave_components`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Fugitive(
                                 FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
@@ -10434,7 +10434,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `connected_component`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -10461,7 +10461,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `raw_contour`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -10488,7 +10488,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `geom2d`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -10515,7 +10515,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `line_segment_sketch`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -10542,7 +10542,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `fermi`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -10569,7 +10569,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `digits`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -10596,7 +10596,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -10623,7 +10623,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `main`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -10648,7 +10648,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Class`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -10687,7 +10687,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `OneVsAll`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -10726,7 +10726,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `OneVsAllResult`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -10765,7 +10765,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `narrow_down`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -10810,7 +10810,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `MnistLabel`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -10849,7 +10849,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `BinaryImage28`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -10888,7 +10888,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `BinaryGrid28`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -10927,7 +10927,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `input`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -10966,7 +10966,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `concave_component`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -10993,7 +10993,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `convex_component`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -11020,7 +11020,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `convexity`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -11047,7 +11047,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `line_segment`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -11074,7 +11074,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `LineSegmentStroke`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -11099,7 +11099,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `LineSegmentSketch`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -11124,7 +11124,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `go_right`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -11153,7 +11153,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `go_left`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -11182,7 +11182,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `extend_end`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -11211,7 +11211,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `extend_start`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -11240,7 +11240,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `find_line_segments`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -11269,7 +11269,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ConcaveComponent`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -11306,7 +11306,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `find_concave_components`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -11349,7 +11349,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `LineSegment`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -11386,7 +11386,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `LineSegment`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -11425,7 +11425,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `RawContour`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -11464,7 +11464,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Point2d`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -11503,7 +11503,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `RelativePoint2d`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -11542,7 +11542,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Vector2d`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -11581,7 +11581,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ClosedRange`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -11620,7 +11620,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `BoundingBox`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -11659,7 +11659,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `RelativeBoundingBox`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -11698,7 +11698,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Point2d`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -11723,7 +11723,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `RelativePoint2d`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -11748,7 +11748,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Vector2d`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -11773,7 +11773,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ClosedRange`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -11798,7 +11798,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `BoundingBox`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -11823,7 +11823,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `RelativeBoundingBox`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -11848,7 +11848,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `connected_components`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -11887,7 +11887,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_connected_component`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -11926,7 +11926,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ignored_connected_components_row_span_sum_sum`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -11965,7 +11965,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_raw_contours`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -12004,7 +12004,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_raw_contour`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -12043,7 +12043,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_line_segment_sketch`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -12082,7 +12082,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_concave_components`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -12121,7 +12121,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_one`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -12172,7 +12172,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `FermiMatchResult`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -12211,7 +12211,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `fermi_match`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -12256,7 +12256,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `RawContour`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -12295,7 +12295,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `find_raw_contours`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -12340,7 +12340,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `LineSegmentStroke`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -12379,7 +12379,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `LineSegmentSketch`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -12418,7 +12418,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ConcaveComponent`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -12469,7 +12469,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `find_concave_components`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -12528,7 +12528,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `LineSegment`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -12579,7 +12579,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ConnectedComponentDistribution`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -12618,7 +12618,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `EffHoles`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -12657,7 +12657,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ConnectedComponent`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -12696,7 +12696,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `find_connected_components`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -12741,7 +12741,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_six`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -12792,7 +12792,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_zero`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -12843,7 +12843,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_two`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -12894,7 +12894,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_three`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -12945,7 +12945,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_five`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -12996,7 +12996,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_seven`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -13047,7 +13047,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_eight`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -13098,7 +13098,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_nine`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -13149,7 +13149,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `LineSegment`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -13174,7 +13174,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_convex`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -13854,7 +13854,7 @@ EntityTreeCrateBundle {
                 [
                     EntitySymbolEntry {
                         ident: `ConvexComponent`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::convex_component`,
                         ),
                         symbol: EntitySymbol::MajorItem {
@@ -13865,7 +13865,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `concave_component`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::convex_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -13892,7 +13892,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `convex_component`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::convex_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -13919,7 +13919,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `convexity`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::convex_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -13946,7 +13946,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `line_segment`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::convex_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -13973,7 +13973,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `LineSegmentStroke`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::convex_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -13998,7 +13998,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `LineSegmentSketch`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::convex_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -14023,7 +14023,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `go_right`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::convex_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -14052,7 +14052,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `go_left`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::convex_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -14081,7 +14081,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `extend_end`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::convex_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -14110,7 +14110,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `extend_start`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::convex_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -14139,7 +14139,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `find_line_segments`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::convex_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -14168,7 +14168,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ConcaveComponent`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::convex_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -14205,7 +14205,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `find_concave_components`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::convex_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -14248,7 +14248,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `LineSegment`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::convex_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -14285,7 +14285,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `LineSegment`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::convex_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -14324,7 +14324,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `RawContour`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::convex_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -14363,7 +14363,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Point2d`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::convex_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -14402,7 +14402,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `RelativePoint2d`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::convex_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -14441,7 +14441,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Vector2d`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::convex_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -14480,7 +14480,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ClosedRange`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::convex_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -14519,7 +14519,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `BoundingBox`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::convex_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -14558,7 +14558,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `RelativeBoundingBox`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::convex_component`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -14793,7 +14793,7 @@ EntityTreeCrateBundle {
                 [
                     EntitySymbolEntry {
                         ident: `is_convex`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Fugitive(
                                 FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Ritchie(
@@ -14804,7 +14804,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `concave_component`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::convexity`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -14831,7 +14831,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `convex_component`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::convexity`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -14858,7 +14858,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `convexity`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::convexity`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -14885,7 +14885,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `line_segment`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::convexity`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -14912,7 +14912,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `LineSegmentStroke`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::convexity`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -14937,7 +14937,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `LineSegmentSketch`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::convexity`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -14962,7 +14962,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `go_right`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::convexity`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -14991,7 +14991,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `go_left`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::convexity`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -15020,7 +15020,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `extend_end`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::convexity`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -15049,7 +15049,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `extend_start`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::convexity`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -15078,7 +15078,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `find_line_segments`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::convexity`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -15107,7 +15107,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ConcaveComponent`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::convexity`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -15144,7 +15144,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `find_concave_components`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::convexity`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -15187,7 +15187,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `LineSegment`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::convexity`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -15224,7 +15224,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `LineSegment`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::convexity`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -15263,7 +15263,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `RawContour`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::convexity`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -15302,7 +15302,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Point2d`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::convexity`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -15341,7 +15341,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `RelativePoint2d`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::convexity`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -15380,7 +15380,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Vector2d`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::convexity`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -15419,7 +15419,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ClosedRange`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::convexity`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -15458,7 +15458,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `BoundingBox`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::convexity`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -15497,7 +15497,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `RelativeBoundingBox`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::convexity`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -15536,7 +15536,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `RawContour`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::convexity`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -15561,7 +15561,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `find_raw_contours`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::convexity`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -15590,7 +15590,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Point2d`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::convexity`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -15615,7 +15615,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `RelativePoint2d`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::convexity`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -15640,7 +15640,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Vector2d`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::convexity`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -15665,7 +15665,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ClosedRange`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::convexity`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -15690,7 +15690,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `BoundingBox`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::convexity`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -15715,7 +15715,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `RelativeBoundingBox`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::convexity`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -16061,7 +16061,7 @@ EntityTreeCrateBundle {
                 [
                     EntitySymbolEntry {
                         ident: `LineSegment`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Type(
                                 TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
@@ -16070,7 +16070,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Point2d`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::line_segment`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -16095,7 +16095,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `RelativePoint2d`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::line_segment`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -16120,7 +16120,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Vector2d`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::line_segment`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -16145,7 +16145,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ClosedRange`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::line_segment`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -16170,7 +16170,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `BoundingBox`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::line_segment`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -16195,7 +16195,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `RelativeBoundingBox`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::line_segment`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -16472,7 +16472,7 @@ EntityTreeCrateBundle {
                 [
                     EntitySymbolEntry {
                         ident: `FermiMatchResult`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Type(
                                 TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
@@ -16481,7 +16481,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `fermi_match`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Fugitive(
                                 FugitivePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
@@ -16492,7 +16492,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `connected_component`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::fermi`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -16519,7 +16519,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `raw_contour`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::fermi`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -16546,7 +16546,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `geom2d`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::fermi`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -16573,7 +16573,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `line_segment_sketch`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::fermi`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -16600,7 +16600,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `fermi`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::fermi`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -16627,7 +16627,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `digits`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::fermi`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -16654,7 +16654,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::fermi`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -16681,7 +16681,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `main`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::fermi`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -16706,7 +16706,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Class`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::fermi`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -16745,7 +16745,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `OneVsAll`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::fermi`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -16784,7 +16784,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `OneVsAllResult`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::fermi`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -16823,7 +16823,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `narrow_down`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::fermi`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -16868,7 +16868,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `MnistLabel`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::fermi`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -16907,7 +16907,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `BinaryImage28`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::fermi`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -16946,7 +16946,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `BinaryGrid28`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::fermi`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -16985,7 +16985,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `input`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::fermi`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -17024,7 +17024,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `connected_components`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::fermi`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -17063,7 +17063,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_connected_component`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::fermi`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -17102,7 +17102,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ignored_connected_components_row_span_sum_sum`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::fermi`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -17141,7 +17141,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_raw_contours`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::fermi`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -17180,7 +17180,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_raw_contour`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::fermi`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -17219,7 +17219,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_line_segment_sketch`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::fermi`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -17258,7 +17258,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_concave_components`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::fermi`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -17297,7 +17297,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_one`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::fermi`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -17348,7 +17348,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `FermiMatchResult`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::fermi`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -17387,7 +17387,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `fermi_match`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::fermi`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -17432,7 +17432,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `RawContour`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::fermi`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -17471,7 +17471,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `find_raw_contours`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::fermi`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -17516,7 +17516,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `LineSegmentStroke`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::fermi`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -17555,7 +17555,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `LineSegmentSketch`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::fermi`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -17594,7 +17594,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ConcaveComponent`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::fermi`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -17645,7 +17645,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `find_concave_components`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::fermi`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -17704,7 +17704,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `LineSegment`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::fermi`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -17755,7 +17755,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ConnectedComponentDistribution`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::fermi`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -17794,7 +17794,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `EffHoles`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::fermi`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -17833,7 +17833,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ConnectedComponent`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::fermi`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -17872,7 +17872,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `find_connected_components`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::fermi`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -17917,7 +17917,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_six`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::fermi`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -17968,7 +17968,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_zero`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::fermi`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -18019,7 +18019,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_two`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::fermi`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -18070,7 +18070,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_three`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::fermi`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -18121,7 +18121,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_five`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::fermi`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -18172,7 +18172,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_seven`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::fermi`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -18223,7 +18223,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_eight`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::fermi`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -18274,7 +18274,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_nine`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::fermi`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -19030,7 +19030,7 @@ EntityTreeCrateBundle {
                 [
                     EntitySymbolEntry {
                         ident: `zero`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits`,
                         ),
                         symbol: EntitySymbol::Submodule {
@@ -19045,7 +19045,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `one`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits`,
                         ),
                         symbol: EntitySymbol::Submodule {
@@ -19060,7 +19060,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `six`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits`,
                         ),
                         symbol: EntitySymbol::Submodule {
@@ -19075,7 +19075,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `three`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits`,
                         ),
                         symbol: EntitySymbol::Submodule {
@@ -19090,7 +19090,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `four`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits`,
                         ),
                         symbol: EntitySymbol::Submodule {
@@ -19105,7 +19105,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `five`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits`,
                         ),
                         symbol: EntitySymbol::Submodule {
@@ -19120,7 +19120,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `seven`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits`,
                         ),
                         symbol: EntitySymbol::Submodule {
@@ -19135,7 +19135,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `eight`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits`,
                         ),
                         symbol: EntitySymbol::Submodule {
@@ -19150,7 +19150,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `nine`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits`,
                         ),
                         symbol: EntitySymbol::Submodule {
@@ -19165,7 +19165,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `two`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits`,
                         ),
                         symbol: EntitySymbol::Submodule {
@@ -19180,7 +19180,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_one`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::MajorItem {
@@ -19201,7 +19201,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `connected_component`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -19228,7 +19228,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `raw_contour`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -19255,7 +19255,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `geom2d`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -19282,7 +19282,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `line_segment_sketch`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -19309,7 +19309,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `fermi`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -19336,7 +19336,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `digits`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -19363,7 +19363,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -19390,7 +19390,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `main`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -19415,7 +19415,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Class`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -19454,7 +19454,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `OneVsAll`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -19493,7 +19493,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `OneVsAllResult`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -19532,7 +19532,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `narrow_down`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -19577,7 +19577,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `MnistLabel`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -19616,7 +19616,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `BinaryImage28`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -19655,7 +19655,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `BinaryGrid28`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -19694,7 +19694,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `input`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -19733,7 +19733,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_six`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::MajorItem {
@@ -19754,7 +19754,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_zero`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::MajorItem {
@@ -19775,7 +19775,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_two`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::MajorItem {
@@ -19796,7 +19796,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_three`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::MajorItem {
@@ -19817,7 +19817,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_five`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::MajorItem {
@@ -19838,7 +19838,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_seven`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::MajorItem {
@@ -19859,7 +19859,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_eight`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::MajorItem {
@@ -19880,7 +19880,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_nine`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::MajorItem {
@@ -19901,7 +19901,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `connected_components`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -19940,7 +19940,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_connected_component`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -19979,7 +19979,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ignored_connected_components_row_span_sum_sum`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -20018,7 +20018,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_raw_contours`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -20057,7 +20057,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_raw_contour`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -20096,7 +20096,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_line_segment_sketch`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -20135,7 +20135,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_concave_components`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -20174,7 +20174,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_one`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -20225,7 +20225,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `FermiMatchResult`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -20264,7 +20264,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `fermi_match`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -20309,7 +20309,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `RawContour`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -20348,7 +20348,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `find_raw_contours`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -20393,7 +20393,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `LineSegmentStroke`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -20432,7 +20432,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `LineSegmentSketch`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -20471,7 +20471,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ConcaveComponent`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -20522,7 +20522,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `find_concave_components`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -20581,7 +20581,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `LineSegment`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -20632,7 +20632,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ConnectedComponentDistribution`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -20671,7 +20671,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `EffHoles`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -20710,7 +20710,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ConnectedComponent`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -20749,7 +20749,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `find_connected_components`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -20794,7 +20794,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_six`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -20845,7 +20845,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_zero`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -20896,7 +20896,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_two`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -20947,7 +20947,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_three`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -20998,7 +20998,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_five`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -21049,7 +21049,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_seven`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -21100,7 +21100,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_eight`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -21151,7 +21151,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_nine`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -22284,7 +22284,7 @@ EntityTreeCrateBundle {
                 [
                     EntitySymbolEntry {
                         ident: `open_one_match`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
                         symbol: EntitySymbol::MajorItem {
@@ -22295,7 +22295,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `almost_closed`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
                         symbol: EntitySymbol::MajorItem {
@@ -22308,7 +22308,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_zero`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits`,
                         ),
                         symbol: EntitySymbol::MajorItem {
@@ -22319,7 +22319,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `zero`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -22346,7 +22346,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `one`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -22373,7 +22373,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `six`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -22400,7 +22400,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `three`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -22427,7 +22427,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `four`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -22454,7 +22454,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `five`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -22481,7 +22481,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `seven`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -22508,7 +22508,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `eight`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -22535,7 +22535,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `nine`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -22562,7 +22562,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `two`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -22589,7 +22589,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_one`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -22626,7 +22626,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `connected_component`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -22665,7 +22665,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `raw_contour`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -22704,7 +22704,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `geom2d`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -22743,7 +22743,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `line_segment_sketch`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -22782,7 +22782,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `fermi`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -22821,7 +22821,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `digits`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -22860,7 +22860,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -22899,7 +22899,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `main`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -22938,7 +22938,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Class`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -22991,7 +22991,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `OneVsAll`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -23044,7 +23044,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `OneVsAllResult`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -23097,7 +23097,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `narrow_down`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -23158,7 +23158,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `MnistLabel`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -23211,7 +23211,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `BinaryImage28`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -23264,7 +23264,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `BinaryGrid28`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -23317,7 +23317,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `input`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -23370,7 +23370,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_six`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -23407,7 +23407,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_zero`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -23444,7 +23444,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_two`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -23481,7 +23481,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_three`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -23518,7 +23518,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_five`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -23555,7 +23555,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_seven`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -23592,7 +23592,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_eight`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -23629,7 +23629,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_nine`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -23666,7 +23666,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `connected_components`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -23719,7 +23719,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_connected_component`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -23772,7 +23772,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ignored_connected_components_row_span_sum_sum`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -23825,7 +23825,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_raw_contours`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -23878,7 +23878,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_raw_contour`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -23931,7 +23931,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_line_segment_sketch`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -23984,7 +23984,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_concave_components`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -24037,7 +24037,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_one`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -24102,7 +24102,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `FermiMatchResult`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -24155,7 +24155,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `fermi_match`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -24216,7 +24216,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `RawContour`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -24269,7 +24269,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `find_raw_contours`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -24330,7 +24330,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `LineSegmentStroke`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -24383,7 +24383,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `LineSegmentSketch`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -24436,7 +24436,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ConcaveComponent`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -24501,7 +24501,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `find_concave_components`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -24576,7 +24576,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `LineSegment`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -24641,7 +24641,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ConnectedComponentDistribution`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -24694,7 +24694,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `EffHoles`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -24747,7 +24747,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ConnectedComponent`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -24800,7 +24800,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `find_connected_components`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -24861,7 +24861,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_six`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -24926,7 +24926,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_zero`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -24991,7 +24991,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_two`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -25056,7 +25056,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_three`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -25121,7 +25121,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_five`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -25186,7 +25186,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_seven`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -25251,7 +25251,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_eight`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -25316,7 +25316,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_nine`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -25646,7 +25646,7 @@ EntityTreeCrateBundle {
                 [
                     EntitySymbolEntry {
                         ident: `one_fermi_match`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::one`,
                         ),
                         symbol: EntitySymbol::MajorItem {
@@ -25657,7 +25657,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_one`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Fugitive(
                                 FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
@@ -25666,7 +25666,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `upmost`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::one`,
                         ),
                         symbol: EntitySymbol::MajorItem {
@@ -25679,7 +25679,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `downmost`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::one`,
                         ),
                         symbol: EntitySymbol::MajorItem {
@@ -25692,7 +25692,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `hat`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::one`,
                         ),
                         symbol: EntitySymbol::MajorItem {
@@ -25705,7 +25705,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `zero`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::one`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -25732,7 +25732,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `one`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::one`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -25759,7 +25759,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `six`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::one`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -25786,7 +25786,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `three`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::one`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -25813,7 +25813,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `four`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::one`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -25840,7 +25840,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `five`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::one`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -25867,7 +25867,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `seven`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::one`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -25894,7 +25894,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `eight`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::one`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -25921,7 +25921,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `nine`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::one`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -25948,7 +25948,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `two`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::one`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -25975,7 +25975,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_one`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::one`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -26012,7 +26012,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `connected_component`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::one`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -26051,7 +26051,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `raw_contour`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::one`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -26090,7 +26090,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `geom2d`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::one`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -26129,7 +26129,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `line_segment_sketch`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::one`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -26168,7 +26168,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `fermi`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::one`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -26207,7 +26207,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `digits`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::one`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -26246,7 +26246,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::one`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -26285,7 +26285,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `main`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::one`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -26324,7 +26324,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Class`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::one`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -26377,7 +26377,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `OneVsAll`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::one`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -26430,7 +26430,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `OneVsAllResult`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::one`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -26483,7 +26483,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `narrow_down`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::one`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -26544,7 +26544,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `MnistLabel`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::one`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -26597,7 +26597,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `BinaryImage28`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::one`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -26650,7 +26650,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `BinaryGrid28`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::one`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -26703,7 +26703,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `input`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::one`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -26756,7 +26756,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_six`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::one`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -26793,7 +26793,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_zero`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::one`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -26830,7 +26830,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_two`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::one`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -26867,7 +26867,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_three`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::one`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -26904,7 +26904,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_five`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::one`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -26941,7 +26941,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_seven`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::one`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -26978,7 +26978,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_eight`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::one`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -27015,7 +27015,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_nine`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::one`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -27052,7 +27052,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `connected_components`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::one`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -27105,7 +27105,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_connected_component`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::one`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -27158,7 +27158,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ignored_connected_components_row_span_sum_sum`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::one`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -27211,7 +27211,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_raw_contours`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::one`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -27264,7 +27264,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_raw_contour`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::one`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -27317,7 +27317,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_line_segment_sketch`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::one`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -27370,7 +27370,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_concave_components`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::one`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -27423,7 +27423,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_one`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::one`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -27488,7 +27488,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `FermiMatchResult`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::one`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -27541,7 +27541,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `fermi_match`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::one`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -27602,7 +27602,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `RawContour`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::one`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -27655,7 +27655,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `find_raw_contours`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::one`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -27716,7 +27716,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `LineSegmentStroke`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::one`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -27769,7 +27769,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `LineSegmentSketch`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::one`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -27822,7 +27822,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ConcaveComponent`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::one`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -27887,7 +27887,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `find_concave_components`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::one`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -27962,7 +27962,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `LineSegment`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::one`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -28027,7 +28027,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ConnectedComponentDistribution`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::one`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -28080,7 +28080,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `EffHoles`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::one`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -28133,7 +28133,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ConnectedComponent`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::one`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -28186,7 +28186,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `find_connected_components`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::one`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -28247,7 +28247,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_six`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::one`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -28312,7 +28312,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_zero`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::one`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -28377,7 +28377,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_two`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::one`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -28442,7 +28442,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_three`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::one`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -28507,7 +28507,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_five`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::one`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -28572,7 +28572,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_seven`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::one`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -28637,7 +28637,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_eight`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::one`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -28702,7 +28702,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_nine`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::one`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -29030,7 +29030,7 @@ EntityTreeCrateBundle {
                 [
                     EntitySymbolEntry {
                         ident: `six_match`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::six`,
                         ),
                         symbol: EntitySymbol::MajorItem {
@@ -29041,7 +29041,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `six_match_refined1`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::six`,
                         ),
                         symbol: EntitySymbol::MajorItem {
@@ -29052,7 +29052,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_six`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits`,
                         ),
                         symbol: EntitySymbol::MajorItem {
@@ -29063,7 +29063,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `upmost`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::six`,
                         ),
                         symbol: EntitySymbol::MajorItem {
@@ -29076,7 +29076,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `bottom1`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::six`,
                         ),
                         symbol: EntitySymbol::MajorItem {
@@ -29089,7 +29089,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `zero`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::six`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -29116,7 +29116,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `one`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::six`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -29143,7 +29143,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `six`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::six`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -29170,7 +29170,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `three`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::six`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -29197,7 +29197,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `four`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::six`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -29224,7 +29224,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `five`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::six`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -29251,7 +29251,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `seven`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::six`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -29278,7 +29278,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `eight`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::six`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -29305,7 +29305,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `nine`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::six`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -29332,7 +29332,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `two`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::six`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -29359,7 +29359,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_one`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::six`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -29396,7 +29396,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `connected_component`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::six`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -29435,7 +29435,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `raw_contour`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::six`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -29474,7 +29474,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `geom2d`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::six`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -29513,7 +29513,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `line_segment_sketch`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::six`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -29552,7 +29552,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `fermi`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::six`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -29591,7 +29591,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `digits`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::six`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -29630,7 +29630,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::six`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -29669,7 +29669,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `main`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::six`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -29708,7 +29708,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Class`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::six`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -29761,7 +29761,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `OneVsAll`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::six`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -29814,7 +29814,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `OneVsAllResult`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::six`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -29867,7 +29867,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `narrow_down`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::six`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -29928,7 +29928,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `MnistLabel`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::six`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -29981,7 +29981,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `BinaryImage28`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::six`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -30034,7 +30034,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `BinaryGrid28`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::six`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -30087,7 +30087,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `input`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::six`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -30140,7 +30140,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_six`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::six`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -30177,7 +30177,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_zero`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::six`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -30214,7 +30214,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_two`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::six`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -30251,7 +30251,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_three`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::six`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -30288,7 +30288,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_five`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::six`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -30325,7 +30325,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_seven`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::six`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -30362,7 +30362,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_eight`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::six`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -30399,7 +30399,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_nine`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::six`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -30436,7 +30436,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `connected_components`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::six`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -30489,7 +30489,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_connected_component`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::six`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -30542,7 +30542,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ignored_connected_components_row_span_sum_sum`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::six`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -30595,7 +30595,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_raw_contours`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::six`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -30648,7 +30648,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_raw_contour`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::six`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -30701,7 +30701,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_line_segment_sketch`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::six`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -30754,7 +30754,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_concave_components`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::six`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -30807,7 +30807,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_one`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::six`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -30872,7 +30872,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `FermiMatchResult`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::six`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -30925,7 +30925,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `fermi_match`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::six`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -30986,7 +30986,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `RawContour`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::six`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -31039,7 +31039,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `find_raw_contours`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::six`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -31100,7 +31100,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `LineSegmentStroke`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::six`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -31153,7 +31153,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `LineSegmentSketch`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::six`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -31206,7 +31206,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ConcaveComponent`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::six`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -31271,7 +31271,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `find_concave_components`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::six`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -31346,7 +31346,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `LineSegment`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::six`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -31411,7 +31411,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ConnectedComponentDistribution`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::six`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -31464,7 +31464,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `EffHoles`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::six`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -31517,7 +31517,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ConnectedComponent`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::six`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -31570,7 +31570,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `find_connected_components`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::six`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -31631,7 +31631,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_six`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::six`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -31696,7 +31696,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_zero`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::six`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -31761,7 +31761,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_two`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::six`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -31826,7 +31826,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_three`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::six`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -31891,7 +31891,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_five`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::six`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -31956,7 +31956,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_seven`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::six`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -32021,7 +32021,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_eight`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::six`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -32086,7 +32086,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_nine`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::six`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -32420,7 +32420,7 @@ EntityTreeCrateBundle {
                 [
                     EntitySymbolEntry {
                         ident: `three_fermi_match`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::three`,
                         ),
                         symbol: EntitySymbol::MajorItem {
@@ -32431,7 +32431,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_three`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits`,
                         ),
                         symbol: EntitySymbol::MajorItem {
@@ -32442,7 +32442,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `uparc`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::three`,
                         ),
                         symbol: EntitySymbol::MajorItem {
@@ -32455,7 +32455,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `downarc`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::three`,
                         ),
                         symbol: EntitySymbol::MajorItem {
@@ -32468,7 +32468,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `back`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::three`,
                         ),
                         symbol: EntitySymbol::MajorItem {
@@ -32481,7 +32481,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `zero`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::three`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -32508,7 +32508,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `one`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::three`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -32535,7 +32535,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `six`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::three`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -32562,7 +32562,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `three`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::three`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -32589,7 +32589,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `four`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::three`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -32616,7 +32616,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `five`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::three`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -32643,7 +32643,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `seven`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::three`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -32670,7 +32670,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `eight`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::three`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -32697,7 +32697,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `nine`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::three`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -32724,7 +32724,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `two`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::three`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -32751,7 +32751,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_one`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::three`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -32788,7 +32788,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `connected_component`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::three`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -32827,7 +32827,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `raw_contour`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::three`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -32866,7 +32866,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `geom2d`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::three`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -32905,7 +32905,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `line_segment_sketch`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::three`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -32944,7 +32944,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `fermi`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::three`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -32983,7 +32983,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `digits`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::three`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -33022,7 +33022,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::three`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -33061,7 +33061,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `main`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::three`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -33100,7 +33100,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Class`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::three`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -33153,7 +33153,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `OneVsAll`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::three`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -33206,7 +33206,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `OneVsAllResult`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::three`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -33259,7 +33259,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `narrow_down`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::three`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -33320,7 +33320,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `MnistLabel`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::three`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -33373,7 +33373,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `BinaryImage28`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::three`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -33426,7 +33426,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `BinaryGrid28`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::three`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -33479,7 +33479,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `input`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::three`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -33532,7 +33532,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_six`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::three`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -33569,7 +33569,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_zero`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::three`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -33606,7 +33606,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_two`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::three`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -33643,7 +33643,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_three`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::three`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -33680,7 +33680,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_five`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::three`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -33717,7 +33717,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_seven`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::three`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -33754,7 +33754,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_eight`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::three`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -33791,7 +33791,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_nine`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::three`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -33828,7 +33828,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `connected_components`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::three`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -33881,7 +33881,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_connected_component`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::three`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -33934,7 +33934,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ignored_connected_components_row_span_sum_sum`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::three`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -33987,7 +33987,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_raw_contours`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::three`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -34040,7 +34040,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_raw_contour`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::three`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -34093,7 +34093,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_line_segment_sketch`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::three`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -34146,7 +34146,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_concave_components`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::three`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -34199,7 +34199,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_one`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::three`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -34264,7 +34264,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `FermiMatchResult`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::three`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -34317,7 +34317,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `fermi_match`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::three`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -34378,7 +34378,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `RawContour`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::three`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -34431,7 +34431,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `find_raw_contours`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::three`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -34492,7 +34492,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `LineSegmentStroke`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::three`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -34545,7 +34545,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `LineSegmentSketch`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::three`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -34598,7 +34598,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ConcaveComponent`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::three`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -34663,7 +34663,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `find_concave_components`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::three`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -34738,7 +34738,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `LineSegment`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::three`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -34803,7 +34803,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ConnectedComponentDistribution`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::three`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -34856,7 +34856,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `EffHoles`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::three`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -34909,7 +34909,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ConnectedComponent`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::three`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -34962,7 +34962,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `find_connected_components`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::three`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -35023,7 +35023,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_six`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::three`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -35088,7 +35088,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_zero`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::three`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -35153,7 +35153,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_two`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::three`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -35218,7 +35218,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_three`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::three`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -35283,7 +35283,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_five`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::three`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -35348,7 +35348,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_seven`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::three`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -35413,7 +35413,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_eight`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::three`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -35478,7 +35478,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_nine`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::three`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -35888,7 +35888,7 @@ EntityTreeCrateBundle {
                 [
                     EntitySymbolEntry {
                         ident: `left_components`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::four`,
                         ),
                         symbol: EntitySymbol::MajorItem {
@@ -35899,7 +35899,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `left_coordinate_max`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::four`,
                         ),
                         symbol: EntitySymbol::MajorItem {
@@ -35912,7 +35912,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `components_max_downwards`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::four`,
                         ),
                         symbol: EntitySymbol::MajorItem {
@@ -35923,7 +35923,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `components_max_heights`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::four`,
                         ),
                         symbol: EntitySymbol::MajorItem {
@@ -35934,7 +35934,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_four`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::four`,
                         ),
                         symbol: EntitySymbol::MajorItem {
@@ -35945,7 +35945,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `displacement_downwards`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::four`,
                         ),
                         symbol: EntitySymbol::MajorItem {
@@ -35958,7 +35958,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `cc_box_heights`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::four`,
                         ),
                         symbol: EntitySymbol::MajorItem {
@@ -35971,7 +35971,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `zero`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::four`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -35998,7 +35998,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `one`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::four`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -36025,7 +36025,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `six`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::four`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -36052,7 +36052,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `three`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::four`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -36079,7 +36079,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `four`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::four`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -36106,7 +36106,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `five`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::four`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -36133,7 +36133,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `seven`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::four`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -36160,7 +36160,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `eight`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::four`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -36187,7 +36187,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `nine`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::four`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -36214,7 +36214,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `two`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::four`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -36241,7 +36241,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_one`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::four`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -36278,7 +36278,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `connected_component`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::four`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -36317,7 +36317,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `raw_contour`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::four`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -36356,7 +36356,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `geom2d`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::four`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -36395,7 +36395,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `line_segment_sketch`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::four`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -36434,7 +36434,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `fermi`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::four`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -36473,7 +36473,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `digits`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::four`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -36512,7 +36512,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::four`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -36551,7 +36551,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `main`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::four`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -36590,7 +36590,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Class`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::four`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -36643,7 +36643,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `OneVsAll`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::four`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -36696,7 +36696,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `OneVsAllResult`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::four`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -36749,7 +36749,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `narrow_down`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::four`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -36810,7 +36810,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `MnistLabel`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::four`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -36863,7 +36863,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `BinaryImage28`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::four`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -36916,7 +36916,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `BinaryGrid28`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::four`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -36969,7 +36969,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `input`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::four`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -37022,7 +37022,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_six`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::four`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -37059,7 +37059,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_zero`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::four`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -37096,7 +37096,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_two`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::four`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -37133,7 +37133,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_three`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::four`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -37170,7 +37170,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_five`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::four`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -37207,7 +37207,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_seven`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::four`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -37244,7 +37244,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_eight`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::four`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -37281,7 +37281,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_nine`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::four`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -37318,7 +37318,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `connected_components`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::four`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -37371,7 +37371,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_connected_component`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::four`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -37424,7 +37424,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ignored_connected_components_row_span_sum_sum`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::four`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -37477,7 +37477,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_raw_contours`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::four`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -37530,7 +37530,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_raw_contour`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::four`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -37583,7 +37583,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_line_segment_sketch`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::four`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -37636,7 +37636,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_concave_components`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::four`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -37689,7 +37689,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_one`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::four`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -37754,7 +37754,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `FermiMatchResult`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::four`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -37807,7 +37807,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `fermi_match`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::four`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -37868,7 +37868,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `RawContour`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::four`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -37921,7 +37921,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `find_raw_contours`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::four`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -37982,7 +37982,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `LineSegmentStroke`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::four`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -38035,7 +38035,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `LineSegmentSketch`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::four`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -38088,7 +38088,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ConcaveComponent`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::four`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -38153,7 +38153,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `find_concave_components`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::four`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -38228,7 +38228,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `LineSegment`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::four`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -38293,7 +38293,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ConnectedComponentDistribution`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::four`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -38346,7 +38346,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `EffHoles`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::four`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -38399,7 +38399,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ConnectedComponent`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::four`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -38452,7 +38452,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `find_connected_components`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::four`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -38513,7 +38513,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_six`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::four`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -38578,7 +38578,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_zero`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::four`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -38643,7 +38643,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_two`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::four`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -38708,7 +38708,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_three`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::four`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -38773,7 +38773,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_five`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::four`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -38838,7 +38838,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_seven`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::four`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -38903,7 +38903,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_eight`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::four`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -38968,7 +38968,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_nine`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::four`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -39132,7 +39132,7 @@ EntityTreeCrateBundle {
                 [
                     EntitySymbolEntry {
                         ident: `is_five`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits`,
                         ),
                         symbol: EntitySymbol::MajorItem {
@@ -39143,7 +39143,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `zero`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::five`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -39170,7 +39170,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `one`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::five`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -39197,7 +39197,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `six`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::five`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -39224,7 +39224,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `three`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::five`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -39251,7 +39251,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `four`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::five`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -39278,7 +39278,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `five`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::five`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -39305,7 +39305,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `seven`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::five`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -39332,7 +39332,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `eight`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::five`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -39359,7 +39359,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `nine`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::five`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -39386,7 +39386,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `two`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::five`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -39413,7 +39413,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_one`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::five`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -39450,7 +39450,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `connected_component`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::five`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -39489,7 +39489,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `raw_contour`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::five`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -39528,7 +39528,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `geom2d`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::five`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -39567,7 +39567,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `line_segment_sketch`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::five`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -39606,7 +39606,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `fermi`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::five`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -39645,7 +39645,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `digits`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::five`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -39684,7 +39684,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::five`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -39723,7 +39723,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `main`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::five`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -39762,7 +39762,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Class`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::five`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -39815,7 +39815,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `OneVsAll`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::five`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -39868,7 +39868,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `OneVsAllResult`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::five`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -39921,7 +39921,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `narrow_down`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::five`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -39982,7 +39982,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `MnistLabel`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::five`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -40035,7 +40035,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `BinaryImage28`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::five`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -40088,7 +40088,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `BinaryGrid28`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::five`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -40141,7 +40141,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `input`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::five`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -40194,7 +40194,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_six`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::five`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -40231,7 +40231,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_zero`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::five`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -40268,7 +40268,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_two`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::five`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -40305,7 +40305,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_three`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::five`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -40342,7 +40342,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_five`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::five`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -40379,7 +40379,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_seven`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::five`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -40416,7 +40416,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_eight`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::five`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -40453,7 +40453,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_nine`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::five`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -40490,7 +40490,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `connected_components`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::five`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -40543,7 +40543,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_connected_component`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::five`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -40596,7 +40596,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ignored_connected_components_row_span_sum_sum`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::five`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -40649,7 +40649,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_raw_contours`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::five`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -40702,7 +40702,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_raw_contour`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::five`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -40755,7 +40755,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_line_segment_sketch`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::five`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -40808,7 +40808,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_concave_components`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::five`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -40861,7 +40861,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_one`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::five`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -40926,7 +40926,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `FermiMatchResult`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::five`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -40979,7 +40979,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `fermi_match`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::five`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -41040,7 +41040,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `RawContour`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::five`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -41093,7 +41093,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `find_raw_contours`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::five`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -41154,7 +41154,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `LineSegmentStroke`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::five`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -41207,7 +41207,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `LineSegmentSketch`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::five`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -41260,7 +41260,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ConcaveComponent`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::five`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -41325,7 +41325,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `find_concave_components`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::five`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -41400,7 +41400,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `LineSegment`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::five`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -41465,7 +41465,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ConnectedComponentDistribution`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::five`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -41518,7 +41518,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `EffHoles`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::five`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -41571,7 +41571,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ConnectedComponent`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::five`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -41624,7 +41624,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `find_connected_components`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::five`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -41685,7 +41685,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_six`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::five`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -41750,7 +41750,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_zero`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::five`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -41815,7 +41815,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_two`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::five`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -41880,7 +41880,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_three`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::five`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -41945,7 +41945,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_five`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::five`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -42010,7 +42010,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_seven`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::five`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -42075,7 +42075,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_eight`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::five`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -42140,7 +42140,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_nine`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::five`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -42512,7 +42512,7 @@ EntityTreeCrateBundle {
                 [
                     EntitySymbolEntry {
                         ident: `simple_seven_match`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::seven`,
                         ),
                         symbol: EntitySymbol::MajorItem {
@@ -42523,7 +42523,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `simple_leftdown_pattern`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::seven`,
                         ),
                         symbol: EntitySymbol::MajorItem {
@@ -42536,7 +42536,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `special_seven_match`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::seven`,
                         ),
                         symbol: EntitySymbol::MajorItem {
@@ -42547,7 +42547,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `leftupcc_pattern`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::seven`,
                         ),
                         symbol: EntitySymbol::MajorItem {
@@ -42560,7 +42560,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `leftdowncc_pattern`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::seven`,
                         ),
                         symbol: EntitySymbol::MajorItem {
@@ -42573,7 +42573,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_seven`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits`,
                         ),
                         symbol: EntitySymbol::MajorItem {
@@ -42584,7 +42584,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `zero`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::seven`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -42611,7 +42611,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `one`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::seven`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -42638,7 +42638,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `six`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::seven`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -42665,7 +42665,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `three`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::seven`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -42692,7 +42692,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `four`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::seven`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -42719,7 +42719,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `five`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::seven`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -42746,7 +42746,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `seven`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::seven`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -42773,7 +42773,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `eight`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::seven`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -42800,7 +42800,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `nine`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::seven`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -42827,7 +42827,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `two`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::seven`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -42854,7 +42854,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_one`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::seven`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -42891,7 +42891,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `connected_component`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::seven`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -42930,7 +42930,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `raw_contour`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::seven`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -42969,7 +42969,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `geom2d`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::seven`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -43008,7 +43008,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `line_segment_sketch`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::seven`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -43047,7 +43047,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `fermi`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::seven`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -43086,7 +43086,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `digits`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::seven`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -43125,7 +43125,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::seven`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -43164,7 +43164,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `main`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::seven`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -43203,7 +43203,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Class`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::seven`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -43256,7 +43256,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `OneVsAll`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::seven`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -43309,7 +43309,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `OneVsAllResult`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::seven`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -43362,7 +43362,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `narrow_down`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::seven`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -43423,7 +43423,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `MnistLabel`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::seven`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -43476,7 +43476,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `BinaryImage28`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::seven`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -43529,7 +43529,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `BinaryGrid28`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::seven`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -43582,7 +43582,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `input`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::seven`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -43635,7 +43635,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_six`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::seven`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -43672,7 +43672,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_zero`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::seven`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -43709,7 +43709,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_two`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::seven`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -43746,7 +43746,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_three`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::seven`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -43783,7 +43783,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_five`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::seven`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -43820,7 +43820,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_seven`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::seven`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -43857,7 +43857,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_eight`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::seven`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -43894,7 +43894,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_nine`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::seven`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -43931,7 +43931,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `connected_components`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::seven`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -43984,7 +43984,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_connected_component`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::seven`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -44037,7 +44037,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ignored_connected_components_row_span_sum_sum`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::seven`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -44090,7 +44090,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_raw_contours`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::seven`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -44143,7 +44143,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_raw_contour`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::seven`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -44196,7 +44196,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_line_segment_sketch`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::seven`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -44249,7 +44249,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_concave_components`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::seven`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -44302,7 +44302,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_one`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::seven`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -44367,7 +44367,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `FermiMatchResult`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::seven`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -44420,7 +44420,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `fermi_match`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::seven`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -44481,7 +44481,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `RawContour`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::seven`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -44534,7 +44534,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `find_raw_contours`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::seven`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -44595,7 +44595,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `LineSegmentStroke`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::seven`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -44648,7 +44648,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `LineSegmentSketch`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::seven`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -44701,7 +44701,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ConcaveComponent`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::seven`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -44766,7 +44766,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `find_concave_components`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::seven`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -44841,7 +44841,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `LineSegment`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::seven`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -44906,7 +44906,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ConnectedComponentDistribution`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::seven`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -44959,7 +44959,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `EffHoles`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::seven`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -45012,7 +45012,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ConnectedComponent`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::seven`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -45065,7 +45065,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `find_connected_components`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::seven`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -45126,7 +45126,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_six`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::seven`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -45191,7 +45191,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_zero`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::seven`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -45256,7 +45256,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_two`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::seven`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -45321,7 +45321,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_three`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::seven`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -45386,7 +45386,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_five`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::seven`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -45451,7 +45451,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_seven`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::seven`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -45516,7 +45516,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_eight`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::seven`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -45581,7 +45581,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_nine`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::seven`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -45827,7 +45827,7 @@ EntityTreeCrateBundle {
                 [
                     EntitySymbolEntry {
                         ident: `upper_mouth_match`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::eight`,
                         ),
                         symbol: EntitySymbol::MajorItem {
@@ -45838,7 +45838,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_eight`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits`,
                         ),
                         symbol: EntitySymbol::MajorItem {
@@ -45849,7 +45849,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `big_mouth`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::eight`,
                         ),
                         symbol: EntitySymbol::MajorItem {
@@ -45862,7 +45862,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `zero`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::eight`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -45889,7 +45889,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `one`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::eight`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -45916,7 +45916,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `six`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::eight`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -45943,7 +45943,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `three`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::eight`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -45970,7 +45970,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `four`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::eight`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -45997,7 +45997,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `five`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::eight`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -46024,7 +46024,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `seven`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::eight`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -46051,7 +46051,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `eight`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::eight`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -46078,7 +46078,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `nine`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::eight`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -46105,7 +46105,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `two`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::eight`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -46132,7 +46132,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_one`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::eight`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -46169,7 +46169,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `connected_component`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::eight`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -46208,7 +46208,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `raw_contour`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::eight`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -46247,7 +46247,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `geom2d`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::eight`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -46286,7 +46286,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `line_segment_sketch`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::eight`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -46325,7 +46325,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `fermi`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::eight`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -46364,7 +46364,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `digits`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::eight`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -46403,7 +46403,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::eight`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -46442,7 +46442,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `main`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::eight`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -46481,7 +46481,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Class`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::eight`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -46534,7 +46534,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `OneVsAll`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::eight`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -46587,7 +46587,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `OneVsAllResult`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::eight`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -46640,7 +46640,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `narrow_down`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::eight`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -46701,7 +46701,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `MnistLabel`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::eight`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -46754,7 +46754,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `BinaryImage28`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::eight`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -46807,7 +46807,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `BinaryGrid28`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::eight`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -46860,7 +46860,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `input`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::eight`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -46913,7 +46913,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_six`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::eight`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -46950,7 +46950,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_zero`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::eight`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -46987,7 +46987,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_two`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::eight`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -47024,7 +47024,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_three`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::eight`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -47061,7 +47061,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_five`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::eight`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -47098,7 +47098,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_seven`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::eight`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -47135,7 +47135,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_eight`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::eight`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -47172,7 +47172,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_nine`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::eight`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -47209,7 +47209,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `connected_components`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::eight`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -47262,7 +47262,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_connected_component`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::eight`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -47315,7 +47315,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ignored_connected_components_row_span_sum_sum`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::eight`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -47368,7 +47368,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_raw_contours`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::eight`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -47421,7 +47421,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_raw_contour`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::eight`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -47474,7 +47474,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_line_segment_sketch`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::eight`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -47527,7 +47527,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_concave_components`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::eight`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -47580,7 +47580,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_one`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::eight`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -47645,7 +47645,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `FermiMatchResult`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::eight`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -47698,7 +47698,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `fermi_match`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::eight`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -47759,7 +47759,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `RawContour`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::eight`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -47812,7 +47812,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `find_raw_contours`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::eight`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -47873,7 +47873,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `LineSegmentStroke`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::eight`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -47926,7 +47926,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `LineSegmentSketch`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::eight`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -47979,7 +47979,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ConcaveComponent`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::eight`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -48044,7 +48044,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `find_concave_components`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::eight`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -48119,7 +48119,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `LineSegment`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::eight`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -48184,7 +48184,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ConnectedComponentDistribution`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::eight`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -48237,7 +48237,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `EffHoles`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::eight`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -48290,7 +48290,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ConnectedComponent`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::eight`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -48343,7 +48343,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `find_connected_components`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::eight`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -48404,7 +48404,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_six`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::eight`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -48469,7 +48469,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_zero`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::eight`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -48534,7 +48534,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_two`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::eight`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -48599,7 +48599,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_three`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::eight`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -48664,7 +48664,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_five`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::eight`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -48729,7 +48729,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_seven`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::eight`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -48794,7 +48794,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_eight`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::eight`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -48859,7 +48859,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_nine`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::eight`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -49187,7 +49187,7 @@ EntityTreeCrateBundle {
                 [
                     EntitySymbolEntry {
                         ident: `nine_match`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::nine`,
                         ),
                         symbol: EntitySymbol::MajorItem {
@@ -49198,7 +49198,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `nine_match_refine`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::nine`,
                         ),
                         symbol: EntitySymbol::MajorItem {
@@ -49209,7 +49209,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_nine`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits`,
                         ),
                         symbol: EntitySymbol::MajorItem {
@@ -49220,7 +49220,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `downmost`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::nine`,
                         ),
                         symbol: EntitySymbol::MajorItem {
@@ -49233,7 +49233,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `big_cc`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::nine`,
                         ),
                         symbol: EntitySymbol::MajorItem {
@@ -49246,7 +49246,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `zero`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::nine`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -49273,7 +49273,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `one`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::nine`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -49300,7 +49300,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `six`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::nine`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -49327,7 +49327,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `three`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::nine`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -49354,7 +49354,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `four`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::nine`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -49381,7 +49381,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `five`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::nine`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -49408,7 +49408,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `seven`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::nine`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -49435,7 +49435,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `eight`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::nine`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -49462,7 +49462,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `nine`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::nine`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -49489,7 +49489,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `two`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::nine`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -49516,7 +49516,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_one`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::nine`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -49553,7 +49553,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `connected_component`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::nine`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -49592,7 +49592,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `raw_contour`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::nine`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -49631,7 +49631,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `geom2d`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::nine`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -49670,7 +49670,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `line_segment_sketch`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::nine`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -49709,7 +49709,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `fermi`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::nine`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -49748,7 +49748,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `digits`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::nine`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -49787,7 +49787,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::nine`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -49826,7 +49826,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `main`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::nine`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -49865,7 +49865,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Class`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::nine`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -49918,7 +49918,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `OneVsAll`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::nine`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -49971,7 +49971,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `OneVsAllResult`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::nine`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -50024,7 +50024,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `narrow_down`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::nine`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -50085,7 +50085,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `MnistLabel`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::nine`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -50138,7 +50138,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `BinaryImage28`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::nine`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -50191,7 +50191,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `BinaryGrid28`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::nine`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -50244,7 +50244,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `input`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::nine`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -50297,7 +50297,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_six`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::nine`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -50334,7 +50334,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_zero`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::nine`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -50371,7 +50371,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_two`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::nine`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -50408,7 +50408,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_three`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::nine`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -50445,7 +50445,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_five`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::nine`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -50482,7 +50482,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_seven`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::nine`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -50519,7 +50519,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_eight`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::nine`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -50556,7 +50556,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_nine`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::nine`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -50593,7 +50593,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `connected_components`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::nine`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -50646,7 +50646,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_connected_component`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::nine`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -50699,7 +50699,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ignored_connected_components_row_span_sum_sum`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::nine`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -50752,7 +50752,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_raw_contours`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::nine`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -50805,7 +50805,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_raw_contour`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::nine`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -50858,7 +50858,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_line_segment_sketch`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::nine`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -50911,7 +50911,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_concave_components`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::nine`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -50964,7 +50964,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_one`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::nine`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -51029,7 +51029,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `FermiMatchResult`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::nine`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -51082,7 +51082,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `fermi_match`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::nine`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -51143,7 +51143,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `RawContour`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::nine`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -51196,7 +51196,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `find_raw_contours`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::nine`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -51257,7 +51257,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `LineSegmentStroke`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::nine`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -51310,7 +51310,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `LineSegmentSketch`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::nine`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -51363,7 +51363,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ConcaveComponent`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::nine`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -51428,7 +51428,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `find_concave_components`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::nine`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -51503,7 +51503,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `LineSegment`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::nine`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -51568,7 +51568,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ConnectedComponentDistribution`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::nine`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -51621,7 +51621,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `EffHoles`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::nine`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -51674,7 +51674,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ConnectedComponent`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::nine`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -51727,7 +51727,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `find_connected_components`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::nine`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -51788,7 +51788,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_six`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::nine`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -51853,7 +51853,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_zero`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::nine`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -51918,7 +51918,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_two`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::nine`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -51983,7 +51983,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_three`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::nine`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -52048,7 +52048,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_five`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::nine`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -52113,7 +52113,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_seven`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::nine`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -52178,7 +52178,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_eight`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::nine`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -52243,7 +52243,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_nine`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::nine`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -52577,7 +52577,7 @@ EntityTreeCrateBundle {
                 [
                     EntitySymbolEntry {
                         ident: `two_match`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
                         symbol: EntitySymbol::MajorItem {
@@ -52588,7 +52588,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `left_cc_pattern`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
                         symbol: EntitySymbol::MajorItem {
@@ -52601,7 +52601,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `right_cc_pattern`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
                         symbol: EntitySymbol::MajorItem {
@@ -52614,7 +52614,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `down_cc_pattern`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
                         symbol: EntitySymbol::MajorItem {
@@ -52627,7 +52627,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_two`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits`,
                         ),
                         symbol: EntitySymbol::MajorItem {
@@ -52638,7 +52638,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `zero`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -52665,7 +52665,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `one`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -52692,7 +52692,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `six`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -52719,7 +52719,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `three`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -52746,7 +52746,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `four`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -52773,7 +52773,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `five`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -52800,7 +52800,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `seven`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -52827,7 +52827,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `eight`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -52854,7 +52854,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `nine`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -52881,7 +52881,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `two`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -52908,7 +52908,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_one`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -52945,7 +52945,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `connected_component`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -52984,7 +52984,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `raw_contour`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -53023,7 +53023,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `geom2d`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -53062,7 +53062,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `line_segment_sketch`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -53101,7 +53101,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `fermi`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -53140,7 +53140,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `digits`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -53179,7 +53179,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -53218,7 +53218,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `main`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -53257,7 +53257,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Class`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -53310,7 +53310,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `OneVsAll`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -53363,7 +53363,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `OneVsAllResult`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -53416,7 +53416,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `narrow_down`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -53477,7 +53477,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `MnistLabel`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -53530,7 +53530,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `BinaryImage28`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -53583,7 +53583,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `BinaryGrid28`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -53636,7 +53636,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `input`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -53689,7 +53689,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_six`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -53726,7 +53726,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_zero`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -53763,7 +53763,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_two`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -53800,7 +53800,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_three`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -53837,7 +53837,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_five`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -53874,7 +53874,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_seven`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -53911,7 +53911,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_eight`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -53948,7 +53948,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_nine`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -53985,7 +53985,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `connected_components`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -54038,7 +54038,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_connected_component`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -54091,7 +54091,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ignored_connected_components_row_span_sum_sum`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -54144,7 +54144,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_raw_contours`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -54197,7 +54197,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_raw_contour`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -54250,7 +54250,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_line_segment_sketch`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -54303,7 +54303,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_concave_components`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -54356,7 +54356,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_one`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -54421,7 +54421,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `FermiMatchResult`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -54474,7 +54474,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `fermi_match`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -54535,7 +54535,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `RawContour`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -54588,7 +54588,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `find_raw_contours`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -54649,7 +54649,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `LineSegmentStroke`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -54702,7 +54702,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `LineSegmentSketch`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -54755,7 +54755,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ConcaveComponent`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -54820,7 +54820,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `find_concave_components`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -54895,7 +54895,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `LineSegment`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -54960,7 +54960,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ConnectedComponentDistribution`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -55013,7 +55013,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `EffHoles`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -55066,7 +55066,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ConnectedComponent`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -55119,7 +55119,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `find_connected_components`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -55180,7 +55180,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_six`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -55245,7 +55245,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_zero`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -55310,7 +55310,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_two`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -55375,7 +55375,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_three`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -55440,7 +55440,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_five`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -55505,7 +55505,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_seven`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -55570,7 +55570,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_eight`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -55635,7 +55635,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_nine`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -55999,7 +55999,7 @@ EntityTreeCrateBundle {
                 [
                     EntitySymbolEntry {
                         ident: `connected_components`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Fugitive(
                                 FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
@@ -56008,7 +56008,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_connected_component`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Fugitive(
                                 FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
@@ -56017,7 +56017,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ignored_connected_components_row_span_sum_sum`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Fugitive(
                                 FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
@@ -56026,7 +56026,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_raw_contours`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Fugitive(
                                 FugitivePath(`mnist_classifier::major::major_raw_contours`, `Val`),
@@ -56035,7 +56035,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_raw_contour`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Fugitive(
                                 FugitivePath(`mnist_classifier::major::major_raw_contour`, `Val`),
@@ -56044,7 +56044,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_line_segment_sketch`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Fugitive(
                                 FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
@@ -56053,7 +56053,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_concave_components`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Fugitive(
                                 FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
@@ -56062,7 +56062,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `connected_component`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::major`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -56089,7 +56089,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `raw_contour`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::major`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -56116,7 +56116,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `geom2d`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::major`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -56143,7 +56143,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `line_segment_sketch`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::major`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -56170,7 +56170,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `fermi`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::major`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -56197,7 +56197,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `digits`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::major`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -56224,7 +56224,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::major`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -56251,7 +56251,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `main`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::major`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -56276,7 +56276,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Class`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::major`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -56315,7 +56315,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `OneVsAll`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::major`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -56354,7 +56354,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `OneVsAllResult`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::major`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -56393,7 +56393,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `narrow_down`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::major`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -56438,7 +56438,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `MnistLabel`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::major`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -56477,7 +56477,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `BinaryImage28`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::major`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -56516,7 +56516,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `BinaryGrid28`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::major`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -56555,7 +56555,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `input`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::major`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -56594,7 +56594,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `connected_components`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::major`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -56633,7 +56633,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_connected_component`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::major`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -56672,7 +56672,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ignored_connected_components_row_span_sum_sum`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::major`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -56711,7 +56711,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_raw_contours`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::major`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -56750,7 +56750,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_raw_contour`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::major`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -56789,7 +56789,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_line_segment_sketch`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::major`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -56828,7 +56828,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `major_concave_components`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::major`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -56867,7 +56867,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_one`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::major`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -56918,7 +56918,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `FermiMatchResult`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::major`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -56957,7 +56957,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `fermi_match`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::major`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -57002,7 +57002,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `RawContour`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::major`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -57041,7 +57041,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `find_raw_contours`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::major`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -57086,7 +57086,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `LineSegmentStroke`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::major`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -57125,7 +57125,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `LineSegmentSketch`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::major`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -57164,7 +57164,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ConcaveComponent`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::major`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -57215,7 +57215,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `find_concave_components`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::major`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -57274,7 +57274,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `LineSegment`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::major`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -57325,7 +57325,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ConnectedComponentDistribution`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::major`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -57364,7 +57364,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `EffHoles`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::major`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -57403,7 +57403,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ConnectedComponent`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::major`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -57442,7 +57442,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `find_connected_components`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::major`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -57487,7 +57487,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_six`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::major`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -57538,7 +57538,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_zero`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::major`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -57589,7 +57589,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_two`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::major`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -57640,7 +57640,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_three`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::major`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -57691,7 +57691,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_five`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::major`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -57742,7 +57742,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_seven`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::major`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -57793,7 +57793,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_eight`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::major`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -57844,7 +57844,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `is_nine`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `mnist_classifier::major`,
                         ),
                         symbol: EntitySymbol::Use(

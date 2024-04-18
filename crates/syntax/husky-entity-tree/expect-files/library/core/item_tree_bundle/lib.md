@@ -1056,7 +1056,7 @@ EntityTreeCrateBundle {
                 [
                     EntitySymbolEntry {
                         ident: `array`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(
                                 ItemPathId(
@@ -1069,7 +1069,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `basic`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(
                                 ItemPathId(
@@ -1082,7 +1082,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `clone`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(
                                 ItemPathId(
@@ -1095,7 +1095,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `cmp`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(
                                 ItemPathId(
@@ -1108,7 +1108,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `default`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(
                                 ItemPathId(
@@ -1121,7 +1121,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `fmt`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(
                                 ItemPathId(
@@ -1134,7 +1134,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `logic`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(
                                 ItemPathId(
@@ -1147,7 +1147,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `marker`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(
                                 ItemPathId(
@@ -1160,7 +1160,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `mem`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(
                                 ItemPathId(
@@ -1173,7 +1173,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `num`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(
                                 ItemPathId(
@@ -1186,7 +1186,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ops`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(
                                 ItemPathId(
@@ -1199,7 +1199,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `option`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(
                                 ItemPathId(
@@ -1212,7 +1212,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `prelude`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(
                                 ItemPathId(
@@ -1225,7 +1225,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `raw_bits`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(
                                 ItemPathId(
@@ -1238,7 +1238,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `result`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(
                                 ItemPathId(
@@ -1251,7 +1251,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `vec`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(
                                 ItemPathId(
@@ -1264,7 +1264,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `slice`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(
                                 ItemPathId(
@@ -1277,7 +1277,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `str`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(
                                 ItemPathId(
@@ -1290,7 +1290,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `visual`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(
                                 ItemPathId(
@@ -1303,7 +1303,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `bool`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -1340,7 +1340,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `never`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -1377,7 +1377,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `unit`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -1414,7 +1414,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Trait`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -1451,7 +1451,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Module`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -1488,7 +1488,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Lifetime`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -1525,7 +1525,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Place`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -1562,7 +1562,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Universe`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -1599,7 +1599,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Default`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -1636,7 +1636,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i8`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -1673,7 +1673,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i16`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -1710,7 +1710,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i32`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -1747,7 +1747,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i64`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -1784,7 +1784,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i128`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -1821,7 +1821,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `isize`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -1858,7 +1858,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u8`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -1895,7 +1895,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u16`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -1932,7 +1932,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u32`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -1969,7 +1969,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u64`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -2006,7 +2006,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u128`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -2043,7 +2043,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `usize`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -2080,7 +2080,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `f32`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -2117,7 +2117,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `f64`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -2154,7 +2154,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `r32`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -2191,7 +2191,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Debug`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -2228,7 +2228,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Visualize`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -2265,7 +2265,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Visual`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -2302,7 +2302,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Copy`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -2339,7 +2339,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Sized`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -2376,7 +2376,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Clone`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -2413,7 +2413,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Option`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -2450,7 +2450,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Some`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -2515,7 +2515,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `None`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -2580,7 +2580,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `PartialEq`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -2617,7 +2617,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Eq`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -2654,7 +2654,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `PartialOrd`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -2691,7 +2691,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Ord`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -2728,7 +2728,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Slice`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -2765,7 +2765,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `CyclicSlice`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -2802,7 +2802,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Vec`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -2996,7 +2996,7 @@ EntityTreeCrateBundle {
                 [
                     EntitySymbolEntry {
                         ident: `Array`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Type(
                                 TypePath(`core::array::Array`, `Extern`),
@@ -3005,7 +3005,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `array`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::array`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -3032,7 +3032,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `basic`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::array`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -3059,7 +3059,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `clone`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::array`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -3086,7 +3086,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `cmp`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::array`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -3113,7 +3113,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `default`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::array`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -3140,7 +3140,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `fmt`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::array`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -3167,7 +3167,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `logic`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::array`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -3194,7 +3194,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `marker`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::array`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -3221,7 +3221,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `mem`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::array`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -3248,7 +3248,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `num`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::array`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -3275,7 +3275,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ops`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::array`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -3302,7 +3302,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `option`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::array`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -3329,7 +3329,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `prelude`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::array`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -3356,7 +3356,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `raw_bits`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::array`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -3383,7 +3383,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `result`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::array`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -3410,7 +3410,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `vec`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::array`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -3437,7 +3437,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `slice`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::array`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -3464,7 +3464,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `str`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::array`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -3491,7 +3491,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `visual`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::array`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -3518,7 +3518,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `bool`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::array`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -3569,7 +3569,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `never`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::array`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -3620,7 +3620,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `unit`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::array`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -3671,7 +3671,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Trait`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::array`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -3722,7 +3722,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Module`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::array`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -3773,7 +3773,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Lifetime`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::array`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -3824,7 +3824,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Place`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::array`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -3875,7 +3875,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Universe`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::array`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -3926,7 +3926,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Default`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::array`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -3977,7 +3977,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i8`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::array`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -4028,7 +4028,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i16`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::array`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -4079,7 +4079,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i32`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::array`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -4130,7 +4130,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i64`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::array`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -4181,7 +4181,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i128`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::array`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -4232,7 +4232,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `isize`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::array`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -4283,7 +4283,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u8`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::array`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -4334,7 +4334,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u16`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::array`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -4385,7 +4385,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u32`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::array`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -4436,7 +4436,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u64`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::array`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -4487,7 +4487,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u128`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::array`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -4538,7 +4538,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `usize`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::array`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -4589,7 +4589,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `f32`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::array`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -4640,7 +4640,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `f64`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::array`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -4691,7 +4691,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `r32`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::array`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -4742,7 +4742,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Debug`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::array`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -4793,7 +4793,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Visualize`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::array`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -4844,7 +4844,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Visual`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::array`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -4895,7 +4895,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Copy`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::array`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -4946,7 +4946,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Sized`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::array`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -4997,7 +4997,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Clone`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::array`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -5048,7 +5048,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Option`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::array`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -5099,7 +5099,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Some`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::array`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -5182,7 +5182,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `None`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::array`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -5265,7 +5265,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `PartialEq`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::array`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -5316,7 +5316,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Eq`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::array`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -5367,7 +5367,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `PartialOrd`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::array`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -5418,7 +5418,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Ord`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::array`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -5469,7 +5469,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Slice`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::array`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -5520,7 +5520,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `CyclicSlice`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::array`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -5571,7 +5571,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Vec`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::array`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -6114,7 +6114,7 @@ EntityTreeCrateBundle {
                 [
                     EntitySymbolEntry {
                         ident: `bool`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Type(
                                 TypePath(`core::basic::bool`, `Extern`),
@@ -6123,7 +6123,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `never`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Type(
                                 TypePath(`core::basic::never`, `Extern`),
@@ -6132,7 +6132,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `unit`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Type(
                                 TypePath(`core::basic::unit`, `Extern`),
@@ -6141,7 +6141,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Trait`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Type(
                                 TypePath(`core::basic::Trait`, `Extern`),
@@ -6150,7 +6150,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Module`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Type(
                                 TypePath(`core::basic::Module`, `Extern`),
@@ -6159,7 +6159,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Lifetime`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Type(
                                 TypePath(`core::basic::Lifetime`, `Extern`),
@@ -6168,7 +6168,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Place`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Type(
                                 TypePath(`core::basic::Place`, `Extern`),
@@ -6177,7 +6177,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Universe`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Type(
                                 TypePath(`core::basic::Universe`, `Extern`),
@@ -6186,7 +6186,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `array`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::basic`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -6213,7 +6213,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `basic`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::basic`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -6240,7 +6240,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `clone`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::basic`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -6267,7 +6267,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `cmp`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::basic`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -6294,7 +6294,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `default`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::basic`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -6321,7 +6321,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `fmt`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::basic`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -6348,7 +6348,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `logic`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::basic`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -6375,7 +6375,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `marker`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::basic`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -6402,7 +6402,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `mem`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::basic`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -6429,7 +6429,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `num`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::basic`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -6456,7 +6456,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ops`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::basic`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -6483,7 +6483,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `option`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::basic`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -6510,7 +6510,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `prelude`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::basic`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -6537,7 +6537,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `raw_bits`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::basic`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -6564,7 +6564,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `result`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::basic`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -6591,7 +6591,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `vec`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::basic`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -6618,7 +6618,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `slice`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::basic`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -6645,7 +6645,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `str`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::basic`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -6672,7 +6672,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `visual`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::basic`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -6699,7 +6699,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `bool`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::basic`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -6750,7 +6750,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `never`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::basic`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -6801,7 +6801,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `unit`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::basic`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -6852,7 +6852,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Trait`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::basic`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -6903,7 +6903,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Module`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::basic`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -6954,7 +6954,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Lifetime`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::basic`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -7005,7 +7005,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Place`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::basic`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -7056,7 +7056,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Universe`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::basic`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -7107,7 +7107,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Default`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::basic`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -7158,7 +7158,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i8`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::basic`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -7209,7 +7209,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i16`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::basic`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -7260,7 +7260,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i32`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::basic`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -7311,7 +7311,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i64`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::basic`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -7362,7 +7362,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i128`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::basic`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -7413,7 +7413,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `isize`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::basic`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -7464,7 +7464,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u8`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::basic`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -7515,7 +7515,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u16`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::basic`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -7566,7 +7566,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u32`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::basic`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -7617,7 +7617,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u64`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::basic`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -7668,7 +7668,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u128`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::basic`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -7719,7 +7719,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `usize`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::basic`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -7770,7 +7770,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `f32`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::basic`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -7821,7 +7821,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `f64`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::basic`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -7872,7 +7872,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `r32`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::basic`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -7923,7 +7923,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Debug`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::basic`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -7974,7 +7974,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Visualize`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::basic`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -8025,7 +8025,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Visual`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::basic`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -8076,7 +8076,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Copy`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::basic`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -8127,7 +8127,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Sized`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::basic`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -8178,7 +8178,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Clone`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::basic`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -8229,7 +8229,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Option`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::basic`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -8280,7 +8280,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Some`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::basic`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -8363,7 +8363,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `None`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::basic`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -8446,7 +8446,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `PartialEq`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::basic`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -8497,7 +8497,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Eq`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::basic`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -8548,7 +8548,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `PartialOrd`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::basic`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -8599,7 +8599,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Ord`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::basic`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -8650,7 +8650,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Slice`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::basic`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -8701,7 +8701,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `CyclicSlice`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::basic`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -8752,7 +8752,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Vec`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::basic`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -8923,7 +8923,7 @@ EntityTreeCrateBundle {
                 [
                     EntitySymbolEntry {
                         ident: `Clone`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Trait(
                                 TraitPath(`core::clone::Clone`),
@@ -8932,7 +8932,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `array`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::clone`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -8959,7 +8959,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `basic`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::clone`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -8986,7 +8986,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `clone`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::clone`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -9013,7 +9013,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `cmp`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::clone`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -9040,7 +9040,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `default`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::clone`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -9067,7 +9067,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `fmt`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::clone`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -9094,7 +9094,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `logic`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::clone`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -9121,7 +9121,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `marker`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::clone`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -9148,7 +9148,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `mem`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::clone`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -9175,7 +9175,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `num`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::clone`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -9202,7 +9202,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ops`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::clone`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -9229,7 +9229,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `option`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::clone`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -9256,7 +9256,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `prelude`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::clone`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -9283,7 +9283,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `raw_bits`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::clone`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -9310,7 +9310,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `result`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::clone`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -9337,7 +9337,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `vec`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::clone`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -9364,7 +9364,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `slice`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::clone`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -9391,7 +9391,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `str`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::clone`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -9418,7 +9418,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `visual`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::clone`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -9445,7 +9445,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `bool`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::clone`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -9496,7 +9496,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `never`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::clone`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -9547,7 +9547,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `unit`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::clone`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -9598,7 +9598,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Trait`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::clone`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -9649,7 +9649,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Module`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::clone`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -9700,7 +9700,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Lifetime`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::clone`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -9751,7 +9751,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Place`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::clone`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -9802,7 +9802,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Universe`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::clone`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -9853,7 +9853,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Default`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::clone`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -9904,7 +9904,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i8`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::clone`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -9955,7 +9955,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i16`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::clone`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -10006,7 +10006,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i32`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::clone`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -10057,7 +10057,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i64`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::clone`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -10108,7 +10108,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i128`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::clone`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -10159,7 +10159,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `isize`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::clone`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -10210,7 +10210,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u8`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::clone`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -10261,7 +10261,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u16`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::clone`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -10312,7 +10312,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u32`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::clone`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -10363,7 +10363,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u64`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::clone`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -10414,7 +10414,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u128`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::clone`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -10465,7 +10465,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `usize`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::clone`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -10516,7 +10516,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `f32`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::clone`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -10567,7 +10567,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `f64`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::clone`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -10618,7 +10618,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `r32`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::clone`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -10669,7 +10669,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Debug`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::clone`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -10720,7 +10720,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Visualize`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::clone`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -10771,7 +10771,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Visual`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::clone`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -10822,7 +10822,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Copy`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::clone`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -10873,7 +10873,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Sized`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::clone`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -10924,7 +10924,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Clone`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::clone`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -10975,7 +10975,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Option`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::clone`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -11026,7 +11026,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Some`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::clone`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -11109,7 +11109,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `None`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::clone`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -11192,7 +11192,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `PartialEq`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::clone`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -11243,7 +11243,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Eq`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::clone`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -11294,7 +11294,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `PartialOrd`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::clone`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -11345,7 +11345,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Ord`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::clone`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -11396,7 +11396,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Slice`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::clone`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -11447,7 +11447,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `CyclicSlice`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::clone`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -11498,7 +11498,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Vec`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::clone`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -11892,7 +11892,7 @@ EntityTreeCrateBundle {
                 [
                     EntitySymbolEntry {
                         ident: `PartialEq`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Trait(
                                 TraitPath(`core::cmp::PartialEq`),
@@ -11901,7 +11901,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Eq`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Trait(
                                 TraitPath(`core::cmp::Eq`),
@@ -11910,7 +11910,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `PartialOrd`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Trait(
                                 TraitPath(`core::cmp::PartialOrd`),
@@ -11919,7 +11919,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Ord`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Trait(
                                 TraitPath(`core::cmp::Ord`),
@@ -11928,7 +11928,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `array`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::cmp`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -11955,7 +11955,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `basic`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::cmp`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -11982,7 +11982,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `clone`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::cmp`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -12009,7 +12009,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `cmp`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::cmp`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -12036,7 +12036,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `default`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::cmp`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -12063,7 +12063,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `fmt`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::cmp`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -12090,7 +12090,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `logic`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::cmp`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -12117,7 +12117,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `marker`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::cmp`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -12144,7 +12144,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `mem`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::cmp`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -12171,7 +12171,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `num`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::cmp`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -12198,7 +12198,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ops`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::cmp`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -12225,7 +12225,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `option`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::cmp`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -12252,7 +12252,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `prelude`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::cmp`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -12279,7 +12279,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `raw_bits`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::cmp`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -12306,7 +12306,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `result`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::cmp`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -12333,7 +12333,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `vec`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::cmp`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -12360,7 +12360,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `slice`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::cmp`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -12387,7 +12387,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `str`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::cmp`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -12414,7 +12414,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `visual`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::cmp`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -12441,7 +12441,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `bool`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::cmp`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -12492,7 +12492,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `never`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::cmp`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -12543,7 +12543,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `unit`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::cmp`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -12594,7 +12594,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Trait`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::cmp`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -12645,7 +12645,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Module`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::cmp`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -12696,7 +12696,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Lifetime`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::cmp`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -12747,7 +12747,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Place`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::cmp`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -12798,7 +12798,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Universe`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::cmp`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -12849,7 +12849,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Default`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::cmp`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -12900,7 +12900,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i8`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::cmp`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -12951,7 +12951,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i16`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::cmp`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -13002,7 +13002,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i32`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::cmp`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -13053,7 +13053,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i64`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::cmp`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -13104,7 +13104,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i128`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::cmp`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -13155,7 +13155,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `isize`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::cmp`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -13206,7 +13206,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u8`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::cmp`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -13257,7 +13257,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u16`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::cmp`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -13308,7 +13308,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u32`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::cmp`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -13359,7 +13359,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u64`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::cmp`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -13410,7 +13410,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u128`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::cmp`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -13461,7 +13461,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `usize`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::cmp`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -13512,7 +13512,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `f32`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::cmp`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -13563,7 +13563,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `f64`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::cmp`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -13614,7 +13614,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `r32`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::cmp`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -13665,7 +13665,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Debug`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::cmp`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -13716,7 +13716,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Visualize`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::cmp`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -13767,7 +13767,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Visual`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::cmp`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -13818,7 +13818,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Copy`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::cmp`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -13869,7 +13869,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Sized`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::cmp`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -13920,7 +13920,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Clone`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::cmp`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -13971,7 +13971,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Option`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::cmp`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -14022,7 +14022,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Some`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::cmp`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -14105,7 +14105,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `None`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::cmp`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -14188,7 +14188,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `PartialEq`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::cmp`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -14239,7 +14239,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Eq`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::cmp`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -14290,7 +14290,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `PartialOrd`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::cmp`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -14341,7 +14341,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Ord`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::cmp`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -14392,7 +14392,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Slice`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::cmp`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -14443,7 +14443,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `CyclicSlice`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::cmp`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -14494,7 +14494,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Vec`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::cmp`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -14665,7 +14665,7 @@ EntityTreeCrateBundle {
                 [
                     EntitySymbolEntry {
                         ident: `Default`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Trait(
                                 TraitPath(`core::default::Default`),
@@ -14674,7 +14674,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `array`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::default`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -14701,7 +14701,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `basic`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::default`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -14728,7 +14728,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `clone`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::default`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -14755,7 +14755,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `cmp`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::default`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -14782,7 +14782,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `default`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::default`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -14809,7 +14809,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `fmt`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::default`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -14836,7 +14836,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `logic`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::default`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -14863,7 +14863,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `marker`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::default`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -14890,7 +14890,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `mem`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::default`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -14917,7 +14917,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `num`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::default`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -14944,7 +14944,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ops`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::default`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -14971,7 +14971,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `option`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::default`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -14998,7 +14998,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `prelude`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::default`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -15025,7 +15025,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `raw_bits`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::default`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -15052,7 +15052,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `result`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::default`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -15079,7 +15079,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `vec`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::default`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -15106,7 +15106,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `slice`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::default`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -15133,7 +15133,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `str`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::default`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -15160,7 +15160,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `visual`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::default`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -15187,7 +15187,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `bool`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::default`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -15238,7 +15238,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `never`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::default`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -15289,7 +15289,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `unit`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::default`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -15340,7 +15340,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Trait`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::default`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -15391,7 +15391,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Module`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::default`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -15442,7 +15442,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Lifetime`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::default`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -15493,7 +15493,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Place`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::default`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -15544,7 +15544,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Universe`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::default`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -15595,7 +15595,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Default`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::default`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -15646,7 +15646,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i8`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::default`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -15697,7 +15697,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i16`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::default`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -15748,7 +15748,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i32`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::default`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -15799,7 +15799,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i64`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::default`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -15850,7 +15850,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i128`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::default`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -15901,7 +15901,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `isize`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::default`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -15952,7 +15952,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u8`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::default`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -16003,7 +16003,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u16`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::default`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -16054,7 +16054,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u32`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::default`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -16105,7 +16105,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u64`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::default`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -16156,7 +16156,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u128`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::default`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -16207,7 +16207,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `usize`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::default`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -16258,7 +16258,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `f32`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::default`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -16309,7 +16309,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `f64`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::default`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -16360,7 +16360,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `r32`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::default`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -16411,7 +16411,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Debug`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::default`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -16462,7 +16462,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Visualize`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::default`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -16513,7 +16513,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Visual`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::default`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -16564,7 +16564,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Copy`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::default`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -16615,7 +16615,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Sized`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::default`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -16666,7 +16666,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Clone`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::default`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -16717,7 +16717,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Option`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::default`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -16768,7 +16768,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Some`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::default`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -16851,7 +16851,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `None`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::default`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -16934,7 +16934,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `PartialEq`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::default`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -16985,7 +16985,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Eq`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::default`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -17036,7 +17036,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `PartialOrd`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::default`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -17087,7 +17087,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Ord`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::default`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -17138,7 +17138,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Slice`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::default`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -17189,7 +17189,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `CyclicSlice`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::default`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -17240,7 +17240,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Vec`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::default`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -17405,7 +17405,7 @@ EntityTreeCrateBundle {
                 [
                     EntitySymbolEntry {
                         ident: `Debug`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Trait(
                                 TraitPath(`core::fmt::Debug`),
@@ -17414,7 +17414,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `array`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::fmt`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -17441,7 +17441,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `basic`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::fmt`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -17468,7 +17468,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `clone`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::fmt`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -17495,7 +17495,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `cmp`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::fmt`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -17522,7 +17522,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `default`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::fmt`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -17549,7 +17549,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `fmt`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::fmt`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -17576,7 +17576,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `logic`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::fmt`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -17603,7 +17603,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `marker`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::fmt`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -17630,7 +17630,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `mem`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::fmt`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -17657,7 +17657,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `num`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::fmt`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -17684,7 +17684,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ops`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::fmt`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -17711,7 +17711,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `option`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::fmt`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -17738,7 +17738,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `prelude`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::fmt`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -17765,7 +17765,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `raw_bits`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::fmt`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -17792,7 +17792,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `result`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::fmt`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -17819,7 +17819,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `vec`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::fmt`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -17846,7 +17846,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `slice`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::fmt`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -17873,7 +17873,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `str`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::fmt`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -17900,7 +17900,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `visual`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::fmt`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -17927,7 +17927,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `bool`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::fmt`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -17978,7 +17978,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `never`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::fmt`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -18029,7 +18029,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `unit`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::fmt`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -18080,7 +18080,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Trait`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::fmt`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -18131,7 +18131,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Module`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::fmt`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -18182,7 +18182,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Lifetime`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::fmt`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -18233,7 +18233,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Place`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::fmt`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -18284,7 +18284,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Universe`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::fmt`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -18335,7 +18335,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Default`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::fmt`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -18386,7 +18386,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i8`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::fmt`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -18437,7 +18437,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i16`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::fmt`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -18488,7 +18488,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i32`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::fmt`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -18539,7 +18539,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i64`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::fmt`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -18590,7 +18590,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i128`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::fmt`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -18641,7 +18641,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `isize`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::fmt`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -18692,7 +18692,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u8`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::fmt`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -18743,7 +18743,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u16`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::fmt`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -18794,7 +18794,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u32`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::fmt`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -18845,7 +18845,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u64`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::fmt`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -18896,7 +18896,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u128`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::fmt`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -18947,7 +18947,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `usize`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::fmt`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -18998,7 +18998,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `f32`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::fmt`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -19049,7 +19049,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `f64`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::fmt`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -19100,7 +19100,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `r32`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::fmt`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -19151,7 +19151,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Debug`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::fmt`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -19202,7 +19202,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Visualize`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::fmt`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -19253,7 +19253,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Visual`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::fmt`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -19304,7 +19304,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Copy`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::fmt`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -19355,7 +19355,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Sized`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::fmt`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -19406,7 +19406,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Clone`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::fmt`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -19457,7 +19457,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Option`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::fmt`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -19508,7 +19508,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Some`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::fmt`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -19591,7 +19591,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `None`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::fmt`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -19674,7 +19674,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `PartialEq`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::fmt`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -19725,7 +19725,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Eq`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::fmt`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -19776,7 +19776,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `PartialOrd`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::fmt`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -19827,7 +19827,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Ord`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::fmt`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -19878,7 +19878,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Slice`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::fmt`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -19929,7 +19929,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `CyclicSlice`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::fmt`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -19980,7 +19980,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Vec`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::fmt`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -20216,7 +20216,7 @@ EntityTreeCrateBundle {
                 [
                     EntitySymbolEntry {
                         ident: `Copy`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Trait(
                                 TraitPath(`core::marker::Copy`),
@@ -20225,7 +20225,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Sized`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Trait(
                                 TraitPath(`core::marker::Sized`),
@@ -20234,7 +20234,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `array`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::marker`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -20261,7 +20261,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `basic`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::marker`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -20288,7 +20288,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `clone`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::marker`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -20315,7 +20315,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `cmp`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::marker`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -20342,7 +20342,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `default`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::marker`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -20369,7 +20369,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `fmt`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::marker`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -20396,7 +20396,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `logic`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::marker`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -20423,7 +20423,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `marker`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::marker`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -20450,7 +20450,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `mem`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::marker`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -20477,7 +20477,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `num`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::marker`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -20504,7 +20504,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ops`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::marker`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -20531,7 +20531,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `option`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::marker`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -20558,7 +20558,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `prelude`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::marker`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -20585,7 +20585,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `raw_bits`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::marker`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -20612,7 +20612,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `result`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::marker`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -20639,7 +20639,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `vec`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::marker`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -20666,7 +20666,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `slice`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::marker`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -20693,7 +20693,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `str`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::marker`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -20720,7 +20720,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `visual`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::marker`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -20747,7 +20747,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `bool`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::marker`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -20798,7 +20798,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `never`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::marker`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -20849,7 +20849,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `unit`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::marker`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -20900,7 +20900,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Trait`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::marker`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -20951,7 +20951,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Module`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::marker`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -21002,7 +21002,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Lifetime`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::marker`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -21053,7 +21053,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Place`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::marker`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -21104,7 +21104,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Universe`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::marker`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -21155,7 +21155,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Default`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::marker`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -21206,7 +21206,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i8`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::marker`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -21257,7 +21257,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i16`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::marker`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -21308,7 +21308,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i32`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::marker`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -21359,7 +21359,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i64`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::marker`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -21410,7 +21410,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i128`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::marker`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -21461,7 +21461,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `isize`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::marker`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -21512,7 +21512,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u8`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::marker`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -21563,7 +21563,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u16`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::marker`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -21614,7 +21614,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u32`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::marker`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -21665,7 +21665,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u64`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::marker`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -21716,7 +21716,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u128`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::marker`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -21767,7 +21767,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `usize`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::marker`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -21818,7 +21818,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `f32`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::marker`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -21869,7 +21869,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `f64`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::marker`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -21920,7 +21920,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `r32`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::marker`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -21971,7 +21971,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Debug`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::marker`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -22022,7 +22022,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Visualize`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::marker`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -22073,7 +22073,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Visual`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::marker`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -22124,7 +22124,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Copy`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::marker`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -22175,7 +22175,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Sized`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::marker`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -22226,7 +22226,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Clone`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::marker`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -22277,7 +22277,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Option`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::marker`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -22328,7 +22328,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Some`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::marker`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -22411,7 +22411,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `None`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::marker`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -22494,7 +22494,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `PartialEq`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::marker`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -22545,7 +22545,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Eq`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::marker`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -22596,7 +22596,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `PartialOrd`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::marker`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -22647,7 +22647,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Ord`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::marker`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -22698,7 +22698,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Slice`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::marker`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -22749,7 +22749,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `CyclicSlice`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::marker`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -22800,7 +22800,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Vec`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::marker`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -23186,7 +23186,7 @@ EntityTreeCrateBundle {
                 [
                     EntitySymbolEntry {
                         ident: `Ref`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Type(
                                 TypePath(`core::mem::Ref`, `Extern`),
@@ -23195,7 +23195,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `RefMut`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Type(
                                 TypePath(`core::mem::RefMut`, `Extern`),
@@ -23204,7 +23204,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Leash`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Type(
                                 TypePath(`core::mem::Leash`, `Extern`),
@@ -23213,7 +23213,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `At`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Type(
                                 TypePath(`core::mem::At`, `Extern`),
@@ -23222,7 +23222,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `array`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::mem`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -23249,7 +23249,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `basic`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::mem`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -23276,7 +23276,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `clone`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::mem`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -23303,7 +23303,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `cmp`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::mem`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -23330,7 +23330,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `default`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::mem`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -23357,7 +23357,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `fmt`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::mem`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -23384,7 +23384,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `logic`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::mem`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -23411,7 +23411,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `marker`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::mem`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -23438,7 +23438,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `mem`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::mem`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -23465,7 +23465,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `num`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::mem`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -23492,7 +23492,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ops`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::mem`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -23519,7 +23519,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `option`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::mem`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -23546,7 +23546,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `prelude`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::mem`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -23573,7 +23573,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `raw_bits`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::mem`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -23600,7 +23600,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `result`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::mem`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -23627,7 +23627,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `vec`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::mem`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -23654,7 +23654,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `slice`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::mem`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -23681,7 +23681,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `str`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::mem`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -23708,7 +23708,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `visual`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::mem`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -23735,7 +23735,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `bool`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::mem`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -23786,7 +23786,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `never`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::mem`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -23837,7 +23837,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `unit`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::mem`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -23888,7 +23888,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Trait`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::mem`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -23939,7 +23939,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Module`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::mem`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -23990,7 +23990,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Lifetime`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::mem`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -24041,7 +24041,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Place`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::mem`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -24092,7 +24092,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Universe`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::mem`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -24143,7 +24143,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Default`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::mem`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -24194,7 +24194,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i8`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::mem`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -24245,7 +24245,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i16`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::mem`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -24296,7 +24296,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i32`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::mem`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -24347,7 +24347,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i64`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::mem`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -24398,7 +24398,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i128`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::mem`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -24449,7 +24449,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `isize`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::mem`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -24500,7 +24500,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u8`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::mem`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -24551,7 +24551,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u16`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::mem`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -24602,7 +24602,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u32`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::mem`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -24653,7 +24653,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u64`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::mem`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -24704,7 +24704,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u128`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::mem`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -24755,7 +24755,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `usize`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::mem`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -24806,7 +24806,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `f32`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::mem`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -24857,7 +24857,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `f64`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::mem`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -24908,7 +24908,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `r32`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::mem`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -24959,7 +24959,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Debug`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::mem`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -25010,7 +25010,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Visualize`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::mem`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -25061,7 +25061,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Visual`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::mem`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -25112,7 +25112,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Copy`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::mem`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -25163,7 +25163,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Sized`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::mem`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -25214,7 +25214,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Clone`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::mem`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -25265,7 +25265,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Option`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::mem`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -25316,7 +25316,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Some`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::mem`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -25399,7 +25399,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `None`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::mem`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -25482,7 +25482,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `PartialEq`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::mem`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -25533,7 +25533,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Eq`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::mem`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -25584,7 +25584,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `PartialOrd`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::mem`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -25635,7 +25635,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Ord`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::mem`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -25686,7 +25686,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Slice`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::mem`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -25737,7 +25737,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `CyclicSlice`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::mem`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -25788,7 +25788,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Vec`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::mem`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -26700,7 +26700,7 @@ EntityTreeCrateBundle {
                 [
                     EntitySymbolEntry {
                         ident: `i8`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Type(
                                 TypePath(`core::num::i8`, `Extern`),
@@ -26709,7 +26709,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i16`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Type(
                                 TypePath(`core::num::i16`, `Extern`),
@@ -26718,7 +26718,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i32`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Type(
                                 TypePath(`core::num::i32`, `Extern`),
@@ -26727,7 +26727,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i64`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Type(
                                 TypePath(`core::num::i64`, `Extern`),
@@ -26736,7 +26736,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i128`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Type(
                                 TypePath(`core::num::i128`, `Extern`),
@@ -26745,7 +26745,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `isize`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Type(
                                 TypePath(`core::num::isize`, `Extern`),
@@ -26754,7 +26754,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u8`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Type(
                                 TypePath(`core::num::u8`, `Extern`),
@@ -26763,7 +26763,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u16`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Type(
                                 TypePath(`core::num::u16`, `Extern`),
@@ -26772,7 +26772,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u32`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Type(
                                 TypePath(`core::num::u32`, `Extern`),
@@ -26781,7 +26781,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u64`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Type(
                                 TypePath(`core::num::u64`, `Extern`),
@@ -26790,7 +26790,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u128`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Type(
                                 TypePath(`core::num::u128`, `Extern`),
@@ -26799,7 +26799,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `usize`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Type(
                                 TypePath(`core::num::usize`, `Extern`),
@@ -26808,7 +26808,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `f32`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Type(
                                 TypePath(`core::num::f32`, `Extern`),
@@ -26817,7 +26817,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `f64`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Type(
                                 TypePath(`core::num::f64`, `Extern`),
@@ -26826,7 +26826,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `array`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::num`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -26853,7 +26853,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `basic`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::num`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -26880,7 +26880,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `clone`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::num`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -26907,7 +26907,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `cmp`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::num`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -26934,7 +26934,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `default`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::num`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -26961,7 +26961,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `fmt`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::num`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -26988,7 +26988,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `logic`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::num`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -27015,7 +27015,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `marker`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::num`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -27042,7 +27042,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `mem`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::num`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -27069,7 +27069,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `num`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::num`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -27096,7 +27096,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ops`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::num`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -27123,7 +27123,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `option`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::num`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -27150,7 +27150,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `prelude`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::num`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -27177,7 +27177,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `raw_bits`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::num`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -27204,7 +27204,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `result`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::num`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -27231,7 +27231,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `vec`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::num`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -27258,7 +27258,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `slice`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::num`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -27285,7 +27285,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `str`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::num`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -27312,7 +27312,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `visual`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::num`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -27339,7 +27339,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Add`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::num`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -27364,7 +27364,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `bool`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::num`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -27415,7 +27415,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `never`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::num`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -27466,7 +27466,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `unit`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::num`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -27517,7 +27517,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Trait`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::num`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -27568,7 +27568,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Module`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::num`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -27619,7 +27619,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Lifetime`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::num`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -27670,7 +27670,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Place`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::num`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -27721,7 +27721,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Universe`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::num`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -27772,7 +27772,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Default`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::num`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -27823,7 +27823,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i8`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::num`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -27874,7 +27874,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i16`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::num`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -27925,7 +27925,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i32`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::num`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -27976,7 +27976,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i64`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::num`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -28027,7 +28027,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i128`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::num`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -28078,7 +28078,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `isize`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::num`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -28129,7 +28129,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u8`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::num`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -28180,7 +28180,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u16`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::num`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -28231,7 +28231,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u32`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::num`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -28282,7 +28282,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u64`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::num`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -28333,7 +28333,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u128`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::num`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -28384,7 +28384,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `usize`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::num`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -28435,7 +28435,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `f32`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::num`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -28486,7 +28486,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `f64`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::num`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -28537,7 +28537,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `r32`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::num`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -28588,7 +28588,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Debug`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::num`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -28639,7 +28639,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Visualize`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::num`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -28690,7 +28690,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Visual`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::num`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -28741,7 +28741,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Copy`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::num`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -28792,7 +28792,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Sized`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::num`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -28843,7 +28843,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Clone`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::num`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -28894,7 +28894,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Option`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::num`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -28945,7 +28945,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Some`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::num`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -29028,7 +29028,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `None`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::num`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -29111,7 +29111,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `PartialEq`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::num`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -29162,7 +29162,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Eq`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::num`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -29213,7 +29213,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `PartialOrd`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::num`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -29264,7 +29264,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Ord`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::num`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -29315,7 +29315,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Slice`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::num`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -29366,7 +29366,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `CyclicSlice`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::num`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -29417,7 +29417,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Vec`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::num`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -32203,7 +32203,7 @@ EntityTreeCrateBundle {
                 [
                     EntitySymbolEntry {
                         ident: `Add`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Trait(
                                 TraitPath(`core::ops::Add`),
@@ -32212,7 +32212,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `AddAssign`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Trait(
                                 TraitPath(`core::ops::AddAssign`),
@@ -32221,7 +32221,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `BitAnd`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Trait(
                                 TraitPath(`core::ops::BitAnd`),
@@ -32230,7 +32230,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `BitAndAssign`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Trait(
                                 TraitPath(`core::ops::BitAndAssign`),
@@ -32239,7 +32239,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `BitOr`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Trait(
                                 TraitPath(`core::ops::BitOr`),
@@ -32248,7 +32248,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `BitOrAssign`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Trait(
                                 TraitPath(`core::ops::BitOrAssign`),
@@ -32257,7 +32257,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `BitXor`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Trait(
                                 TraitPath(`core::ops::BitXor`),
@@ -32266,7 +32266,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `BitXorAssign`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Trait(
                                 TraitPath(`core::ops::BitXorAssign`),
@@ -32275,7 +32275,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Div`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Trait(
                                 TraitPath(`core::ops::Div`),
@@ -32284,7 +32284,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `DivAssign`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Trait(
                                 TraitPath(`core::ops::DivAssign`),
@@ -32293,7 +32293,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `IntIndex`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Trait(
                                 TraitPath(`core::ops::IntIndex`),
@@ -32302,7 +32302,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Mul`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Trait(
                                 TraitPath(`core::ops::Mul`),
@@ -32311,7 +32311,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `MulAssign`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Trait(
                                 TraitPath(`core::ops::MulAssign`),
@@ -32320,7 +32320,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Neg`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Trait(
                                 TraitPath(`core::ops::Neg`),
@@ -32329,7 +32329,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Not`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Trait(
                                 TraitPath(`core::ops::Not`),
@@ -32338,7 +32338,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Sub`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Trait(
                                 TraitPath(`core::ops::Sub`),
@@ -32347,7 +32347,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Unveil`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Trait(
                                 TraitPath(`core::ops::Unveil`),
@@ -32356,7 +32356,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ControlFlow`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Type(
                                 TypePath(`core::ops::ControlFlow`, `Enum`),
@@ -32365,7 +32365,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `array`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::ops`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -32392,7 +32392,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `basic`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::ops`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -32419,7 +32419,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `clone`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::ops`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -32446,7 +32446,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `cmp`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::ops`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -32473,7 +32473,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `default`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::ops`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -32500,7 +32500,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `fmt`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::ops`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -32527,7 +32527,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `logic`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::ops`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -32554,7 +32554,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `marker`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::ops`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -32581,7 +32581,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `mem`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::ops`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -32608,7 +32608,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `num`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::ops`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -32635,7 +32635,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ops`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::ops`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -32662,7 +32662,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `option`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::ops`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -32689,7 +32689,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `prelude`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::ops`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -32716,7 +32716,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `raw_bits`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::ops`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -32743,7 +32743,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `result`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::ops`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -32770,7 +32770,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `vec`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::ops`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -32797,7 +32797,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `slice`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::ops`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -32824,7 +32824,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `str`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::ops`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -32851,7 +32851,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `visual`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::ops`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -32878,7 +32878,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `bool`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::ops`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -32929,7 +32929,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `never`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::ops`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -32980,7 +32980,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `unit`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::ops`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -33031,7 +33031,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Trait`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::ops`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -33082,7 +33082,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Module`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::ops`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -33133,7 +33133,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Lifetime`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::ops`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -33184,7 +33184,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Place`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::ops`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -33235,7 +33235,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Universe`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::ops`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -33286,7 +33286,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Default`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::ops`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -33337,7 +33337,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i8`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::ops`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -33388,7 +33388,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i16`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::ops`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -33439,7 +33439,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i32`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::ops`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -33490,7 +33490,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i64`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::ops`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -33541,7 +33541,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i128`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::ops`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -33592,7 +33592,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `isize`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::ops`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -33643,7 +33643,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u8`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::ops`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -33694,7 +33694,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u16`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::ops`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -33745,7 +33745,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u32`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::ops`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -33796,7 +33796,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u64`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::ops`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -33847,7 +33847,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u128`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::ops`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -33898,7 +33898,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `usize`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::ops`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -33949,7 +33949,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `f32`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::ops`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -34000,7 +34000,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `f64`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::ops`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -34051,7 +34051,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `r32`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::ops`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -34102,7 +34102,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Debug`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::ops`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -34153,7 +34153,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Visualize`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::ops`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -34204,7 +34204,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Visual`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::ops`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -34255,7 +34255,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Copy`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::ops`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -34306,7 +34306,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Sized`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::ops`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -34357,7 +34357,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Clone`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::ops`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -34408,7 +34408,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Option`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::ops`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -34459,7 +34459,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Some`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::ops`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -34542,7 +34542,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `None`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::ops`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -34625,7 +34625,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `PartialEq`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::ops`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -34676,7 +34676,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Eq`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::ops`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -34727,7 +34727,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `PartialOrd`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::ops`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -34778,7 +34778,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Ord`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::ops`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -34829,7 +34829,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Slice`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::ops`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -34880,7 +34880,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `CyclicSlice`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::ops`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -34931,7 +34931,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Vec`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::ops`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -35102,7 +35102,7 @@ EntityTreeCrateBundle {
                 [
                     EntitySymbolEntry {
                         ident: `Option`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Type(
                                 TypePath(`core::option::Option`, `Enum`),
@@ -35111,7 +35111,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Some`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::TypeVariant {
@@ -35140,7 +35140,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `None`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::TypeVariant {
@@ -35169,7 +35169,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `array`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::option`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -35196,7 +35196,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `basic`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::option`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -35223,7 +35223,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `clone`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::option`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -35250,7 +35250,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `cmp`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::option`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -35277,7 +35277,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `default`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::option`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -35304,7 +35304,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `fmt`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::option`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -35331,7 +35331,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `logic`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::option`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -35358,7 +35358,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `marker`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::option`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -35385,7 +35385,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `mem`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::option`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -35412,7 +35412,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `num`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::option`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -35439,7 +35439,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ops`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::option`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -35466,7 +35466,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `option`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::option`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -35493,7 +35493,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `prelude`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::option`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -35520,7 +35520,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `raw_bits`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::option`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -35547,7 +35547,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `result`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::option`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -35574,7 +35574,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `vec`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::option`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -35601,7 +35601,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `slice`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::option`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -35628,7 +35628,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `str`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::option`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -35655,7 +35655,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `visual`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::option`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -35682,7 +35682,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `bool`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::option`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -35733,7 +35733,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `never`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::option`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -35784,7 +35784,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `unit`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::option`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -35835,7 +35835,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Trait`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::option`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -35886,7 +35886,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Module`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::option`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -35937,7 +35937,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Lifetime`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::option`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -35988,7 +35988,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Place`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::option`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -36039,7 +36039,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Universe`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::option`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -36090,7 +36090,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Default`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::option`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -36141,7 +36141,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i8`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::option`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -36192,7 +36192,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i16`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::option`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -36243,7 +36243,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i32`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::option`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -36294,7 +36294,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i64`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::option`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -36345,7 +36345,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i128`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::option`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -36396,7 +36396,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `isize`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::option`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -36447,7 +36447,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u8`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::option`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -36498,7 +36498,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u16`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::option`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -36549,7 +36549,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u32`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::option`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -36600,7 +36600,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u64`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::option`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -36651,7 +36651,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u128`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::option`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -36702,7 +36702,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `usize`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::option`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -36753,7 +36753,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `f32`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::option`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -36804,7 +36804,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `f64`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::option`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -36855,7 +36855,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `r32`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::option`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -36906,7 +36906,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Debug`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::option`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -36957,7 +36957,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Visualize`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::option`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -37008,7 +37008,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Visual`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::option`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -37059,7 +37059,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Copy`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::option`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -37110,7 +37110,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Sized`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::option`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -37161,7 +37161,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Clone`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::option`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -37212,7 +37212,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Option`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::option`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -37263,7 +37263,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Some`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::option`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -37346,7 +37346,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `None`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::option`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -37429,7 +37429,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `PartialEq`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::option`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -37480,7 +37480,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Eq`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::option`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -37531,7 +37531,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `PartialOrd`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::option`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -37582,7 +37582,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Ord`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::option`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -37633,7 +37633,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Slice`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::option`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -37684,7 +37684,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `CyclicSlice`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::option`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -37735,7 +37735,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Vec`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::option`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -37898,7 +37898,7 @@ EntityTreeCrateBundle {
                 [
                     EntitySymbolEntry {
                         ident: `bool`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::MajorItem {
@@ -37919,7 +37919,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `never`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::MajorItem {
@@ -37940,7 +37940,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `unit`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::MajorItem {
@@ -37961,7 +37961,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Trait`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::MajorItem {
@@ -37982,7 +37982,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Module`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::MajorItem {
@@ -38003,7 +38003,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Lifetime`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::MajorItem {
@@ -38024,7 +38024,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Place`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::MajorItem {
@@ -38045,7 +38045,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Universe`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::MajorItem {
@@ -38066,7 +38066,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Default`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::MajorItem {
@@ -38087,7 +38087,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i8`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::MajorItem {
@@ -38108,7 +38108,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i16`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::MajorItem {
@@ -38129,7 +38129,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i32`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::MajorItem {
@@ -38150,7 +38150,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i64`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::MajorItem {
@@ -38171,7 +38171,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i128`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::MajorItem {
@@ -38192,7 +38192,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `isize`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::MajorItem {
@@ -38213,7 +38213,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u8`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::MajorItem {
@@ -38234,7 +38234,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u16`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::MajorItem {
@@ -38255,7 +38255,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u32`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::MajorItem {
@@ -38276,7 +38276,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u64`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::MajorItem {
@@ -38297,7 +38297,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u128`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::MajorItem {
@@ -38318,7 +38318,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `usize`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::MajorItem {
@@ -38339,7 +38339,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `f32`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::MajorItem {
@@ -38360,7 +38360,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `f64`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::MajorItem {
@@ -38381,7 +38381,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `r32`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::MajorItem {
@@ -38402,7 +38402,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Debug`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::MajorItem {
@@ -38423,7 +38423,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Visualize`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::MajorItem {
@@ -38444,7 +38444,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Visual`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::MajorItem {
@@ -38465,7 +38465,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Copy`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::MajorItem {
@@ -38486,7 +38486,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Sized`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::MajorItem {
@@ -38507,7 +38507,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Clone`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::MajorItem {
@@ -38528,7 +38528,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Option`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::MajorItem {
@@ -38549,7 +38549,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Some`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Use(
@@ -38594,7 +38594,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `None`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Use(
@@ -38639,7 +38639,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `PartialEq`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::MajorItem {
@@ -38660,7 +38660,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Eq`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::MajorItem {
@@ -38681,7 +38681,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `PartialOrd`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::MajorItem {
@@ -38702,7 +38702,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Ord`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::MajorItem {
@@ -38723,7 +38723,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Slice`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::MajorItem {
@@ -38744,7 +38744,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `CyclicSlice`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::MajorItem {
@@ -38765,7 +38765,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Vec`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::MajorItem {
@@ -39773,7 +39773,7 @@ EntityTreeCrateBundle {
                 [
                     EntitySymbolEntry {
                         ident: `r32`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Type(
                                 TypePath(`core::raw_bits::r32`, `Extern`),
@@ -39782,7 +39782,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `array`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::raw_bits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -39809,7 +39809,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `basic`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::raw_bits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -39836,7 +39836,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `clone`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::raw_bits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -39863,7 +39863,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `cmp`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::raw_bits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -39890,7 +39890,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `default`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::raw_bits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -39917,7 +39917,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `fmt`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::raw_bits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -39944,7 +39944,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `logic`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::raw_bits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -39971,7 +39971,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `marker`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::raw_bits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -39998,7 +39998,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `mem`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::raw_bits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -40025,7 +40025,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `num`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::raw_bits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -40052,7 +40052,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ops`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::raw_bits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -40079,7 +40079,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `option`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::raw_bits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -40106,7 +40106,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `prelude`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::raw_bits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -40133,7 +40133,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `raw_bits`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::raw_bits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -40160,7 +40160,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `result`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::raw_bits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -40187,7 +40187,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `vec`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::raw_bits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -40214,7 +40214,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `slice`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::raw_bits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -40241,7 +40241,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `str`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::raw_bits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -40268,7 +40268,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `visual`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::raw_bits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -40295,7 +40295,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `bool`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::raw_bits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -40346,7 +40346,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `never`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::raw_bits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -40397,7 +40397,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `unit`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::raw_bits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -40448,7 +40448,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Trait`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::raw_bits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -40499,7 +40499,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Module`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::raw_bits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -40550,7 +40550,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Lifetime`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::raw_bits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -40601,7 +40601,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Place`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::raw_bits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -40652,7 +40652,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Universe`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::raw_bits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -40703,7 +40703,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Default`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::raw_bits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -40754,7 +40754,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i8`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::raw_bits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -40805,7 +40805,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i16`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::raw_bits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -40856,7 +40856,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i32`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::raw_bits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -40907,7 +40907,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i64`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::raw_bits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -40958,7 +40958,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i128`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::raw_bits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -41009,7 +41009,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `isize`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::raw_bits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -41060,7 +41060,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u8`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::raw_bits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -41111,7 +41111,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u16`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::raw_bits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -41162,7 +41162,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u32`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::raw_bits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -41213,7 +41213,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u64`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::raw_bits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -41264,7 +41264,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u128`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::raw_bits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -41315,7 +41315,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `usize`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::raw_bits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -41366,7 +41366,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `f32`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::raw_bits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -41417,7 +41417,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `f64`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::raw_bits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -41468,7 +41468,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `r32`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::raw_bits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -41519,7 +41519,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Debug`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::raw_bits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -41570,7 +41570,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Visualize`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::raw_bits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -41621,7 +41621,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Visual`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::raw_bits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -41672,7 +41672,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Copy`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::raw_bits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -41723,7 +41723,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Sized`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::raw_bits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -41774,7 +41774,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Clone`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::raw_bits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -41825,7 +41825,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Option`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::raw_bits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -41876,7 +41876,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Some`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::raw_bits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -41959,7 +41959,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `None`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::raw_bits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -42042,7 +42042,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `PartialEq`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::raw_bits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -42093,7 +42093,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Eq`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::raw_bits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -42144,7 +42144,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `PartialOrd`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::raw_bits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -42195,7 +42195,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Ord`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::raw_bits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -42246,7 +42246,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Slice`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::raw_bits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -42297,7 +42297,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `CyclicSlice`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::raw_bits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -42348,7 +42348,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Vec`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::raw_bits`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -42574,7 +42574,7 @@ EntityTreeCrateBundle {
                 [
                     EntitySymbolEntry {
                         ident: `Result`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Type(
                                 TypePath(`core::result::Result`, `Enum`),
@@ -42583,7 +42583,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Ok`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::TypeVariant {
@@ -42612,7 +42612,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Err`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::TypeVariant {
@@ -42641,7 +42641,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `array`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::result`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -42668,7 +42668,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `basic`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::result`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -42695,7 +42695,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `clone`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::result`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -42722,7 +42722,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `cmp`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::result`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -42749,7 +42749,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `default`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::result`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -42776,7 +42776,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `fmt`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::result`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -42803,7 +42803,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `logic`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::result`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -42830,7 +42830,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `marker`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::result`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -42857,7 +42857,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `mem`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::result`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -42884,7 +42884,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `num`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::result`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -42911,7 +42911,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ops`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::result`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -42938,7 +42938,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `option`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::result`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -42965,7 +42965,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `prelude`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::result`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -42992,7 +42992,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `raw_bits`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::result`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -43019,7 +43019,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `result`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::result`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -43046,7 +43046,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `vec`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::result`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -43073,7 +43073,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `slice`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::result`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -43100,7 +43100,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `str`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::result`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -43127,7 +43127,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `visual`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::result`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -43154,7 +43154,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `bool`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::result`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -43205,7 +43205,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `never`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::result`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -43256,7 +43256,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `unit`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::result`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -43307,7 +43307,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Trait`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::result`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -43358,7 +43358,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Module`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::result`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -43409,7 +43409,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Lifetime`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::result`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -43460,7 +43460,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Place`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::result`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -43511,7 +43511,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Universe`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::result`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -43562,7 +43562,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Default`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::result`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -43613,7 +43613,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i8`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::result`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -43664,7 +43664,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i16`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::result`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -43715,7 +43715,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i32`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::result`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -43766,7 +43766,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i64`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::result`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -43817,7 +43817,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i128`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::result`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -43868,7 +43868,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `isize`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::result`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -43919,7 +43919,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u8`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::result`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -43970,7 +43970,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u16`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::result`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -44021,7 +44021,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u32`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::result`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -44072,7 +44072,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u64`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::result`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -44123,7 +44123,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u128`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::result`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -44174,7 +44174,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `usize`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::result`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -44225,7 +44225,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `f32`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::result`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -44276,7 +44276,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `f64`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::result`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -44327,7 +44327,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `r32`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::result`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -44378,7 +44378,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Debug`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::result`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -44429,7 +44429,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Visualize`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::result`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -44480,7 +44480,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Visual`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::result`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -44531,7 +44531,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Copy`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::result`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -44582,7 +44582,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Sized`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::result`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -44633,7 +44633,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Clone`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::result`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -44684,7 +44684,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Option`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::result`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -44735,7 +44735,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Some`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::result`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -44818,7 +44818,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `None`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::result`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -44901,7 +44901,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `PartialEq`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::result`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -44952,7 +44952,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Eq`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::result`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -45003,7 +45003,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `PartialOrd`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::result`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -45054,7 +45054,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Ord`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::result`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -45105,7 +45105,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Slice`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::result`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -45156,7 +45156,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `CyclicSlice`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::result`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -45207,7 +45207,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Vec`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::result`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -45478,7 +45478,7 @@ EntityTreeCrateBundle {
                 [
                     EntitySymbolEntry {
                         ident: `Vec`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Type(
                                 TypePath(`core::vec::Vec`, `Extern`),
@@ -45487,7 +45487,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `array`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::vec`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -45514,7 +45514,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `basic`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::vec`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -45541,7 +45541,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `clone`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::vec`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -45568,7 +45568,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `cmp`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::vec`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -45595,7 +45595,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `default`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::vec`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -45622,7 +45622,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `fmt`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::vec`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -45649,7 +45649,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `logic`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::vec`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -45676,7 +45676,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `marker`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::vec`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -45703,7 +45703,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `mem`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::vec`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -45730,7 +45730,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `num`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::vec`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -45757,7 +45757,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ops`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::vec`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -45784,7 +45784,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `option`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::vec`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -45811,7 +45811,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `prelude`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::vec`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -45838,7 +45838,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `raw_bits`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::vec`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -45865,7 +45865,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `result`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::vec`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -45892,7 +45892,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `vec`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::vec`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -45919,7 +45919,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `slice`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::vec`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -45946,7 +45946,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `str`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::vec`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -45973,7 +45973,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `visual`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::vec`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -46000,7 +46000,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `bool`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::vec`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -46051,7 +46051,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `never`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::vec`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -46102,7 +46102,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `unit`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::vec`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -46153,7 +46153,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Trait`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::vec`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -46204,7 +46204,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Module`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::vec`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -46255,7 +46255,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Lifetime`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::vec`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -46306,7 +46306,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Place`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::vec`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -46357,7 +46357,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Universe`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::vec`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -46408,7 +46408,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Default`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::vec`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -46459,7 +46459,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i8`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::vec`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -46510,7 +46510,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i16`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::vec`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -46561,7 +46561,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i32`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::vec`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -46612,7 +46612,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i64`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::vec`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -46663,7 +46663,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i128`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::vec`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -46714,7 +46714,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `isize`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::vec`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -46765,7 +46765,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u8`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::vec`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -46816,7 +46816,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u16`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::vec`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -46867,7 +46867,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u32`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::vec`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -46918,7 +46918,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u64`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::vec`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -46969,7 +46969,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u128`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::vec`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -47020,7 +47020,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `usize`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::vec`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -47071,7 +47071,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `f32`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::vec`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -47122,7 +47122,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `f64`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::vec`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -47173,7 +47173,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `r32`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::vec`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -47224,7 +47224,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Debug`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::vec`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -47275,7 +47275,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Visualize`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::vec`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -47326,7 +47326,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Visual`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::vec`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -47377,7 +47377,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Copy`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::vec`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -47428,7 +47428,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Sized`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::vec`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -47479,7 +47479,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Clone`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::vec`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -47530,7 +47530,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Option`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::vec`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -47581,7 +47581,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Some`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::vec`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -47664,7 +47664,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `None`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::vec`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -47747,7 +47747,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `PartialEq`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::vec`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -47798,7 +47798,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Eq`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::vec`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -47849,7 +47849,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `PartialOrd`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::vec`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -47900,7 +47900,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Ord`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::vec`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -47951,7 +47951,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Slice`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::vec`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -48002,7 +48002,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `CyclicSlice`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::vec`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -48053,7 +48053,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Vec`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::vec`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -48327,7 +48327,7 @@ EntityTreeCrateBundle {
                 [
                     EntitySymbolEntry {
                         ident: `Slice`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Type(
                                 TypePath(`core::slice::Slice`, `Extern`),
@@ -48336,7 +48336,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `CyclicSlice`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Type(
                                 TypePath(`core::slice::CyclicSlice`, `Extern`),
@@ -48345,7 +48345,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `array`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::slice`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -48372,7 +48372,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `basic`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::slice`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -48399,7 +48399,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `clone`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::slice`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -48426,7 +48426,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `cmp`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::slice`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -48453,7 +48453,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `default`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::slice`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -48480,7 +48480,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `fmt`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::slice`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -48507,7 +48507,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `logic`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::slice`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -48534,7 +48534,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `marker`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::slice`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -48561,7 +48561,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `mem`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::slice`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -48588,7 +48588,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `num`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::slice`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -48615,7 +48615,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ops`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::slice`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -48642,7 +48642,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `option`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::slice`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -48669,7 +48669,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `prelude`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::slice`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -48696,7 +48696,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `raw_bits`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::slice`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -48723,7 +48723,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `result`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::slice`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -48750,7 +48750,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `vec`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::slice`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -48777,7 +48777,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `slice`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::slice`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -48804,7 +48804,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `str`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::slice`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -48831,7 +48831,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `visual`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::slice`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -48858,7 +48858,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `bool`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::slice`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -48909,7 +48909,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `never`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::slice`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -48960,7 +48960,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `unit`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::slice`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -49011,7 +49011,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Trait`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::slice`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -49062,7 +49062,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Module`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::slice`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -49113,7 +49113,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Lifetime`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::slice`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -49164,7 +49164,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Place`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::slice`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -49215,7 +49215,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Universe`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::slice`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -49266,7 +49266,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Default`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::slice`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -49317,7 +49317,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i8`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::slice`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -49368,7 +49368,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i16`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::slice`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -49419,7 +49419,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i32`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::slice`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -49470,7 +49470,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i64`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::slice`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -49521,7 +49521,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i128`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::slice`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -49572,7 +49572,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `isize`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::slice`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -49623,7 +49623,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u8`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::slice`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -49674,7 +49674,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u16`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::slice`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -49725,7 +49725,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u32`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::slice`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -49776,7 +49776,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u64`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::slice`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -49827,7 +49827,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u128`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::slice`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -49878,7 +49878,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `usize`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::slice`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -49929,7 +49929,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `f32`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::slice`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -49980,7 +49980,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `f64`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::slice`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -50031,7 +50031,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `r32`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::slice`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -50082,7 +50082,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Debug`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::slice`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -50133,7 +50133,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Visualize`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::slice`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -50184,7 +50184,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Visual`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::slice`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -50235,7 +50235,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Copy`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::slice`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -50286,7 +50286,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Sized`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::slice`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -50337,7 +50337,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Clone`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::slice`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -50388,7 +50388,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Option`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::slice`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -50439,7 +50439,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Some`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::slice`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -50522,7 +50522,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `None`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::slice`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -50605,7 +50605,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `PartialEq`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::slice`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -50656,7 +50656,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Eq`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::slice`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -50707,7 +50707,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `PartialOrd`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::slice`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -50758,7 +50758,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Ord`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::slice`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -50809,7 +50809,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Slice`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::slice`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -50860,7 +50860,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `CyclicSlice`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::slice`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -50911,7 +50911,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Vec`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::slice`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -51291,7 +51291,7 @@ EntityTreeCrateBundle {
                 [
                     EntitySymbolEntry {
                         ident: `str`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Type(
                                 TypePath(`core::str::str`, `Extern`),
@@ -51300,7 +51300,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `StringLiteral`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Type(
                                 TypePath(`core::str::StringLiteral`, `Extern`),
@@ -51309,7 +51309,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `array`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::str`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -51336,7 +51336,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `basic`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::str`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -51363,7 +51363,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `clone`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::str`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -51390,7 +51390,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `cmp`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::str`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -51417,7 +51417,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `default`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::str`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -51444,7 +51444,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `fmt`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::str`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -51471,7 +51471,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `logic`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::str`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -51498,7 +51498,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `marker`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::str`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -51525,7 +51525,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `mem`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::str`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -51552,7 +51552,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `num`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::str`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -51579,7 +51579,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ops`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::str`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -51606,7 +51606,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `option`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::str`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -51633,7 +51633,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `prelude`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::str`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -51660,7 +51660,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `raw_bits`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::str`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -51687,7 +51687,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `result`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::str`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -51714,7 +51714,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `vec`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::str`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -51741,7 +51741,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `slice`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::str`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -51768,7 +51768,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `str`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::str`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -51795,7 +51795,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `visual`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::str`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -51822,7 +51822,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `bool`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::str`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -51873,7 +51873,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `never`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::str`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -51924,7 +51924,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `unit`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::str`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -51975,7 +51975,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Trait`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::str`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -52026,7 +52026,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Module`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::str`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -52077,7 +52077,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Lifetime`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::str`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -52128,7 +52128,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Place`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::str`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -52179,7 +52179,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Universe`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::str`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -52230,7 +52230,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Default`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::str`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -52281,7 +52281,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i8`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::str`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -52332,7 +52332,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i16`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::str`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -52383,7 +52383,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i32`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::str`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -52434,7 +52434,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i64`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::str`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -52485,7 +52485,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i128`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::str`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -52536,7 +52536,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `isize`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::str`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -52587,7 +52587,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u8`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::str`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -52638,7 +52638,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u16`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::str`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -52689,7 +52689,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u32`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::str`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -52740,7 +52740,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u64`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::str`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -52791,7 +52791,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u128`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::str`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -52842,7 +52842,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `usize`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::str`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -52893,7 +52893,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `f32`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::str`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -52944,7 +52944,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `f64`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::str`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -52995,7 +52995,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `r32`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::str`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -53046,7 +53046,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Debug`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::str`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -53097,7 +53097,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Visualize`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::str`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -53148,7 +53148,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Visual`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::str`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -53199,7 +53199,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Copy`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::str`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -53250,7 +53250,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Sized`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::str`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -53301,7 +53301,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Clone`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::str`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -53352,7 +53352,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Option`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::str`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -53403,7 +53403,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Some`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::str`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -53486,7 +53486,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `None`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::str`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -53569,7 +53569,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `PartialEq`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::str`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -53620,7 +53620,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Eq`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::str`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -53671,7 +53671,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `PartialOrd`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::str`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -53722,7 +53722,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Ord`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::str`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -53773,7 +53773,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Slice`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::str`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -53824,7 +53824,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `CyclicSlice`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::str`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -53875,7 +53875,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Vec`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::str`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -54100,7 +54100,7 @@ EntityTreeCrateBundle {
                 [
                     EntitySymbolEntry {
                         ident: `Visualize`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Trait(
                                 TraitPath(`core::visual::Visualize`),
@@ -54109,7 +54109,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Visual`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Type(
                                 TypePath(`core::visual::Visual`, `Extern`),
@@ -54118,7 +54118,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `array`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::visual`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -54145,7 +54145,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `basic`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::visual`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -54172,7 +54172,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `clone`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::visual`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -54199,7 +54199,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `cmp`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::visual`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -54226,7 +54226,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `default`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::visual`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -54253,7 +54253,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `fmt`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::visual`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -54280,7 +54280,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `logic`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::visual`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -54307,7 +54307,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `marker`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::visual`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -54334,7 +54334,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `mem`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::visual`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -54361,7 +54361,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `num`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::visual`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -54388,7 +54388,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ops`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::visual`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -54415,7 +54415,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `option`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::visual`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -54442,7 +54442,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `prelude`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::visual`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -54469,7 +54469,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `raw_bits`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::visual`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -54496,7 +54496,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `result`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::visual`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -54523,7 +54523,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `vec`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::visual`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -54550,7 +54550,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `slice`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::visual`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -54577,7 +54577,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `str`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::visual`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -54604,7 +54604,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `visual`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::visual`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -54631,7 +54631,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `bool`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::visual`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -54682,7 +54682,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `never`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::visual`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -54733,7 +54733,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `unit`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::visual`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -54784,7 +54784,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Trait`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::visual`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -54835,7 +54835,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Module`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::visual`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -54886,7 +54886,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Lifetime`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::visual`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -54937,7 +54937,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Place`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::visual`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -54988,7 +54988,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Universe`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::visual`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -55039,7 +55039,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Default`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::visual`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -55090,7 +55090,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i8`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::visual`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -55141,7 +55141,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i16`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::visual`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -55192,7 +55192,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i32`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::visual`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -55243,7 +55243,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i64`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::visual`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -55294,7 +55294,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `i128`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::visual`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -55345,7 +55345,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `isize`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::visual`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -55396,7 +55396,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u8`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::visual`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -55447,7 +55447,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u16`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::visual`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -55498,7 +55498,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u32`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::visual`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -55549,7 +55549,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u64`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::visual`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -55600,7 +55600,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `u128`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::visual`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -55651,7 +55651,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `usize`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::visual`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -55702,7 +55702,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `f32`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::visual`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -55753,7 +55753,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `f64`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::visual`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -55804,7 +55804,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `r32`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::visual`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -55855,7 +55855,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Debug`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::visual`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -55906,7 +55906,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Visualize`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::visual`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -55957,7 +55957,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Visual`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::visual`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -56008,7 +56008,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Copy`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::visual`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -56059,7 +56059,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Sized`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::visual`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -56110,7 +56110,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Clone`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::visual`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -56161,7 +56161,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Option`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::visual`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -56212,7 +56212,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Some`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::visual`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -56295,7 +56295,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `None`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::visual`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -56378,7 +56378,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `PartialEq`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::visual`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -56429,7 +56429,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Eq`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::visual`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -56480,7 +56480,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `PartialOrd`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::visual`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -56531,7 +56531,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Ord`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::visual`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -56582,7 +56582,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Slice`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::visual`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -56633,7 +56633,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `CyclicSlice`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::visual`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -56684,7 +56684,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `Vec`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `core::visual`,
                         ),
                         symbol: EntitySymbol::Use(

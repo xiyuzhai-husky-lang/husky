@@ -63,7 +63,7 @@ EntityTreeSheet {
         [
             EntitySymbolEntry {
                 ident: `LineSegment`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::MajorItem {
                     major_item_path: MajorItemPath::Type(
                         TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
@@ -72,7 +72,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `Point2d`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::line_segment_sketch::line_segment`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -97,7 +97,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `RelativePoint2d`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::line_segment_sketch::line_segment`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -122,7 +122,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `Vector2d`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::line_segment_sketch::line_segment`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -147,7 +147,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `ClosedRange`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::line_segment_sketch::line_segment`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -172,7 +172,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `BoundingBox`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::line_segment_sketch::line_segment`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -197,7 +197,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `RelativeBoundingBox`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::line_segment_sketch::line_segment`,
                 ),
                 symbol: EntitySymbol::Use(

@@ -73,7 +73,7 @@ EntityTreeSheet {
         [
             EntitySymbolEntry {
                 ident: `Add`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `std::ops`,
                 ),
                 symbol: EntitySymbol::MajorItem {

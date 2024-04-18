@@ -247,7 +247,7 @@ EntityTreeCrateBundle {
                 [
                     EntitySymbolEntry {
                         ident: `ast`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `syntax_basics`,
                         ),
                         symbol: EntitySymbol::Submodule {
@@ -262,7 +262,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `uses`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `syntax_basics`,
                         ),
                         symbol: EntitySymbol::Submodule {
@@ -277,7 +277,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `defn`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `syntax_basics`,
                         ),
                         symbol: EntitySymbol::Submodule {
@@ -292,7 +292,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `expr`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `syntax_basics`,
                         ),
                         symbol: EntitySymbol::Submodule {
@@ -385,7 +385,7 @@ EntityTreeCrateBundle {
                 [
                     EntitySymbolEntry {
                         ident: `submodule_name`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `syntax_basics::ast`,
                         ),
                         symbol: EntitySymbol::Submodule {
@@ -435,7 +435,7 @@ EntityTreeCrateBundle {
                 [
                     EntitySymbolEntry {
                         ident: `ast`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `syntax_basics::uses`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -462,7 +462,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `uses`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `syntax_basics::uses`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -489,7 +489,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `defn`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `syntax_basics::uses`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -516,7 +516,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `expr`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `syntax_basics::uses`,
                         ),
                         symbol: EntitySymbol::Use(
@@ -662,7 +662,7 @@ EntityTreeCrateBundle {
                 [
                     EntitySymbolEntry {
                         ident: `major_item`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `syntax_basics::defn`,
                         ),
                         symbol: EntitySymbol::Submodule {
@@ -755,7 +755,7 @@ EntityTreeCrateBundle {
                 [
                     EntitySymbolEntry {
                         ident: `ty`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `syntax_basics::defn::major_item`,
                         ),
                         symbol: EntitySymbol::Submodule {
@@ -848,7 +848,7 @@ EntityTreeCrateBundle {
                 [
                     EntitySymbolEntry {
                         ident: `enum_ty`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `syntax_basics::defn::major_item::ty`,
                         ),
                         symbol: EntitySymbol::Submodule {
@@ -946,7 +946,7 @@ EntityTreeCrateBundle {
                 [
                     EntitySymbolEntry {
                         ident: `A`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `syntax_basics::defn::major_item::ty::enum_ty`,
                         ),
                         symbol: EntitySymbol::MajorItem {
@@ -1108,7 +1108,7 @@ EntityTreeCrateBundle {
                 [
                     EntitySymbolEntry {
                         ident: `nested`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `syntax_basics::expr`,
                         ),
                         symbol: EntitySymbol::MajorItem {
@@ -1121,7 +1121,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `closure_inline`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `syntax_basics::expr`,
                         ),
                         symbol: EntitySymbol::MajorItem {
@@ -1134,7 +1134,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `closure_nested`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `syntax_basics::expr`,
                         ),
                         symbol: EntitySymbol::MajorItem {

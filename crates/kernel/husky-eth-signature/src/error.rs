@@ -11,7 +11,7 @@ pub enum EtherealSignatureError {
     DerivedFromDecSignature(DecSignatureError),
     #[error("NoSuchItem")]
     NoSuchItemInTraitForTypeImplBlockEtherealSignatureBuilder {
-        signature_builder: TraitForTypeImplBlockEtherealSignatureBuilder,
+        signature_builder: EthTraitForTypeImplBlockSignatureBuilder,
         ident: Ident,
     },
     #[error("EntityTreeError")]

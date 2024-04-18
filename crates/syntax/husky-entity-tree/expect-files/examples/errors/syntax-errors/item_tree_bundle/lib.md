@@ -129,7 +129,7 @@ EntityTreeCrateBundle {
                 [
                     EntitySymbolEntry {
                         ident: `ast`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `syntax_errors`,
                         ),
                         symbol: EntitySymbol::Submodule {
@@ -144,7 +144,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `uses`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `syntax_errors`,
                         ),
                         symbol: EntitySymbol::Submodule {
@@ -236,7 +236,7 @@ EntityTreeCrateBundle {
                 [
                     EntitySymbolEntry {
                         ident: `A`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `syntax_errors::ast`,
                         ),
                         symbol: EntitySymbol::MajorItem {

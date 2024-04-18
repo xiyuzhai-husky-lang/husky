@@ -225,7 +225,7 @@ EntityTreeSheet {
         [
             EntitySymbolEntry {
                 ident: `quick_sort`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::MajorItem {
                     major_item_path: MajorItemPath::Fugitive(
                         FugitivePath(`quick_sort::quick_sort`, `Ritchie(
@@ -236,7 +236,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `quick_sort_aux`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `quick_sort`,
                 ),
                 symbol: EntitySymbol::MajorItem {
@@ -249,7 +249,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `partition`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `quick_sort`,
                 ),
                 symbol: EntitySymbol::MajorItem {
@@ -262,7 +262,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `quick_sort_works_for_integers`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `quick_sort`,
                 ),
                 symbol: EntitySymbol::MajorItem {
@@ -275,7 +275,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `quick_sort_works_for_strs`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `quick_sort`,
                 ),
                 symbol: EntitySymbol::MajorItem {

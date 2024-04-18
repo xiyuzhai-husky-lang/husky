@@ -8,7 +8,7 @@ EntityTreeSheet {
         [
             EntitySymbolEntry {
                 ident: `bool`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
@@ -29,7 +29,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `never`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
@@ -50,7 +50,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `unit`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
@@ -71,7 +71,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `Trait`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
@@ -92,7 +92,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `Module`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
@@ -113,7 +113,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `Lifetime`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
@@ -134,7 +134,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `Place`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
@@ -155,7 +155,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `Universe`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
@@ -176,7 +176,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `Default`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
@@ -197,7 +197,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `i8`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
@@ -218,7 +218,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `i16`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
@@ -239,7 +239,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `i32`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
@@ -260,7 +260,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `i64`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
@@ -281,7 +281,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `i128`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
@@ -302,7 +302,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `isize`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
@@ -323,7 +323,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `u8`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
@@ -344,7 +344,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `u16`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
@@ -365,7 +365,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `u32`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
@@ -386,7 +386,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `u64`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
@@ -407,7 +407,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `u128`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
@@ -428,7 +428,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `usize`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
@@ -449,7 +449,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `f32`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
@@ -470,7 +470,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `f64`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
@@ -491,7 +491,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `r32`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
@@ -512,7 +512,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `Debug`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
@@ -533,7 +533,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `Visualize`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
@@ -554,7 +554,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `Visual`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
@@ -575,7 +575,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `Copy`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
@@ -596,7 +596,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `Sized`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
@@ -617,7 +617,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `Clone`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
@@ -638,7 +638,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `Option`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
@@ -659,7 +659,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `Some`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::Use(
@@ -704,7 +704,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `None`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::Use(
@@ -749,7 +749,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `PartialEq`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
@@ -770,7 +770,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `Eq`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
@@ -791,7 +791,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `PartialOrd`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
@@ -812,7 +812,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `Ord`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
@@ -833,7 +833,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `Slice`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
@@ -854,7 +854,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `CyclicSlice`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
@@ -875,7 +875,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `Vec`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {

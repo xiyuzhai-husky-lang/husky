@@ -23,7 +23,7 @@ impl TraitForTypeAssocTypeEthTemplate {
     pub(super) fn inherit_instantiation_builder(
         self,
         db: &::salsa::Db,
-        impl_block_signature_builder: TraitForTypeImplBlockEtherealSignatureBuilder,
+        impl_block_signature_builder: EthTraitForTypeImplBlockSignatureBuilder,
     ) -> TraitForTypeAssocTypeEtherealSignatureBuilder {
         let instantiation_builder = impl_block_signature_builder
             .instantiation_builder(db)
