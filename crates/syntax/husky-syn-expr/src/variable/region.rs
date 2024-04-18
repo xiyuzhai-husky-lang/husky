@@ -211,7 +211,7 @@ impl VariableRegionData {
                 CurrentVariableData::CaseVariable { .. } => unreachable!(),
                 CurrentVariableData::LoopVariable { .. } => unreachable!(),
                 CurrentVariableData::TemplateParameter {
-                    ref template_parameter_variant,
+                    data: ref template_parameter_variant,
                     ..
                 } => InheritedVariableKind::Template(template_parameter_variant.bequeath()),
                 CurrentVariableData::VariadicParenateParameter { ident_token, .. } => {

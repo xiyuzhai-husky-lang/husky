@@ -18,9 +18,9 @@ use husky_corgi_config::transpilation_setup::{RustTranspilationSetupData, Transp
 use husky_coword::{Ident, Label};
 use husky_entity_path::{PreludeTypePath, TypePath};
 use husky_hir_eager_expr::{
-    var::{
-        cvar::HirEagerComptimeVariableName,
-        rvar::{HirEagerRuntimeVariableName, HirEagerRvarIdx},
+    variable::{
+        comptime::HirEagerComptimeVariableName,
+        runtime::{HirEagerRuntimeVariableName, HirEagerRvarIdx},
     },
     HirEagerExprArena, HirEagerExprIdx, HirEagerExprRegion, HirEagerPatternArena,
     HirEagerStmtArena,

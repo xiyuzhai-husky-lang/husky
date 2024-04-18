@@ -62,9 +62,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for TemplateSynPara
                 CurrentVariableData::TemplateParameter {
                     syn_attrs,
                     annotated_variance_token,
-                    template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
-                        ident_token,
-                    },
+                    data: CurrentTemplateVariableData::Type { ident_token },
                 },
             );
             let symbols = ctx.define_symbols(
@@ -90,8 +88,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for TemplateSynPara
                     CurrentVariableData::TemplateParameter {
                         syn_attrs,
                         annotated_variance_token,
-                        template_parameter_variant:
-                            CurrentTemplateParameterSynSymbolVariant::Lifetime { label_token },
+                        data: CurrentTemplateVariableData::Lifetime { label_token },
                     },
                 )],
                 Some(SyndicateTypeConstraint::TemplateTypeParameter),
@@ -112,8 +109,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for TemplateSynPara
                         CurrentVariableData::TemplateParameter {
                             syn_attrs,
                             annotated_variance_token,
-                            template_parameter_variant:
-                                CurrentTemplateParameterSynSymbolVariant::Place { label_token },
+                            data: CurrentTemplateVariableData::Place { label_token },
                         },
                     )],
                     Some(SyndicateTypeConstraint::TemplateTypeParameter),
@@ -145,11 +141,10 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for TemplateSynPara
                         CurrentVariableData::TemplateParameter {
                             syn_attrs,
                             annotated_variance_token,
-                            template_parameter_variant:
-                                CurrentTemplateParameterSynSymbolVariant::Constant {
-                                    ident_token,
-                                    ty_expr_idx: ty_expr,
-                                },
+                            data: CurrentTemplateVariableData::Constant {
+                                ident_token,
+                                ty_expr_idx: ty_expr,
+                            },
                         },
                     )],
                     Some(SyndicateTypeConstraint::TemplateTypeParameter),

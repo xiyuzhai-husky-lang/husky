@@ -4,9 +4,7 @@ use husky_eth_term::term::EthTerm;
 use husky_fly_term::FlyTermBase;
 use husky_hir_ty::HirTemplateVariable;
 use husky_sem_expr::SemaExprRegionData;
-use husky_syn_expr::{
-    CurrentTemplateParameterSynSymbolVariant, CurrentVariableData, VariableRegionData,
-};
+use husky_syn_expr::{CurrentTemplateVariableData, CurrentVariableData, VariableRegionData};
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
@@ -107,20 +105,18 @@ impl HirEagerComptimeVariableRegionData {
                             CurrentVariableData::TemplateParameter {
                                 syn_attrs: _,
                                 annotated_variance_token: _,
-                                template_parameter_variant,
+                                data: template_parameter_variant,
                             } => match template_parameter_variant {
-                                CurrentTemplateParameterSynSymbolVariant::Lifetime {
-                                    label_token,
-                                } => HirEagerComptimeVariableName::Label(label_token.label()),
-                                CurrentTemplateParameterSynSymbolVariant::Place { label_token } => {
+                                CurrentTemplateVariableData::Lifetime { label_token } => {
                                     HirEagerComptimeVariableName::Label(label_token.label())
                                 }
-                                CurrentTemplateParameterSynSymbolVariant::Type {
-                                    ident_token: _,
-                                } => {
+                                CurrentTemplateVariableData::Place { label_token } => {
+                                    HirEagerComptimeVariableName::Label(label_token.label())
+                                }
+                                CurrentTemplateVariableData::Type { ident_token: _ } => {
                                     todo!()
                                 }
-                                CurrentTemplateParameterSynSymbolVariant::Constant {
+                                CurrentTemplateVariableData::Constant {
                                     ident_token: _,
                                     ty_expr_idx: _,
                                 } => todo!(),

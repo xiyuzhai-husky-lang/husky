@@ -3,6 +3,7 @@ use husky_entity_tree::*;
 use husky_syn_expr::*;
 use husky_term_prelude::symbol::SymbolName;
 use husky_vfs::Toolchain;
+use vec_like::SmallVecSet;
 
 use super::*;
 
@@ -19,6 +20,7 @@ pub struct DecSymbolicVariableRegion {
     self_place: Option<DecSymbolicVariable>,
     /// things like `Self` in trait
     autos: SmallVec<[DecSymbolicVariable; 1]>,
+    obvious_trais: SymbolOrderedMap<SmallVecSet<DecTerm, 2>>,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -67,25 +69,28 @@ impl DecSymbolicVariableRegion {
         dec_term_menu: &DecTermMenu,
     ) -> Self {
         let registry = parent.map_or(Default::default(), |parent| parent.registry.clone());
-        let implicit_self_lifetime = syn_expr_region_data
+        let self_lifetime = syn_expr_region_data
             .has_self_lifetime()
-            .then_some(dec_term_menu.implicit_self_lifetime());
-        let implicit_self_place = syn_expr_region_data
+            .then_some(dec_term_menu.auto_self_lifetime());
+        let self_place = syn_expr_region_data
             .has_self_place()
-            .then_some(dec_term_menu.implicit_self_place());
-        let symbol_name_map = parent.map_or(Default::default(), |parent| parent.names.clone());
+            .then_some(dec_term_menu.auto_self_place());
+        let names = parent.map_or(Default::default(), |parent| parent.names.clone());
+        let obvious_trais = SymbolOrderedMap::new(parent.map(|parent| &parent.obvious_trais));
+        let self_value = parent.map(|parent| parent.self_value).flatten();
+        let self_ty = parent.map(|parent| parent.self_ty).flatten();
+        let autos = self_lifetime.into_iter().chain(self_place).collect();
+        let signatures = SymbolOrderedMap::new(parent.map(|parent| &parent.signatures));
         Self {
             registry,
-            signatures: SymbolOrderedMap::new(parent.map(|parent| &parent.signatures)),
-            names: symbol_name_map,
-            self_ty: parent.map(|parent| parent.self_ty).flatten(),
-            self_value: parent.map(|parent| parent.self_value).flatten(),
-            self_lifetime: implicit_self_lifetime,
-            self_place: implicit_self_place,
-            autos: implicit_self_lifetime
-                .into_iter()
-                .chain(implicit_self_place)
-                .collect(),
+            signatures,
+            names,
+            self_ty,
+            self_value,
+            self_lifetime,
+            self_place,
+            autos,
+            obvious_trais,
         }
     }
 }
@@ -240,7 +245,7 @@ impl DecSymbolicVariableRegion {
     }
 
     #[inline(always)]
-    pub(crate) fn add_new_template_variable_signature(
+    pub(crate) fn add_new_template_variable(
         &mut self,
         db: &::salsa::Db,
         idx: CurrentVariableIdx,
@@ -248,7 +253,7 @@ impl DecSymbolicVariableRegion {
         term_symbol: DecSymbolicVariable,
         name: SymbolName,
     ) {
-        self.add_new_current_syn_symbol_signature(
+        self.add_new_current_variable(
             db,
             idx,
             DecSymbolicVariableSignature {
@@ -258,11 +263,12 @@ impl DecSymbolicVariableRegion {
                 modifier: VariableModifier::Const,
             },
             name,
+            [todo!("template variable")],
         )
     }
 
     #[inline(always)]
-    pub(crate) fn add_new_parenate_parameter_symbol_signature(
+    pub(crate) fn add_new_parenate_variable(
         &mut self,
         db: &::salsa::Db,
         current_syn_symbol: CurrentVariableIdx,
@@ -274,7 +280,7 @@ impl DecSymbolicVariableRegion {
             VariableModifier::Const => todo!(),
             _ => None,
         };
-        self.add_new_current_syn_symbol_signature(
+        self.add_new_current_variable(
             db,
             current_syn_symbol,
             DecSymbolicVariableSignature {
@@ -284,6 +290,7 @@ impl DecSymbolicVariableRegion {
                 term: symbol,
             },
             name,
+            [],
         )
     }
 
@@ -295,7 +302,7 @@ impl DecSymbolicVariableRegion {
         ty: DecTermSymbolicVariableTypeResult<DecTerm>,
         ident: Ident,
     ) {
-        self.add_new_current_syn_symbol_signature(
+        self.add_new_current_variable(
             db,
             current_syn_symbol,
             DecSymbolicVariableSignature {
@@ -305,19 +312,24 @@ impl DecSymbolicVariableRegion {
                 term: None,
             },
             ident.into(),
+            [],
         )
     }
 
     #[inline(always)]
-    fn add_new_current_syn_symbol_signature(
+    fn add_new_current_variable(
         &mut self,
         db: &::salsa::Db,
         idx: CurrentVariableIdx,
         signature: DecSymbolicVariableSignature,
         name: SymbolName,
+        obvious_trais: impl IntoIterator<Item = DecTerm>,
     ) {
         if let Some(symbol) = signature.term {
             self.names.add(symbol, name)
+        }
+        for trai in obvious_trais {
+            todo!()
         }
         self.signatures.insert_next(idx, signature)
     }

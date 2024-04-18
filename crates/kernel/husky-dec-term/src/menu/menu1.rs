@@ -93,11 +93,11 @@ impl DecTermMenu1 {
         self.static_ref_ty
     }
 
-    pub fn implicit_self_lifetime(&self) -> DecSymbolicVariable {
+    pub fn auto_self_lifetime(&self) -> DecSymbolicVariable {
         self.implicit_self_lifetime
     }
 
-    pub fn implicit_self_place(&self) -> DecSymbolicVariable {
+    pub fn auto_self_place(&self) -> DecSymbolicVariable {
         self.implicit_self_place
     }
 }

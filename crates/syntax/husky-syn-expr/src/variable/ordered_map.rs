@@ -1,5 +1,6 @@
 use super::*;
 
+/// not cloneable intentionally
 #[derive(Debug, PartialEq, Eq)]
 pub struct SymbolOrderedMap<V> {
     inherited_syn_symbol_map: InheritedSynSymbolOrderedMap<V>,

@@ -1,7 +1,7 @@
 use crate::{
-    var::{
-        cvar::HirEagerComptimeVariableRegionData,
-        rvar::{HirEagerRuntimeVariableRegionData, HirEagerRvarIdx},
+    variable::{
+        comptime::HirEagerComptimeVariableRegionData,
+        runtime::{HirEagerRuntimeVariableRegionData, HirEagerRvarIdx},
     },
     *,
 };
