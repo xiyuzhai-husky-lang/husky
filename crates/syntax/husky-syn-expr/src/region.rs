@@ -13,16 +13,16 @@ pub struct SynExprRegion {
 pub struct SynExprRegionData {
     parent: Option<SynExprRegion>,
     path: SynNodeRegionPath,
-    syn_expr_arena: SynExprArena,
+    expr_arena: SynExprArena,
     principal_item_path_expr_arena: SynPrincipalEntityPathExprArena,
     stmt_arena: SynStmtArena,
     pattern_expr_region: SynPatternExprRegion,
-    symbol_region: VariableRegionData,
-    syn_pattern_expr_roots: Vec<SynPatternRoot>,
-    syn_expr_roots: Vec<SynExprRoot>,
+    variable_region: VariableRegionData,
+    pattern_roots: Vec<SynPatternRoot>,
+    expr_roots: Vec<SynExprRoot>,
     has_self_lifetime: bool,
     has_self_place: bool,
-    syn_pattern_to_current_syn_symbol_map: VecPairMap<SynPatternSymbolIdx, CurrentVariableIdx>,
+    pattern_to_current_variable_map: VecPairMap<PatternVariableIdx, CurrentVariableIdx>,
 }
 
 impl SynExprRegionData {
@@ -33,31 +33,35 @@ impl SynExprRegionData {
         principal_item_path_expr_arena: SynPrincipalEntityPathExprArena,
         stmt_arena: SynStmtArena,
         pattern_expr_region: SynPatternExprRegion,
-        symbol_region: VariableRegionData,
-        syn_pattern_expr_roots: Vec<SynPatternRoot>,
-        syn_expr_roots: Vec<SynExprRoot>,
+        variable_region: VariableRegionData,
+        pattern_roots: Vec<SynPatternRoot>,
+        expr_roots: Vec<SynExprRoot>,
         has_self_lifetime: bool,
         has_self_place: bool,
     ) -> Self {
-        let syn_pattern_to_current_syn_symbol_map = VecPairMap::from_iter_assuming_no_repetitions(
-            symbol_region
+        let pattern_to_current_variable_map = VecPairMap::from_iter_assuming_no_repetitions(
+            variable_region
                 .current_syn_symbol_arena()
                 .indexed_iter()
                 .filter_map(
                     |(current_syn_symbol_idx, current_syn_symbol)| match *current_syn_symbol.data()
                     {
                         CurrentVariableData::SimpleParenateParameter {
-                            pattern_symbol_idx, ..
+                            pattern_variable_idx,
+                            ..
                         }
                         | CurrentVariableData::LetVariable {
-                            pattern_symbol_idx, ..
+                            pattern_variable_idx,
+                            ..
                         }
                         | CurrentVariableData::BeVariable {
-                            pattern_symbol_idx, ..
+                            pattern_variable_idx,
+                            ..
                         }
                         | CurrentVariableData::CaseVariable {
-                            pattern_symbol_idx, ..
-                        } => Some((pattern_symbol_idx, current_syn_symbol_idx)),
+                            pattern_variable_idx,
+                            ..
+                        } => Some((pattern_variable_idx, current_syn_symbol_idx)),
                         _ => None,
                     },
                 ),
@@ -66,16 +70,16 @@ impl SynExprRegionData {
         Self {
             parent,
             path,
-            syn_expr_arena: expr_arena,
+            expr_arena,
             principal_item_path_expr_arena,
             stmt_arena,
             pattern_expr_region,
-            symbol_region,
-            syn_pattern_expr_roots,
-            syn_expr_roots,
+            variable_region,
+            pattern_roots,
+            expr_roots,
             has_self_lifetime,
             has_self_place,
-            syn_pattern_to_current_syn_symbol_map,
+            pattern_to_current_variable_map,
         }
     }
 
@@ -92,7 +96,7 @@ impl SynExprRegionData {
     }
 
     pub fn expr_arena(&self) -> &SynExprArena {
-        &self.syn_expr_arena
+        &self.expr_arena
     }
 
     pub fn principal_item_path_expr_arena(&self) -> &SynPrincipalEntityPathExprArena {
@@ -112,21 +116,21 @@ impl SynExprRegionData {
     }
 
     pub fn symbol_region(&self) -> &VariableRegionData {
-        &self.symbol_region
+        &self.variable_region
     }
 
     pub fn syn_expr_roots(&self) -> &[SynExprRoot] {
-        self.syn_expr_roots.as_ref()
+        self.expr_roots.as_ref()
     }
 
     pub fn return_ty(&self) -> Option<SynExprIdx> {
-        self.syn_expr_roots.iter().find_map(|root| {
+        self.expr_roots.iter().find_map(|root| {
             (root.kind() == SynExprRootKind::ReturnType).then_some(root.syn_expr_idx())
         })
     }
 
     pub fn syn_pattern_expr_roots(&self) -> &[SynPatternRoot] {
-        self.syn_pattern_expr_roots.as_ref()
+        self.pattern_roots.as_ref()
     }
 
     pub fn self_ty(&self) -> Option<SynExprIdx> {
@@ -140,9 +144,9 @@ impl SynExprRegionData {
 
     pub fn syn_pattern_to_current_syn_symbol(
         &self,
-        syn_pattern_symbol_idx: SynPatternSymbolIdx,
+        syn_pattern_variable_idx: PatternVariableIdx,
     ) -> CurrentVariableIdx {
-        self.syn_pattern_to_current_syn_symbol_map[syn_pattern_symbol_idx].1
+        self.pattern_to_current_variable_map[syn_pattern_variable_idx].1
     }
 
     pub fn syn_pattern_expr_current_syn_symbols_mapped<R>(
@@ -155,9 +159,9 @@ impl SynExprRegionData {
                 self.pattern_expr_region()
                     .pattern_expr_symbols(syn_pattern_expr_idx)
                     .iter()
-                    .map(|&(ident, syn_pattern_symbol_idx)| {
+                    .map(|&(ident, syn_pattern_variable_idx)| {
                         let current_syn_symbol_idx =
-                            self.syn_pattern_to_current_syn_symbol(syn_pattern_symbol_idx);
+                            self.syn_pattern_to_current_syn_symbol(syn_pattern_variable_idx);
                         (ident, f(current_syn_symbol_idx))
                     }),
             )
@@ -177,7 +181,7 @@ impl std::ops::Index<SynExprIdx> for SynExprRegionData {
     type Output = SynExprData;
 
     fn index(&self, index: SynExprIdx) -> &Self::Output {
-        &self.syn_expr_arena[index]
+        &self.expr_arena[index]
     }
 }
 
@@ -192,13 +196,13 @@ impl std::ops::Index<CurrentVariableIdx> for SynExprRegionData {
     type Output = CurrentVariableEntry;
 
     fn index(&self, index: CurrentVariableIdx) -> &Self::Output {
-        &self.symbol_region[index]
+        &self.variable_region[index]
     }
 }
-impl std::ops::Index<SynPatternSymbolIdx> for SynExprRegionData {
+impl std::ops::Index<PatternVariableIdx> for SynExprRegionData {
     type Output = PatternVariable;
 
-    fn index(&self, index: SynPatternSymbolIdx) -> &Self::Output {
+    fn index(&self, index: PatternVariableIdx) -> &Self::Output {
         &self.pattern_expr_region[index]
     }
 }

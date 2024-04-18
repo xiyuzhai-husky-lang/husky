@@ -537,19 +537,19 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
         let current_variable_kind = current_variable.kind();
         match current_variable_kind {
             CurrentVariableKind::LetVariable {
-                pattern_symbol_idx: pattern_symbol,
+                pattern_variable_idx: pattern_symbol,
             }
             | CurrentVariableKind::BeVariable {
-                pattern_symbol_idx: pattern_symbol,
+                pattern_variable_idx: pattern_symbol,
             }
             | CurrentVariableKind::CaseVariable {
-                pattern_symbol_idx: pattern_symbol,
+                pattern_variable_idx: pattern_symbol,
             }
             | CurrentVariableKind::SimpleParenateParameter {
-                pattern_symbol_idx: pattern_symbol,
+                pattern_variable_idx: pattern_symbol,
             }
             | CurrentVariableKind::SimpleClosureParameter {
-                pattern_symbol_idx: pattern_symbol,
+                pattern_variable_idx: pattern_symbol,
             } => match self.syn_expr_region_data[pattern_symbol] {
                 PatternVariable::Atom(pattern_expr_idx) => {
                     match self.syn_expr_region_data[pattern_expr_idx] {

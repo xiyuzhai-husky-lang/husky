@@ -11,7 +11,7 @@ use crate::helpers::DecTermFamily;
 ///
 #[salsa::interned(constructor = new_inner)]
 pub struct DecLambdaVariable {
-    pub ty: DecTermSymbolicVariableTypeResult<DecTerm>,
+    pub ty: DecSymbolicVariableTypeResult<DecTerm>,
     /// this is the index to disambiguate it from all other symbols with the same type
     /// so that we have better cache hits
     /// todo: change to RefinedDeBrujinIndex
@@ -52,7 +52,7 @@ impl salsa::DisplayWithDb for DecLambdaVariable {
 
 impl DecLambdaVariable {
     pub fn new(
-        ty: DecTermSymbolicVariableTypeResult<DecTerm>,
+        ty: DecSymbolicVariableTypeResult<DecTerm>,
         disambiguator: u8,
         db: &::salsa::Db,
     ) -> Self {

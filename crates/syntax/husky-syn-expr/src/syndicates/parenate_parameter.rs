@@ -58,14 +58,14 @@ impl<'a> TryParseOptionFromStream<SynDeclExprParser<'a>> for ParenateParameterSy
             let access_start = ctx.state().next_regional_token_idx();
             let variables = symbols
                 .iter()
-                .map(|(ident, pattern_symbol_idx)| {
+                .map(|(ident, pattern_variable_idx)| {
                     CurrentVariableEntry::new(
                         ctx.pattern_expr_region(),
                         access_start,
                         None,
                         CurrentVariableData::SimpleParenateParameter {
                             ident: *ident,
-                            pattern_symbol_idx: *pattern_symbol_idx,
+                            pattern_variable_idx: *pattern_variable_idx,
                         },
                     )
                 })

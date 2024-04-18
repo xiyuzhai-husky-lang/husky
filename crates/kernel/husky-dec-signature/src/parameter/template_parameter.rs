@@ -83,7 +83,7 @@ impl DeclarativeTemplateParameter {
         self.svar
     }
 
-    pub fn ty(&self, db: &::salsa::Db) -> DecTermSymbolicVariableTypeResult<DecTerm> {
+    pub fn ty(&self, db: &::salsa::Db) -> DecSymbolicVariableTypeResult<DecTerm> {
         self.symbol().ty(db)
     }
 

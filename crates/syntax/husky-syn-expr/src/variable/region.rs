@@ -228,7 +228,7 @@ impl VariableRegionData {
                 }
                 CurrentVariableData::SimpleClosureParameter {
                     ident,
-                    pattern_symbol_idx,
+                    pattern_variable_idx,
                 } => todo!(),
             };
             inherited_syn_symbol_arena.alloc_one(InheritedVariable {

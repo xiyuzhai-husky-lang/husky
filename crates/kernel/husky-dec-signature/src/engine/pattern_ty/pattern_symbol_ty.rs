@@ -36,18 +36,18 @@ impl<'a> DecTermEngine<'a> {
         }
     }
 
-    fn infer_new_pattern_symbol_ty(&mut self, pattern_symbol_idx: SynPatternSymbolIdx) {
+    fn infer_new_pattern_symbol_ty(&mut self, pattern_variable_idx: PatternVariableIdx) {
         let modifier = self
             .syn_expr_region_data
-            .pattern_symbol_modifier(pattern_symbol_idx);
-        let base_ty = self.calc_new_pattern_symbol_base_ty(pattern_symbol_idx);
+            .pattern_symbol_modifier(pattern_variable_idx);
+        let base_ty = self.calc_new_pattern_symbol_base_ty(pattern_variable_idx);
         self.pattern_symbol_ty_infos.insert_new(
-            pattern_symbol_idx,
+            pattern_variable_idx,
             PatternSymbolDeclarativeTypeInfo::new(modifier, base_ty),
         )
     }
 
-    fn calc_new_pattern_symbol_base_ty(&mut self, pattern_symbol: SynPatternSymbolIdx) -> DecTerm {
+    fn calc_new_pattern_symbol_base_ty(&mut self, pattern_symbol: PatternVariableIdx) -> DecTerm {
         match self.syn_expr_region_data[pattern_symbol] {
             PatternVariable::Atom(pattern_expr) => self
                 .get_pattern_expr_ty(pattern_expr)
