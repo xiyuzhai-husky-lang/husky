@@ -1,10 +1,10 @@
 use super::*;
-use husky_entity_tree::helpers::TraitInUseItemsTable;
+use husky_entity_tree::helpers::AvailableTraitItemsTable;
 use husky_place::{place::idx::PlaceIdx, PlaceInfo, PlaceRegistry};
 
 pub trait FlyTermEngine<'a>: Sized {
     fn db(&self) -> &'a ::salsa::Db;
-    fn trai_in_use_items_table(&self) -> TraitInUseItemsTable<'a>;
+    fn trai_in_use_items_table(&self) -> AvailableTraitItemsTable<'a>;
     fn fly_term_region(&self) -> &FlyTermRegion;
     fn item_path_menu(&self) -> &'a ItemPathMenu;
     fn term_menu(&self) -> &'a EthTermMenu;

@@ -5752,7 +5752,7 @@ version = "0.1.0"
 dependencies = [
  "enum-class",
  "husky-coword",
- "husky-regional-token",
+ "husky-token",
  "husky-vfs",
  "salsa",
  "with-db",

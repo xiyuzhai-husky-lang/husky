@@ -6,7 +6,7 @@ impl HasFlyTraitMethodDispatch for SolTerm {
         engine: &mut impl FlyTermEngineMut,
         expr_idx: SynExprIdx,
         ident_token: IdentRegionalToken,
-        trai_item_records: TraitInUseItemsWithGivenIdent,
+        trai_item_records: AvailableTraitItemsWithGivenIdent,
         indirections: FlyIndirections,
     ) -> FlyTermMaybeResult<FlyMethodDynamicDispatch> {
         match self.data(engine) {

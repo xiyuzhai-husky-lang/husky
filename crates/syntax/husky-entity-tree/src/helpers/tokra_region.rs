@@ -17,7 +17,6 @@ use husky_token::TokenIdx;
 /// Token and ast data and the relative indexes against the starting token of the region,
 /// is collected as Tokra Region
 ///
-///
 #[derive(Debug, Clone, Copy)]
 #[enum_class::from_variants]
 pub enum TokraRegionDataRef<'a> {

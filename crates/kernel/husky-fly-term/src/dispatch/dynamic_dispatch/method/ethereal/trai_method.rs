@@ -11,7 +11,7 @@ impl HasFlyTraitMethodDispatch for EthTerm {
         engine: &mut impl FlyTermEngineMut,
         expr_idx: SynExprIdx,
         ident_token: IdentRegionalToken,
-        trai_item_records: TraitInUseItemsWithGivenIdent,
+        trai_item_records: AvailableTraitItemsWithGivenIdent,
         mut indirections: FlyIndirections,
     ) -> FlyTermMaybeResult<FlyMethodDynamicDispatch> {
         let db = engine.db();

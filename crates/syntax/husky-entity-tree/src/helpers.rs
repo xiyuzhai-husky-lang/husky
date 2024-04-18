@@ -1,13 +1,12 @@
+mod available_trai_item;
 pub mod ingredient;
 pub mod jar;
 pub mod paths;
 pub mod tokra_region;
-mod trai_available;
 mod trai_impl;
-mod trai_in_use;
 
+pub use self::available_trai_item::*;
 pub use self::trai_impl::*;
-pub use self::trai_in_use::*;
 
 use crate::*;
 use smallvec::{smallvec, SmallVec};
