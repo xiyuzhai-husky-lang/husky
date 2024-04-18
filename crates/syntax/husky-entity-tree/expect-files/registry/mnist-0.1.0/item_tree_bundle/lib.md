@@ -207,7 +207,7 @@ EntityTreeCrateBundle {
                 [
                     EntitySymbolEntry {
                         ident: `MnistLabel`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Type(
                                 TypePath(`mnist::MnistLabel`, `Enum`),
@@ -216,7 +216,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `BinaryImage28`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Type(
                                 TypePath(`mnist::BinaryImage28`, `Extern`),
@@ -225,7 +225,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `BinaryGrid28`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Type(
                                 TypePath(`mnist::BinaryGrid28`, `Extern`),
@@ -234,7 +234,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `input`,
-                        visibility: Scope::Pub,
+                        visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Fugitive(
                                 FugitivePath(`mnist::input`, `Val`),

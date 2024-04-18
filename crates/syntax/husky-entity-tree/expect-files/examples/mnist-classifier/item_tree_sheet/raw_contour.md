@@ -533,7 +533,7 @@ EntityTreeSheet {
         [
             EntitySymbolEntry {
                 ident: `RawContour`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::MajorItem {
                     major_item_path: MajorItemPath::Type(
                         TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
@@ -542,7 +542,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `Direction`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::raw_contour`,
                 ),
                 symbol: EntitySymbol::MajorItem {
@@ -553,7 +553,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `get_pixel_pair`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::raw_contour`,
                 ),
                 symbol: EntitySymbol::MajorItem {
@@ -566,7 +566,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `get_pixel_to_the_left`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::raw_contour`,
                 ),
                 symbol: EntitySymbol::MajorItem {
@@ -579,7 +579,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `get_pixel_to_the_right`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::raw_contour`,
                 ),
                 symbol: EntitySymbol::MajorItem {
@@ -592,7 +592,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `get_inward_direction`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::raw_contour`,
                 ),
                 symbol: EntitySymbol::MajorItem {
@@ -605,7 +605,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `get_angle_change`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::raw_contour`,
                 ),
                 symbol: EntitySymbol::MajorItem {
@@ -618,7 +618,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `get_outward_direction`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::raw_contour`,
                 ),
                 symbol: EntitySymbol::MajorItem {
@@ -631,7 +631,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `StreakCache`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::raw_contour`,
                 ),
                 symbol: EntitySymbol::MajorItem {
@@ -642,7 +642,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `get_concave_middle_point`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::raw_contour`,
                 ),
                 symbol: EntitySymbol::MajorItem {
@@ -655,7 +655,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `find_raw_contours`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::MajorItem {
                     major_item_path: MajorItemPath::Fugitive(
                         FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Ritchie(
@@ -666,7 +666,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `connected_component`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::raw_contour`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -693,7 +693,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `raw_contour`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::raw_contour`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -720,7 +720,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `geom2d`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::raw_contour`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -747,7 +747,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `line_segment_sketch`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::raw_contour`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -774,7 +774,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `fermi`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::raw_contour`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -801,7 +801,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `digits`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::raw_contour`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -828,7 +828,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `major`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::raw_contour`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -855,7 +855,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `main`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::raw_contour`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -880,7 +880,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `Class`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::raw_contour`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -919,7 +919,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `OneVsAll`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::raw_contour`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -958,7 +958,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `OneVsAllResult`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::raw_contour`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -997,7 +997,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `narrow_down`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::raw_contour`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -1042,7 +1042,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `MnistLabel`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::raw_contour`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -1081,7 +1081,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `BinaryImage28`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::raw_contour`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -1120,7 +1120,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `BinaryGrid28`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::raw_contour`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -1159,7 +1159,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `input`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::raw_contour`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -1198,7 +1198,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `Point2d`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::raw_contour`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -1223,7 +1223,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `RelativePoint2d`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::raw_contour`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -1248,7 +1248,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `Vector2d`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::raw_contour`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -1273,7 +1273,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `ClosedRange`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::raw_contour`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -1298,7 +1298,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `BoundingBox`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::raw_contour`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -1323,7 +1323,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `RelativeBoundingBox`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::raw_contour`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -1348,7 +1348,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `ConnectedComponentDistribution`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::raw_contour`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -1373,7 +1373,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `EffHoles`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::raw_contour`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -1398,7 +1398,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `ConnectedComponent`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::raw_contour`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -1423,7 +1423,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `find_connected_components`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::raw_contour`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -1452,7 +1452,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `LineSegmentStroke`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::raw_contour`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -1477,7 +1477,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `LineSegmentSketch`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::raw_contour`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -1502,7 +1502,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `ConcaveComponent`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::raw_contour`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -1539,7 +1539,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `find_concave_components`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::raw_contour`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -1582,7 +1582,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `LineSegment`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::raw_contour`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -1619,7 +1619,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `connected_components`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::raw_contour`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -1658,7 +1658,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `major_connected_component`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::raw_contour`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -1697,7 +1697,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `ignored_connected_components_row_span_sum_sum`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::raw_contour`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -1736,7 +1736,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `major_raw_contours`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::raw_contour`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -1775,7 +1775,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `major_raw_contour`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::raw_contour`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -1814,7 +1814,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `major_line_segment_sketch`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::raw_contour`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -1853,7 +1853,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `major_concave_components`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::raw_contour`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -1892,7 +1892,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `is_one`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::raw_contour`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -1943,7 +1943,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `FermiMatchResult`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::raw_contour`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -1982,7 +1982,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `fermi_match`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::raw_contour`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -2027,7 +2027,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `RawContour`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::raw_contour`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -2066,7 +2066,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `find_raw_contours`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::raw_contour`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -2111,7 +2111,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `LineSegmentStroke`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::raw_contour`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -2150,7 +2150,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `LineSegmentSketch`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::raw_contour`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -2189,7 +2189,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `ConcaveComponent`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::raw_contour`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -2240,7 +2240,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `find_concave_components`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::raw_contour`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -2299,7 +2299,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `LineSegment`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::raw_contour`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -2350,7 +2350,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `ConnectedComponentDistribution`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::raw_contour`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -2389,7 +2389,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `EffHoles`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::raw_contour`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -2428,7 +2428,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `ConnectedComponent`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::raw_contour`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -2467,7 +2467,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `find_connected_components`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::raw_contour`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -2512,7 +2512,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `is_six`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::raw_contour`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -2563,7 +2563,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `is_zero`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::raw_contour`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -2614,7 +2614,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `is_two`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::raw_contour`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -2665,7 +2665,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `is_three`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::raw_contour`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -2716,7 +2716,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `is_five`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::raw_contour`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -2767,7 +2767,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `is_seven`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::raw_contour`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -2818,7 +2818,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `is_eight`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::raw_contour`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -2869,7 +2869,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `is_nine`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::raw_contour`,
                 ),
                 symbol: EntitySymbol::Use(

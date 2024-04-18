@@ -8,7 +8,7 @@ EntityTreeSheet {
         [
             EntitySymbolEntry {
                 ident: `ast`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `syntax_basics::uses`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -35,7 +35,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `uses`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `syntax_basics::uses`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -62,7 +62,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `defn`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `syntax_basics::uses`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -89,7 +89,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `expr`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `syntax_basics::uses`,
                 ),
                 symbol: EntitySymbol::Use(

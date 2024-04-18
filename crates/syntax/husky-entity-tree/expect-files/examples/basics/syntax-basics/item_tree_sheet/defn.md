@@ -68,7 +68,7 @@ EntityTreeSheet {
         [
             EntitySymbolEntry {
                 ident: `major_item`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `syntax_basics::defn`,
                 ),
                 symbol: EntitySymbol::Submodule {

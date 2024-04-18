@@ -333,7 +333,7 @@ EntityTreeSheet {
         [
             EntitySymbolEntry {
                 ident: `Point2d`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::MajorItem {
                     major_item_path: MajorItemPath::Type(
                         TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -342,7 +342,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `RelativePoint2d`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::MajorItem {
                     major_item_path: MajorItemPath::Type(
                         TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
@@ -351,7 +351,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `Vector2d`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::MajorItem {
                     major_item_path: MajorItemPath::Type(
                         TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -360,7 +360,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `ClosedRange`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::MajorItem {
                     major_item_path: MajorItemPath::Type(
                         TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
@@ -369,7 +369,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `BoundingBox`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::MajorItem {
                     major_item_path: MajorItemPath::Type(
                         TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
@@ -378,7 +378,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `RelativeBoundingBox`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::MajorItem {
                     major_item_path: MajorItemPath::Type(
                         TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),

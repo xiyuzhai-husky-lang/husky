@@ -186,7 +186,7 @@ EntityTreeSheet {
         [
             EntitySymbolEntry {
                 ident: `prelude`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `std`,
                 ),
                 symbol: EntitySymbol::Submodule {
@@ -201,7 +201,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `logic`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `std`,
                 ),
                 symbol: EntitySymbol::Submodule {
@@ -216,7 +216,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `ops`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `std`,
                 ),
                 symbol: EntitySymbol::Submodule {

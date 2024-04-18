@@ -68,7 +68,7 @@ EntityTreeSheet {
         [
             EntitySymbolEntry {
                 ident: `submodule_name`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `syntax_basics::ast`,
                 ),
                 symbol: EntitySymbol::Submodule {

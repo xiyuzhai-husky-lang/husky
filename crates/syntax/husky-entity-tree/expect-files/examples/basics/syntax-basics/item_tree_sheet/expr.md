@@ -141,7 +141,7 @@ EntityTreeSheet {
         [
             EntitySymbolEntry {
                 ident: `nested`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `syntax_basics::expr`,
                 ),
                 symbol: EntitySymbol::MajorItem {
@@ -154,7 +154,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `closure_inline`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `syntax_basics::expr`,
                 ),
                 symbol: EntitySymbol::MajorItem {
@@ -167,7 +167,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `closure_nested`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `syntax_basics::expr`,
                 ),
                 symbol: EntitySymbol::MajorItem {

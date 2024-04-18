@@ -53,7 +53,7 @@ pub struct EtherealSignatureJar(
     TypeImplBlockEthTemplate,
     // - trait for type
     TraitForTypeImplBlockEthTemplate,
-    TraitForTypeImplBlockEtherealSignatureBuilder,
+    EthTraitForTypeImplBlockSignatureBuilder,
     trai_for_ty_impl_block_eth_template,
     ty_impl_block_eth_template,
     crate::helpers::trai_for_ty::ty_side_impl_block_signature_templates_map,

@@ -67,7 +67,7 @@ EntityTreeSheet {
         [
             EntitySymbolEntry {
                 ident: `A`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `syntax_errors::ast`,
                 ),
                 symbol: EntitySymbol::MajorItem {
