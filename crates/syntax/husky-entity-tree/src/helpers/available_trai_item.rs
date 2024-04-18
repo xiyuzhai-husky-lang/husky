@@ -48,8 +48,8 @@ impl<'a> AvailableTraitItemsTable<'a> {
 fn non_core_crate_prelude_trait_items_table(
     db: &::salsa::Db,
     toolchain: Toolchain,
-) -> AvailableTraitItemsTableImpl {
-    trait_items_table_impl(
+) -> AvailableTraitItemRecords {
+    trait_item_records(
         db,
         none_core_crate_universal_prelude(db, toolchain).as_ref(),
     )
@@ -59,17 +59,17 @@ fn non_core_crate_prelude_trait_items_table(
 fn module_specific_trait_items_table(
     db: &::salsa::Db,
     module_path: ModulePath,
-) -> AvailableTraitItemsTableImpl {
-    trait_items_table_impl(db, module_path.item_tree_sheet(db).module_symbols())
+) -> AvailableTraitItemRecords {
+    trait_item_records(db, module_path.item_tree_sheet(db).module_symbols())
 }
 
-type AvailableTraitItemsTableImpl =
+type AvailableTraitItemRecords =
     SmallVecPairMap<Ident, SmallVec<[AvailableTraitItemRecord; 2]>, 16>;
 
-fn trait_items_table_impl(
+fn trait_item_records(
     db: &::salsa::Db,
     item_symbol_table_ref: EntitySymbolTableRef,
-) -> AvailableTraitItemsTableImpl {
+) -> AvailableTraitItemRecords {
     let mut table: SmallVecPairMap<Ident, SmallVec<[AvailableTraitItemRecord; 2]>, 16> =
         Default::default();
     for entry in item_symbol_table_ref.data().iter() {

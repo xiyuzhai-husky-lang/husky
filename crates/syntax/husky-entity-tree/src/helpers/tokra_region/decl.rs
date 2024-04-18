@@ -1,7 +1,6 @@
 use super::*;
 use husky_decl_ast::DeclAst;
 use husky_token::{TokenDb, TokenIdxRange};
-use vec_like::VecPairMap;
 
 ///
 #[salsa::tracked(db = EntityTreeDb, jar = EntityTreeJar, constructor = new_inner)]
