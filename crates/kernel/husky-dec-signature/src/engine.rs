@@ -15,7 +15,7 @@ pub(super) struct DecTermEngine<'a> {
     toolchain: Toolchain,
     syn_expr_region_data: &'a SynExprRegionData,
     dec_term_menu: &'a DecTermMenu,
-    symbol_declarative_term_region: DecSymbolicVariableRegion,
+    symbolic_variable_region: DecSymbolicVariableRegion,
     expr_terms: SynExprMap<DecTermResult2<DecTerm>>,
     /// todo: change this to ordered
     pattern_expr_ty_infos: SynPatternMap<PatternExprDeclarativeTypeInfo>,
@@ -54,7 +54,7 @@ impl<'a> DecTermEngine<'a> {
             toolchain,
             syn_expr_region_data,
             dec_term_menu,
-            symbol_declarative_term_region: DecSymbolicVariableRegion::new(
+            symbolic_variable_region: DecSymbolicVariableRegion::new(
                 parent_term_symbol_region,
                 syn_expr_region_data,
                 dec_term_menu,
@@ -78,7 +78,7 @@ impl<'a> DecTermEngine<'a> {
         match self.path() {
             SynNodeRegionPath::Decl(_) => {
                 self.infer_current_svar_terms();
-                self.symbol_declarative_term_region
+                self.symbolic_variable_region
                     .infer_self_ty_parameter_and_self_value_parameter(
                         self.db,
                         self.toolchain,
@@ -133,7 +133,7 @@ impl<'a> DecTermEngine<'a> {
                                 self.db,
                                 self.toolchain,
                                 self.dec_term_menu,
-                                &mut self.symbol_declarative_term_region.svar_registry_mut(),
+                                &mut self.symbolic_variable_region.registry_mut(),
                                 attrs,
                                 variance,
                             ),
@@ -144,7 +144,7 @@ impl<'a> DecTermEngine<'a> {
                                 self.db,
                                 self.toolchain,
                                 self.dec_term_menu,
-                                &mut self.symbol_declarative_term_region.svar_registry_mut(),
+                                &mut self.symbolic_variable_region.registry_mut(),
                                 attrs,
                                 variance,
                             ),
@@ -155,7 +155,7 @@ impl<'a> DecTermEngine<'a> {
                                 self.db,
                                 self.toolchain,
                                 self.dec_term_menu,
-                                &mut self.symbol_declarative_term_region.svar_registry_mut(),
+                                &mut self.symbolic_variable_region.registry_mut(),
                                 attrs,
                                 variance,
                             ),
@@ -174,16 +174,14 @@ impl<'a> DecTermEngine<'a> {
                                         self.toolchain,
                                         attrs,
                                         ty,
-                                        &mut self
-                                            .symbol_declarative_term_region
-                                            .svar_registry_mut(),
+                                        &mut self.symbolic_variable_region.registry_mut(),
                                     ),
                                 ),
                             )
                         }
                         _ => todo!(),
                     };
-                    self.symbol_declarative_term_region
+                    self.symbolic_variable_region
                         .add_new_template_variable_signature(
                             self.db,
                             symbols.start(),
@@ -209,7 +207,7 @@ impl<'a> DecTermEngine<'a> {
                     ty_expr_idx,
                 } => {
                     let ty = self.infer_new_expr_term(*ty_expr_idx).map_err(Into::into);
-                    self.symbol_declarative_term_region
+                    self.symbolic_variable_region
                         .add_new_field_variable_symbol_signature(
                             self.db,
                             symbols.start(),
@@ -228,9 +226,9 @@ impl<'a> DecTermEngine<'a> {
                         self.db,
                         self.toolchain,
                         ty,
-                        &mut self.symbol_declarative_term_region.svar_registry_mut(),
+                        &mut self.symbolic_variable_region.registry_mut(),
                     );
-                    self.symbol_declarative_term_region
+                    self.symbolic_variable_region
                         .add_new_template_variable_signature(
                             self.db,
                             symbols.start(),
@@ -257,7 +255,7 @@ impl<'a> DecTermEngine<'a> {
                 let current_syn_symbol = &self.syn_expr_region_data[symbol];
                 let name = current_syn_symbol.name();
                 let modifier = current_syn_symbol.modifier();
-                self.symbol_declarative_term_region
+                self.symbolic_variable_region
                     .add_new_parenate_parameter_symbol_signature(
                         self.db,
                         symbol,
@@ -289,7 +287,7 @@ impl<'a> DecTermEngine<'a> {
                 pattern_symbol_idx,
             } => {
                 let base_ty = self.pattern_symbol_ty_infos[pattern_symbol_idx].base_ty();
-                self.symbol_declarative_term_region
+                self.symbolic_variable_region
                     .add_new_parenate_parameter_symbol_signature(
                         self.db,
                         current_syn_symbol_idx,
@@ -315,8 +313,7 @@ impl<'a> DecTermEngine<'a> {
                 | SynExprRootKind::AssocTypeTerm => (),
                 SynExprRootKind::SelfType => {
                     let self_ty_term = self.infer_new_expr_term(expr_root.syn_expr_idx()).ok();
-                    self.symbol_declarative_term_region
-                        .set_self_ty(self_ty_term);
+                    self.symbolic_variable_region.set_self_ty(self_ty_term);
                     continue;
                 }
                 SynExprRootKind::BlockExpr
@@ -356,7 +353,7 @@ impl<'a> DecTermEngine<'a> {
     pub(crate) fn finish(self) -> SynExprDecTermRegion {
         SynExprDecTermRegion::new(
             self.syn_expr_region_data.path(),
-            self.symbol_declarative_term_region,
+            self.symbolic_variable_region,
             self.expr_terms,
             self.pattern_expr_ty_infos,
             self.pattern_symbol_ty_infos,
@@ -425,7 +422,7 @@ impl<'a> DecTermEngine<'a> {
                 inherited_syn_symbol_idx,
                 ..
             } => self
-                .symbol_declarative_term_region
+                .symbolic_variable_region
                 .inherited_variable_signature(inherited_syn_symbol_idx)
                 .term()
                 .map(Into::into)
@@ -434,7 +431,7 @@ impl<'a> DecTermEngine<'a> {
                 current_syn_symbol_idx,
                 ..
             } => Ok(self
-                .symbol_declarative_term_region
+                .symbolic_variable_region
                 .current_parameter_variable_signature(current_syn_symbol_idx)
                 .expect("not none")
                 .term()
@@ -442,11 +439,11 @@ impl<'a> DecTermEngine<'a> {
                 .into()),
             SynExprData::FrameVarDecl { .. } => unreachable!(),
             SynExprData::SelfType(_) => self
-                .symbol_declarative_term_region
+                .symbolic_variable_region
                 .self_ty()
                 .ok_or(DerivedDecTermError2::SelfTypeNotAllowedInThisRegion.into()),
             SynExprData::SelfValue(_) => self
-                .symbol_declarative_term_region
+                .symbolic_variable_region
                 .self_ty()
                 .ok_or(DerivedDecTermError2::SelfValueNotAllowedInThisRegion.into()),
             SynExprData::Binary {
@@ -600,7 +597,7 @@ impl<'a> DecTermEngine<'a> {
                 place_label_regional_token,
             } => match place_label_regional_token {
                 Some(_) => todo!(),
-                None => match self.symbol_declarative_term_region.self_place() {
+                None => match self.symbolic_variable_region.self_place() {
                     Some(place) => Ok(DecApplication::new(
                         self.db,
                         self.dec_term_menu.at_ty_path(),
