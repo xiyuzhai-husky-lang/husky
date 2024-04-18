@@ -9,7 +9,7 @@ use husky_eth_term::term::svar::EthSymbolicVariable;
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum EthPlace {
     Idx(PlaceIdx),
-    Svar(EthSymbolicVariable),
+    SymbolicVariable(EthSymbolicVariable),
     Field(FieldPlace),
 }
 
@@ -19,7 +19,7 @@ impl EthPlace {
 
         match self {
             EthPlace::Idx(idx) => format!("{:?}", registry[idx].debug_with(db)),
-            EthPlace::Svar(_) => todo!(),
+            EthPlace::SymbolicVariable(_) => todo!(),
             EthPlace::Field(_) => todo!(),
         }
     }

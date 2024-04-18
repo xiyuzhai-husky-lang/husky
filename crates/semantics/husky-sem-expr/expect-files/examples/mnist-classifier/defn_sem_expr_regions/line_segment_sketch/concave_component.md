@@ -401,7 +401,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EthSvar(`E`),
+                                                            EthSymbolicVariable(`E`),
                                                             FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
                                                                     place: None,
@@ -2695,7 +2695,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EthSvar(`E`),
+                                                            EthSymbolicVariable(`E`),
                                                             FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
                                                                     place: None,
@@ -2990,7 +2990,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EthSvar(`E`),
+                                                            EthSymbolicVariable(`E`),
                                                             FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
                                                                     place: None,
@@ -3001,7 +3001,7 @@
                                                             ),
                                                         ),
                                                         (
-                                                            EthSvar(`'self_lifetime`),
+                                                            EthSymbolicVariable(`'self_lifetime`),
                                                             FlyTermSymbolResolution::SelfLifetime,
                                                         ),
                                                     ],
@@ -7349,7 +7349,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EthSvar(`Self`),
+                                                            EthSymbolicVariable(`Self`),
                                                             FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
                                                                     place: None,
@@ -9231,7 +9231,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EthSvar(`E`),
+                                                            EthSymbolicVariable(`E`),
                                                             FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
                                                                     place: None,
@@ -9965,7 +9965,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EthSvar(`E`),
+                                                            EthSymbolicVariable(`E`),
                                                             FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
                                                                     place: None,
@@ -10206,7 +10206,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EthSvar(`E`),
+                                                            EthSymbolicVariable(`E`),
                                                             FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
                                                                     place: None,
@@ -13661,7 +13661,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EthSvar(`E`),
+                                                            EthSymbolicVariable(`E`),
                                                             FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
                                                                     place: None,
@@ -14075,7 +14075,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EthSvar(`E`),
+                                                            EthSymbolicVariable(`E`),
                                                             FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
                                                                     place: None,
@@ -14316,7 +14316,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EthSvar(`E`),
+                                                            EthSymbolicVariable(`E`),
                                                             FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
                                                                     place: None,
@@ -17310,7 +17310,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EthSvar(`E`),
+                                                            EthSymbolicVariable(`E`),
                                                             FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
                                                                     place: None,
@@ -18173,7 +18173,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EthSvar(`E`),
+                                                            EthSymbolicVariable(`E`),
                                                             FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
                                                                     place: None,
@@ -18414,7 +18414,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EthSvar(`E`),
+                                                            EthSymbolicVariable(`E`),
                                                             FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
                                                                     place: None,
@@ -25429,7 +25429,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EthSvar(`E`),
+                                                            EthSymbolicVariable(`E`),
                                                             FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
                                                                     place: None,
@@ -25644,7 +25644,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EthSvar(`Self`),
+                                                            EthSymbolicVariable(`Self`),
                                                             FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
                                                                     place: None,
@@ -25885,7 +25885,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EthSvar(`E`),
+                                                            EthSymbolicVariable(`E`),
                                                             FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
                                                                     place: None,
@@ -26100,7 +26100,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EthSvar(`Self`),
+                                                            EthSymbolicVariable(`Self`),
                                                             FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
                                                                     place: None,
@@ -27085,7 +27085,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EthSvar(`E`),
+                                                            EthSymbolicVariable(`E`),
                                                             FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
                                                                     place: None,
@@ -27300,7 +27300,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EthSvar(`Self`),
+                                                            EthSymbolicVariable(`Self`),
                                                             FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
                                                                     place: None,
@@ -27907,7 +27907,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EthSvar(`E`),
+                                                            EthSymbolicVariable(`E`),
                                                             FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
                                                                     place: None,
@@ -28122,7 +28122,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EthSvar(`Self`),
+                                                            EthSymbolicVariable(`Self`),
                                                             FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
                                                                     place: None,
@@ -29250,7 +29250,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EthSvar(`E`),
+                                                            EthSymbolicVariable(`E`),
                                                             FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
                                                                     place: None,
@@ -29959,7 +29959,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EthSvar(`E`),
+                                                            EthSymbolicVariable(`E`),
                                                             FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
                                                                     place: None,
