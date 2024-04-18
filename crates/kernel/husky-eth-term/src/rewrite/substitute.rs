@@ -1,5 +1,5 @@
 use super::*;
-use crate::term::hvar::EthHvar;
+use crate::term::lambda_variable::EthHvar;
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]

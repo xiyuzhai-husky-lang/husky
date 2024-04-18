@@ -5,7 +5,7 @@ pub use self::hol_terms::*;
 pub use self::sol_terms::*;
 
 use super::*;
-use husky_eth_term::term::svar::EthSymbolicVariable;
+use husky_eth_term::term::symbolic_variable::EthSymbolicVariable;
 
 // `Default` is not implemented because we might need to initialize `solid_terms` from the parent
 #[salsa::derive_debug_with_db]

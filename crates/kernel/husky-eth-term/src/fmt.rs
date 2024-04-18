@@ -1,5 +1,5 @@
-use self::term::svar::EthSymbolicVariable;
-use crate::{term::svar::EthTermSymbolIndexImpl, *};
+use self::term::symbolic_variable::EthSymbolicVariable;
+use crate::{term::symbolic_variable::EthTermSymbolIndexImpl, *};
 use husky_entity_path::region::RegionPath;
 use husky_term_prelude::symbol::SymbolName;
 use vec_like::VecPairMap;

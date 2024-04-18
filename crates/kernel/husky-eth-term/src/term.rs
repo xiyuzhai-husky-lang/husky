@@ -1,17 +1,17 @@
 pub mod abstraction;
 pub mod application;
 pub mod curry;
-pub mod hvar;
+pub mod lambda_variable;
 pub mod literal;
 pub mod ritchie;
-pub mod svar;
+pub mod symbolic_variable;
 pub mod trai_constraint;
 pub mod ty_as_trai_item;
 
 use self::{
-    abstraction::EthAbstraction, application::EthApplication, curry::EthCurry, hvar::EthHvar,
-    ritchie::EthRitchie, svar::EthSymbolicVariable, trai_constraint::EthTraitConstraint,
-    ty_as_trai_item::EthTypeAsTraitItem,
+    abstraction::EthAbstraction, application::EthApplication, curry::EthCurry,
+    lambda_variable::EthHvar, ritchie::EthRitchie, symbolic_variable::EthSymbolicVariable,
+    trai_constraint::EthTraitConstraint, ty_as_trai_item::EthTypeAsTraitItem,
 };
 use crate::{instantiation::*, term::application::TermFunctionReduced};
 use crate::{term::application::term_uncheck_from_dec_term_application_aux, *};

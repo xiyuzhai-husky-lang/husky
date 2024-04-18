@@ -15,8 +15,8 @@ pub use self::symbol_ty::*;
 
 use crate::*;
 use husky_eth_term::term::{
-    application::EthApplication, curry::EthCurry, hvar::EthHvar, ritchie::EthRitchie,
-    svar::EthSymbolicVariable,
+    application::EthApplication, curry::EthCurry, lambda_variable::EthHvar, ritchie::EthRitchie,
+    symbolic_variable::EthSymbolicVariable,
 };
 use husky_term_prelude::literal::Literal;
 

@@ -1,5 +1,5 @@
 use either::*;
-use husky_eth_term::term::svar::EthSymbolicVariable;
+use husky_eth_term::term::symbolic_variable::EthSymbolicVariable;
 use husky_place::place::{idx::PlaceIdx, EthPlace};
 use husky_term_prelude::Contract;
 use thiserror::Error;

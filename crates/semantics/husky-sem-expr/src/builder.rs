@@ -13,7 +13,7 @@ use self::symbol::*;
 use crate::*;
 use husky_entity_tree::helpers::AvailableTraitItemsTable;
 use husky_eth_signature::HasEthTemplate;
-use husky_eth_term::term::{svar::EthSymbolicVariable, EthTerm};
+use husky_eth_term::term::{symbolic_variable::EthSymbolicVariable, EthTerm};
 use husky_fly_term::quary::FlyQuary;
 use husky_place::{PlaceInfo, PlaceRegistry};
 use husky_regional_token::{RegionalTokenIdx, RegionalTokensData};

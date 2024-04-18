@@ -4,7 +4,7 @@ pub mod toolchain;
 use self::term::{
     application::{EthApplication, TermFunctionReduced},
     curry::EthCurry,
-    hvar::EthHvar,
+    lambda_variable::EthHvar,
     ritchie::EthRitchie,
 };
 use crate::*;

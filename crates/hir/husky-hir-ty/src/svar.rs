@@ -9,7 +9,7 @@ pub use self::r#const::*;
 pub use self::ty::*;
 
 use crate::*;
-use husky_eth_term::term::svar::{
+use husky_eth_term::term::symbolic_variable::{
     EthSymbolicVariable, EthTemplateSymbolAttrs, EthTermSymbolIndexImpl,
 };
 use husky_term_prelude::template_var_class::TemplateVariableClass;

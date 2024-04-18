@@ -7,7 +7,7 @@ use either::*;
 use husky_eth_signature::{helpers::trai_for_ty::is_ty_term_always_copyable, HasEthTemplate};
 use husky_eth_term::term::{
     application::{EthApplication, TermFunctionReduced},
-    svar::EthTermSymbolIndexImpl,
+    symbolic_variable::EthTermSymbolIndexImpl,
     EthTerm,
 };
 use husky_fly_term::{FlyTerm, FlyTermBase, FlyTerms};
