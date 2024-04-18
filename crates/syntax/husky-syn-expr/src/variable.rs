@@ -101,7 +101,7 @@ impl CurrentVariableEntry {
         variant: CurrentVariableData,
     ) -> Self {
         Self {
-            modifier: variant.svar_modifier(pattern_expr_region),
+            modifier: variant.modifier(pattern_expr_region),
             access_start,
             access_end,
             data: variant,
@@ -126,9 +126,9 @@ impl CurrentVariableEntry {
     pub fn name(&self) -> SymbolName {
         match self.data {
             CurrentVariableData::TemplateParameter {
-                template_parameter_variant:
-                    CurrentTemplateParameterSynSymbolVariant::Type { ident_token, .. }
-                    | CurrentTemplateParameterSynSymbolVariant::Constant { ident_token, .. },
+                data:
+                    CurrentTemplateVariableData::Type { ident_token, .. }
+                    | CurrentTemplateVariableData::Constant { ident_token, .. },
                 ..
             }
             | CurrentVariableData::VariadicParenateParameter { ident_token, .. }
@@ -140,13 +140,11 @@ impl CurrentVariableEntry {
             | CurrentVariableData::LoopVariable { ident, .. }
             | CurrentVariableData::SimpleClosureParameter { ident, .. } => ident.into(),
             CurrentVariableData::TemplateParameter {
-                template_parameter_variant:
-                    CurrentTemplateParameterSynSymbolVariant::Lifetime { label_token, .. },
+                data: CurrentTemplateVariableData::Lifetime { label_token, .. },
                 ..
             } => label_token.label().into(),
             CurrentVariableData::TemplateParameter {
-                template_parameter_variant:
-                    CurrentTemplateParameterSynSymbolVariant::Place { label_token, .. },
+                data: CurrentTemplateVariableData::Place { label_token, .. },
                 ..
             } => label_token.label().into(),
             CurrentVariableData::SelfType => SymbolName::SelfType,
@@ -157,9 +155,9 @@ impl CurrentVariableEntry {
     pub fn ident(&self) -> Option<Ident> {
         match self.data {
             CurrentVariableData::TemplateParameter {
-                template_parameter_variant:
-                    CurrentTemplateParameterSynSymbolVariant::Type { ident_token, .. }
-                    | CurrentTemplateParameterSynSymbolVariant::Constant { ident_token, .. },
+                data:
+                    CurrentTemplateVariableData::Type { ident_token, .. }
+                    | CurrentTemplateVariableData::Constant { ident_token, .. },
                 ..
             }
             | CurrentVariableData::VariadicParenateParameter { ident_token, .. }
@@ -171,9 +169,9 @@ impl CurrentVariableEntry {
             | CurrentVariableData::CaseVariable { ident, .. }
             | CurrentVariableData::LoopVariable { ident, .. } => Some(ident),
             CurrentVariableData::TemplateParameter {
-                template_parameter_variant:
-                    CurrentTemplateParameterSynSymbolVariant::Lifetime { .. }
-                    | CurrentTemplateParameterSynSymbolVariant::Place { .. },
+                data:
+                    CurrentTemplateVariableData::Lifetime { .. }
+                    | CurrentTemplateVariableData::Place { .. },
                 ..
             } => None,
             CurrentVariableData::SelfType | CurrentVariableData::SelfValue { .. } => None,
@@ -238,7 +236,7 @@ pub enum CurrentVariableData {
     TemplateParameter {
         syn_attrs: TemplateParameterSynAttrs,
         annotated_variance_token: Option<VarianceRegionalToken>,
-        template_parameter_variant: CurrentTemplateParameterSynSymbolVariant,
+        data: CurrentTemplateVariableData,
     },
     SelfType,
     SelfValue {
@@ -322,7 +320,7 @@ pub enum TemplateSymbolSynAttr {
 }
 
 impl CurrentVariableData {
-    fn svar_modifier(&self, pattern_expr_region: &SynPatternExprRegion) -> VariableModifier {
+    fn modifier(&self, pattern_expr_region: &SynPatternExprRegion) -> VariableModifier {
         match self {
             CurrentVariableData::TemplateParameter { .. } => VariableModifier::Const,
             CurrentVariableData::SimpleParenateParameter {
@@ -357,7 +355,7 @@ impl CurrentVariableData {
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 #[non_exhaustive]
-pub enum CurrentTemplateParameterSynSymbolVariant {
+pub enum CurrentTemplateVariableData {
     Lifetime {
         label_token: LifetimeLabelRegionalToken,
     },
@@ -373,25 +371,25 @@ pub enum CurrentTemplateParameterSynSymbolVariant {
     },
 }
 
-impl CurrentTemplateParameterSynSymbolVariant {
+impl CurrentTemplateVariableData {
     fn bequeath(&self) -> InheritedTemplateVariable {
         match self {
-            CurrentTemplateParameterSynSymbolVariant::Lifetime { label_token } => {
+            CurrentTemplateVariableData::Lifetime { label_token } => {
                 InheritedTemplateVariable::Lifetime {
                     label: label_token.label(),
                 }
             }
-            CurrentTemplateParameterSynSymbolVariant::Place { label_token } => {
+            CurrentTemplateVariableData::Place { label_token } => {
                 InheritedTemplateVariable::Place {
                     label: label_token.label(),
                 }
             }
-            CurrentTemplateParameterSynSymbolVariant::Type { ident_token, .. } => {
+            CurrentTemplateVariableData::Type { ident_token, .. } => {
                 InheritedTemplateVariable::Type {
                     ident: ident_token.ident(),
                 }
             }
-            CurrentTemplateParameterSynSymbolVariant::Constant { ident_token, .. } => {
+            CurrentTemplateVariableData::Constant { ident_token, .. } => {
                 InheritedTemplateVariable::Constant {
                     ident: ident_token.ident(),
                 }
@@ -404,7 +402,7 @@ impl CurrentVariableData {
     pub fn kind(&self) -> CurrentVariableKind {
         match self {
             CurrentVariableData::TemplateParameter {
-                template_parameter_variant,
+                data: template_parameter_variant,
                 ..
             } => CurrentVariableKind::TemplateParameter {
                 template_parameter_kind: template_parameter_variant.kind(),
@@ -454,25 +452,25 @@ impl CurrentVariableData {
     }
 }
 
-impl CurrentTemplateParameterSynSymbolVariant {
+impl CurrentTemplateVariableData {
     fn kind(&self) -> CurrentTemplateParameterSynSymbolKind {
         match self {
-            CurrentTemplateParameterSynSymbolVariant::Type { ident_token, .. } => {
+            CurrentTemplateVariableData::Type { ident_token, .. } => {
                 CurrentTemplateParameterSynSymbolKind::Type {
                     ident_token: *ident_token,
                 }
             }
-            CurrentTemplateParameterSynSymbolVariant::Lifetime { label_token } => {
+            CurrentTemplateVariableData::Lifetime { label_token } => {
                 CurrentTemplateParameterSynSymbolKind::Lifetime {
                     label_token: *label_token,
                 }
             }
-            CurrentTemplateParameterSynSymbolVariant::Place { label_token } => {
+            CurrentTemplateVariableData::Place { label_token } => {
                 CurrentTemplateParameterSynSymbolKind::Place {
                     label_token: *label_token,
                 }
             }
-            CurrentTemplateParameterSynSymbolVariant::Constant { ident_token, .. } => {
+            CurrentTemplateVariableData::Constant { ident_token, .. } => {
                 CurrentTemplateParameterSynSymbolKind::Constant {
                     ident_token: *ident_token,
                 }

@@ -110,7 +110,7 @@ impl<'a> DecTermEngine<'a> {
                     let CurrentVariableData::TemplateParameter {
                         syn_attrs,
                         annotated_variance_token,
-                        template_parameter_variant,
+                        data: template_parameter_variant,
                     } = current_syn_symbol.data()
                     else {
                         unreachable!()
@@ -127,7 +127,7 @@ impl<'a> DecTermEngine<'a> {
                     ));
                     let variance = annotated_variance_token.map(|vt| vt.into());
                     let (name, (ty, term_symbol)) = match *template_parameter_variant {
-                        CurrentTemplateParameterSynSymbolVariant::Lifetime { label_token } => (
+                        CurrentTemplateVariableData::Lifetime { label_token } => (
                             label_token.label().into(),
                             DecSymbolicVariable::new_lifetime(
                                 self.db,
@@ -138,7 +138,7 @@ impl<'a> DecTermEngine<'a> {
                                 variance,
                             ),
                         ),
-                        CurrentTemplateParameterSynSymbolVariant::Place { label_token } => (
+                        CurrentTemplateVariableData::Place { label_token } => (
                             label_token.label().into(),
                             DecSymbolicVariable::new_place(
                                 self.db,
@@ -149,7 +149,7 @@ impl<'a> DecTermEngine<'a> {
                                 variance,
                             ),
                         ),
-                        CurrentTemplateParameterSynSymbolVariant::Type { ident_token, .. } => (
+                        CurrentTemplateVariableData::Type { ident_token, .. } => (
                             ident_token.ident().into(),
                             DecSymbolicVariable::new_ty(
                                 self.db,
@@ -160,7 +160,7 @@ impl<'a> DecTermEngine<'a> {
                                 variance,
                             ),
                         ),
-                        CurrentTemplateParameterSynSymbolVariant::Constant {
+                        CurrentTemplateVariableData::Constant {
                             ident_token,
                             ty_expr_idx,
                         } => {
@@ -181,14 +181,13 @@ impl<'a> DecTermEngine<'a> {
                         }
                         _ => todo!(),
                     };
-                    self.symbolic_variable_region
-                        .add_new_template_variable_signature(
-                            self.db,
-                            symbols.start(),
-                            ty,
-                            term_symbol,
-                            name,
-                        )
+                    self.symbolic_variable_region.add_new_template_variable(
+                        self.db,
+                        symbols.start(),
+                        ty,
+                        term_symbol,
+                        name,
+                    )
                 }
                 SyndicateTypeConstraint::SimpleParenateParameter {
                     syn_pattern_root,
@@ -228,14 +227,13 @@ impl<'a> DecTermEngine<'a> {
                         ty,
                         &mut self.symbolic_variable_region.registry_mut(),
                     );
-                    self.symbolic_variable_region
-                        .add_new_template_variable_signature(
-                            self.db,
-                            symbols.start(),
-                            ty,
-                            symbol,
-                            ident_token.ident().into(),
-                        )
+                    self.symbolic_variable_region.add_new_template_variable(
+                        self.db,
+                        symbols.start(),
+                        ty,
+                        symbol,
+                        ident_token.ident().into(),
+                    )
                 }
             }
         }
@@ -255,18 +253,17 @@ impl<'a> DecTermEngine<'a> {
                 let current_syn_symbol = &self.syn_expr_region_data[symbol];
                 let name = current_syn_symbol.name();
                 let modifier = current_syn_symbol.modifier();
-                self.symbolic_variable_region
-                    .add_new_parenate_parameter_symbol_signature(
-                        self.db,
-                        symbol,
-                        modifier,
-                        Err(
-                            DecTermSymbolicVariableTypeErrorKind::CannotInferTypeExprTerm(
-                                self.syn_expr_region_data.path(),
-                            ),
+                self.symbolic_variable_region.add_new_parenate_variable(
+                    self.db,
+                    symbol,
+                    modifier,
+                    Err(
+                        DecTermSymbolicVariableTypeErrorKind::CannotInferTypeExprTerm(
+                            self.syn_expr_region_data.path(),
                         ),
-                        name,
-                    )
+                    ),
+                    name,
+                )
             }
             return;
         };
@@ -287,14 +284,13 @@ impl<'a> DecTermEngine<'a> {
                 pattern_symbol_idx,
             } => {
                 let base_ty = self.pattern_symbol_ty_infos[pattern_symbol_idx].base_ty();
-                self.symbolic_variable_region
-                    .add_new_parenate_parameter_symbol_signature(
-                        self.db,
-                        current_syn_symbol_idx,
-                        current_syn_symbol.modifier(),
-                        Ok(base_ty),
-                        ident.into(),
-                    )
+                self.symbolic_variable_region.add_new_parenate_variable(
+                    self.db,
+                    current_syn_symbol_idx,
+                    current_syn_symbol.modifier(),
+                    Ok(base_ty),
+                    ident.into(),
+                )
             }
             _ => unreachable!("this function is only used for explicit parameters"),
         }

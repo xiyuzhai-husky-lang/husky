@@ -6,7 +6,7 @@ pub use self::html::*;
 
 use crate::{
     be_variable::HirEagerBeVariablesPattern, closure_parameter::HirEagerClosureParameterPattern,
-    var::rvar::HirEagerRvarIdx, *,
+    variable::runtime::HirEagerRvarIdx, *,
 };
 use husky_eth_term::term::EthTerm;
 use husky_fly_term::{

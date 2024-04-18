@@ -95,7 +95,7 @@ impl<'a> SemaExprBuilder<'a> {
     ) -> Option<FlyTerm> {
         match self.syn_expr_region_data[current_syn_symbol_idx].data() {
             CurrentVariableData::TemplateParameter {
-                template_parameter_variant,
+                data: template_parameter_variant,
                 ..
             } => todo!(),
             CurrentVariableData::SimpleParenateParameter {

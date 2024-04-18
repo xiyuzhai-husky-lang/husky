@@ -1,5 +1,5 @@
 use husky_coword::IdentPairMap;
-use husky_hir_eager_expr::var::rvar::HirEagerRvarIdx;
+use husky_hir_eager_expr::variable::runtime::HirEagerRvarIdx;
 use husky_sem_expr::{helpers::range::sem_expr_range_region, SemaExprRegion};
 
 use crate::registry::assoc_trace::VoidAssocTraceRegistry;

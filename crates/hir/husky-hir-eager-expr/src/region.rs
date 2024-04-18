@@ -1,7 +1,9 @@
 use husky_entity_path::region::RegionPath;
 
 use crate::{
-    var::{cvar::HirEagerComptimeVariableRegionData, rvar::HirEagerRuntimeVariableRegionData},
+    variable::{
+        comptime::HirEagerComptimeVariableRegionData, runtime::HirEagerRuntimeVariableRegionData,
+    },
     *,
 };
 
