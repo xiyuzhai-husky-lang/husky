@@ -181,7 +181,7 @@ where
 
     pub(crate) fn define_symbol(
         &mut self,
-        variable: CurrentSynSymbolEntry,
+        variable: CurrentVariableEntry,
         ty_constraint: Option<SyndicateTypeConstraint>,
     ) -> CurrentVariableIdx {
         self.context_mut().define_symbol(variable, ty_constraint)
@@ -189,7 +189,7 @@ where
 
     pub(crate) fn define_symbols(
         &mut self,
-        variables: impl IntoIterator<Item = CurrentSynSymbolEntry>,
+        variables: impl IntoIterator<Item = CurrentVariableEntry>,
         ty_constraint: Option<SyndicateTypeConstraint>,
     ) -> CurrentSynSymbolIdxRange {
         self.context_mut().define_symbols(variables, ty_constraint)

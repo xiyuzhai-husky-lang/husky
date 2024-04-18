@@ -3,7 +3,7 @@ use super::*;
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct DeclarativeTemplateParameter {
     annotated_variance: Option<Variance>,
-    svar: DecSvar,
+    svar: DecSymbolicVariable,
     annotated_traits: Vec<DecTerm>,
 }
 
@@ -26,7 +26,7 @@ impl DeclarativeTemplateParameter {
             TemplateParameterSyndicateVariant::Type { .. } => {
                 DeclarativeTemplateParameter {
                     svar: region
-                        .current_syn_symbol_signature(symbol)
+                        .current_variable_signature(symbol)
                         .expect("not none")
                         .term_symbol()
                         .expect("should have term"),
@@ -37,7 +37,7 @@ impl DeclarativeTemplateParameter {
             }
             TemplateParameterSyndicateVariant::Constant { .. } => DeclarativeTemplateParameter {
                 svar: region
-                    .current_syn_symbol_signature(symbol)
+                    .current_variable_signature(symbol)
                     .expect("not none")
                     .term_symbol()
                     .expect("should have term"),
@@ -47,7 +47,7 @@ impl DeclarativeTemplateParameter {
             TemplateParameterSyndicateVariant::Lifetime { .. } => {
                 DeclarativeTemplateParameter {
                     svar: region
-                        .current_syn_symbol_signature(symbol)
+                        .current_variable_signature(symbol)
                         .expect("not none")
                         .term_symbol()
                         .expect("should have term"),
@@ -59,7 +59,7 @@ impl DeclarativeTemplateParameter {
             TemplateParameterSyndicateVariant::Place { .. } => {
                 DeclarativeTemplateParameter {
                     svar: region
-                        .current_syn_symbol_signature(symbol)
+                        .current_variable_signature(symbol)
                         .expect("not none")
                         .term_symbol()
                         .expect("should have term"),
@@ -71,7 +71,7 @@ impl DeclarativeTemplateParameter {
         }
     }
 
-    fn new_implicit(symbol: DecSvar) -> Self {
+    fn new_implicit(symbol: DecSymbolicVariable) -> Self {
         DeclarativeTemplateParameter {
             svar: symbol,
             annotated_variance: None,
@@ -79,11 +79,11 @@ impl DeclarativeTemplateParameter {
         }
     }
 
-    pub fn symbol(&self) -> DecSvar {
+    pub fn symbol(&self) -> DecSymbolicVariable {
         self.svar
     }
 
-    pub fn ty(&self, db: &::salsa::Db) -> DecTermSymbolTypeResult<DecTerm> {
+    pub fn ty(&self, db: &::salsa::Db) -> DecTermSymbolicVariableTypeResult<DecTerm> {
         self.symbol().ty(db)
     }
 
@@ -120,7 +120,7 @@ impl DecTemplateParameters {
                 .chain(
                     dec_term_region
                         .dec_symbol_region()
-                        .implicit_template_parameter_symbols()
+                        .auto_template_parameter_symbols()
                         .iter()
                         .map(|&a| DeclarativeTemplateParameter::new_implicit(a)),
                 )

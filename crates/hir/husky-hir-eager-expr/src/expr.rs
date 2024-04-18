@@ -23,7 +23,7 @@ use husky_hir_ty::{
 };
 use husky_sem_expr::{SemaExprData, SemaExprIdx, SemaRitchieArgument};
 use husky_sem_opr::{binary::SemaBinaryOpr, suffix::SemaSuffixOpr};
-use husky_syn_expr::{InheritedTemplateParameterSynSymbol, InheritedVariableKind};
+use husky_syn_expr::{InheritedTemplateVariable, InheritedVariableKind};
 use husky_term_prelude::literal::Literal;
 use vec_like::VecMap;
 
@@ -72,7 +72,7 @@ pub enum HirEagerExprData {
     AssocFn {
         assoc_item_path: AssocItemPath,
     },
-    ConstSvar {
+    ConstVariable {
         ident: Ident,
     },
     Variable(HirEagerRvarIdx),
@@ -209,18 +209,18 @@ impl ToHirEager for SemaExprIdx {
                 inherited_syn_symbol_kind,
                 ..
             } => match inherited_syn_symbol_kind {
-                InheritedVariableKind::TemplateParameter(symbol) => match symbol {
-                    InheritedTemplateParameterSynSymbol::Lifetime { label: _ } => {
+                InheritedVariableKind::Template(symbol) => match symbol {
+                    InheritedTemplateVariable::Lifetime { label: _ } => {
                         todo!()
                     }
-                    InheritedTemplateParameterSynSymbol::Place { label: _ } => todo!(),
-                    InheritedTemplateParameterSynSymbol::Type { ident: _ } => todo!(),
-                    InheritedTemplateParameterSynSymbol::Constant { ident } => {
-                        HirEagerExprData::ConstSvar { ident }
+                    InheritedTemplateVariable::Place { label: _ } => todo!(),
+                    InheritedTemplateVariable::Type { ident: _ } => todo!(),
+                    InheritedTemplateVariable::Constant { ident } => {
+                        HirEagerExprData::ConstVariable { ident }
                     }
                 },
-                InheritedVariableKind::ParenateParameter { .. }
-                | InheritedVariableKind::FieldVariable { .. } => HirEagerExprData::Variable(
+                InheritedVariableKind::Parenate { .. }
+                | InheritedVariableKind::SelfField { .. } => HirEagerExprData::Variable(
                     builder
                         .inherited_syn_symbol_to_hir_eager_runtime_symbol(inherited_syn_symbol_idx)
                         .unwrap(),

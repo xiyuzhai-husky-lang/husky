@@ -66,16 +66,16 @@ impl<'a> SemaExprBuilder<'a> {
         };
         let modifier =
             match *self.syn_expr_region_data.symbol_region()[current_syn_symbol_idx].data() {
-                CurrentSynSymbolData::SimpleClosureParameter {
+                CurrentVariableData::SimpleClosureParameter {
                     pattern_symbol_idx, ..
                 }
-                | CurrentSynSymbolData::LetVariable {
+                | CurrentVariableData::LetVariable {
                     pattern_symbol_idx, ..
                 }
-                | CurrentSynSymbolData::BeVariable {
+                | CurrentVariableData::BeVariable {
                     pattern_symbol_idx, ..
                 }
-                | CurrentSynSymbolData::CaseVariable {
+                | CurrentVariableData::CaseVariable {
                     pattern_symbol_idx, ..
                 } => self
                     .expr_region_data()
@@ -94,33 +94,33 @@ impl<'a> SemaExprBuilder<'a> {
         current_syn_symbol_idx: CurrentVariableIdx,
     ) -> Option<FlyTerm> {
         match self.syn_expr_region_data[current_syn_symbol_idx].data() {
-            CurrentSynSymbolData::TemplateParameter {
+            CurrentVariableData::TemplateParameter {
                 template_parameter_variant,
                 ..
             } => todo!(),
-            CurrentSynSymbolData::SimpleParenateParameter {
+            CurrentVariableData::SimpleParenateParameter {
                 pattern_symbol_idx, ..
             } => todo!(),
-            CurrentSynSymbolData::VariadicParenateParameter { ident_token, .. } => todo!(),
-            CurrentSynSymbolData::SimpleClosureParameter {
+            CurrentVariableData::VariadicParenateParameter { ident_token, .. } => todo!(),
+            CurrentVariableData::SimpleClosureParameter {
                 ident,
                 pattern_symbol_idx,
             } => self.infer_new_pattern_symbol_ty(*pattern_symbol_idx),
-            CurrentSynSymbolData::LetVariable {
+            CurrentVariableData::LetVariable {
                 pattern_symbol_idx, ..
             }
-            | CurrentSynSymbolData::BeVariable {
+            | CurrentVariableData::BeVariable {
                 pattern_symbol_idx, ..
             }
-            | CurrentSynSymbolData::CaseVariable {
+            | CurrentVariableData::CaseVariable {
                 pattern_symbol_idx, ..
             } => self.infer_new_pattern_symbol_ty(*pattern_symbol_idx),
-            CurrentSynSymbolData::LoopVariable { .. } => todo!(),
-            CurrentSynSymbolData::SelfType => todo!(),
-            CurrentSynSymbolData::SelfValue {
+            CurrentVariableData::LoopVariable { .. } => todo!(),
+            CurrentVariableData::SelfType => todo!(),
+            CurrentVariableData::SelfValue {
                 symbol_modifier_keyword_group,
             } => todo!(),
-            CurrentSynSymbolData::FieldVariable { ident_token } => todo!(),
+            CurrentVariableData::FieldVariable { ident_token } => todo!(),
         }
     }
 
@@ -140,7 +140,7 @@ impl<'a> SemaExprBuilder<'a> {
         pattern_symbol_idx: SynPatternSymbolIdx,
     ) -> PatternSymbolTypeResult<FlyTerm> {
         match self.syn_expr_region_data[pattern_symbol_idx] {
-            SynPatternSymbol::Atom(pattern_expr_idx) => self
+            PatternVariable::Atom(pattern_expr_idx) => self
                 .get_pattern_expr_ty(pattern_expr_idx)
                 .ok_or(DerivedPatternSymbolTypeError::PatternSemaExprError.into()),
         }

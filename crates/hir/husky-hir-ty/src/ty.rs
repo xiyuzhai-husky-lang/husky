@@ -19,7 +19,7 @@ use husky_term_prelude::ItemPathTerm;
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum HirType {
     PathLeading(HirTypePathLeading),
-    Svar(HirTypeSvar),
+    Variable(HirTypeTemplateVariable),
     TypeAssocType(HirTypeTypeAssocType),
     TraitAssocType(HirTypeTraitAssocType),
     Ritchie(HirRitchieType),
@@ -35,7 +35,9 @@ impl HirType {
     pub fn from_eth(term: EthTerm, db: &::salsa::Db) -> Option<Self> {
         let always_copyable = is_ty_term_always_copyable(term, db).unwrap()?;
         match term {
-            EthTerm::Symbol(symbol) => HirTypeSvar::from_eth(symbol, db).map(Into::into),
+            EthTerm::Symbol(symbol) => {
+                HirTypeTemplateVariable::from_eth(symbol, db).map(Into::into)
+            }
             EthTerm::EntityPath(path) => match path {
                 ItemPathTerm::Fugitive(_) => todo!(),
                 ItemPathTerm::Trait(_) => todo!(),
@@ -84,7 +86,7 @@ impl HirType {
     pub fn always_copyable(self, db: &::salsa::Db) -> bool {
         match self {
             HirType::PathLeading(slf) => slf.always_copyable(db),
-            HirType::Svar(_slf) => false, // ad hoc: todo check traits
+            HirType::Variable(_slf) => false, // ad hoc: todo check traits
             HirType::TypeAssocType(_slf) => false, // ad hoc: todo check traits
             HirType::TraitAssocType(_slf) => false, // ad hoc: todo check traits
             HirType::Ritchie(_slf) => true,

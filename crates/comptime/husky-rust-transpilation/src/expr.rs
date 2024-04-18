@@ -19,8 +19,8 @@ use husky_hir_eager_expr::{
 };
 use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
 use husky_hir_ty::{
-    instantiation::HirTermSvarResolution, place_contract_site::HirPlaceContractSite,
-    quary::HirQuary, ritchie::HirContract, HirTemplateSvar, HirTemplateSvarClass,
+    instantiation::HirTermSymbolicVariableResolution, place_contract_site::HirPlaceContractSite,
+    quary::HirQuary, ritchie::HirContract, HirTemplateVariable, HirTemplateVariableClass,
 };
 use husky_opr::BinaryClosedOpr;
 use smallvec::SmallVec;
@@ -122,7 +122,7 @@ fn transpile_hir_eager_expr_to_rust(
                 PrincipalEntityPath::MajorItem(_) => (),
             }
         }
-        HirEagerExprData::ConstSvar { ident, .. } => ident.transpile_to_rust(builder),
+        HirEagerExprData::ConstVariable { ident, .. } => ident.transpile_to_rust(builder),
         HirEagerExprData::Variable(hir_eager_runtime_symbol_idx) => {
             hir_eager_runtime_symbol_idx.transpile_to_rust(builder)
         }
@@ -198,16 +198,17 @@ fn transpile_hir_eager_expr_to_rust(
                 builder.punctuation(RustPunctuation::CommaSpaced);
                 (opd, subexpr_geq()).transpile_to_rust(builder);
                 builder.punctuation(RustPunctuation::CommaSpaced);
-                let runtime_constants: SmallVec<[HirTermSvarResolution; 2]> = instantiation
-                    .symbol_map()
-                    .iter()
-                    .filter_map(|&(symbol, resolution)| match symbol {
-                        HirTemplateSvar::Const(symbol) => (symbol.index(db).class()
-                            == HirTemplateSvarClass::Runtime)
-                            .then_some(resolution),
-                        _ => None,
-                    })
-                    .collect();
+                let runtime_constants: SmallVec<[HirTermSymbolicVariableResolution; 2]> =
+                    instantiation
+                        .symbol_map()
+                        .iter()
+                        .filter_map(|&(symbol, resolution)| match symbol {
+                            HirTemplateVariable::Const(symbol) => (symbol.index(db).class()
+                                == HirTemplateVariableClass::Runtime)
+                                .then_some(resolution),
+                            _ => None,
+                        })
+                        .collect();
                 builder.delimited_comma_list_with_last_comma(RustDelimiter::Par, runtime_constants)
             })
         }
@@ -404,7 +405,7 @@ impl HirEagerExprSite {
                 HirQuary::RefMut { .. } => true,
                 _ => false,
             },
-            HirEagerExprData::ConstSvar { .. }
+            HirEagerExprData::ConstVariable { .. }
             | HirEagerExprData::FunctionFnCall { .. }
             | HirEagerExprData::AssocFunctionFnCall { .. }
             | HirEagerExprData::MemoizedField { .. }

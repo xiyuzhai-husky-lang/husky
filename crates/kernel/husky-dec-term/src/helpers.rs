@@ -49,7 +49,7 @@ pub enum DecTermFamily {
     Other,
 }
 
-impl DecSvar {
+impl DecSymbolicVariable {
     pub(crate) fn ty_family(self, db: &::salsa::Db) -> DecTermFamily {
         self.ty(db)
             .ok()
@@ -58,7 +58,7 @@ impl DecSvar {
     }
 }
 
-impl DecHvar {
+impl DecLambdaVariable {
     pub(crate) fn ty_family(self, db: &::salsa::Db) -> DecTermFamily {
         self.ty(db)
             .ok()

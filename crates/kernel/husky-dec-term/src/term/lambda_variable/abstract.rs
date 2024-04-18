@@ -26,12 +26,12 @@ impl DecTerm {
     pub(in crate::term) fn create_hvar(
         self,
         db: &::salsa::Db,
-        symbol: DecSvar,
-    ) -> (Self, Option<DecHvar>) {
+        symbol: DecSymbolicVariable,
+    ) -> (Self, Option<DecLambdaVariable>) {
         let Some(idx) = self.new_hvar_idx(db, symbol) else {
             return (self, None);
         };
-        let hvar = DecHvar::new(symbol.ty(db), idx, db);
+        let hvar = DecLambdaVariable::new(symbol.ty(db), idx, db);
         (
             self.substitute_symbol_with_hvar(db, symbol, hvar),
             Some(hvar),
@@ -45,7 +45,7 @@ impl DecTerm {
     /// returns the hvar idx if turning this symbol into hvar
     /// returns None if symbol is not present
     #[inline(always)]
-    fn new_hvar_idx(self, db: &::salsa::Db, symbol: DecSvar) -> Option<u8> {
+    fn new_hvar_idx(self, db: &::salsa::Db, symbol: DecSymbolicVariable) -> Option<u8> {
         self.new_hvar_idx_with_ty_family(db, symbol, symbol.ty_family(db))
     }
 
@@ -54,7 +54,7 @@ impl DecTerm {
     fn new_hvar_idx_with_ty_family(
         self,
         db: &::salsa::Db,
-        symbol: DecSvar,
+        symbol: DecSymbolicVariable,
         symbol_ty_family: DecTermFamily,
     ) -> Option<u8> {
         self.contains_symbol(db, symbol)
@@ -65,7 +65,7 @@ impl DecTerm {
     fn new_hvar_disambiguator_if_symbol_is_present(
         self,
         db: &::salsa::Db,
-        symbol: DecSvar,
+        symbol: DecSymbolicVariable,
         symbol_ty_family: DecTermFamily,
     ) -> u8 {
         let mut disambiguator = match self {
@@ -122,8 +122,8 @@ impl DecTerm {
             DecTerm::LeashOrBitNot(_) => todo!(),
             DecTerm::List(_) => todo!(),
             DecTerm::Literal(_)
-            | DecTerm::Symbol(_)
-            | DecTerm::Hvar(_)
+            | DecTerm::SymbolicVariable(_)
+            | DecTerm::LambdaVariable(_)
             | DecTerm::EntityPath(_)
             | DecTerm::Category(_)
             | DecTerm::Universe(_) => (),
@@ -137,14 +137,14 @@ impl DecTerm {
     pub(in crate::term) fn substitute_symbol_with_hvar(
         self,
         db: &::salsa::Db,
-        symbol: DecSvar,
-        hvar: DecHvar,
+        symbol: DecSymbolicVariable,
+        hvar: DecLambdaVariable,
     ) -> Self {
         if !self.contains_symbol(db, symbol) {
             return self;
         }
         match self {
-            DecTerm::Symbol(term) if term == symbol => hvar.into(),
+            DecTerm::SymbolicVariable(term) if term == symbol => hvar.into(),
             DecTerm::Universe(_) => self, // ad hoc
             DecTerm::Curry(term) => term.substitute_symbol_with_hvar(db, symbol, hvar).into(),
             DecTerm::Ritchie(term) => DecRitchie::new(

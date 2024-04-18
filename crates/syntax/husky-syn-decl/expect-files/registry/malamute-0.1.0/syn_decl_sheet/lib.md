@@ -80,13 +80,13 @@ SynDeclSheet {
                                         },
                                         current_syn_symbol_arena: Arena {
                                             data: [
-                                                CurrentSynSymbolEntry {
+                                                CurrentVariableEntry {
                                                     modifier: Const,
                                                     access_start: RegionalTokenIdx(
                                                         6,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::TemplateParameter {
+                                                    data: CurrentVariableData::TemplateParameter {
                                                         syn_attrs: TemplateParameterSynAttrs {
                                                             syn_attrs: [],
                                                         },
@@ -246,13 +246,13 @@ SynDeclSheet {
                                         },
                                         current_syn_symbol_arena: Arena {
                                             data: [
-                                                CurrentSynSymbolEntry {
+                                                CurrentVariableEntry {
                                                     modifier: Const,
                                                     access_start: RegionalTokenIdx(
                                                         8,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::TemplateParameter {
+                                                    data: CurrentVariableData::TemplateParameter {
                                                         syn_attrs: TemplateParameterSynAttrs {
                                                             syn_attrs: [
                                                                 Phantom(
@@ -280,13 +280,13 @@ SynDeclSheet {
                                                         },
                                                     },
                                                 },
-                                                CurrentSynSymbolEntry {
+                                                CurrentVariableEntry {
                                                     modifier: Const,
                                                     access_start: RegionalTokenIdx(
                                                         15,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::TemplateParameter {
+                                                    data: CurrentVariableData::TemplateParameter {
                                                         syn_attrs: TemplateParameterSynAttrs {
                                                             syn_attrs: [
                                                                 Phantom(
@@ -471,13 +471,13 @@ SynDeclSheet {
                                         },
                                         current_syn_symbol_arena: Arena {
                                             data: [
-                                                CurrentSynSymbolEntry {
+                                                CurrentVariableEntry {
                                                     modifier: Const,
                                                     access_start: RegionalTokenIdx(
                                                         8,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::TemplateParameter {
+                                                    data: CurrentVariableData::TemplateParameter {
                                                         syn_attrs: TemplateParameterSynAttrs {
                                                             syn_attrs: [
                                                                 Phantom(
@@ -505,13 +505,13 @@ SynDeclSheet {
                                                         },
                                                     },
                                                 },
-                                                CurrentSynSymbolEntry {
+                                                CurrentVariableEntry {
                                                     modifier: Const,
                                                     access_start: RegionalTokenIdx(
                                                         15,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::TemplateParameter {
+                                                    data: CurrentVariableData::TemplateParameter {
                                                         syn_attrs: TemplateParameterSynAttrs {
                                                             syn_attrs: [
                                                                 Phantom(
@@ -884,7 +884,7 @@ SynDeclSheet {
                                         },
                                         pattern_symbol_arena: Arena {
                                             data: [
-                                                SynPatternSymbol::Atom(
+                                                PatternVariable::Atom(
                                                     0,
                                                 ),
                                             ],
@@ -909,13 +909,13 @@ SynDeclSheet {
                                         },
                                         current_syn_symbol_arena: Arena {
                                             data: [
-                                                CurrentSynSymbolEntry {
+                                                CurrentVariableEntry {
                                                     modifier: Const,
                                                     access_start: RegionalTokenIdx(
                                                         6,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::TemplateParameter {
+                                                    data: CurrentVariableData::TemplateParameter {
                                                         syn_attrs: TemplateParameterSynAttrs {
                                                             syn_attrs: [],
                                                         },
@@ -930,13 +930,13 @@ SynDeclSheet {
                                                         },
                                                     },
                                                 },
-                                                CurrentSynSymbolEntry {
+                                                CurrentVariableEntry {
                                                     modifier: Const,
                                                     access_start: RegionalTokenIdx(
                                                         13,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::TemplateParameter {
+                                                    data: CurrentVariableData::TemplateParameter {
                                                         syn_attrs: TemplateParameterSynAttrs {
                                                             syn_attrs: [
                                                                 Runtime(
@@ -965,13 +965,13 @@ SynDeclSheet {
                                                         },
                                                     },
                                                 },
-                                                CurrentSynSymbolEntry {
+                                                CurrentVariableEntry {
                                                     modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         16,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::VariadicParenateParameter {
+                                                    data: CurrentVariableData::VariadicParenateParameter {
                                                         symbol_modifier_keyword_group: None,
                                                         ident_token: IdentRegionalToken {
                                                             ident: `f`,
@@ -981,13 +981,13 @@ SynDeclSheet {
                                                         },
                                                     },
                                                 },
-                                                CurrentSynSymbolEntry {
+                                                CurrentVariableEntry {
                                                     modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         23,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::SimpleParenateParameter {
+                                                    data: CurrentVariableData::SimpleParenateParameter {
                                                         ident: `skip`,
                                                         pattern_symbol_idx: 0,
                                                     },
@@ -1304,13 +1304,13 @@ SynDeclSheet {
                                     },
                                     current_syn_symbol_arena: Arena {
                                         data: [
-                                            CurrentSynSymbolEntry {
+                                            CurrentVariableEntry {
                                                 modifier: Const,
                                                 access_start: RegionalTokenIdx(
                                                     6,
                                                 ),
                                                 access_end: None,
-                                                data: CurrentSynSymbolData::TemplateParameter {
+                                                data: CurrentVariableData::TemplateParameter {
                                                     syn_attrs: TemplateParameterSynAttrs {
                                                         syn_attrs: [
                                                             Phantom(
@@ -1338,13 +1338,13 @@ SynDeclSheet {
                                                     },
                                                 },
                                             },
-                                            CurrentSynSymbolEntry {
+                                            CurrentVariableEntry {
                                                 modifier: Const,
                                                 access_start: RegionalTokenIdx(
                                                     13,
                                                 ),
                                                 access_end: None,
-                                                data: CurrentSynSymbolData::TemplateParameter {
+                                                data: CurrentVariableData::TemplateParameter {
                                                     syn_attrs: TemplateParameterSynAttrs {
                                                         syn_attrs: [
                                                             Phantom(
@@ -1608,13 +1608,13 @@ SynDeclSheet {
                                                     },
                                                     current_syn_symbol_arena: Arena {
                                                         data: [
-                                                            CurrentSynSymbolEntry {
+                                                            CurrentVariableEntry {
                                                                 modifier: Const,
                                                                 access_start: RegionalTokenIdx(
                                                                     6,
                                                                 ),
                                                                 access_end: None,
-                                                                data: CurrentSynSymbolData::TemplateParameter {
+                                                                data: CurrentVariableData::TemplateParameter {
                                                                     syn_attrs: TemplateParameterSynAttrs {
                                                                         syn_attrs: [
                                                                             Phantom(
@@ -1642,13 +1642,13 @@ SynDeclSheet {
                                                                     },
                                                                 },
                                                             },
-                                                            CurrentSynSymbolEntry {
+                                                            CurrentVariableEntry {
                                                                 modifier: Const,
                                                                 access_start: RegionalTokenIdx(
                                                                     13,
                                                                 ),
                                                                 access_end: None,
-                                                                data: CurrentSynSymbolData::TemplateParameter {
+                                                                data: CurrentVariableData::TemplateParameter {
                                                                     syn_attrs: TemplateParameterSynAttrs {
                                                                         syn_attrs: [
                                                                             Phantom(
@@ -1777,16 +1777,16 @@ SynDeclSheet {
                                             data: [
                                                 InheritedVariable {
                                                     modifier: Const,
-                                                    kind: InheritedVariableKind::TemplateParameter(
-                                                        InheritedTemplateParameterSynSymbol::Type {
+                                                    kind: InheritedVariableKind::Template(
+                                                        InheritedTemplateVariable::Type {
                                                             ident: `Label`,
                                                         },
                                                     ),
                                                 },
                                                 InheritedVariable {
                                                     modifier: Const,
-                                                    kind: InheritedVariableKind::TemplateParameter(
-                                                        InheritedTemplateParameterSynSymbol::Constant {
+                                                    kind: InheritedVariableKind::Template(
+                                                        InheritedTemplateVariable::Constant {
                                                             ident: `label`,
                                                         },
                                                     ),
@@ -2126,13 +2126,13 @@ SynDeclSheet {
                                     },
                                     current_syn_symbol_arena: Arena {
                                         data: [
-                                            CurrentSynSymbolEntry {
+                                            CurrentVariableEntry {
                                                 modifier: Const,
                                                 access_start: RegionalTokenIdx(
                                                     4,
                                                 ),
                                                 access_end: None,
-                                                data: CurrentSynSymbolData::TemplateParameter {
+                                                data: CurrentVariableData::TemplateParameter {
                                                     syn_attrs: TemplateParameterSynAttrs {
                                                         syn_attrs: [],
                                                     },
@@ -2147,13 +2147,13 @@ SynDeclSheet {
                                                     },
                                                 },
                                             },
-                                            CurrentSynSymbolEntry {
+                                            CurrentVariableEntry {
                                                 modifier: Const,
                                                 access_start: RegionalTokenIdx(
                                                     11,
                                                 ),
                                                 access_end: None,
-                                                data: CurrentSynSymbolData::TemplateParameter {
+                                                data: CurrentVariableData::TemplateParameter {
                                                     syn_attrs: TemplateParameterSynAttrs {
                                                         syn_attrs: [
                                                             Runtime(
@@ -2500,13 +2500,13 @@ SynDeclSheet {
                                                     },
                                                     current_syn_symbol_arena: Arena {
                                                         data: [
-                                                            CurrentSynSymbolEntry {
+                                                            CurrentVariableEntry {
                                                                 modifier: Const,
                                                                 access_start: RegionalTokenIdx(
                                                                     4,
                                                                 ),
                                                                 access_end: None,
-                                                                data: CurrentSynSymbolData::TemplateParameter {
+                                                                data: CurrentVariableData::TemplateParameter {
                                                                     syn_attrs: TemplateParameterSynAttrs {
                                                                         syn_attrs: [],
                                                                     },
@@ -2521,13 +2521,13 @@ SynDeclSheet {
                                                                     },
                                                                 },
                                                             },
-                                                            CurrentSynSymbolEntry {
+                                                            CurrentVariableEntry {
                                                                 modifier: Const,
                                                                 access_start: RegionalTokenIdx(
                                                                     11,
                                                                 ),
                                                                 access_end: None,
-                                                                data: CurrentSynSymbolData::TemplateParameter {
+                                                                data: CurrentVariableData::TemplateParameter {
                                                                     syn_attrs: TemplateParameterSynAttrs {
                                                                         syn_attrs: [
                                                                             Runtime(
@@ -2657,16 +2657,16 @@ SynDeclSheet {
                                             data: [
                                                 InheritedVariable {
                                                     modifier: Const,
-                                                    kind: InheritedVariableKind::TemplateParameter(
-                                                        InheritedTemplateParameterSynSymbol::Type {
+                                                    kind: InheritedVariableKind::Template(
+                                                        InheritedTemplateVariable::Type {
                                                             ident: `Label`,
                                                         },
                                                     ),
                                                 },
                                                 InheritedVariable {
                                                     modifier: Const,
-                                                    kind: InheritedVariableKind::TemplateParameter(
-                                                        InheritedTemplateParameterSynSymbol::Constant {
+                                                    kind: InheritedVariableKind::Template(
+                                                        InheritedTemplateVariable::Constant {
                                                             ident: `label`,
                                                         },
                                                     ),
@@ -2996,13 +2996,13 @@ SynDeclSheet {
                                                     },
                                                     current_syn_symbol_arena: Arena {
                                                         data: [
-                                                            CurrentSynSymbolEntry {
+                                                            CurrentVariableEntry {
                                                                 modifier: Const,
                                                                 access_start: RegionalTokenIdx(
                                                                     4,
                                                                 ),
                                                                 access_end: None,
-                                                                data: CurrentSynSymbolData::TemplateParameter {
+                                                                data: CurrentVariableData::TemplateParameter {
                                                                     syn_attrs: TemplateParameterSynAttrs {
                                                                         syn_attrs: [],
                                                                     },
@@ -3017,13 +3017,13 @@ SynDeclSheet {
                                                                     },
                                                                 },
                                                             },
-                                                            CurrentSynSymbolEntry {
+                                                            CurrentVariableEntry {
                                                                 modifier: Const,
                                                                 access_start: RegionalTokenIdx(
                                                                     11,
                                                                 ),
                                                                 access_end: None,
-                                                                data: CurrentSynSymbolData::TemplateParameter {
+                                                                data: CurrentVariableData::TemplateParameter {
                                                                     syn_attrs: TemplateParameterSynAttrs {
                                                                         syn_attrs: [
                                                                             Runtime(
@@ -3135,8 +3135,8 @@ SynDeclSheet {
                                                     8,
                                                 ),
                                                 inherited_syn_symbol_idx: 0,
-                                                inherited_syn_symbol_kind: InheritedVariableKind::TemplateParameter(
-                                                    InheritedTemplateParameterSynSymbol::Type {
+                                                inherited_syn_symbol_kind: InheritedVariableKind::Template(
+                                                    InheritedTemplateVariable::Type {
                                                         ident: `Label`,
                                                     },
                                                 ),
@@ -3151,8 +3151,8 @@ SynDeclSheet {
                                                     9,
                                                 ),
                                                 inherited_syn_symbol_idx: 1,
-                                                inherited_syn_symbol_kind: InheritedVariableKind::TemplateParameter(
-                                                    InheritedTemplateParameterSynSymbol::Constant {
+                                                inherited_syn_symbol_kind: InheritedVariableKind::Template(
+                                                    InheritedTemplateVariable::Constant {
                                                         ident: `label`,
                                                     },
                                                 ),
@@ -3293,7 +3293,7 @@ SynDeclSheet {
                                         },
                                         pattern_symbol_arena: Arena {
                                             data: [
-                                                SynPatternSymbol::Atom(
+                                                PatternVariable::Atom(
                                                     0,
                                                 ),
                                             ],
@@ -3317,16 +3317,16 @@ SynDeclSheet {
                                             data: [
                                                 InheritedVariable {
                                                     modifier: Const,
-                                                    kind: InheritedVariableKind::TemplateParameter(
-                                                        InheritedTemplateParameterSynSymbol::Type {
+                                                    kind: InheritedVariableKind::Template(
+                                                        InheritedTemplateVariable::Type {
                                                             ident: `Label`,
                                                         },
                                                     ),
                                                 },
                                                 InheritedVariable {
                                                     modifier: Const,
-                                                    kind: InheritedVariableKind::TemplateParameter(
-                                                        InheritedTemplateParameterSynSymbol::Constant {
+                                                    kind: InheritedVariableKind::Template(
+                                                        InheritedTemplateVariable::Constant {
                                                             ident: `label`,
                                                         },
                                                     ),
@@ -3335,13 +3335,13 @@ SynDeclSheet {
                                         },
                                         current_syn_symbol_arena: Arena {
                                             data: [
-                                                CurrentSynSymbolEntry {
+                                                CurrentVariableEntry {
                                                     modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         6,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::SimpleParenateParameter {
+                                                    data: CurrentVariableData::SimpleParenateParameter {
                                                         ident: `one_vs_all`,
                                                         pattern_symbol_idx: 0,
                                                     },
@@ -3725,13 +3725,13 @@ SynDeclSheet {
                                     },
                                     current_syn_symbol_arena: Arena {
                                         data: [
-                                            CurrentSynSymbolEntry {
+                                            CurrentVariableEntry {
                                                 modifier: Const,
                                                 access_start: RegionalTokenIdx(
                                                     6,
                                                 ),
                                                 access_end: None,
-                                                data: CurrentSynSymbolData::TemplateParameter {
+                                                data: CurrentVariableData::TemplateParameter {
                                                     syn_attrs: TemplateParameterSynAttrs {
                                                         syn_attrs: [
                                                             Phantom(
@@ -3759,13 +3759,13 @@ SynDeclSheet {
                                                     },
                                                 },
                                             },
-                                            CurrentSynSymbolEntry {
+                                            CurrentVariableEntry {
                                                 modifier: Const,
                                                 access_start: RegionalTokenIdx(
                                                     13,
                                                 ),
                                                 access_end: None,
-                                                data: CurrentSynSymbolData::TemplateParameter {
+                                                data: CurrentVariableData::TemplateParameter {
                                                     syn_attrs: TemplateParameterSynAttrs {
                                                         syn_attrs: [
                                                             Phantom(
@@ -4133,13 +4133,13 @@ SynDeclSheet {
                                                     },
                                                     current_syn_symbol_arena: Arena {
                                                         data: [
-                                                            CurrentSynSymbolEntry {
+                                                            CurrentVariableEntry {
                                                                 modifier: Const,
                                                                 access_start: RegionalTokenIdx(
                                                                     6,
                                                                 ),
                                                                 access_end: None,
-                                                                data: CurrentSynSymbolData::TemplateParameter {
+                                                                data: CurrentVariableData::TemplateParameter {
                                                                     syn_attrs: TemplateParameterSynAttrs {
                                                                         syn_attrs: [
                                                                             Phantom(
@@ -4167,13 +4167,13 @@ SynDeclSheet {
                                                                     },
                                                                 },
                                                             },
-                                                            CurrentSynSymbolEntry {
+                                                            CurrentVariableEntry {
                                                                 modifier: Const,
                                                                 access_start: RegionalTokenIdx(
                                                                     13,
                                                                 ),
                                                                 access_end: None,
-                                                                data: CurrentSynSymbolData::TemplateParameter {
+                                                                data: CurrentVariableData::TemplateParameter {
                                                                     syn_attrs: TemplateParameterSynAttrs {
                                                                         syn_attrs: [
                                                                             Phantom(
@@ -4303,16 +4303,16 @@ SynDeclSheet {
                                             data: [
                                                 InheritedVariable {
                                                     modifier: Const,
-                                                    kind: InheritedVariableKind::TemplateParameter(
-                                                        InheritedTemplateParameterSynSymbol::Type {
+                                                    kind: InheritedVariableKind::Template(
+                                                        InheritedTemplateVariable::Type {
                                                             ident: `Label`,
                                                         },
                                                     ),
                                                 },
                                                 InheritedVariable {
                                                     modifier: Const,
-                                                    kind: InheritedVariableKind::TemplateParameter(
-                                                        InheritedTemplateParameterSynSymbol::Constant {
+                                                    kind: InheritedVariableKind::Template(
+                                                        InheritedTemplateVariable::Constant {
                                                             ident: `label`,
                                                         },
                                                     ),
@@ -4663,13 +4663,13 @@ SynDeclSheet {
                                                     },
                                                     current_syn_symbol_arena: Arena {
                                                         data: [
-                                                            CurrentSynSymbolEntry {
+                                                            CurrentVariableEntry {
                                                                 modifier: Const,
                                                                 access_start: RegionalTokenIdx(
                                                                     6,
                                                                 ),
                                                                 access_end: None,
-                                                                data: CurrentSynSymbolData::TemplateParameter {
+                                                                data: CurrentVariableData::TemplateParameter {
                                                                     syn_attrs: TemplateParameterSynAttrs {
                                                                         syn_attrs: [
                                                                             Phantom(
@@ -4697,13 +4697,13 @@ SynDeclSheet {
                                                                     },
                                                                 },
                                                             },
-                                                            CurrentSynSymbolEntry {
+                                                            CurrentVariableEntry {
                                                                 modifier: Const,
                                                                 access_start: RegionalTokenIdx(
                                                                     13,
                                                                 ),
                                                                 access_end: None,
-                                                                data: CurrentSynSymbolData::TemplateParameter {
+                                                                data: CurrentVariableData::TemplateParameter {
                                                                     syn_attrs: TemplateParameterSynAttrs {
                                                                         syn_attrs: [
                                                                             Phantom(
@@ -4815,8 +4815,8 @@ SynDeclSheet {
                                                     8,
                                                 ),
                                                 inherited_syn_symbol_idx: 0,
-                                                inherited_syn_symbol_kind: InheritedVariableKind::TemplateParameter(
-                                                    InheritedTemplateParameterSynSymbol::Type {
+                                                inherited_syn_symbol_kind: InheritedVariableKind::Template(
+                                                    InheritedTemplateVariable::Type {
                                                         ident: `Label`,
                                                     },
                                                 ),
@@ -4831,8 +4831,8 @@ SynDeclSheet {
                                                     9,
                                                 ),
                                                 inherited_syn_symbol_idx: 1,
-                                                inherited_syn_symbol_kind: InheritedVariableKind::TemplateParameter(
-                                                    InheritedTemplateParameterSynSymbol::Constant {
+                                                inherited_syn_symbol_kind: InheritedVariableKind::Template(
+                                                    InheritedTemplateVariable::Constant {
                                                         ident: `label`,
                                                     },
                                                 ),
@@ -4973,7 +4973,7 @@ SynDeclSheet {
                                         },
                                         pattern_symbol_arena: Arena {
                                             data: [
-                                                SynPatternSymbol::Atom(
+                                                PatternVariable::Atom(
                                                     0,
                                                 ),
                                             ],
@@ -4997,16 +4997,16 @@ SynDeclSheet {
                                             data: [
                                                 InheritedVariable {
                                                     modifier: Const,
-                                                    kind: InheritedVariableKind::TemplateParameter(
-                                                        InheritedTemplateParameterSynSymbol::Type {
+                                                    kind: InheritedVariableKind::Template(
+                                                        InheritedTemplateVariable::Type {
                                                             ident: `Label`,
                                                         },
                                                     ),
                                                 },
                                                 InheritedVariable {
                                                     modifier: Const,
-                                                    kind: InheritedVariableKind::TemplateParameter(
-                                                        InheritedTemplateParameterSynSymbol::Constant {
+                                                    kind: InheritedVariableKind::Template(
+                                                        InheritedTemplateVariable::Constant {
                                                             ident: `label`,
                                                         },
                                                     ),
@@ -5015,13 +5015,13 @@ SynDeclSheet {
                                         },
                                         current_syn_symbol_arena: Arena {
                                             data: [
-                                                CurrentSynSymbolEntry {
+                                                CurrentVariableEntry {
                                                     modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         6,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::SimpleParenateParameter {
+                                                    data: CurrentVariableData::SimpleParenateParameter {
                                                         ident: `one_vs_all_result`,
                                                         pattern_symbol_idx: 0,
                                                     },

@@ -15,7 +15,7 @@ pub struct TraitForTypeImplBlockDecTemplate {
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum DeclarativeSelfType {
     Path(DecTerm),
-    DerivedAny(DecSvar),
+    DerivedAny(DecSymbolicVariable),
 }
 
 impl DeclarativeSelfType {
@@ -64,7 +64,7 @@ pub(crate) fn trai_for_ty_impl_block_syn_dec_template(
             DeclarativeSelfType::Path(self_ty_term)
         }
         SelfTypeDecl::DeriveAny { .. } => {
-            let DecTerm::Symbol(self_ty_symbol) = self_ty_term else {
+            let DecTerm::SymbolicVariable(self_ty_symbol) = self_ty_term else {
                 unreachable!()
             };
             DeclarativeSelfType::DerivedAny(self_ty_symbol)

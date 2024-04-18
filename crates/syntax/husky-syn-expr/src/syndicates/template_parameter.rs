@@ -55,11 +55,11 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for TemplateSynPara
         let annotated_variance_token = ctx.try_parse_err_as_none();
         if let Some(ident_token) = ctx.try_parse_option::<IdentRegionalToken>()? {
             let access_start = ctx.state().next_regional_token_idx();
-            let parameter_symbol = CurrentSynSymbolEntry::new(
+            let parameter_symbol = CurrentVariableEntry::new(
                 ctx.pattern_expr_region(),
                 access_start,
                 None,
-                CurrentSynSymbolData::TemplateParameter {
+                CurrentVariableData::TemplateParameter {
                     syn_attrs,
                     annotated_variance_token,
                     template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
@@ -83,11 +83,11 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for TemplateSynPara
         } else if let Some(label_token) = ctx.try_parse_option::<LifetimeLabelRegionalToken>()? {
             let access_start = ctx.state().next_regional_token_idx();
             let symbols = ctx.define_symbols(
-                [CurrentSynSymbolEntry::new(
+                [CurrentVariableEntry::new(
                     ctx.pattern_expr_region(),
                     access_start,
                     None,
-                    CurrentSynSymbolData::TemplateParameter {
+                    CurrentVariableData::TemplateParameter {
                         syn_attrs,
                         annotated_variance_token,
                         template_parameter_variant:
@@ -105,11 +105,11 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for TemplateSynPara
             let access_start = ctx.state().next_regional_token_idx();
             let symbol = ctx
                 .define_symbols(
-                    [CurrentSynSymbolEntry::new(
+                    [CurrentVariableEntry::new(
                         ctx.pattern_expr_region(),
                         access_start,
                         None,
-                        CurrentSynSymbolData::TemplateParameter {
+                        CurrentVariableData::TemplateParameter {
                             syn_attrs,
                             annotated_variance_token,
                             template_parameter_variant:
@@ -138,11 +138,11 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for TemplateSynPara
             let access_start = ctx.state().next_regional_token_idx();
             let symbol = ctx
                 .define_symbols(
-                    [CurrentSynSymbolEntry::new(
+                    [CurrentVariableEntry::new(
                         ctx.pattern_expr_region(),
                         access_start,
                         None,
-                        CurrentSynSymbolData::TemplateParameter {
+                        CurrentVariableData::TemplateParameter {
                             syn_attrs,
                             annotated_variance_token,
                             template_parameter_variant:

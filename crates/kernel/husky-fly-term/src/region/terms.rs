@@ -5,7 +5,7 @@ pub use self::hol_terms::*;
 pub use self::sol_terms::*;
 
 use super::*;
-use husky_eth_term::term::svar::EthSvar;
+use husky_eth_term::term::svar::EthSymbolicVariable;
 
 // `Default` is not implemented because we might need to initialize `solid_terms` from the parent
 #[salsa::derive_debug_with_db]
@@ -33,7 +33,7 @@ impl FlyTerms {
     pub(crate) fn new_hole_from_template_parameter_symbol(
         &mut self,
         hole_source: HoleSource,
-        template_parameter_symbol: EthSvar,
+        template_parameter_symbol: EthSymbolicVariable,
         db: &::salsa::Db,
     ) -> HolTerm {
         let hole_kind = match template_parameter_symbol.ty(db) {

@@ -24,12 +24,12 @@
                     pattern_arena: Arena {
                         data: [],
                     },
-                    comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
+                    comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
                         arena: Arena {
                             data: [],
                         },
                     },
-                    runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
+                    runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
                         arena: Arena {
                             data: [],
                         },
@@ -50,8 +50,8 @@
                     trai_path: TraitPath(`core::clone::Clone`),
                     template_arguments: [],
                 },
-                self_ty: HirType::Svar(
-                    HirTypeSvar::SelfType,
+                self_ty: HirType::Variable(
+                    HirTypeTemplateVariable::SelfType,
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
                     region_path: RegionPath::Decl(
@@ -70,12 +70,12 @@
                     pattern_arena: Arena {
                         data: [],
                     },
-                    comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
+                    comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
                         arena: Arena {
                             data: [],
                         },
                     },
-                    runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
+                    runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
                         arena: Arena {
                             data: [],
                         },
@@ -100,15 +100,15 @@
                     ),
                     self_value_parameter: HirEagerSelfValueParameter {
                         contract: Pure,
-                        self_ty: Svar(
+                        self_ty: Variable(
                             SelfType,
                         ),
                     },
                     parenate_parameters: HirEagerParenateParameters(
                         [],
                     ),
-                    return_ty: HirType::Svar(
-                        HirTypeSvar::SelfType,
+                    return_ty: HirType::Variable(
+                        HirTypeTemplateVariable::SelfType,
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::Decl(
@@ -132,17 +132,17 @@
                         pattern_arena: Arena {
                             data: [],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
+                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
+                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [
-                                    HirEagerRuntimeSvarEntry {
-                                        name: HirEagerRuntimeSvarName::SelfValue,
-                                        data: HirEagerRuntimeSvarData::SelfValue,
+                                    HirEagerRuntimeVariableEntry {
+                                        name: HirEagerRuntimeVariableName::SelfValue,
+                                        data: HirEagerRuntimeVariableData::SelfValue,
                                     },
                                 ],
                             },

@@ -1,7 +1,7 @@
 use super::*;
 use husky_syn_expr::{
-    CurrentSynSymbolData, CurrentSynSymbolEntry, InheritedVariable, InheritedVariableKind,
-    SynSymbolMap, VariableRegionData,
+    CurrentVariableData, CurrentVariableEntry, InheritedVariable, InheritedVariableKind,
+    VariableMap, VariableRegionData,
 };
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
@@ -38,9 +38,9 @@ impl HirLazyVariable {
 
     fn from_inherited_syn(inherited_syn_symbol: InheritedVariable) -> Option<HirLazyVariable> {
         let name = match inherited_syn_symbol.kind() {
-            InheritedVariableKind::TemplateParameter(_)
-            | InheritedVariableKind::ParenateParameter { .. }
-            | InheritedVariableKind::FieldVariable { .. } => {
+            InheritedVariableKind::Template(_)
+            | InheritedVariableKind::Parenate { .. }
+            | InheritedVariableKind::SelfField { .. } => {
                 VariableName::Ident(inherited_syn_symbol.ident()?)
             }
         };
@@ -48,9 +48,9 @@ impl HirLazyVariable {
         Some(Self { name, data })
     }
 
-    fn from_current_syn(current_syn_symbol: &CurrentSynSymbolEntry) -> Option<Self> {
+    fn from_current_syn(current_syn_symbol: &CurrentVariableEntry) -> Option<Self> {
         let name = match current_syn_symbol.data() {
-            CurrentSynSymbolData::SelfValue {
+            CurrentVariableData::SelfValue {
                 symbol_modifier_keyword_group: _,
             } => VariableName::SelfValue,
             _ => VariableName::Ident(current_syn_symbol.ident()?),
@@ -65,51 +65,51 @@ impl HirLazyVariableData {
         inherited_syn_symbol_kind: InheritedVariableKind,
     ) -> Option<HirLazyVariableData> {
         match inherited_syn_symbol_kind {
-            InheritedVariableKind::TemplateParameter(_) => None,
-            InheritedVariableKind::ParenateParameter { ident: _ } => {
+            InheritedVariableKind::Template(_) => None,
+            InheritedVariableKind::Parenate { ident: _ } => {
                 Some(HirLazyVariableData::ParenateParameter)
             }
-            InheritedVariableKind::FieldVariable { ident: _ } => {
+            InheritedVariableKind::SelfField { ident: _ } => {
                 Some(HirLazyVariableData::FieldVariable)
             }
         }
     }
 
-    fn from_current_syn(current_syn_symbol_data: &CurrentSynSymbolData) -> Option<Self> {
+    fn from_current_syn(current_syn_symbol_data: &CurrentVariableData) -> Option<Self> {
         match current_syn_symbol_data {
-            CurrentSynSymbolData::TemplateParameter { .. } => None,
-            CurrentSynSymbolData::SelfType => todo!(),
-            CurrentSynSymbolData::SelfValue {
+            CurrentVariableData::TemplateParameter { .. } => None,
+            CurrentVariableData::SelfType => todo!(),
+            CurrentVariableData::SelfValue {
                 symbol_modifier_keyword_group: _,
             } => todo!(),
-            CurrentSynSymbolData::SimpleParenateParameter {
+            CurrentVariableData::SimpleParenateParameter {
                 ident: _,
                 pattern_symbol_idx: _,
             } => Some(HirLazyVariableData::ParenateParameter),
-            CurrentSynSymbolData::VariadicParenateParameter {
+            CurrentVariableData::VariadicParenateParameter {
                 symbol_modifier_keyword_group: _,
                 ident_token: _,
             } => Some(HirLazyVariableData::ParenateParameter),
-            CurrentSynSymbolData::LetVariable {
+            CurrentVariableData::LetVariable {
                 ident: _,
                 pattern_symbol_idx: _,
             } => Some(HirLazyVariableData::LetVariable),
-            CurrentSynSymbolData::BeVariable {
+            CurrentVariableData::BeVariable {
                 ident: _,
                 pattern_symbol_idx: _,
             } => Some(HirLazyVariableData::BeVariable),
-            CurrentSynSymbolData::CaseVariable {
+            CurrentVariableData::CaseVariable {
                 ident: _,
                 pattern_symbol_idx: _,
             } => Some(HirLazyVariableData::CaseVariable),
-            CurrentSynSymbolData::FieldVariable { ident_token: _ } => {
+            CurrentVariableData::FieldVariable { ident_token: _ } => {
                 Some(HirLazyVariableData::FieldVariable)
             }
-            CurrentSynSymbolData::LoopVariable {
+            CurrentVariableData::LoopVariable {
                 ident: _,
                 expr_idx: _,
             } => Some(HirLazyVariableData::LoopVariable),
-            CurrentSynSymbolData::SimpleClosureParameter {
+            CurrentVariableData::SimpleClosureParameter {
                 ident,
                 pattern_symbol_idx,
             } => todo!(),
@@ -129,10 +129,10 @@ pub struct HirLazyVariableRegion {
 impl HirLazyVariableRegion {
     pub(crate) fn from_syn(
         syn_symbol_region: &VariableRegionData,
-    ) -> (Self, SynSymbolMap<HirLazyVariableIdx>) {
+    ) -> (Self, VariableMap<HirLazyVariableIdx>) {
         let mut arena = HirLazyVariableArena::default();
         let mut syn_symbol_to_hir_eager_runtime_symbol_map =
-            SynSymbolMap::<HirLazyVariableIdx>::new(syn_symbol_region);
+            VariableMap::<HirLazyVariableIdx>::new(syn_symbol_region);
         for (inherited_syn_symbol_idx, inherited_syn_symbol) in
             syn_symbol_region.indexed_inherited_syn_symbols()
         {

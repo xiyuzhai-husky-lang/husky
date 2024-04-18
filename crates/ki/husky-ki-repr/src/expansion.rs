@@ -16,8 +16,8 @@ use husky_hir_lazy_expr::{
 };
 
 use husky_hir_ty::{
-    instantiation::{HirInstantiation, HirTermSvarResolution},
-    HirConstant, HirTemplateArgument, HirTemplateSvar, HirTemplateSvarClass,
+    instantiation::{HirInstantiation, HirTermSymbolicVariableResolution},
+    HirConstant, HirTemplateArgument, HirTemplateVariable, HirTemplateVariableClass,
 };
 use husky_linkage::{instantiation::LinInstantiation, linkage::Linkage};
 
@@ -721,11 +721,11 @@ fn runtime_constants(
     instantiation
         .iter()
         .filter_map(|&(symbol, res)| match symbol {
-            HirTemplateSvar::Const(symbol)
-                if symbol.index(db).class() == HirTemplateSvarClass::Runtime =>
+            HirTemplateVariable::Const(symbol)
+                if symbol.index(db).class() == HirTemplateVariableClass::Runtime =>
             {
                 Some(match res {
-                    HirTermSvarResolution::Explicit(arg) => match arg {
+                    HirTermSymbolicVariableResolution::Explicit(arg) => match arg {
                         HirTemplateArgument::Vacant => todo!(),
                         HirTemplateArgument::Type(_) => todo!(),
                         HirTemplateArgument::Constant(constant) => match constant {
@@ -760,10 +760,10 @@ fn runtime_constants(
                         HirTemplateArgument::Lifetime(_) => todo!(),
                         HirTemplateArgument::ContractedQuary(_) => todo!(),
                     },
-                    HirTermSvarResolution::SelfLifetime => {
+                    HirTermSymbolicVariableResolution::SelfLifetime => {
                         todo!()
                     }
-                    HirTermSvarResolution::SelfContractedQuary(_) => {
+                    HirTermSymbolicVariableResolution::SelfContractedQuary(_) => {
                         todo!()
                     }
                 })

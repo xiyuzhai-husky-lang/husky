@@ -1,7 +1,7 @@
 use crate::{
     var::{
-        cvar::HirEagerComptimeSvarRegionData,
-        rvar::{HirEagerRuntimeSvarRegionData, HirEagerRvarIdx},
+        cvar::HirEagerComptimeVariableRegionData,
+        rvar::{HirEagerRuntimeVariableRegionData, HirEagerRvarIdx},
     },
     *,
 };
@@ -14,8 +14,8 @@ use husky_sem_expr::{
 };
 use husky_sem_place_contract::region::{sem_place_contract_region, SemaPlaceContractRegion};
 use husky_syn_expr::{
-    CurrentVariableIdx, InheritedVariableIdx, SynExprRegionData, SynExprRootKind,
-    SynPatternExprRootKind, SynPatternIdx, SynPatternMap, SynSymbolMap,
+    CurrentVariableIdx, InheritedSymbolicVariableIdx, SynExprRegionData, SynExprRootKind,
+    SynPatternExprRootKind, SynPatternIdx, SynPatternMap, VariableMap,
 };
 
 pub(crate) struct HirEagerExprBuilder<'a> {
@@ -29,9 +29,9 @@ pub(crate) struct HirEagerExprBuilder<'a> {
     syn_to_hir_eager_pattern_idx_map: SynPatternMap<HirEagerPatternIdx>,
     sem_to_hir_eager_expr_idx_map: SemaExprMap<HirEagerExprIdx>,
     sem_to_hir_eager_stmt_idx_map: SemaStmtMap<HirEagerStmtIdx>,
-    hir_eager_comptime_symbol_region_data: HirEagerComptimeSvarRegionData,
-    hir_eager_runtime_symbol_region_data: HirEagerRuntimeSvarRegionData,
-    syn_symbol_to_hir_eager_runtime_symbol_map: SynSymbolMap<HirEagerRvarIdx>,
+    hir_eager_comptime_symbol_region_data: HirEagerComptimeVariableRegionData,
+    hir_eager_runtime_symbol_region_data: HirEagerRuntimeVariableRegionData,
+    syn_symbol_to_hir_eager_runtime_symbol_map: VariableMap<HirEagerRvarIdx>,
 }
 
 impl<'a> HirEagerExprBuilder<'a> {
@@ -42,13 +42,13 @@ impl<'a> HirEagerExprBuilder<'a> {
             SynPatternMap::new(syn_expr_region_data.pattern_expr_arena());
         let sem_to_hir_eager_expr_idx_map = SemaExprMap::new(sem_expr_region_data.sem_expr_arena());
         let sem_to_hir_eager_stmt_idx_map = SemaStmtMap::new(sem_expr_region_data.sem_stmt_arena());
-        let hir_eager_comptime_symbol_region_data = HirEagerComptimeSvarRegionData::from_sema(
+        let hir_eager_comptime_symbol_region_data = HirEagerComptimeVariableRegionData::from_sema(
             sem_expr_region_data,
             syn_expr_region_data.symbol_region(),
             db,
         );
         let (hir_eager_runtime_symbol_region, syn_symbol_to_hir_eager_runtime_symbol_map) =
-            HirEagerRuntimeSvarRegionData::from_syn(syn_expr_region_data.symbol_region());
+            HirEagerRuntimeVariableRegionData::from_syn(syn_expr_region_data.symbol_region());
         Self {
             db,
             syn_expr_region_data,
@@ -210,7 +210,7 @@ impl<'a> HirEagerExprBuilder<'a> {
 
     pub(crate) fn inherited_syn_symbol_to_hir_eager_runtime_symbol(
         &self,
-        inherited_syn_symbol_idx: InheritedVariableIdx,
+        inherited_syn_symbol_idx: InheritedSymbolicVariableIdx,
     ) -> Option<HirEagerRvarIdx> {
         self.syn_symbol_to_hir_eager_runtime_symbol_map
             .get_inherited(inherited_syn_symbol_idx)

@@ -1,25 +1,25 @@
 use super::*;
-use husky_term_prelude::template_var_class::TemplateSvarClass;
+use husky_term_prelude::template_var_class::TemplateVariableClass;
 
 // todo: use bitmap?
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Default)]
 pub struct EthTemplateSymbolAttrs {
-    pub class: TemplateSvarClass,
+    pub class: TemplateVariableClass,
 }
 
 impl EthTemplateSymbolAttrs {
-    pub fn from_dec(attrs: DeclarativeTemplateSymbolAttrs) -> Self {
+    pub fn from_dec(attrs: DeclarativeTemplateVariableAttrs) -> Self {
         EthTemplateSymbolAttrs { class: attrs.class }
     }
 
     pub fn phantom(self) -> bool {
-        self.class == TemplateSvarClass::Phantom
+        self.class == TemplateVariableClass::Phantom
     }
 }
 
-impl Into<DeclarativeTemplateSymbolAttrs> for EthTemplateSymbolAttrs {
-    fn into(self) -> DeclarativeTemplateSymbolAttrs {
-        unsafe { DeclarativeTemplateSymbolAttrs::new(self.class) }
+impl Into<DeclarativeTemplateVariableAttrs> for EthTemplateSymbolAttrs {
+    fn into(self) -> DeclarativeTemplateVariableAttrs {
+        unsafe { DeclarativeTemplateVariableAttrs::new(self.class) }
     }
 }
 
@@ -33,7 +33,7 @@ pub enum EthTemplateSymbolAttr {
 pub struct EthTermSymbolIndex(EthTermSymbolIndexImpl);
 
 impl EthTermSymbolIndex {
-    pub(super) fn from_dec(index: DecTermSymbolIndex) -> Self {
+    pub(super) fn from_dec(index: DecTermSymbolicVariableIndex) -> Self {
         EthTermSymbolIndex(match index.inner() {
             DecTermSymbolIndexImpl::ExplicitLifetime {
                 attrs,
@@ -105,11 +105,11 @@ impl EthTermSymbolIndex {
     }
 }
 
-impl Into<DecTermSymbolIndex> for EthTermSymbolIndex {
+impl Into<DecTermSymbolicVariableIndex> for EthTermSymbolIndex {
     #[inline(always)]
-    fn into(self) -> DecTermSymbolIndex {
+    fn into(self) -> DecTermSymbolicVariableIndex {
         unsafe {
-            DecTermSymbolIndex::new(match self.inner() {
+            DecTermSymbolicVariableIndex::new(match self.inner() {
                 EthTermSymbolIndexImpl::ExplicitLifetime {
                     attrs,
                     variance,

@@ -3,11 +3,11 @@ use super::*;
 #[salsa::interned]
 pub struct DecTermSymbols {
     #[return_ref]
-    symbols: VecSet<DecSvar>,
+    symbols: VecSet<DecSymbolicVariable>,
 }
 
 impl DecTermSymbols {
-    pub(crate) fn contains(self, db: &::salsa::Db, symbol: DecSvar) -> bool {
+    pub(crate) fn contains(self, db: &::salsa::Db, symbol: DecSymbolicVariable) -> bool {
         self.symbols(db).has(symbol)
     }
 
@@ -31,7 +31,7 @@ impl DecTermSymbols {
     }
 }
 impl DecTerm {
-    pub fn contains_symbol(self, db: &::salsa::Db, symbol: DecSvar) -> bool {
+    pub fn contains_symbol(self, db: &::salsa::Db, symbol: DecSymbolicVariable) -> bool {
         calc_declarative_term_symbols(db, self)
             .map(|declarative_term_symbols| declarative_term_symbols.contains(db, symbol))
             .unwrap_or_default()
@@ -44,8 +44,10 @@ fn calc_declarative_term_symbols(
 ) -> Option<DecTermSymbols> {
     match declarative_term {
         DecTerm::Literal(_) => None,
-        DecTerm::Symbol(symbol) => Some(DecTermSymbols::new(db, VecSet::new_one_elem_set(symbol))),
-        DecTerm::Hvar(_) => None,
+        DecTerm::SymbolicVariable(symbol) => {
+            Some(DecTermSymbols::new(db, VecSet::new_one_elem_set(symbol)))
+        }
+        DecTerm::LambdaVariable(_) => None,
         DecTerm::EntityPath(path) => match path {
             DecItemPath::Fugitive(_) => todo!(),
             DecItemPath::Trait(_) | DecItemPath::Type(_) => None,

@@ -9,64 +9,69 @@ pub use self::r#const::*;
 pub use self::ty::*;
 
 use crate::*;
-use husky_eth_term::term::svar::{EthSvar, EthTemplateSymbolAttrs, EthTermSymbolIndexImpl};
-use husky_term_prelude::template_var_class::TemplateSvarClass;
+use husky_eth_term::term::svar::{
+    EthSymbolicVariable, EthTemplateSymbolAttrs, EthTermSymbolIndexImpl,
+};
+use husky_term_prelude::template_var_class::TemplateVariableClass;
 
 #[salsa::derive_debug_with_db]
 #[enum_class::from_variants]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub enum HirTemplateSvar {
-    Type(HirTypeSvar),
-    Const(HirConstSvar),
-    Lifetime(HirLifetimeSvar),
-    Quary(HirQuarySvar),
+pub enum HirTemplateVariable {
+    Type(HirTypeTemplateVariable),
+    Const(HirConstTemplateVariable),
+    Lifetime(HirLifetimeTemplateVariable),
+    Quary(HirQuaryTemplateVariable),
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub struct HirTemplateSvarAttrs {
-    class: HirTemplateSvarClass,
+pub struct HirTemplateVariableAttrs {
+    class: HirTemplateVariableClass,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub enum HirTemplateSvarClass {
+pub enum HirTemplateVariableClass {
     Comptime,
     Runtime,
 }
 
-impl HirTemplateSvarClass {
-    fn from_term(class: TemplateSvarClass) -> Option<Self> {
+impl HirTemplateVariableClass {
+    fn from_term(class: TemplateVariableClass) -> Option<Self> {
         match class {
-            TemplateSvarClass::Phantom => None,
-            TemplateSvarClass::Runtime => Some(HirTemplateSvarClass::Runtime),
-            TemplateSvarClass::Comptime => Some(HirTemplateSvarClass::Comptime),
+            TemplateVariableClass::Phantom => None,
+            TemplateVariableClass::Runtime => Some(HirTemplateVariableClass::Runtime),
+            TemplateVariableClass::Comptime => Some(HirTemplateVariableClass::Comptime),
         }
     }
 }
 
-impl HirTemplateSvarAttrs {
+impl HirTemplateVariableAttrs {
     pub(crate) fn from_eth(attrs: EthTemplateSymbolAttrs) -> Option<Self> {
         Some(Self {
-            class: HirTemplateSvarClass::from_term(attrs.class)?,
+            class: HirTemplateVariableClass::from_term(attrs.class)?,
         })
     }
 }
 
-impl HirTemplateSvar {
-    pub fn from_eth(symbol: EthSvar, db: &::salsa::Db) -> Option<Self> {
-        hir_template_symbol_from_eth(db, symbol)
+impl HirTemplateVariable {
+    pub fn from_eth(symbol: EthSymbolicVariable, db: &::salsa::Db) -> Option<Self> {
+        hir_template_variable_from_eth(db, symbol)
     }
 }
 
 #[salsa::tracked(jar = HirTypeJar)]
-fn hir_template_symbol_from_eth(db: &::salsa::Db, symbol: EthSvar) -> Option<HirTemplateSvar> {
-    match symbol.index(db).inner() {
+fn hir_template_variable_from_eth(
+    db: &::salsa::Db,
+    var: EthSymbolicVariable,
+) -> Option<HirTemplateVariable> {
+    match var.index(db).inner() {
         EthTermSymbolIndexImpl::ExplicitLifetime {
             attrs,
             variance,
             disambiguator,
         } => Some(
-            HirLifetimeSvar {
-                attrs: HirTemplateSvarAttrs::from_eth(attrs)?,
+            HirLifetimeTemplateVariable {
+                attrs: HirTemplateVariableAttrs::from_eth(attrs)?,
                 variance,
                 disambiguator,
             }
@@ -77,8 +82,8 @@ fn hir_template_symbol_from_eth(db: &::salsa::Db, symbol: EthSvar) -> Option<Hir
             variance,
             disambiguator,
         } => Some(
-            HirQuarySvar {
-                attrs: HirTemplateSvarAttrs::from_eth(attrs)?,
+            HirQuaryTemplateVariable {
+                attrs: HirTemplateVariableAttrs::from_eth(attrs)?,
                 variance,
                 disambiguator,
             }
@@ -89,8 +94,8 @@ fn hir_template_symbol_from_eth(db: &::salsa::Db, symbol: EthSvar) -> Option<Hir
             variance,
             disambiguator,
         } => Some(
-            HirTypeSvar::Type {
-                attrs: HirTemplateSvarAttrs::from_eth(attrs)?,
+            HirTypeTemplateVariable::Type {
+                attrs: HirTemplateVariableAttrs::from_eth(attrs)?,
                 variance,
                 disambiguator,
             }
@@ -102,11 +107,11 @@ fn hir_template_symbol_from_eth(db: &::salsa::Db, symbol: EthSvar) -> Option<Hir
             disambiguator,
             ty_path,
         } => Some(
-            HirConstSvar::new(
+            HirConstTemplateVariable::new(
                 db,
-                HirType::from_eth(symbol.ty(db), db)?,
-                HirConstSvarIndex::PathLeading {
-                    attrs: HirTemplateSvarAttrs::from_eth(attrs)?,
+                HirType::from_eth(var.ty(db), db)?,
+                HirConstTemplateVariableIndex::PathLeading {
+                    attrs: HirTemplateVariableAttrs::from_eth(attrs)?,
                     disambiguator,
                     ty_path,
                 },
@@ -117,11 +122,11 @@ fn hir_template_symbol_from_eth(db: &::salsa::Db, symbol: EthSvar) -> Option<Hir
             attrs,
             disambiguator,
         } => Some(
-            HirConstSvar::new(
+            HirConstTemplateVariable::new(
                 db,
-                HirType::from_eth(symbol.ty(db), db)?,
-                HirConstSvarIndex::Other {
-                    attrs: HirTemplateSvarAttrs::from_eth(attrs)?,
+                HirType::from_eth(var.ty(db), db)?,
+                HirConstTemplateVariableIndex::Other {
+                    attrs: HirTemplateVariableAttrs::from_eth(attrs)?,
                     disambiguator,
                 },
             )
@@ -132,9 +137,9 @@ fn hir_template_symbol_from_eth(db: &::salsa::Db, symbol: EthSvar) -> Option<Hir
             ty_path: _,
         } => None,
         EthTermSymbolIndexImpl::EphemOther { disambiguator: _ } => None,
-        EthTermSymbolIndexImpl::SelfType => Some(HirTypeSvar::SelfType.into()),
+        EthTermSymbolIndexImpl::SelfType => Some(HirTypeTemplateVariable::SelfType.into()),
         EthTermSymbolIndexImpl::SelfValue => todo!(),
-        EthTermSymbolIndexImpl::SelfLifetime => Some(HirTypeSvar::SelfLifetime.into()),
-        EthTermSymbolIndexImpl::SelfPlace => Some(HirTypeSvar::SelfPlace.into()),
+        EthTermSymbolIndexImpl::SelfLifetime => Some(HirTypeTemplateVariable::SelfLifetime.into()),
+        EthTermSymbolIndexImpl::SelfPlace => Some(HirTypeTemplateVariable::SelfPlace.into()),
     }
 }

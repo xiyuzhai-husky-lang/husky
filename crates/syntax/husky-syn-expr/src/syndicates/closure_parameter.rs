@@ -1,8 +1,7 @@
 use crate::{
-    ClosureSynPatternExprRoot, CurrentSynSymbolData, CurrentSynSymbolEntry,
-    CurrentSynSymbolIdxRange, ExprEnvironment, IsSynExprContext, OriginalSynExprError,
-    SynExprError, SynExprIdx, SynExprParser, SynExprResult, SynExprRootKind,
-    SyndicateTypeConstraint,
+    ClosureSynPatternExprRoot, CurrentSynSymbolIdxRange, CurrentVariableData, CurrentVariableEntry,
+    ExprEnvironment, IsSynExprContext, OriginalSynExprError, SynExprError, SynExprIdx,
+    SynExprParser, SynExprResult, SynExprRootKind, SyndicateTypeConstraint,
 };
 use husky_regional_token::ColonRegionalToken;
 use husky_token_data::delimiter::Delimiter;
@@ -36,11 +35,11 @@ where
             let variables = symbols
                 .iter()
                 .map(|&(ident, pattern_symbol_idx)| {
-                    CurrentSynSymbolEntry::new(
+                    CurrentVariableEntry::new(
                         ctx.pattern_expr_region(),
                         access_start,
                         None,
-                        CurrentSynSymbolData::SimpleClosureParameter {
+                        CurrentVariableData::SimpleClosureParameter {
                             ident,
                             pattern_symbol_idx,
                         },

@@ -1,4 +1,4 @@
-use self::term::svar::EthSvar;
+use self::term::svar::EthSymbolicVariable;
 use crate::{term::svar::EthTermSymbolIndexImpl, *};
 use husky_entity_path::region::RegionPath;
 use husky_term_prelude::symbol::SymbolName;
@@ -9,14 +9,14 @@ pub struct EthTermFmtContext {
     #[id]
     path: RegionPath,
     #[return_ref]
-    symbol_names: VecPairMap<EthSvar, SymbolName>,
+    symbol_names: VecPairMap<EthSymbolicVariable, SymbolName>,
 }
 
 thread_local! {
     static ETH_TERM_FMT_CONTEXT_CELL: std::cell::Cell<Option<EthTermFmtContext>> = Default::default();
 }
 
-pub(crate) fn symbol_name(symbol: EthSvar, db: &::salsa::Db) -> SymbolName {
+pub(crate) fn symbol_name(symbol: EthSymbolicVariable, db: &::salsa::Db) -> SymbolName {
     let ctx = ETH_TERM_FMT_CONTEXT_CELL.get().unwrap();
     use husky_print_utils::p;
     if !ctx.symbol_names(db).contains(symbol) {

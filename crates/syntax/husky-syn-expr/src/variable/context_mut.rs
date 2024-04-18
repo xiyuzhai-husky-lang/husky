@@ -71,7 +71,7 @@ impl<'a> SynSymbolContextMut<'a> {
 
     pub(crate) fn define_symbol(
         &mut self,
-        variable: CurrentSynSymbolEntry,
+        variable: CurrentVariableEntry,
         ty_constraint: Option<SyndicateTypeConstraint>,
     ) -> CurrentVariableIdx {
         self.variable_region.define_symbol(variable, ty_constraint)
@@ -79,7 +79,7 @@ impl<'a> SynSymbolContextMut<'a> {
 
     pub(crate) fn define_symbols(
         &mut self,
-        variables: impl IntoIterator<Item = CurrentSynSymbolEntry>,
+        variables: impl IntoIterator<Item = CurrentVariableEntry>,
         ty_constraint: Option<SyndicateTypeConstraint>,
     ) -> CurrentSynSymbolIdxRange {
         self.variable_region

@@ -3,13 +3,13 @@ pub mod idx;
 
 use self::{field::FieldPlace, idx::PlaceIdx};
 use crate::*;
-use husky_eth_term::term::svar::EthSvar;
+use husky_eth_term::term::svar::EthSymbolicVariable;
 
 #[enum_class::from_variants]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum EthPlace {
     Idx(PlaceIdx),
-    Svar(EthSvar),
+    Svar(EthSymbolicVariable),
     Field(FieldPlace),
 }
 

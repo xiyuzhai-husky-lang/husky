@@ -234,8 +234,8 @@ Ok(
                     ),
                     data: TokenInfoData::InheritedSynSymbol {
                         inherited_syn_symbol_idx: 0,
-                        inherited_syn_symbol_kind: InheritedVariableKind::TemplateParameter(
-                            InheritedTemplateParameterSynSymbol::Type {
+                        inherited_syn_symbol_kind: InheritedVariableKind::Template(
+                            InheritedTemplateVariable::Type {
                                 ident: `E`,
                             },
                         ),
@@ -315,8 +315,8 @@ Ok(
                     ),
                     data: TokenInfoData::InheritedSynSymbol {
                         inherited_syn_symbol_idx: 0,
-                        inherited_syn_symbol_kind: InheritedVariableKind::TemplateParameter(
-                            InheritedTemplateParameterSynSymbol::Type {
+                        inherited_syn_symbol_kind: InheritedVariableKind::Template(
+                            InheritedTemplateVariable::Type {
                                 ident: `E`,
                             },
                         ),
@@ -395,8 +395,8 @@ Ok(
                     ),
                     data: TokenInfoData::InheritedSynSymbol {
                         inherited_syn_symbol_idx: 0,
-                        inherited_syn_symbol_kind: InheritedVariableKind::TemplateParameter(
-                            InheritedTemplateParameterSynSymbol::Type {
+                        inherited_syn_symbol_kind: InheritedVariableKind::Template(
+                            InheritedTemplateVariable::Type {
                                 ident: `E`,
                             },
                         ),
@@ -475,8 +475,8 @@ Ok(
                     ),
                     data: TokenInfoData::InheritedSynSymbol {
                         inherited_syn_symbol_idx: 0,
-                        inherited_syn_symbol_kind: InheritedVariableKind::TemplateParameter(
-                            InheritedTemplateParameterSynSymbol::Type {
+                        inherited_syn_symbol_kind: InheritedVariableKind::Template(
+                            InheritedTemplateVariable::Type {
                                 ident: `E`,
                             },
                         ),
@@ -565,8 +565,8 @@ Ok(
                     ),
                     data: TokenInfoData::InheritedSynSymbol {
                         inherited_syn_symbol_idx: 0,
-                        inherited_syn_symbol_kind: InheritedVariableKind::TemplateParameter(
-                            InheritedTemplateParameterSynSymbol::Type {
+                        inherited_syn_symbol_kind: InheritedVariableKind::Template(
+                            InheritedTemplateVariable::Type {
                                 ident: `E`,
                             },
                         ),
@@ -724,8 +724,8 @@ Ok(
                     ),
                     data: TokenInfoData::InheritedSynSymbol {
                         inherited_syn_symbol_idx: 0,
-                        inherited_syn_symbol_kind: InheritedVariableKind::TemplateParameter(
-                            InheritedTemplateParameterSynSymbol::Type {
+                        inherited_syn_symbol_kind: InheritedVariableKind::Template(
+                            InheritedTemplateVariable::Type {
                                 ident: `E`,
                             },
                         ),
@@ -801,8 +801,8 @@ Ok(
                     ),
                     data: TokenInfoData::InheritedSynSymbol {
                         inherited_syn_symbol_idx: 0,
-                        inherited_syn_symbol_kind: InheritedVariableKind::TemplateParameter(
-                            InheritedTemplateParameterSynSymbol::Type {
+                        inherited_syn_symbol_kind: InheritedVariableKind::Template(
+                            InheritedTemplateVariable::Type {
                                 ident: `E`,
                             },
                         ),
@@ -862,8 +862,8 @@ Ok(
                     ),
                     data: TokenInfoData::InheritedSynSymbol {
                         inherited_syn_symbol_idx: 0,
-                        inherited_syn_symbol_kind: InheritedVariableKind::TemplateParameter(
-                            InheritedTemplateParameterSynSymbol::Type {
+                        inherited_syn_symbol_kind: InheritedVariableKind::Template(
+                            InheritedTemplateVariable::Type {
                                 ident: `E`,
                             },
                         ),

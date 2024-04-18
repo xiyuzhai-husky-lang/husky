@@ -12,7 +12,7 @@ impl DecList {
         self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
-        ctx: &DecSvarNameMap,
+        ctx: &DecSymbolicVariableNameMap,
     ) -> std::fmt::Result {
         f.write_str("[")?;
         let items = self.items(db);

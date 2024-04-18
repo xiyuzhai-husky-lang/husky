@@ -1,6 +1,6 @@
 use crate::{
     lifetime::HirLifetime, place_contract_site::HirPlaceContractSite, ritchie::HirContract,
-    HirQuarySvar,
+    HirQuaryTemplateVariable,
 };
 use either::*;
 use husky_fly_term::{term::quary::FlyQuary, FlyLifetime};
@@ -84,7 +84,7 @@ pub enum HirQuary {
         place_idx: Option<PlaceIdx>,
     },
     Todo,
-    Svar(HirQuarySvar),
+    Variable(HirQuaryTemplateVariable),
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -125,9 +125,9 @@ impl HirContractedQuary {
     }
 }
 
-impl From<HirQuarySvar> for HirQuary {
-    fn from(svar: HirQuarySvar) -> Self {
-        HirQuary::Svar(svar)
+impl From<HirQuaryTemplateVariable> for HirQuary {
+    fn from(var: HirQuaryTemplateVariable) -> Self {
+        HirQuary::Variable(var)
     }
 }
 

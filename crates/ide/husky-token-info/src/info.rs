@@ -5,7 +5,7 @@ use husky_entity_tree::{OnceUseRuleIdx, UseExprIdx, UseOneRuleState};
 use husky_sem_expr::SemaExprIdx;
 use husky_syn_expr::{
     entity_path::SynPrincipalEntityPathSynExprIdx, CurrentVariableIdx, CurrentVariableKind,
-    InheritedVariableIdx, InheritedVariableKind, SynExprRegion, SynPatternIdx,
+    InheritedSymbolicVariableIdx, InheritedVariableKind, SynExprRegion, SynPatternIdx,
 };
 #[cfg(feature = "protocol_support")]
 use husky_token_protocol::*;
@@ -53,7 +53,7 @@ pub enum TokenInfoData {
     Entity(EntityPath),
     EntityNode(ItemSynNodePath, EntityKind),
     InheritedSynSymbol {
-        inherited_syn_symbol_idx: InheritedVariableIdx,
+        inherited_syn_symbol_idx: InheritedSymbolicVariableIdx,
         inherited_syn_symbol_kind: InheritedVariableKind,
         syn_expr_region: ExprRegionLeash,
     },
@@ -114,9 +114,9 @@ impl TokenInfoData {
                 inherited_syn_symbol_kind,
                 ..
             } => match inherited_syn_symbol_kind {
-                InheritedVariableKind::ParenateParameter { .. } => TokenClass::Parameter,
-                InheritedVariableKind::TemplateParameter { .. } => TokenClass::ImplicitParameter,
-                InheritedVariableKind::FieldVariable { .. } => TokenClass::Variable,
+                InheritedVariableKind::Parenate { .. } => TokenClass::Parameter,
+                InheritedVariableKind::Template { .. } => TokenClass::ImplicitParameter,
+                InheritedVariableKind::SelfField { .. } => TokenClass::Variable,
             },
             TokenInfoData::SelfType => TokenClass::SelfType,
             TokenInfoData::SelfValue => TokenClass::SelfValue,

@@ -1,16 +1,16 @@
 use super::*;
 use husky_entity_path::TypePath;
-use husky_term_prelude::template_var_class::TemplateSvarClass;
+use husky_term_prelude::template_var_class::TemplateVariableClass;
 
 // todo: use bitmap?
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Default)]
-pub struct DeclarativeTemplateSymbolAttrs {
-    pub class: TemplateSvarClass,
+pub struct DeclarativeTemplateVariableAttrs {
+    pub class: TemplateVariableClass,
 }
 
-impl DeclarativeTemplateSymbolAttrs {
+impl DeclarativeTemplateVariableAttrs {
     /// only use this in husky-eth-term
-    pub unsafe fn new(class: TemplateSvarClass) -> Self {
+    pub unsafe fn new(class: TemplateVariableClass) -> Self {
         Self { class }
     }
 
@@ -20,16 +20,16 @@ impl DeclarativeTemplateSymbolAttrs {
             match attr {
                 DeclarativeTemplateSymbolAttr::Phantom => {
                     slf.class = match slf.class {
-                        TemplateSvarClass::Phantom => todo!("err"),
-                        TemplateSvarClass::Runtime => todo!("err"),
-                        TemplateSvarClass::Comptime => TemplateSvarClass::Phantom,
+                        TemplateVariableClass::Phantom => todo!("err"),
+                        TemplateVariableClass::Runtime => todo!("err"),
+                        TemplateVariableClass::Comptime => TemplateVariableClass::Phantom,
                     }
                 }
                 DeclarativeTemplateSymbolAttr::Runtime => {
                     slf.class = match slf.class {
-                        TemplateSvarClass::Phantom => todo!("err"),
-                        TemplateSvarClass::Runtime => todo!("err"),
-                        TemplateSvarClass::Comptime => TemplateSvarClass::Runtime,
+                        TemplateVariableClass::Phantom => todo!("err"),
+                        TemplateVariableClass::Runtime => todo!("err"),
+                        TemplateVariableClass::Comptime => TemplateVariableClass::Runtime,
                     }
                 }
             }
@@ -45,9 +45,9 @@ pub enum DeclarativeTemplateSymbolAttr {
 
 /// wrapper so such the construction is private
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub struct DecTermSymbolIndex(DecTermSymbolIndexImpl);
+pub struct DecTermSymbolicVariableIndex(DecTermSymbolIndexImpl);
 
-impl DecTermSymbolIndex {
+impl DecTermSymbolicVariableIndex {
     pub const SELF_TYPE: Self = Self(DecTermSymbolIndexImpl::SelfType);
     pub const SELF_VALUE: Self = Self(DecTermSymbolIndexImpl::SelfValue);
     pub const SELF_LIFETIME: Self = Self(DecTermSymbolIndexImpl::SelfLifetime);
@@ -71,17 +71,17 @@ impl DecTermSymbolIndex {
 #[repr(u8)]
 pub enum DecTermSymbolIndexImpl {
     ExplicitLifetime {
-        attrs: DeclarativeTemplateSymbolAttrs,
+        attrs: DeclarativeTemplateVariableAttrs,
         variance: Option<Variance>,
         disambiguator: u8,
     },
     ExplicitPlace {
-        attrs: DeclarativeTemplateSymbolAttrs,
+        attrs: DeclarativeTemplateVariableAttrs,
         variance: Option<Variance>,
         disambiguator: u8,
     },
     Type {
-        attrs: DeclarativeTemplateSymbolAttrs,
+        attrs: DeclarativeTemplateVariableAttrs,
         variance: Option<Variance>,
         disambiguator: u8,
     },
@@ -89,16 +89,16 @@ pub enum DecTermSymbolIndexImpl {
         disambiguator: u8,
     },
     ConstPathLeading {
-        attrs: DeclarativeTemplateSymbolAttrs,
+        attrs: DeclarativeTemplateVariableAttrs,
         disambiguator: u8,
         ty_path: TypePath,
     },
     ConstOther {
-        attrs: DeclarativeTemplateSymbolAttrs,
+        attrs: DeclarativeTemplateVariableAttrs,
         disambiguator: u8,
     },
     ConstErr {
-        attrs: DeclarativeTemplateSymbolAttrs,
+        attrs: DeclarativeTemplateVariableAttrs,
         disambiguator: u8,
     },
     EphemPathLeading {
@@ -127,41 +127,41 @@ pub enum DecTermSymbolIndexImpl {
 #[test]
 fn symbol_index_size_works() {
     assert_eq!(
-        std::mem::size_of::<DecTermSymbolIndex>(),
+        std::mem::size_of::<DecTermSymbolicVariableIndex>(),
         std::mem::size_of::<u64>()
     )
 }
 
 #[derive(Debug, PartialEq, Eq, Default, Clone)]
-pub struct TermSymbolRegistry {
+pub struct TermSvarRegistry {
     /// cache for issued indices
     ///
     /// only those with the latest disambiguator remains.
     ///
     /// note that they are not next disambiguators that haven't been issued yet.
-    cache: Vec<DecTermSymbolIndex>,
+    cache: Vec<DecTermSymbolicVariableIndex>,
     self_ty_issued: bool,
     self_value_issued: bool,
 }
 
-impl TermSymbolRegistry {
-    pub fn issue_self_ty_index(&mut self) -> DecTermSymbolIndex {
+impl TermSvarRegistry {
+    pub fn issue_self_ty_index(&mut self) -> DecTermSymbolicVariableIndex {
         assert!(!self.self_ty_issued);
         self.self_ty_issued = true;
-        DecTermSymbolIndex(DecTermSymbolIndexImpl::SelfType)
+        DecTermSymbolicVariableIndex(DecTermSymbolIndexImpl::SelfType)
     }
 
-    pub fn issue_self_value_index(&mut self) -> DecTermSymbolIndex {
+    pub fn issue_self_value_index(&mut self) -> DecTermSymbolicVariableIndex {
         assert!(!self.self_value_issued);
         self.self_value_issued = true;
-        DecTermSymbolIndex(DecTermSymbolIndexImpl::SelfValue)
+        DecTermSymbolicVariableIndex(DecTermSymbolIndexImpl::SelfValue)
     }
 
     pub fn issue_ty_index(
         &mut self,
-        attrs: DeclarativeTemplateSymbolAttrs,
+        attrs: DeclarativeTemplateVariableAttrs,
         variance: Option<Variance>,
-    ) -> DecTermSymbolIndex {
+    ) -> DecTermSymbolicVariableIndex {
         match self
             .cache
             .iter_mut()
@@ -177,14 +177,14 @@ impl TermSymbolRegistry {
         {
             Some(latest_disambiguator) => {
                 *latest_disambiguator += 1;
-                DecTermSymbolIndex(DecTermSymbolIndexImpl::Type {
+                DecTermSymbolicVariableIndex(DecTermSymbolIndexImpl::Type {
                     attrs,
                     variance,
                     disambiguator: *latest_disambiguator,
                 })
             }
             None => {
-                let index = DecTermSymbolIndex(DecTermSymbolIndexImpl::Type {
+                let index = DecTermSymbolicVariableIndex(DecTermSymbolIndexImpl::Type {
                     attrs,
                     variance,
                     disambiguator: 0,
@@ -197,9 +197,9 @@ impl TermSymbolRegistry {
 
     pub fn issue_explicit_lifetime_index(
         &mut self,
-        attrs: DeclarativeTemplateSymbolAttrs,
+        attrs: DeclarativeTemplateVariableAttrs,
         variance: Option<Variance>,
-    ) -> DecTermSymbolIndex {
+    ) -> DecTermSymbolicVariableIndex {
         match self
             .cache
             .iter_mut()
@@ -215,18 +215,19 @@ impl TermSymbolRegistry {
         {
             Some(latest_disambiguator) => {
                 *latest_disambiguator += 1;
-                DecTermSymbolIndex(DecTermSymbolIndexImpl::ExplicitLifetime {
+                DecTermSymbolicVariableIndex(DecTermSymbolIndexImpl::ExplicitLifetime {
                     attrs,
                     variance,
                     disambiguator: *latest_disambiguator,
                 })
             }
             None => {
-                let index = DecTermSymbolIndex(DecTermSymbolIndexImpl::ExplicitLifetime {
-                    attrs,
-                    variance,
-                    disambiguator: 0,
-                });
+                let index =
+                    DecTermSymbolicVariableIndex(DecTermSymbolIndexImpl::ExplicitLifetime {
+                        attrs,
+                        variance,
+                        disambiguator: 0,
+                    });
                 self.cache.push(index);
                 index
             }
@@ -235,9 +236,9 @@ impl TermSymbolRegistry {
 
     pub fn issue_explicit_place_index(
         &mut self,
-        attrs: DeclarativeTemplateSymbolAttrs,
+        attrs: DeclarativeTemplateVariableAttrs,
         variance: Option<Variance>,
-    ) -> DecTermSymbolIndex {
+    ) -> DecTermSymbolicVariableIndex {
         match self
             .cache
             .iter_mut()
@@ -253,14 +254,14 @@ impl TermSymbolRegistry {
         {
             Some(latest_disambiguator) => {
                 *latest_disambiguator += 1;
-                DecTermSymbolIndex(DecTermSymbolIndexImpl::ExplicitPlace {
+                DecTermSymbolicVariableIndex(DecTermSymbolIndexImpl::ExplicitPlace {
                     attrs,
                     variance,
                     disambiguator: *latest_disambiguator,
                 })
             }
             None => {
-                let index = DecTermSymbolIndex(DecTermSymbolIndexImpl::ExplicitPlace {
+                let index = DecTermSymbolicVariableIndex(DecTermSymbolIndexImpl::ExplicitPlace {
                     attrs,
                     variance,
                     disambiguator: 0,
@@ -273,9 +274,9 @@ impl TermSymbolRegistry {
 
     pub fn issue_const_path_leading_index(
         &mut self,
-        attrs: DeclarativeTemplateSymbolAttrs,
+        attrs: DeclarativeTemplateVariableAttrs,
         ty_path: TypePath,
-    ) -> DecTermSymbolIndex {
+    ) -> DecTermSymbolicVariableIndex {
         match self
             .cache
             .iter_mut()
@@ -291,11 +292,12 @@ impl TermSymbolRegistry {
         {
             Some(_latest_disambiguator) => todo!(),
             None => {
-                let index = DecTermSymbolIndex(DecTermSymbolIndexImpl::ConstPathLeading {
-                    attrs,
-                    disambiguator: 0,
-                    ty_path,
-                });
+                let index =
+                    DecTermSymbolicVariableIndex(DecTermSymbolIndexImpl::ConstPathLeading {
+                        attrs,
+                        disambiguator: 0,
+                        ty_path,
+                    });
                 self.cache.push(index);
                 index
             }
@@ -304,8 +306,8 @@ impl TermSymbolRegistry {
 
     pub fn issue_const_other_index(
         &mut self,
-        attrs: DeclarativeTemplateSymbolAttrs,
-    ) -> DecTermSymbolIndex {
+        attrs: DeclarativeTemplateVariableAttrs,
+    ) -> DecTermSymbolicVariableIndex {
         match self
             .cache
             .iter_mut()
@@ -320,7 +322,7 @@ impl TermSymbolRegistry {
         {
             Some(_latest_disambiguator) => todo!(),
             None => {
-                let index = DecTermSymbolIndex(DecTermSymbolIndexImpl::ConstOther {
+                let index = DecTermSymbolicVariableIndex(DecTermSymbolIndexImpl::ConstOther {
                     attrs,
                     disambiguator: 0,
                 });
@@ -332,8 +334,8 @@ impl TermSymbolRegistry {
 
     pub fn issue_const_err_index(
         &mut self,
-        attrs: DeclarativeTemplateSymbolAttrs,
-    ) -> DecTermSymbolIndex {
+        attrs: DeclarativeTemplateVariableAttrs,
+    ) -> DecTermSymbolicVariableIndex {
         match self
             .cache
             .iter_mut()
@@ -348,7 +350,7 @@ impl TermSymbolRegistry {
         {
             Some(_latest_disambiguator) => todo!(),
             None => {
-                let index = DecTermSymbolIndex(DecTermSymbolIndexImpl::ConstErr {
+                let index = DecTermSymbolicVariableIndex(DecTermSymbolIndexImpl::ConstErr {
                     attrs,
                     disambiguator: 0,
                 });
@@ -362,7 +364,7 @@ impl TermSymbolRegistry {
         &mut self,
         // attrs: TemplateParameterAttrs,
         ty_path: TypePath,
-    ) -> DecTermSymbolIndex {
+    ) -> DecTermSymbolicVariableIndex {
         let disambiguator = match self
             .cache
             .iter_mut()
@@ -380,7 +382,7 @@ impl TermSymbolRegistry {
             Some(latest_disambiguator) => latest_disambiguator + 1,
             None => 0,
         };
-        let index = DecTermSymbolIndex(DecTermSymbolIndexImpl::EphemPathLeading {
+        let index = DecTermSymbolicVariableIndex(DecTermSymbolIndexImpl::EphemPathLeading {
             // attrs,
             disambiguator,
             ty_path,
@@ -392,7 +394,7 @@ impl TermSymbolRegistry {
     pub fn issue_ephem_other_index(
         &mut self,
         // attrs: TemplateParameterAttrs
-    ) -> DecTermSymbolIndex {
+    ) -> DecTermSymbolicVariableIndex {
         let disambiguator = match self
             .cache
             .iter_mut()
@@ -410,7 +412,7 @@ impl TermSymbolRegistry {
             Some(latest_disambiguator) => latest_disambiguator + 1,
             None => 0,
         };
-        let index = DecTermSymbolIndex(DecTermSymbolIndexImpl::EphemOther {
+        let index = DecTermSymbolicVariableIndex(DecTermSymbolIndexImpl::EphemOther {
             // attrs,
             disambiguator,
         });

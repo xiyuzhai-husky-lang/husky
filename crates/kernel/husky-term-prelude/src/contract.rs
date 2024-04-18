@@ -82,19 +82,19 @@ impl std::ops::MulAssign<Self> for Contract {
     }
 }
 
-impl From<SvarModifier> for Contract {
-    fn from(modifier: SvarModifier) -> Self {
+impl From<VariableModifier> for Contract {
+    fn from(modifier: VariableModifier) -> Self {
         match modifier {
-            SvarModifier::Pure => Contract::Pure,
-            SvarModifier::Owned | SvarModifier::Mut => Contract::Move,
-            SvarModifier::Ref => Contract::Borrow,
-            SvarModifier::RefMut => Contract::BorrowMut,
-            SvarModifier::Const => Contract::Const,
-            SvarModifier::Ambersand(_) => todo!(),
-            SvarModifier::AmbersandMut(_) => todo!(),
-            SvarModifier::Le => todo!(),
-            SvarModifier::Tilde => todo!(),
-            SvarModifier::At => todo!(),
+            VariableModifier::Pure => Contract::Pure,
+            VariableModifier::Owned | VariableModifier::Mut => Contract::Move,
+            VariableModifier::Ref => Contract::Borrow,
+            VariableModifier::RefMut => Contract::BorrowMut,
+            VariableModifier::Const => Contract::Const,
+            VariableModifier::Ambersand(_) => todo!(),
+            VariableModifier::AmbersandMut(_) => todo!(),
+            VariableModifier::Le => todo!(),
+            VariableModifier::Tilde => todo!(),
+            VariableModifier::At => todo!(),
         }
     }
 }

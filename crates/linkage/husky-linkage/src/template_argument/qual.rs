@@ -36,7 +36,7 @@ impl LinQual {
             HirQuary::RefMut { place, lifetime } => todo!(),
             HirQuary::Leashed { place_idx } => LinQual::Ref,
             HirQuary::Todo => todo!(),
-            HirQuary::Svar(_) => todo!(),
+            HirQuary::Variable(_) => todo!(),
         }
     }
 }

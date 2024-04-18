@@ -10,12 +10,12 @@ use vec_like::VecSet;
 pub struct DecTermHvars {
     /// unaccounted means the hvar is not declared within this term
     #[return_ref]
-    pub unaccounted_hvars: VecSet<DecHvar>,
+    pub unaccounted_hvars: VecSet<DecLambdaVariable>,
 }
 
 impl DecTermHvars {
     #[inline(always)]
-    pub(crate) fn contains(self, db: &::salsa::Db, hvar: DecHvar) -> bool {
+    pub(crate) fn contains(self, db: &::salsa::Db, hvar: DecLambdaVariable) -> bool {
         self.unaccounted_hvars(db).has(hvar)
     }
 
@@ -32,13 +32,16 @@ impl DecTermHvars {
     }
 
     #[inline(always)]
-    fn remove(hvars: impl Into<Option<Self>>, _hvar: impl Into<Option<DecHvar>>) -> Option<Self> {
+    fn remove(
+        hvars: impl Into<Option<Self>>,
+        _hvar: impl Into<Option<DecLambdaVariable>>,
+    ) -> Option<Self> {
         let _hvars = hvars.into()?;
         todo!()
     }
 }
 impl DecTerm {
-    pub fn contains_hvar(self, db: &::salsa::Db, hvar: DecHvar) -> bool {
+    pub fn contains_hvar(self, db: &::salsa::Db, hvar: DecLambdaVariable) -> bool {
         self.hvars(db)
             .map(|declarative_term_hvars| declarative_term_hvars.contains(db, hvar))
             .unwrap_or_default()
@@ -47,8 +50,10 @@ impl DecTerm {
     pub(crate) fn hvars(self, db: &::salsa::Db) -> Option<DecTermHvars> {
         match self {
             DecTerm::Literal(_) => todo!(),
-            DecTerm::Hvar(hvar) => Some(DecTermHvars::new(db, VecSet::new_one_elem_set(hvar))),
-            DecTerm::Symbol(_symbol) => None,
+            DecTerm::LambdaVariable(hvar) => {
+                Some(DecTermHvars::new(db, VecSet::new_one_elem_set(hvar)))
+            }
+            DecTerm::SymbolicVariable(_symbol) => None,
             DecTerm::EntityPath(path) => match path {
                 DecItemPath::Fugitive(_) => todo!(),
                 DecItemPath::Trait(_) | DecItemPath::Type(_) => None,

@@ -560,7 +560,7 @@
                                         2,
                                     ),
                                     inherited_syn_symbol_idx: 2,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `one_vs_all`,
                                     },
                                 },
@@ -760,8 +760,8 @@
                                         21,
                                     ),
                                     inherited_syn_symbol_idx: 1,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::TemplateParameter(
-                                        InheritedTemplateParameterSynSymbol::Constant {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Template(
+                                        InheritedTemplateVariable::Constant {
                                             ident: `label`,
                                         },
                                     ),
@@ -2436,7 +2436,7 @@
                                         2,
                                     ),
                                     inherited_syn_symbol_idx: 2,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `one_vs_all_result`,
                                     },
                                 },

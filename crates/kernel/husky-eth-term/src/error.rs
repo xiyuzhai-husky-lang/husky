@@ -1,6 +1,6 @@
 use crate::{term::EthTerm, *};
 use husky_dec_signature::DecSignatureError;
-use husky_dec_term::term::DecTermSymbolTypeErrorKind;
+use husky_dec_term::term::DecTermSymbolicVariableTypeErrorKind;
 use husky_dec_ty::DeclarativeTypeError;
 use husky_entity_path::{EntityPathError, ItemPath};
 use maybe_result::MaybeResult;
@@ -28,7 +28,7 @@ pub enum EthTermError {
     #[error("ExpectationNotMatchedForCurry")]
     ExpectationNotMatchedForCurry,
     #[error("DecTermSymbolTypeErrorKind")]
-    DecTermSymbolTypeErrorKind(#[from] DecTermSymbolTypeErrorKind),
+    DecTermSymbolTypeErrorKind(#[from] DecTermSymbolicVariableTypeErrorKind),
     #[error("ExpectFinalDestinationEqsNonSortTypePath")]
     ExpectFinalDestinationEqsNonSortTypePath {
         path_expected: TypePath,

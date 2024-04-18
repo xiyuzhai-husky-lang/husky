@@ -59,11 +59,11 @@ impl<'a> TryParseOptionFromStream<SynDeclExprParser<'a>> for ParenateParameterSy
             let variables = symbols
                 .iter()
                 .map(|(ident, pattern_symbol_idx)| {
-                    CurrentSynSymbolEntry::new(
+                    CurrentVariableEntry::new(
                         ctx.pattern_expr_region(),
                         access_start,
                         None,
-                        CurrentSynSymbolData::SimpleParenateParameter {
+                        CurrentVariableData::SimpleParenateParameter {
                             ident: *ident,
                             pattern_symbol_idx: *pattern_symbol_idx,
                         },
@@ -132,11 +132,11 @@ impl<'a> TryParseOptionFromStream<SynDeclExprParser<'a>> for ParenateParameterSy
                 ctx.try_parse_option::<EphemSymbolModifierRegionalTokens>()?;
             let ident_token = ctx
                 .try_parse_expected::<IdentRegionalToken, _>(OriginalSynExprError::ExpectedIdent)?;
-            let variable = CurrentSynSymbolEntry::new(
+            let variable = CurrentVariableEntry::new(
                 ctx.pattern_expr_region(),
                 access_start,
                 None,
-                CurrentSynSymbolData::VariadicParenateParameter {
+                CurrentVariableData::VariadicParenateParameter {
                     ident_token,
                     symbol_modifier_keyword_group,
                 },

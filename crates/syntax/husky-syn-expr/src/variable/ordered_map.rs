@@ -39,10 +39,10 @@ impl<V> SymbolOrderedMap<V> {
     }
 }
 
-impl<V> std::ops::Index<InheritedVariableIdx> for SymbolOrderedMap<V> {
+impl<V> std::ops::Index<InheritedSymbolicVariableIdx> for SymbolOrderedMap<V> {
     type Output = V;
 
-    fn index(&self, index: InheritedVariableIdx) -> &Self::Output {
+    fn index(&self, index: InheritedSymbolicVariableIdx) -> &Self::Output {
         &self.inherited_syn_symbol_map[index]
     }
 }

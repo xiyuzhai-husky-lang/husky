@@ -3,7 +3,7 @@ use crate::{
     HirEagerStmtIdx,
 };
 use husky_sem_expr::{SemaExprIdx, SemaExprMap, SemaStmtIdx, SemaStmtMap};
-use husky_syn_expr::{CurrentVariableIdx, SynPatternMap, SynPatternRoot, SynSymbolMap};
+use husky_syn_expr::{CurrentVariableIdx, SynPatternMap, SynPatternRoot, VariableMap};
 
 #[salsa::tracked(db = HirEagerExprDb, jar = HirEagerExprJar, constructor = new_inner)]
 pub struct HirEagerExprSourceMap {
@@ -17,7 +17,7 @@ pub struct HirEagerExprSourceMapData {
     syn_to_hir_eager_pattern_expr_idx_map: SynPatternMap<HirEagerPatternIdx>,
     sem_to_hir_eager_expr_idx_map: SemaExprMap<HirEagerExprIdx>,
     sem_to_hir_eager_stmt_idx_map: SemaStmtMap<HirEagerStmtIdx>,
-    syn_symbol_to_hir_eager_runtime_symbol_map: SynSymbolMap<HirEagerRvarIdx>,
+    syn_symbol_to_hir_eager_runtime_symbol_map: VariableMap<HirEagerRvarIdx>,
 }
 
 impl HirEagerExprSourceMap {
@@ -26,7 +26,7 @@ impl HirEagerExprSourceMap {
         syn_to_hir_eager_pattern_expr_idx_map: SynPatternMap<HirEagerPatternIdx>,
         sem_to_hir_eager_expr_idx_map: SemaExprMap<HirEagerExprIdx>,
         sem_to_hir_eager_stmt_idx_map: SemaStmtMap<HirEagerStmtIdx>,
-        syn_symbol_to_hir_eager_runtime_symbol_map: SynSymbolMap<HirEagerRvarIdx>,
+        syn_symbol_to_hir_eager_runtime_symbol_map: VariableMap<HirEagerRvarIdx>,
     ) -> Self {
         Self::new_inner(
             db,

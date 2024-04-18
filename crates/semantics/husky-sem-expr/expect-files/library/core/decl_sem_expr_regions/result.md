@@ -1323,8 +1323,8 @@
                                         4,
                                     ),
                                     inherited_syn_symbol_idx: 3,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::TemplateParameter(
-                                        InheritedTemplateParameterSynSymbol::Type {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Template(
+                                        InheritedTemplateVariable::Type {
                                             ident: `E2`,
                                         },
                                     ),
@@ -1608,8 +1608,8 @@
                                         8,
                                     ),
                                     inherited_syn_symbol_idx: 1,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::TemplateParameter(
-                                        InheritedTemplateParameterSynSymbol::Type {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Template(
+                                        InheritedTemplateVariable::Type {
                                             ident: `T2`,
                                         },
                                     ),
@@ -1678,8 +1678,8 @@
                                         9,
                                     ),
                                     inherited_syn_symbol_idx: 3,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::TemplateParameter(
-                                        InheritedTemplateParameterSynSymbol::Type {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Template(
+                                        InheritedTemplateVariable::Type {
                                             ident: `E2`,
                                         },
                                     ),
@@ -1781,8 +1781,8 @@
                                         13,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::TemplateParameter(
-                                        InheritedTemplateParameterSynSymbol::Type {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Template(
+                                        InheritedTemplateVariable::Type {
                                             ident: `T1`,
                                         },
                                     ),
@@ -1851,8 +1851,8 @@
                                         14,
                                     ),
                                     inherited_syn_symbol_idx: 2,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::TemplateParameter(
-                                        InheritedTemplateParameterSynSymbol::Type {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Template(
+                                        InheritedTemplateVariable::Type {
                                             ident: `E1`,
                                         },
                                     ),

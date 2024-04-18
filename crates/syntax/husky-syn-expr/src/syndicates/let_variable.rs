@@ -25,11 +25,11 @@ impl<'a, 'b> SynDefnExprParser<'a, 'b> {
         let symbols = symbols
             .iter()
             .map(|(ident, pattern_symbol)| {
-                CurrentSynSymbolEntry::new(
+                CurrentVariableEntry::new(
                     self.pattern_expr_region(),
                     access_start,
                     Some(access_end),
-                    CurrentSynSymbolData::LetVariable {
+                    CurrentVariableData::LetVariable {
                         ident: *ident,
                         pattern_symbol_idx: *pattern_symbol,
                     },

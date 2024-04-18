@@ -1,4 +1,4 @@
-use husky_dec_term::term::DecTermSymbolTypeErrorKind;
+use husky_dec_term::term::DecTermSymbolicVariableTypeErrorKind;
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
@@ -7,9 +7,9 @@ pub enum DecTermError2 {
     Derived(DerivedDecTermError2),
 }
 
-impl Into<DecTermSymbolTypeErrorKind> for DecTermError2 {
-    fn into(self) -> DecTermSymbolTypeErrorKind {
-        DecTermSymbolTypeErrorKind::SignatureDecTermError
+impl Into<DecTermSymbolicVariableTypeErrorKind> for DecTermError2 {
+    fn into(self) -> DecTermSymbolicVariableTypeErrorKind {
+        DecTermSymbolicVariableTypeErrorKind::SignatureDecTermError
     }
 }
 

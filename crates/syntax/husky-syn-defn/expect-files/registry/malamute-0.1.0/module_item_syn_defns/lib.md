@@ -223,13 +223,13 @@
                                                     },
                                                     current_syn_symbol_arena: Arena {
                                                         data: [
-                                                            CurrentSynSymbolEntry {
+                                                            CurrentVariableEntry {
                                                                 modifier: Const,
                                                                 access_start: RegionalTokenIdx(
                                                                     6,
                                                                 ),
                                                                 access_end: None,
-                                                                data: CurrentSynSymbolData::TemplateParameter {
+                                                                data: CurrentVariableData::TemplateParameter {
                                                                     syn_attrs: TemplateParameterSynAttrs {
                                                                         syn_attrs: [
                                                                             Phantom(
@@ -257,13 +257,13 @@
                                                                     },
                                                                 },
                                                             },
-                                                            CurrentSynSymbolEntry {
+                                                            CurrentVariableEntry {
                                                                 modifier: Const,
                                                                 access_start: RegionalTokenIdx(
                                                                     13,
                                                                 ),
                                                                 access_end: None,
-                                                                data: CurrentSynSymbolData::TemplateParameter {
+                                                                data: CurrentVariableData::TemplateParameter {
                                                                     syn_attrs: TemplateParameterSynAttrs {
                                                                         syn_attrs: [
                                                                             Phantom(
@@ -392,16 +392,16 @@
                                             data: [
                                                 InheritedVariable {
                                                     modifier: Const,
-                                                    kind: InheritedVariableKind::TemplateParameter(
-                                                        InheritedTemplateParameterSynSymbol::Type {
+                                                    kind: InheritedVariableKind::Template(
+                                                        InheritedTemplateVariable::Type {
                                                             ident: `Label`,
                                                         },
                                                     ),
                                                 },
                                                 InheritedVariable {
                                                     modifier: Const,
-                                                    kind: InheritedVariableKind::TemplateParameter(
-                                                        InheritedTemplateParameterSynSymbol::Constant {
+                                                    kind: InheritedVariableKind::Template(
+                                                        InheritedTemplateVariable::Constant {
                                                             ident: `label`,
                                                         },
                                                     ),
@@ -552,16 +552,16 @@
                                 data: [
                                     InheritedVariable {
                                         modifier: Const,
-                                        kind: InheritedVariableKind::TemplateParameter(
-                                            InheritedTemplateParameterSynSymbol::Type {
+                                        kind: InheritedVariableKind::Template(
+                                            InheritedTemplateVariable::Type {
                                                 ident: `Label`,
                                             },
                                         ),
                                     },
                                     InheritedVariable {
                                         modifier: Const,
-                                        kind: InheritedVariableKind::TemplateParameter(
-                                            InheritedTemplateParameterSynSymbol::Constant {
+                                        kind: InheritedVariableKind::Template(
+                                            InheritedTemplateVariable::Constant {
                                                 ident: `label`,
                                             },
                                         ),
@@ -886,13 +886,13 @@
                                                     },
                                                     current_syn_symbol_arena: Arena {
                                                         data: [
-                                                            CurrentSynSymbolEntry {
+                                                            CurrentVariableEntry {
                                                                 modifier: Const,
                                                                 access_start: RegionalTokenIdx(
                                                                     4,
                                                                 ),
                                                                 access_end: None,
-                                                                data: CurrentSynSymbolData::TemplateParameter {
+                                                                data: CurrentVariableData::TemplateParameter {
                                                                     syn_attrs: TemplateParameterSynAttrs {
                                                                         syn_attrs: [],
                                                                     },
@@ -907,13 +907,13 @@
                                                                     },
                                                                 },
                                                             },
-                                                            CurrentSynSymbolEntry {
+                                                            CurrentVariableEntry {
                                                                 modifier: Const,
                                                                 access_start: RegionalTokenIdx(
                                                                     11,
                                                                 ),
                                                                 access_end: None,
-                                                                data: CurrentSynSymbolData::TemplateParameter {
+                                                                data: CurrentVariableData::TemplateParameter {
                                                                     syn_attrs: TemplateParameterSynAttrs {
                                                                         syn_attrs: [
                                                                             Runtime(
@@ -1025,8 +1025,8 @@
                                                     8,
                                                 ),
                                                 inherited_syn_symbol_idx: 0,
-                                                inherited_syn_symbol_kind: InheritedVariableKind::TemplateParameter(
-                                                    InheritedTemplateParameterSynSymbol::Type {
+                                                inherited_syn_symbol_kind: InheritedVariableKind::Template(
+                                                    InheritedTemplateVariable::Type {
                                                         ident: `Label`,
                                                     },
                                                 ),
@@ -1041,8 +1041,8 @@
                                                     9,
                                                 ),
                                                 inherited_syn_symbol_idx: 1,
-                                                inherited_syn_symbol_kind: InheritedVariableKind::TemplateParameter(
-                                                    InheritedTemplateParameterSynSymbol::Constant {
+                                                inherited_syn_symbol_kind: InheritedVariableKind::Template(
+                                                    InheritedTemplateVariable::Constant {
                                                         ident: `label`,
                                                     },
                                                 ),
@@ -1183,7 +1183,7 @@
                                         },
                                         pattern_symbol_arena: Arena {
                                             data: [
-                                                SynPatternSymbol::Atom(
+                                                PatternVariable::Atom(
                                                     0,
                                                 ),
                                             ],
@@ -1207,16 +1207,16 @@
                                             data: [
                                                 InheritedVariable {
                                                     modifier: Const,
-                                                    kind: InheritedVariableKind::TemplateParameter(
-                                                        InheritedTemplateParameterSynSymbol::Type {
+                                                    kind: InheritedVariableKind::Template(
+                                                        InheritedTemplateVariable::Type {
                                                             ident: `Label`,
                                                         },
                                                     ),
                                                 },
                                                 InheritedVariable {
                                                     modifier: Const,
-                                                    kind: InheritedVariableKind::TemplateParameter(
-                                                        InheritedTemplateParameterSynSymbol::Constant {
+                                                    kind: InheritedVariableKind::Template(
+                                                        InheritedTemplateVariable::Constant {
                                                             ident: `label`,
                                                         },
                                                     ),
@@ -1225,13 +1225,13 @@
                                         },
                                         current_syn_symbol_arena: Arena {
                                             data: [
-                                                CurrentSynSymbolEntry {
+                                                CurrentVariableEntry {
                                                     modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         6,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::SimpleParenateParameter {
+                                                    data: CurrentVariableData::SimpleParenateParameter {
                                                         ident: `one_vs_all`,
                                                         pattern_symbol_idx: 0,
                                                     },
@@ -1314,7 +1314,7 @@
                                         2,
                                     ),
                                     inherited_syn_symbol_idx: 2,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `one_vs_all`,
                                     },
                                 },
@@ -1352,8 +1352,8 @@
                                         21,
                                     ),
                                     inherited_syn_symbol_idx: 1,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::TemplateParameter(
-                                        InheritedTemplateParameterSynSymbol::Constant {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Template(
+                                        InheritedTemplateVariable::Constant {
                                             ident: `label`,
                                         },
                                     ),
@@ -1873,23 +1873,23 @@
                                 data: [
                                     InheritedVariable {
                                         modifier: Const,
-                                        kind: InheritedVariableKind::TemplateParameter(
-                                            InheritedTemplateParameterSynSymbol::Type {
+                                        kind: InheritedVariableKind::Template(
+                                            InheritedTemplateVariable::Type {
                                                 ident: `Label`,
                                             },
                                         ),
                                     },
                                     InheritedVariable {
                                         modifier: Const,
-                                        kind: InheritedVariableKind::TemplateParameter(
-                                            InheritedTemplateParameterSynSymbol::Constant {
+                                        kind: InheritedVariableKind::Template(
+                                            InheritedTemplateVariable::Constant {
                                                 ident: `label`,
                                             },
                                         ),
                                     },
                                     InheritedVariable {
                                         modifier: Pure,
-                                        kind: InheritedVariableKind::ParenateParameter {
+                                        kind: InheritedVariableKind::Parenate {
                                             ident: `one_vs_all`,
                                         },
                                     },
@@ -2247,13 +2247,13 @@
                                                     },
                                                     current_syn_symbol_arena: Arena {
                                                         data: [
-                                                            CurrentSynSymbolEntry {
+                                                            CurrentVariableEntry {
                                                                 modifier: Const,
                                                                 access_start: RegionalTokenIdx(
                                                                     6,
                                                                 ),
                                                                 access_end: None,
-                                                                data: CurrentSynSymbolData::TemplateParameter {
+                                                                data: CurrentVariableData::TemplateParameter {
                                                                     syn_attrs: TemplateParameterSynAttrs {
                                                                         syn_attrs: [
                                                                             Phantom(
@@ -2281,13 +2281,13 @@
                                                                     },
                                                                 },
                                                             },
-                                                            CurrentSynSymbolEntry {
+                                                            CurrentVariableEntry {
                                                                 modifier: Const,
                                                                 access_start: RegionalTokenIdx(
                                                                     13,
                                                                 ),
                                                                 access_end: None,
-                                                                data: CurrentSynSymbolData::TemplateParameter {
+                                                                data: CurrentVariableData::TemplateParameter {
                                                                     syn_attrs: TemplateParameterSynAttrs {
                                                                         syn_attrs: [
                                                                             Phantom(
@@ -2399,8 +2399,8 @@
                                                     8,
                                                 ),
                                                 inherited_syn_symbol_idx: 0,
-                                                inherited_syn_symbol_kind: InheritedVariableKind::TemplateParameter(
-                                                    InheritedTemplateParameterSynSymbol::Type {
+                                                inherited_syn_symbol_kind: InheritedVariableKind::Template(
+                                                    InheritedTemplateVariable::Type {
                                                         ident: `Label`,
                                                     },
                                                 ),
@@ -2415,8 +2415,8 @@
                                                     9,
                                                 ),
                                                 inherited_syn_symbol_idx: 1,
-                                                inherited_syn_symbol_kind: InheritedVariableKind::TemplateParameter(
-                                                    InheritedTemplateParameterSynSymbol::Constant {
+                                                inherited_syn_symbol_kind: InheritedVariableKind::Template(
+                                                    InheritedTemplateVariable::Constant {
                                                         ident: `label`,
                                                     },
                                                 ),
@@ -2557,7 +2557,7 @@
                                         },
                                         pattern_symbol_arena: Arena {
                                             data: [
-                                                SynPatternSymbol::Atom(
+                                                PatternVariable::Atom(
                                                     0,
                                                 ),
                                             ],
@@ -2581,16 +2581,16 @@
                                             data: [
                                                 InheritedVariable {
                                                     modifier: Const,
-                                                    kind: InheritedVariableKind::TemplateParameter(
-                                                        InheritedTemplateParameterSynSymbol::Type {
+                                                    kind: InheritedVariableKind::Template(
+                                                        InheritedTemplateVariable::Type {
                                                             ident: `Label`,
                                                         },
                                                     ),
                                                 },
                                                 InheritedVariable {
                                                     modifier: Const,
-                                                    kind: InheritedVariableKind::TemplateParameter(
-                                                        InheritedTemplateParameterSynSymbol::Constant {
+                                                    kind: InheritedVariableKind::Template(
+                                                        InheritedTemplateVariable::Constant {
                                                             ident: `label`,
                                                         },
                                                     ),
@@ -2599,13 +2599,13 @@
                                         },
                                         current_syn_symbol_arena: Arena {
                                             data: [
-                                                CurrentSynSymbolEntry {
+                                                CurrentVariableEntry {
                                                     modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         6,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::SimpleParenateParameter {
+                                                    data: CurrentVariableData::SimpleParenateParameter {
                                                         ident: `one_vs_all_result`,
                                                         pattern_symbol_idx: 0,
                                                     },
@@ -2688,7 +2688,7 @@
                                         2,
                                     ),
                                     inherited_syn_symbol_idx: 2,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `one_vs_all_result`,
                                     },
                                 },
@@ -3478,23 +3478,23 @@
                                 data: [
                                     InheritedVariable {
                                         modifier: Const,
-                                        kind: InheritedVariableKind::TemplateParameter(
-                                            InheritedTemplateParameterSynSymbol::Type {
+                                        kind: InheritedVariableKind::Template(
+                                            InheritedTemplateVariable::Type {
                                                 ident: `Label`,
                                             },
                                         ),
                                     },
                                     InheritedVariable {
                                         modifier: Const,
-                                        kind: InheritedVariableKind::TemplateParameter(
-                                            InheritedTemplateParameterSynSymbol::Constant {
+                                        kind: InheritedVariableKind::Template(
+                                            InheritedTemplateVariable::Constant {
                                                 ident: `label`,
                                             },
                                         ),
                                     },
                                     InheritedVariable {
                                         modifier: Pure,
-                                        kind: InheritedVariableKind::ParenateParameter {
+                                        kind: InheritedVariableKind::Parenate {
                                             ident: `one_vs_all_result`,
                                         },
                                     },
