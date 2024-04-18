@@ -74,7 +74,7 @@ impl DecSvarRegion {
     pub(crate) fn add_new_template_parameter_symbol_signature(
         &mut self,
         db: &::salsa::Db,
-        idx: CurrentSynSymbolIdx,
+        idx: CurrentVariableIdx,
         ty: DecTermSymbolTypeResult<DecTerm>,
         term_symbol: DecSvar,
         name: SymbolName,
@@ -96,7 +96,7 @@ impl DecSvarRegion {
     pub(crate) fn add_new_parenate_parameter_symbol_signature(
         &mut self,
         db: &::salsa::Db,
-        current_syn_symbol: CurrentSynSymbolIdx,
+        current_syn_symbol: CurrentVariableIdx,
         modifier: SvarModifier,
         ty: DecTermSymbolTypeResult<DecTerm>,
         name: SymbolName,
@@ -122,7 +122,7 @@ impl DecSvarRegion {
     pub(crate) fn add_new_field_variable_symbol_signature(
         &mut self,
         db: &::salsa::Db,
-        current_syn_symbol: CurrentSynSymbolIdx,
+        current_syn_symbol: CurrentVariableIdx,
         ty: DecTermSymbolTypeResult<DecTerm>,
         ident: Ident,
     ) {
@@ -143,7 +143,7 @@ impl DecSvarRegion {
     fn add_new_current_syn_symbol_signature(
         &mut self,
         db: &::salsa::Db,
-        idx: CurrentSynSymbolIdx,
+        idx: CurrentVariableIdx,
         signature: DecSvarSignature,
         name: SymbolName,
     ) {
@@ -298,20 +298,9 @@ impl DecSvarRegion {
         self.self_value
     }
 
-    fn parent_symbol_term(&self, parent_symbol_idx: ParentSynSymbolIdx) -> DecSvarSignature {
-        match parent_symbol_idx {
-            ParentSynSymbolIdx::Inherited(inherited_syn_symbol_idx) => {
-                self.inherited_syn_symbol_signature(inherited_syn_symbol_idx)
-            }
-            ParentSynSymbolIdx::Current(current_syn_symbol_idx) => self
-                .current_parameter_symbol_signature(current_syn_symbol_idx)
-                .expect("should exist"),
-        }
-    }
-
     pub fn inherited_syn_symbol_signature(
         &self,
-        inherited_syn_symbol_idx: InheritedSynSymbolIdx,
+        inherited_syn_symbol_idx: InheritedVariableIdx,
     ) -> DecSvarSignature {
         self.symbol_signatures[inherited_syn_symbol_idx]
     }
@@ -319,7 +308,7 @@ impl DecSvarRegion {
     /// None for symbols defined in the body
     pub fn current_parameter_symbol_signature(
         &self,
-        current_syn_symbol_idx: CurrentSynSymbolIdx,
+        current_syn_symbol_idx: CurrentVariableIdx,
     ) -> Option<DecSvarSignature> {
         self.symbol_signatures
             .current_syn_symbol_map()

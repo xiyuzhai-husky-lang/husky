@@ -279,7 +279,7 @@ impl<'a> DecTermEngine<'a> {
 
     fn infer_current_syn_symbol_signature_in_parenate_parameter(
         &mut self,
-        current_syn_symbol_idx: CurrentSynSymbolIdx,
+        current_syn_symbol_idx: CurrentVariableIdx,
     ) {
         let current_syn_symbol = &self.syn_expr_region_data.symbol_region()[current_syn_symbol_idx];
         match *current_syn_symbol.data() {

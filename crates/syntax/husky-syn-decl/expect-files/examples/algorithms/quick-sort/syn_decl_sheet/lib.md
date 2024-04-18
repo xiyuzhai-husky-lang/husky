@@ -102,7 +102,7 @@ SynDeclSheet {
                                                     17,
                                                 ),
                                                 current_syn_symbol_idx: 0,
-                                                current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                                                current_syn_symbol_kind: CurrentVariableKind::TemplateParameter {
                                                     template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                                         ident_token: IdentRegionalToken {
                                                             ident: `T`,
@@ -416,7 +416,7 @@ SynDeclSheet {
                                                     16,
                                                 ),
                                                 current_syn_symbol_idx: 0,
-                                                current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                                                current_syn_symbol_kind: CurrentVariableKind::TemplateParameter {
                                                     template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                                         ident_token: IdentRegionalToken {
                                                             ident: `T`,
@@ -892,7 +892,7 @@ SynDeclSheet {
                                                     16,
                                                 ),
                                                 current_syn_symbol_idx: 0,
-                                                current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                                                current_syn_symbol_kind: CurrentVariableKind::TemplateParameter {
                                                     template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                                         ident_token: IdentRegionalToken {
                                                             ident: `T`,

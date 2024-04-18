@@ -326,7 +326,7 @@ SynNodeDeclSheet {
                                                 6,
                                             ),
                                             current_syn_symbol_idx: 0,
-                                            current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                                            current_syn_symbol_kind: CurrentVariableKind::TemplateParameter {
                                                 template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                                     ident_token: IdentRegionalToken {
                                                         ident: `E`,
@@ -570,7 +570,7 @@ SynNodeDeclSheet {
                                                                 6,
                                                             ),
                                                             current_syn_symbol_idx: 0,
-                                                            current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                                                            current_syn_symbol_kind: CurrentVariableKind::TemplateParameter {
                                                                 template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                                                     ident_token: IdentRegionalToken {
                                                                         ident: `E`,
@@ -753,12 +753,9 @@ SynNodeDeclSheet {
                                     symbol_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [
-                                                InheritedSynSymbol {
-                                                    parent_symbol_idx: Current(
-                                                        0,
-                                                    ),
+                                                InheritedVariable {
                                                     modifier: Const,
-                                                    kind: InheritedSynSymbolKind::TemplateParameter(
+                                                    kind: InheritedVariableKind::TemplateParameter(
                                                         InheritedTemplateParameterSynSymbol::Type {
                                                             ident: `E`,
                                                         },
@@ -958,7 +955,7 @@ SynNodeDeclSheet {
                                                                 6,
                                                             ),
                                                             current_syn_symbol_idx: 0,
-                                                            current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                                                            current_syn_symbol_kind: CurrentVariableKind::TemplateParameter {
                                                                 template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                                                     ident_token: IdentRegionalToken {
                                                                         ident: `E`,
@@ -1095,7 +1092,7 @@ SynNodeDeclSheet {
                                                     12,
                                                 ),
                                                 inherited_syn_symbol_idx: 0,
-                                                inherited_syn_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
+                                                inherited_syn_symbol_kind: InheritedVariableKind::TemplateParameter(
                                                     InheritedTemplateParameterSynSymbol::Type {
                                                         ident: `E`,
                                                     },
@@ -1160,12 +1157,9 @@ SynNodeDeclSheet {
                                     symbol_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [
-                                                InheritedSynSymbol {
-                                                    parent_symbol_idx: Current(
-                                                        0,
-                                                    ),
+                                                InheritedVariable {
                                                     modifier: Const,
-                                                    kind: InheritedSynSymbolKind::TemplateParameter(
+                                                    kind: InheritedVariableKind::TemplateParameter(
                                                         InheritedTemplateParameterSynSymbol::Type {
                                                             ident: `E`,
                                                         },
@@ -1383,7 +1377,7 @@ SynNodeDeclSheet {
                                                                 6,
                                                             ),
                                                             current_syn_symbol_idx: 0,
-                                                            current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                                                            current_syn_symbol_kind: CurrentVariableKind::TemplateParameter {
                                                                 template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                                                     ident_token: IdentRegionalToken {
                                                                         ident: `E`,
@@ -1540,7 +1534,7 @@ SynNodeDeclSheet {
                                                     11,
                                                 ),
                                                 inherited_syn_symbol_idx: 0,
-                                                inherited_syn_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
+                                                inherited_syn_symbol_kind: InheritedVariableKind::TemplateParameter(
                                                     InheritedTemplateParameterSynSymbol::Type {
                                                         ident: `E`,
                                                     },
@@ -1592,12 +1586,9 @@ SynNodeDeclSheet {
                                     symbol_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [
-                                                InheritedSynSymbol {
-                                                    parent_symbol_idx: Current(
-                                                        0,
-                                                    ),
+                                                InheritedVariable {
                                                     modifier: Const,
-                                                    kind: InheritedSynSymbolKind::TemplateParameter(
+                                                    kind: InheritedVariableKind::TemplateParameter(
                                                         InheritedTemplateParameterSynSymbol::Type {
                                                             ident: `E`,
                                                         },
@@ -1781,7 +1772,7 @@ SynNodeDeclSheet {
                                                                 6,
                                                             ),
                                                             current_syn_symbol_idx: 0,
-                                                            current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                                                            current_syn_symbol_kind: CurrentVariableKind::TemplateParameter {
                                                                 template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                                                     ident_token: IdentRegionalToken {
                                                                         ident: `E`,
@@ -1938,7 +1929,7 @@ SynNodeDeclSheet {
                                                     11,
                                                 ),
                                                 inherited_syn_symbol_idx: 0,
-                                                inherited_syn_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
+                                                inherited_syn_symbol_kind: InheritedVariableKind::TemplateParameter(
                                                     InheritedTemplateParameterSynSymbol::Type {
                                                         ident: `E`,
                                                     },
@@ -1990,12 +1981,9 @@ SynNodeDeclSheet {
                                     symbol_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [
-                                                InheritedSynSymbol {
-                                                    parent_symbol_idx: Current(
-                                                        0,
-                                                    ),
+                                                InheritedVariable {
                                                     modifier: Const,
-                                                    kind: InheritedSynSymbolKind::TemplateParameter(
+                                                    kind: InheritedVariableKind::TemplateParameter(
                                                         InheritedTemplateParameterSynSymbol::Type {
                                                             ident: `E`,
                                                         },
@@ -2184,7 +2172,7 @@ SynNodeDeclSheet {
                                                                 6,
                                                             ),
                                                             current_syn_symbol_idx: 0,
-                                                            current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                                                            current_syn_symbol_kind: CurrentVariableKind::TemplateParameter {
                                                                 template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                                                     ident_token: IdentRegionalToken {
                                                                         ident: `E`,
@@ -2331,7 +2319,7 @@ SynNodeDeclSheet {
                                                     11,
                                                 ),
                                                 inherited_syn_symbol_idx: 0,
-                                                inherited_syn_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
+                                                inherited_syn_symbol_kind: InheritedVariableKind::TemplateParameter(
                                                     InheritedTemplateParameterSynSymbol::Type {
                                                         ident: `E`,
                                                     },
@@ -2383,12 +2371,9 @@ SynNodeDeclSheet {
                                     symbol_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [
-                                                InheritedSynSymbol {
-                                                    parent_symbol_idx: Current(
-                                                        0,
-                                                    ),
+                                                InheritedVariable {
                                                     modifier: Const,
-                                                    kind: InheritedSynSymbolKind::TemplateParameter(
+                                                    kind: InheritedVariableKind::TemplateParameter(
                                                         InheritedTemplateParameterSynSymbol::Type {
                                                             ident: `E`,
                                                         },
@@ -2571,7 +2556,7 @@ SynNodeDeclSheet {
                                                                 6,
                                                             ),
                                                             current_syn_symbol_idx: 0,
-                                                            current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                                                            current_syn_symbol_kind: CurrentVariableKind::TemplateParameter {
                                                                 template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                                                     ident_token: IdentRegionalToken {
                                                                         ident: `E`,
@@ -2708,7 +2693,7 @@ SynNodeDeclSheet {
                                                     12,
                                                 ),
                                                 inherited_syn_symbol_idx: 0,
-                                                inherited_syn_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
+                                                inherited_syn_symbol_kind: InheritedVariableKind::TemplateParameter(
                                                     InheritedTemplateParameterSynSymbol::Type {
                                                         ident: `E`,
                                                     },
@@ -2760,12 +2745,9 @@ SynNodeDeclSheet {
                                     symbol_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [
-                                                InheritedSynSymbol {
-                                                    parent_symbol_idx: Current(
-                                                        0,
-                                                    ),
+                                                InheritedVariable {
                                                     modifier: Const,
-                                                    kind: InheritedSynSymbolKind::TemplateParameter(
+                                                    kind: InheritedVariableKind::TemplateParameter(
                                                         InheritedTemplateParameterSynSymbol::Type {
                                                             ident: `E`,
                                                         },
@@ -2989,7 +2971,7 @@ SynNodeDeclSheet {
                                                                 6,
                                                             ),
                                                             current_syn_symbol_idx: 0,
-                                                            current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                                                            current_syn_symbol_kind: CurrentVariableKind::TemplateParameter {
                                                                 template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                                                     ident_token: IdentRegionalToken {
                                                                         ident: `E`,
@@ -3156,7 +3138,7 @@ SynNodeDeclSheet {
                                                     19,
                                                 ),
                                                 inherited_syn_symbol_idx: 0,
-                                                inherited_syn_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
+                                                inherited_syn_symbol_kind: InheritedVariableKind::TemplateParameter(
                                                     InheritedTemplateParameterSynSymbol::Type {
                                                         ident: `E`,
                                                     },
@@ -3290,12 +3272,9 @@ SynNodeDeclSheet {
                                     symbol_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [
-                                                InheritedSynSymbol {
-                                                    parent_symbol_idx: Current(
-                                                        0,
-                                                    ),
+                                                InheritedVariable {
                                                     modifier: Const,
-                                                    kind: InheritedSynSymbolKind::TemplateParameter(
+                                                    kind: InheritedVariableKind::TemplateParameter(
                                                         InheritedTemplateParameterSynSymbol::Type {
                                                             ident: `E`,
                                                         },
@@ -3577,7 +3556,7 @@ SynNodeDeclSheet {
                                                                 6,
                                                             ),
                                                             current_syn_symbol_idx: 0,
-                                                            current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                                                            current_syn_symbol_kind: CurrentVariableKind::TemplateParameter {
                                                                 template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                                                     ident_token: IdentRegionalToken {
                                                                         ident: `E`,
@@ -3714,7 +3693,7 @@ SynNodeDeclSheet {
                                                     13,
                                                 ),
                                                 inherited_syn_symbol_idx: 0,
-                                                inherited_syn_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
+                                                inherited_syn_symbol_kind: InheritedVariableKind::TemplateParameter(
                                                     InheritedTemplateParameterSynSymbol::Type {
                                                         ident: `E`,
                                                     },
@@ -3777,7 +3756,7 @@ SynNodeDeclSheet {
                                                     21,
                                                 ),
                                                 inherited_syn_symbol_idx: 0,
-                                                inherited_syn_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
+                                                inherited_syn_symbol_kind: InheritedVariableKind::TemplateParameter(
                                                     InheritedTemplateParameterSynSymbol::Type {
                                                         ident: `E`,
                                                     },
@@ -3857,12 +3836,9 @@ SynNodeDeclSheet {
                                     symbol_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [
-                                                InheritedSynSymbol {
-                                                    parent_symbol_idx: Current(
-                                                        0,
-                                                    ),
+                                                InheritedVariable {
                                                     modifier: Const,
-                                                    kind: InheritedSynSymbolKind::TemplateParameter(
+                                                    kind: InheritedVariableKind::TemplateParameter(
                                                         InheritedTemplateParameterSynSymbol::Type {
                                                             ident: `E`,
                                                         },

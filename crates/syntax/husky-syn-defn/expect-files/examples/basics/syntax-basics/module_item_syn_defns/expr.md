@@ -350,7 +350,7 @@
                                         9,
                                     ),
                                     current_syn_symbol_idx: 1,
-                                    current_syn_symbol_kind: CurrentSynSymbolKind::SimpleClosureParameter {
+                                    current_syn_symbol_kind: CurrentVariableKind::SimpleClosureParameter {
                                         pattern_symbol_idx: 1,
                                     },
                                 },
@@ -721,7 +721,7 @@
                                         10,
                                     ),
                                     current_syn_symbol_idx: 1,
-                                    current_syn_symbol_kind: CurrentSynSymbolKind::SimpleClosureParameter {
+                                    current_syn_symbol_kind: CurrentVariableKind::SimpleClosureParameter {
                                         pattern_symbol_idx: 1,
                                     },
                                 },

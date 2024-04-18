@@ -73,7 +73,7 @@ impl<'a> SynSymbolContextMut<'a> {
         &mut self,
         variable: CurrentSynSymbolEntry,
         ty_constraint: Option<SyndicateTypeConstraint>,
-    ) -> CurrentSynSymbolIdx {
+    ) -> CurrentVariableIdx {
         self.variable_region.define_symbol(variable, ty_constraint)
     }
 
@@ -83,7 +83,7 @@ impl<'a> SynSymbolContextMut<'a> {
         ty_constraint: Option<SyndicateTypeConstraint>,
     ) -> CurrentSynSymbolIdxRange {
         self.variable_region
-            .define_symbols(variables, ty_constraint)
+            .define_variables(variables, ty_constraint)
     }
 
     pub(crate) fn symbol_region(&self) -> &VariableRegionData {
@@ -92,7 +92,7 @@ impl<'a> SynSymbolContextMut<'a> {
 
     pub(crate) fn set_lambda_variable_access_end(
         &mut self,
-        var: CurrentSynSymbolIdx,
+        var: CurrentVariableIdx,
         access_end: RegionalTokenIdxRangeEnd,
     ) {
         self.variable_region

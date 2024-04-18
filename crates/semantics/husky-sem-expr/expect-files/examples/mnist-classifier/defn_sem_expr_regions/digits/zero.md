@@ -729,7 +729,7 @@
                                         2,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
                                         ident: `cc`,
                                     },
                                 },
@@ -1086,7 +1086,7 @@
                                         11,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
                                         ident: `cc`,
                                     },
                                 },
@@ -2592,7 +2592,7 @@
                                         19,
                                     ),
                                     current_syn_symbol_idx: 0,
-                                    current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
+                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
                                         pattern_symbol_idx: 0,
                                     },
                                 },
@@ -3707,7 +3707,7 @@
                                         61,
                                     ),
                                     current_syn_symbol_idx: 1,
-                                    current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
+                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
                                         pattern_symbol_idx: 2,
                                     },
                                 },
@@ -4237,7 +4237,7 @@
                                         80,
                                     ),
                                     current_syn_symbol_idx: 2,
-                                    current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
+                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
                                         pattern_symbol_idx: 3,
                                     },
                                 },
@@ -4382,7 +4382,7 @@
                                         84,
                                     ),
                                     current_syn_symbol_idx: 2,
-                                    current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
+                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
                                         pattern_symbol_idx: 3,
                                     },
                                 },
@@ -4527,7 +4527,7 @@
                                         88,
                                     ),
                                     current_syn_symbol_idx: 2,
-                                    current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
+                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
                                         pattern_symbol_idx: 3,
                                     },
                                 },
@@ -4934,7 +4934,7 @@
                                         98,
                                     ),
                                     current_syn_symbol_idx: 2,
-                                    current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
+                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
                                         pattern_symbol_idx: 3,
                                     },
                                 },
@@ -6230,7 +6230,7 @@
                                         142,
                                     ),
                                     current_syn_symbol_idx: 3,
-                                    current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
+                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
                                         pattern_symbol_idx: 5,
                                     },
                                 },
@@ -6492,7 +6492,7 @@
                                         151,
                                     ),
                                     current_syn_symbol_idx: 3,
-                                    current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
+                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
                                         pattern_symbol_idx: 5,
                                     },
                                 },
@@ -7332,7 +7332,7 @@
                                         180,
                                     ),
                                     current_syn_symbol_idx: 4,
-                                    current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
+                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
                                         pattern_symbol_idx: 6,
                                     },
                                 },
@@ -7377,7 +7377,7 @@
                                         182,
                                     ),
                                     current_syn_symbol_idx: 5,
-                                    current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
+                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
                                         pattern_symbol_idx: 7,
                                     },
                                 },
@@ -7467,7 +7467,7 @@
                                         184,
                                     ),
                                     current_syn_symbol_idx: 6,
-                                    current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
+                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
                                         pattern_symbol_idx: 8,
                                     },
                                 },
@@ -7598,7 +7598,7 @@
                                         190,
                                     ),
                                     current_syn_symbol_idx: 2,
-                                    current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
+                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
                                         pattern_symbol_idx: 3,
                                     },
                                 },

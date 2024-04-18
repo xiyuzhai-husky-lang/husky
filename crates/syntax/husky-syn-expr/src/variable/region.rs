@@ -1,5 +1,15 @@
 use crate::*;
 
+#[salsa::derive_debug_with_db]
+#[derive(Debug, PartialEq, Eq)]
+pub struct VariableRegionData {
+    inherited_syn_symbol_arena: InheritedVariableArena,
+    current_syn_symbol_arena: CurrentVariableArena,
+    allow_self_type: AllowSelfType,
+    allow_self_value: AllowSelfValue,
+    pattern_ty_constraints: Vec<(SyndicateTypeConstraint, CurrentSynSymbolIdxRange)>,
+}
+
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum AllowSelfValue {
     True,
@@ -28,16 +38,6 @@ impl AllowSelfType {
             AllowSelfType::False => false,
         }
     }
-}
-
-#[salsa::derive_debug_with_db]
-#[derive(Debug, PartialEq, Eq)]
-pub struct VariableRegionData {
-    inherited_syn_symbol_arena: InheritedVariableArena,
-    current_syn_symbol_arena: CurrentVariableArena,
-    allow_self_type: AllowSelfType,
-    allow_self_value: AllowSelfValue,
-    pattern_ty_constraints: Vec<(SyndicateTypeConstraint, CurrentSynSymbolIdxRange)>,
 }
 
 #[derive(Debug, PartialEq, Eq)]
@@ -89,7 +89,6 @@ impl VariableRegionData {
             }
         }
         Self {
-            // ad hoc
             inherited_syn_symbol_arena: match parent_symbol_region {
                 Some(parent_symbol_region) => parent_symbol_region.bequeath(),
                 None => Default::default(),
@@ -108,7 +107,7 @@ impl VariableRegionData {
         &mut self,
         variable: CurrentSynSymbolEntry,
         ty_constraint: Option<SyndicateTypeConstraint>,
-    ) -> CurrentSynSymbolIdx {
+    ) -> CurrentVariableIdx {
         let symbol = self.current_syn_symbol_arena.alloc_one(variable);
         self.pattern_ty_constraints.extend(
             ty_constraint
@@ -119,7 +118,7 @@ impl VariableRegionData {
     }
 
     #[inline(always)]
-    pub(crate) fn define_symbols(
+    pub(crate) fn define_variables(
         &mut self,
         variables: impl IntoIterator<Item = CurrentSynSymbolEntry>,
         ty_constraint: Option<SyndicateTypeConstraint>,
@@ -135,7 +134,7 @@ impl VariableRegionData {
 
     pub(super) fn set_lambda_variable_access_end(
         &mut self,
-        var: CurrentSynSymbolIdx,
+        var: CurrentVariableIdx,
         access_end: RegionalTokenIdxRangeEnd,
     ) {
         self.current_syn_symbol_arena.update(var, |entry| {
@@ -171,15 +170,13 @@ impl VariableRegionData {
             })
     }
 
-    pub fn inherited_syn_symbols<'a>(
-        &'a self,
-    ) -> impl Iterator<Item = &'a InheritedSynSymbol> + 'a {
+    pub fn inherited_syn_symbols<'a>(&'a self) -> impl Iterator<Item = &'a InheritedVariable> + 'a {
         self.inherited_syn_symbol_arena.data().iter()
     }
 
     pub fn indexed_inherited_syn_symbols<'a>(
         &'a self,
-    ) -> impl Iterator<Item = (InheritedSynSymbolIdx, InheritedSynSymbol)> + 'a {
+    ) -> impl Iterator<Item = (InheritedVariableIdx, InheritedVariable)> + 'a {
         self.inherited_syn_symbol_arena.indexed_copy_iter()
     }
 
@@ -191,11 +188,11 @@ impl VariableRegionData {
 
     pub fn indexed_current_syn_symbols<'a>(
         &'a self,
-    ) -> impl Iterator<Item = (CurrentSynSymbolIdx, &'a CurrentSynSymbolEntry)> + 'a {
+    ) -> impl Iterator<Item = (CurrentVariableIdx, &'a CurrentSynSymbolEntry)> + 'a {
         self.current_syn_symbol_arena.indexed_iter()
     }
 
-    pub fn current_syn_symbol_indices(&self) -> impl Iterator<Item = CurrentSynSymbolIdx> {
+    pub fn current_syn_symbol_indices(&self) -> impl Iterator<Item = CurrentVariableIdx> {
         self.current_syn_symbol_arena.indices()
     }
 
@@ -207,7 +204,7 @@ impl VariableRegionData {
         for (current_syn_symbol_idx, current_syn_symbol) in self.indexed_current_syn_symbols() {
             let kind = match current_syn_symbol.data {
                 CurrentSynSymbolData::SimpleParenateParameter { ident, .. } => {
-                    InheritedSynSymbolKind::ParenateParameter { ident }
+                    InheritedVariableKind::ParenateParameter { ident }
                 }
                 CurrentSynSymbolData::LetVariable { .. } => unreachable!(),
                 CurrentSynSymbolData::BeVariable { .. } => todo!(),
@@ -217,17 +214,17 @@ impl VariableRegionData {
                     ref template_parameter_variant,
                     ..
                 } => {
-                    InheritedSynSymbolKind::TemplateParameter(template_parameter_variant.bequeath())
+                    InheritedVariableKind::TemplateParameter(template_parameter_variant.bequeath())
                 }
                 CurrentSynSymbolData::VariadicParenateParameter { ident_token, .. } => {
-                    InheritedSynSymbolKind::ParenateParameter {
+                    InheritedVariableKind::ParenateParameter {
                         ident: ident_token.ident(),
                     }
                 }
                 CurrentSynSymbolData::SelfType => unreachable!(),
                 CurrentSynSymbolData::SelfValue { .. } => todo!(),
                 CurrentSynSymbolData::FieldVariable { ident_token } => {
-                    InheritedSynSymbolKind::FieldVariable {
+                    InheritedVariableKind::FieldVariable {
                         ident: ident_token.ident(),
                     }
                 }
@@ -236,10 +233,9 @@ impl VariableRegionData {
                     pattern_symbol_idx,
                 } => todo!(),
             };
-            inherited_syn_symbol_arena.alloc_one(InheritedSynSymbol {
+            inherited_syn_symbol_arena.alloc_one(InheritedVariable {
                 kind,
                 modifier: current_syn_symbol.modifier,
-                parent_symbol_idx: current_syn_symbol_idx.into(),
             });
         }
         inherited_syn_symbol_arena
@@ -266,18 +262,18 @@ impl VariableRegionData {
     }
 }
 
-impl std::ops::Index<InheritedSynSymbolIdx> for VariableRegionData {
-    type Output = InheritedSynSymbol;
+impl std::ops::Index<InheritedVariableIdx> for VariableRegionData {
+    type Output = InheritedVariable;
 
-    fn index(&self, index: InheritedSynSymbolIdx) -> &Self::Output {
+    fn index(&self, index: InheritedVariableIdx) -> &Self::Output {
         &self.inherited_syn_symbol_arena[index]
     }
 }
 
-impl std::ops::Index<CurrentSynSymbolIdx> for VariableRegionData {
+impl std::ops::Index<CurrentVariableIdx> for VariableRegionData {
     type Output = CurrentSynSymbolEntry;
 
-    fn index(&self, index: CurrentSynSymbolIdx) -> &Self::Output {
+    fn index(&self, index: CurrentVariableIdx) -> &Self::Output {
         &self.current_syn_symbol_arena[index]
     }
 }
@@ -290,15 +286,15 @@ pub enum Prevariable {}
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct LocalSymbolIdx(usize);
 
-impl From<InheritedSynSymbolIdx> for LocalSymbolIdx {
-    fn from(value: InheritedSynSymbolIdx) -> Self {
+impl From<InheritedVariableIdx> for LocalSymbolIdx {
+    fn from(value: InheritedVariableIdx) -> Self {
         Self(value.index())
     }
 }
 
 impl LocalSymbolIdx {
     fn from_current_syn_symbol_idx(
-        current_syn_symbol_idx: CurrentSynSymbolIdx,
+        current_syn_symbol_idx: CurrentVariableIdx,
         symbol_region: &VariableRegionData,
     ) -> Self {
         Self(symbol_region.inherited_syn_symbol_arena.len() + current_syn_symbol_idx.index())
@@ -309,13 +305,13 @@ pub trait IntoLocalSymbolIdx: Copy {
     fn into_local_symbol_idx(self, expr_region_data: &SynExprRegionData) -> LocalSymbolIdx;
 }
 
-impl IntoLocalSymbolIdx for InheritedSynSymbolIdx {
+impl IntoLocalSymbolIdx for InheritedVariableIdx {
     fn into_local_symbol_idx(self, _: &SynExprRegionData) -> LocalSymbolIdx {
         self.into()
     }
 }
 
-impl IntoLocalSymbolIdx for CurrentSynSymbolIdx {
+impl IntoLocalSymbolIdx for CurrentVariableIdx {
     fn into_local_symbol_idx(self, expr_region_data: &SynExprRegionData) -> LocalSymbolIdx {
         LocalSymbolIdx::from_current_syn_symbol_idx(self, expr_region_data.symbol_region())
     }

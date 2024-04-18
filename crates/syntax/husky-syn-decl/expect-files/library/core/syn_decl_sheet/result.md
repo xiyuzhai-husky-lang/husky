@@ -290,7 +290,7 @@ SynDeclSheet {
                                                 17,
                                             ),
                                             current_syn_symbol_idx: 1,
-                                            current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                                            current_syn_symbol_kind: CurrentVariableKind::TemplateParameter {
                                                 template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                                     ident_token: IdentRegionalToken {
                                                         ident: `T2`,
@@ -311,7 +311,7 @@ SynDeclSheet {
                                                 18,
                                             ),
                                             current_syn_symbol_idx: 3,
-                                            current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                                            current_syn_symbol_kind: CurrentVariableKind::TemplateParameter {
                                                 template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                                     ident_token: IdentRegionalToken {
                                                         ident: `E2`,
@@ -342,7 +342,7 @@ SynDeclSheet {
                                                 21,
                                             ),
                                             current_syn_symbol_idx: 0,
-                                            current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                                            current_syn_symbol_kind: CurrentVariableKind::TemplateParameter {
                                                 template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                                     ident_token: IdentRegionalToken {
                                                         ident: `T1`,
@@ -363,7 +363,7 @@ SynDeclSheet {
                                                 22,
                                             ),
                                             current_syn_symbol_idx: 2,
-                                            current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                                            current_syn_symbol_kind: CurrentVariableKind::TemplateParameter {
                                                 template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                                     ident_token: IdentRegionalToken {
                                                         ident: `E1`,
@@ -703,7 +703,7 @@ SynDeclSheet {
                                                                 17,
                                                             ),
                                                             current_syn_symbol_idx: 1,
-                                                            current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                                                            current_syn_symbol_kind: CurrentVariableKind::TemplateParameter {
                                                                 template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                                                     ident_token: IdentRegionalToken {
                                                                         ident: `T2`,
@@ -724,7 +724,7 @@ SynDeclSheet {
                                                                 18,
                                                             ),
                                                             current_syn_symbol_idx: 3,
-                                                            current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                                                            current_syn_symbol_kind: CurrentVariableKind::TemplateParameter {
                                                                 template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                                                     ident_token: IdentRegionalToken {
                                                                         ident: `E2`,
@@ -755,7 +755,7 @@ SynDeclSheet {
                                                                 21,
                                                             ),
                                                             current_syn_symbol_idx: 0,
-                                                            current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                                                            current_syn_symbol_kind: CurrentVariableKind::TemplateParameter {
                                                                 template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                                                     ident_token: IdentRegionalToken {
                                                                         ident: `T1`,
@@ -776,7 +776,7 @@ SynDeclSheet {
                                                                 22,
                                                             ),
                                                             current_syn_symbol_idx: 2,
-                                                            current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                                                            current_syn_symbol_kind: CurrentVariableKind::TemplateParameter {
                                                                 template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                                                     ident_token: IdentRegionalToken {
                                                                         ident: `E1`,
@@ -1070,7 +1070,7 @@ SynDeclSheet {
                                                     4,
                                                 ),
                                                 inherited_syn_symbol_idx: 3,
-                                                inherited_syn_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
+                                                inherited_syn_symbol_kind: InheritedVariableKind::TemplateParameter(
                                                     InheritedTemplateParameterSynSymbol::Type {
                                                         ident: `E2`,
                                                     },
@@ -1102,45 +1102,33 @@ SynDeclSheet {
                                     symbol_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [
-                                                InheritedSynSymbol {
-                                                    parent_symbol_idx: Current(
-                                                        0,
-                                                    ),
+                                                InheritedVariable {
                                                     modifier: Const,
-                                                    kind: InheritedSynSymbolKind::TemplateParameter(
+                                                    kind: InheritedVariableKind::TemplateParameter(
                                                         InheritedTemplateParameterSynSymbol::Type {
                                                             ident: `T1`,
                                                         },
                                                     ),
                                                 },
-                                                InheritedSynSymbol {
-                                                    parent_symbol_idx: Current(
-                                                        1,
-                                                    ),
+                                                InheritedVariable {
                                                     modifier: Const,
-                                                    kind: InheritedSynSymbolKind::TemplateParameter(
+                                                    kind: InheritedVariableKind::TemplateParameter(
                                                         InheritedTemplateParameterSynSymbol::Type {
                                                             ident: `T2`,
                                                         },
                                                     ),
                                                 },
-                                                InheritedSynSymbol {
-                                                    parent_symbol_idx: Current(
-                                                        2,
-                                                    ),
+                                                InheritedVariable {
                                                     modifier: Const,
-                                                    kind: InheritedSynSymbolKind::TemplateParameter(
+                                                    kind: InheritedVariableKind::TemplateParameter(
                                                         InheritedTemplateParameterSynSymbol::Type {
                                                             ident: `E1`,
                                                         },
                                                     ),
                                                 },
-                                                InheritedSynSymbol {
-                                                    parent_symbol_idx: Current(
-                                                        3,
-                                                    ),
+                                                InheritedVariable {
                                                     modifier: Const,
-                                                    kind: InheritedSynSymbolKind::TemplateParameter(
+                                                    kind: InheritedVariableKind::TemplateParameter(
                                                         InheritedTemplateParameterSynSymbol::Type {
                                                             ident: `E2`,
                                                         },
@@ -1270,7 +1258,7 @@ SynDeclSheet {
                                                                 17,
                                                             ),
                                                             current_syn_symbol_idx: 1,
-                                                            current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                                                            current_syn_symbol_kind: CurrentVariableKind::TemplateParameter {
                                                                 template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                                                     ident_token: IdentRegionalToken {
                                                                         ident: `T2`,
@@ -1291,7 +1279,7 @@ SynDeclSheet {
                                                                 18,
                                                             ),
                                                             current_syn_symbol_idx: 3,
-                                                            current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                                                            current_syn_symbol_kind: CurrentVariableKind::TemplateParameter {
                                                                 template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                                                     ident_token: IdentRegionalToken {
                                                                         ident: `E2`,
@@ -1322,7 +1310,7 @@ SynDeclSheet {
                                                                 21,
                                                             ),
                                                             current_syn_symbol_idx: 0,
-                                                            current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                                                            current_syn_symbol_kind: CurrentVariableKind::TemplateParameter {
                                                                 template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                                                     ident_token: IdentRegionalToken {
                                                                         ident: `T1`,
@@ -1343,7 +1331,7 @@ SynDeclSheet {
                                                                 22,
                                                             ),
                                                             current_syn_symbol_idx: 2,
-                                                            current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                                                            current_syn_symbol_kind: CurrentVariableKind::TemplateParameter {
                                                                 template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                                                     ident_token: IdentRegionalToken {
                                                                         ident: `E1`,
@@ -1649,7 +1637,7 @@ SynDeclSheet {
                                                     8,
                                                 ),
                                                 inherited_syn_symbol_idx: 1,
-                                                inherited_syn_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
+                                                inherited_syn_symbol_kind: InheritedVariableKind::TemplateParameter(
                                                     InheritedTemplateParameterSynSymbol::Type {
                                                         ident: `T2`,
                                                     },
@@ -1665,7 +1653,7 @@ SynDeclSheet {
                                                     9,
                                                 ),
                                                 inherited_syn_symbol_idx: 3,
-                                                inherited_syn_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
+                                                inherited_syn_symbol_kind: InheritedVariableKind::TemplateParameter(
                                                     InheritedTemplateParameterSynSymbol::Type {
                                                         ident: `E2`,
                                                     },
@@ -1691,7 +1679,7 @@ SynDeclSheet {
                                                     13,
                                                 ),
                                                 inherited_syn_symbol_idx: 0,
-                                                inherited_syn_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
+                                                inherited_syn_symbol_kind: InheritedVariableKind::TemplateParameter(
                                                     InheritedTemplateParameterSynSymbol::Type {
                                                         ident: `T1`,
                                                     },
@@ -1707,7 +1695,7 @@ SynDeclSheet {
                                                     14,
                                                 ),
                                                 inherited_syn_symbol_idx: 2,
-                                                inherited_syn_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
+                                                inherited_syn_symbol_kind: InheritedVariableKind::TemplateParameter(
                                                     InheritedTemplateParameterSynSymbol::Type {
                                                         ident: `E1`,
                                                     },
@@ -1812,45 +1800,33 @@ SynDeclSheet {
                                     symbol_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [
-                                                InheritedSynSymbol {
-                                                    parent_symbol_idx: Current(
-                                                        0,
-                                                    ),
+                                                InheritedVariable {
                                                     modifier: Const,
-                                                    kind: InheritedSynSymbolKind::TemplateParameter(
+                                                    kind: InheritedVariableKind::TemplateParameter(
                                                         InheritedTemplateParameterSynSymbol::Type {
                                                             ident: `T1`,
                                                         },
                                                     ),
                                                 },
-                                                InheritedSynSymbol {
-                                                    parent_symbol_idx: Current(
-                                                        1,
-                                                    ),
+                                                InheritedVariable {
                                                     modifier: Const,
-                                                    kind: InheritedSynSymbolKind::TemplateParameter(
+                                                    kind: InheritedVariableKind::TemplateParameter(
                                                         InheritedTemplateParameterSynSymbol::Type {
                                                             ident: `T2`,
                                                         },
                                                     ),
                                                 },
-                                                InheritedSynSymbol {
-                                                    parent_symbol_idx: Current(
-                                                        2,
-                                                    ),
+                                                InheritedVariable {
                                                     modifier: Const,
-                                                    kind: InheritedSynSymbolKind::TemplateParameter(
+                                                    kind: InheritedVariableKind::TemplateParameter(
                                                         InheritedTemplateParameterSynSymbol::Type {
                                                             ident: `E1`,
                                                         },
                                                     ),
                                                 },
-                                                InheritedSynSymbol {
-                                                    parent_symbol_idx: Current(
-                                                        3,
-                                                    ),
+                                                InheritedVariable {
                                                     modifier: Const,
-                                                    kind: InheritedSynSymbolKind::TemplateParameter(
+                                                    kind: InheritedVariableKind::TemplateParameter(
                                                         InheritedTemplateParameterSynSymbol::Type {
                                                             ident: `E2`,
                                                         },

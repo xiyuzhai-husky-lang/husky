@@ -22,7 +22,7 @@ pub struct SynExprRegionData {
     syn_expr_roots: Vec<SynExprRoot>,
     has_self_lifetime: bool,
     has_self_place: bool,
-    syn_pattern_to_current_syn_symbol_map: VecPairMap<SynPatternSymbolIdx, CurrentSynSymbolIdx>,
+    syn_pattern_to_current_syn_symbol_map: VecPairMap<SynPatternSymbolIdx, CurrentVariableIdx>,
 }
 
 impl SynExprRegionData {
@@ -142,14 +142,14 @@ impl SynExprRegionData {
     pub fn syn_pattern_to_current_syn_symbol(
         &self,
         syn_pattern_symbol_idx: SynPatternSymbolIdx,
-    ) -> CurrentSynSymbolIdx {
+    ) -> CurrentVariableIdx {
         self.syn_pattern_to_current_syn_symbol_map[syn_pattern_symbol_idx].1
     }
 
     pub fn syn_pattern_expr_current_syn_symbols_mapped<R>(
         &self,
         syn_pattern_expr_idx: SynPatternIdx,
-        f: impl Fn(CurrentSynSymbolIdx) -> R,
+        f: impl Fn(CurrentVariableIdx) -> R,
     ) -> IdentPairMap<R> {
         unsafe {
             IdentPairMap::from_iter_assuming_no_repetitions_unchecked(
@@ -189,10 +189,10 @@ impl std::ops::Index<SynStmtIdx> for SynExprRegionData {
         &self.stmt_arena[index]
     }
 }
-impl std::ops::Index<CurrentSynSymbolIdx> for SynExprRegionData {
+impl std::ops::Index<CurrentVariableIdx> for SynExprRegionData {
     type Output = CurrentSynSymbolEntry;
 
-    fn index(&self, index: CurrentSynSymbolIdx) -> &Self::Output {
+    fn index(&self, index: CurrentVariableIdx) -> &Self::Output {
         &self.symbol_region[index]
     }
 }

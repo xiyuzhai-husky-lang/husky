@@ -1,6 +1,6 @@
 use super::*;
 use husky_syn_expr::{
-    CurrentSynSymbolData, CurrentSynSymbolEntry, InheritedSynSymbol, InheritedSynSymbolKind,
+    CurrentSynSymbolData, CurrentSynSymbolEntry, InheritedVariable, InheritedVariableKind,
     SynSymbolMap, VariableRegionData,
 };
 
@@ -36,11 +36,11 @@ impl HirLazyVariable {
         &self.data
     }
 
-    fn from_inherited_syn(inherited_syn_symbol: InheritedSynSymbol) -> Option<HirLazyVariable> {
+    fn from_inherited_syn(inherited_syn_symbol: InheritedVariable) -> Option<HirLazyVariable> {
         let name = match inherited_syn_symbol.kind() {
-            InheritedSynSymbolKind::TemplateParameter(_)
-            | InheritedSynSymbolKind::ParenateParameter { .. }
-            | InheritedSynSymbolKind::FieldVariable { .. } => {
+            InheritedVariableKind::TemplateParameter(_)
+            | InheritedVariableKind::ParenateParameter { .. }
+            | InheritedVariableKind::FieldVariable { .. } => {
                 VariableName::Ident(inherited_syn_symbol.ident()?)
             }
         };
@@ -62,14 +62,14 @@ impl HirLazyVariable {
 
 impl HirLazyVariableData {
     fn from_inherited_syn(
-        inherited_syn_symbol_kind: InheritedSynSymbolKind,
+        inherited_syn_symbol_kind: InheritedVariableKind,
     ) -> Option<HirLazyVariableData> {
         match inherited_syn_symbol_kind {
-            InheritedSynSymbolKind::TemplateParameter(_) => None,
-            InheritedSynSymbolKind::ParenateParameter { ident: _ } => {
+            InheritedVariableKind::TemplateParameter(_) => None,
+            InheritedVariableKind::ParenateParameter { ident: _ } => {
                 Some(HirLazyVariableData::ParenateParameter)
             }
-            InheritedSynSymbolKind::FieldVariable { ident: _ } => {
+            InheritedVariableKind::FieldVariable { ident: _ } => {
                 Some(HirLazyVariableData::FieldVariable)
             }
         }

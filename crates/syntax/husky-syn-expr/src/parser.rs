@@ -11,7 +11,7 @@ pub(crate) use self::disambiguate_token::*;
 
 use self::expr_stack::*;
 use self::incomplete_expr::*;
-use crate::symbol::*;
+use crate::variable::*;
 use crate::*;
 use husky_opr::precedence::*;
 use original_error::OriginalError;
@@ -183,7 +183,7 @@ where
         &mut self,
         variable: CurrentSynSymbolEntry,
         ty_constraint: Option<SyndicateTypeConstraint>,
-    ) -> CurrentSynSymbolIdx {
+    ) -> CurrentVariableIdx {
         self.context_mut().define_symbol(variable, ty_constraint)
     }
 

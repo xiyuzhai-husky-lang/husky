@@ -26,7 +26,7 @@ impl<V> SymbolOrderedMap<V> {
         }
     }
 
-    pub fn insert_next(&mut self, idx: CurrentSynSymbolIdx, v: V) {
+    pub fn insert_next(&mut self, idx: CurrentVariableIdx, v: V) {
         self.current_syn_symbol_map.insert_next(idx, v)
     }
 
@@ -39,18 +39,18 @@ impl<V> SymbolOrderedMap<V> {
     }
 }
 
-impl<V> std::ops::Index<InheritedSynSymbolIdx> for SymbolOrderedMap<V> {
+impl<V> std::ops::Index<InheritedVariableIdx> for SymbolOrderedMap<V> {
     type Output = V;
 
-    fn index(&self, index: InheritedSynSymbolIdx) -> &Self::Output {
+    fn index(&self, index: InheritedVariableIdx) -> &Self::Output {
         &self.inherited_syn_symbol_map[index]
     }
 }
 
-impl<V> std::ops::Index<CurrentSynSymbolIdx> for SymbolOrderedMap<V> {
+impl<V> std::ops::Index<CurrentVariableIdx> for SymbolOrderedMap<V> {
     type Output = V;
 
-    fn index(&self, index: CurrentSynSymbolIdx) -> &Self::Output {
+    fn index(&self, index: CurrentVariableIdx) -> &Self::Output {
         &self.current_syn_symbol_map[index]
     }
 }

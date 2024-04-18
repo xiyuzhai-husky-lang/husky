@@ -8,7 +8,7 @@ use husky_hir_lazy_expr::HirLazyPatternExprIdx;
 use husky_hir_ty::{db::HirTypeDb, menu::HirTypeMenu, trai::HirTrait, HirType};
 use husky_sem_expr::{SemaExprDb, SemaExprRegionData};
 use husky_syn_expr::{
-    CurrentSynSymbolIdx, ReturnTypeBeforeColonSyndicate, ReturnTypeBeforeEqSyndicate, SynExprIdx,
+    CurrentVariableIdx, ReturnTypeBeforeColonSyndicate, ReturnTypeBeforeEqSyndicate, SynExprIdx,
     SynExprRegion, SynExprRegionData, SynPatternRoot,
 };
 
@@ -100,7 +100,7 @@ impl<'a> HirDeclBuilder<'a> {
 
     pub(crate) fn current_syn_symbol_term(
         &self,
-        current_syn_symbol_idx: CurrentSynSymbolIdx,
+        current_syn_symbol_idx: CurrentVariableIdx,
     ) -> EthTerm {
         match self.sem_expr_region_data.symbol_terms()[current_syn_symbol_idx]
             .base_resolved_inner(self.sem_expr_region_data.fly_term_region())

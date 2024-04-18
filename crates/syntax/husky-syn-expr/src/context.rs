@@ -130,7 +130,7 @@ impl<'a> SynExprContext<'a> {
         &mut self,
         variable: CurrentSynSymbolEntry,
         ty_constraint: Option<SyndicateTypeConstraint>,
-    ) -> CurrentSynSymbolIdx {
+    ) -> CurrentVariableIdx {
         self.syn_symbol_context
             .define_symbol(variable, ty_constraint)
     }
@@ -220,7 +220,7 @@ impl<'a> SynExprContext<'a> {
 
     pub(crate) fn set_lambda_variable_access_end(
         &mut self,
-        var: CurrentSynSymbolIdx,
+        var: CurrentVariableIdx,
         access_end: RegionalTokenIdxRangeEnd,
     ) {
         self.syn_symbol_context

@@ -250,7 +250,7 @@ impl<'a> SemaExprBuilder<'a> {
         self.syn_expr_region_data
     }
 
-    pub(crate) fn add_symbol_ty(&mut self, symbol_idx: CurrentSynSymbolIdx, symbol_ty: SymbolType) {
+    pub(crate) fn add_symbol_ty(&mut self, symbol_idx: CurrentVariableIdx, symbol_ty: SymbolType) {
         self.symbol_tys.insert_new(symbol_idx, symbol_ty)
     }
 

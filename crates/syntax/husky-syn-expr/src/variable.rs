@@ -18,13 +18,13 @@ use parsec::{IsStreamParser, TryParseFromStream};
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum Symbol {
     PrincipalEntity(PrincipalEntityPath),
-    Inherited(InheritedSynSymbolIdx, InheritedSynSymbolKind),
-    Current(CurrentSynSymbolIdx, CurrentSynSymbolKind),
+    Inherited(InheritedVariableIdx, InheritedVariableKind),
+    Current(CurrentVariableIdx, CurrentVariableKind),
 }
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum ImplicitParameterSymbol {
+pub enum ImplicitParameterVariable {
     Lifetime {
         label_token: LifetimeLabelRegionalToken,
     },
@@ -36,33 +36,28 @@ pub enum ImplicitParameterSymbol {
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct InheritedSynSymbol {
-    parent_symbol_idx: ParentSynSymbolIdx,
+pub struct InheritedVariable {
     modifier: SvarModifier,
-    kind: InheritedSynSymbolKind,
+    kind: InheritedVariableKind,
 }
 
-impl InheritedSynSymbol {
-    pub fn kind(&self) -> InheritedSynSymbolKind {
+impl InheritedVariable {
+    pub fn kind(&self) -> InheritedVariableKind {
         self.kind
-    }
-
-    pub fn parent_symbol_idx(&self) -> ParentSynSymbolIdx {
-        self.parent_symbol_idx
     }
 
     pub fn name(&self) -> SymbolName {
         match self.kind {
-            InheritedSynSymbolKind::TemplateParameter(
+            InheritedVariableKind::TemplateParameter(
                 InheritedTemplateParameterSynSymbol::Lifetime { label, .. }
                 | InheritedTemplateParameterSynSymbol::Place { label, .. },
             ) => label.into(),
-            InheritedSynSymbolKind::TemplateParameter(
+            InheritedVariableKind::TemplateParameter(
                 InheritedTemplateParameterSynSymbol::Type { ident }
                 | InheritedTemplateParameterSynSymbol::Constant { ident },
             )
-            | InheritedSynSymbolKind::ParenateParameter { ident }
-            | InheritedSynSymbolKind::FieldVariable { ident } => ident.into(),
+            | InheritedVariableKind::ParenateParameter { ident }
+            | InheritedVariableKind::FieldVariable { ident } => ident.into(),
         }
     }
 
@@ -73,7 +68,7 @@ impl InheritedSynSymbol {
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum InheritedSynSymbolKind {
+pub enum InheritedVariableKind {
     TemplateParameter(InheritedTemplateParameterSynSymbol),
     ParenateParameter { ident: Ident },
     FieldVariable { ident: Ident },
@@ -106,7 +101,7 @@ impl CurrentSynSymbolEntry {
         variant: CurrentSynSymbolData,
     ) -> Self {
         Self {
-            modifier: variant.symbol_modifier(pattern_expr_region),
+            modifier: variant.svar_modifier(pattern_expr_region),
             access_start,
             access_end,
             data: variant,
@@ -120,7 +115,7 @@ impl CurrentSynSymbolEntry {
         self.modifier
     }
 
-    pub fn kind(&self) -> CurrentSynSymbolKind {
+    pub fn kind(&self) -> CurrentVariableKind {
         self.data.kind()
     }
 
@@ -192,7 +187,7 @@ impl CurrentSynSymbolEntry {
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum CurrentSynSymbolKind {
+pub enum CurrentVariableKind {
     TemplateParameter {
         template_parameter_kind: CurrentTemplateParameterSynSymbolKind,
     },
@@ -327,7 +322,7 @@ pub enum TemplateSymbolSynAttr {
 }
 
 impl CurrentSynSymbolData {
-    fn symbol_modifier(&self, pattern_expr_region: &SynPatternExprRegion) -> SvarModifier {
+    fn svar_modifier(&self, pattern_expr_region: &SynPatternExprRegion) -> SvarModifier {
         match self {
             CurrentSynSymbolData::TemplateParameter { .. } => SvarModifier::Const,
             CurrentSynSymbolData::SimpleParenateParameter {
@@ -406,52 +401,52 @@ impl CurrentTemplateParameterSynSymbolVariant {
 }
 
 impl CurrentSynSymbolData {
-    pub fn kind(&self) -> CurrentSynSymbolKind {
+    pub fn kind(&self) -> CurrentVariableKind {
         match self {
             CurrentSynSymbolData::TemplateParameter {
                 template_parameter_variant,
                 ..
-            } => CurrentSynSymbolKind::TemplateParameter {
+            } => CurrentVariableKind::TemplateParameter {
                 template_parameter_kind: template_parameter_variant.kind(),
             },
             CurrentSynSymbolData::SimpleParenateParameter {
                 pattern_symbol_idx, ..
-            } => CurrentSynSymbolKind::SimpleParenateParameter {
+            } => CurrentVariableKind::SimpleParenateParameter {
                 pattern_symbol_idx: *pattern_symbol_idx,
             },
             CurrentSynSymbolData::SimpleClosureParameter {
                 ident,
                 pattern_symbol_idx,
-            } => CurrentSynSymbolKind::SimpleClosureParameter {
+            } => CurrentVariableKind::SimpleClosureParameter {
                 pattern_symbol_idx: *pattern_symbol_idx,
             },
             CurrentSynSymbolData::LetVariable {
                 pattern_symbol_idx, ..
-            } => CurrentSynSymbolKind::LetVariable {
+            } => CurrentVariableKind::LetVariable {
                 pattern_symbol_idx: *pattern_symbol_idx,
             },
             CurrentSynSymbolData::BeVariable {
                 pattern_symbol_idx, ..
-            } => CurrentSynSymbolKind::BeVariable {
+            } => CurrentVariableKind::BeVariable {
                 pattern_symbol_idx: *pattern_symbol_idx,
             },
             CurrentSynSymbolData::CaseVariable {
                 pattern_symbol_idx, ..
-            } => CurrentSynSymbolKind::CaseVariable {
+            } => CurrentVariableKind::CaseVariable {
                 pattern_symbol_idx: *pattern_symbol_idx,
             },
             CurrentSynSymbolData::LoopVariable { expr_idx, .. } => {
-                CurrentSynSymbolKind::LoopVariable(*expr_idx)
+                CurrentVariableKind::LoopVariable(*expr_idx)
             }
             CurrentSynSymbolData::VariadicParenateParameter { ident_token, .. } => {
-                CurrentSynSymbolKind::VariadicParenateParameter {
+                CurrentVariableKind::VariadicParenateParameter {
                     ident_token: *ident_token,
                 }
             }
             CurrentSynSymbolData::SelfType => todo!(),
             CurrentSynSymbolData::SelfValue { .. } => todo!(),
             CurrentSynSymbolData::FieldVariable { ident_token } => {
-                CurrentSynSymbolKind::FieldVariable {
+                CurrentVariableKind::FieldVariable {
                     ident_token: *ident_token,
                 }
             }
@@ -486,32 +481,32 @@ impl CurrentTemplateParameterSynSymbolVariant {
     }
 }
 
-pub type InheritedVariableArena = Arena<InheritedSynSymbol>;
-pub type InheritedSynSymbolIdx = ArenaIdx<InheritedSynSymbol>;
-pub type InheritedSynSymbolIdxRange = ArenaIdxRange<InheritedSynSymbol>;
-pub(crate) type InheritedSynSymbolMap<V> = ArenaMap<InheritedSynSymbol, V>;
-pub(crate) type InheritedSynSymbolOrderedMap<V> = ArenaOrderedMap<InheritedSynSymbol, V>;
+pub type InheritedVariableArena = Arena<InheritedVariable>;
+pub type InheritedVariableIdx = ArenaIdx<InheritedVariable>;
+pub type InheritedSynSymbolIdxRange = ArenaIdxRange<InheritedVariable>;
+pub(crate) type InheritedSynSymbolMap<V> = ArenaMap<InheritedVariable, V>;
+pub(crate) type InheritedSynSymbolOrderedMap<V> = ArenaOrderedMap<InheritedVariable, V>;
 
 pub type CurrentVariableArena = Arena<CurrentSynSymbolEntry>;
-pub type CurrentSynSymbolIdx = ArenaIdx<CurrentSynSymbolEntry>;
+pub type CurrentVariableIdx = ArenaIdx<CurrentSynSymbolEntry>;
 pub type CurrentSynSymbolIdxRange = ArenaIdxRange<CurrentSynSymbolEntry>;
 pub(crate) type CurrentSynSymbolMap<V> = ArenaMap<CurrentSynSymbolEntry, V>;
 pub(crate) type CurrentSynSymbolOrderedMap<V> = ArenaOrderedMap<CurrentSynSymbolEntry, V>;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub enum ParentSynSymbolIdx {
-    Inherited(InheritedSynSymbolIdx),
-    Current(CurrentSynSymbolIdx),
+pub enum ParentVariableIdx {
+    Inherited(InheritedVariableIdx),
+    Current(CurrentVariableIdx),
 }
 
-impl From<InheritedSynSymbolIdx> for ParentSynSymbolIdx {
-    fn from(v: InheritedSynSymbolIdx) -> Self {
+impl From<InheritedVariableIdx> for ParentVariableIdx {
+    fn from(v: InheritedVariableIdx) -> Self {
         Self::Inherited(v)
     }
 }
 
-impl From<CurrentSynSymbolIdx> for ParentSynSymbolIdx {
-    fn from(v: CurrentSynSymbolIdx) -> Self {
+impl From<CurrentVariableIdx> for ParentVariableIdx {
+    fn from(v: CurrentVariableIdx) -> Self {
         Self::Current(v)
     }
 }
@@ -523,21 +518,21 @@ pub struct SynSymbolMap<V> {
 }
 
 impl<V> SynSymbolMap<V> {
-    pub fn push_inherited(&mut self, inherited_syn_symbol_idx: InheritedSynSymbolIdx, v: V) {
+    pub fn push_inherited(&mut self, inherited_syn_symbol_idx: InheritedVariableIdx, v: V) {
         self.inherited_syn_symbol_map
             .insert_new(inherited_syn_symbol_idx, v)
     }
 
-    pub fn push_current(&mut self, current_syn_symbol_idx: CurrentSynSymbolIdx, v: V) {
+    pub fn push_current(&mut self, current_syn_symbol_idx: CurrentVariableIdx, v: V) {
         self.current_syn_symbol_map
             .insert_new(current_syn_symbol_idx, v)
     }
 
-    pub fn get_inherited(&self, inherited_syn_symbol_idx: InheritedSynSymbolIdx) -> Option<&V> {
+    pub fn get_inherited(&self, inherited_syn_symbol_idx: InheritedVariableIdx) -> Option<&V> {
         self.inherited_syn_symbol_map.get(inherited_syn_symbol_idx)
     }
 
-    pub fn get_current(&self, current_syn_symbol_idx: CurrentSynSymbolIdx) -> Option<&V> {
+    pub fn get_current(&self, current_syn_symbol_idx: CurrentVariableIdx) -> Option<&V> {
         self.current_syn_symbol_map.get(current_syn_symbol_idx)
     }
 }
@@ -555,18 +550,18 @@ impl<V> SynSymbolMap<V> {
     }
 }
 
-impl<V> std::ops::Index<InheritedSynSymbolIdx> for SynSymbolMap<V> {
+impl<V> std::ops::Index<InheritedVariableIdx> for SynSymbolMap<V> {
     type Output = V;
 
-    fn index(&self, idx: InheritedSynSymbolIdx) -> &Self::Output {
+    fn index(&self, idx: InheritedVariableIdx) -> &Self::Output {
         &self.inherited_syn_symbol_map[idx]
     }
 }
 
-impl<V> std::ops::Index<CurrentSynSymbolIdx> for SynSymbolMap<V> {
+impl<V> std::ops::Index<CurrentVariableIdx> for SynSymbolMap<V> {
     type Output = V;
 
-    fn index(&self, idx: CurrentSynSymbolIdx) -> &Self::Output {
+    fn index(&self, idx: CurrentVariableIdx) -> &Self::Output {
         &self.current_syn_symbol_map[idx]
     }
 }
@@ -577,12 +572,12 @@ pub struct SynSymbolOrderedMap<V> {
 }
 
 impl<V> SynSymbolOrderedMap<V> {
-    pub fn push_inherited(&mut self, inherited_syn_symbol_idx: InheritedSynSymbolIdx, v: V) {
+    pub fn push_inherited(&mut self, inherited_syn_symbol_idx: InheritedVariableIdx, v: V) {
         self.inherited_syn_symbol_ordered_map
             .insert_next(inherited_syn_symbol_idx, v)
     }
 
-    pub fn push_current(&mut self, current_syn_symbol_idx: CurrentSynSymbolIdx, v: V) {
+    pub fn push_current(&mut self, current_syn_symbol_idx: CurrentVariableIdx, v: V) {
         self.current_syn_symbol_ordered_map
             .insert_next(current_syn_symbol_idx, v)
     }
@@ -597,18 +592,18 @@ impl<V> Default for SynSymbolOrderedMap<V> {
     }
 }
 
-impl<V> std::ops::Index<InheritedSynSymbolIdx> for SynSymbolOrderedMap<V> {
+impl<V> std::ops::Index<InheritedVariableIdx> for SynSymbolOrderedMap<V> {
     type Output = V;
 
-    fn index(&self, idx: InheritedSynSymbolIdx) -> &Self::Output {
+    fn index(&self, idx: InheritedVariableIdx) -> &Self::Output {
         &self.inherited_syn_symbol_ordered_map[idx]
     }
 }
 
-impl<V> std::ops::Index<CurrentSynSymbolIdx> for SynSymbolOrderedMap<V> {
+impl<V> std::ops::Index<CurrentVariableIdx> for SynSymbolOrderedMap<V> {
     type Output = V;
 
-    fn index(&self, idx: CurrentSynSymbolIdx) -> &Self::Output {
+    fn index(&self, idx: CurrentVariableIdx) -> &Self::Output {
         &self.current_syn_symbol_ordered_map[idx]
     }
 }

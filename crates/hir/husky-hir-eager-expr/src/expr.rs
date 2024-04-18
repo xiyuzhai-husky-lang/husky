@@ -23,7 +23,7 @@ use husky_hir_ty::{
 };
 use husky_sem_expr::{SemaExprData, SemaExprIdx, SemaRitchieArgument};
 use husky_sem_opr::{binary::SemaBinaryOpr, suffix::SemaSuffixOpr};
-use husky_syn_expr::{InheritedSynSymbolKind, InheritedTemplateParameterSynSymbol};
+use husky_syn_expr::{InheritedTemplateParameterSynSymbol, InheritedVariableKind};
 use husky_term_prelude::literal::Literal;
 use vec_like::VecMap;
 
@@ -209,7 +209,7 @@ impl ToHirEager for SemaExprIdx {
                 inherited_syn_symbol_kind,
                 ..
             } => match inherited_syn_symbol_kind {
-                InheritedSynSymbolKind::TemplateParameter(symbol) => match symbol {
+                InheritedVariableKind::TemplateParameter(symbol) => match symbol {
                     InheritedTemplateParameterSynSymbol::Lifetime { label: _ } => {
                         todo!()
                     }
@@ -219,8 +219,8 @@ impl ToHirEager for SemaExprIdx {
                         HirEagerExprData::ConstSvar { ident }
                     }
                 },
-                InheritedSynSymbolKind::ParenateParameter { .. }
-                | InheritedSynSymbolKind::FieldVariable { .. } => HirEagerExprData::Variable(
+                InheritedVariableKind::ParenateParameter { .. }
+                | InheritedVariableKind::FieldVariable { .. } => HirEagerExprData::Variable(
                     builder
                         .inherited_syn_symbol_to_hir_eager_runtime_symbol(inherited_syn_symbol_idx)
                         .unwrap(),
