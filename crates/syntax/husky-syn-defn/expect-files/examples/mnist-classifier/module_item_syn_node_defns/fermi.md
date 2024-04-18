@@ -622,7 +622,7 @@
                             },
                             pattern_symbol_arena: Arena {
                                 data: [
-                                    SynPatternSymbol::Atom(
+                                    PatternVariable::Atom(
                                         0,
                                     ),
                                 ],
@@ -647,7 +647,7 @@
                             },
                             current_syn_symbol_arena: Arena {
                                 data: [
-                                    CurrentSynSymbolEntry {
+                                    CurrentVariableEntry {
                                         modifier: Mut,
                                         access_start: RegionalTokenIdx(
                                             4,
@@ -659,12 +659,12 @@
                                                 ),
                                             ),
                                         ),
-                                        data: CurrentSynSymbolData::LetVariable {
+                                        data: CurrentVariableData::LetVariable {
                                             ident: `norm`,
                                             pattern_symbol_idx: 0,
                                         },
                                     },
-                                    CurrentSynSymbolEntry {
+                                    CurrentVariableEntry {
                                         modifier: Pure,
                                         access_start: RegionalTokenIdx(
                                             19,
@@ -676,7 +676,7 @@
                                                 ),
                                             ),
                                         ),
-                                        data: CurrentSynSymbolData::LoopVariable {
+                                        data: CurrentVariableData::LoopVariable {
                                             ident: `i`,
                                             expr_idx: 4,
                                         },
@@ -1344,7 +1344,7 @@
                             },
                             pattern_symbol_arena: Arena {
                                 data: [
-                                    SynPatternSymbol::Atom(
+                                    PatternVariable::Atom(
                                         0,
                                     ),
                                 ],
@@ -1369,7 +1369,7 @@
                             },
                             current_syn_symbol_arena: Arena {
                                 data: [
-                                    CurrentSynSymbolEntry {
+                                    CurrentVariableEntry {
                                         modifier: Mut,
                                         access_start: RegionalTokenIdx(
                                             4,
@@ -1381,12 +1381,12 @@
                                                 ),
                                             ),
                                         ),
-                                        data: CurrentSynSymbolData::LetVariable {
+                                        data: CurrentVariableData::LetVariable {
                                             ident: `norm`,
                                             pattern_symbol_idx: 0,
                                         },
                                     },
-                                    CurrentSynSymbolEntry {
+                                    CurrentVariableEntry {
                                         modifier: Pure,
                                         access_start: RegionalTokenIdx(
                                             19,
@@ -1398,7 +1398,7 @@
                                                 ),
                                             ),
                                         ),
-                                        data: CurrentSynSymbolData::LoopVariable {
+                                        data: CurrentVariableData::LoopVariable {
                                             ident: `i`,
                                             expr_idx: 4,
                                         },
@@ -2086,7 +2086,7 @@
                             },
                             pattern_symbol_arena: Arena {
                                 data: [
-                                    SynPatternSymbol::Atom(
+                                    PatternVariable::Atom(
                                         0,
                                     ),
                                 ],
@@ -2111,7 +2111,7 @@
                             },
                             current_syn_symbol_arena: Arena {
                                 data: [
-                                    CurrentSynSymbolEntry {
+                                    CurrentVariableEntry {
                                         modifier: Mut,
                                         access_start: RegionalTokenIdx(
                                             4,
@@ -2123,12 +2123,12 @@
                                                 ),
                                             ),
                                         ),
-                                        data: CurrentSynSymbolData::LetVariable {
+                                        data: CurrentVariableData::LetVariable {
                                             ident: `norm`,
                                             pattern_symbol_idx: 0,
                                         },
                                     },
-                                    CurrentSynSymbolEntry {
+                                    CurrentVariableEntry {
                                         modifier: Pure,
                                         access_start: RegionalTokenIdx(
                                             19,
@@ -2140,7 +2140,7 @@
                                                 ),
                                             ),
                                         ),
-                                        data: CurrentSynSymbolData::LoopVariable {
+                                        data: CurrentVariableData::LoopVariable {
                                             ident: `i`,
                                             expr_idx: 4,
                                         },

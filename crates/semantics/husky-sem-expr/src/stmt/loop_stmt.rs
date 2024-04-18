@@ -83,7 +83,7 @@ impl<'a> SemaExprBuilder<'a> {
         let frame_var_symbol_ty = SymbolType::new_variable_ty(
             self,
             for_loop_var_symbol_idx,
-            SvarModifier::Pure,
+            VariableModifier::Pure,
             expected_frame_var_ty,
         )
         .unwrap();

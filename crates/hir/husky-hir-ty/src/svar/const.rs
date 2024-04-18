@@ -2,34 +2,34 @@ use super::*;
 
 /// a constant value, not a type
 #[salsa::interned(db = HirTypeDb, jar = HirTypeJar, constructor = pub(crate) new)]
-pub struct HirConstSvar {
+pub struct HirConstTemplateVariable {
     pub ty: HirType,
-    pub index: HirConstSvarIndex,
+    pub index: HirConstTemplateVariableIndex,
 }
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub enum HirConstSvarIndex {
+pub enum HirConstTemplateVariableIndex {
     PathLeading {
-        attrs: HirTemplateSvarAttrs,
+        attrs: HirTemplateVariableAttrs,
         disambiguator: u8,
         ty_path: TypePath,
     },
     Other {
-        attrs: HirTemplateSvarAttrs,
+        attrs: HirTemplateVariableAttrs,
         disambiguator: u8,
     },
 }
 
-impl HirConstSvarIndex {
-    pub fn attrs(self) -> HirTemplateSvarAttrs {
+impl HirConstTemplateVariableIndex {
+    pub fn attrs(self) -> HirTemplateVariableAttrs {
         match self {
-            HirConstSvarIndex::PathLeading { attrs, .. }
-            | HirConstSvarIndex::Other { attrs, .. } => attrs,
+            HirConstTemplateVariableIndex::PathLeading { attrs, .. }
+            | HirConstTemplateVariableIndex::Other { attrs, .. } => attrs,
         }
     }
 
-    pub fn class(self) -> HirTemplateSvarClass {
+    pub fn class(self) -> HirTemplateVariableClass {
         self.attrs().class
     }
 }

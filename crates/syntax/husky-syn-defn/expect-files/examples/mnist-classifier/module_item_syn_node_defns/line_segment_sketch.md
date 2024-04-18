@@ -811,13 +811,13 @@
                                         },
                                         pattern_symbol_arena: Arena {
                                             data: [
-                                                SynPatternSymbol::Atom(
+                                                PatternVariable::Atom(
                                                     0,
                                                 ),
-                                                SynPatternSymbol::Atom(
+                                                PatternVariable::Atom(
                                                     1,
                                                 ),
-                                                SynPatternSymbol::Atom(
+                                                PatternVariable::Atom(
                                                     2,
                                                 ),
                                             ],
@@ -856,35 +856,35 @@
                                         },
                                         current_syn_symbol_arena: Arena {
                                             data: [
-                                                CurrentSynSymbolEntry {
+                                                CurrentVariableEntry {
                                                     modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         6,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::SimpleParenateParameter {
+                                                    data: CurrentVariableData::SimpleParenateParameter {
                                                         ident: `ct`,
                                                         pattern_symbol_idx: 0,
                                                     },
                                                 },
-                                                CurrentSynSymbolEntry {
+                                                CurrentVariableEntry {
                                                     modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         11,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::SimpleParenateParameter {
+                                                    data: CurrentVariableData::SimpleParenateParameter {
                                                         ident: `from`,
                                                         pattern_symbol_idx: 1,
                                                     },
                                                 },
-                                                CurrentSynSymbolEntry {
+                                                CurrentVariableEntry {
                                                     modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         15,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::SimpleParenateParameter {
+                                                    data: CurrentVariableData::SimpleParenateParameter {
                                                         ident: `to`,
                                                         pattern_symbol_idx: 2,
                                                     },
@@ -1010,7 +1010,7 @@
                                         2,
                                     ),
                                     inherited_syn_symbol_idx: 1,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `from`,
                                     },
                                 },
@@ -1020,7 +1020,7 @@
                                         4,
                                     ),
                                     inherited_syn_symbol_idx: 2,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `to`,
                                     },
                                 },
@@ -1050,7 +1050,7 @@
                                         7,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `ct`,
                                     },
                                 },
@@ -1072,7 +1072,7 @@
                                         13,
                                     ),
                                     inherited_syn_symbol_idx: 1,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `from`,
                                     },
                                 },
@@ -1082,7 +1082,7 @@
                                         15,
                                     ),
                                     inherited_syn_symbol_idx: 2,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `to`,
                                     },
                                 },
@@ -1219,19 +1219,19 @@
                                 data: [
                                     InheritedVariable {
                                         modifier: Pure,
-                                        kind: InheritedVariableKind::ParenateParameter {
+                                        kind: InheritedVariableKind::Parenate {
                                             ident: `ct`,
                                         },
                                     },
                                     InheritedVariable {
                                         modifier: Pure,
-                                        kind: InheritedVariableKind::ParenateParameter {
+                                        kind: InheritedVariableKind::Parenate {
                                             ident: `from`,
                                         },
                                     },
                                     InheritedVariable {
                                         modifier: Pure,
-                                        kind: InheritedVariableKind::ParenateParameter {
+                                        kind: InheritedVariableKind::Parenate {
                                             ident: `to`,
                                         },
                                     },
@@ -3804,22 +3804,22 @@
                             },
                             pattern_symbol_arena: Arena {
                                 data: [
-                                    SynPatternSymbol::Atom(
+                                    PatternVariable::Atom(
                                         0,
                                     ),
-                                    SynPatternSymbol::Atom(
+                                    PatternVariable::Atom(
                                         1,
                                     ),
-                                    SynPatternSymbol::Atom(
+                                    PatternVariable::Atom(
                                         2,
                                     ),
-                                    SynPatternSymbol::Atom(
+                                    PatternVariable::Atom(
                                         3,
                                     ),
-                                    SynPatternSymbol::Atom(
+                                    PatternVariable::Atom(
                                         4,
                                     ),
-                                    SynPatternSymbol::Atom(
+                                    PatternVariable::Atom(
                                         5,
                                     ),
                                 ],
@@ -3879,7 +3879,7 @@
                             },
                             current_syn_symbol_arena: Arena {
                                 data: [
-                                    CurrentSynSymbolEntry {
+                                    CurrentVariableEntry {
                                         modifier: Pure,
                                         access_start: RegionalTokenIdx(
                                             3,
@@ -3891,12 +3891,12 @@
                                                 ),
                                             ),
                                         ),
-                                        data: CurrentSynSymbolData::LetVariable {
+                                        data: CurrentVariableData::LetVariable {
                                             ident: `start_point`,
                                             pattern_symbol_idx: 0,
                                         },
                                     },
-                                    CurrentSynSymbolEntry {
+                                    CurrentVariableEntry {
                                         modifier: Mut,
                                         access_start: RegionalTokenIdx(
                                             15,
@@ -3908,12 +3908,12 @@
                                                 ),
                                             ),
                                         ),
-                                        data: CurrentSynSymbolData::LetVariable {
+                                        data: CurrentVariableData::LetVariable {
                                             ident: `xmin`,
                                             pattern_symbol_idx: 1,
                                         },
                                     },
-                                    CurrentSynSymbolEntry {
+                                    CurrentVariableEntry {
                                         modifier: Mut,
                                         access_start: RegionalTokenIdx(
                                             22,
@@ -3925,12 +3925,12 @@
                                                 ),
                                             ),
                                         ),
-                                        data: CurrentSynSymbolData::LetVariable {
+                                        data: CurrentVariableData::LetVariable {
                                             ident: `xmax`,
                                             pattern_symbol_idx: 2,
                                         },
                                     },
-                                    CurrentSynSymbolEntry {
+                                    CurrentVariableEntry {
                                         modifier: Mut,
                                         access_start: RegionalTokenIdx(
                                             29,
@@ -3942,12 +3942,12 @@
                                                 ),
                                             ),
                                         ),
-                                        data: CurrentSynSymbolData::LetVariable {
+                                        data: CurrentVariableData::LetVariable {
                                             ident: `ymin`,
                                             pattern_symbol_idx: 3,
                                         },
                                     },
-                                    CurrentSynSymbolEntry {
+                                    CurrentVariableEntry {
                                         modifier: Mut,
                                         access_start: RegionalTokenIdx(
                                             36,
@@ -3959,12 +3959,12 @@
                                                 ),
                                             ),
                                         ),
-                                        data: CurrentSynSymbolData::LetVariable {
+                                        data: CurrentVariableData::LetVariable {
                                             ident: `ymax`,
                                             pattern_symbol_idx: 4,
                                         },
                                     },
-                                    CurrentSynSymbolEntry {
+                                    CurrentVariableEntry {
                                         modifier: Pure,
                                         access_start: RegionalTokenIdx(
                                             51,
@@ -3976,12 +3976,12 @@
                                                 ),
                                             ),
                                         ),
-                                        data: CurrentSynSymbolData::LoopVariable {
+                                        data: CurrentVariableData::LoopVariable {
                                             ident: `i`,
                                             expr_idx: 15,
                                         },
                                     },
-                                    CurrentSynSymbolEntry {
+                                    CurrentVariableEntry {
                                         modifier: Pure,
                                         access_start: RegionalTokenIdx(
                                             53,
@@ -3993,7 +3993,7 @@
                                                 ),
                                             ),
                                         ),
-                                        data: CurrentSynSymbolData::LetVariable {
+                                        data: CurrentVariableData::LetVariable {
                                             ident: `point`,
                                             pattern_symbol_idx: 5,
                                         },
@@ -4397,10 +4397,10 @@
                                         },
                                         pattern_symbol_arena: Arena {
                                             data: [
-                                                SynPatternSymbol::Atom(
+                                                PatternVariable::Atom(
                                                     0,
                                                 ),
-                                                SynPatternSymbol::Atom(
+                                                PatternVariable::Atom(
                                                     1,
                                                 ),
                                             ],
@@ -4432,24 +4432,24 @@
                                         },
                                         current_syn_symbol_arena: Arena {
                                             data: [
-                                                CurrentSynSymbolEntry {
+                                                CurrentVariableEntry {
                                                     modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         6,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::SimpleParenateParameter {
+                                                    data: CurrentVariableData::SimpleParenateParameter {
                                                         ident: `ct`,
                                                         pattern_symbol_idx: 0,
                                                     },
                                                 },
-                                                CurrentSynSymbolEntry {
+                                                CurrentVariableEntry {
                                                     modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         11,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::SimpleParenateParameter {
+                                                    data: CurrentVariableData::SimpleParenateParameter {
                                                         ident: `r`,
                                                         pattern_symbol_idx: 1,
                                                     },
@@ -4562,7 +4562,7 @@
                                         3,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `ct`,
                                     },
                                 },
@@ -4584,7 +4584,7 @@
                                         7,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `ct`,
                                     },
                                 },
@@ -4594,7 +4594,7 @@
                                         9,
                                     ),
                                     inherited_syn_symbol_idx: 1,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `r`,
                                     },
                                 },
@@ -4719,13 +4719,13 @@
                                 data: [
                                     InheritedVariable {
                                         modifier: Pure,
-                                        kind: InheritedVariableKind::ParenateParameter {
+                                        kind: InheritedVariableKind::Parenate {
                                             ident: `ct`,
                                         },
                                     },
                                     InheritedVariable {
                                         modifier: Pure,
-                                        kind: InheritedVariableKind::ParenateParameter {
+                                        kind: InheritedVariableKind::Parenate {
                                             ident: `r`,
                                         },
                                     },

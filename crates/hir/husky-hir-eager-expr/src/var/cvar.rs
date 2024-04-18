@@ -2,64 +2,64 @@ use super::*;
 use husky_coword::Ident;
 use husky_eth_term::term::EthTerm;
 use husky_fly_term::FlyTermBase;
-use husky_hir_ty::HirTemplateSvar;
+use husky_hir_ty::HirTemplateVariable;
 use husky_sem_expr::SemaExprRegionData;
 use husky_syn_expr::{
-    CurrentSynSymbolData, CurrentTemplateParameterSynSymbolVariant, VariableRegionData,
+    CurrentTemplateParameterSynSymbolVariant, CurrentVariableData, VariableRegionData,
 };
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
-pub struct HirEagerComptimeSvarRegionData {
-    arena: HirEagerComptimeSvarArena,
+pub struct HirEagerComptimeVariableRegionData {
+    arena: HirEagerComptimeVariableArena,
 }
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
-pub struct HirEagerComptimeSvarEntry {
-    name: HirEagerComptimeSvarName,
-    data: HirEagerComptimeSvarData,
-    hir_comptime_symbol: HirTemplateSvar,
+pub struct HirEagerComptimeVariableEntry {
+    name: HirEagerComptimeVariableName,
+    data: HirEagerComptimeVariableData,
+    hir_comptime_symbol: HirTemplateVariable,
 }
 
-pub type HirEagerComptimeSvarArena = Arena<HirEagerComptimeSvarEntry>;
-pub type HirEagerComptimeSvarIdx = ArenaIdx<HirEagerComptimeSvarEntry>;
+pub type HirEagerComptimeVariableArena = Arena<HirEagerComptimeVariableEntry>;
+pub type HirEagerComptimeVariableIdx = ArenaIdx<HirEagerComptimeVariableEntry>;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::derive_debug_with_db]
-pub enum HirEagerComptimeSvarName {
+pub enum HirEagerComptimeVariableName {
     SelfType,
     Ident(Ident),
     Label(Label),
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
-pub enum HirEagerComptimeSvarData {
+pub enum HirEagerComptimeVariableData {
     Inherited,
     Current,
 }
 
-impl HirEagerComptimeSvarEntry {
-    pub fn name(&self) -> HirEagerComptimeSvarName {
+impl HirEagerComptimeVariableEntry {
+    pub fn name(&self) -> HirEagerComptimeVariableName {
         self.name
     }
 
-    pub fn data(&self) -> &HirEagerComptimeSvarData {
+    pub fn data(&self) -> &HirEagerComptimeVariableData {
         &self.data
     }
 
-    pub fn symbol(&self) -> HirTemplateSvar {
+    pub fn symbol(&self) -> HirTemplateVariable {
         self.hir_comptime_symbol
     }
 }
 
-impl HirEagerComptimeSvarRegionData {
+impl HirEagerComptimeVariableRegionData {
     pub(crate) fn from_sema(
         sem_expr_region_data: &SemaExprRegionData,
         syn_symobl_region_data: &VariableRegionData,
         db: &::salsa::Db,
     ) -> Self {
-        let mut arena = HirEagerComptimeSvarArena::default();
+        let mut arena = HirEagerComptimeVariableArena::default();
         let terms = sem_expr_region_data.fly_term_region().terms();
         for (inherited_syn_symbol_idx, &fly_term) in sem_expr_region_data
             .symbol_terms()
@@ -70,17 +70,17 @@ impl HirEagerComptimeSvarRegionData {
             };
             match term {
                 EthTerm::Symbol(term_symbol) => {
-                    let Some(hir_comptime_symbol) = HirTemplateSvar::from_eth(term_symbol, db)
+                    let Some(hir_comptime_symbol) = HirTemplateVariable::from_eth(term_symbol, db)
                     else {
                         continue;
                     };
                     let name = match syn_symobl_region_data[inherited_syn_symbol_idx].ident() {
-                        Some(ident) => HirEagerComptimeSvarName::Ident(ident),
+                        Some(ident) => HirEagerComptimeVariableName::Ident(ident),
                         None => todo!(),
                     };
-                    arena.alloc_one(HirEagerComptimeSvarEntry {
+                    arena.alloc_one(HirEagerComptimeVariableEntry {
                         name,
-                        data: HirEagerComptimeSvarData::Inherited,
+                        data: HirEagerComptimeVariableData::Inherited,
                         hir_comptime_symbol,
                     });
                 }
@@ -96,24 +96,24 @@ impl HirEagerComptimeSvarRegionData {
             };
             match term {
                 EthTerm::Symbol(term_symbol) => {
-                    let Some(hir_comptime_symbol) = HirTemplateSvar::from_eth(term_symbol, db)
+                    let Some(hir_comptime_symbol) = HirTemplateVariable::from_eth(term_symbol, db)
                     else {
                         continue;
                     };
                     let current_syn_symbol = &syn_symobl_region_data[current_syn_symbol_idx];
                     let name = match current_syn_symbol.ident() {
-                        Some(ident) => HirEagerComptimeSvarName::Ident(ident),
+                        Some(ident) => HirEagerComptimeVariableName::Ident(ident),
                         None => match current_syn_symbol.data() {
-                            CurrentSynSymbolData::TemplateParameter {
+                            CurrentVariableData::TemplateParameter {
                                 syn_attrs: _,
                                 annotated_variance_token: _,
                                 template_parameter_variant,
                             } => match template_parameter_variant {
                                 CurrentTemplateParameterSynSymbolVariant::Lifetime {
                                     label_token,
-                                } => HirEagerComptimeSvarName::Label(label_token.label()),
+                                } => HirEagerComptimeVariableName::Label(label_token.label()),
                                 CurrentTemplateParameterSynSymbolVariant::Place { label_token } => {
-                                    HirEagerComptimeSvarName::Label(label_token.label())
+                                    HirEagerComptimeVariableName::Label(label_token.label())
                                 }
                                 CurrentTemplateParameterSynSymbolVariant::Type {
                                     ident_token: _,
@@ -126,46 +126,46 @@ impl HirEagerComptimeSvarRegionData {
                                 } => todo!(),
                                 _ => todo!(),
                             },
-                            CurrentSynSymbolData::SelfType => todo!(),
-                            CurrentSynSymbolData::SelfValue {
+                            CurrentVariableData::SelfType => todo!(),
+                            CurrentVariableData::SelfValue {
                                 symbol_modifier_keyword_group: _,
                             } => todo!(),
-                            CurrentSynSymbolData::SimpleParenateParameter {
+                            CurrentVariableData::SimpleParenateParameter {
                                 ident: _,
                                 pattern_symbol_idx: _,
                             } => todo!(),
-                            CurrentSynSymbolData::VariadicParenateParameter {
+                            CurrentVariableData::VariadicParenateParameter {
                                 symbol_modifier_keyword_group: _,
                                 ident_token: _,
                             } => todo!(),
-                            CurrentSynSymbolData::LetVariable {
+                            CurrentVariableData::LetVariable {
                                 ident: _,
                                 pattern_symbol_idx: _,
                             } => todo!(),
-                            CurrentSynSymbolData::BeVariable {
+                            CurrentVariableData::BeVariable {
                                 ident: _,
                                 pattern_symbol_idx: _,
                             } => todo!(),
-                            CurrentSynSymbolData::CaseVariable {
+                            CurrentVariableData::CaseVariable {
                                 ident: _,
                                 pattern_symbol_idx: _,
                             } => todo!(),
-                            CurrentSynSymbolData::FieldVariable { ident_token: _ } => {
+                            CurrentVariableData::FieldVariable { ident_token: _ } => {
                                 todo!()
                             }
-                            CurrentSynSymbolData::LoopVariable {
+                            CurrentVariableData::LoopVariable {
                                 ident: _,
                                 expr_idx: _,
                             } => todo!(),
-                            CurrentSynSymbolData::SimpleClosureParameter {
+                            CurrentVariableData::SimpleClosureParameter {
                                 ident,
                                 pattern_symbol_idx,
                             } => todo!(),
                         },
                     };
-                    arena.alloc_one(HirEagerComptimeSvarEntry {
+                    arena.alloc_one(HirEagerComptimeVariableEntry {
                         name,
-                        data: HirEagerComptimeSvarData::Current,
+                        data: HirEagerComptimeVariableData::Current,
                         hir_comptime_symbol,
                     });
                 }
@@ -177,8 +177,8 @@ impl HirEagerComptimeSvarRegionData {
 
     pub fn symbol_name(
         &self,
-        hir_comptime_symbol: HirTemplateSvar,
-    ) -> Option<HirEagerComptimeSvarName> {
+        hir_comptime_symbol: HirTemplateVariable,
+    ) -> Option<HirEagerComptimeVariableName> {
         self.arena.iter().find_map(|entry| {
             (entry.hir_comptime_symbol == hir_comptime_symbol).then_some(entry.name)
         })

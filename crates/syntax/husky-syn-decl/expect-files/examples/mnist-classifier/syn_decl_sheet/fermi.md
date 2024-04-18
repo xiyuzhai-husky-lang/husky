@@ -203,13 +203,13 @@ SynDeclSheet {
                                         },
                                         current_syn_symbol_arena: Arena {
                                             data: [
-                                                CurrentSynSymbolEntry {
+                                                CurrentVariableEntry {
                                                     modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         12,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::FieldVariable {
+                                                    data: CurrentVariableData::FieldVariable {
                                                         ident_token: IdentRegionalToken {
                                                             ident: `matches`,
                                                             regional_token_idx: RegionalTokenIdx(
@@ -218,13 +218,13 @@ SynDeclSheet {
                                                         },
                                                     },
                                                 },
-                                                CurrentSynSymbolEntry {
+                                                CurrentVariableEntry {
                                                     modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         19,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::FieldVariable {
+                                                    data: CurrentVariableData::FieldVariable {
                                                         ident_token: IdentRegionalToken {
                                                             ident: `others`,
                                                             regional_token_idx: RegionalTokenIdx(
@@ -613,10 +613,10 @@ SynDeclSheet {
                                         },
                                         pattern_symbol_arena: Arena {
                                             data: [
-                                                SynPatternSymbol::Atom(
+                                                PatternVariable::Atom(
                                                     0,
                                                 ),
-                                                SynPatternSymbol::Atom(
+                                                PatternVariable::Atom(
                                                     1,
                                                 ),
                                             ],
@@ -648,24 +648,24 @@ SynDeclSheet {
                                         },
                                         current_syn_symbol_arena: Arena {
                                             data: [
-                                                CurrentSynSymbolEntry {
+                                                CurrentVariableEntry {
                                                     modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         6,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::SimpleParenateParameter {
+                                                    data: CurrentVariableData::SimpleParenateParameter {
                                                         ident: `concave_components`,
                                                         pattern_symbol_idx: 0,
                                                     },
                                                 },
-                                                CurrentSynSymbolEntry {
+                                                CurrentVariableEntry {
                                                     modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         13,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::SimpleParenateParameter {
+                                                    data: CurrentVariableData::SimpleParenateParameter {
                                                         ident: `templates`,
                                                         pattern_symbol_idx: 1,
                                                     },

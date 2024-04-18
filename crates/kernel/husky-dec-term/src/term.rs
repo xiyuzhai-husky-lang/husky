@@ -4,12 +4,12 @@ pub mod application_or_ritchie_call;
 pub mod assoc_item;
 pub mod constraint;
 pub mod curry;
-pub mod hvar;
 pub mod item_path;
+pub mod lambda_variable;
 pub mod list;
 pub mod literal;
 pub mod ritchie;
-pub mod svar;
+pub mod symbolic_variable;
 pub mod ty_as_trai_item;
 pub mod wrapper;
 
@@ -18,17 +18,17 @@ pub use self::application_or_ritchie_call::*;
 pub use self::assoc_item::*;
 pub use self::constraint::*;
 pub use self::curry::*;
-pub use self::hvar::*;
 pub use self::item_path::*;
+pub use self::lambda_variable::*;
 pub use self::list::*;
 pub use self::literal::*;
 pub use self::ritchie::*;
-pub use self::svar::*;
+pub use self::symbolic_variable::*;
 pub use self::ty_as_trai_item::*;
 pub use self::wrapper::*;
 
 use self::abstraction::*;
-use self::name::DecSvarNameMap;
+use self::name::DecSymbolicVariableNameMap;
 use crate::*;
 
 #[enum_class::from_variants]
@@ -38,10 +38,10 @@ pub enum DecTerm {
     ///
     /// literal: 1,1.0, true, false; variable, itemPath
     Literal(DecLiteral),
-    Symbol(DecSvar),
+    SymbolicVariable(DecSymbolicVariable),
     /// variables are those appearing in lambda expression
     /// variables are derived from symbols
-    Hvar(DecHvar),
+    LambdaVariable(DecLambdaVariable),
     EntityPath(DecItemPath),
     Category(Sort),
     Universe(Universe),

@@ -53,7 +53,7 @@ impl<V> SymbolMap<V> {
 
     pub fn inherited_syn_symbol_key_values(
         &self,
-    ) -> impl Iterator<Item = (InheritedVariableIdx, &V)> {
+    ) -> impl Iterator<Item = (InheritedSymbolicVariableIdx, &V)> {
         self.inherited_syn_symbol_map.key_value_iter()
     }
 
@@ -62,10 +62,10 @@ impl<V> SymbolMap<V> {
     }
 }
 
-impl<V> std::ops::Index<InheritedVariableIdx> for SymbolMap<V> {
+impl<V> std::ops::Index<InheritedSymbolicVariableIdx> for SymbolMap<V> {
     type Output = V;
 
-    fn index(&self, index: InheritedVariableIdx) -> &Self::Output {
+    fn index(&self, index: InheritedSymbolicVariableIdx) -> &Self::Output {
         &self.inherited_syn_symbol_map[index]
     }
 }

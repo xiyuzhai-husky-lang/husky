@@ -14,24 +14,24 @@ use vec_like::VecSet;
 
 /// svar are variables defined in a stack-like top-down manner through generics
 #[salsa::interned]
-pub struct DecSvar {
+pub struct DecSymbolicVariable {
     pub toolchain: Toolchain,
-    pub ty: DecTermSymbolTypeResult<DecTerm>,
+    pub ty: DecTermSymbolicVariableTypeResult<DecTerm>,
     /// this is the index for all symbols with the same type
     /// so that we have better cache hits
     /// todo: change to RefinedGenericIndex
-    pub index: DecTermSymbolIndex,
+    pub index: DecTermSymbolicVariableIndex,
 }
 
-impl DecSvar {
+impl DecSymbolicVariable {
     #[inline(always)]
     pub fn new_self_ty(
         db: &::salsa::Db,
         toolchain: Toolchain,
-        registry: &mut TermSymbolRegistry,
+        registry: &mut TermSvarRegistry,
     ) -> Self {
         // todo: general universe??? or ignore universes totally
-        DecSvar::new(
+        DecSymbolicVariable::new(
             db,
             toolchain,
             Ok(DecTerm::TYPE),
@@ -43,11 +43,11 @@ impl DecSvar {
     pub fn new_self_value(
         db: &::salsa::Db,
         toolchain: Toolchain,
-        registry: &mut TermSymbolRegistry,
+        registry: &mut TermSvarRegistry,
         _self_ty_term: DecTerm,
     ) -> Self {
         // todo: general universe??? or ignore universes totally
-        DecSvar::new(
+        DecSymbolicVariable::new(
             db,
             toolchain,
             Ok(DecTerm::TYPE),
@@ -60,10 +60,10 @@ impl DecSvar {
         db: &::salsa::Db,
         toolchain: Toolchain,
         menu: &DecTermMenu,
-        registry: &mut TermSymbolRegistry,
-        attrs: DeclarativeTemplateSymbolAttrs,
+        registry: &mut TermSvarRegistry,
+        attrs: DeclarativeTemplateVariableAttrs,
         variance: Option<Variance>,
-    ) -> (DecTermSymbolTypeResult<DecTerm>, Self) {
+    ) -> (DecTermSymbolicVariableTypeResult<DecTerm>, Self) {
         let ty = Ok(menu.lifetime_ty());
         (
             ty,
@@ -81,10 +81,10 @@ impl DecSvar {
         db: &::salsa::Db,
         toolchain: Toolchain,
         menu: &DecTermMenu,
-        registry: &mut TermSymbolRegistry,
-        attrs: DeclarativeTemplateSymbolAttrs,
+        registry: &mut TermSvarRegistry,
+        attrs: DeclarativeTemplateVariableAttrs,
         variance: Option<Variance>,
-    ) -> (DecTermSymbolTypeResult<DecTerm>, Self) {
+    ) -> (DecTermSymbolicVariableTypeResult<DecTerm>, Self) {
         let ty = Ok(menu.place_ty());
         (
             ty,
@@ -102,23 +102,23 @@ impl DecSvar {
         db: &::salsa::Db,
         toolchain: Toolchain,
         menu: &DecTermMenu,
-        registry: &mut TermSymbolRegistry,
-        attrs: DeclarativeTemplateSymbolAttrs,
+        registry: &mut TermSvarRegistry,
+        attrs: DeclarativeTemplateVariableAttrs,
         variance: Option<Variance>,
-    ) -> (DecTermSymbolTypeResult<DecTerm>, Self) {
+    ) -> (DecTermSymbolicVariableTypeResult<DecTerm>, Self) {
         let ty = Ok(menu.ty0().into());
         (
             ty,
-            DecSvar::new(db, toolchain, ty, registry.issue_ty_index(attrs, variance)),
+            DecSymbolicVariable::new(db, toolchain, ty, registry.issue_ty_index(attrs, variance)),
         )
     }
 
     pub fn new_const(
         db: &::salsa::Db,
         toolchain: Toolchain,
-        attrs: DeclarativeTemplateSymbolAttrs,
-        ty: DecTermSymbolTypeResult<DecTerm>,
-        registry: &mut TermSymbolRegistry,
+        attrs: DeclarativeTemplateVariableAttrs,
+        ty: DecTermSymbolicVariableTypeResult<DecTerm>,
+        registry: &mut TermSvarRegistry,
     ) -> Self {
         let idx = match ty {
             Ok(ty) => match ty.family(db) {
@@ -137,8 +137,8 @@ impl DecSvar {
     pub fn new_ephem(
         db: &::salsa::Db,
         toolchain: Toolchain,
-        ty: DecTermSymbolTypeResult<DecTerm>,
-        registry: &mut TermSymbolRegistry,
+        ty: DecTermSymbolicVariableTypeResult<DecTerm>,
+        registry: &mut TermSvarRegistry,
     ) -> Self {
         let idx = match ty {
             Ok(ty) => match ty.family(db) {
@@ -163,7 +163,7 @@ impl DecSvar {
             db,
             toolchain,
             Ok(ty),
-            DecTermSymbolIndex::new_ad_hoc(disambiguator),
+            DecTermSymbolicVariableIndex::new_ad_hoc(disambiguator),
         )
     }
 
@@ -171,14 +171,14 @@ impl DecSvar {
         self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
-        name_map: &DecSvarNameMap,
+        name_map: &DecSymbolicVariableNameMap,
     ) -> std::fmt::Result {
         name_map[self].display_fmt_with_db(f, db)
     }
 }
 
 #[derive(Debug, Error, PartialEq, Eq, Clone, Copy, Hash)]
-pub enum DecTermSymbolTypeErrorKind {
+pub enum DecTermSymbolicVariableTypeErrorKind {
     #[error("signature declarative_term error")]
     SignatureDecTermError,
     #[error("sketch declarative_term error")]
@@ -187,9 +187,9 @@ pub enum DecTermSymbolTypeErrorKind {
     CannotInferTypeExprTerm(SynNodeRegionPath),
 }
 
-pub type DecTermSymbolTypeResult<T> = Result<T, DecTermSymbolTypeErrorKind>;
+pub type DecTermSymbolicVariableTypeResult<T> = Result<T, DecTermSymbolicVariableTypeErrorKind>;
 
-impl salsa::DisplayWithDb for DecSvar {
+impl salsa::DisplayWithDb for DecSymbolicVariable {
     fn display_fmt_with_db(
         &self,
         f: &mut std::fmt::Formatter<'_>,

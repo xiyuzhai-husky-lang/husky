@@ -1,4 +1,4 @@
-use self::name::DecSvarNameMap;
+use self::name::DecSymbolicVariableNameMap;
 use crate::*;
 use salsa::DisplayWithDb;
 
@@ -8,12 +8,12 @@ impl DecTerm {
         self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
-        ctx: &DecSvarNameMap,
+        ctx: &DecSymbolicVariableNameMap,
     ) -> std::fmt::Result {
         match self {
             DecTerm::Literal(term) => term.display_fmt_with_db_and_ctx(f, db, ctx),
-            DecTerm::Symbol(term) => term.display_fmt_with_db_and_ctx(f, db, ctx),
-            DecTerm::Hvar(term) => term.display_fmt_with_db(f, db),
+            DecTerm::SymbolicVariable(term) => term.display_fmt_with_db_and_ctx(f, db, ctx),
+            DecTerm::LambdaVariable(term) => term.display_fmt_with_db(f, db),
             DecTerm::EntityPath(term) => term.display_fmt_with_db_and_ctx(f, db, ctx),
             DecTerm::Category(term) => f.write_str(&term.to_string()),
             DecTerm::Universe(term) => f.write_str(&term.to_string()),

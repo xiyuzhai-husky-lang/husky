@@ -183,7 +183,7 @@ impl<'a> SynExprContext<'a> {
                 ropd,
             } => {
                 let particulars = self.parse_for_between_particulars(lopd, ropd, comparison_opr);
-                let current_syn_symbol_variant = CurrentSynSymbolData::LoopVariable {
+                let current_syn_symbol_variant = CurrentVariableData::LoopVariable {
                     expr_idx: particulars.for_between_loop_var_expr_idx,
                     ident: particulars.for_between_loop_var_ident,
                 };
@@ -193,7 +193,7 @@ impl<'a> SynExprContext<'a> {
                     .start()
                     .regional_token_idx();
                 let access_end = self.ast_token_idx_range(body.end() - 1).end();
-                let frame_var_symbol = CurrentSynSymbolEntry::new(
+                let frame_var_symbol = CurrentVariableEntry::new(
                     self.syn_pattern_expr_region(),
                     access_start,
                     Some(access_end),

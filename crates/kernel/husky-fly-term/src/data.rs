@@ -7,9 +7,9 @@ pub(crate) use self::hollow::*;
 pub(crate) use self::solid::*;
 
 use crate::*;
-use husky_dec_term::term::HvarIndex;
+use husky_dec_term::term::LambdaVariableIndex;
 use husky_eth_signature::helpers::trai_for_ty::is_ty_term_always_copyable;
-use husky_eth_term::term::{curry::EthCurry, hvar::EthHvar, svar::EthSvar};
+use husky_eth_term::term::{curry::EthCurry, hvar::EthHvar, svar::EthSymbolicVariable};
 use husky_term_prelude::{literal::Literal, ritchie::RitchieKind};
 use husky_vfs::Toolchain;
 
@@ -40,12 +40,12 @@ pub enum FlyTermData<'a> {
         return_ty: FlyTerm,
     },
     Symbol {
-        term: EthSvar,
+        term: EthSymbolicVariable,
         ty: FlyTerm,
     },
     Hvar {
         ty: FlyTerm,
-        index: HvarIndex,
+        index: LambdaVariableIndex,
     },
     TypeVariant {
         path: TypeVariantPath,
@@ -151,7 +151,7 @@ pub enum FlyBaseTypeData<'a> {
         return_ty: FlyTerm,
     },
     Symbol {
-        symbol: EthSvar,
+        symbol: EthSymbolicVariable,
     },
     Hvar {
         hvar: EthHvar,

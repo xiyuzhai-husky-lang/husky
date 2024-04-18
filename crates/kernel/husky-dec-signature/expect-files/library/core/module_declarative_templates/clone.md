@@ -14,7 +14,7 @@
                             data: [
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
-                                    svar: DecSvar(
+                                    svar: DecSymbolicVariable(
                                         Id {
                                             value: 5,
                                         },
@@ -42,7 +42,7 @@
                             data: [
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
-                                    svar: DecSvar(
+                                    svar: DecSymbolicVariable(
                                         Id {
                                             value: 5,
                                         },
@@ -63,7 +63,7 @@
                             ),
                         ),
                         self_ty: DeclarativeSelfType::DerivedAny(
-                            DecSvar {
+                            DecSymbolicVariable {
                                 toolchain: Toolchain {
                                     data: ToolchainData::Local {
                                         library_path: VirtualPath {
@@ -82,7 +82,7 @@
                                         },
                                     ),
                                 ),
-                                index: DecTermSymbolIndex(
+                                index: DecTermSymbolicVariableIndex(
                                     SelfType,
                                 ),
                             },
@@ -108,8 +108,8 @@
                 AssocItemDecTemplate::TraitForTypeItem(
                     TraitForTypeItemDecTemplate::MethodFn(
                         TraitForTypeMethodFnDecTemplate {
-                            self_ty: Symbol(
-                                DecSvar(
+                            self_ty: SymbolicVariable(
+                                DecSymbolicVariable(
                                     Id {
                                         value: 5,
                                     },
@@ -120,8 +120,8 @@
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
                                 contract: Pure,
-                                ty: Symbol(
-                                    DecSvar(
+                                ty: SymbolicVariable(
+                                    DecSymbolicVariable(
                                         Id {
                                             value: 5,
                                         },
@@ -131,8 +131,8 @@
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: Symbol(
-                                DecSvar(
+                            return_ty: SymbolicVariable(
+                                DecSymbolicVariable(
                                     Id {
                                         value: 5,
                                     },

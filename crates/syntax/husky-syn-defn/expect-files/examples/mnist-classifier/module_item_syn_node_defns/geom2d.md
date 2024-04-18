@@ -294,10 +294,10 @@
                                         },
                                         pattern_symbol_arena: Arena {
                                             data: [
-                                                SynPatternSymbol::Atom(
+                                                PatternVariable::Atom(
                                                     0,
                                                 ),
-                                                SynPatternSymbol::Atom(
+                                                PatternVariable::Atom(
                                                     1,
                                                 ),
                                             ],
@@ -329,24 +329,24 @@
                                         },
                                         current_syn_symbol_arena: Arena {
                                             data: [
-                                                CurrentSynSymbolEntry {
+                                                CurrentVariableEntry {
                                                     modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         6,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::SimpleParenateParameter {
+                                                    data: CurrentVariableData::SimpleParenateParameter {
                                                         ident: `i`,
                                                         pattern_symbol_idx: 0,
                                                     },
                                                 },
-                                                CurrentSynSymbolEntry {
+                                                CurrentVariableEntry {
                                                     modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         10,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::SimpleParenateParameter {
+                                                    data: CurrentVariableData::SimpleParenateParameter {
                                                         ident: `shift`,
                                                         pattern_symbol_idx: 1,
                                                     },
@@ -469,7 +469,7 @@
                                         6,
                                     ),
                                     inherited_syn_symbol_idx: 1,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `shift`,
                                     },
                                 },
@@ -526,7 +526,7 @@
                                         14,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `i`,
                                     },
                                 },
@@ -677,13 +677,13 @@
                                 data: [
                                     InheritedVariable {
                                         modifier: Pure,
-                                        kind: InheritedVariableKind::ParenateParameter {
+                                        kind: InheritedVariableKind::Parenate {
                                             ident: `i`,
                                         },
                                     },
                                     InheritedVariable {
                                         modifier: Pure,
-                                        kind: InheritedVariableKind::ParenateParameter {
+                                        kind: InheritedVariableKind::Parenate {
                                             ident: `shift`,
                                         },
                                     },
@@ -1351,7 +1351,7 @@
                                         },
                                         pattern_symbol_arena: Arena {
                                             data: [
-                                                SynPatternSymbol::Atom(
+                                                PatternVariable::Atom(
                                                     0,
                                                 ),
                                             ],
@@ -1376,13 +1376,13 @@
                                         },
                                         current_syn_symbol_arena: Arena {
                                             data: [
-                                                CurrentSynSymbolEntry {
+                                                CurrentVariableEntry {
                                                     modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         5,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::SimpleParenateParameter {
+                                                    data: CurrentVariableData::SimpleParenateParameter {
                                                         ident: `other`,
                                                         pattern_symbol_idx: 0,
                                                     },
@@ -1472,7 +1472,7 @@
                                         3,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `other`,
                                     },
                                 },
@@ -1521,7 +1521,7 @@
                                         11,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `other`,
                                     },
                                 },
@@ -1644,7 +1644,7 @@
                                 data: [
                                     InheritedVariable {
                                         modifier: Pure,
-                                        kind: InheritedVariableKind::ParenateParameter {
+                                        kind: InheritedVariableKind::Parenate {
                                             ident: `other`,
                                         },
                                     },
@@ -2355,7 +2355,7 @@
                                         },
                                         pattern_symbol_arena: Arena {
                                             data: [
-                                                SynPatternSymbol::Atom(
+                                                PatternVariable::Atom(
                                                     0,
                                                 ),
                                             ],
@@ -2380,13 +2380,13 @@
                                         },
                                         current_syn_symbol_arena: Arena {
                                             data: [
-                                                CurrentSynSymbolEntry {
+                                                CurrentVariableEntry {
                                                     modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         5,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::SimpleParenateParameter {
+                                                    data: CurrentVariableData::SimpleParenateParameter {
                                                         ident: `other`,
                                                         pattern_symbol_idx: 0,
                                                     },
@@ -2471,7 +2471,7 @@
                                         5,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `other`,
                                     },
                                 },
@@ -2560,7 +2560,7 @@
                                 data: [
                                     InheritedVariable {
                                         modifier: Pure,
-                                        kind: InheritedVariableKind::ParenateParameter {
+                                        kind: InheritedVariableKind::Parenate {
                                             ident: `other`,
                                         },
                                     },
@@ -3252,7 +3252,7 @@
                                         },
                                         pattern_symbol_arena: Arena {
                                             data: [
-                                                SynPatternSymbol::Atom(
+                                                PatternVariable::Atom(
                                                     0,
                                                 ),
                                             ],
@@ -3277,13 +3277,13 @@
                                         },
                                         current_syn_symbol_arena: Arena {
                                             data: [
-                                                CurrentSynSymbolEntry {
+                                                CurrentVariableEntry {
                                                     modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         6,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::SimpleParenateParameter {
+                                                    data: CurrentVariableData::SimpleParenateParameter {
                                                         ident: `other`,
                                                         pattern_symbol_idx: 0,
                                                     },
@@ -3373,7 +3373,7 @@
                                         3,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `other`,
                                     },
                                 },
@@ -3422,7 +3422,7 @@
                                         11,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `other`,
                                     },
                                 },
@@ -3545,7 +3545,7 @@
                                 data: [
                                     InheritedVariable {
                                         modifier: Pure,
-                                        kind: InheritedVariableKind::ParenateParameter {
+                                        kind: InheritedVariableKind::Parenate {
                                             ident: `other`,
                                         },
                                     },
@@ -4256,7 +4256,7 @@
                                         },
                                         pattern_symbol_arena: Arena {
                                             data: [
-                                                SynPatternSymbol::Atom(
+                                                PatternVariable::Atom(
                                                     0,
                                                 ),
                                             ],
@@ -4281,13 +4281,13 @@
                                         },
                                         current_syn_symbol_arena: Arena {
                                             data: [
-                                                CurrentSynSymbolEntry {
+                                                CurrentVariableEntry {
                                                     modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         5,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::SimpleParenateParameter {
+                                                    data: CurrentVariableData::SimpleParenateParameter {
                                                         ident: `other`,
                                                         pattern_symbol_idx: 0,
                                                     },
@@ -4372,7 +4372,7 @@
                                         5,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `other`,
                                     },
                                 },
@@ -4411,7 +4411,7 @@
                                         13,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `other`,
                                     },
                                 },
@@ -4509,7 +4509,7 @@
                                 data: [
                                     InheritedVariable {
                                         modifier: Pure,
-                                        kind: InheritedVariableKind::ParenateParameter {
+                                        kind: InheritedVariableKind::Parenate {
                                             ident: `other`,
                                         },
                                     },
@@ -4776,7 +4776,7 @@
                                         },
                                         pattern_symbol_arena: Arena {
                                             data: [
-                                                SynPatternSymbol::Atom(
+                                                PatternVariable::Atom(
                                                     0,
                                                 ),
                                             ],
@@ -4801,13 +4801,13 @@
                                         },
                                         current_syn_symbol_arena: Arena {
                                             data: [
-                                                CurrentSynSymbolEntry {
+                                                CurrentVariableEntry {
                                                     modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         5,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::SimpleParenateParameter {
+                                                    data: CurrentVariableData::SimpleParenateParameter {
                                                         ident: `other`,
                                                         pattern_symbol_idx: 0,
                                                     },
@@ -4892,7 +4892,7 @@
                                         5,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `other`,
                                     },
                                 },
@@ -4931,7 +4931,7 @@
                                         13,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `other`,
                                     },
                                 },
@@ -5029,7 +5029,7 @@
                                 data: [
                                     InheritedVariable {
                                         modifier: Pure,
-                                        kind: InheritedVariableKind::ParenateParameter {
+                                        kind: InheritedVariableKind::Parenate {
                                             ident: `other`,
                                         },
                                     },
@@ -5296,7 +5296,7 @@
                                         },
                                         pattern_symbol_arena: Arena {
                                             data: [
-                                                SynPatternSymbol::Atom(
+                                                PatternVariable::Atom(
                                                     0,
                                                 ),
                                             ],
@@ -5321,13 +5321,13 @@
                                         },
                                         current_syn_symbol_arena: Arena {
                                             data: [
-                                                CurrentSynSymbolEntry {
+                                                CurrentVariableEntry {
                                                     modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         5,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::SimpleParenateParameter {
+                                                    data: CurrentVariableData::SimpleParenateParameter {
                                                         ident: `is_branch_cut_positive`,
                                                         pattern_symbol_idx: 0,
                                                     },
@@ -5565,7 +5565,7 @@
                                         28,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `is_branch_cut_positive`,
                                     },
                                 },
@@ -5938,7 +5938,7 @@
                             },
                             pattern_symbol_arena: Arena {
                                 data: [
-                                    SynPatternSymbol::Atom(
+                                    PatternVariable::Atom(
                                         0,
                                     ),
                                 ],
@@ -5962,7 +5962,7 @@
                                 data: [
                                     InheritedVariable {
                                         modifier: Pure,
-                                        kind: InheritedVariableKind::ParenateParameter {
+                                        kind: InheritedVariableKind::Parenate {
                                             ident: `is_branch_cut_positive`,
                                         },
                                     },
@@ -5970,7 +5970,7 @@
                             },
                             current_syn_symbol_arena: Arena {
                                 data: [
-                                    CurrentSynSymbolEntry {
+                                    CurrentVariableEntry {
                                         modifier: Pure,
                                         access_start: RegionalTokenIdx(
                                             3,
@@ -5982,7 +5982,7 @@
                                                 ),
                                             ),
                                         ),
-                                        data: CurrentSynSymbolData::LetVariable {
+                                        data: CurrentVariableData::LetVariable {
                                             ident: `cos_value`,
                                             pattern_symbol_idx: 0,
                                         },
@@ -6269,7 +6269,7 @@
                                         },
                                         pattern_symbol_arena: Arena {
                                             data: [
-                                                SynPatternSymbol::Atom(
+                                                PatternVariable::Atom(
                                                     0,
                                                 ),
                                             ],
@@ -6294,13 +6294,13 @@
                                         },
                                         current_syn_symbol_arena: Arena {
                                             data: [
-                                                CurrentSynSymbolEntry {
+                                                CurrentVariableEntry {
                                                     modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         5,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::SimpleParenateParameter {
+                                                    data: CurrentVariableData::SimpleParenateParameter {
                                                         ident: `other`,
                                                         pattern_symbol_idx: 0,
                                                     },
@@ -6385,7 +6385,7 @@
                                         5,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `other`,
                                     },
                                 },
@@ -6474,7 +6474,7 @@
                                 data: [
                                     InheritedVariable {
                                         modifier: Pure,
-                                        kind: InheritedVariableKind::ParenateParameter {
+                                        kind: InheritedVariableKind::Parenate {
                                             ident: `other`,
                                         },
                                     },
@@ -6776,10 +6776,10 @@
                                         },
                                         pattern_symbol_arena: Arena {
                                             data: [
-                                                SynPatternSymbol::Atom(
+                                                PatternVariable::Atom(
                                                     0,
                                                 ),
-                                                SynPatternSymbol::Atom(
+                                                PatternVariable::Atom(
                                                     1,
                                                 ),
                                             ],
@@ -6811,24 +6811,24 @@
                                         },
                                         current_syn_symbol_arena: Arena {
                                             data: [
-                                                CurrentSynSymbolEntry {
+                                                CurrentVariableEntry {
                                                     modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         5,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::SimpleParenateParameter {
+                                                    data: CurrentVariableData::SimpleParenateParameter {
                                                         ident: `other`,
                                                         pattern_symbol_idx: 0,
                                                     },
                                                 },
-                                                CurrentSynSymbolEntry {
+                                                CurrentVariableEntry {
                                                     modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         9,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::SimpleParenateParameter {
+                                                    data: CurrentVariableData::SimpleParenateParameter {
                                                         ident: `is_branch_cut_positive`,
                                                         pattern_symbol_idx: 1,
                                                     },
@@ -6990,7 +6990,7 @@
                                         16,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `other`,
                                     },
                                 },
@@ -7059,7 +7059,7 @@
                                         33,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `other`,
                                     },
                                 },
@@ -7249,7 +7249,7 @@
                                         55,
                                     ),
                                     inherited_syn_symbol_idx: 1,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `is_branch_cut_positive`,
                                     },
                                 },
@@ -7299,7 +7299,7 @@
                                         72,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `other`,
                                     },
                                 },
@@ -7768,16 +7768,16 @@
                             },
                             pattern_symbol_arena: Arena {
                                 data: [
-                                    SynPatternSymbol::Atom(
+                                    PatternVariable::Atom(
                                         0,
                                     ),
-                                    SynPatternSymbol::Atom(
+                                    PatternVariable::Atom(
                                         1,
                                     ),
-                                    SynPatternSymbol::Atom(
+                                    PatternVariable::Atom(
                                         2,
                                     ),
-                                    SynPatternSymbol::Atom(
+                                    PatternVariable::Atom(
                                         3,
                                     ),
                                 ],
@@ -7822,13 +7822,13 @@
                                 data: [
                                     InheritedVariable {
                                         modifier: Pure,
-                                        kind: InheritedVariableKind::ParenateParameter {
+                                        kind: InheritedVariableKind::Parenate {
                                             ident: `other`,
                                         },
                                     },
                                     InheritedVariable {
                                         modifier: Pure,
-                                        kind: InheritedVariableKind::ParenateParameter {
+                                        kind: InheritedVariableKind::Parenate {
                                             ident: `is_branch_cut_positive`,
                                         },
                                     },
@@ -7836,7 +7836,7 @@
                             },
                             current_syn_symbol_arena: Arena {
                                 data: [
-                                    CurrentSynSymbolEntry {
+                                    CurrentVariableEntry {
                                         modifier: Pure,
                                         access_start: RegionalTokenIdx(
                                             3,
@@ -7848,12 +7848,12 @@
                                                 ),
                                             ),
                                         ),
-                                        data: CurrentSynSymbolData::LetVariable {
+                                        data: CurrentVariableData::LetVariable {
                                             ident: `self_norm`,
                                             pattern_symbol_idx: 0,
                                         },
                                     },
-                                    CurrentSynSymbolEntry {
+                                    CurrentVariableEntry {
                                         modifier: Pure,
                                         access_start: RegionalTokenIdx(
                                             15,
@@ -7865,12 +7865,12 @@
                                                 ),
                                             ),
                                         ),
-                                        data: CurrentSynSymbolData::LetVariable {
+                                        data: CurrentVariableData::LetVariable {
                                             ident: `other_norm`,
                                             pattern_symbol_idx: 1,
                                         },
                                     },
-                                    CurrentSynSymbolEntry {
+                                    CurrentVariableEntry {
                                         modifier: Pure,
                                         access_start: RegionalTokenIdx(
                                             27,
@@ -7882,12 +7882,12 @@
                                                 ),
                                             ),
                                         ),
-                                        data: CurrentSynSymbolData::LetVariable {
+                                        data: CurrentVariableData::LetVariable {
                                             ident: `cos_value`,
                                             pattern_symbol_idx: 2,
                                         },
                                     },
-                                    CurrentSynSymbolEntry {
+                                    CurrentVariableEntry {
                                         modifier: Pure,
                                         access_start: RegionalTokenIdx(
                                             66,
@@ -7899,7 +7899,7 @@
                                                 ),
                                             ),
                                         ),
-                                        data: CurrentSynSymbolData::LetVariable {
+                                        data: CurrentVariableData::LetVariable {
                                             ident: `arc_angle`,
                                             pattern_symbol_idx: 3,
                                         },
@@ -8254,7 +8254,7 @@
                                         },
                                         pattern_symbol_arena: Arena {
                                             data: [
-                                                SynPatternSymbol::Atom(
+                                                PatternVariable::Atom(
                                                     0,
                                                 ),
                                             ],
@@ -8279,13 +8279,13 @@
                                         },
                                         current_syn_symbol_arena: Arena {
                                             data: [
-                                                CurrentSynSymbolEntry {
+                                                CurrentVariableEntry {
                                                     modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         5,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::SimpleParenateParameter {
+                                                    data: CurrentVariableData::SimpleParenateParameter {
                                                         ident: `other`,
                                                         pattern_symbol_idx: 0,
                                                     },
@@ -8453,7 +8453,7 @@
                                         23,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `other`,
                                     },
                                 },
@@ -8531,7 +8531,7 @@
                                         37,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `other`,
                                     },
                                 },
@@ -8833,13 +8833,13 @@
                             },
                             pattern_symbol_arena: Arena {
                                 data: [
-                                    SynPatternSymbol::Atom(
+                                    PatternVariable::Atom(
                                         0,
                                     ),
-                                    SynPatternSymbol::Atom(
+                                    PatternVariable::Atom(
                                         1,
                                     ),
-                                    SynPatternSymbol::Atom(
+                                    PatternVariable::Atom(
                                         2,
                                     ),
                                 ],
@@ -8877,7 +8877,7 @@
                                 data: [
                                     InheritedVariable {
                                         modifier: Pure,
-                                        kind: InheritedVariableKind::ParenateParameter {
+                                        kind: InheritedVariableKind::Parenate {
                                             ident: `other`,
                                         },
                                     },
@@ -8885,7 +8885,7 @@
                             },
                             current_syn_symbol_arena: Arena {
                                 data: [
-                                    CurrentSynSymbolEntry {
+                                    CurrentVariableEntry {
                                         modifier: Pure,
                                         access_start: RegionalTokenIdx(
                                             11,
@@ -8897,12 +8897,12 @@
                                                 ),
                                             ),
                                         ),
-                                        data: CurrentSynSymbolData::LetVariable {
+                                        data: CurrentVariableData::LetVariable {
                                             ident: `span`,
                                             pattern_symbol_idx: 0,
                                         },
                                     },
-                                    CurrentSynSymbolEntry {
+                                    CurrentVariableEntry {
                                         modifier: Pure,
                                         access_start: RegionalTokenIdx(
                                             21,
@@ -8914,12 +8914,12 @@
                                                 ),
                                             ),
                                         ),
-                                        data: CurrentSynSymbolData::LetVariable {
+                                        data: CurrentVariableData::LetVariable {
                                             ident: `rel_min`,
                                             pattern_symbol_idx: 1,
                                         },
                                     },
-                                    CurrentSynSymbolEntry {
+                                    CurrentVariableEntry {
                                         modifier: Pure,
                                         access_start: RegionalTokenIdx(
                                             35,
@@ -8931,7 +8931,7 @@
                                                 ),
                                             ),
                                         ),
-                                        data: CurrentSynSymbolData::LetVariable {
+                                        data: CurrentVariableData::LetVariable {
                                             ident: `rel_max`,
                                             pattern_symbol_idx: 2,
                                         },
@@ -9238,7 +9238,7 @@
                                         },
                                         pattern_symbol_arena: Arena {
                                             data: [
-                                                SynPatternSymbol::Atom(
+                                                PatternVariable::Atom(
                                                     0,
                                                 ),
                                             ],
@@ -9263,13 +9263,13 @@
                                         },
                                         current_syn_symbol_arena: Arena {
                                             data: [
-                                                CurrentSynSymbolEntry {
+                                                CurrentVariableEntry {
                                                     modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         5,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::SimpleParenateParameter {
+                                                    data: CurrentVariableData::SimpleParenateParameter {
                                                         ident: `v`,
                                                         pattern_symbol_idx: 0,
                                                     },
@@ -9398,7 +9398,7 @@
                                         12,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `v`,
                                     },
                                 },
@@ -9523,7 +9523,7 @@
                             },
                             pattern_symbol_arena: Arena {
                                 data: [
-                                    SynPatternSymbol::Atom(
+                                    PatternVariable::Atom(
                                         0,
                                     ),
                                 ],
@@ -9547,7 +9547,7 @@
                                 data: [
                                     InheritedVariable {
                                         modifier: Pure,
-                                        kind: InheritedVariableKind::ParenateParameter {
+                                        kind: InheritedVariableKind::Parenate {
                                             ident: `v`,
                                         },
                                     },
@@ -9555,7 +9555,7 @@
                             },
                             current_syn_symbol_arena: Arena {
                                 data: [
-                                    CurrentSynSymbolEntry {
+                                    CurrentVariableEntry {
                                         modifier: Pure,
                                         access_start: RegionalTokenIdx(
                                             3,
@@ -9567,7 +9567,7 @@
                                                 ),
                                             ),
                                         ),
-                                        data: CurrentSynSymbolData::LetVariable {
+                                        data: CurrentVariableData::LetVariable {
                                             ident: `span`,
                                             pattern_symbol_idx: 0,
                                         },
@@ -9870,7 +9870,7 @@
                                         },
                                         pattern_symbol_arena: Arena {
                                             data: [
-                                                SynPatternSymbol::Atom(
+                                                PatternVariable::Atom(
                                                     0,
                                                 ),
                                             ],
@@ -9895,13 +9895,13 @@
                                         },
                                         current_syn_symbol_arena: Arena {
                                             data: [
-                                                CurrentSynSymbolEntry {
+                                                CurrentVariableEntry {
                                                     modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         5,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::SimpleParenateParameter {
+                                                    data: CurrentVariableData::SimpleParenateParameter {
                                                         ident: `other`,
                                                         pattern_symbol_idx: 0,
                                                     },
@@ -10008,7 +10008,7 @@
                                         9,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `other`,
                                     },
                                 },
@@ -10072,7 +10072,7 @@
                                         20,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `other`,
                                     },
                                 },
@@ -10197,7 +10197,7 @@
                                 data: [
                                     InheritedVariable {
                                         modifier: Pure,
-                                        kind: InheritedVariableKind::ParenateParameter {
+                                        kind: InheritedVariableKind::Parenate {
                                             ident: `other`,
                                         },
                                     },
@@ -10464,7 +10464,7 @@
                                         },
                                         pattern_symbol_arena: Arena {
                                             data: [
-                                                SynPatternSymbol::Atom(
+                                                PatternVariable::Atom(
                                                     0,
                                                 ),
                                             ],
@@ -10489,13 +10489,13 @@
                                         },
                                         current_syn_symbol_arena: Arena {
                                             data: [
-                                                CurrentSynSymbolEntry {
+                                                CurrentVariableEntry {
                                                     modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         5,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::SimpleParenateParameter {
+                                                    data: CurrentVariableData::SimpleParenateParameter {
                                                         ident: `point`,
                                                         pattern_symbol_idx: 0,
                                                     },
@@ -10602,7 +10602,7 @@
                                         9,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `point`,
                                     },
                                 },
@@ -10666,7 +10666,7 @@
                                         20,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `point`,
                                     },
                                 },
@@ -10791,7 +10791,7 @@
                                 data: [
                                     InheritedVariable {
                                         modifier: Pure,
-                                        kind: InheritedVariableKind::ParenateParameter {
+                                        kind: InheritedVariableKind::Parenate {
                                             ident: `point`,
                                         },
                                     },

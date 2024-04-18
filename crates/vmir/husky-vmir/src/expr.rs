@@ -64,7 +64,7 @@ pub enum VmirExprData<LinkageImpl: IsLinkageImpl> {
     Unwrap {
         opd: VmirExprIdx<LinkageImpl>,
     },
-    ConstSvar,
+    ConstTemplateVariable,
 }
 
 pub type VmirExprArena<LinkageImpl> = Arena<VmirExprData<LinkageImpl>>;
@@ -119,7 +119,7 @@ impl<'comptime, Linktime: IsLinktime> VmirBuilder<'comptime, Linktime> {
             },
             HirEagerExprData::PrincipalEntityPath(_) => VmirExprData::PrincipalEntityPath,
             HirEagerExprData::AssocFn { assoc_item_path } => todo!(),
-            HirEagerExprData::ConstSvar { ident } => VmirExprData::ConstSvar,
+            HirEagerExprData::ConstVariable { ident } => VmirExprData::ConstTemplateVariable,
             HirEagerExprData::Variable(_) => {
                 let place_idx = match entry.quary().place() {
                     Some(place) => match place {
@@ -451,7 +451,7 @@ impl<LinkageImpl: IsLinkageImpl> VmirExprIdx<LinkageImpl> {
             VmirExprData::Index => todo!(),
             VmirExprData::PrincipalEntityPath => todo!(),
             VmirExprData::Unwrap { opd } => todo!(),
-            VmirExprData::ConstSvar => todo!(),
+            VmirExprData::ConstTemplateVariable => todo!(),
         }
     }
 }

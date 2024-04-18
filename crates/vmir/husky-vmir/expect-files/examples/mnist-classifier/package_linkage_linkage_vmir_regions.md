@@ -41,7 +41,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -86,7 +86,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -131,7 +131,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -176,7 +176,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -221,7 +221,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -266,7 +266,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -311,7 +311,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -356,7 +356,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -401,7 +401,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -1796,7 +1796,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -2363,7 +2363,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -2452,7 +2452,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -2520,7 +2520,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -2579,7 +2579,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -2647,7 +2647,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -2706,7 +2706,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -2964,7 +2964,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -6694,7 +6694,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -7793,7 +7793,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -7930,7 +7930,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -8129,7 +8129,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -8394,7 +8394,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -8593,7 +8593,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -9081,7 +9081,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -9171,7 +9171,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -11676,7 +11676,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -19108,7 +19108,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -20555,7 +20555,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -22113,7 +22113,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -22295,7 +22295,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -22390,7 +22390,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -22660,7 +22660,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -22711,7 +22711,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -22779,7 +22779,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -22865,7 +22865,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -23105,7 +23105,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -23172,7 +23172,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -23687,7 +23687,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -23783,7 +23783,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -23860,7 +23860,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -24000,7 +24000,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -24075,7 +24075,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -24223,7 +24223,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -24274,7 +24274,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -24360,7 +24360,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -24411,7 +24411,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -24501,7 +24501,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -24582,7 +24582,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -24644,7 +24644,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -24738,7 +24738,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -24804,7 +24804,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -24890,7 +24890,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -25618,7 +25618,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -27019,7 +27019,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -27387,7 +27387,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -27471,7 +27471,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -28094,7 +28094,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -28834,7 +28834,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -29861,7 +29861,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -30022,7 +30022,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -30274,7 +30274,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -30501,7 +30501,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -30846,7 +30846,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -31018,7 +31018,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -31245,7 +31245,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -31474,7 +31474,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -31720,7 +31720,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -33058,7 +33058,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -33155,7 +33155,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -33214,7 +33214,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -36308,7 +36308,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -36372,7 +36372,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -37218,7 +37218,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -37489,7 +37489,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -37760,7 +37760,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -38541,7 +38541,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -41938,7 +41938,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -42090,7 +42090,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -42766,7 +42766,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -44628,7 +44628,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -46663,7 +46663,7 @@
                         (
                             Type(
                                 Type {
-                                    attrs: HirTemplateSvarAttrs {
+                                    attrs: HirTemplateVariableAttrs {
                                         class: Comptime,
                                     },
                                     variance: None,
@@ -46706,7 +46706,7 @@
                                 (
                                     Type(
                                         Type {
-                                            attrs: HirTemplateSvarAttrs {
+                                            attrs: HirTemplateVariableAttrs {
                                                 class: Comptime,
                                             },
                                             variance: None,
@@ -46741,7 +46741,7 @@
                             place_idx: PlaceIdx(0),
                             qual: Ref,
                         },
-                        VmirExprData::ConstSvar,
+                        VmirExprData::ConstTemplateVariable,
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::EnumVariantConstructor {
@@ -46770,7 +46770,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -46848,7 +46848,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -46870,7 +46870,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -46953,7 +46953,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -46975,7 +46975,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -47088,7 +47088,7 @@
                         (
                             Type(
                                 Type {
-                                    attrs: HirTemplateSvarAttrs {
+                                    attrs: HirTemplateVariableAttrs {
                                         class: Comptime,
                                     },
                                     variance: None,
@@ -47129,7 +47129,7 @@
                                 (
                                     Type(
                                         Type {
-                                            attrs: HirTemplateSvarAttrs {
+                                            attrs: HirTemplateVariableAttrs {
                                                 class: Comptime,
                                             },
                                             variance: None,
@@ -47164,7 +47164,7 @@
                             place_idx: PlaceIdx(0),
                             qual: Ref,
                         },
-                        VmirExprData::ConstSvar,
+                        VmirExprData::ConstTemplateVariable,
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::EnumVariantConstructor {
@@ -47193,7 +47193,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -47271,7 +47271,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -47293,7 +47293,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -47376,7 +47376,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -47398,7 +47398,7 @@
                                             (
                                                 Type(
                                                     Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -47561,7 +47561,7 @@
                         (
                             Type(
                                 Type {
-                                    attrs: HirTemplateSvarAttrs {
+                                    attrs: HirTemplateVariableAttrs {
                                         class: Comptime,
                                     },
                                     variance: None,
@@ -47608,7 +47608,7 @@
                         (
                             Type(
                                 Type {
-                                    attrs: HirTemplateSvarAttrs {
+                                    attrs: HirTemplateVariableAttrs {
                                         class: Comptime,
                                     },
                                     variance: None,
@@ -47680,7 +47680,7 @@
                         (
                             Type(
                                 Type {
-                                    attrs: HirTemplateSvarAttrs {
+                                    attrs: HirTemplateVariableAttrs {
                                         class: Comptime,
                                     },
                                     variance: None,
@@ -47727,7 +47727,7 @@
                         (
                             Type(
                                 Type {
-                                    attrs: HirTemplateSvarAttrs {
+                                    attrs: HirTemplateVariableAttrs {
                                         class: Comptime,
                                     },
                                     variance: None,
@@ -47774,7 +47774,7 @@
                         (
                             Type(
                                 Type {
-                                    attrs: HirTemplateSvarAttrs {
+                                    attrs: HirTemplateVariableAttrs {
                                         class: Comptime,
                                     },
                                     variance: None,
@@ -47815,7 +47815,7 @@
                         (
                             Type(
                                 Type {
-                                    attrs: HirTemplateSvarAttrs {
+                                    attrs: HirTemplateVariableAttrs {
                                         class: Comptime,
                                     },
                                     variance: None,
@@ -47882,7 +47882,7 @@
                         (
                             Type(
                                 Type {
-                                    attrs: HirTemplateSvarAttrs {
+                                    attrs: HirTemplateVariableAttrs {
                                         class: Comptime,
                                     },
                                     variance: None,
@@ -47931,7 +47931,7 @@
                         (
                             Type(
                                 Type {
-                                    attrs: HirTemplateSvarAttrs {
+                                    attrs: HirTemplateVariableAttrs {
                                         class: Comptime,
                                     },
                                     variance: None,
@@ -47980,7 +47980,7 @@
                         (
                             Type(
                                 Type {
-                                    attrs: HirTemplateSvarAttrs {
+                                    attrs: HirTemplateVariableAttrs {
                                         class: Comptime,
                                     },
                                     variance: None,
@@ -48027,7 +48027,7 @@
                         (
                             Type(
                                 Type {
-                                    attrs: HirTemplateSvarAttrs {
+                                    attrs: HirTemplateVariableAttrs {
                                         class: Comptime,
                                     },
                                     variance: None,
@@ -48074,7 +48074,7 @@
                         (
                             Type(
                                 Type {
-                                    attrs: HirTemplateSvarAttrs {
+                                    attrs: HirTemplateVariableAttrs {
                                         class: Comptime,
                                     },
                                     variance: None,
@@ -48121,7 +48121,7 @@
                         (
                             Type(
                                 Type {
-                                    attrs: HirTemplateSvarAttrs {
+                                    attrs: HirTemplateVariableAttrs {
                                         class: Comptime,
                                     },
                                     variance: None,
@@ -48200,7 +48200,7 @@
                         (
                             Type(
                                 Type {
-                                    attrs: HirTemplateSvarAttrs {
+                                    attrs: HirTemplateVariableAttrs {
                                         class: Comptime,
                                     },
                                     variance: None,
@@ -48254,7 +48254,7 @@
                         (
                             Type(
                                 Type {
-                                    attrs: HirTemplateSvarAttrs {
+                                    attrs: HirTemplateVariableAttrs {
                                         class: Comptime,
                                     },
                                     variance: None,
@@ -48295,7 +48295,7 @@
                         (
                             Type(
                                 Type {
-                                    attrs: HirTemplateSvarAttrs {
+                                    attrs: HirTemplateVariableAttrs {
                                         class: Comptime,
                                     },
                                     variance: None,
@@ -48344,7 +48344,7 @@
                         (
                             Type(
                                 Type {
-                                    attrs: HirTemplateSvarAttrs {
+                                    attrs: HirTemplateVariableAttrs {
                                         class: Comptime,
                                     },
                                     variance: None,
@@ -48393,7 +48393,7 @@
                         (
                             Type(
                                 Type {
-                                    attrs: HirTemplateSvarAttrs {
+                                    attrs: HirTemplateVariableAttrs {
                                         class: Comptime,
                                     },
                                     variance: None,
@@ -48434,7 +48434,7 @@
                         (
                             Type(
                                 Type {
-                                    attrs: HirTemplateSvarAttrs {
+                                    attrs: HirTemplateVariableAttrs {
                                         class: Comptime,
                                     },
                                     variance: None,
@@ -48481,7 +48481,7 @@
                         (
                             Type(
                                 Type {
-                                    attrs: HirTemplateSvarAttrs {
+                                    attrs: HirTemplateVariableAttrs {
                                         class: Comptime,
                                     },
                                     variance: None,
@@ -48522,7 +48522,7 @@
                         (
                             Type(
                                 Type {
-                                    attrs: HirTemplateSvarAttrs {
+                                    attrs: HirTemplateVariableAttrs {
                                         class: Comptime,
                                     },
                                     variance: None,
@@ -48569,7 +48569,7 @@
                         (
                             Type(
                                 Type {
-                                    attrs: HirTemplateSvarAttrs {
+                                    attrs: HirTemplateVariableAttrs {
                                         class: Comptime,
                                     },
                                     variance: None,
@@ -48618,7 +48618,7 @@
                         (
                             Type(
                                 Type {
-                                    attrs: HirTemplateSvarAttrs {
+                                    attrs: HirTemplateVariableAttrs {
                                         class: Comptime,
                                     },
                                     variance: None,
@@ -48667,7 +48667,7 @@
                         (
                             Type(
                                 Type {
-                                    attrs: HirTemplateSvarAttrs {
+                                    attrs: HirTemplateVariableAttrs {
                                         class: Comptime,
                                     },
                                     variance: None,
@@ -48721,7 +48721,7 @@
                         (
                             Type(
                                 Type {
-                                    attrs: HirTemplateSvarAttrs {
+                                    attrs: HirTemplateVariableAttrs {
                                         class: Comptime,
                                     },
                                     variance: None,
@@ -48762,7 +48762,7 @@
                         (
                             Type(
                                 Type {
-                                    attrs: HirTemplateSvarAttrs {
+                                    attrs: HirTemplateVariableAttrs {
                                         class: Comptime,
                                     },
                                     variance: None,
@@ -48809,7 +48809,7 @@
                         (
                             Type(
                                 Type {
-                                    attrs: HirTemplateSvarAttrs {
+                                    attrs: HirTemplateVariableAttrs {
                                         class: Comptime,
                                     },
                                     variance: None,
@@ -48850,7 +48850,7 @@
                         (
                             Type(
                                 Type {
-                                    attrs: HirTemplateSvarAttrs {
+                                    attrs: HirTemplateVariableAttrs {
                                         class: Comptime,
                                     },
                                     variance: None,
@@ -48891,7 +48891,7 @@
                         (
                             Type(
                                 Type {
-                                    attrs: HirTemplateSvarAttrs {
+                                    attrs: HirTemplateVariableAttrs {
                                         class: Comptime,
                                     },
                                     variance: None,
@@ -48932,7 +48932,7 @@
                         (
                             Type(
                                 Type {
-                                    attrs: HirTemplateSvarAttrs {
+                                    attrs: HirTemplateVariableAttrs {
                                         class: Comptime,
                                     },
                                     variance: None,
@@ -48973,7 +48973,7 @@
                         (
                             Type(
                                 Type {
-                                    attrs: HirTemplateSvarAttrs {
+                                    attrs: HirTemplateVariableAttrs {
                                         class: Comptime,
                                     },
                                     variance: None,
@@ -49045,7 +49045,7 @@
                         (
                             Type(
                                 Type {
-                                    attrs: HirTemplateSvarAttrs {
+                                    attrs: HirTemplateVariableAttrs {
                                         class: Comptime,
                                     },
                                     variance: None,
@@ -49086,7 +49086,7 @@
                         (
                             Type(
                                 Type {
-                                    attrs: HirTemplateSvarAttrs {
+                                    attrs: HirTemplateVariableAttrs {
                                         class: Comptime,
                                     },
                                     variance: None,
@@ -49133,7 +49133,7 @@
                         (
                             Type(
                                 Type {
-                                    attrs: HirTemplateSvarAttrs {
+                                    attrs: HirTemplateVariableAttrs {
                                         class: Comptime,
                                     },
                                     variance: None,
@@ -49180,7 +49180,7 @@
                         (
                             Type(
                                 Type {
-                                    attrs: HirTemplateSvarAttrs {
+                                    attrs: HirTemplateVariableAttrs {
                                         class: Comptime,
                                     },
                                     variance: None,
@@ -49259,7 +49259,7 @@
                         (
                             Type(
                                 Type {
-                                    attrs: HirTemplateSvarAttrs {
+                                    attrs: HirTemplateVariableAttrs {
                                         class: Comptime,
                                     },
                                     variance: None,
@@ -49298,7 +49298,7 @@
                         (
                             Type(
                                 Type {
-                                    attrs: HirTemplateSvarAttrs {
+                                    attrs: HirTemplateVariableAttrs {
                                         class: Comptime,
                                     },
                                     variance: None,
@@ -49350,7 +49350,7 @@
                         (
                             Type(
                                 Type {
-                                    attrs: HirTemplateSvarAttrs {
+                                    attrs: HirTemplateVariableAttrs {
                                         class: Comptime,
                                     },
                                     variance: None,
@@ -49406,7 +49406,7 @@
                         (
                             Type(
                                 Type {
-                                    attrs: HirTemplateSvarAttrs {
+                                    attrs: HirTemplateVariableAttrs {
                                         class: Comptime,
                                     },
                                     variance: None,
@@ -49460,7 +49460,7 @@
                         (
                             Type(
                                 Type {
-                                    attrs: HirTemplateSvarAttrs {
+                                    attrs: HirTemplateVariableAttrs {
                                         class: Comptime,
                                     },
                                     variance: None,
@@ -49514,7 +49514,7 @@
                         (
                             Type(
                                 Type {
-                                    attrs: HirTemplateSvarAttrs {
+                                    attrs: HirTemplateVariableAttrs {
                                         class: Comptime,
                                     },
                                     variance: None,
@@ -49555,7 +49555,7 @@
                         (
                             Type(
                                 Type {
-                                    attrs: HirTemplateSvarAttrs {
+                                    attrs: HirTemplateVariableAttrs {
                                         class: Comptime,
                                     },
                                     variance: None,
@@ -49612,7 +49612,7 @@
                         (
                             Type(
                                 Type {
-                                    attrs: HirTemplateSvarAttrs {
+                                    attrs: HirTemplateVariableAttrs {
                                         class: Comptime,
                                     },
                                     variance: None,
@@ -49666,7 +49666,7 @@
                         (
                             Type(
                                 Type {
-                                    attrs: HirTemplateSvarAttrs {
+                                    attrs: HirTemplateVariableAttrs {
                                         class: Comptime,
                                     },
                                     variance: None,
@@ -49720,7 +49720,7 @@
                         (
                             Type(
                                 Type {
-                                    attrs: HirTemplateSvarAttrs {
+                                    attrs: HirTemplateVariableAttrs {
                                         class: Comptime,
                                     },
                                     variance: None,
@@ -49774,7 +49774,7 @@
                         (
                             Type(
                                 Type {
-                                    attrs: HirTemplateSvarAttrs {
+                                    attrs: HirTemplateVariableAttrs {
                                         class: Comptime,
                                     },
                                     variance: None,
@@ -49828,7 +49828,7 @@
                         (
                             Type(
                                 Type {
-                                    attrs: HirTemplateSvarAttrs {
+                                    attrs: HirTemplateVariableAttrs {
                                         class: Comptime,
                                     },
                                     variance: None,
@@ -49869,7 +49869,7 @@
                         (
                             Type(
                                 Type {
-                                    attrs: HirTemplateSvarAttrs {
+                                    attrs: HirTemplateVariableAttrs {
                                         class: Comptime,
                                     },
                                     variance: None,
@@ -49926,7 +49926,7 @@
                         (
                             Type(
                                 Type {
-                                    attrs: HirTemplateSvarAttrs {
+                                    attrs: HirTemplateVariableAttrs {
                                         class: Comptime,
                                     },
                                     variance: None,
@@ -49980,7 +49980,7 @@
                         (
                             Type(
                                 Type {
-                                    attrs: HirTemplateSvarAttrs {
+                                    attrs: HirTemplateVariableAttrs {
                                         class: Comptime,
                                     },
                                     variance: None,
@@ -50051,7 +50051,7 @@
                         (
                             Type(
                                 Type {
-                                    attrs: HirTemplateSvarAttrs {
+                                    attrs: HirTemplateVariableAttrs {
                                         class: Comptime,
                                     },
                                     variance: None,
@@ -50073,7 +50073,7 @@
                         (
                             Type(
                                 Type {
-                                    attrs: HirTemplateSvarAttrs {
+                                    attrs: HirTemplateVariableAttrs {
                                         class: Comptime,
                                     },
                                     variance: None,
@@ -50144,7 +50144,7 @@
                         (
                             Type(
                                 Type {
-                                    attrs: HirTemplateSvarAttrs {
+                                    attrs: HirTemplateVariableAttrs {
                                         class: Comptime,
                                     },
                                     variance: None,
@@ -50166,7 +50166,7 @@
                         (
                             Type(
                                 Type {
-                                    attrs: HirTemplateSvarAttrs {
+                                    attrs: HirTemplateVariableAttrs {
                                         class: Comptime,
                                     },
                                     variance: None,
@@ -50237,7 +50237,7 @@
                         (
                             Type(
                                 Type {
-                                    attrs: HirTemplateSvarAttrs {
+                                    attrs: HirTemplateVariableAttrs {
                                         class: Comptime,
                                     },
                                     variance: None,
@@ -50259,7 +50259,7 @@
                         (
                             Type(
                                 Type {
-                                    attrs: HirTemplateSvarAttrs {
+                                    attrs: HirTemplateVariableAttrs {
                                         class: Comptime,
                                     },
                                     variance: None,
@@ -50300,7 +50300,7 @@
                         (
                             Type(
                                 Type {
-                                    attrs: HirTemplateSvarAttrs {
+                                    attrs: HirTemplateVariableAttrs {
                                         class: Comptime,
                                     },
                                     variance: None,
@@ -50322,7 +50322,7 @@
                         (
                             Type(
                                 Type {
-                                    attrs: HirTemplateSvarAttrs {
+                                    attrs: HirTemplateVariableAttrs {
                                         class: Comptime,
                                     },
                                     variance: None,
@@ -50396,7 +50396,7 @@
                         (
                             Type(
                                 Type {
-                                    attrs: HirTemplateSvarAttrs {
+                                    attrs: HirTemplateVariableAttrs {
                                         class: Comptime,
                                     },
                                     variance: None,
@@ -50418,7 +50418,7 @@
                         (
                             Type(
                                 Type {
-                                    attrs: HirTemplateSvarAttrs {
+                                    attrs: HirTemplateVariableAttrs {
                                         class: Comptime,
                                     },
                                     variance: None,
@@ -50489,7 +50489,7 @@
                         (
                             Type(
                                 Type {
-                                    attrs: HirTemplateSvarAttrs {
+                                    attrs: HirTemplateVariableAttrs {
                                         class: Comptime,
                                     },
                                     variance: None,
@@ -50511,7 +50511,7 @@
                         (
                             Type(
                                 Type {
-                                    attrs: HirTemplateSvarAttrs {
+                                    attrs: HirTemplateVariableAttrs {
                                         class: Comptime,
                                     },
                                     variance: None,
@@ -50582,7 +50582,7 @@
                         (
                             Type(
                                 Type {
-                                    attrs: HirTemplateSvarAttrs {
+                                    attrs: HirTemplateVariableAttrs {
                                         class: Comptime,
                                     },
                                     variance: None,
@@ -50604,7 +50604,7 @@
                         (
                             Type(
                                 Type {
-                                    attrs: HirTemplateSvarAttrs {
+                                    attrs: HirTemplateVariableAttrs {
                                         class: Comptime,
                                     },
                                     variance: None,
@@ -50645,7 +50645,7 @@
                         (
                             Type(
                                 Type {
-                                    attrs: HirTemplateSvarAttrs {
+                                    attrs: HirTemplateVariableAttrs {
                                         class: Comptime,
                                     },
                                     variance: None,
@@ -50667,7 +50667,7 @@
                         (
                             Type(
                                 Type {
-                                    attrs: HirTemplateSvarAttrs {
+                                    attrs: HirTemplateVariableAttrs {
                                         class: Comptime,
                                     },
                                     variance: None,

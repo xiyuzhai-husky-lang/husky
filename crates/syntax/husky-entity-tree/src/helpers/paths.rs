@@ -30,8 +30,6 @@ pub fn module_item_syn_node_paths(
             node_paths.push(attr_syn_node_path.into())
         }
     };
-    // left for future
-    // // todo: trait item
     // for syn_node_path in item_tree_sheet.major_item_syn_node_paths() {
     //     push_with_attrs(syn_node_path);
     //     match syn_node_path {

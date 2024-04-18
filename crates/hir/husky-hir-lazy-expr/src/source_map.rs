@@ -4,7 +4,7 @@ use crate::{
 };
 use husky_sem_expr::{SemaExprIdx, SemaExprMap, SemaStmtIdx, SemaStmtMap};
 use husky_syn_expr::{
-    CurrentVariableIdx, SynPatternIdx, SynPatternMap, SynPatternRoot, SynSymbolMap,
+    CurrentVariableIdx, SynPatternIdx, SynPatternMap, SynPatternRoot, VariableMap,
 };
 
 #[salsa::tracked(db = HirLazyExprDb, jar = HirLazyExprJar, constructor = new_inner)]
@@ -18,7 +18,7 @@ pub struct HirLazyExprSourceMapData {
     syn_to_hir_lazy_pattern_expr_idx_map: SynPatternMap<HirLazyPatternExprIdx>,
     sem_to_hir_lazy_expr_idx_map: SemaExprMap<HirLazyExprIdx>,
     sem_to_hir_lazy_stmt_idx_map: SemaStmtMap<HirLazyStmtIdx>,
-    syn_symbol_to_hir_lazy_variable_map: SynSymbolMap<HirLazyVariableIdx>,
+    syn_symbol_to_hir_lazy_variable_map: VariableMap<HirLazyVariableIdx>,
 }
 
 impl HirLazyExprSourceMapData {
@@ -69,7 +69,7 @@ impl HirLazyExprSourceMap {
         syn_to_hir_lazy_pattern_expr_idx_map: SynPatternMap<HirLazyPatternExprIdx>,
         sem_to_hir_lazy_expr_idx_map: SemaExprMap<HirLazyExprIdx>,
         sem_to_hir_lazy_stmt_idx_map: SemaStmtMap<HirLazyStmtIdx>,
-        syn_symbol_to_hir_lazy_variable_map: SynSymbolMap<HirLazyVariableIdx>,
+        syn_symbol_to_hir_lazy_variable_map: VariableMap<HirLazyVariableIdx>,
     ) -> Self {
         Self::new_inner(
             db,

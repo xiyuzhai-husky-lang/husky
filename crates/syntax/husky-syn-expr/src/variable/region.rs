@@ -105,7 +105,7 @@ impl VariableRegionData {
     #[inline(always)]
     pub(crate) fn define_symbol(
         &mut self,
-        variable: CurrentSynSymbolEntry,
+        variable: CurrentVariableEntry,
         ty_constraint: Option<SyndicateTypeConstraint>,
     ) -> CurrentVariableIdx {
         let symbol = self.current_syn_symbol_arena.alloc_one(variable);
@@ -120,7 +120,7 @@ impl VariableRegionData {
     #[inline(always)]
     pub(crate) fn define_variables(
         &mut self,
-        variables: impl IntoIterator<Item = CurrentSynSymbolEntry>,
+        variables: impl IntoIterator<Item = CurrentVariableEntry>,
         ty_constraint: Option<SyndicateTypeConstraint>,
     ) -> CurrentSynSymbolIdxRange {
         let symbols = self.current_syn_symbol_arena.alloc_batch(variables);
@@ -176,19 +176,19 @@ impl VariableRegionData {
 
     pub fn indexed_inherited_syn_symbols<'a>(
         &'a self,
-    ) -> impl Iterator<Item = (InheritedVariableIdx, InheritedVariable)> + 'a {
+    ) -> impl Iterator<Item = (InheritedSymbolicVariableIdx, InheritedVariable)> + 'a {
         self.inherited_syn_symbol_arena.indexed_copy_iter()
     }
 
     pub fn current_syn_symbols<'a>(
         &'a self,
-    ) -> impl Iterator<Item = &'a CurrentSynSymbolEntry> + 'a {
+    ) -> impl Iterator<Item = &'a CurrentVariableEntry> + 'a {
         self.current_syn_symbol_arena.iter()
     }
 
     pub fn indexed_current_syn_symbols<'a>(
         &'a self,
-    ) -> impl Iterator<Item = (CurrentVariableIdx, &'a CurrentSynSymbolEntry)> + 'a {
+    ) -> impl Iterator<Item = (CurrentVariableIdx, &'a CurrentVariableEntry)> + 'a {
         self.current_syn_symbol_arena.indexed_iter()
     }
 
@@ -203,32 +203,30 @@ impl VariableRegionData {
         }
         for (current_syn_symbol_idx, current_syn_symbol) in self.indexed_current_syn_symbols() {
             let kind = match current_syn_symbol.data {
-                CurrentSynSymbolData::SimpleParenateParameter { ident, .. } => {
-                    InheritedVariableKind::ParenateParameter { ident }
+                CurrentVariableData::SimpleParenateParameter { ident, .. } => {
+                    InheritedVariableKind::Parenate { ident }
                 }
-                CurrentSynSymbolData::LetVariable { .. } => unreachable!(),
-                CurrentSynSymbolData::BeVariable { .. } => todo!(),
-                CurrentSynSymbolData::CaseVariable { .. } => unreachable!(),
-                CurrentSynSymbolData::LoopVariable { .. } => unreachable!(),
-                CurrentSynSymbolData::TemplateParameter {
+                CurrentVariableData::LetVariable { .. } => unreachable!(),
+                CurrentVariableData::BeVariable { .. } => todo!(),
+                CurrentVariableData::CaseVariable { .. } => unreachable!(),
+                CurrentVariableData::LoopVariable { .. } => unreachable!(),
+                CurrentVariableData::TemplateParameter {
                     ref template_parameter_variant,
                     ..
-                } => {
-                    InheritedVariableKind::TemplateParameter(template_parameter_variant.bequeath())
-                }
-                CurrentSynSymbolData::VariadicParenateParameter { ident_token, .. } => {
-                    InheritedVariableKind::ParenateParameter {
+                } => InheritedVariableKind::Template(template_parameter_variant.bequeath()),
+                CurrentVariableData::VariadicParenateParameter { ident_token, .. } => {
+                    InheritedVariableKind::Parenate {
                         ident: ident_token.ident(),
                     }
                 }
-                CurrentSynSymbolData::SelfType => unreachable!(),
-                CurrentSynSymbolData::SelfValue { .. } => todo!(),
-                CurrentSynSymbolData::FieldVariable { ident_token } => {
-                    InheritedVariableKind::FieldVariable {
+                CurrentVariableData::SelfType => unreachable!(),
+                CurrentVariableData::SelfValue { .. } => todo!(),
+                CurrentVariableData::FieldVariable { ident_token } => {
+                    InheritedVariableKind::SelfField {
                         ident: ident_token.ident(),
                     }
                 }
-                CurrentSynSymbolData::SimpleClosureParameter {
+                CurrentVariableData::SimpleClosureParameter {
                     ident,
                     pattern_symbol_idx,
                 } => todo!(),
@@ -262,16 +260,16 @@ impl VariableRegionData {
     }
 }
 
-impl std::ops::Index<InheritedVariableIdx> for VariableRegionData {
+impl std::ops::Index<InheritedSymbolicVariableIdx> for VariableRegionData {
     type Output = InheritedVariable;
 
-    fn index(&self, index: InheritedVariableIdx) -> &Self::Output {
+    fn index(&self, index: InheritedSymbolicVariableIdx) -> &Self::Output {
         &self.inherited_syn_symbol_arena[index]
     }
 }
 
 impl std::ops::Index<CurrentVariableIdx> for VariableRegionData {
-    type Output = CurrentSynSymbolEntry;
+    type Output = CurrentVariableEntry;
 
     fn index(&self, index: CurrentVariableIdx) -> &Self::Output {
         &self.current_syn_symbol_arena[index]
@@ -286,8 +284,8 @@ pub enum Prevariable {}
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct LocalSymbolIdx(usize);
 
-impl From<InheritedVariableIdx> for LocalSymbolIdx {
-    fn from(value: InheritedVariableIdx) -> Self {
+impl From<InheritedSymbolicVariableIdx> for LocalSymbolIdx {
+    fn from(value: InheritedSymbolicVariableIdx) -> Self {
         Self(value.index())
     }
 }
@@ -305,7 +303,7 @@ pub trait IntoLocalSymbolIdx: Copy {
     fn into_local_symbol_idx(self, expr_region_data: &SynExprRegionData) -> LocalSymbolIdx;
 }
 
-impl IntoLocalSymbolIdx for InheritedVariableIdx {
+impl IntoLocalSymbolIdx for InheritedSymbolicVariableIdx {
     fn into_local_symbol_idx(self, _: &SynExprRegionData) -> LocalSymbolIdx {
         self.into()
     }

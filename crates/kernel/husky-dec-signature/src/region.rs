@@ -1,9 +1,9 @@
 // todo: move this to husky-dec-term
 mod error;
-mod symbol;
+mod variable;
 
 pub use self::error::*;
-pub use self::symbol::*;
+pub use self::variable::*;
 
 pub(crate) use engine::*;
 
@@ -22,7 +22,7 @@ use husky_syn_expr::{
 #[derive(Debug, PartialEq, Eq)]
 pub struct SynExprDecTermRegion {
     path: SynNodeRegionPath,
-    term_symbol_region: DecSvarRegion,
+    term_symbol_region: DecSymbolicVariableRegion,
     expr_terms: SynExprMap<DecTermResult2<DecTerm>>,
     pattern_expr_ty_infos: SynPatternMap<PatternExprDeclarativeTypeInfo>,
     pattern_symbol_ty_infos: SynPatternSymbolMap<PatternSymbolDeclarativeTypeInfo>,
@@ -31,7 +31,7 @@ pub struct SynExprDecTermRegion {
 impl SynExprDecTermRegion {
     pub(crate) fn new(
         path: SynNodeRegionPath,
-        term_symbol_region: DecSvarRegion,
+        term_symbol_region: DecSymbolicVariableRegion,
         expr_terms: SynExprMap<DecTermResult2<DecTerm>>,
         pattern_expr_ty_infos: SynPatternMap<PatternExprDeclarativeTypeInfo>,
         pattern_symbol_ty_infos: SynPatternSymbolMap<PatternSymbolDeclarativeTypeInfo>,
@@ -45,16 +45,16 @@ impl SynExprDecTermRegion {
         }
     }
 
-    pub fn dec_symbol_region(&self) -> &DecSvarRegion {
+    pub fn dec_symbol_region(&self) -> &DecSymbolicVariableRegion {
         &self.term_symbol_region
     }
 
-    pub fn current_syn_symbol_signature(
+    pub fn current_variable_signature(
         &self,
-        current_syn_symbol_idx: CurrentVariableIdx,
-    ) -> Option<DecSvarSignature> {
+        current_variable_idx: CurrentVariableIdx,
+    ) -> Option<DecSymbolicVariableSignature> {
         self.term_symbol_region
-            .current_parameter_symbol_signature(current_syn_symbol_idx)
+            .current_parameter_variable_signature(current_variable_idx)
     }
 
     pub fn expr_term(&self, expr: SynExprIdx) -> DecTermResultBorrowed2<DecTerm> {

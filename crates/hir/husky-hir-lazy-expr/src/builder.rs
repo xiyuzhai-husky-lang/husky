@@ -7,8 +7,8 @@ use husky_sem_expr::{
 };
 use husky_sem_place_contract::region::{sem_place_contract_region, SemaPlaceContractRegion};
 use husky_syn_expr::{
-    CurrentVariableIdx, InheritedVariableIdx, SynExprRegionData, SynExprRootKind, SynPatternMap,
-    SynSymbolMap,
+    CurrentVariableIdx, InheritedSymbolicVariableIdx, SynExprRegionData, SynExprRootKind,
+    SynPatternMap, VariableMap,
 };
 use salsa::DebugWithDb;
 
@@ -24,7 +24,7 @@ pub(crate) struct HirLazyExprBuilder<'a> {
     sem_to_hir_lazy_expr_idx_map: SemaExprMap<HirLazyExprIdx>,
     sem_to_hir_lazy_stmt_idx_map: SemaStmtMap<HirLazyStmtIdx>,
     hir_lazy_variable_region: HirLazyVariableRegion,
-    syn_symbol_to_hir_lazy_variable_map: SynSymbolMap<HirLazyVariableIdx>,
+    syn_symbol_to_hir_lazy_variable_map: VariableMap<HirLazyVariableIdx>,
 }
 
 impl<'a> HirLazyExprBuilder<'a> {
@@ -156,7 +156,7 @@ impl<'a> HirLazyExprBuilder<'a> {
 
     pub(crate) fn inherited_syn_symbol_to_hir_lazy_variable(
         &self,
-        inherited_syn_symbol_idx: InheritedVariableIdx,
+        inherited_syn_symbol_idx: InheritedSymbolicVariableIdx,
     ) -> Option<HirLazyVariableIdx> {
         self.syn_symbol_to_hir_lazy_variable_map
             .get_inherited(inherited_syn_symbol_idx)

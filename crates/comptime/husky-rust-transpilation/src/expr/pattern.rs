@@ -1,5 +1,5 @@
 use husky_print_utils::p;
-use husky_term_prelude::SvarModifier;
+use husky_term_prelude::VariableModifier;
 
 use super::*;
 
@@ -15,23 +15,23 @@ impl TranspileToRustWith<HirEagerExprRegion> for HirEagerPatternIdx {
             } => {
                 if let Some(symbol_modifier) = symbol_modifier {
                     match symbol_modifier {
-                        SvarModifier::Pure => (),
-                        SvarModifier::Owned => todo!(),
-                        SvarModifier::Mut => builder.keyword(RustKeyword::Mut),
-                        SvarModifier::Ref => {
+                        VariableModifier::Pure => (),
+                        VariableModifier::Owned => todo!(),
+                        VariableModifier::Mut => builder.keyword(RustKeyword::Mut),
+                        VariableModifier::Ref => {
                             p!(ident.debug(db));
                             todo!()
                         }
-                        SvarModifier::RefMut => {
+                        VariableModifier::RefMut => {
                             builder.keyword(RustKeyword::Ref);
                             builder.keyword(RustKeyword::Mut)
                         }
-                        SvarModifier::Const => todo!(),
-                        SvarModifier::Ambersand(_) => todo!(),
-                        SvarModifier::AmbersandMut(_) => todo!(),
-                        SvarModifier::Le => todo!(),
-                        SvarModifier::Tilde => todo!(),
-                        SvarModifier::At => todo!(),
+                        VariableModifier::Const => todo!(),
+                        VariableModifier::Ambersand(_) => todo!(),
+                        VariableModifier::AmbersandMut(_) => todo!(),
+                        VariableModifier::Le => todo!(),
+                        VariableModifier::Tilde => todo!(),
+                        VariableModifier::At => todo!(),
                     }
                 }
                 ident.transpile_to_rust(builder)

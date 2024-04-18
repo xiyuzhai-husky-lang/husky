@@ -10,7 +10,7 @@ pub mod ty_as_trai_item;
 
 use self::{
     abstraction::EthAbstraction, application::EthApplication, curry::EthCurry, hvar::EthHvar,
-    ritchie::EthRitchie, svar::EthSvar, trai_constraint::EthTraitConstraint,
+    ritchie::EthRitchie, svar::EthSymbolicVariable, trai_constraint::EthTraitConstraint,
     ty_as_trai_item::EthTypeAsTraitItem,
 };
 use crate::{instantiation::*, term::application::TermFunctionReduced};
@@ -28,7 +28,7 @@ pub enum EthTerm {
     ///
     /// literal: 1,1.0, true, false; variable, itemPath
     Literal(Literal),
-    Symbol(EthSvar),
+    Symbol(EthSymbolicVariable),
     /// the name `hvar` is to be distinguishable from runtime variable
     Hvar(EthHvar),
     EntityPath(ItemPathTerm),
@@ -87,8 +87,12 @@ impl EthTerm {
             DecTerm::Literal(literal) => {
                 EthTerm::from_literal_declarative_term(db, literal, ty_expectation)?
             }
-            DecTerm::Symbol(declarative_term) => EthSvar::from_dec(db, declarative_term)?.into(),
-            DecTerm::Hvar(declarative_term) => EthHvar::from_dec(db, declarative_term)?.into(),
+            DecTerm::SymbolicVariable(declarative_term) => {
+                EthSymbolicVariable::from_dec(db, declarative_term)?.into()
+            }
+            DecTerm::LambdaVariable(declarative_term) => {
+                EthHvar::from_dec(db, declarative_term)?.into()
+            }
             DecTerm::EntityPath(declarative_term) => match declarative_term {
                 DecItemPath::Fugitive(path) => ItemPathTerm::Fugitive(path).into(),
                 DecItemPath::Trait(path) => ItemPathTerm::Trait(path).into(),
@@ -162,7 +166,7 @@ impl EthTerm {
     pub(crate) fn into_declarative(self, db: &::salsa::Db) -> DecTerm {
         match self {
             EthTerm::Literal(slf) => DecLiteral::Resolved(slf).into(),
-            EthTerm::Symbol(slf) => DecSvar::new(
+            EthTerm::Symbol(slf) => DecSymbolicVariable::new(
                 db,
                 slf.toolchain(db),
                 Ok(slf.ty(db).into_declarative(db)),

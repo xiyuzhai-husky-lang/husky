@@ -14,12 +14,12 @@ use vec_like::{SmallVecMap, SmallVecPairMap};
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct HirInstantiation {
-    symbol_map: SmallVecPairMap<HirTemplateSvar, HirTermSvarResolution, 4>,
+    symbol_map: SmallVecPairMap<HirTemplateVariable, HirTermSymbolicVariableResolution, 4>,
     separator: Option<u8>,
 }
 
 impl std::ops::Deref for HirInstantiation {
-    type Target = [(HirTemplateSvar, HirTermSvarResolution)];
+    type Target = [(HirTemplateVariable, HirTermSymbolicVariableResolution)];
 
     fn deref(&self) -> &Self::Target {
         &self.symbol_map
@@ -28,24 +28,24 @@ impl std::ops::Deref for HirInstantiation {
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub enum HirTermSvarResolution {
+pub enum HirTermSymbolicVariableResolution {
     Explicit(HirTemplateArgument),
     /// means we don't care about it now
     SelfLifetime,
     SelfContractedQuary(HirContractedQuary),
 }
-impl HirTermSvarResolution {
+impl HirTermSymbolicVariableResolution {
     fn is_univalent_for_javelin(&self) -> bool {
         match self {
-            HirTermSvarResolution::Explicit(arg) => match arg {
+            HirTermSymbolicVariableResolution::Explicit(arg) => match arg {
                 HirTemplateArgument::Vacant => true,
                 HirTemplateArgument::Type(_) => false,
                 HirTemplateArgument::Constant(_) => false,
                 HirTemplateArgument::Lifetime(_) => true,
                 HirTemplateArgument::ContractedQuary(_) => true,
             },
-            HirTermSvarResolution::SelfLifetime => true,
-            HirTermSvarResolution::SelfContractedQuary(_) => true,
+            HirTermSymbolicVariableResolution::SelfLifetime => true,
+            HirTermSymbolicVariableResolution::SelfContractedQuary(_) => true,
         }
     }
 }
@@ -58,26 +58,31 @@ impl HirInstantiation {
         terms: &FlyTerms,
     ) -> Self {
         let (symbol_map0, symbol_map1) = &instantiation.symbol_map_splitted();
-        let t = |&(symbol, resolution)| match HirTemplateSvar::from_eth(symbol, db) {
+        let t = |&(symbol, resolution)| match HirTemplateVariable::from_eth(symbol, db) {
             Some(symbol) => Some((
                 symbol,
                 match resolution {
-                    FlyTermSymbolResolution::Explicit(term) => HirTermSvarResolution::Explicit(
-                        HirTemplateArgument::from_fly(term, db, terms).expect("some"),
-                    ),
-                    FlyTermSymbolResolution::SelfLifetime => HirTermSvarResolution::SelfLifetime,
+                    FlyTermSymbolResolution::Explicit(term) => {
+                        HirTermSymbolicVariableResolution::Explicit(
+                            HirTemplateArgument::from_fly(term, db, terms).expect("some"),
+                        )
+                    }
+                    FlyTermSymbolResolution::SelfLifetime => {
+                        HirTermSymbolicVariableResolution::SelfLifetime
+                    }
                     FlyTermSymbolResolution::SelfQuary(quary) => {
-                        HirTermSvarResolution::SelfContractedQuary(HirContractedQuary::from_fly(
-                            quary,
-                            place_contract_site,
-                        ))
+                        HirTermSymbolicVariableResolution::SelfContractedQuary(
+                            HirContractedQuary::from_fly(quary, place_contract_site),
+                        )
                     }
                 },
             )),
             None => None,
         };
-        let mut symbol_map: SmallVecMap<(HirTemplateSvar, HirTermSvarResolution), 4> =
-            symbol_map0.iter().filter_map(t).collect();
+        let mut symbol_map: SmallVecMap<
+            (HirTemplateVariable, HirTermSymbolicVariableResolution),
+            4,
+        > = symbol_map0.iter().filter_map(t).collect();
         let mut separator: Option<u8> = None;
         match symbol_map1 {
             Some(symbol_map1) => {
@@ -94,17 +99,19 @@ impl HirInstantiation {
 
     pub fn from_eth(ethereal_instantiation: &EthInstantiation, db: &::salsa::Db) -> Self {
         let (symbol_map0, symbol_map1) = &ethereal_instantiation.symbol_map_splitted();
-        let t = |&(symbol, term)| match HirTemplateSvar::from_eth(symbol, db) {
+        let t = |&(symbol, term)| match HirTemplateVariable::from_eth(symbol, db) {
             Some(symbol) => Some((
                 symbol,
-                HirTermSvarResolution::Explicit(
+                HirTermSymbolicVariableResolution::Explicit(
                     HirTemplateArgument::from_eth(term, db).expect("some"),
                 ),
             )),
             None => None,
         };
-        let mut symbol_map: SmallVecMap<(HirTemplateSvar, HirTermSvarResolution), 4> =
-            symbol_map0.iter().filter_map(t).collect();
+        let mut symbol_map: SmallVecMap<
+            (HirTemplateVariable, HirTermSymbolicVariableResolution),
+            4,
+        > = symbol_map0.iter().filter_map(t).collect();
         let mut separator: Option<u8> = None;
         match symbol_map1 {
             Some(symbol_map1) => {
@@ -119,7 +126,7 @@ impl HirInstantiation {
         }
     }
 
-    pub fn symbol_map(&self) -> &[(HirTemplateSvar, HirTermSvarResolution)] {
+    pub fn symbol_map(&self) -> &[(HirTemplateVariable, HirTermSymbolicVariableResolution)] {
         self.symbol_map.as_ref()
     }
 
@@ -127,9 +134,9 @@ impl HirInstantiation {
         self.symbol_map
             .iter()
             .filter_map(|&(_, res)| match res {
-                HirTermSvarResolution::Explicit(_) => None,
-                HirTermSvarResolution::SelfLifetime => None,
-                HirTermSvarResolution::SelfContractedQuary(quary) => Some(quary),
+                HirTermSymbolicVariableResolution::Explicit(_) => None,
+                HirTermSymbolicVariableResolution::SelfLifetime => None,
+                HirTermSymbolicVariableResolution::SelfContractedQuary(quary) => Some(quary),
             })
             .collect()
     }

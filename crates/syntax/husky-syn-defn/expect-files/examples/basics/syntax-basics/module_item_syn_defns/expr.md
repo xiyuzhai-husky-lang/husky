@@ -173,7 +173,7 @@
                             },
                             pattern_symbol_arena: Arena {
                                 data: [
-                                    SynPatternSymbol::Atom(
+                                    PatternVariable::Atom(
                                         0,
                                     ),
                                 ],
@@ -198,7 +198,7 @@
                             },
                             current_syn_symbol_arena: Arena {
                                 data: [
-                                    CurrentSynSymbolEntry {
+                                    CurrentVariableEntry {
                                         modifier: Pure,
                                         access_start: RegionalTokenIdx(
                                             3,
@@ -210,7 +210,7 @@
                                                 ),
                                             ),
                                         ),
-                                        data: CurrentSynSymbolData::LetVariable {
+                                        data: CurrentVariableData::LetVariable {
                                             ident: `t`,
                                             pattern_symbol_idx: 0,
                                         },
@@ -501,10 +501,10 @@
                             },
                             pattern_symbol_arena: Arena {
                                 data: [
-                                    SynPatternSymbol::Atom(
+                                    PatternVariable::Atom(
                                         0,
                                     ),
-                                    SynPatternSymbol::Atom(
+                                    PatternVariable::Atom(
                                         1,
                                     ),
                                 ],
@@ -536,7 +536,7 @@
                             },
                             current_syn_symbol_arena: Arena {
                                 data: [
-                                    CurrentSynSymbolEntry {
+                                    CurrentVariableEntry {
                                         modifier: Pure,
                                         access_start: RegionalTokenIdx(
                                             3,
@@ -548,12 +548,12 @@
                                                 ),
                                             ),
                                         ),
-                                        data: CurrentSynSymbolData::LetVariable {
+                                        data: CurrentVariableData::LetVariable {
                                             ident: `t`,
                                             pattern_symbol_idx: 0,
                                         },
                                     },
-                                    CurrentSynSymbolEntry {
+                                    CurrentVariableEntry {
                                         modifier: Pure,
                                         access_start: RegionalTokenIdx(
                                             6,
@@ -565,7 +565,7 @@
                                                 ),
                                             ),
                                         ),
-                                        data: CurrentSynSymbolData::SimpleClosureParameter {
+                                        data: CurrentVariableData::SimpleClosureParameter {
                                             ident: `x`,
                                             pattern_symbol_idx: 1,
                                         },
@@ -891,10 +891,10 @@
                             },
                             pattern_symbol_arena: Arena {
                                 data: [
-                                    SynPatternSymbol::Atom(
+                                    PatternVariable::Atom(
                                         0,
                                     ),
-                                    SynPatternSymbol::Atom(
+                                    PatternVariable::Atom(
                                         1,
                                     ),
                                 ],
@@ -926,7 +926,7 @@
                             },
                             current_syn_symbol_arena: Arena {
                                 data: [
-                                    CurrentSynSymbolEntry {
+                                    CurrentVariableEntry {
                                         modifier: Pure,
                                         access_start: RegionalTokenIdx(
                                             3,
@@ -938,12 +938,12 @@
                                                 ),
                                             ),
                                         ),
-                                        data: CurrentSynSymbolData::LetVariable {
+                                        data: CurrentVariableData::LetVariable {
                                             ident: `t`,
                                             pattern_symbol_idx: 0,
                                         },
                                     },
-                                    CurrentSynSymbolEntry {
+                                    CurrentVariableEntry {
                                         modifier: Pure,
                                         access_start: RegionalTokenIdx(
                                             6,
@@ -955,7 +955,7 @@
                                                 ),
                                             ),
                                         ),
-                                        data: CurrentSynSymbolData::SimpleClosureParameter {
+                                        data: CurrentVariableData::SimpleClosureParameter {
                                             ident: `x`,
                                             pattern_symbol_idx: 1,
                                         },

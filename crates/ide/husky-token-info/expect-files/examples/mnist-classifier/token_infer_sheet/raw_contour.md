@@ -2361,7 +2361,7 @@ Ok(
                     ),
                     data: TokenInfoData::InheritedSynSymbol {
                         inherited_syn_symbol_idx: 0,
-                        inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                        inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                             ident: `start`,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -2433,7 +2433,7 @@ Ok(
                     ),
                     data: TokenInfoData::InheritedSynSymbol {
                         inherited_syn_symbol_idx: 1,
-                        inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                        inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                             ident: `end`,
                         },
                         syn_expr_region: ExprRegionLeash(_),

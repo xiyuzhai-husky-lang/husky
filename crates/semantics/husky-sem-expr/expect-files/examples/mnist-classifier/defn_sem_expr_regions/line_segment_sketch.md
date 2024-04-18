@@ -76,7 +76,7 @@
                                         5,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `u`,
                                     },
                                 },
@@ -206,7 +206,7 @@
                                         9,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `u`,
                                     },
                                 },
@@ -381,7 +381,7 @@
                                         13,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `u`,
                                     },
                                 },
@@ -511,7 +511,7 @@
                                         17,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `u`,
                                     },
                                 },
@@ -904,7 +904,7 @@
                                         28,
                                     ),
                                     inherited_syn_symbol_idx: 1,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `r`,
                                     },
                                 },
@@ -994,7 +994,7 @@
                                         32,
                                     ),
                                     inherited_syn_symbol_idx: 1,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `r`,
                                     },
                                 },
@@ -1264,7 +1264,7 @@
                                         41,
                                     ),
                                     inherited_syn_symbol_idx: 1,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `r`,
                                     },
                                 },
@@ -1309,7 +1309,7 @@
                                         43,
                                     ),
                                     inherited_syn_symbol_idx: 1,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `r`,
                                     },
                                 },
@@ -1662,7 +1662,7 @@
                                         54,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `u`,
                                     },
                                 },
@@ -2016,7 +2016,7 @@
                                         65,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `u`,
                                     },
                                 },
@@ -2325,7 +2325,7 @@
                                         72,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `u`,
                                     },
                                 },
@@ -2545,7 +2545,7 @@
                                         78,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `u`,
                                     },
                                 },
@@ -5407,7 +5407,7 @@
                                         5,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `u`,
                                     },
                                 },
@@ -5537,7 +5537,7 @@
                                         9,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `u`,
                                     },
                                 },
@@ -5712,7 +5712,7 @@
                                         13,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `u`,
                                     },
                                 },
@@ -5842,7 +5842,7 @@
                                         17,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `u`,
                                     },
                                 },
@@ -6235,7 +6235,7 @@
                                         28,
                                     ),
                                     inherited_syn_symbol_idx: 1,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `r`,
                                     },
                                 },
@@ -6325,7 +6325,7 @@
                                         32,
                                     ),
                                     inherited_syn_symbol_idx: 1,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `r`,
                                     },
                                 },
@@ -6595,7 +6595,7 @@
                                         41,
                                     ),
                                     inherited_syn_symbol_idx: 1,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `r`,
                                     },
                                 },
@@ -6640,7 +6640,7 @@
                                         43,
                                     ),
                                     inherited_syn_symbol_idx: 1,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `r`,
                                     },
                                 },
@@ -7037,7 +7037,7 @@
                                         55,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `u`,
                                     },
                                 },
@@ -7347,7 +7347,7 @@
                                         65,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `u`,
                                     },
                                 },
@@ -7656,7 +7656,7 @@
                                         72,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `u`,
                                     },
                                 },
@@ -7876,7 +7876,7 @@
                                         78,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `u`,
                                     },
                                 },
@@ -10798,7 +10798,7 @@
                                         5,
                                     ),
                                     inherited_syn_symbol_idx: 1,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `start`,
                                     },
                                 },
@@ -10843,7 +10843,7 @@
                                         10,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `ct`,
                                     },
                                 },
@@ -10888,7 +10888,7 @@
                                         14,
                                     ),
                                     inherited_syn_symbol_idx: 1,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `start`,
                                     },
                                 },
@@ -11248,7 +11248,7 @@
                                         23,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `ct`,
                                     },
                                 },
@@ -11486,7 +11486,7 @@
                                         33,
                                     ),
                                     inherited_syn_symbol_idx: 1,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `start`,
                                     },
                                 },
@@ -11907,7 +11907,7 @@
                                         47,
                                     ),
                                     inherited_syn_symbol_idx: 2,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `r`,
                                     },
                                 },
@@ -12164,7 +12164,7 @@
                                         53,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `ct`,
                                     },
                                 },
@@ -12209,7 +12209,7 @@
                                         57,
                                     ),
                                     inherited_syn_symbol_idx: 1,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `start`,
                                     },
                                 },
@@ -12763,7 +12763,7 @@
                                         70,
                                     ),
                                     inherited_syn_symbol_idx: 2,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `r`,
                                     },
                                 },
@@ -12991,7 +12991,7 @@
                                         82,
                                     ),
                                     inherited_syn_symbol_idx: 2,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `r`,
                                     },
                                 },
@@ -13233,7 +13233,7 @@
                                         92,
                                     ),
                                     inherited_syn_symbol_idx: 2,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `r`,
                                     },
                                 },
@@ -14539,7 +14539,7 @@
                                         135,
                                     ),
                                     inherited_syn_symbol_idx: 2,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `r`,
                                     },
                                 },
@@ -14995,7 +14995,7 @@
                                         149,
                                     ),
                                     inherited_syn_symbol_idx: 2,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `r`,
                                     },
                                 },
@@ -15178,7 +15178,7 @@
                                         158,
                                     ),
                                     inherited_syn_symbol_idx: 2,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `r`,
                                     },
                                 },
@@ -15420,7 +15420,7 @@
                                         167,
                                     ),
                                     inherited_syn_symbol_idx: 2,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `r`,
                                     },
                                 },
@@ -16599,7 +16599,7 @@
                                         199,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `ct`,
                                     },
                                 },
@@ -16644,7 +16644,7 @@
                                         203,
                                     ),
                                     inherited_syn_symbol_idx: 1,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `start`,
                                     },
                                 },
@@ -17092,7 +17092,7 @@
                                         212,
                                     ),
                                     inherited_syn_symbol_idx: 1,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `start`,
                                     },
                                 },
@@ -23646,7 +23646,7 @@
                                         5,
                                     ),
                                     inherited_syn_symbol_idx: 2,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `end`,
                                     },
                                 },
@@ -23691,7 +23691,7 @@
                                         10,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `ct`,
                                     },
                                 },
@@ -23736,7 +23736,7 @@
                                         14,
                                     ),
                                     inherited_syn_symbol_idx: 2,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `end`,
                                     },
                                 },
@@ -24096,7 +24096,7 @@
                                         23,
                                     ),
                                     inherited_syn_symbol_idx: 2,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `end`,
                                     },
                                 },
@@ -24141,7 +24141,7 @@
                                         25,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `ct`,
                                     },
                                 },
@@ -24710,7 +24710,7 @@
                                         43,
                                     ),
                                     inherited_syn_symbol_idx: 3,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `r`,
                                     },
                                 },
@@ -24967,7 +24967,7 @@
                                         49,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `ct`,
                                     },
                                 },
@@ -25012,7 +25012,7 @@
                                         53,
                                     ),
                                     inherited_syn_symbol_idx: 2,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `end`,
                                     },
                                 },
@@ -25566,7 +25566,7 @@
                                         66,
                                     ),
                                     inherited_syn_symbol_idx: 3,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `r`,
                                     },
                                 },
@@ -25701,7 +25701,7 @@
                                         73,
                                     ),
                                     inherited_syn_symbol_idx: 1,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `start0`,
                                     },
                                 },
@@ -25988,7 +25988,7 @@
                                         83,
                                     ),
                                     inherited_syn_symbol_idx: 3,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `r`,
                                     },
                                 },
@@ -26230,7 +26230,7 @@
                                         93,
                                     ),
                                     inherited_syn_symbol_idx: 3,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `r`,
                                     },
                                 },
@@ -26559,7 +26559,7 @@
                                         108,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `ct`,
                                     },
                                 },
@@ -26604,7 +26604,7 @@
                                         112,
                                     ),
                                     inherited_syn_symbol_idx: 2,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `end`,
                                     },
                                 },
@@ -27209,7 +27209,7 @@
                                         131,
                                     ),
                                     inherited_syn_symbol_idx: 3,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `r`,
                                     },
                                 },
@@ -27665,7 +27665,7 @@
                                         145,
                                     ),
                                     inherited_syn_symbol_idx: 3,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `r`,
                                     },
                                 },
@@ -27848,7 +27848,7 @@
                                         154,
                                     ),
                                     inherited_syn_symbol_idx: 3,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `r`,
                                     },
                                 },
@@ -28090,7 +28090,7 @@
                                         163,
                                     ),
                                     inherited_syn_symbol_idx: 3,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `r`,
                                     },
                                 },
@@ -29513,7 +29513,7 @@
                                         204,
                                     ),
                                     inherited_syn_symbol_idx: 1,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `start0`,
                                     },
                                 },
@@ -30523,7 +30523,7 @@
                                         236,
                                     ),
                                     inherited_syn_symbol_idx: 1,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `start0`,
                                     },
                                 },
@@ -30658,7 +30658,7 @@
                                         243,
                                     ),
                                     inherited_syn_symbol_idx: 1,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `start0`,
                                     },
                                 },
@@ -37940,7 +37940,7 @@
                                         25,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `ct`,
                                     },
                                 },
@@ -38414,7 +38414,7 @@
                                         41,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `ct`,
                                     },
                                 },
@@ -38508,7 +38508,7 @@
                                         45,
                                     ),
                                     inherited_syn_symbol_idx: 1,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `r`,
                                     },
                                 },
@@ -38910,7 +38910,7 @@
                                         54,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `ct`,
                                     },
                                 },
@@ -40739,7 +40739,7 @@
                                         121,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `ct`,
                                     },
                                 },
@@ -41375,7 +41375,7 @@
                                         139,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `ct`,
                                     },
                                 },
@@ -42334,7 +42334,7 @@
                                         166,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `ct`,
                                     },
                                 },
@@ -42477,7 +42477,7 @@
                                         172,
                                     ),
                                     inherited_syn_symbol_idx: 1,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `r`,
                                     },
                                 },
@@ -42913,7 +42913,7 @@
                                         182,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `ct`,
                                     },
                                 },
@@ -46444,7 +46444,7 @@
                                         295,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `ct`,
                                     },
                                 },
@@ -47248,7 +47248,7 @@
                                         319,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `ct`,
                                     },
                                 },
@@ -48193,7 +48193,7 @@
                                         343,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `ct`,
                                     },
                                 },
@@ -50114,7 +50114,7 @@
                                         407,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `ct`,
                                     },
                                 },
@@ -62002,7 +62002,7 @@
                                         2,
                                     ),
                                     inherited_syn_symbol_idx: 1,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `from`,
                                     },
                                 },
@@ -62047,7 +62047,7 @@
                                         4,
                                     ),
                                     inherited_syn_symbol_idx: 2,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `to`,
                                     },
                                 },
@@ -62181,7 +62181,7 @@
                                         7,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `ct`,
                                     },
                                 },
@@ -62307,7 +62307,7 @@
                                         13,
                                     ),
                                     inherited_syn_symbol_idx: 1,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `from`,
                                     },
                                 },
@@ -62352,7 +62352,7 @@
                                         15,
                                     ),
                                     inherited_syn_symbol_idx: 2,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `to`,
                                     },
                                 },
@@ -72281,7 +72281,7 @@
                                         3,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `ct`,
                                     },
                                 },
@@ -72374,7 +72374,7 @@
                                         7,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `ct`,
                                     },
                                 },
@@ -72419,7 +72419,7 @@
                                         9,
                                     ),
                                     inherited_syn_symbol_idx: 1,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `r`,
                                     },
                                 },

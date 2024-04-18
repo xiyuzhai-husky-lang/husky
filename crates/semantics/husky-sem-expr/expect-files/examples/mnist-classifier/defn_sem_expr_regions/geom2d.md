@@ -153,7 +153,7 @@
                                         6,
                                     ),
                                     inherited_syn_symbol_idx: 1,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `shift`,
                                     },
                                 },
@@ -394,7 +394,7 @@
                                         14,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `i`,
                                     },
                                 },
@@ -2432,7 +2432,7 @@
                                         3,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `other`,
                                     },
                                 },
@@ -2732,7 +2732,7 @@
                                         11,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `other`,
                                     },
                                 },
@@ -5243,7 +5243,7 @@
                                         5,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `other`,
                                     },
                                 },
@@ -6766,7 +6766,7 @@
                                         3,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `other`,
                                     },
                                 },
@@ -7066,7 +7066,7 @@
                                         11,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `other`,
                                     },
                                 },
@@ -9662,7 +9662,7 @@
                                         5,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `other`,
                                     },
                                 },
@@ -9962,7 +9962,7 @@
                                         13,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `other`,
                                     },
                                 },
@@ -10907,7 +10907,7 @@
                                         5,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `other`,
                                     },
                                 },
@@ -11207,7 +11207,7 @@
                                         13,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `other`,
                                     },
                                 },
@@ -12778,7 +12778,7 @@
                                         28,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `is_branch_cut_positive`,
                                     },
                                 },
@@ -15307,7 +15307,7 @@
                                         5,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `other`,
                                     },
                                 },
@@ -16257,7 +16257,7 @@
                                         16,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `other`,
                                     },
                                 },
@@ -16579,7 +16579,7 @@
                                         33,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `other`,
                                     },
                                 },
@@ -17412,7 +17412,7 @@
                                         55,
                                     ),
                                     inherited_syn_symbol_idx: 1,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `is_branch_cut_positive`,
                                     },
                                 },
@@ -17656,7 +17656,7 @@
                                         72,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `other`,
                                     },
                                 },
@@ -21452,7 +21452,7 @@
                                         23,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `other`,
                                     },
                                 },
@@ -21876,7 +21876,7 @@
                                         37,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `other`,
                                     },
                                 },
@@ -24453,7 +24453,7 @@
                                         12,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `v`,
                                     },
                                 },
@@ -25688,7 +25688,7 @@
                                         9,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `other`,
                                     },
                                 },
@@ -26092,7 +26092,7 @@
                                         20,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `other`,
                                     },
                                 },
@@ -27305,7 +27305,7 @@
                                         9,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `point`,
                                     },
                                 },
@@ -27709,7 +27709,7 @@
                                         20,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `point`,
                                     },
                                 },

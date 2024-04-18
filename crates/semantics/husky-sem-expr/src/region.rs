@@ -2,7 +2,7 @@ use crate::*;
 use husky_entity_path::region::RegionPath;
 use husky_eth_term::{
     fmt::EthTermFmtContext,
-    term::{svar::EthSvar, EthTerm},
+    term::{svar::EthSymbolicVariable, EthTerm},
 };
 use husky_place::PlaceRegistry;
 use husky_term_prelude::symbol::SymbolName;

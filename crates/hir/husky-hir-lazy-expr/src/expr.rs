@@ -14,7 +14,7 @@ use husky_fly_term::signature::{FlyFieldSignature, MethodFlySignature};
 use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
 use husky_hir_ty::{
     indirections::HirIndirections, instantiation::HirInstantiation,
-    place_contract_site::HirPlaceContractSite, HirConstSvar, HirType,
+    place_contract_site::HirPlaceContractSite, HirConstTemplateVariable, HirType,
 };
 use husky_sem_expr::{SemaExprData, SemaExprIdx};
 use husky_sem_opr::binary::SemaBinaryOpr;
@@ -32,7 +32,7 @@ pub type HirLazyExprMap<V> = ArenaMap<HirLazyExprData, V>;
 pub enum HirLazyExprData {
     Literal(Literal),
     PrincipalEntityPath(PrincipalEntityPath),
-    ConstSymbol(HirConstSvar),
+    ConstSymbol(HirConstTemplateVariable),
     Variable(HirLazyVariableIdx),
     Binary {
         lopd: HirLazyExprIdx,

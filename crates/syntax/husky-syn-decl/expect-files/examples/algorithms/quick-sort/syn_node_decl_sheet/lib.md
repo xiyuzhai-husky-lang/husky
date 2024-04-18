@@ -226,7 +226,7 @@ SynNodeDeclSheet {
                                         },
                                         pattern_symbol_arena: Arena {
                                             data: [
-                                                SynPatternSymbol::Atom(
+                                                PatternVariable::Atom(
                                                     0,
                                                 ),
                                             ],
@@ -251,13 +251,13 @@ SynNodeDeclSheet {
                                         },
                                         current_syn_symbol_arena: Arena {
                                             data: [
-                                                CurrentSynSymbolEntry {
+                                                CurrentVariableEntry {
                                                     modifier: Const,
                                                     access_start: RegionalTokenIdx(
                                                         6,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::TemplateParameter {
+                                                    data: CurrentVariableData::TemplateParameter {
                                                         syn_attrs: TemplateParameterSynAttrs {
                                                             syn_attrs: [],
                                                         },
@@ -272,13 +272,13 @@ SynNodeDeclSheet {
                                                         },
                                                     },
                                                 },
-                                                CurrentSynSymbolEntry {
+                                                CurrentVariableEntry {
                                                     modifier: RefMut,
                                                     access_start: RegionalTokenIdx(
                                                         13,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::SimpleParenateParameter {
+                                                    data: CurrentVariableData::SimpleParenateParameter {
                                                         ident: `arr`,
                                                         pattern_symbol_idx: 0,
                                                     },
@@ -672,13 +672,13 @@ SynNodeDeclSheet {
                                         },
                                         pattern_symbol_arena: Arena {
                                             data: [
-                                                SynPatternSymbol::Atom(
+                                                PatternVariable::Atom(
                                                     0,
                                                 ),
-                                                SynPatternSymbol::Atom(
+                                                PatternVariable::Atom(
                                                     1,
                                                 ),
-                                                SynPatternSymbol::Atom(
+                                                PatternVariable::Atom(
                                                     2,
                                                 ),
                                             ],
@@ -717,13 +717,13 @@ SynNodeDeclSheet {
                                         },
                                         current_syn_symbol_arena: Arena {
                                             data: [
-                                                CurrentSynSymbolEntry {
+                                                CurrentVariableEntry {
                                                     modifier: Const,
                                                     access_start: RegionalTokenIdx(
                                                         5,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::TemplateParameter {
+                                                    data: CurrentVariableData::TemplateParameter {
                                                         syn_attrs: TemplateParameterSynAttrs {
                                                             syn_attrs: [],
                                                         },
@@ -738,35 +738,35 @@ SynNodeDeclSheet {
                                                         },
                                                     },
                                                 },
-                                                CurrentSynSymbolEntry {
+                                                CurrentVariableEntry {
                                                     modifier: RefMut,
                                                     access_start: RegionalTokenIdx(
                                                         12,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::SimpleParenateParameter {
+                                                    data: CurrentVariableData::SimpleParenateParameter {
                                                         ident: `arr`,
                                                         pattern_symbol_idx: 0,
                                                     },
                                                 },
-                                                CurrentSynSymbolEntry {
+                                                CurrentVariableEntry {
                                                     modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         19,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::SimpleParenateParameter {
+                                                    data: CurrentVariableData::SimpleParenateParameter {
                                                         ident: `low`,
                                                         pattern_symbol_idx: 1,
                                                     },
                                                 },
-                                                CurrentSynSymbolEntry {
+                                                CurrentVariableEntry {
                                                     modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         23,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::SimpleParenateParameter {
+                                                    data: CurrentVariableData::SimpleParenateParameter {
                                                         ident: `high`,
                                                         pattern_symbol_idx: 2,
                                                     },
@@ -1241,13 +1241,13 @@ SynNodeDeclSheet {
                                         },
                                         pattern_symbol_arena: Arena {
                                             data: [
-                                                SynPatternSymbol::Atom(
+                                                PatternVariable::Atom(
                                                     0,
                                                 ),
-                                                SynPatternSymbol::Atom(
+                                                PatternVariable::Atom(
                                                     1,
                                                 ),
-                                                SynPatternSymbol::Atom(
+                                                PatternVariable::Atom(
                                                     2,
                                                 ),
                                             ],
@@ -1286,13 +1286,13 @@ SynNodeDeclSheet {
                                         },
                                         current_syn_symbol_arena: Arena {
                                             data: [
-                                                CurrentSynSymbolEntry {
+                                                CurrentVariableEntry {
                                                     modifier: Const,
                                                     access_start: RegionalTokenIdx(
                                                         5,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::TemplateParameter {
+                                                    data: CurrentVariableData::TemplateParameter {
                                                         syn_attrs: TemplateParameterSynAttrs {
                                                             syn_attrs: [],
                                                         },
@@ -1307,35 +1307,35 @@ SynNodeDeclSheet {
                                                         },
                                                     },
                                                 },
-                                                CurrentSynSymbolEntry {
+                                                CurrentVariableEntry {
                                                     modifier: RefMut,
                                                     access_start: RegionalTokenIdx(
                                                         12,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::SimpleParenateParameter {
+                                                    data: CurrentVariableData::SimpleParenateParameter {
                                                         ident: `arr`,
                                                         pattern_symbol_idx: 0,
                                                     },
                                                 },
-                                                CurrentSynSymbolEntry {
+                                                CurrentVariableEntry {
                                                     modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         19,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::SimpleParenateParameter {
+                                                    data: CurrentVariableData::SimpleParenateParameter {
                                                         ident: `low`,
                                                         pattern_symbol_idx: 1,
                                                     },
                                                 },
-                                                CurrentSynSymbolEntry {
+                                                CurrentVariableEntry {
                                                     modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         23,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::SimpleParenateParameter {
+                                                    data: CurrentVariableData::SimpleParenateParameter {
                                                         ident: `high`,
                                                         pattern_symbol_idx: 2,
                                                     },

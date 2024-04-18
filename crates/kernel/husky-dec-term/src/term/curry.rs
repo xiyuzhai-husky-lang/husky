@@ -9,7 +9,7 @@ pub struct DecCurry {
     pub curry_kind: CurryKind,
     pub variance: Variance,
     /// a
-    pub parameter_hvar: Option<DecHvar>,
+    pub parameter_hvar: Option<DecLambdaVariable>,
     /// X
     pub parameter_ty: DecTerm,
     /// Y
@@ -26,7 +26,7 @@ impl DecCurry {
         curry_kind: CurryKind,
         variance: Variance,
         // to be converted to variable
-        parameter_symbol: DecSvar,
+        parameter_symbol: DecSymbolicVariable,
         parameter_ty: DecTerm,
         return_ty: DecTerm,
     ) -> Self {
@@ -64,8 +64,8 @@ impl DecCurry {
     pub(super) fn substitute_symbol_with_hvar(
         self,
         db: &::salsa::Db,
-        symbol: DecSvar,
-        variable: DecHvar,
+        symbol: DecSymbolicVariable,
+        variable: DecLambdaVariable,
     ) -> Self {
         DecCurry::new(
             db,
@@ -98,7 +98,7 @@ impl DecCurry {
         self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
-        ctx: &DecSvarNameMap,
+        ctx: &DecSymbolicVariableNameMap,
     ) -> std::fmt::Result {
         use salsa::DisplayWithDb;
 

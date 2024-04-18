@@ -1,7 +1,7 @@
 use either::Either;
 use husky_entity_path::PreludeTraitPath;
 use husky_hir_decl::decl::HasHirDecl;
-use husky_hir_ty::{HirConstSvar, HirTemplateSvar, HirTemplateSvarClass};
+use husky_hir_ty::{HirConstTemplateVariable, HirTemplateVariable, HirTemplateVariableClass};
 use smallvec::SmallVec;
 
 use super::*;
@@ -40,16 +40,19 @@ impl TranspileToRustWith for TraitForTypeAssocFnHirDefn {
                         );
                         builder.heterogeneous_comma_list_item_with(|builder| {
                             let hir_decl = impl_block_path.hir_decl(db).unwrap();
-                            let runtime_const_symbols: SmallVec<[HirConstSvar; 4]> = hir_decl
-                                .template_parameters(db)
-                                .iter()
-                                .filter_map(|param| match param.symbol() {
-                                    HirTemplateSvar::Const(symbol) => (symbol.index(db).class()
-                                        == HirTemplateSvarClass::Runtime)
-                                        .then_some(symbol),
-                                    _ => None,
-                                })
-                                .collect();
+                            let runtime_const_symbols: SmallVec<[HirConstTemplateVariable; 4]> =
+                                hir_decl
+                                    .template_parameters(db)
+                                    .iter()
+                                    .filter_map(|param| match param.symbol() {
+                                        HirTemplateVariable::Const(symbol) => {
+                                            (symbol.index(db).class()
+                                                == HirTemplateVariableClass::Runtime)
+                                                .then_some(symbol)
+                                        }
+                                        _ => None,
+                                    })
+                                    .collect();
                             builder.with_hir_eager_expr_region(
                                 hir_decl.hir_eager_expr_region(db),
                                 |builder| {

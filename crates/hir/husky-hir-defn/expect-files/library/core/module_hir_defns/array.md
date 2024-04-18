@@ -10,8 +10,8 @@
                         template_parameters: HirTemplateParameters(
                             [
                                 HirTemplateParameter {
-                                    symbol: HirTemplateSvar::Const(
-                                        HirConstSvar {
+                                    symbol: HirTemplateVariable::Const(
+                                        HirConstTemplateVariable {
                                             ty: HirType::PathLeading(
                                                 HirTypePathLeading {
                                                     ty_path: TypePath(`core::num::usize`, `Extern`),
@@ -19,8 +19,8 @@
                                                     always_copyable: true,
                                                 },
                                             ),
-                                            index: HirConstSvarIndex::PathLeading {
-                                                attrs: HirTemplateSvarAttrs {
+                                            index: HirConstTemplateVariableIndex::PathLeading {
+                                                attrs: HirTemplateVariableAttrs {
                                                     class: Comptime,
                                                 },
                                                 disambiguator: 0,
@@ -40,9 +40,9 @@
                                     },
                                 },
                                 HirTemplateParameter {
-                                    symbol: HirTemplateSvar::Type(
-                                        HirTypeSvar::Type {
-                                            attrs: HirTemplateSvarAttrs {
+                                    symbol: HirTemplateVariable::Type(
+                                        HirTypeTemplateVariable::Type {
+                                            attrs: HirTemplateVariableAttrs {
                                                 class: Comptime,
                                             },
                                             variance: Some(
@@ -75,16 +75,16 @@
                             pattern_arena: Arena {
                                 data: [],
                             },
-                            comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
+                            comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
                                 arena: Arena {
                                     data: [
-                                        HirEagerComptimeSvarEntry {
-                                            name: HirEagerComptimeSvarName::Ident(
+                                        HirEagerComptimeVariableEntry {
+                                            name: HirEagerComptimeVariableName::Ident(
                                                 `L`,
                                             ),
                                             data: Current,
-                                            hir_comptime_symbol: HirTemplateSvar::Const(
-                                                HirConstSvar {
+                                            hir_comptime_symbol: HirTemplateVariable::Const(
+                                                HirConstTemplateVariable {
                                                     ty: HirType::PathLeading(
                                                         HirTypePathLeading {
                                                             ty_path: TypePath(`core::num::usize`, `Extern`),
@@ -92,8 +92,8 @@
                                                             always_copyable: true,
                                                         },
                                                     ),
-                                                    index: HirConstSvarIndex::PathLeading {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                    index: HirConstTemplateVariableIndex::PathLeading {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         disambiguator: 0,
@@ -102,14 +102,14 @@
                                                 },
                                             ),
                                         },
-                                        HirEagerComptimeSvarEntry {
-                                            name: HirEagerComptimeSvarName::Ident(
+                                        HirEagerComptimeVariableEntry {
+                                            name: HirEagerComptimeVariableName::Ident(
                                                 `E`,
                                             ),
                                             data: Current,
-                                            hir_comptime_symbol: HirTemplateSvar::Type(
-                                                HirTypeSvar::Type {
-                                                    attrs: HirTemplateSvarAttrs {
+                                            hir_comptime_symbol: HirTemplateVariable::Type(
+                                                HirTypeTemplateVariable::Type {
+                                                    attrs: HirTemplateVariableAttrs {
                                                         class: Comptime,
                                                     },
                                                     variance: Some(
@@ -122,7 +122,7 @@
                                     ],
                                 },
                             },
-                            runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
+                            runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
                                 arena: Arena {
                                     data: [],
                                 },

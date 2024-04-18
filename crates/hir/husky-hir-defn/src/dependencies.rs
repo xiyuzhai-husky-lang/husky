@@ -3,7 +3,7 @@ use crate::*;
 use husky_entity_tree::helpers::paths::module_item_paths;
 use husky_hir_ty::{
     indirections::{HirIndirection, HirIndirections},
-    instantiation::{HirInstantiation, HirTermSvarResolution},
+    instantiation::{HirInstantiation, HirTermSymbolicVariableResolution},
     ritchie::HirRitchieParameter,
     trai::HirTrait,
     HirTemplateArgument, HirType,
@@ -61,7 +61,7 @@ impl<'a> HirDefnDependenciesBuilder<'a> {
                         self.add_item_path(path.parent_ty_path(db))
                     }
                 },
-                HirEagerExprData::ConstSvar { .. } => (),
+                HirEagerExprData::ConstVariable { .. } => (),
                 HirEagerExprData::Variable(_) => (),
                 HirEagerExprData::Binary { .. } => (),
                 HirEagerExprData::Be { .. } => (),
@@ -186,7 +186,7 @@ impl<'a> HirDefnDependenciesBuilder<'a> {
                 self.add_item_path(hir_ty.ty_path(db));
                 self.add_hir_template_arguments(hir_ty.template_arguments(db))
             }
-            HirType::Svar(_) => (),
+            HirType::Variable(_) => (),
             HirType::TypeAssocType(_) => (),
             HirType::TraitAssocType(_) => (),
             HirType::Ritchie(hir_ty) => {
@@ -262,11 +262,11 @@ impl<'a> HirDefnDependenciesBuilder<'a> {
     fn add_instantiation(&mut self, instantiation: &HirInstantiation) {
         for (_, resolution) in instantiation.iter() {
             match resolution {
-                HirTermSvarResolution::Explicit(hir_template_argument) => {
+                HirTermSymbolicVariableResolution::Explicit(hir_template_argument) => {
                     self.add_hir_template_argument(hir_template_argument)
                 }
-                HirTermSvarResolution::SelfLifetime => (),
-                HirTermSvarResolution::SelfContractedQuary(_) => (),
+                HirTermSymbolicVariableResolution::SelfLifetime => (),
+                HirTermSymbolicVariableResolution::SelfContractedQuary(_) => (),
             }
         }
     }

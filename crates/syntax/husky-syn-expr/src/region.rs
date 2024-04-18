@@ -46,17 +46,16 @@ impl SynExprRegionData {
                 .filter_map(
                     |(current_syn_symbol_idx, current_syn_symbol)| match *current_syn_symbol.data()
                     {
-                        CurrentSynSymbolData::SimpleParenateParameter {
-                            pattern_symbol_idx,
-                            ..
-                        }
-                        | CurrentSynSymbolData::LetVariable {
+                        CurrentVariableData::SimpleParenateParameter {
                             pattern_symbol_idx, ..
                         }
-                        | CurrentSynSymbolData::BeVariable {
+                        | CurrentVariableData::LetVariable {
                             pattern_symbol_idx, ..
                         }
-                        | CurrentSynSymbolData::CaseVariable {
+                        | CurrentVariableData::BeVariable {
+                            pattern_symbol_idx, ..
+                        }
+                        | CurrentVariableData::CaseVariable {
                             pattern_symbol_idx, ..
                         } => Some((pattern_symbol_idx, current_syn_symbol_idx)),
                         _ => None,
@@ -190,14 +189,14 @@ impl std::ops::Index<SynStmtIdx> for SynExprRegionData {
     }
 }
 impl std::ops::Index<CurrentVariableIdx> for SynExprRegionData {
-    type Output = CurrentSynSymbolEntry;
+    type Output = CurrentVariableEntry;
 
     fn index(&self, index: CurrentVariableIdx) -> &Self::Output {
         &self.symbol_region[index]
     }
 }
 impl std::ops::Index<SynPatternSymbolIdx> for SynExprRegionData {
-    type Output = SynPatternSymbol;
+    type Output = PatternVariable;
 
     fn index(&self, index: SynPatternSymbolIdx) -> &Self::Output {
         &self.pattern_expr_region[index]

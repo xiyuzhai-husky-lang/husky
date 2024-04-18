@@ -17,7 +17,7 @@
                                         annotated_variance: Some(
                                             Covariant,
                                         ),
-                                        svar: DecSvar(
+                                        svar: DecSymbolicVariable(
                                             Id {
                                                 value: 4,
                                             },
@@ -52,7 +52,7 @@
                             data: [
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
-                                    svar: DecSvar(
+                                    svar: DecSymbolicVariable(
                                         Id {
                                             value: 10,
                                         },
@@ -94,7 +94,7 @@
                                     data: [
                                         DeclarativeTemplateParameter {
                                             annotated_variance: None,
-                                            svar: DecSvar(
+                                            svar: DecSymbolicVariable(
                                                 Id {
                                                     value: 10,
                                                 },
@@ -172,7 +172,7 @@
                                     data: [
                                         DeclarativeTemplateParameter {
                                             annotated_variance: None,
-                                            svar: DecSvar(
+                                            svar: DecSymbolicVariable(
                                                 Id {
                                                     value: 10,
                                                 },
@@ -200,7 +200,7 @@
                                 data: [
                                     DeclarativeTemplateParameter {
                                         annotated_variance: None,
-                                        svar: DecSvar(
+                                        svar: DecSymbolicVariable(
                                             Id {
                                                 value: 1,
                                             },
@@ -224,8 +224,8 @@
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
                                             contract: Move,
-                                            ty: Symbol(
-                                                DecSvar(
+                                            ty: SymbolicVariable(
+                                                DecSymbolicVariable(
                                                     Id {
                                                         value: 10,
                                                     },
@@ -273,7 +273,7 @@
                                     data: [
                                         DeclarativeTemplateParameter {
                                             annotated_variance: None,
-                                            svar: DecSvar(
+                                            svar: DecSymbolicVariable(
                                                 Id {
                                                     value: 10,
                                                 },
@@ -301,7 +301,7 @@
                                 data: [
                                     DeclarativeTemplateParameter {
                                         annotated_variance: None,
-                                        svar: DecSvar(
+                                        svar: DecSymbolicVariable(
                                             Id {
                                                 value: 2,
                                             },
@@ -357,7 +357,7 @@
                                     data: [
                                         DeclarativeTemplateParameter {
                                             annotated_variance: None,
-                                            svar: DecSvar(
+                                            svar: DecSymbolicVariable(
                                                 Id {
                                                     value: 10,
                                                 },
@@ -385,7 +385,7 @@
                                 data: [
                                     DeclarativeTemplateParameter {
                                         annotated_variance: None,
-                                        svar: DecSvar(
+                                        svar: DecSymbolicVariable(
                                             Id {
                                                 value: 2,
                                             },
@@ -441,7 +441,7 @@
                                     data: [
                                         DeclarativeTemplateParameter {
                                             annotated_variance: None,
-                                            svar: DecSvar(
+                                            svar: DecSymbolicVariable(
                                                 Id {
                                                     value: 10,
                                                 },
@@ -469,7 +469,7 @@
                                 data: [
                                     DeclarativeTemplateParameter {
                                         annotated_variance: None,
-                                        svar: DecSvar(
+                                        svar: DecSymbolicVariable(
                                             Id {
                                                 value: 1,
                                             },
@@ -525,7 +525,7 @@
                                     data: [
                                         DeclarativeTemplateParameter {
                                             annotated_variance: None,
-                                            svar: DecSvar(
+                                            svar: DecSymbolicVariable(
                                                 Id {
                                                     value: 10,
                                                 },
@@ -599,7 +599,7 @@
                                     data: [
                                         DeclarativeTemplateParameter {
                                             annotated_variance: None,
-                                            svar: DecSvar(
+                                            svar: DecSymbolicVariable(
                                                 Id {
                                                     value: 10,
                                                 },
@@ -706,7 +706,7 @@
                                     data: [
                                         DeclarativeTemplateParameter {
                                             annotated_variance: None,
-                                            svar: DecSvar(
+                                            svar: DecSymbolicVariable(
                                                 Id {
                                                     value: 10,
                                                 },
@@ -734,7 +734,7 @@
                                 data: [
                                     DeclarativeTemplateParameter {
                                         annotated_variance: None,
-                                        svar: DecSvar(
+                                        svar: DecSymbolicVariable(
                                             Id {
                                                 value: 1,
                                             },

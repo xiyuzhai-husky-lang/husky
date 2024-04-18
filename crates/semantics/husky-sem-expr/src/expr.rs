@@ -46,7 +46,8 @@ use husky_regional_token::{
 };
 use husky_sem_opr::{binary::SemaBinaryOpr, prefix::SemaPrefixOpr, suffix::SemaSuffixOpr};
 use husky_syn_expr::{
-    entity_path::SynPrincipalEntityPathSynExprIdx, InheritedVariableIdx, InheritedVariableKind,
+    entity_path::SynPrincipalEntityPathSynExprIdx, InheritedSymbolicVariableIdx,
+    InheritedVariableKind,
 };
 use husky_syn_opr::{SynBinaryOpr, SynPrefixOpr, SynSuffixOpr};
 use husky_term_prelude::ritchie::{RitchieKind, RitchieTypeKind};
@@ -84,7 +85,7 @@ pub enum SemaExprData {
     InheritedSynSymbol {
         ident: Ident,
         regional_token_idx: RegionalTokenIdx,
-        inherited_syn_symbol_idx: InheritedVariableIdx,
+        inherited_syn_symbol_idx: InheritedSymbolicVariableIdx,
         inherited_syn_symbol_kind: InheritedVariableKind,
     },
     CurrentSynSymbol {

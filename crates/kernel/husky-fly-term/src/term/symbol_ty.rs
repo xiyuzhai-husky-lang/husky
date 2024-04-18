@@ -22,7 +22,7 @@ impl SymbolType {
     pub fn new_parameter_ty_from_signature(
         engine: &mut impl FlyTermEngineMut,
         current_syn_symbol_idx: CurrentVariableIdx,
-        signature: DecSvarSignature,
+        signature: DecSymbolicVariableSignature,
     ) -> FlyTermResult<Self> {
         let ty = EthTerm::ty_from_dec(engine.db(), signature.ty()?)?;
         Ok(Self::new_parameter_ty(
@@ -36,7 +36,7 @@ impl SymbolType {
     pub fn new_parameter_ty(
         engine: &mut impl FlyTermEngineMut,
         current_syn_symbol_idx: CurrentVariableIdx,
-        modifier: SvarModifier,
+        modifier: VariableModifier,
         ty: FlyTerm,
     ) -> Self {
         let place_data = || {
@@ -53,24 +53,24 @@ impl SymbolType {
             }
         };
         let quary = match modifier {
-            SvarModifier::Pure => FlyQuary::StackPure {
+            VariableModifier::Pure => FlyQuary::StackPure {
                 place: engine.issue_new_place_idx(place_data()).into(),
             },
-            SvarModifier::Owned => FlyQuary::ImmutableOnStack {
+            VariableModifier::Owned => FlyQuary::ImmutableOnStack {
                 place: engine.issue_new_place_idx(place_data()).into(),
             },
-            SvarModifier::Mut => todo!(),
-            SvarModifier::Ref => todo!(),
-            SvarModifier::RefMut => FlyQuary::RefMut {
+            VariableModifier::Mut => todo!(),
+            VariableModifier::Ref => todo!(),
+            VariableModifier::RefMut => FlyQuary::RefMut {
                 place: engine.issue_new_place_idx(place_data()).into(),
                 lifetime: None,
             },
-            SvarModifier::Const => FlyQuary::Const,
-            SvarModifier::Ambersand(_) => todo!(),
-            SvarModifier::AmbersandMut(_) => todo!(),
-            SvarModifier::Le => todo!(),
-            SvarModifier::Tilde => todo!(),
-            SvarModifier::At => todo!(),
+            VariableModifier::Const => FlyQuary::Const,
+            VariableModifier::Ambersand(_) => todo!(),
+            VariableModifier::AmbersandMut(_) => todo!(),
+            VariableModifier::Le => todo!(),
+            VariableModifier::Tilde => todo!(),
+            VariableModifier::At => todo!(),
         };
         Self(ty.with_quary(quary))
     }
@@ -78,7 +78,7 @@ impl SymbolType {
     pub fn new_variable_ty(
         engine: &mut impl FlyTermEngineMut,
         current_syn_symbol_idx: CurrentVariableIdx,
-        modifier: SvarModifier,
+        modifier: VariableModifier,
         ty: FlyTerm,
     ) -> FlyTermResult<Self> {
         let ident = engine.syn_expr_region_data()[current_syn_symbol_idx]
@@ -89,7 +89,7 @@ impl SymbolType {
             ident,
         };
         let quary = match modifier {
-            SvarModifier::Pure => match ty.place {
+            VariableModifier::Pure => match ty.place {
                 Some(FlyQuary::Transient) | None => FlyQuary::ImmutableOnStack {
                     place: engine.issue_new_place_idx(place_data).into(),
                 },
@@ -116,8 +116,8 @@ impl SymbolType {
                     None => todo!(),
                 },
             },
-            SvarModifier::Owned => todo!(),
-            SvarModifier::Mut => match ty.place {
+            VariableModifier::Owned => todo!(),
+            VariableModifier::Mut => match ty.place {
                 Some(FlyQuary::Transient) | None => FlyQuary::MutableOnStack {
                     place: engine.issue_new_place_idx(place_data).into(),
                 },
@@ -132,14 +132,14 @@ impl SymbolType {
                     None => todo!(),
                 },
             },
-            SvarModifier::Ref => todo!(),
-            SvarModifier::RefMut => todo!(),
-            SvarModifier::Const => todo!(),
-            SvarModifier::Ambersand(_) => todo!(),
-            SvarModifier::AmbersandMut(_) => todo!(),
-            SvarModifier::Le => todo!(),
-            SvarModifier::Tilde => todo!(),
-            SvarModifier::At => todo!(),
+            VariableModifier::Ref => todo!(),
+            VariableModifier::RefMut => todo!(),
+            VariableModifier::Const => todo!(),
+            VariableModifier::Ambersand(_) => todo!(),
+            VariableModifier::AmbersandMut(_) => todo!(),
+            VariableModifier::Le => todo!(),
+            VariableModifier::Tilde => todo!(),
+            VariableModifier::At => todo!(),
         };
         Ok(Self(ty.with_quary(quary)))
     }

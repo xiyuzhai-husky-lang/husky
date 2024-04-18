@@ -3,16 +3,16 @@ use super::*;
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub(crate) struct PatternSymbolDeclarativeTypeInfo {
-    modifier: SvarModifier,
+    modifier: VariableModifier,
     base_ty: DecTerm,
 }
 
 impl PatternSymbolDeclarativeTypeInfo {
-    fn new(modifier: SvarModifier, base_ty: DecTerm) -> Self {
+    fn new(modifier: VariableModifier, base_ty: DecTerm) -> Self {
         Self { modifier, base_ty }
     }
 
-    pub fn modifier(&self) -> SvarModifier {
+    pub fn modifier(&self) -> VariableModifier {
         self.modifier
     }
 
@@ -49,7 +49,7 @@ impl<'a> DecTermEngine<'a> {
 
     fn calc_new_pattern_symbol_base_ty(&mut self, pattern_symbol: SynPatternSymbolIdx) -> DecTerm {
         match self.syn_expr_region_data[pattern_symbol] {
-            SynPatternSymbol::Atom(pattern_expr) => self
+            PatternVariable::Atom(pattern_expr) => self
                 .get_pattern_expr_ty(pattern_expr)
                 .expect("pattern expression type should be inferred at this point"),
         }

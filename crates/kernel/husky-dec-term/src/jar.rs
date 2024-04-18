@@ -12,12 +12,12 @@ impl DecTermDb for ::salsa::Db {
 
 #[salsa::jar]
 pub struct DecTermJar(
-    DecSvar,
+    DecSymbolicVariable,
     DecTermSymbols,
     declarative_term_curry_symbols,
     declarative_term_ritchie_symbols,
     application_declarative_term_symbols,
-    DecHvar,
+    DecLambdaVariable,
     DecTermHvars,
     declarative_term_curry_placeholders,
     declarative_term_ritchie_hvars,

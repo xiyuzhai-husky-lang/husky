@@ -5,12 +5,12 @@ pub struct EthHvar {
     pub ty: EthTerm,
     /// this is the index for all symbols with the same type
     /// so that we have better cache hits
-    pub index: HvarIndex,
+    pub index: LambdaVariableIndex,
 }
 
 impl EthHvar {
     #[inline(always)]
-    pub(crate) fn from_dec(db: &::salsa::Db, hvar: DecHvar) -> EthTermResult<Self> {
+    pub(crate) fn from_dec(db: &::salsa::Db, hvar: DecLambdaVariable) -> EthTermResult<Self> {
         let ty = hvar.ty(db)?;
         let ty = EthTerm::ty_from_dec(db, ty)?;
         Ok(Self::new_inner(db, ty, hvar.index(db)))
@@ -67,8 +67,8 @@ impl EthInstantiate for EthHvar {
 
 /// back to declarative
 impl EthHvar {
-    pub(super) fn into_declarative(self, db: &salsa::Db) -> DecHvar {
-        DecHvar::new(
+    pub(super) fn into_declarative(self, db: &salsa::Db) -> DecLambdaVariable {
+        DecLambdaVariable::new(
             Ok(self.ty(db).into_declarative(db)),
             self.index(db).disambiguator(),
             db,
