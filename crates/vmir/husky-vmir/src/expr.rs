@@ -124,7 +124,7 @@ impl<'comptime, Linktime: IsLinktime> VmirBuilder<'comptime, Linktime> {
                 let place_idx = match entry.quary().place() {
                     Some(place) => match place {
                         EthPlace::Idx(place_idx) => place_idx,
-                        EthPlace::Svar(_) => todo!(),
+                        EthPlace::SymbolicVariable(_) => todo!(),
                         EthPlace::Field(_) => todo!(),
                     },
                     None => {

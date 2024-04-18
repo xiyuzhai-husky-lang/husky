@@ -229,7 +229,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EthSvar(`Self`),
+                                                            EthSymbolicVariable(`Self`),
                                                             FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
                                                                     place: None,

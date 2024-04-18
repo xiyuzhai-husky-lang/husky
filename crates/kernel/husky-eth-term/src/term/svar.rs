@@ -57,7 +57,7 @@ impl salsa::DebugWithDb for EthSymbolicVariable {
         f: &mut std::fmt::Formatter<'_>,
         db: &salsa::Db,
     ) -> std::fmt::Result {
-        f.write_fmt(format_args!("EthSvar(`{}`)", self.display(db)))
+        f.write_fmt(format_args!("EthSymbolicVariable(`{}`)", self.display(db)))
     }
 }
 

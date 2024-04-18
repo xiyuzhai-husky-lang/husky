@@ -9,7 +9,7 @@ use super::*;
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub struct DecSymbolicVariableRegion {
-    svar_registry: TermSvarRegistry,
+    svar_registry: TermSymbolicVariableRegistry,
     variable_signatures: SymbolOrderedMap<DecSymbolicVariableSignature>,
     /// used to format dec terms
     svar_name_map: DecSymbolicVariableNameMap,
@@ -67,7 +67,7 @@ impl DecSymbolicVariableRegion {
         &self.auto_template_variables
     }
 
-    pub(crate) fn svar_registry_mut(&mut self) -> &mut TermSvarRegistry {
+    pub(crate) fn svar_registry_mut(&mut self) -> &mut TermSymbolicVariableRegistry {
         &mut self.svar_registry
     }
 

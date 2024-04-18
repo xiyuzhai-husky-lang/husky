@@ -133,7 +133,7 @@ fn symbol_index_size_works() {
 }
 
 #[derive(Debug, PartialEq, Eq, Default, Clone)]
-pub struct TermSvarRegistry {
+pub struct TermSymbolicVariableRegistry {
     /// cache for issued indices
     ///
     /// only those with the latest disambiguator remains.
@@ -144,7 +144,7 @@ pub struct TermSvarRegistry {
     self_value_issued: bool,
 }
 
-impl TermSvarRegistry {
+impl TermSymbolicVariableRegistry {
     pub fn issue_self_ty_index(&mut self) -> DecTermSymbolicVariableIndex {
         assert!(!self.self_ty_issued);
         self.self_ty_issued = true;

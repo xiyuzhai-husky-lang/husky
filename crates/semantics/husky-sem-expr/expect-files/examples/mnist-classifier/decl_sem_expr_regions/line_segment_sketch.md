@@ -334,7 +334,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EthSvar(`E`),
+                                                            EthSymbolicVariable(`E`),
                                                             FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
                                                                     place: None,
@@ -478,7 +478,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EthSvar(`Self`),
+                                                            EthSymbolicVariable(`Self`),
                                                             FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
                                                                     place: None,
@@ -677,7 +677,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EthSvar(`E`),
+                                                            EthSymbolicVariable(`E`),
                                                             FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
                                                                     place: None,
@@ -821,7 +821,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EthSvar(`Self`),
+                                                            EthSymbolicVariable(`Self`),
                                                             FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
                                                                     place: None,

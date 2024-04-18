@@ -3352,7 +3352,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EthSvar(`E`),
+                                                            EthSymbolicVariable(`E`),
                                                             FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
                                                                     place: None,
@@ -6051,7 +6051,7 @@
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
-                                                    EthSvar(`Label`),
+                                                    EthSymbolicVariable(`Label`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             place: None,
@@ -6064,7 +6064,7 @@
                                                     ),
                                                 ),
                                                 (
-                                                    EthSvar(`label`),
+                                                    EthSymbolicVariable(`label`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             place: None,
@@ -6135,7 +6135,7 @@
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
-                                                    EthSvar(`Label`),
+                                                    EthSymbolicVariable(`Label`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             place: None,
@@ -6148,7 +6148,7 @@
                                                     ),
                                                 ),
                                                 (
-                                                    EthSvar(`label`),
+                                                    EthSymbolicVariable(`label`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             place: None,
