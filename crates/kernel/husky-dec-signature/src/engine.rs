@@ -31,7 +31,7 @@ pub fn syn_expr_dec_term_region(
     let expr_region_data = syn_expr_region.data(db);
     let parent_expr_region = expr_region_data.parent();
     let parent_term_symbol_region =
-        parent_expr_region.map(|r| syn_expr_dec_term_region(db, r).dec_symbol_region());
+        parent_expr_region.map(|r| syn_expr_dec_term_region(db, r).symbol_variable_region());
     let engine = DecTermEngine::new(db, syn_expr_region, parent_term_symbol_region);
     engine.infer_all()
 }
@@ -184,7 +184,7 @@ impl<'a> DecTermEngine<'a> {
                         _ => todo!(),
                     };
                     self.symbol_declarative_term_region
-                        .add_new_template_parameter_symbol_signature(
+                        .add_new_template_variable_signature(
                             self.db,
                             symbols.start(),
                             ty,
@@ -231,7 +231,7 @@ impl<'a> DecTermEngine<'a> {
                         &mut self.symbol_declarative_term_region.svar_registry_mut(),
                     );
                     self.symbol_declarative_term_region
-                        .add_new_template_parameter_symbol_signature(
+                        .add_new_template_variable_signature(
                             self.db,
                             symbols.start(),
                             ty,
@@ -427,7 +427,7 @@ impl<'a> DecTermEngine<'a> {
             } => self
                 .symbol_declarative_term_region
                 .inherited_variable_signature(inherited_syn_symbol_idx)
-                .term_symbol()
+                .term()
                 .map(Into::into)
                 .ok_or(DerivedDecTermError2::InheritedSynSymbolIsNotValidTerm.into()),
             SynExprData::CurrentSynSymbol {
@@ -437,7 +437,7 @@ impl<'a> DecTermEngine<'a> {
                 .symbol_declarative_term_region
                 .current_parameter_variable_signature(current_syn_symbol_idx)
                 .expect("not none")
-                .term_symbol()
+                .term()
                 .ok_or(OriginalDecTermError2::InvalidSymbolForTerm)?
                 .into()),
             SynExprData::FrameVarDecl { .. } => unreachable!(),

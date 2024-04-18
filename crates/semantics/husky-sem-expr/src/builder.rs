@@ -117,23 +117,23 @@ impl<'a> SemaExprBuilder<'a> {
             .flatten();
         let dec_term_region = db.syn_expr_dec_term_region(syn_expr_region);
         let self_ty = dec_term_region
-            .dec_symbol_region()
+            .symbol_variable_region()
             .self_ty()
             .map(|self_ty| EthTerm::ty_from_dec(db, self_ty).ok())
             .flatten();
         let self_value = dec_term_region
-            .dec_symbol_region()
+            .symbol_variable_region()
             .self_value()
             .map(|self_value| EthSymbolicVariable::from_dec(db, self_value).ok())
             .flatten();
         let mut stack_location_registry = Default::default();
         let self_lifetime = dec_term_region
-            .dec_symbol_region()
+            .symbol_variable_region()
             .self_lifetime()
             .map(|self_lifetime| EthSymbolicVariable::from_dec(db, self_lifetime).ok())
             .flatten();
         let self_place = dec_term_region
-            .dec_symbol_region()
+            .symbol_variable_region()
             .self_place()
             .map(|self_place| EthSymbolicVariable::from_dec(db, self_place).ok())
             .flatten();

@@ -20,7 +20,7 @@ pub struct DecSymbolicVariable {
     /// this is the index for all symbols with the same type
     /// so that we have better cache hits
     /// todo: change to RefinedGenericIndex
-    pub index: DecTermSymbolicVariableIndex,
+    pub index: DecSymbolicVariableIndex,
 }
 
 impl DecSymbolicVariable {
@@ -28,7 +28,7 @@ impl DecSymbolicVariable {
     pub fn new_self_ty(
         db: &::salsa::Db,
         toolchain: Toolchain,
-        registry: &mut TermSymbolicVariableRegistry,
+        registry: &mut DecSymbolicVariableRegistry,
     ) -> Self {
         // todo: general universe??? or ignore universes totally
         DecSymbolicVariable::new(
@@ -43,7 +43,7 @@ impl DecSymbolicVariable {
     pub fn new_self_value(
         db: &::salsa::Db,
         toolchain: Toolchain,
-        registry: &mut TermSymbolicVariableRegistry,
+        registry: &mut DecSymbolicVariableRegistry,
         _self_ty_term: DecTerm,
     ) -> Self {
         // todo: general universe??? or ignore universes totally
@@ -60,7 +60,7 @@ impl DecSymbolicVariable {
         db: &::salsa::Db,
         toolchain: Toolchain,
         menu: &DecTermMenu,
-        registry: &mut TermSymbolicVariableRegistry,
+        registry: &mut DecSymbolicVariableRegistry,
         attrs: DeclarativeTemplateVariableAttrs,
         variance: Option<Variance>,
     ) -> (DecTermSymbolicVariableTypeResult<DecTerm>, Self) {
@@ -81,7 +81,7 @@ impl DecSymbolicVariable {
         db: &::salsa::Db,
         toolchain: Toolchain,
         menu: &DecTermMenu,
-        registry: &mut TermSymbolicVariableRegistry,
+        registry: &mut DecSymbolicVariableRegistry,
         attrs: DeclarativeTemplateVariableAttrs,
         variance: Option<Variance>,
     ) -> (DecTermSymbolicVariableTypeResult<DecTerm>, Self) {
@@ -102,7 +102,7 @@ impl DecSymbolicVariable {
         db: &::salsa::Db,
         toolchain: Toolchain,
         menu: &DecTermMenu,
-        registry: &mut TermSymbolicVariableRegistry,
+        registry: &mut DecSymbolicVariableRegistry,
         attrs: DeclarativeTemplateVariableAttrs,
         variance: Option<Variance>,
     ) -> (DecTermSymbolicVariableTypeResult<DecTerm>, Self) {
@@ -118,7 +118,7 @@ impl DecSymbolicVariable {
         toolchain: Toolchain,
         attrs: DeclarativeTemplateVariableAttrs,
         ty: DecTermSymbolicVariableTypeResult<DecTerm>,
-        registry: &mut TermSymbolicVariableRegistry,
+        registry: &mut DecSymbolicVariableRegistry,
     ) -> Self {
         let idx = match ty {
             Ok(ty) => match ty.family(db) {
@@ -138,7 +138,7 @@ impl DecSymbolicVariable {
         db: &::salsa::Db,
         toolchain: Toolchain,
         ty: DecTermSymbolicVariableTypeResult<DecTerm>,
-        registry: &mut TermSymbolicVariableRegistry,
+        registry: &mut DecSymbolicVariableRegistry,
     ) -> Self {
         let idx = match ty {
             Ok(ty) => match ty.family(db) {
@@ -163,7 +163,7 @@ impl DecSymbolicVariable {
             db,
             toolchain,
             Ok(ty),
-            DecTermSymbolicVariableIndex::new_ad_hoc(disambiguator),
+            DecSymbolicVariableIndex::new_ad_hoc(disambiguator),
         )
     }
 

@@ -201,16 +201,12 @@ impl<'a> SemaExprBuilder<'a> {
                 .dec_term_region
                 .current_variable_signature(*current_syn_symbol_idx)
             {
-                Some(current_syn_symbol_signature) => {
-                    match current_syn_symbol_signature.term_symbol() {
-                        Some(declarative_term_symbol) => Ok(EthSymbolicVariable::from_dec(
-                            self.db,
-                            declarative_term_symbol,
-                        )?
-                        .into()),
-                        None => todo!(),
+                Some(current_syn_symbol_signature) => match current_syn_symbol_signature.term() {
+                    Some(declarative_term_symbol) => {
+                        Ok(EthSymbolicVariable::from_dec(self.db, declarative_term_symbol)?.into())
                     }
-                }
+                    None => todo!(),
+                },
                 None => todo!(),
             },
             SemaExprData::FrameVarDecl {

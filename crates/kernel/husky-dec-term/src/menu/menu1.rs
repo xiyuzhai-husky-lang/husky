@@ -61,13 +61,13 @@ impl DecTermMenu1 {
                 db,
                 toolchain,
                 Ok(menu0.lifetime_ty()),
-                DecTermSymbolicVariableIndex::SELF_LIFETIME,
+                DecSymbolicVariableIndex::SELF_LIFETIME,
             ),
             implicit_self_place: DecSymbolicVariable::new(
                 db,
                 toolchain,
                 Ok(menu0.place_ty()),
-                DecTermSymbolicVariableIndex::SELF_PLACE,
+                DecSymbolicVariableIndex::SELF_PLACE,
             ),
             parent: menu0,
         }

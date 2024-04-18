@@ -10,12 +10,12 @@ impl<'a> SemaExprBuilder<'a> {
         {
             let Some(signature) = self
                 .dec_term_region
-                .dec_symbol_region()
+                .symbol_variable_region()
                 .current_parameter_variable_signature(current_syn_symbol_idx)
             else {
                 return;
             };
-            if let Some(symbol) = signature.term_symbol() {
+            if let Some(symbol) = signature.term() {
                 if let Ok(symbol) = EthSymbolicVariable::from_dec(self.db, symbol) {
                     self.symbol_terms
                         .insert_new(current_syn_symbol_idx, symbol.into())

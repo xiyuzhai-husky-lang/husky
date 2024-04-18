@@ -33,7 +33,7 @@ pub enum EthTemplateSymbolAttr {
 pub struct EthTermSymbolIndex(EthTermSymbolIndexImpl);
 
 impl EthTermSymbolIndex {
-    pub(super) fn from_dec(index: DecTermSymbolicVariableIndex) -> Self {
+    pub(super) fn from_dec(index: DecSymbolicVariableIndex) -> Self {
         EthTermSymbolIndex(match index.inner() {
             DecTermSymbolIndexImpl::ExplicitLifetime {
                 attrs,
@@ -105,11 +105,11 @@ impl EthTermSymbolIndex {
     }
 }
 
-impl Into<DecTermSymbolicVariableIndex> for EthTermSymbolIndex {
+impl Into<DecSymbolicVariableIndex> for EthTermSymbolIndex {
     #[inline(always)]
-    fn into(self) -> DecTermSymbolicVariableIndex {
+    fn into(self) -> DecSymbolicVariableIndex {
         unsafe {
-            DecTermSymbolicVariableIndex::new(match self.inner() {
+            DecSymbolicVariableIndex::new(match self.inner() {
                 EthTermSymbolIndexImpl::ExplicitLifetime {
                     attrs,
                     variance,
