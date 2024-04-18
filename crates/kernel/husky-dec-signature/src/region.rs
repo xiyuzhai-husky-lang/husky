@@ -22,7 +22,7 @@ use husky_syn_expr::{
 #[derive(Debug, PartialEq, Eq)]
 pub struct SynExprDecTermRegion {
     path: SynNodeRegionPath,
-    term_symbol_region: DecSymbolicVariableRegion,
+    symbolic_variable_region: DecSymbolicVariableRegion,
     expr_terms: SynExprMap<DecTermResult2<DecTerm>>,
     pattern_expr_ty_infos: SynPatternMap<PatternExprDeclarativeTypeInfo>,
     pattern_symbol_ty_infos: SynPatternSymbolMap<PatternSymbolDeclarativeTypeInfo>,
@@ -31,29 +31,29 @@ pub struct SynExprDecTermRegion {
 impl SynExprDecTermRegion {
     pub(crate) fn new(
         path: SynNodeRegionPath,
-        term_symbol_region: DecSymbolicVariableRegion,
+        symbolic_variable_region: DecSymbolicVariableRegion,
         expr_terms: SynExprMap<DecTermResult2<DecTerm>>,
         pattern_expr_ty_infos: SynPatternMap<PatternExprDeclarativeTypeInfo>,
         pattern_symbol_ty_infos: SynPatternSymbolMap<PatternSymbolDeclarativeTypeInfo>,
     ) -> Self {
         Self {
             path,
-            term_symbol_region,
+            symbolic_variable_region,
             expr_terms,
             pattern_expr_ty_infos,
             pattern_symbol_ty_infos,
         }
     }
 
-    pub fn dec_symbol_region(&self) -> &DecSymbolicVariableRegion {
-        &self.term_symbol_region
+    pub fn symbol_variable_region(&self) -> &DecSymbolicVariableRegion {
+        &self.symbolic_variable_region
     }
 
     pub fn current_variable_signature(
         &self,
         current_variable_idx: CurrentVariableIdx,
     ) -> Option<DecSymbolicVariableSignature> {
-        self.term_symbol_region
+        self.symbolic_variable_region
             .current_parameter_variable_signature(current_variable_idx)
     }
 

@@ -82,7 +82,7 @@
                                         },
                                     ),
                                 ),
-                                index: DecTermSymbolicVariableIndex(
+                                index: DecSymbolicVariableIndex(
                                     SelfType,
                                 ),
                             },

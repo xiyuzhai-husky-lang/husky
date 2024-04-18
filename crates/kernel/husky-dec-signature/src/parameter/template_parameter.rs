@@ -28,7 +28,7 @@ impl DeclarativeTemplateParameter {
                     svar: region
                         .current_variable_signature(symbol)
                         .expect("not none")
-                        .term_symbol()
+                        .term()
                         .expect("should have term"),
                     // ad hoc
                     annotated_traits: vec![],
@@ -39,7 +39,7 @@ impl DeclarativeTemplateParameter {
                 svar: region
                     .current_variable_signature(symbol)
                     .expect("not none")
-                    .term_symbol()
+                    .term()
                     .expect("should have term"),
                 annotated_traits: vec![],
                 annotated_variance,
@@ -49,7 +49,7 @@ impl DeclarativeTemplateParameter {
                     svar: region
                         .current_variable_signature(symbol)
                         .expect("not none")
-                        .term_symbol()
+                        .term()
                         .expect("should have term"),
                     // ad hoc
                     annotated_traits: vec![],
@@ -61,7 +61,7 @@ impl DeclarativeTemplateParameter {
                     svar: region
                         .current_variable_signature(symbol)
                         .expect("not none")
-                        .term_symbol()
+                        .term()
                         .expect("should have term"),
                     // ad hoc
                     annotated_traits: vec![],
@@ -119,7 +119,7 @@ impl DecTemplateParameters {
                 })
                 .chain(
                     dec_term_region
-                        .dec_symbol_region()
+                        .symbol_variable_region()
                         .auto_template_parameter_symbols()
                         .iter()
                         .map(|&a| DeclarativeTemplateParameter::new_implicit(a)),
