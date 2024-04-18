@@ -251,7 +251,7 @@ SynDeclSheet {
                                                     15,
                                                 ),
                                                 current_syn_symbol_idx: 0,
-                                                current_syn_symbol_kind: CurrentSynSymbolKind::FieldVariable {
+                                                current_syn_symbol_kind: CurrentVariableKind::FieldVariable {
                                                     ident_token: IdentRegionalToken {
                                                         ident: `points`,
                                                         regional_token_idx: RegionalTokenIdx(
@@ -323,7 +323,7 @@ SynDeclSheet {
                                                     30,
                                                 ),
                                                 current_syn_symbol_idx: 0,
-                                                current_syn_symbol_kind: CurrentSynSymbolKind::FieldVariable {
+                                                current_syn_symbol_kind: CurrentVariableKind::FieldVariable {
                                                     ident_token: IdentRegionalToken {
                                                         ident: `points`,
                                                         regional_token_idx: RegionalTokenIdx(

@@ -63,7 +63,7 @@ Ok(
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 0,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                        current_syn_symbol_kind: CurrentVariableKind::TemplateParameter {
                             template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
                                     ident: `Label`,
@@ -88,7 +88,7 @@ Ok(
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 1,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                        current_syn_symbol_kind: CurrentVariableKind::TemplateParameter {
                             template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Constant {
                                 ident_token: IdentRegionalToken {
                                     ident: `label`,
@@ -112,7 +112,7 @@ Ok(
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 0,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                        current_syn_symbol_kind: CurrentVariableKind::TemplateParameter {
                             template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
                                     ident: `Label`,
@@ -175,7 +175,7 @@ Ok(
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 0,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                        current_syn_symbol_kind: CurrentVariableKind::TemplateParameter {
                             template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
                                     ident: `Label`,
@@ -198,7 +198,7 @@ Ok(
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 1,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                        current_syn_symbol_kind: CurrentVariableKind::TemplateParameter {
                             template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Constant {
                                 ident_token: IdentRegionalToken {
                                     ident: `label`,
@@ -323,7 +323,7 @@ Ok(
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 0,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                        current_syn_symbol_kind: CurrentVariableKind::TemplateParameter {
                             template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
                                     ident: `Label`,
@@ -348,7 +348,7 @@ Ok(
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 1,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                        current_syn_symbol_kind: CurrentVariableKind::TemplateParameter {
                             template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Constant {
                                 ident_token: IdentRegionalToken {
                                     ident: `label`,
@@ -372,7 +372,7 @@ Ok(
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 0,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                        current_syn_symbol_kind: CurrentVariableKind::TemplateParameter {
                             template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
                                     ident: `Label`,
@@ -466,7 +466,7 @@ Ok(
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 0,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                        current_syn_symbol_kind: CurrentVariableKind::TemplateParameter {
                             template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
                                     ident: `Label`,
@@ -489,7 +489,7 @@ Ok(
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 1,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                        current_syn_symbol_kind: CurrentVariableKind::TemplateParameter {
                             template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Constant {
                                 ident_token: IdentRegionalToken {
                                     ident: `label`,
@@ -532,7 +532,7 @@ Ok(
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 0,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                        current_syn_symbol_kind: CurrentVariableKind::TemplateParameter {
                             template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
                                     ident: `Label`,
@@ -649,7 +649,7 @@ Ok(
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 0,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::SimpleParenateParameter {
+                        current_syn_symbol_kind: CurrentVariableKind::SimpleParenateParameter {
                             pattern_symbol_idx: 0,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -685,7 +685,7 @@ Ok(
                     ),
                     data: TokenInfoData::InheritedSynSymbol {
                         inherited_syn_symbol_idx: 0,
-                        inherited_syn_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
+                        inherited_syn_symbol_kind: InheritedVariableKind::TemplateParameter(
                             InheritedTemplateParameterSynSymbol::Type {
                                 ident: `Label`,
                             },
@@ -703,7 +703,7 @@ Ok(
                     ),
                     data: TokenInfoData::InheritedSynSymbol {
                         inherited_syn_symbol_idx: 1,
-                        inherited_syn_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
+                        inherited_syn_symbol_kind: InheritedVariableKind::TemplateParameter(
                             InheritedTemplateParameterSynSymbol::Constant {
                                 ident: `label`,
                             },
@@ -806,7 +806,7 @@ Ok(
                     ),
                     data: TokenInfoData::InheritedSynSymbol {
                         inherited_syn_symbol_idx: 2,
-                        inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                        inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
                             ident: `one_vs_all`,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -1021,7 +1021,7 @@ Ok(
                     ),
                     data: TokenInfoData::InheritedSynSymbol {
                         inherited_syn_symbol_idx: 1,
-                        inherited_syn_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
+                        inherited_syn_symbol_kind: InheritedVariableKind::TemplateParameter(
                             InheritedTemplateParameterSynSymbol::Constant {
                                 ident: `label`,
                             },
@@ -1261,7 +1261,7 @@ Ok(
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 0,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                        current_syn_symbol_kind: CurrentVariableKind::TemplateParameter {
                             template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
                                     ident: `Label`,
@@ -1286,7 +1286,7 @@ Ok(
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 1,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                        current_syn_symbol_kind: CurrentVariableKind::TemplateParameter {
                             template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Constant {
                                 ident_token: IdentRegionalToken {
                                     ident: `label`,
@@ -1310,7 +1310,7 @@ Ok(
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 0,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                        current_syn_symbol_kind: CurrentVariableKind::TemplateParameter {
                             template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
                                     ident: `Label`,
@@ -1404,7 +1404,7 @@ Ok(
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 0,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                        current_syn_symbol_kind: CurrentVariableKind::TemplateParameter {
                             template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
                                     ident: `Label`,
@@ -1427,7 +1427,7 @@ Ok(
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 1,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                        current_syn_symbol_kind: CurrentVariableKind::TemplateParameter {
                             template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Constant {
                                 ident_token: IdentRegionalToken {
                                     ident: `label`,
@@ -1470,7 +1470,7 @@ Ok(
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 0,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                        current_syn_symbol_kind: CurrentVariableKind::TemplateParameter {
                             template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
                                     ident: `Label`,
@@ -1493,7 +1493,7 @@ Ok(
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 1,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                        current_syn_symbol_kind: CurrentVariableKind::TemplateParameter {
                             template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Constant {
                                 ident_token: IdentRegionalToken {
                                     ident: `label`,
@@ -1610,7 +1610,7 @@ Ok(
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 0,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::SimpleParenateParameter {
+                        current_syn_symbol_kind: CurrentVariableKind::SimpleParenateParameter {
                             pattern_symbol_idx: 0,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -1646,7 +1646,7 @@ Ok(
                     ),
                     data: TokenInfoData::InheritedSynSymbol {
                         inherited_syn_symbol_idx: 0,
-                        inherited_syn_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
+                        inherited_syn_symbol_kind: InheritedVariableKind::TemplateParameter(
                             InheritedTemplateParameterSynSymbol::Type {
                                 ident: `Label`,
                             },
@@ -1664,7 +1664,7 @@ Ok(
                     ),
                     data: TokenInfoData::InheritedSynSymbol {
                         inherited_syn_symbol_idx: 1,
-                        inherited_syn_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
+                        inherited_syn_symbol_kind: InheritedVariableKind::TemplateParameter(
                             InheritedTemplateParameterSynSymbol::Constant {
                                 ident: `label`,
                             },
@@ -1767,7 +1767,7 @@ Ok(
                     ),
                     data: TokenInfoData::InheritedSynSymbol {
                         inherited_syn_symbol_idx: 2,
-                        inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                        inherited_syn_symbol_kind: InheritedVariableKind::ParenateParameter {
                             ident: `one_vs_all_result`,
                         },
                         syn_expr_region: ExprRegionLeash(_),

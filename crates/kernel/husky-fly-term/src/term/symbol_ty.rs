@@ -21,7 +21,7 @@ impl SymbolType {
     #[inline(always)]
     pub fn new_parameter_ty_from_signature(
         engine: &mut impl FlyTermEngineMut,
-        current_syn_symbol_idx: CurrentSynSymbolIdx,
+        current_syn_symbol_idx: CurrentVariableIdx,
         signature: DecSvarSignature,
     ) -> FlyTermResult<Self> {
         let ty = EthTerm::ty_from_dec(engine.db(), signature.ty()?)?;
@@ -35,7 +35,7 @@ impl SymbolType {
 
     pub fn new_parameter_ty(
         engine: &mut impl FlyTermEngineMut,
-        current_syn_symbol_idx: CurrentSynSymbolIdx,
+        current_syn_symbol_idx: CurrentVariableIdx,
         modifier: SvarModifier,
         ty: FlyTerm,
     ) -> Self {
@@ -77,7 +77,7 @@ impl SymbolType {
 
     pub fn new_variable_ty(
         engine: &mut impl FlyTermEngineMut,
-        current_syn_symbol_idx: CurrentSynSymbolIdx,
+        current_syn_symbol_idx: CurrentVariableIdx,
         modifier: SvarModifier,
         ty: FlyTerm,
     ) -> FlyTermResult<Self> {

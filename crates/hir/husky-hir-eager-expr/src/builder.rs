@@ -14,7 +14,7 @@ use husky_sem_expr::{
 };
 use husky_sem_place_contract::region::{sem_place_contract_region, SemaPlaceContractRegion};
 use husky_syn_expr::{
-    CurrentSynSymbolIdx, InheritedSynSymbolIdx, SynExprRegionData, SynExprRootKind,
+    CurrentVariableIdx, InheritedVariableIdx, SynExprRegionData, SynExprRootKind,
     SynPatternExprRootKind, SynPatternIdx, SynPatternMap, SynSymbolMap,
 };
 
@@ -210,7 +210,7 @@ impl<'a> HirEagerExprBuilder<'a> {
 
     pub(crate) fn inherited_syn_symbol_to_hir_eager_runtime_symbol(
         &self,
-        inherited_syn_symbol_idx: InheritedSynSymbolIdx,
+        inherited_syn_symbol_idx: InheritedVariableIdx,
     ) -> Option<HirEagerRvarIdx> {
         self.syn_symbol_to_hir_eager_runtime_symbol_map
             .get_inherited(inherited_syn_symbol_idx)
@@ -219,7 +219,7 @@ impl<'a> HirEagerExprBuilder<'a> {
 
     pub(crate) fn current_syn_symbol_to_hir_eager_runtime_symbol(
         &self,
-        current_syn_symbol_idx: CurrentSynSymbolIdx,
+        current_syn_symbol_idx: CurrentVariableIdx,
     ) -> Option<HirEagerRvarIdx> {
         self.syn_symbol_to_hir_eager_runtime_symbol_map
             .get_current(current_syn_symbol_idx)

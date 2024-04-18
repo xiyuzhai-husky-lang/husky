@@ -3,7 +3,7 @@ use crate::{
     HirEagerStmtIdx,
 };
 use husky_sem_expr::{SemaExprIdx, SemaExprMap, SemaStmtIdx, SemaStmtMap};
-use husky_syn_expr::{CurrentSynSymbolIdx, SynPatternMap, SynPatternRoot, SynSymbolMap};
+use husky_syn_expr::{CurrentVariableIdx, SynPatternMap, SynPatternRoot, SynSymbolMap};
 
 #[salsa::tracked(db = HirEagerExprDb, jar = HirEagerExprJar, constructor = new_inner)]
 pub struct HirEagerExprSourceMap {
@@ -67,7 +67,7 @@ impl HirEagerExprSourceMapData {
 
     pub fn current_syn_symbol_to_hir_eager_runtime_symbol(
         &self,
-        current_syn_symbol_idx: CurrentSynSymbolIdx,
+        current_syn_symbol_idx: CurrentVariableIdx,
     ) -> Option<HirEagerRvarIdx> {
         self.syn_symbol_to_hir_eager_runtime_symbol_map
             .get_current(current_syn_symbol_idx)

@@ -246,7 +246,7 @@
                                         6,
                                     ),
                                     current_syn_symbol_idx: 0,
-                                    current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                                    current_syn_symbol_kind: CurrentVariableKind::TemplateParameter {
                                         template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                             ident_token: IdentRegionalToken {
                                                 ident: `E`,
@@ -1133,7 +1133,7 @@
                                         12,
                                     ),
                                     current_syn_symbol_idx: 0,
-                                    current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                                    current_syn_symbol_kind: CurrentVariableKind::TemplateParameter {
                                         template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                             ident_token: IdentRegionalToken {
                                                 ident: `E`,
@@ -1507,7 +1507,7 @@
                                         4,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
+                                    inherited_syn_symbol_kind: InheritedVariableKind::TemplateParameter(
                                         InheritedTemplateParameterSynSymbol::Type {
                                             ident: `E`,
                                         },
@@ -1735,7 +1735,7 @@
                                         6,
                                     ),
                                     current_syn_symbol_idx: 0,
-                                    current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                                    current_syn_symbol_kind: CurrentVariableKind::TemplateParameter {
                                         template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                             ident_token: IdentRegionalToken {
                                                 ident: `E`,
@@ -2605,7 +2605,7 @@
                                         9,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
+                                    inherited_syn_symbol_kind: InheritedVariableKind::TemplateParameter(
                                         InheritedTemplateParameterSynSymbol::Type {
                                             ident: `E`,
                                         },
@@ -2942,7 +2942,7 @@
                                         9,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
+                                    inherited_syn_symbol_kind: InheritedVariableKind::TemplateParameter(
                                         InheritedTemplateParameterSynSymbol::Type {
                                             ident: `E`,
                                         },

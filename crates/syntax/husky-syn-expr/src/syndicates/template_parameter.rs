@@ -6,12 +6,12 @@ use husky_token_data::delimiter::Delimiter;
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct TemplateSynParameterData {
     annotated_variance_token: Option<VarianceRegionalToken>,
-    symbol: CurrentSynSymbolIdx,
+    symbol: CurrentVariableIdx,
     variant: TemplateParameterSyndicateVariant,
 }
 
 impl TemplateSynParameterData {
-    pub fn symbol(&self) -> CurrentSynSymbolIdx {
+    pub fn symbol(&self) -> CurrentVariableIdx {
         self.symbol
     }
 

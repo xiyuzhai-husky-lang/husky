@@ -1,7 +1,7 @@
 use super::*;
 use husky_syn_expr::{
-    AllowSelfValue, CurrentSynSymbolData, CurrentSynSymbolEntry, InheritedSynSymbol,
-    InheritedSynSymbolKind, SynSymbolMap, VariableRegionData,
+    AllowSelfValue, CurrentSynSymbolData, CurrentSynSymbolEntry, InheritedVariable,
+    InheritedVariableKind, SynSymbolMap, VariableRegionData,
 };
 use idx_arena::ArenaIdx;
 
@@ -111,12 +111,12 @@ impl HirEagerRuntimeSvarEntry {
     }
 
     fn from_inherited_syn(
-        inherited_syn_symbol: InheritedSynSymbol,
+        inherited_syn_symbol: InheritedVariable,
     ) -> Option<HirEagerRuntimeSvarEntry> {
         let name = match inherited_syn_symbol.kind() {
-            InheritedSynSymbolKind::TemplateParameter(_)
-            | InheritedSynSymbolKind::ParenateParameter { .. }
-            | InheritedSynSymbolKind::FieldVariable { .. } => {
+            InheritedVariableKind::TemplateParameter(_)
+            | InheritedVariableKind::ParenateParameter { .. }
+            | InheritedVariableKind::FieldVariable { .. } => {
                 HirEagerRuntimeSvarName::Ident(inherited_syn_symbol.ident()?)
             }
         };
@@ -138,14 +138,14 @@ impl HirEagerRuntimeSvarEntry {
 
 impl HirEagerRuntimeSvarData {
     fn from_inherited_syn(
-        inherited_syn_symbol_kind: InheritedSynSymbolKind,
+        inherited_syn_symbol_kind: InheritedVariableKind,
     ) -> Option<HirEagerRuntimeSvarData> {
         match inherited_syn_symbol_kind {
-            InheritedSynSymbolKind::TemplateParameter(_) => None,
-            InheritedSynSymbolKind::ParenateParameter { ident: _ } => {
+            InheritedVariableKind::TemplateParameter(_) => None,
+            InheritedVariableKind::ParenateParameter { ident: _ } => {
                 Some(HirEagerRuntimeSvarData::ParenateParameter)
             }
-            InheritedSynSymbolKind::FieldVariable { ident: _ } => {
+            InheritedVariableKind::FieldVariable { ident: _ } => {
                 Some(HirEagerRuntimeSvarData::FieldVariable)
             }
         }

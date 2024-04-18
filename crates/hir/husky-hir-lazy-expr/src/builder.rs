@@ -7,7 +7,7 @@ use husky_sem_expr::{
 };
 use husky_sem_place_contract::region::{sem_place_contract_region, SemaPlaceContractRegion};
 use husky_syn_expr::{
-    CurrentSynSymbolIdx, InheritedSynSymbolIdx, SynExprRegionData, SynExprRootKind, SynPatternMap,
+    CurrentVariableIdx, InheritedVariableIdx, SynExprRegionData, SynExprRootKind, SynPatternMap,
     SynSymbolMap,
 };
 use salsa::DebugWithDb;
@@ -156,7 +156,7 @@ impl<'a> HirLazyExprBuilder<'a> {
 
     pub(crate) fn inherited_syn_symbol_to_hir_lazy_variable(
         &self,
-        inherited_syn_symbol_idx: InheritedSynSymbolIdx,
+        inherited_syn_symbol_idx: InheritedVariableIdx,
     ) -> Option<HirLazyVariableIdx> {
         self.syn_symbol_to_hir_lazy_variable_map
             .get_inherited(inherited_syn_symbol_idx)
@@ -165,7 +165,7 @@ impl<'a> HirLazyExprBuilder<'a> {
 
     pub(crate) fn current_syn_symbol_to_hir_lazy_variable(
         &self,
-        current_syn_symbol_idx: CurrentSynSymbolIdx,
+        current_syn_symbol_idx: CurrentVariableIdx,
     ) -> Option<HirLazyVariableIdx> {
         self.syn_symbol_to_hir_lazy_variable_map
             .get_current(current_syn_symbol_idx)

@@ -35,7 +35,7 @@ impl<V> SymbolMap<V> {
         }
     }
 
-    pub fn insert_new(&mut self, idx: CurrentSynSymbolIdx, v: V) {
+    pub fn insert_new(&mut self, idx: CurrentVariableIdx, v: V) {
         self.current_syn_symbol_map.insert_new(idx, v)
     }
 
@@ -53,27 +53,27 @@ impl<V> SymbolMap<V> {
 
     pub fn inherited_syn_symbol_key_values(
         &self,
-    ) -> impl Iterator<Item = (InheritedSynSymbolIdx, &V)> {
+    ) -> impl Iterator<Item = (InheritedVariableIdx, &V)> {
         self.inherited_syn_symbol_map.key_value_iter()
     }
 
-    pub fn current_syn_symbol_key_values(&self) -> impl Iterator<Item = (CurrentSynSymbolIdx, &V)> {
+    pub fn current_syn_symbol_key_values(&self) -> impl Iterator<Item = (CurrentVariableIdx, &V)> {
         self.current_syn_symbol_map.key_value_iter()
     }
 }
 
-impl<V> std::ops::Index<InheritedSynSymbolIdx> for SymbolMap<V> {
+impl<V> std::ops::Index<InheritedVariableIdx> for SymbolMap<V> {
     type Output = V;
 
-    fn index(&self, index: InheritedSynSymbolIdx) -> &Self::Output {
+    fn index(&self, index: InheritedVariableIdx) -> &Self::Output {
         &self.inherited_syn_symbol_map[index]
     }
 }
 
-impl<V> std::ops::Index<CurrentSynSymbolIdx> for SymbolMap<V> {
+impl<V> std::ops::Index<CurrentVariableIdx> for SymbolMap<V> {
     type Output = V;
 
-    fn index(&self, index: CurrentSynSymbolIdx) -> &Self::Output {
+    fn index(&self, index: CurrentVariableIdx) -> &Self::Output {
         &self.current_syn_symbol_map[index]
     }
 }

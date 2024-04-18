@@ -11,7 +11,7 @@ use crate::*;
 
 use husky_entity_tree::SynNodeRegionPath;
 use husky_syn_expr::{
-    CurrentSynSymbolIdx, SynExprIdx, SynExprMap, SynPatternMap, SynPatternSymbolMap,
+    CurrentVariableIdx, SynExprIdx, SynExprMap, SynPatternMap, SynPatternSymbolMap,
 };
 
 /// preparation for generating signature
@@ -51,7 +51,7 @@ impl SynExprDecTermRegion {
 
     pub fn current_syn_symbol_signature(
         &self,
-        current_syn_symbol_idx: CurrentSynSymbolIdx,
+        current_syn_symbol_idx: CurrentVariableIdx,
     ) -> Option<DecSvarSignature> {
         self.term_symbol_region
             .current_parameter_symbol_signature(current_syn_symbol_idx)

@@ -405,14 +405,14 @@ pub(crate) enum DisambiguatedTokenData {
     InheritedSynSymbol {
         ident: Ident,
         regional_token_idx: RegionalTokenIdx,
-        inherited_syn_symbol_idx: InheritedSynSymbolIdx,
-        inherited_syn_symbol_kind: InheritedSynSymbolKind,
+        inherited_syn_symbol_idx: InheritedVariableIdx,
+        inherited_syn_symbol_kind: InheritedVariableKind,
     },
     CurrentSynSymbol {
         ident: Ident,
         regional_token_idx: RegionalTokenIdx,
-        current_syn_symbol_idx: CurrentSynSymbolIdx,
-        current_syn_symbol_kind: CurrentSynSymbolKind,
+        current_syn_symbol_idx: CurrentVariableIdx,
+        current_syn_symbol_kind: CurrentVariableKind,
     },
     AssocItem {
         ident: Ident,

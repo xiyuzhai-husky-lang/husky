@@ -59,7 +59,7 @@ impl<'a> SemaExprBuilder<'a> {
 
     fn infer_new_current_variable_syn_symbol_ty(
         &mut self,
-        current_syn_symbol_idx: CurrentSynSymbolIdx,
+        current_syn_symbol_idx: CurrentVariableIdx,
     ) {
         let Some(ty) = self.calc_new_current_syn_symbol_ty(current_syn_symbol_idx) else {
             return;
@@ -91,7 +91,7 @@ impl<'a> SemaExprBuilder<'a> {
 
     fn calc_new_current_syn_symbol_ty(
         &mut self,
-        current_syn_symbol_idx: CurrentSynSymbolIdx,
+        current_syn_symbol_idx: CurrentVariableIdx,
     ) -> Option<FlyTerm> {
         match self.syn_expr_region_data[current_syn_symbol_idx].data() {
             CurrentSynSymbolData::TemplateParameter {

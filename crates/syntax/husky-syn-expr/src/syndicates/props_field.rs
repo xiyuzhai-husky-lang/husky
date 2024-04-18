@@ -9,7 +9,7 @@ pub struct PropsFieldSyndicate {
     colon: ColonRegionalToken,
     ty: SynExprIdx,
     initialization: Option<PropsFieldSynInitialization>,
-    variable: CurrentSynSymbolIdx,
+    variable: CurrentVariableIdx,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]

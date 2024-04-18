@@ -46,7 +46,7 @@ use husky_regional_token::{
 };
 use husky_sem_opr::{binary::SemaBinaryOpr, prefix::SemaPrefixOpr, suffix::SemaSuffixOpr};
 use husky_syn_expr::{
-    entity_path::SynPrincipalEntityPathSynExprIdx, InheritedSynSymbolIdx, InheritedSynSymbolKind,
+    entity_path::SynPrincipalEntityPathSynExprIdx, InheritedVariableIdx, InheritedVariableKind,
 };
 use husky_syn_opr::{SynBinaryOpr, SynPrefixOpr, SynSuffixOpr};
 use husky_term_prelude::ritchie::{RitchieKind, RitchieTypeKind};
@@ -84,20 +84,20 @@ pub enum SemaExprData {
     InheritedSynSymbol {
         ident: Ident,
         regional_token_idx: RegionalTokenIdx,
-        inherited_syn_symbol_idx: InheritedSynSymbolIdx,
-        inherited_syn_symbol_kind: InheritedSynSymbolKind,
+        inherited_syn_symbol_idx: InheritedVariableIdx,
+        inherited_syn_symbol_kind: InheritedVariableKind,
     },
     CurrentSynSymbol {
         ident: Ident,
         regional_token_idx: RegionalTokenIdx,
-        current_syn_symbol_idx: CurrentSynSymbolIdx,
-        current_syn_symbol_kind: CurrentSynSymbolKind,
+        current_syn_symbol_idx: CurrentVariableIdx,
+        current_syn_symbol_kind: CurrentVariableKind,
     },
     FrameVarDecl {
         regional_token_idx: RegionalTokenIdx,
         ident: Ident,
-        frame_var_symbol_idx: CurrentSynSymbolIdx,
-        current_syn_symbol_kind: CurrentSynSymbolKind,
+        frame_var_symbol_idx: CurrentVariableIdx,
+        current_syn_symbol_kind: CurrentVariableKind,
     },
     SelfType(RegionalTokenIdx),
     SelfValue(RegionalTokenIdx),

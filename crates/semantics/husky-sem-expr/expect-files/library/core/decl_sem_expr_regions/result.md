@@ -229,7 +229,7 @@
                                         17,
                                     ),
                                     current_syn_symbol_idx: 1,
-                                    current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                                    current_syn_symbol_kind: CurrentVariableKind::TemplateParameter {
                                         template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                             ident_token: IdentRegionalToken {
                                                 ident: `T2`,
@@ -304,7 +304,7 @@
                                         18,
                                     ),
                                     current_syn_symbol_idx: 3,
-                                    current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                                    current_syn_symbol_kind: CurrentVariableKind::TemplateParameter {
                                         template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                             ident_token: IdentRegionalToken {
                                                 ident: `E2`,
@@ -412,7 +412,7 @@
                                         21,
                                     ),
                                     current_syn_symbol_idx: 0,
-                                    current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                                    current_syn_symbol_kind: CurrentVariableKind::TemplateParameter {
                                         template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                             ident_token: IdentRegionalToken {
                                                 ident: `T1`,
@@ -487,7 +487,7 @@
                                         22,
                                     ),
                                     current_syn_symbol_idx: 2,
-                                    current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                                    current_syn_symbol_kind: CurrentVariableKind::TemplateParameter {
                                         template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                             ident_token: IdentRegionalToken {
                                                 ident: `E1`,
@@ -1323,7 +1323,7 @@
                                         4,
                                     ),
                                     inherited_syn_symbol_idx: 3,
-                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
+                                    inherited_syn_symbol_kind: InheritedVariableKind::TemplateParameter(
                                         InheritedTemplateParameterSynSymbol::Type {
                                             ident: `E2`,
                                         },
@@ -1608,7 +1608,7 @@
                                         8,
                                     ),
                                     inherited_syn_symbol_idx: 1,
-                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
+                                    inherited_syn_symbol_kind: InheritedVariableKind::TemplateParameter(
                                         InheritedTemplateParameterSynSymbol::Type {
                                             ident: `T2`,
                                         },
@@ -1678,7 +1678,7 @@
                                         9,
                                     ),
                                     inherited_syn_symbol_idx: 3,
-                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
+                                    inherited_syn_symbol_kind: InheritedVariableKind::TemplateParameter(
                                         InheritedTemplateParameterSynSymbol::Type {
                                             ident: `E2`,
                                         },
@@ -1781,7 +1781,7 @@
                                         13,
                                     ),
                                     inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
+                                    inherited_syn_symbol_kind: InheritedVariableKind::TemplateParameter(
                                         InheritedTemplateParameterSynSymbol::Type {
                                             ident: `T1`,
                                         },
@@ -1851,7 +1851,7 @@
                                         14,
                                     ),
                                     inherited_syn_symbol_idx: 2,
-                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
+                                    inherited_syn_symbol_kind: InheritedVariableKind::TemplateParameter(
                                         InheritedTemplateParameterSynSymbol::Type {
                                             ident: `E1`,
                                         },

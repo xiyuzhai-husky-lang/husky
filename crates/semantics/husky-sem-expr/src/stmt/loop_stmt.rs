@@ -35,7 +35,7 @@ impl<'a> SemaExprBuilder<'a> {
     pub(crate) fn build_sem_for_between_particulars(
         &mut self,
         particulars: &'a SynForBetweenParticulars,
-        for_loop_var_symbol_idx: CurrentSynSymbolIdx,
+        for_loop_var_symbol_idx: CurrentVariableIdx,
     ) -> SynExprResultRef<'a, SemaForBetweenParticulars> {
         let Ok(ref range) = particulars.range else {
             todo!()

@@ -4,7 +4,7 @@ use crate::{
 };
 use husky_sem_expr::{SemaExprIdx, SemaExprMap, SemaStmtIdx, SemaStmtMap};
 use husky_syn_expr::{
-    CurrentSynSymbolIdx, SynPatternIdx, SynPatternMap, SynPatternRoot, SynSymbolMap,
+    CurrentVariableIdx, SynPatternIdx, SynPatternMap, SynPatternRoot, SynSymbolMap,
 };
 
 #[salsa::tracked(db = HirLazyExprDb, jar = HirLazyExprJar, constructor = new_inner)]
@@ -48,7 +48,7 @@ impl HirLazyExprSourceMapData {
 
     pub fn current_syn_symbol_to_hir_lazy_variable(
         &self,
-        current_syn_symbol_idx: CurrentSynSymbolIdx,
+        current_syn_symbol_idx: CurrentVariableIdx,
     ) -> Option<HirLazyVariableIdx> {
         self.syn_symbol_to_hir_lazy_variable_map
             .get_current(current_syn_symbol_idx)
