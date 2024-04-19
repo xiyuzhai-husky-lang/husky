@@ -130,7 +130,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 24;\n\ntoken_line_group_idx = 3\n\ntoken = TokenData::Ident(\n    `OneVsAll`,\n);\n\ntoken_info = None;\n\n\n",
+                            value: "\ntoken_idx = 24;\n\ntoken_line_group_idx = 3\n\ntoken = TokenData::Ident(\n    `OneVsAll`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::SynPrincipalEntityPathExpr(\n            0,\n            PrincipalEntityPath::MajorItem(\n                MajorItemPath::Type(\n                    TypePath(`malamute::OneVsAll`, `Enum`),\n                ),\n            ),\n        ),\n        data: TokenInfoData::Entity(\n            EntityPath::MajorItem(\n                MajorItemPath::Type(\n                    TypePath(`malamute::OneVsAll`, `Enum`),\n                ),\n            ),\n        ),\n    },\n);\n\n\n",
                         },
                     ),
                     range: Some(
@@ -370,7 +370,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 72;\n\ntoken_line_group_idx = 10\n\ntoken = TokenData::Ident(\n    `big_mouth`,\n);\n\ntoken_info = None;\n\n\n",
+                            value: "\ntoken_idx = 72;\n\ntoken_line_group_idx = 10\n\ntoken = TokenData::Ident(\n    `big_mouth`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::AstIdentifiable,\n        data: TokenInfoData::EntityNode(\n            ItemSynNodePath::MajorItem(\n                MajorItemSynNodePath::Fugitive(\n                    FugitiveSynNodePath(`mnist_classifier::digits::eight::big_mouth`, `Ritchie(\n                        Fn,\n                    )`, (0)),\n                ),\n            ),\n            EntityKind::MajorItem {\n                module_item_kind: MajorItemKind::Fugitive(\n                    MajorFugitiveKind::Ritchie(\n                        RitchieItemKind::Fn,\n                    ),\n                ),\n                connection: MajorItemConnectionKind::Connected,\n            },\n        ),\n    },\n);\n\n\n",
                         },
                     ),
                     range: Some(
@@ -430,7 +430,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 84;\n\ntoken_line_group_idx = 11\n\ntoken = TokenData::Ident(\n    `cc`,\n);\n\ntoken_info = None;\n\n\n",
+                            value: "\ntoken_idx = 84;\n\ntoken_line_group_idx = 11\n\ntoken = TokenData::Ident(\n    `cc`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::SemaExpr(\n            SemaExprIdx(\n                0,\n            ),\n        ),\n        data: TokenInfoData::InheritedSynSymbol {\n            inherited_syn_symbol_idx: 0,\n            inherited_syn_symbol_kind: InheritedVariableKind::Parenate {\n                ident: `cc`,\n            },\n            syn_expr_region: ExprRegionLeash(_),\n        },\n    },\n);\n\nInheritedVariable {\n    modifier: Pure,\n    kind: InheritedVariableKind::Parenate {\n        ident: `cc`,\n    },\n}\n",
                         },
                     ),
                     range: Some(
@@ -550,7 +550,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 108;\n\ntoken_line_group_idx = 12\n\ntoken = TokenData::Ident(\n    `cc`,\n);\n\ntoken_info = None;\n\n\n",
+                            value: "\ntoken_idx = 108;\n\ntoken_line_group_idx = 12\n\ntoken = TokenData::Ident(\n    `cc`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::SemaExpr(\n            SemaExprIdx(\n                11,\n            ),\n        ),\n        data: TokenInfoData::InheritedSynSymbol {\n            inherited_syn_symbol_idx: 0,\n            inherited_syn_symbol_kind: InheritedVariableKind::Parenate {\n                ident: `cc`,\n            },\n            syn_expr_region: ExprRegionLeash(_),\n        },\n    },\n);\n\nInheritedVariable {\n    modifier: Pure,\n    kind: InheritedVariableKind::Parenate {\n        ident: `cc`,\n    },\n}\n",
                         },
                     ),
                     range: Some(
@@ -610,7 +610,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 120;\n\ntoken_line_group_idx = 13\n\ntoken = TokenData::Ident(\n    `cc`,\n);\n\ntoken_info = None;\n\n\n",
+                            value: "\ntoken_idx = 120;\n\ntoken_line_group_idx = 13\n\ntoken = TokenData::Ident(\n    `cc`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::SemaExpr(\n            SemaExprIdx(\n                18,\n            ),\n        ),\n        data: TokenInfoData::InheritedSynSymbol {\n            inherited_syn_symbol_idx: 0,\n            inherited_syn_symbol_kind: InheritedVariableKind::Parenate {\n                ident: `cc`,\n            },\n            syn_expr_region: ExprRegionLeash(_),\n        },\n    },\n);\n\nInheritedVariable {\n    modifier: Pure,\n    kind: InheritedVariableKind::Parenate {\n        ident: `cc`,\n    },\n}\n",
                         },
                     ),
                     range: Some(

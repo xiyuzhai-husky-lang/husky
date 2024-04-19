@@ -40,7 +40,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 31;\n\ntoken_line_group_idx = 4\n\ntoken = TokenData::Ident(\n    `narrow_down`,\n);\n\ntoken_info = None;\n\n\n",
+                            value: "\ntoken_idx = 31;\n\ntoken_line_group_idx = 4\n\ntoken = TokenData::Ident(\n    `narrow_down`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::SynPrincipalEntityPathExpr(\n            0,\n            PrincipalEntityPath::MajorItem(\n                MajorItemPath::Fugitive(\n                    FugitivePath(`malamute::narrow_down`, `Ritchie(\n                        Gn,\n                    )`),\n                ),\n            ),\n        ),\n        data: TokenInfoData::Entity(\n            EntityPath::MajorItem(\n                MajorItemPath::Fugitive(\n                    FugitivePath(`malamute::narrow_down`, `Ritchie(\n                        Gn,\n                    )`),\n                ),\n            ),\n        ),\n    },\n);\n\n\n",
                         },
                     ),
                     range: Some(
@@ -70,7 +70,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 62;\n\ntoken_line_group_idx = 7\n\ntoken = TokenData::Ident(\n    `narrow_down`,\n);\n\ntoken_info = None;\n\n\n",
+                            value: "\ntoken_idx = 62;\n\ntoken_line_group_idx = 7\n\ntoken = TokenData::Ident(\n    `narrow_down`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::SynPrincipalEntityPathExpr(\n            5,\n            PrincipalEntityPath::MajorItem(\n                MajorItemPath::Fugitive(\n                    FugitivePath(`malamute::narrow_down`, `Ritchie(\n                        Gn,\n                    )`),\n                ),\n            ),\n        ),\n        data: TokenInfoData::Entity(\n            EntityPath::MajorItem(\n                MajorItemPath::Fugitive(\n                    FugitivePath(`malamute::narrow_down`, `Ritchie(\n                        Gn,\n                    )`),\n                ),\n            ),\n        ),\n    },\n);\n\n\n",
                         },
                     ),
                     range: Some(
@@ -100,7 +100,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 93;\n\ntoken_line_group_idx = 12\n\ntoken = TokenData::Ident(\n    `major_connected_component`,\n);\n\ntoken_info = None;\n\n\n",
+                            value: "\ntoken_idx = 93;\n\ntoken_line_group_idx = 12\n\ntoken = TokenData::Ident(\n    `major_connected_component`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::SynPrincipalEntityPathExpr(\n            11,\n            PrincipalEntityPath::MajorItem(\n                MajorItemPath::Fugitive(\n                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),\n                ),\n            ),\n        ),\n        data: TokenInfoData::Entity(\n            EntityPath::MajorItem(\n                MajorItemPath::Fugitive(\n                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),\n                ),\n            ),\n        ),\n    },\n);\n\n\n",
                         },
                     ),
                     range: Some(
@@ -220,7 +220,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 217;\n\ntoken_line_group_idx = 24\n\ntoken = TokenData::Ident(\n    `angle_change_norm`,\n);\n\ntoken_info = None;\n\n\n",
+                            value: "\ntoken_idx = 217;\n\ntoken_line_group_idx = 24\n\ntoken = TokenData::Ident(\n    `angle_change_norm`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::SemaExpr(\n            SemaExprIdx(\n                94,\n            ),\n        ),\n        data: TokenInfoData::Field,\n    },\n);\n\n\n",
                         },
                     ),
                     range: Some(
@@ -430,7 +430,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 434;\n\ntoken_line_group_idx = 36\n\ntoken = TokenData::Ident(\n    `start`,\n);\n\ntoken_info = None;\n\n\n",
+                            value: "\ntoken_idx = 434;\n\ntoken_line_group_idx = 36\n\ntoken = TokenData::Ident(\n    `start`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::SemaExpr(\n            SemaExprIdx(\n                203,\n            ),\n        ),\n        data: TokenInfoData::Method,\n    },\n);\n\n\n",
                         },
                     ),
                     range: Some(
@@ -520,7 +520,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 527;\n\ntoken_line_group_idx = 48\n\ntoken = TokenData::Ident(\n    `Yes`,\n);\n\ntoken_info = None;\n\n\n",
+                            value: "\ntoken_idx = 527;\n\ntoken_line_group_idx = 48\n\ntoken = TokenData::Ident(\n    `Yes`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::SynPrincipalEntityPathExpr(\n            46,\n            PrincipalEntityPath::TypeVariant(\n                TypeVariantPath(\n                    ItemPathId(\n                        Id {\n                            value: 252,\n                        },\n                    ),\n                ),\n            ),\n        ),\n        data: TokenInfoData::Entity(\n            EntityPath::TypeVariant(\n                Room32,\n                TypeVariantPath(\n                    ItemPathId(\n                        Id {\n                            value: 252,\n                        },\n                    ),\n                ),\n            ),\n        ),\n    },\n);\n\n\n",
                         },
                     ),
                     range: Some(
@@ -550,7 +550,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 558;\n\ntoken_line_group_idx = 53\n\ntoken = TokenData::Ident(\n    `downmost`,\n);\n\ntoken_info = None;\n\n\n",
+                            value: "\ntoken_idx = 558;\n\ntoken_line_group_idx = 53\n\ntoken = TokenData::Ident(\n    `downmost`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::AstIdentifiable,\n        data: TokenInfoData::EntityNode(\n            ItemSynNodePath::MajorItem(\n                MajorItemSynNodePath::Fugitive(\n                    FugitiveSynNodePath(`mnist_classifier::digits::one::downmost`, `Ritchie(\n                        Fn,\n                    )`, (0)),\n                ),\n            ),\n            EntityKind::MajorItem {\n                module_item_kind: MajorItemKind::Fugitive(\n                    MajorFugitiveKind::Ritchie(\n                        RitchieItemKind::Fn,\n                    ),\n                ),\n                connection: MajorItemConnectionKind::Connected,\n            },\n        ),\n    },\n);\n\n\n",
                         },
                     ),
                     range: Some(
@@ -610,7 +610,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 620;\n\ntoken_line_group_idx = 60\n\ntoken = TokenData::Ident(\n    `x`,\n);\n\ntoken_info = None;\n\n\n",
+                            value: "\ntoken_idx = 620;\n\ntoken_line_group_idx = 60\n\ntoken = TokenData::Ident(\n    `x`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::SemaExpr(\n            SemaExprIdx(\n                7,\n            ),\n        ),\n        data: TokenInfoData::Field,\n    },\n);\n\n\n",
                         },
                     ),
                     range: Some(

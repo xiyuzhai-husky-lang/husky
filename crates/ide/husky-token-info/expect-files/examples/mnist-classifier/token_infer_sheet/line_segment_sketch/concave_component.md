@@ -281,18 +281,156 @@ Ok(
             None,
             None,
             None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::AstIdentifiable,
+                    data: TokenInfoData::EntityNode(
+                        ItemSynNodePath::MajorItem(
+                            MajorItemSynNodePath::Type(
+                                TypeSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Type(
+                                                TypeSynNodePathData {
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
+                        ),
+                        EntityKind::MajorItem {
+                            module_item_kind: MajorItemKind::Type(
+                                TypeKind::Struct,
+                            ),
+                            connection: MajorItemConnectionKind::Connected,
+                        },
+                    ),
+                },
+            ),
             None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::TemplateParameter(
+                        0,
+                    ),
+                    data: TokenInfoData::CurrentSynSymbol {
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::FieldVariable {
+                            ident_token: IdentRegionalToken {
+                                ident: `line_segment_sketch`,
+                                regional_token_idx: RegionalTokenIdx(
+                                    5,
+                                ),
+                            },
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
             None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            1,
+                        ),
+                    ),
+                    data: TokenInfoData::SemaPrefixTypeOpr,
+                },
+            ),
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        0,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
             None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::TemplateParameter(
+                        1,
+                    ),
+                    data: TokenInfoData::CurrentSynSymbol {
+                        current_variable_idx: 1,
+                        current_variable_kind: CurrentVariableKind::FieldVariable {
+                            ident_token: IdentRegionalToken {
+                                ident: `strokes`,
+                                regional_token_idx: RegionalTokenIdx(
+                                    10,
+                                ),
+                            },
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
             None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            5,
+                        ),
+                    ),
+                    data: TokenInfoData::SemaPrefixTypeOpr,
+                },
+            ),
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        1,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`core::slice::CyclicSlice`, `Extern`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`core::slice::CyclicSlice`, `Extern`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        2,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
             None,
             None,
             None,
@@ -695,8 +833,8 @@ Ok(
                         0,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 0,
-                        current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
                             pattern_variable_idx: 0,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -712,8 +850,8 @@ Ok(
                         1,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
-                        current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                        current_variable_idx: 1,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
                             pattern_variable_idx: 1,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -774,8 +912,8 @@ Ok(
                         2,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 2,
-                        current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                        current_variable_idx: 2,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
                             pattern_variable_idx: 2,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -813,8 +951,8 @@ Ok(
                         3,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 3,
-                        current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                        current_variable_idx: 3,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
                             pattern_variable_idx: 3,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -830,8 +968,8 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 2,
-                        current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                        current_variable_idx: 2,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
                             pattern_variable_idx: 2,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -908,8 +1046,8 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 4,
-                        current_syn_symbol_kind: CurrentVariableKind::LoopVariable(
+                        current_variable_idx: 4,
+                        current_variable_kind: CurrentVariableKind::LoopVariable(
                             14,
                         ),
                         syn_expr_region: ExprRegionLeash(_),
@@ -959,8 +1097,8 @@ Ok(
                         4,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 5,
-                        current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                        current_variable_idx: 5,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
                             pattern_variable_idx: 4,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -998,8 +1136,8 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 4,
-                        current_syn_symbol_kind: CurrentVariableKind::LoopVariable(
+                        current_variable_idx: 4,
+                        current_variable_kind: CurrentVariableKind::LoopVariable(
                             14,
                         ),
                         syn_expr_region: ExprRegionLeash(_),
@@ -1025,8 +1163,8 @@ Ok(
                         5,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 6,
-                        current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                        current_variable_idx: 6,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
                             pattern_variable_idx: 5,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -1042,8 +1180,8 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 2,
-                        current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                        current_variable_idx: 2,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
                             pattern_variable_idx: 2,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -1070,8 +1208,8 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 5,
-                        current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                        current_variable_idx: 5,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
                             pattern_variable_idx: 4,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -1088,8 +1226,8 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 6,
-                        current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                        current_variable_idx: 6,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
                             pattern_variable_idx: 5,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -1105,8 +1243,8 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 0,
-                        current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
                             pattern_variable_idx: 0,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -1122,8 +1260,8 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 0,
-                        current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
                             pattern_variable_idx: 0,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -1139,8 +1277,8 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 6,
-                        current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                        current_variable_idx: 6,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
                             pattern_variable_idx: 5,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -1156,8 +1294,8 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 0,
-                        current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
                             pattern_variable_idx: 0,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -1224,8 +1362,8 @@ Ok(
                         0,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 0,
-                        current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
                             pattern_variable_idx: 0,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -1242,8 +1380,8 @@ Ok(
                         1,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
-                        current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                        current_variable_idx: 1,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
                             pattern_variable_idx: 1,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -1365,8 +1503,8 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 2,
-                        current_syn_symbol_kind: CurrentVariableKind::LoopVariable(
+                        current_variable_idx: 2,
+                        current_variable_kind: CurrentVariableKind::LoopVariable(
                             11,
                         ),
                         syn_expr_region: ExprRegionLeash(_),
@@ -1416,8 +1554,8 @@ Ok(
                         2,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 3,
-                        current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                        current_variable_idx: 3,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
                             pattern_variable_idx: 2,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -1455,8 +1593,8 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 2,
-                        current_syn_symbol_kind: CurrentVariableKind::LoopVariable(
+                        current_variable_idx: 2,
+                        current_variable_kind: CurrentVariableKind::LoopVariable(
                             11,
                         ),
                         syn_expr_region: ExprRegionLeash(_),
@@ -1485,8 +1623,8 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 0,
-                        current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
                             pattern_variable_idx: 0,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -1502,8 +1640,8 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
-                        current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                        current_variable_idx: 1,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
                             pattern_variable_idx: 1,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -1530,8 +1668,8 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 3,
-                        current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                        current_variable_idx: 3,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
                             pattern_variable_idx: 2,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -1549,8 +1687,8 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
-                        current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                        current_variable_idx: 1,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
                             pattern_variable_idx: 1,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -1566,8 +1704,8 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 3,
-                        current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                        current_variable_idx: 3,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
                             pattern_variable_idx: 2,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -1583,8 +1721,8 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 0,
-                        current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
                             pattern_variable_idx: 0,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -1650,8 +1788,8 @@ Ok(
                         0,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 0,
-                        current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
                             pattern_variable_idx: 0,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -1713,8 +1851,8 @@ Ok(
                         1,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
-                        current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                        current_variable_idx: 1,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
                             pattern_variable_idx: 1,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -1730,8 +1868,8 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 0,
-                        current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
                             pattern_variable_idx: 0,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -1757,8 +1895,8 @@ Ok(
                         2,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 2,
-                        current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                        current_variable_idx: 2,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
                             pattern_variable_idx: 2,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -1774,8 +1912,8 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 0,
-                        current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
                             pattern_variable_idx: 0,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -1801,8 +1939,8 @@ Ok(
                         3,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 3,
-                        current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                        current_variable_idx: 3,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
                             pattern_variable_idx: 3,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -1818,8 +1956,8 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 0,
-                        current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
                             pattern_variable_idx: 0,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -1845,8 +1983,8 @@ Ok(
                         4,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 4,
-                        current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                        current_variable_idx: 4,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
                             pattern_variable_idx: 4,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -1862,8 +2000,8 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 0,
-                        current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
                             pattern_variable_idx: 0,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -1925,8 +2063,8 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 5,
-                        current_syn_symbol_kind: CurrentVariableKind::LoopVariable(
+                        current_variable_idx: 5,
+                        current_variable_kind: CurrentVariableKind::LoopVariable(
                             16,
                         ),
                         syn_expr_region: ExprRegionLeash(_),
@@ -1976,8 +2114,8 @@ Ok(
                         5,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 6,
-                        current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                        current_variable_idx: 6,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
                             pattern_variable_idx: 5,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -2015,8 +2153,8 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 5,
-                        current_syn_symbol_kind: CurrentVariableKind::LoopVariable(
+                        current_variable_idx: 5,
+                        current_variable_kind: CurrentVariableKind::LoopVariable(
                             16,
                         ),
                         syn_expr_region: ExprRegionLeash(_),
@@ -2043,8 +2181,8 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
-                        current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                        current_variable_idx: 1,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
                             pattern_variable_idx: 1,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -2060,8 +2198,8 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
-                        current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                        current_variable_idx: 1,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
                             pattern_variable_idx: 1,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -2088,8 +2226,8 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 6,
-                        current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                        current_variable_idx: 6,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
                             pattern_variable_idx: 5,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -2116,8 +2254,8 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 2,
-                        current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                        current_variable_idx: 2,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
                             pattern_variable_idx: 2,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -2133,8 +2271,8 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 2,
-                        current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                        current_variable_idx: 2,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
                             pattern_variable_idx: 2,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -2161,8 +2299,8 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 6,
-                        current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                        current_variable_idx: 6,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
                             pattern_variable_idx: 5,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -2189,8 +2327,8 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 3,
-                        current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                        current_variable_idx: 3,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
                             pattern_variable_idx: 3,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -2206,8 +2344,8 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 3,
-                        current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                        current_variable_idx: 3,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
                             pattern_variable_idx: 3,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -2234,8 +2372,8 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 6,
-                        current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                        current_variable_idx: 6,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
                             pattern_variable_idx: 5,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -2262,8 +2400,8 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 4,
-                        current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                        current_variable_idx: 4,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
                             pattern_variable_idx: 4,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -2279,8 +2417,8 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 4,
-                        current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                        current_variable_idx: 4,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
                             pattern_variable_idx: 4,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -2307,8 +2445,8 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 6,
-                        current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                        current_variable_idx: 6,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
                             pattern_variable_idx: 5,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -2394,8 +2532,8 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
-                        current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                        current_variable_idx: 1,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
                             pattern_variable_idx: 1,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -2411,8 +2549,8 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 2,
-                        current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                        current_variable_idx: 2,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
                             pattern_variable_idx: 2,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -2467,8 +2605,8 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 3,
-                        current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                        current_variable_idx: 3,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
                             pattern_variable_idx: 3,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -2484,8 +2622,8 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 4,
-                        current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                        current_variable_idx: 4,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
                             pattern_variable_idx: 4,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -3389,129 +3527,908 @@ Ok(
             None,
             None,
             None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::AstIdentifiable,
+                    data: TokenInfoData::EntityNode(
+                        ItemSynNodePath::MajorItem(
+                            MajorItemSynNodePath::Fugitive(
+                                FugitiveSynNodePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
+                                    Fn,
+                                )`, (0)),
+                            ),
+                        ),
+                        EntityKind::MajorItem {
+                            module_item_kind: MajorItemKind::Fugitive(
+                                MajorFugitiveKind::Ritchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                            connection: MajorItemConnectionKind::Connected,
+                        },
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::PatternExpr(
+                        0,
+                    ),
+                    data: TokenInfoData::CurrentSynSymbol {
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::SimpleParenateParameter {
+                            pattern_variable_idx: 0,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            1,
+                        ),
+                    ),
+                    data: TokenInfoData::SemaPrefixTypeOpr,
+                },
+            ),
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        1,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            2,
+                        ),
+                    ),
+                    data: TokenInfoData::VecFunctorBoxPrefix,
+                },
+            ),
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            2,
+                        ),
+                    ),
+                    data: TokenInfoData::VecFunctorBoxPrefix,
+                },
+            ),
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        2,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            None,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::PatternExpr(
+                        0,
+                    ),
+                    data: TokenInfoData::CurrentSynSymbol {
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
+                            pattern_variable_idx: 0,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            0,
+                        ),
+                    ),
+                    data: TokenInfoData::VecFunctorBoxPrefix,
+                },
+            ),
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            0,
+                        ),
+                    ),
+                    data: TokenInfoData::VecFunctorBoxPrefix,
+                },
+            ),
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        0,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            None,
+            None,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::PatternExpr(
+                        1,
+                    ),
+                    data: TokenInfoData::CurrentSynSymbol {
+                        current_variable_idx: 1,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
+                            pattern_variable_idx: 1,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            4,
+                        ),
+                    ),
+                    data: TokenInfoData::InheritedSynSymbol {
+                        inherited_syn_symbol_idx: 0,
+                        inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
+                            ident: `line_segment_sketch`,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            5,
+                        ),
+                    ),
+                    data: TokenInfoData::Field,
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            6,
+                        ),
+                    ),
+                    data: TokenInfoData::Method,
+                },
+            ),
+            None,
+            None,
+            None,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::PatternExpr(
+                        2,
+                    ),
+                    data: TokenInfoData::CurrentSynSymbol {
+                        current_variable_idx: 2,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
+                            pattern_variable_idx: 2,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            None,
+            None,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::PatternExpr(
+                        3,
+                    ),
+                    data: TokenInfoData::CurrentSynSymbol {
+                        current_variable_idx: 3,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
+                            pattern_variable_idx: 3,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            None,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            9,
+                        ),
+                    ),
+                    data: TokenInfoData::CurrentSynSymbol {
+                        current_variable_idx: 2,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
+                            pattern_variable_idx: 2,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            10,
+                        ),
+                    ),
+                    data: TokenInfoData::CurrentSynSymbol {
+                        current_variable_idx: 1,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
+                            pattern_variable_idx: 1,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        1,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Fugitive(
+                                FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Ritchie(
+                                    Fn,
+                                )`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Fugitive(
+                                FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Ritchie(
+                                    Fn,
+                                )`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            16,
+                        ),
+                    ),
+                    data: TokenInfoData::CallPar,
+                },
+            ),
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            14,
+                        ),
+                    ),
+                    data: TokenInfoData::InheritedSynSymbol {
+                        inherited_syn_symbol_idx: 0,
+                        inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
+                            ident: `line_segment_sketch`,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            15,
+                        ),
+                    ),
+                    data: TokenInfoData::CurrentSynSymbol {
+                        current_variable_idx: 2,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
+                            pattern_variable_idx: 2,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            16,
+                        ),
+                    ),
+                    data: TokenInfoData::CallPar,
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            19,
+                        ),
+                    ),
+                    data: TokenInfoData::CurrentSynSymbol {
+                        current_variable_idx: 2,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
+                            pattern_variable_idx: 2,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::PatternExpr(
+                        4,
+                    ),
+                    data: TokenInfoData::CurrentSynSymbol {
+                        current_variable_idx: 4,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
+                            pattern_variable_idx: 4,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            21,
+                        ),
+                    ),
+                    data: TokenInfoData::CurrentSynSymbol {
+                        current_variable_idx: 2,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
+                            pattern_variable_idx: 2,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            22,
+                        ),
+                    ),
+                    data: TokenInfoData::CurrentSynSymbol {
+                        current_variable_idx: 2,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
+                            pattern_variable_idx: 2,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            23,
+                        ),
+                    ),
+                    data: TokenInfoData::CurrentSynSymbol {
+                        current_variable_idx: 4,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
+                            pattern_variable_idx: 4,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            24,
+                        ),
+                    ),
+                    data: TokenInfoData::CurrentSynSymbol {
+                        current_variable_idx: 1,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
+                            pattern_variable_idx: 1,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            27,
+                        ),
+                    ),
+                    data: TokenInfoData::CurrentSynSymbol {
+                        current_variable_idx: 3,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
+                            pattern_variable_idx: 3,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            28,
+                        ),
+                    ),
+                    data: TokenInfoData::CurrentSynSymbol {
+                        current_variable_idx: 2,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
+                            pattern_variable_idx: 2,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            29,
+                        ),
+                    ),
+                    data: TokenInfoData::CurrentSynSymbol {
+                        current_variable_idx: 1,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
+                            pattern_variable_idx: 1,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        2,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Fugitive(
+                                FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Ritchie(
+                                    Fn,
+                                )`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Fugitive(
+                                FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Ritchie(
+                                    Fn,
+                                )`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            35,
+                        ),
+                    ),
+                    data: TokenInfoData::CallPar,
+                },
+            ),
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            33,
+                        ),
+                    ),
+                    data: TokenInfoData::InheritedSynSymbol {
+                        inherited_syn_symbol_idx: 0,
+                        inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
+                            ident: `line_segment_sketch`,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            34,
+                        ),
+                    ),
+                    data: TokenInfoData::CurrentSynSymbol {
+                        current_variable_idx: 3,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
+                            pattern_variable_idx: 3,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            35,
+                        ),
+                    ),
+                    data: TokenInfoData::CallPar,
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            38,
+                        ),
+                    ),
+                    data: TokenInfoData::CurrentSynSymbol {
+                        current_variable_idx: 3,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
+                            pattern_variable_idx: 3,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            40,
+                        ),
+                    ),
+                    data: TokenInfoData::CurrentSynSymbol {
+                        current_variable_idx: 3,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
+                            pattern_variable_idx: 3,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            41,
+                        ),
+                    ),
+                    data: TokenInfoData::CurrentSynSymbol {
+                        current_variable_idx: 2,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
+                            pattern_variable_idx: 2,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            None,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            45,
+                        ),
+                    ),
+                    data: TokenInfoData::CurrentSynSymbol {
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
+                            pattern_variable_idx: 0,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            54,
+                        ),
+                    ),
+                    data: TokenInfoData::Method,
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        3,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            53,
+                        ),
+                    ),
+                    data: TokenInfoData::CallPar,
+                },
+            ),
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            47,
+                        ),
+                    ),
+                    data: TokenInfoData::InheritedSynSymbol {
+                        inherited_syn_symbol_idx: 0,
+                        inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
+                            ident: `line_segment_sketch`,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            48,
+                        ),
+                    ),
+                    data: TokenInfoData::InheritedSynSymbol {
+                        inherited_syn_symbol_idx: 0,
+                        inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
+                            ident: `line_segment_sketch`,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            49,
+                        ),
+                    ),
+                    data: TokenInfoData::Field,
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            52,
+                        ),
+                    ),
+                    data: TokenInfoData::Method,
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            50,
+                        ),
+                    ),
+                    data: TokenInfoData::CurrentSynSymbol {
+                        current_variable_idx: 2,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
+                            pattern_variable_idx: 2,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            51,
+                        ),
+                    ),
+                    data: TokenInfoData::CurrentSynSymbol {
+                        current_variable_idx: 3,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
+                            pattern_variable_idx: 3,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            53,
+                        ),
+                    ),
+                    data: TokenInfoData::CallPar,
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            55,
+                        ),
+                    ),
+                    data: TokenInfoData::CurrentSynSymbol {
+                        current_variable_idx: 2,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
+                            pattern_variable_idx: 2,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            56,
+                        ),
+                    ),
+                    data: TokenInfoData::CurrentSynSymbol {
+                        current_variable_idx: 3,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
+                            pattern_variable_idx: 3,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            58,
+                        ),
+                    ),
+                    data: TokenInfoData::CurrentSynSymbol {
+                        current_variable_idx: 3,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
+                            pattern_variable_idx: 3,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            59,
+                        ),
+                    ),
+                    data: TokenInfoData::CurrentSynSymbol {
+                        current_variable_idx: 2,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
+                            pattern_variable_idx: 2,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            None,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            63,
+                        ),
+                    ),
+                    data: TokenInfoData::CurrentSynSymbol {
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
+                            pattern_variable_idx: 0,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
         ],
     },
 )

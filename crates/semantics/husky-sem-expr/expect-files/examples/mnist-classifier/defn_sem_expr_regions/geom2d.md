@@ -817,18 +817,18 @@
                         },
                     ),
                 ],
-                current_syn_symbol_map: [],
+                current_variable_map: [],
             },
             symbol_terms: SymbolMap {
                 inherited_syn_symbol_map: [],
-                current_syn_symbol_map: [],
+                current_variable_map: [],
             },
             fly_term_region: FlyTermRegion {
                 terms: FlyTerms {
-                    solid_terms: SolTerms {
+                    sol_terms: SolTerms {
                         entries: [],
                     },
-                    hollow_terms: HolTerms {
+                    hol_terms: HolTerms {
                         entries: [
                             HolTermEntry {
                                 data: HolTermData::Hole {
@@ -2018,18 +2018,18 @@
             sem_expr_terms: [],
             symbol_tys: SymbolMap {
                 inherited_syn_symbol_map: [],
-                current_syn_symbol_map: [],
+                current_variable_map: [],
             },
             symbol_terms: SymbolMap {
                 inherited_syn_symbol_map: [],
-                current_syn_symbol_map: [],
+                current_variable_map: [],
             },
             fly_term_region: FlyTermRegion {
                 terms: FlyTerms {
-                    solid_terms: SolTerms {
+                    sol_terms: SolTerms {
                         entries: [],
                     },
-                    hollow_terms: HolTerms {
+                    hol_terms: HolTerms {
                         entries: [],
                         first_unresolved_term_idx: 0,
                     },
@@ -3221,18 +3221,18 @@
                         },
                     ),
                 ],
-                current_syn_symbol_map: [],
+                current_variable_map: [],
             },
             symbol_terms: SymbolMap {
                 inherited_syn_symbol_map: [],
-                current_syn_symbol_map: [],
+                current_variable_map: [],
             },
             fly_term_region: FlyTermRegion {
                 terms: FlyTerms {
-                    solid_terms: SolTerms {
+                    sol_terms: SolTerms {
                         entries: [],
                     },
-                    hollow_terms: HolTerms {
+                    hol_terms: HolTerms {
                         entries: [],
                         first_unresolved_term_idx: 0,
                     },
@@ -4646,18 +4646,18 @@
             sem_expr_terms: [],
             symbol_tys: SymbolMap {
                 inherited_syn_symbol_map: [],
-                current_syn_symbol_map: [],
+                current_variable_map: [],
             },
             symbol_terms: SymbolMap {
                 inherited_syn_symbol_map: [],
-                current_syn_symbol_map: [],
+                current_variable_map: [],
             },
             fly_term_region: FlyTermRegion {
                 terms: FlyTerms {
-                    solid_terms: SolTerms {
+                    sol_terms: SolTerms {
                         entries: [],
                     },
-                    hollow_terms: HolTerms {
+                    hol_terms: HolTerms {
                         entries: [],
                         first_unresolved_term_idx: 0,
                     },
@@ -5624,18 +5624,18 @@
                         },
                     ),
                 ],
-                current_syn_symbol_map: [],
+                current_variable_map: [],
             },
             symbol_terms: SymbolMap {
                 inherited_syn_symbol_map: [],
-                current_syn_symbol_map: [],
+                current_variable_map: [],
             },
             fly_term_region: FlyTermRegion {
                 terms: FlyTerms {
-                    solid_terms: SolTerms {
+                    sol_terms: SolTerms {
                         entries: [],
                     },
-                    hollow_terms: HolTerms {
+                    hol_terms: HolTerms {
                         entries: [],
                         first_unresolved_term_idx: 0,
                     },
@@ -6352,18 +6352,18 @@
             sem_expr_terms: [],
             symbol_tys: SymbolMap {
                 inherited_syn_symbol_map: [],
-                current_syn_symbol_map: [],
+                current_variable_map: [],
             },
             symbol_terms: SymbolMap {
                 inherited_syn_symbol_map: [],
-                current_syn_symbol_map: [],
+                current_variable_map: [],
             },
             fly_term_region: FlyTermRegion {
                 terms: FlyTerms {
-                    solid_terms: SolTerms {
+                    sol_terms: SolTerms {
                         entries: [],
                     },
-                    hollow_terms: HolTerms {
+                    hol_terms: HolTerms {
                         entries: [],
                         first_unresolved_term_idx: 0,
                     },
@@ -7555,18 +7555,18 @@
                         },
                     ),
                 ],
-                current_syn_symbol_map: [],
+                current_variable_map: [],
             },
             symbol_terms: SymbolMap {
                 inherited_syn_symbol_map: [],
-                current_syn_symbol_map: [],
+                current_variable_map: [],
             },
             fly_term_region: FlyTermRegion {
                 terms: FlyTerms {
-                    solid_terms: SolTerms {
+                    sol_terms: SolTerms {
                         entries: [],
                     },
-                    hollow_terms: HolTerms {
+                    hol_terms: HolTerms {
                         entries: [],
                         first_unresolved_term_idx: 0,
                     },
@@ -8980,18 +8980,18 @@
             sem_expr_terms: [],
             symbol_tys: SymbolMap {
                 inherited_syn_symbol_map: [],
-                current_syn_symbol_map: [],
+                current_variable_map: [],
             },
             symbol_terms: SymbolMap {
                 inherited_syn_symbol_map: [],
-                current_syn_symbol_map: [],
+                current_variable_map: [],
             },
             fly_term_region: FlyTermRegion {
                 terms: FlyTerms {
-                    solid_terms: SolTerms {
+                    sol_terms: SolTerms {
                         entries: [],
                     },
-                    hollow_terms: HolTerms {
+                    hol_terms: HolTerms {
                         entries: [],
                         first_unresolved_term_idx: 0,
                     },
@@ -10275,18 +10275,18 @@
                         },
                     ),
                 ],
-                current_syn_symbol_map: [],
+                current_variable_map: [],
             },
             symbol_terms: SymbolMap {
                 inherited_syn_symbol_map: [],
-                current_syn_symbol_map: [],
+                current_variable_map: [],
             },
             fly_term_region: FlyTermRegion {
                 terms: FlyTerms {
-                    solid_terms: SolTerms {
+                    sol_terms: SolTerms {
                         entries: [],
                     },
-                    hollow_terms: HolTerms {
+                    hol_terms: HolTerms {
                         entries: [],
                         first_unresolved_term_idx: 0,
                     },
@@ -11520,18 +11520,18 @@
                         },
                     ),
                 ],
-                current_syn_symbol_map: [],
+                current_variable_map: [],
             },
             symbol_terms: SymbolMap {
                 inherited_syn_symbol_map: [],
-                current_syn_symbol_map: [],
+                current_variable_map: [],
             },
             fly_term_region: FlyTermRegion {
                 terms: FlyTerms {
-                    solid_terms: SolTerms {
+                    sol_terms: SolTerms {
                         entries: [],
                     },
-                    hollow_terms: HolTerms {
+                    hol_terms: HolTerms {
                         entries: [],
                         first_unresolved_term_idx: 0,
                     },
@@ -12014,7 +12014,7 @@
                 infos: [
                     SelfValue,
                     Variable {
-                        current_syn_symbol_idx: 0,
+                        current_variable_idx: 0,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -12560,8 +12560,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         21,
                                     ),
-                                    current_syn_symbol_idx: 0,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 0,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 0,
                                     },
                                 },
@@ -13289,8 +13289,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         49,
                                     ),
-                                    current_syn_symbol_idx: 0,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 0,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 0,
                                     },
                                 },
@@ -14125,7 +14125,7 @@
                         },
                     ),
                 ],
-                current_syn_symbol_map: [
+                current_variable_map: [
                     SymbolType(
                         FlyTerm {
                             place: Some(
@@ -14144,14 +14144,14 @@
             },
             symbol_terms: SymbolMap {
                 inherited_syn_symbol_map: [],
-                current_syn_symbol_map: [],
+                current_variable_map: [],
             },
             fly_term_region: FlyTermRegion {
                 terms: FlyTerms {
-                    solid_terms: SolTerms {
+                    sol_terms: SolTerms {
                         entries: [],
                     },
-                    hollow_terms: HolTerms {
+                    hol_terms: HolTerms {
                         entries: [
                             HolTermEntry {
                                 data: HolTermData::Hole {
@@ -15688,18 +15688,18 @@
                         },
                     ),
                 ],
-                current_syn_symbol_map: [],
+                current_variable_map: [],
             },
             symbol_terms: SymbolMap {
                 inherited_syn_symbol_map: [],
-                current_syn_symbol_map: [],
+                current_variable_map: [],
             },
             fly_term_region: FlyTermRegion {
                 terms: FlyTerms {
-                    solid_terms: SolTerms {
+                    sol_terms: SolTerms {
                         entries: [],
                     },
-                    hollow_terms: HolTerms {
+                    hol_terms: HolTerms {
                         entries: [],
                         first_unresolved_term_idx: 0,
                     },
@@ -15927,7 +15927,7 @@
                 infos: [
                     SelfValue,
                     Variable {
-                        current_syn_symbol_idx: 0,
+                        current_variable_idx: 0,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -15937,7 +15937,7 @@
                         ),
                     },
                     Variable {
-                        current_syn_symbol_idx: 1,
+                        current_variable_idx: 1,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -15947,7 +15947,7 @@
                         ),
                     },
                     Variable {
-                        current_syn_symbol_idx: 2,
+                        current_variable_idx: 2,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -15957,7 +15957,7 @@
                         ),
                     },
                     Variable {
-                        current_syn_symbol_idx: 3,
+                        current_variable_idx: 3,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -16125,8 +16125,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         10,
                                     ),
-                                    current_syn_symbol_idx: 0,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 0,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 0,
                                     },
                                 },
@@ -16407,8 +16407,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         22,
                                     ),
-                                    current_syn_symbol_idx: 1,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 1,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 1,
                                     },
                                 },
@@ -16772,8 +16772,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         37,
                                     ),
-                                    current_syn_symbol_idx: 0,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 0,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 0,
                                     },
                                 },
@@ -16817,8 +16817,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         39,
                                     ),
-                                    current_syn_symbol_idx: 1,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 1,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 1,
                                     },
                                 },
@@ -17194,8 +17194,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         48,
                                     ),
-                                    current_syn_symbol_idx: 2,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 2,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 2,
                                     },
                                 },
@@ -17926,8 +17926,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         78,
                                     ),
-                                    current_syn_symbol_idx: 2,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 2,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 2,
                                     },
                                 },
@@ -18122,8 +18122,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         83,
                                     ),
-                                    current_syn_symbol_idx: 3,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 3,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 3,
                                     },
                                 },
@@ -19140,7 +19140,7 @@
                         },
                     ),
                 ],
-                current_syn_symbol_map: [
+                current_variable_map: [
                     SymbolType(
                         FlyTerm {
                             place: Some(
@@ -19201,14 +19201,14 @@
             },
             symbol_terms: SymbolMap {
                 inherited_syn_symbol_map: [],
-                current_syn_symbol_map: [],
+                current_variable_map: [],
             },
             fly_term_region: FlyTermRegion {
                 terms: FlyTerms {
-                    solid_terms: SolTerms {
+                    sol_terms: SolTerms {
                         entries: [],
                     },
-                    hollow_terms: HolTerms {
+                    hol_terms: HolTerms {
                         entries: [
                             HolTermEntry {
                                 data: HolTermData::Hole {
@@ -20819,7 +20819,7 @@
                 infos: [
                     SelfValue,
                     Variable {
-                        current_syn_symbol_idx: 0,
+                        current_variable_idx: 0,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -20829,7 +20829,7 @@
                         ),
                     },
                     Variable {
-                        current_syn_symbol_idx: 1,
+                        current_variable_idx: 1,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -20839,7 +20839,7 @@
                         ),
                     },
                     Variable {
-                        current_syn_symbol_idx: 2,
+                        current_variable_idx: 2,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -21785,8 +21785,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         32,
                                     ),
-                                    current_syn_symbol_idx: 0,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 0,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 0,
                                     },
                                 },
@@ -22209,8 +22209,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         46,
                                     ),
-                                    current_syn_symbol_idx: 0,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 0,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 0,
                                     },
                                 },
@@ -22343,8 +22343,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         49,
                                     ),
-                                    current_syn_symbol_idx: 1,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 1,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 1,
                                     },
                                 },
@@ -22388,8 +22388,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         51,
                                     ),
-                                    current_syn_symbol_idx: 2,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 2,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 2,
                                     },
                                 },
@@ -22905,7 +22905,7 @@
                         },
                     ),
                 ],
-                current_syn_symbol_map: [
+                current_variable_map: [
                     SymbolType(
                         FlyTerm {
                             place: Some(
@@ -22952,14 +22952,14 @@
             },
             symbol_terms: SymbolMap {
                 inherited_syn_symbol_map: [],
-                current_syn_symbol_map: [],
+                current_variable_map: [],
             },
             fly_term_region: FlyTermRegion {
                 terms: FlyTerms {
-                    solid_terms: SolTerms {
+                    sol_terms: SolTerms {
                         entries: [],
                     },
-                    hollow_terms: HolTerms {
+                    hol_terms: HolTerms {
                         entries: [],
                         first_unresolved_term_idx: 0,
                     },
@@ -24135,7 +24135,7 @@
                 infos: [
                     SelfValue,
                     Variable {
-                        current_syn_symbol_idx: 0,
+                        current_variable_idx: 0,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -24701,8 +24701,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         19,
                                     ),
-                                    current_syn_symbol_idx: 0,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 0,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 0,
                                     },
                                 },
@@ -24968,7 +24968,7 @@
                         },
                     ),
                 ],
-                current_syn_symbol_map: [
+                current_variable_map: [
                     SymbolType(
                         FlyTerm {
                             place: Some(
@@ -24987,14 +24987,14 @@
             },
             symbol_terms: SymbolMap {
                 inherited_syn_symbol_map: [],
-                current_syn_symbol_map: [],
+                current_variable_map: [],
             },
             fly_term_region: FlyTermRegion {
                 terms: FlyTerms {
-                    solid_terms: SolTerms {
+                    sol_terms: SolTerms {
                         entries: [],
                     },
-                    hollow_terms: HolTerms {
+                    hol_terms: HolTerms {
                         entries: [],
                         first_unresolved_term_idx: 0,
                     },
@@ -26564,18 +26564,18 @@
                         },
                     ),
                 ],
-                current_syn_symbol_map: [],
+                current_variable_map: [],
             },
             symbol_terms: SymbolMap {
                 inherited_syn_symbol_map: [],
-                current_syn_symbol_map: [],
+                current_variable_map: [],
             },
             fly_term_region: FlyTermRegion {
                 terms: FlyTerms {
-                    solid_terms: SolTerms {
+                    sol_terms: SolTerms {
                         entries: [],
                     },
-                    hollow_terms: HolTerms {
+                    hol_terms: HolTerms {
                         entries: [],
                         first_unresolved_term_idx: 0,
                     },
@@ -28181,18 +28181,18 @@
                         },
                     ),
                 ],
-                current_syn_symbol_map: [],
+                current_variable_map: [],
             },
             symbol_terms: SymbolMap {
                 inherited_syn_symbol_map: [],
-                current_syn_symbol_map: [],
+                current_variable_map: [],
             },
             fly_term_region: FlyTermRegion {
                 terms: FlyTerms {
-                    solid_terms: SolTerms {
+                    sol_terms: SolTerms {
                         entries: [],
                     },
-                    hollow_terms: HolTerms {
+                    hol_terms: HolTerms {
                         entries: [],
                         first_unresolved_term_idx: 0,
                     },
@@ -29063,18 +29063,18 @@
             sem_expr_terms: [],
             symbol_tys: SymbolMap {
                 inherited_syn_symbol_map: [],
-                current_syn_symbol_map: [],
+                current_variable_map: [],
             },
             symbol_terms: SymbolMap {
                 inherited_syn_symbol_map: [],
-                current_syn_symbol_map: [],
+                current_variable_map: [],
             },
             fly_term_region: FlyTermRegion {
                 terms: FlyTerms {
-                    solid_terms: SolTerms {
+                    sol_terms: SolTerms {
                         entries: [],
                     },
-                    hollow_terms: HolTerms {
+                    hol_terms: HolTerms {
                         entries: [],
                         first_unresolved_term_idx: 0,
                     },
@@ -29602,18 +29602,18 @@
             sem_expr_terms: [],
             symbol_tys: SymbolMap {
                 inherited_syn_symbol_map: [],
-                current_syn_symbol_map: [],
+                current_variable_map: [],
             },
             symbol_terms: SymbolMap {
                 inherited_syn_symbol_map: [],
-                current_syn_symbol_map: [],
+                current_variable_map: [],
             },
             fly_term_region: FlyTermRegion {
                 terms: FlyTerms {
-                    solid_terms: SolTerms {
+                    sol_terms: SolTerms {
                         entries: [],
                     },
-                    hollow_terms: HolTerms {
+                    hol_terms: HolTerms {
                         entries: [],
                         first_unresolved_term_idx: 0,
                     },
@@ -30141,18 +30141,18 @@
             sem_expr_terms: [],
             symbol_tys: SymbolMap {
                 inherited_syn_symbol_map: [],
-                current_syn_symbol_map: [],
+                current_variable_map: [],
             },
             symbol_terms: SymbolMap {
                 inherited_syn_symbol_map: [],
-                current_syn_symbol_map: [],
+                current_variable_map: [],
             },
             fly_term_region: FlyTermRegion {
                 terms: FlyTerms {
-                    solid_terms: SolTerms {
+                    sol_terms: SolTerms {
                         entries: [],
                     },
-                    hollow_terms: HolTerms {
+                    hol_terms: HolTerms {
                         entries: [],
                         first_unresolved_term_idx: 0,
                     },
@@ -30680,18 +30680,18 @@
             sem_expr_terms: [],
             symbol_tys: SymbolMap {
                 inherited_syn_symbol_map: [],
-                current_syn_symbol_map: [],
+                current_variable_map: [],
             },
             symbol_terms: SymbolMap {
                 inherited_syn_symbol_map: [],
-                current_syn_symbol_map: [],
+                current_variable_map: [],
             },
             fly_term_region: FlyTermRegion {
                 terms: FlyTerms {
-                    solid_terms: SolTerms {
+                    sol_terms: SolTerms {
                         entries: [],
                     },
-                    hollow_terms: HolTerms {
+                    hol_terms: HolTerms {
                         entries: [],
                         first_unresolved_term_idx: 0,
                     },
@@ -31219,18 +31219,18 @@
             sem_expr_terms: [],
             symbol_tys: SymbolMap {
                 inherited_syn_symbol_map: [],
-                current_syn_symbol_map: [],
+                current_variable_map: [],
             },
             symbol_terms: SymbolMap {
                 inherited_syn_symbol_map: [],
-                current_syn_symbol_map: [],
+                current_variable_map: [],
             },
             fly_term_region: FlyTermRegion {
                 terms: FlyTerms {
-                    solid_terms: SolTerms {
+                    sol_terms: SolTerms {
                         entries: [],
                     },
-                    hollow_terms: HolTerms {
+                    hol_terms: HolTerms {
                         entries: [],
                         first_unresolved_term_idx: 0,
                     },
@@ -31758,18 +31758,18 @@
             sem_expr_terms: [],
             symbol_tys: SymbolMap {
                 inherited_syn_symbol_map: [],
-                current_syn_symbol_map: [],
+                current_variable_map: [],
             },
             symbol_terms: SymbolMap {
                 inherited_syn_symbol_map: [],
-                current_syn_symbol_map: [],
+                current_variable_map: [],
             },
             fly_term_region: FlyTermRegion {
                 terms: FlyTerms {
-                    solid_terms: SolTerms {
+                    sol_terms: SolTerms {
                         entries: [],
                     },
-                    hollow_terms: HolTerms {
+                    hol_terms: HolTerms {
                         entries: [],
                         first_unresolved_term_idx: 0,
                     },
@@ -32297,18 +32297,18 @@
             sem_expr_terms: [],
             symbol_tys: SymbolMap {
                 inherited_syn_symbol_map: [],
-                current_syn_symbol_map: [],
+                current_variable_map: [],
             },
             symbol_terms: SymbolMap {
                 inherited_syn_symbol_map: [],
-                current_syn_symbol_map: [],
+                current_variable_map: [],
             },
             fly_term_region: FlyTermRegion {
                 terms: FlyTerms {
-                    solid_terms: SolTerms {
+                    sol_terms: SolTerms {
                         entries: [],
                     },
-                    hollow_terms: HolTerms {
+                    hol_terms: HolTerms {
                         entries: [],
                         first_unresolved_term_idx: 0,
                     },
@@ -32836,18 +32836,18 @@
             sem_expr_terms: [],
             symbol_tys: SymbolMap {
                 inherited_syn_symbol_map: [],
-                current_syn_symbol_map: [],
+                current_variable_map: [],
             },
             symbol_terms: SymbolMap {
                 inherited_syn_symbol_map: [],
-                current_syn_symbol_map: [],
+                current_variable_map: [],
             },
             fly_term_region: FlyTermRegion {
                 terms: FlyTerms {
-                    solid_terms: SolTerms {
+                    sol_terms: SolTerms {
                         entries: [],
                     },
-                    hollow_terms: HolTerms {
+                    hol_terms: HolTerms {
                         entries: [],
                         first_unresolved_term_idx: 0,
                     },

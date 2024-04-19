@@ -101,8 +101,8 @@ SynDeclSheet {
                                                 regional_token_idx: RegionalTokenIdx(
                                                     17,
                                                 ),
-                                                current_syn_symbol_idx: 0,
-                                                current_syn_symbol_kind: CurrentVariableKind::TemplateParameter {
+                                                current_variable_idx: 0,
+                                                current_variable_kind: CurrentVariableKind::TemplateParameter {
                                                     template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                                         ident_token: IdentRegionalToken {
                                                             ident: `T`,
@@ -198,7 +198,7 @@ SynDeclSheet {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
-                                        current_syn_symbol_arena: Arena {
+                                        current_variable_arena: Arena {
                                             data: [
                                                 CurrentVariableEntry {
                                                     modifier: Const,
@@ -418,8 +418,8 @@ SynDeclSheet {
                                                 regional_token_idx: RegionalTokenIdx(
                                                     16,
                                                 ),
-                                                current_syn_symbol_idx: 0,
-                                                current_syn_symbol_kind: CurrentVariableKind::TemplateParameter {
+                                                current_variable_idx: 0,
+                                                current_variable_kind: CurrentVariableKind::TemplateParameter {
                                                     template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                                         ident_token: IdentRegionalToken {
                                                             ident: `T`,
@@ -605,7 +605,7 @@ SynDeclSheet {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
-                                        current_syn_symbol_arena: Arena {
+                                        current_variable_arena: Arena {
                                             data: [
                                                 CurrentVariableEntry {
                                                     modifier: Const,
@@ -897,8 +897,8 @@ SynDeclSheet {
                                                 regional_token_idx: RegionalTokenIdx(
                                                     16,
                                                 ),
-                                                current_syn_symbol_idx: 0,
-                                                current_syn_symbol_kind: CurrentVariableKind::TemplateParameter {
+                                                current_variable_idx: 0,
+                                                current_variable_kind: CurrentVariableKind::TemplateParameter {
                                                     template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                                         ident_token: IdentRegionalToken {
                                                             ident: `T`,
@@ -1109,7 +1109,7 @@ SynDeclSheet {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
-                                        current_syn_symbol_arena: Arena {
+                                        current_variable_arena: Arena {
                                             data: [
                                                 CurrentVariableEntry {
                                                     modifier: Const,
@@ -1331,7 +1331,7 @@ SynDeclSheet {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
-                                        current_syn_symbol_arena: Arena {
+                                        current_variable_arena: Arena {
                                             data: [],
                                         },
                                         allow_self_type: False,
@@ -1408,7 +1408,7 @@ SynDeclSheet {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
-                                        current_syn_symbol_arena: Arena {
+                                        current_variable_arena: Arena {
                                             data: [],
                                         },
                                         allow_self_type: False,

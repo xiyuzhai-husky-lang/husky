@@ -12,7 +12,7 @@ Ok(
             delta_line: 0,
             delta_start: 4,
             length: 7,
-            token_type: 19,
+            token_type: 7,
             token_modifiers_bitset: 0,
         },
     ],

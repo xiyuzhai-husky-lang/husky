@@ -190,7 +190,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 138;\n\ntoken_line_group_idx = 19\n\ntoken = TokenData::Ident(\n    `Rhs`,\n);\n\ntoken_info = None;\n\n\n",
+                            value: "\ntoken_idx = 138;\n\ntoken_line_group_idx = 19\n\ntoken = TokenData::Ident(\n    `Rhs`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::SemaExpr(\n            SemaExprIdx(\n                0,\n            ),\n        ),\n        data: TokenInfoData::InheritedSynSymbol {\n            inherited_syn_symbol_idx: 0,\n            inherited_syn_symbol_kind: InheritedVariableKind::Template(\n                InheritedTemplateVariable::Type {\n                    ident: `Rhs`,\n                },\n            ),\n            syn_expr_region: ExprRegionLeash(_),\n        },\n    },\n);\n\nInheritedVariable {\n    modifier: Const,\n    kind: InheritedVariableKind::Template(\n        InheritedTemplateVariable::Type {\n            ident: `Rhs`,\n        },\n    ),\n}\n",
                         },
                     ),
                     range: Some(
@@ -580,7 +580,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 437;\n\ntoken_line_group_idx = 60\n\ntoken = TokenData::Ident(\n    `ControlFlow`,\n);\n\ntoken_info = None;\n\n\n",
+                            value: "\ntoken_idx = 437;\n\ntoken_line_group_idx = 60\n\ntoken = TokenData::Ident(\n    `ControlFlow`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::SynPrincipalEntityPathExpr(\n            0,\n            PrincipalEntityPath::MajorItem(\n                MajorItemPath::Type(\n                    TypePath(`core::ops::ControlFlow`, `Enum`),\n                ),\n            ),\n        ),\n        data: TokenInfoData::Entity(\n            EntityPath::MajorItem(\n                MajorItemPath::Type(\n                    TypePath(`core::ops::ControlFlow`, `Enum`),\n                ),\n            ),\n        ),\n    },\n);\n\n\n",
                         },
                     ),
                     range: Some(

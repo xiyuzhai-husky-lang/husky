@@ -3,19 +3,215 @@ Ok(
     TokenInfoSheet {
         token_infos: [
             None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::AstIdentifiable,
+                    data: TokenInfoData::EntityNode(
+                        ItemSynNodePath::Submodule(
+                            Room32,
+                            SubmoduleSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::Submodule(
+                                        SubmoduleSynNodePathData {
+                                            disambiguated_item_path: DisambiguatedItemPath {
+                                                maybe_ambiguous_item_path: SubmoduleItemPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 1,
+                                                        },
+                                                    ),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                },
+                            ),
+                        ),
+                        EntityKind::Module,
+                    ),
+                },
+            ),
             None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::AstIdentifiable,
+                    data: TokenInfoData::EntityNode(
+                        ItemSynNodePath::Submodule(
+                            Room32,
+                            SubmoduleSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::Submodule(
+                                        SubmoduleSynNodePathData {
+                                            disambiguated_item_path: DisambiguatedItemPath {
+                                                maybe_ambiguous_item_path: SubmoduleItemPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 2,
+                                                        },
+                                                    ),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                },
+                            ),
+                        ),
+                        EntityKind::Module,
+                    ),
+                },
+            ),
             None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::AstIdentifiable,
+                    data: TokenInfoData::EntityNode(
+                        ItemSynNodePath::Submodule(
+                            Room32,
+                            SubmoduleSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::Submodule(
+                                        SubmoduleSynNodePathData {
+                                            disambiguated_item_path: DisambiguatedItemPath {
+                                                maybe_ambiguous_item_path: SubmoduleItemPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 3,
+                                                        },
+                                                    ),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                },
+                            ),
+                        ),
+                        EntityKind::Module,
+                    ),
+                },
+            ),
             None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::AstIdentifiable,
+                    data: TokenInfoData::EntityNode(
+                        ItemSynNodePath::Submodule(
+                            Room32,
+                            SubmoduleSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::Submodule(
+                                        SubmoduleSynNodePathData {
+                                            disambiguated_item_path: DisambiguatedItemPath {
+                                                maybe_ambiguous_item_path: SubmoduleItemPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 4,
+                                                        },
+                                                    ),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                },
+                            ),
+                        ),
+                        EntityKind::Module,
+                    ),
+                },
+            ),
             None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::AstIdentifiable,
+                    data: TokenInfoData::EntityNode(
+                        ItemSynNodePath::Submodule(
+                            Room32,
+                            SubmoduleSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::Submodule(
+                                        SubmoduleSynNodePathData {
+                                            disambiguated_item_path: DisambiguatedItemPath {
+                                                maybe_ambiguous_item_path: SubmoduleItemPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 5,
+                                                        },
+                                                    ),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                },
+                            ),
+                        ),
+                        EntityKind::Module,
+                    ),
+                },
+            ),
             None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::AstIdentifiable,
+                    data: TokenInfoData::EntityNode(
+                        ItemSynNodePath::Submodule(
+                            Room32,
+                            SubmoduleSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::Submodule(
+                                        SubmoduleSynNodePathData {
+                                            disambiguated_item_path: DisambiguatedItemPath {
+                                                maybe_ambiguous_item_path: SubmoduleItemPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 6,
+                                                        },
+                                                    ),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                },
+                            ),
+                        ),
+                        EntityKind::Module,
+                    ),
+                },
+            ),
             None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::AstIdentifiable,
+                    data: TokenInfoData::EntityNode(
+                        ItemSynNodePath::Submodule(
+                            Room32,
+                            SubmoduleSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::Submodule(
+                                        SubmoduleSynNodePathData {
+                                            disambiguated_item_path: DisambiguatedItemPath {
+                                                maybe_ambiguous_item_path: SubmoduleItemPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 7,
+                                                        },
+                                                    ),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                },
+                            ),
+                        ),
+                        EntityKind::Module,
+                    ),
+                },
+            ),
             None,
             Some(
                 TokenInfo {
@@ -368,32 +564,292 @@ Ok(
             None,
             None,
             None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::AstIdentifiable,
+                    data: TokenInfoData::EntityNode(
+                        ItemSynNodePath::MajorItem(
+                            MajorItemSynNodePath::Fugitive(
+                                FugitiveSynNodePath(`mnist_classifier::main`, `Val`, (0)),
+                            ),
+                        ),
+                        EntityKind::MajorItem {
+                            module_item_kind: MajorItemKind::Fugitive(
+                                MajorFugitiveKind::Val,
+                            ),
+                            connection: MajorItemConnectionKind::Connected,
+                        },
+                    ),
+                },
+            ),
             None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        0,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`malamute::Class`, `Enum`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`malamute::Class`, `Enum`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        1,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`mnist::MnistLabel`, `Enum`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`mnist::MnistLabel`, `Enum`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
             None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        0,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Fugitive(
+                                FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Fugitive(
+                                FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
             None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        1,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Fugitive(
+                                FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Fugitive(
+                                FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
             None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        2,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Fugitive(
+                                FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Fugitive(
+                                FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
             None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        3,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Fugitive(
+                                FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Fugitive(
+                                FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
             None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        4,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Fugitive(
+                                FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Fugitive(
+                                FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
             None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        5,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Fugitive(
+                                FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Fugitive(
+                                FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
             None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        6,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Fugitive(
+                                FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Fugitive(
+                                FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
             None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        7,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Fugitive(
+                                FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Fugitive(
+                                FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
             None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        8,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Fugitive(
+                                FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Fugitive(
+                                FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
             None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        9,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`malamute::Class`, `Enum`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`malamute::Class`, `Enum`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
             None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        10,
+                        PrincipalEntityPath::TypeVariant(
+                            TypeVariantPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 250,
+                                    },
+                                ),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::TypeVariant(
+                            Room32,
+                            TypeVariantPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 250,
+                                    },
+                                ),
+                            ),
+                        ),
+                    ),
+                },
+            ),
         ],
     },
 )
