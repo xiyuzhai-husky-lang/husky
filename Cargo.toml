@@ -317,6 +317,7 @@ husky-path-utils = { path = "crates/utils/husky-path-utils" }
 husky-print-utils = { path = "crates/utils/husky-print-utils" }
 husky-profile-utils = { path = "crates/utils/husky-profile-utils" }
 husky-salsa-log-utils = { path = "crates/utils/husky-salsa-log-utils" }
+husky-screen-utils = { path = "crates/utils/husky-screen-utils" }
 husky-sync-utils = { path = "crates/utils/husky-sync-utils" }
 husky-toml-utils = { path = "crates/utils/husky-toml-utils" }
 husky-rng-utils = { path = "crates/utils/husky-rng-utils" }

@@ -4135,6 +4135,7 @@ name = "husky-cli-utils"
 version = "0.1.0"
 dependencies = [
  "colored",
+ "husky-screen-utils",
 ]
 
 [[package]]
@@ -5794,6 +5795,10 @@ dependencies = [
  "salsa",
  "thiserror",
 ]
+
+[[package]]
+name = "husky-screen-utils"
+version = "0.1.0"
 
 [[package]]
 name = "husky-sem-expr"
