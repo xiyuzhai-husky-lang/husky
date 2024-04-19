@@ -92,7 +92,7 @@ impl<'a> DecTermEngine<'a> {
         let mut current_svar_indexed_iter = self
             .syn_expr_region_data
             .variable_region()
-            .indexed_current_syn_symbols();
+            .indexed_current_variables();
         for (pattern_ty_constraint, vars) in self
             .syn_expr_region_data
             .variable_region()
@@ -100,7 +100,7 @@ impl<'a> DecTermEngine<'a> {
         {
             match pattern_ty_constraint {
                 SyndicateTypeConstraint::TemplateTypeParameter => {
-                    let (current_syn_symbol_idx, current_variable) = current_svar_indexed_iter
+                    let (current_variable_idx, current_variable) = current_svar_indexed_iter
                         .next()
                         .expect("ty constraint should match with current symbols");
                     let CurrentVariableData::TemplateParameter {
@@ -443,11 +443,11 @@ impl<'a> DecTermEngine<'a> {
                 .map(Into::into)
                 .ok_or(DerivedSynExprDecTermError::InheritedSynSymbolIsNotValidTerm.into()),
             SynExprData::CurrentSynSymbol {
-                current_syn_symbol_idx,
+                current_variable_idx,
                 ..
             } => Ok(self
                 .symbolic_variable_region
-                .current_parameter_variable_signature(current_syn_symbol_idx)
+                .current_parameter_variable_signature(current_variable_idx)
                 .expect("not none")
                 .term()
                 .ok_or(OriginalSynExprDecTermError::InvalidSymbolForTerm)?

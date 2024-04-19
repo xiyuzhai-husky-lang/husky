@@ -16,7 +16,7 @@ pub struct DecTermJar(
     DecTermSymbols,
     declarative_term_curry_symbols,
     declarative_term_ritchie_symbols,
-    application_declarative_term_symbols,
+    application_dec_symbolic_variables,
     DecLambdaVariable,
     DecTermHvars,
     declarative_term_curry_placeholders,

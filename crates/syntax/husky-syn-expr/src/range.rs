@@ -258,10 +258,14 @@ impl<'a> SynExprRangeCalculator<'a> {
             }
             SynExprData::AssocItem {
                 parent_expr_idx,
-                colon_colon_regional_token_idx,
-                ident,
                 ident_regional_token_idx,
-            } => todo!(),
+                ..
+            } => {
+                // todo: consider implicit(angular) arguments
+                self[parent_expr_idx].to(RegionalTokenIdxRangeEnd::new_after(
+                    ident_regional_token_idx,
+                ))
+            }
             SynExprData::Be {
                 src,
                 be_regional_token_idx,

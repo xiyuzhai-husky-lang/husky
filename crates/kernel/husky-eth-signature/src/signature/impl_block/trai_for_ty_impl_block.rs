@@ -57,10 +57,10 @@ impl EtherealSelfTypeInTraitImpl {
                     declarative_term,
                 )?)
             }
-            DeclarativeSelfType::DerivedAny(declarative_term_symbol) => {
+            DeclarativeSelfType::DerivedAny(dec_symbolic_variable) => {
                 EtherealSelfTypeInTraitImpl::DeriveAny(EthSymbolicVariable::from_dec(
                     db,
-                    declarative_term_symbol,
+                    dec_symbolic_variable,
                 )?)
             }
         })

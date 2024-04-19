@@ -103,7 +103,7 @@ fn parse_expr_works() {
                     inherited_syn_symbol_arena: Arena {
                         data: [],
                     },
-                    current_syn_symbol_arena: Arena {
+                    current_variable_arena: Arena {
                         data: [],
                     },
                     allow_self_type: False,
@@ -119,7 +119,7 @@ fn parse_expr_works() {
                 ],
                 has_self_lifetime: false,
                 has_self_place: false,
-                syn_pattern_to_current_syn_symbol_map: [],
+                syn_pattern_to_current_variable_map: [],
             },
             Some(
                 1,
@@ -187,7 +187,7 @@ fn parse_expr_works() {
                     inherited_syn_symbol_arena: Arena {
                         data: [],
                     },
-                    current_syn_symbol_arena: Arena {
+                    current_variable_arena: Arena {
                         data: [],
                     },
                     allow_self_type: False,
@@ -203,7 +203,7 @@ fn parse_expr_works() {
                 ],
                 has_self_lifetime: false,
                 has_self_place: false,
-                syn_pattern_to_current_syn_symbol_map: [],
+                syn_pattern_to_current_variable_map: [],
             },
             Some(
                 2,
@@ -264,7 +264,7 @@ fn parse_expr_works() {
                     inherited_syn_symbol_arena: Arena {
                         data: [],
                     },
-                    current_syn_symbol_arena: Arena {
+                    current_variable_arena: Arena {
                         data: [],
                     },
                     allow_self_type: False,
@@ -280,7 +280,7 @@ fn parse_expr_works() {
                 ],
                 has_self_lifetime: false,
                 has_self_place: false,
-                syn_pattern_to_current_syn_symbol_map: [],
+                syn_pattern_to_current_variable_map: [],
             },
             Some(
                 1,
@@ -341,7 +341,7 @@ fn parse_expr_works() {
                     inherited_syn_symbol_arena: Arena {
                         data: [],
                     },
-                    current_syn_symbol_arena: Arena {
+                    current_variable_arena: Arena {
                         data: [],
                     },
                     allow_self_type: False,
@@ -357,7 +357,7 @@ fn parse_expr_works() {
                 ],
                 has_self_lifetime: false,
                 has_self_place: false,
-                syn_pattern_to_current_syn_symbol_map: [],
+                syn_pattern_to_current_variable_map: [],
             },
             Some(
                 1,
@@ -415,7 +415,7 @@ fn parse_expr_works() {
                     inherited_syn_symbol_arena: Arena {
                         data: [],
                     },
-                    current_syn_symbol_arena: Arena {
+                    current_variable_arena: Arena {
                         data: [],
                     },
                     allow_self_type: False,
@@ -431,7 +431,7 @@ fn parse_expr_works() {
                 ],
                 has_self_lifetime: false,
                 has_self_place: false,
-                syn_pattern_to_current_syn_symbol_map: [],
+                syn_pattern_to_current_variable_map: [],
             },
             Some(
                 1,
@@ -512,7 +512,7 @@ fn parse_expr_works() {
                     inherited_syn_symbol_arena: Arena {
                         data: [],
                     },
-                    current_syn_symbol_arena: Arena {
+                    current_variable_arena: Arena {
                         data: [],
                     },
                     allow_self_type: False,
@@ -528,7 +528,7 @@ fn parse_expr_works() {
                 ],
                 has_self_lifetime: false,
                 has_self_place: false,
-                syn_pattern_to_current_syn_symbol_map: [],
+                syn_pattern_to_current_variable_map: [],
             },
             Some(
                 3,
@@ -608,7 +608,7 @@ fn parse_expr_works() {
                     inherited_syn_symbol_arena: Arena {
                         data: [],
                     },
-                    current_syn_symbol_arena: Arena {
+                    current_variable_arena: Arena {
                         data: [],
                     },
                     allow_self_type: False,
@@ -624,7 +624,7 @@ fn parse_expr_works() {
                 ],
                 has_self_lifetime: false,
                 has_self_place: false,
-                syn_pattern_to_current_syn_symbol_map: [],
+                syn_pattern_to_current_variable_map: [],
             },
             Some(
                 3,
@@ -719,7 +719,7 @@ fn parse_expr_works() {
                     inherited_syn_symbol_arena: Arena {
                         data: [],
                     },
-                    current_syn_symbol_arena: Arena {
+                    current_variable_arena: Arena {
                         data: [],
                     },
                     allow_self_type: False,
@@ -735,7 +735,7 @@ fn parse_expr_works() {
                 ],
                 has_self_lifetime: false,
                 has_self_place: false,
-                syn_pattern_to_current_syn_symbol_map: [],
+                syn_pattern_to_current_variable_map: [],
             },
             Some(
                 4,
@@ -840,7 +840,7 @@ fn parse_expr_works() {
                     inherited_syn_symbol_arena: Arena {
                         data: [],
                     },
-                    current_syn_symbol_arena: Arena {
+                    current_variable_arena: Arena {
                         data: [],
                     },
                     allow_self_type: False,
@@ -856,7 +856,7 @@ fn parse_expr_works() {
                 ],
                 has_self_lifetime: false,
                 has_self_place: false,
-                syn_pattern_to_current_syn_symbol_map: [],
+                syn_pattern_to_current_variable_map: [],
             },
             Some(
                 3,
@@ -999,7 +999,7 @@ fn parse_expr_works() {
                     inherited_syn_symbol_arena: Arena {
                         data: [],
                     },
-                    current_syn_symbol_arena: Arena {
+                    current_variable_arena: Arena {
                         data: [],
                     },
                     allow_self_type: False,
@@ -1015,7 +1015,7 @@ fn parse_expr_works() {
                 ],
                 has_self_lifetime: false,
                 has_self_place: false,
-                syn_pattern_to_current_syn_symbol_map: [],
+                syn_pattern_to_current_variable_map: [],
             },
             Some(
                 2,
@@ -1108,7 +1108,7 @@ fn parse_expr_works() {
                     inherited_syn_symbol_arena: Arena {
                         data: [],
                     },
-                    current_syn_symbol_arena: Arena {
+                    current_variable_arena: Arena {
                         data: [],
                     },
                     allow_self_type: False,
@@ -1124,7 +1124,7 @@ fn parse_expr_works() {
                 ],
                 has_self_lifetime: false,
                 has_self_place: false,
-                syn_pattern_to_current_syn_symbol_map: [],
+                syn_pattern_to_current_variable_map: [],
             },
             Some(
                 2,
@@ -1219,7 +1219,7 @@ fn parse_application_expr_works() {
                     inherited_syn_symbol_arena: Arena {
                         data: [],
                     },
-                    current_syn_symbol_arena: Arena {
+                    current_variable_arena: Arena {
                         data: [],
                     },
                     allow_self_type: False,
@@ -1235,7 +1235,7 @@ fn parse_application_expr_works() {
                 ],
                 has_self_lifetime: false,
                 has_self_place: false,
-                syn_pattern_to_current_syn_symbol_map: [],
+                syn_pattern_to_current_variable_map: [],
             },
             Some(
                 5,

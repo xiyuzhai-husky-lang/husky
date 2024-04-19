@@ -4,15 +4,20 @@ mod solid;
 
 use super::*;
 use husky_coword::Ident;
+use husky_entity_tree::HasAssocItemPaths;
 use husky_eth_signature::{HasTypeItemTemplates, TypeItemEthTemplates};
-use husky_eth_term::term::ty_as_trai_item::EthTypeAsTraitItem;
+use husky_eth_term::term::{application::TermFunctionReduced, ty_as_trai_item::EthTypeAsTraitItem};
+use vec_like::VecMapGetEntry;
 
 #[derive(Debug, PartialEq, Eq)]
 #[enum_class::from_variants]
 pub enum StaticDispatch {
     AssocFn(AssocFnFlySignature),
     AssocGn,
-    TypeAsTrait { trai: EthTerm },
+    TypeAsTrait {
+        trai: EthTerm,
+        trai_item_path: TraitItemPath,
+    },
 }
 
 impl FlyTerm {
@@ -113,7 +118,20 @@ impl FlyTerm {
                     0 => todo!(),
                     1 => {
                         let trai = symbolic_variable_obvious_trais[0];
-                        JustOk(StaticDispatch::TypeAsTrait { trai })
+                        let TermFunctionReduced::Trait(trai_path) =
+                            trai.application_expansion(db).function()
+                        else {
+                            unreachable!()
+                        };
+                        let Some(&(_, trai_item_path)) =
+                            trai_path.assoc_item_paths(db).get_entry(ident)
+                        else {
+                            todo!()
+                        };
+                        JustOk(StaticDispatch::TypeAsTrait {
+                            trai,
+                            trai_item_path,
+                        })
                     }
                     _ => todo!(),
                 }

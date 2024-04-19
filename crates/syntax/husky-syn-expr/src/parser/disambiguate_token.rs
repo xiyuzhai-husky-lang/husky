@@ -381,12 +381,12 @@ where
                         inherited_syn_symbol_kind,
                     }
                 }
-                Symbol::Current(current_syn_symbol_idx, current_syn_symbol_kind) => {
+                Symbol::Current(current_variable_idx, current_variable_kind) => {
                     DisambiguatedTokenData::CurrentSynSymbol {
                         ident,
                         regional_token_idx,
-                        current_syn_symbol_idx,
-                        current_syn_symbol_kind,
+                        current_variable_idx,
+                        current_variable_kind,
                     }
                 }
             },
@@ -411,8 +411,8 @@ pub(crate) enum DisambiguatedTokenData {
     CurrentSynSymbol {
         ident: Ident,
         regional_token_idx: RegionalTokenIdx,
-        current_syn_symbol_idx: CurrentVariableIdx,
-        current_syn_symbol_kind: CurrentVariableKind,
+        current_variable_idx: CurrentVariableIdx,
+        current_variable_kind: CurrentVariableKind,
     },
     AssocItem {
         ident: Ident,

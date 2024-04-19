@@ -32,13 +32,13 @@ impl DecTermSymbols {
 }
 impl DecTerm {
     pub fn contains_symbol(self, db: &::salsa::Db, symbol: DecSymbolicVariable) -> bool {
-        calc_declarative_term_symbols(db, self)
-            .map(|declarative_term_symbols| declarative_term_symbols.contains(db, symbol))
+        calc_dec_symbolic_variables(db, self)
+            .map(|dec_symbolic_variables| dec_symbolic_variables.contains(db, symbol))
             .unwrap_or_default()
     }
 }
 
-fn calc_declarative_term_symbols(
+fn calc_dec_symbolic_variables(
     db: &::salsa::Db,
     declarative_term: DecTerm,
 ) -> Option<DecTermSymbols> {
@@ -61,7 +61,7 @@ fn calc_declarative_term_symbols(
         }
         DecTerm::Abstraction(_) => todo!(),
         DecTerm::Application(declarative_term) => {
-            application_declarative_term_symbols(db, declarative_term)
+            application_dec_symbolic_variables(db, declarative_term)
         }
         DecTerm::ApplicationOrRitchieCall(_declarative_ty) => todo!(),
         DecTerm::TypeAsTraitItem(_) => todo!(),
@@ -77,8 +77,8 @@ pub(crate) fn declarative_term_curry_symbols(
     db: &::salsa::Db,
     declarative_term: DecCurry,
 ) -> Option<DecTermSymbols> {
-    let parameter_ty_symbols = calc_declarative_term_symbols(db, declarative_term.parameter_ty(db));
-    let return_ty_symbols = calc_declarative_term_symbols(db, declarative_term.return_ty(db));
+    let parameter_ty_symbols = calc_dec_symbolic_variables(db, declarative_term.parameter_ty(db));
+    let return_ty_symbols = calc_dec_symbolic_variables(db, declarative_term.return_ty(db));
     DecTermSymbols::merge(db, parameter_ty_symbols, return_ty_symbols)
 }
 
@@ -89,23 +89,23 @@ pub(crate) fn declarative_term_ritchie_symbols(
 ) -> Option<DecTermSymbols> {
     let mut symbols: Option<DecTermSymbols> = None;
     for param in declarative_term.params(db) {
-        symbols = DecTermSymbols::merge(db, symbols, calc_declarative_term_symbols(db, param.ty()))
+        symbols = DecTermSymbols::merge(db, symbols, calc_dec_symbolic_variables(db, param.ty()))
     }
     DecTermSymbols::merge(
         db,
         symbols,
-        calc_declarative_term_symbols(db, declarative_term.return_ty(db)),
+        calc_dec_symbolic_variables(db, declarative_term.return_ty(db)),
     )
 }
 
 #[salsa::tracked]
-pub(crate) fn application_declarative_term_symbols(
+pub(crate) fn application_dec_symbolic_variables(
     db: &::salsa::Db,
     declarative_term: DecApplication,
 ) -> Option<DecTermSymbols> {
     DecTermSymbols::merge(
         db,
-        calc_declarative_term_symbols(db, declarative_term.function(db)),
-        calc_declarative_term_symbols(db, declarative_term.argument(db)),
+        calc_dec_symbolic_variables(db, declarative_term.function(db)),
+        calc_dec_symbolic_variables(db, declarative_term.argument(db)),
     )
 }

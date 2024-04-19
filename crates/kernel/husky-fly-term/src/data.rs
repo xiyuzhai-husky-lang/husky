@@ -10,7 +10,7 @@ use crate::*;
 use husky_dec_term::term::LambdaVariableIndex;
 use husky_eth_signature::helpers::trai_for_ty::is_ty_term_always_copyable;
 use husky_eth_term::term::{
-    curry::EthCurry, lambda_variable::EthHvar, symbolic_variable::EthSymbolicVariable,
+    curry::EthCurry, lambda_variable::EthLambdaVariable, symbolic_variable::EthSymbolicVariable,
 };
 use husky_term_prelude::{literal::Literal, ritchie::RitchieKind};
 use husky_vfs::Toolchain;
@@ -159,7 +159,7 @@ pub enum FlyBaseTypeData<'a> {
         symbolic_variable: EthSymbolicVariable,
     },
     LambdaVariable {
-        lambda_variable: EthHvar,
+        lambda_variable: EthLambdaVariable,
     },
 }
 
@@ -174,7 +174,7 @@ impl FlyTerm {
     pub fn data_inner<'a>(self, db: &'a ::salsa::Db, terms: &'a FlyTerms) -> FlyTermData<'a> {
         match self.base_resolved_inner(terms) {
             FlyTermBase::Eth(term) => ethereal_term_data(db, term),
-            FlyTermBase::Sol(term) => term.data_inner(terms.solid_terms()).into(),
+            FlyTermBase::Sol(term) => term.data_inner(terms.sol_terms()).into(),
             FlyTermBase::Hol(term) => term.fly_data(db, terms),
             FlyTermBase::Place => todo!(),
         }
@@ -194,7 +194,7 @@ impl FlyTerm {
     ) -> FlyBaseTypeData<'a> {
         match self.base_resolved_inner(terms) {
             FlyTermBase::Eth(term) => ethereal_term_fly_base_ty_data(db, term),
-            FlyTermBase::Sol(term) => term.data_inner(terms.solid_terms()).into(),
+            FlyTermBase::Sol(term) => term.data_inner(terms.sol_terms()).into(),
             FlyTermBase::Hol(term) => term.fly_base_ty_data(db, terms),
             FlyTermBase::Place => todo!(),
         }

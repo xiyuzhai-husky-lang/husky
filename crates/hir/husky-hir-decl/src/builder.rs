@@ -98,11 +98,11 @@ impl<'a> HirDeclBuilder<'a> {
         self.hir_expr_region
     }
 
-    pub(crate) fn current_syn_symbol_term(
+    pub(crate) fn current_variable_term(
         &self,
-        current_syn_symbol_idx: CurrentVariableIdx,
+        current_variable_idx: CurrentVariableIdx,
     ) -> EthTerm {
-        match self.sem_expr_region_data.symbol_terms()[current_syn_symbol_idx]
+        match self.sem_expr_region_data.symbol_terms()[current_variable_idx]
             .base_resolved_inner(self.sem_expr_region_data.fly_term_region())
         {
             FlyTermBase::Eth(symbol_term) => symbol_term,

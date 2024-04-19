@@ -40,14 +40,14 @@ pub enum SynExprData {
     CurrentSynSymbol {
         ident: Ident,
         regional_token_idx: RegionalTokenIdx,
-        current_syn_symbol_idx: CurrentVariableIdx,
-        current_syn_symbol_kind: CurrentVariableKind,
+        current_variable_idx: CurrentVariableIdx,
+        current_variable_kind: CurrentVariableKind,
     },
     FrameVarDecl {
         regional_token_idx: RegionalTokenIdx,
         ident: Ident,
         frame_var_symbol_idx: CurrentVariableIdx,
-        current_syn_symbol_kind: CurrentVariableKind,
+        current_variable_kind: CurrentVariableKind,
     },
     SelfType(RegionalTokenIdx),
     SelfValue(RegionalTokenIdx),

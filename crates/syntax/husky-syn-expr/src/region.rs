@@ -41,9 +41,9 @@ impl SynExprRegionData {
     ) -> Self {
         let pattern_to_current_variable_map = VecPairMap::from_iter_assuming_no_repetitions(
             variable_region
-                .current_syn_symbol_arena()
+                .current_variable_arena()
                 .indexed_iter()
-                .filter_map(|(current_syn_symbol_idx, current_variable)| {
+                .filter_map(|(current_variable_idx, current_variable)| {
                     match *current_variable.data() {
                         CurrentVariableData::SimpleParenateParameter {
                             pattern_variable_idx,
@@ -60,7 +60,7 @@ impl SynExprRegionData {
                         | CurrentVariableData::CaseVariable {
                             pattern_variable_idx,
                             ..
-                        } => Some((pattern_variable_idx, current_syn_symbol_idx)),
+                        } => Some((pattern_variable_idx, current_variable_idx)),
                         _ => None,
                     }
                 }),
@@ -141,14 +141,14 @@ impl SynExprRegionData {
         //     .find_map(|root| (root.kind() == ExprRootKind::SelfType).then_some(root.expr_idx()))
     }
 
-    pub fn syn_pattern_to_current_syn_symbol(
+    pub fn syn_pattern_to_current_variable(
         &self,
         syn_pattern_variable_idx: PatternVariableIdx,
     ) -> CurrentVariableIdx {
         self.pattern_to_current_variable_map[syn_pattern_variable_idx].1
     }
 
-    pub fn syn_pattern_expr_current_syn_symbols_mapped<R>(
+    pub fn syn_pattern_expr_current_variables_mapped<R>(
         &self,
         syn_pattern_expr_idx: SynPatternIdx,
         f: impl Fn(CurrentVariableIdx) -> R,
@@ -159,9 +159,9 @@ impl SynExprRegionData {
                     .pattern_expr_symbols(syn_pattern_expr_idx)
                     .iter()
                     .map(|&(ident, syn_pattern_variable_idx)| {
-                        let current_syn_symbol_idx =
-                            self.syn_pattern_to_current_syn_symbol(syn_pattern_variable_idx);
-                        (ident, f(current_syn_symbol_idx))
+                        let current_variable_idx =
+                            self.syn_pattern_to_current_variable(syn_pattern_variable_idx);
+                        (ident, f(current_variable_idx))
                     }),
             )
         }

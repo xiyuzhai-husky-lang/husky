@@ -16,11 +16,11 @@ pub struct PlaceRegistry {
 pub enum PlaceInfo {
     SelfValue,
     Parameter {
-        current_syn_symbol_idx: CurrentVariableIdx,
+        current_variable_idx: CurrentVariableIdx,
         ident: Ident,
     },
     Variable {
-        current_syn_symbol_idx: CurrentVariableIdx,
+        current_variable_idx: CurrentVariableIdx,
         ident: Ident,
     },
 }

@@ -35,7 +35,7 @@ impl HirType {
     pub fn from_eth(term: EthTerm, db: &::salsa::Db) -> Option<Self> {
         let always_copyable = is_ty_term_always_copyable(term, db).unwrap()?;
         match term {
-            EthTerm::Symbol(symbol) => {
+            EthTerm::SymbolicVariable(symbol) => {
                 HirTypeTemplateVariable::from_eth(symbol, db).map(Into::into)
             }
             EthTerm::EntityPath(path) => match path {

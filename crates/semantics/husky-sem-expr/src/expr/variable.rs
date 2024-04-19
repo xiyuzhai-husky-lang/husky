@@ -1,15 +1,15 @@
 use super::*;
 
 impl<'a> SemaExprBuilder<'a> {
-    pub(super) fn get_current_syn_symbol_ty(
+    pub(super) fn get_current_variable_ty(
         &mut self,
         expr_idx: SynExprIdx,
-        current_syn_symbol_idx: CurrentVariableIdx,
+        current_variable_idx: CurrentVariableIdx,
     ) -> SemaExprTypeResult<FlyTerm> {
         Ok(self
             .symbol_tys()
-            .current_syn_symbol_map()
-            .get(current_syn_symbol_idx)
+            .current_variable_map()
+            .get(current_variable_idx)
             .copied()
             .ok_or(DerivedSemaExprTypeError::CurrentSynSymbolTypeError)?
             .into())

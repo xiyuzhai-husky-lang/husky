@@ -5,6 +5,7 @@ use husky_dec_ty::principal_item_path::{
     ty_instance_constructor_path_declarative_ty, ty_ontology_path_declarative_ty,
     ty_variant::ty_variant_path_declarative_ty,
 };
+use husky_entity_kind::TraitItemKind;
 use husky_vfs::Toolchain;
 
 pub trait HasType: Copy {
@@ -115,8 +116,8 @@ impl EthTerm {
     pub fn raw_ty(self, db: &::salsa::Db) -> EthTermResult<RawType> {
         Ok(match self {
             EthTerm::Literal(slf) => RawType::Prelude(slf.ty()),
-            EthTerm::Symbol(slf) => RawType::Declarative(slf.ty(db).into_declarative(db)),
-            EthTerm::Hvar(slf) => RawType::Declarative(slf.ty(db).into_declarative(db)),
+            EthTerm::SymbolicVariable(slf) => RawType::Declarative(slf.ty(db).into_declarative(db)),
+            EthTerm::LambdaVariable(slf) => RawType::Declarative(slf.ty(db).into_declarative(db)),
             EthTerm::EntityPath(slf) => match slf {
                 ItemPathTerm::Fugitive(_path) => todo!(),
                 ItemPathTerm::Trait(path) => {
@@ -138,7 +139,15 @@ impl EthTerm {
             EthTerm::Ritchie(_) => DecTerm::Category(Sort::new(1.into())).into(),
             EthTerm::Abstraction(_) => todo!(),
             EthTerm::Application(term) => RawType::Declarative(term.declarative_ty(db)?),
-            EthTerm::TypeAsTraitItem(_) => todo!(),
+            EthTerm::TypeAsTraitItem(term) => match term.trai_item_path(db).item_kind(db) {
+                TraitItemKind::AssocRitchie(_) => todo!(),
+                TraitItemKind::AssocType => DecTerm::Category(Sort::new(1.into())).into(), // todo: maybe consider template parameters?
+                TraitItemKind::AssocVal => todo!(),
+                TraitItemKind::AssocFormal => todo!(),
+                TraitItemKind::AssocConst => todo!(),
+                TraitItemKind::MemoizedField => todo!(),
+                TraitItemKind::MethodRitchie(_) => todo!(),
+            },
             EthTerm::TraitConstraint(_) => todo!(),
         })
     }

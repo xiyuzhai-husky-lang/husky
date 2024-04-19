@@ -285,12 +285,12 @@ impl<'a> IsAssocTraceRegistry for LazyStmtAssocTraceRegistry<'a> {
                             self.hir_lazy_expr_source_map_data
                                 .syn_to_hir_lazy_pattern_expr_idx(syn_pattern_expr_idx),
                             self.syn_expr_region_data
-                                .syn_pattern_expr_current_syn_symbols_mapped(
+                                .syn_pattern_expr_current_variables_mapped(
                                     syn_pattern_expr_idx,
-                                    |current_syn_symbol_idx| {
+                                    |current_variable_idx| {
                                         self.hir_lazy_expr_source_map_data
-                                            .current_syn_symbol_to_hir_lazy_variable(
-                                                current_syn_symbol_idx,
+                                            .current_variable_to_hir_lazy_variable(
+                                                current_variable_idx,
                                             )
                                     },
                                 ),

@@ -41,19 +41,19 @@ impl FlyTermRegion {
     }
 
     pub fn solid_terms(&self) -> &SolTerms {
-        self.terms.solid_terms()
+        self.terms.sol_terms()
     }
 
     pub(crate) fn solid_terms_mut(&mut self) -> &mut SolTerms {
-        self.terms.solid_terms_mut()
+        self.terms.sol_terms_mut()
     }
 
     pub fn hollow_terms(&self) -> &HolTerms {
-        self.terms.hollow_terms()
+        self.terms.hol_terms()
     }
 
     pub(crate) fn hollow_terms_mut(&mut self) -> &mut HolTerms {
-        self.terms.hollow_terms_mut()
+        self.terms.hol_terms_mut()
     }
 
     pub fn finalize_unresolved_term_table(&mut self, db: &::salsa::Db, term_menu: &EthTermMenu) {

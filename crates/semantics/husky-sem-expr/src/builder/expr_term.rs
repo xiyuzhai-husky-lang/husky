@@ -6,7 +6,8 @@ use husky_eth_term::term::{
     application::EthApplication, symbolic_variable::EthSymbolicVariable, EthTerm,
 };
 use husky_fly_term::{
-    instantiation::FlyInstantiation, signature::binary_opr::SemaBinaryOprFlySignature,
+    dispatch::StaticDispatch, instantiation::FlyInstantiation,
+    signature::binary_opr::SemaBinaryOprFlySignature,
 };
 use husky_term_prelude::literal::{
     float::{F32Literal, F64Literal},
@@ -67,10 +68,10 @@ impl<'a> SemaExprBuilder<'a> {
     fn calc_expr_term(&mut self, sem_expr_idx: SemaExprIdx) -> SemaExprTermResult<FlyTerm> {
         let db = self.db;
         let data = sem_expr_idx.data_result(&self.sem_expr_arena)?;
-        match data {
+        match *data {
             SemaExprData::Literal(regional_token_idx, lit) => {
                 Ok(
-                    EthTerm::Literal(match *lit {
+                    EthTerm::Literal(match lit {
                         LiteralTokenData::Unit => Literal::Unit(()),
                         LiteralTokenData::Char(_) => todo!(),
                         LiteralTokenData::String(val) => Literal::String(val),
@@ -174,26 +175,40 @@ impl<'a> SemaExprBuilder<'a> {
                 path,
                 ty_path_disambiguation,
                 ref instantiation,
-            } => Ok(self.calc_item_path_term(
-                *path,
-                *ty_path_disambiguation,
-                instantiation.as_ref(),
-            )),
+            } => Ok(self.calc_item_path_term(path, ty_path_disambiguation, instantiation.as_ref())),
             SemaExprData::MajorItemPathAssocItem {
                 parent_expr_idx,
                 parent_path,
                 colon_colon_regional_token,
                 ident_token,
-                static_dispatch,
+                ref static_dispatch,
             } => todo!(),
             SemaExprData::AssocItem {
                 parent_expr_idx,
                 colon_colon_regional_token_idx,
                 ident,
                 ident_regional_token_idx,
-                static_dispatch,
-            } => todo!(),
-            &SemaExprData::InheritedSynSymbol {
+                ref static_dispatch,
+            } => match *static_dispatch {
+                StaticDispatch::AssocFn(_) => todo!(),
+                StaticDispatch::AssocGn => todo!(),
+                StaticDispatch::TypeAsTrait {
+                    trai,
+                    trai_item_path,
+                } => {
+                    let ty = self.calc_expr_term(parent_expr_idx).expect(
+                        "should be guaranteed to be okay by the fact that static dispatch is calculated",
+                    );
+                    Ok(FlyTerm::new_ty_as_trai_item(
+                        self,
+                        ty,
+                        trai,
+                        ident,
+                        trai_item_path,
+                    ))
+                }
+            },
+            SemaExprData::InheritedSynSymbol {
                 ident,
                 regional_token_idx,
                 inherited_syn_symbol_idx,
@@ -202,15 +217,15 @@ impl<'a> SemaExprBuilder<'a> {
             SemaExprData::CurrentSynSymbol {
                 ident,
                 regional_token_idx,
-                current_syn_symbol_idx,
-                current_syn_symbol_kind,
+                current_variable_idx,
+                current_variable_kind,
             } => match self
                 .dec_term_region
-                .current_variable_signature(*current_syn_symbol_idx)
+                .current_variable_signature(current_variable_idx)
             {
-                Some(current_syn_symbol_signature) => match current_syn_symbol_signature.term() {
-                    Some(declarative_term_symbol) => {
-                        Ok(EthSymbolicVariable::from_dec(self.db, declarative_term_symbol)?.into())
+                Some(current_variable_signature) => match current_variable_signature.term() {
+                    Some(dec_symbolic_variable) => {
+                        Ok(EthSymbolicVariable::from_dec(self.db, dec_symbolic_variable)?.into())
                     }
                     None => todo!(),
                 },
@@ -219,25 +234,25 @@ impl<'a> SemaExprBuilder<'a> {
             SemaExprData::FrameVarDecl {
                 regional_token_idx,
                 ident,
-                frame_var_symbol_idx: current_syn_symbol_idx,
-                current_syn_symbol_kind,
+                frame_var_symbol_idx,
+                current_variable_kind,
             } => todo!(),
             SemaExprData::SelfType(regional_token_idx) => match self.self_ty {
                 Some(self_ty_term) => Ok(self_ty_term.into()),
                 None => Err(DerivedSemaExprTermError::SelfTypeTermNotInferred.into()),
             },
             SemaExprData::SelfValue(_) => todo!(),
-            SemaExprData::Binary { dispatch, .. } => match dispatch.signature() {
+            SemaExprData::Binary { ref dispatch, .. } => match dispatch.signature() {
                 SemaBinaryOprFlySignature::Builtin => todo!(),
             },
             SemaExprData::Be { .. } => todo!(),
             SemaExprData::Prefix {
                 opr,
                 opr_regional_token_idx,
-                opd: opd_sem_expr_idx,
-            } => self.calc_prefix_expr_term(sem_expr_idx, *opr, *opd_sem_expr_idx),
+                opd,
+            } => self.calc_prefix_expr_term(sem_expr_idx, opr, opd),
             SemaExprData::Suffix {
-                opd: opd_sem_expr_idx,
+                opd,
                 opr,
                 opr_regional_token_idx,
             } => todo!(),
@@ -249,8 +264,8 @@ impl<'a> SemaExprBuilder<'a> {
             } => {
                 // todo: implicit arguments
                 self.calc_explicit_application_expr_term(
-                    *function_sem_expr_idx,
-                    *argument_sem_expr_idx,
+                    function_sem_expr_idx,
+                    argument_sem_expr_idx,
                 )
             }
             SemaExprData::FunctionRitchieCall { .. } => todo!(),
@@ -268,7 +283,7 @@ impl<'a> SemaExprBuilder<'a> {
             SemaExprData::NewList { ref items, .. } => {
                 self.calc_new_list_expr_term(sem_expr_idx, items)
             }
-            SemaExprData::BoxColonList { items, .. } => match items.len() {
+            SemaExprData::BoxColonList { ref items, .. } => match items.len() {
                 0 => Ok(self.eth_term_menu().slice_ty_ontology().into()),
                 1 => todo!(),
                 2 => todo!(),
@@ -278,9 +293,9 @@ impl<'a> SemaExprBuilder<'a> {
             SemaExprData::Index {
                 owner: owner_sem_expr_idx,
                 lbox_regional_token_idx,
-                index_sem_list_items: indices,
+                ref index_sem_list_items,
                 rbox_regional_token_idx,
-                index_dynamic_dispatch,
+                ref index_dynamic_dispatch,
             } => todo!(),
             SemaExprData::CompositionWithList {
                 owner,
@@ -294,7 +309,7 @@ impl<'a> SemaExprBuilder<'a> {
             //     Ok(_) => unreachable!(),
             // },
             SemaExprData::EmptyHtmlTag {
-                empty_html_bra_idx: langle_regional_token_idx,
+                empty_html_bra_idx,
                 function_ident,
                 ref arguments,
                 empty_html_ket,
@@ -315,7 +330,7 @@ impl<'a> SemaExprBuilder<'a> {
                     .map_err(Into::into)
             }
             SemaExprData::Unit { .. } => Ok(self.term_menu.unit_ty_ontology().into()),
-            &SemaExprData::Ritchie {
+            SemaExprData::Ritchie {
                 ritchie_kind,
                 ref parameter_ty_items,
                 return_ty_sem_expr_idx,
@@ -349,7 +364,7 @@ impl<'a> SemaExprBuilder<'a> {
             } => Ok(self.term_menu.list_ty_ontology().into()),
             SemaExprData::ArrayFunctor {
                 lbox_regional_token_idx,
-                items,
+                ref items,
                 rbox_regional_token_idx,
             } => match items.len() {
                 0 => unreachable!(),
@@ -363,7 +378,9 @@ impl<'a> SemaExprBuilder<'a> {
                 _ => todo!(),
             },
             SemaExprData::NewList {
-                items, element_ty, ..
+                ref items,
+                element_ty,
+                ..
             } => todo!(),
             SemaExprData::InheritedSynSymbol {
                 ident,
@@ -375,7 +392,7 @@ impl<'a> SemaExprBuilder<'a> {
                 ritchie_kind_regional_token_idx,
                 ritchie_kind,
                 lpar_token,
-                parameter_ty_items,
+                ref parameter_ty_items,
                 rpar_regional_token_idx,
                 light_arrow_token,
                 return_ty_sem_expr_idx,

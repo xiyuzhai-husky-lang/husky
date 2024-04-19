@@ -46,7 +46,8 @@ fn sem_expr_region_eth_term_fmt_context(
             .inherited_syn_symbol_map()
             .key_value_iter()
             .map(|(idx, term)| {
-                let FlyTermBase::Eth(EthTerm::Symbol(symbol)) = term.base_resolved_inner(fly_terms)
+                let FlyTermBase::Eth(EthTerm::SymbolicVariable(symbol)) =
+                    term.base_resolved_inner(fly_terms)
                 else {
                     todo!();
                 };
@@ -55,10 +56,10 @@ fn sem_expr_region_eth_term_fmt_context(
             .chain(
                 sem_expr_region_data
                     .symbol_terms
-                    .current_syn_symbol_map()
+                    .current_variable_map()
                     .key_value_iter()
                     .map(|(idx, term)| {
-                        let FlyTermBase::Eth(EthTerm::Symbol(symbol)) =
+                        let FlyTermBase::Eth(EthTerm::SymbolicVariable(symbol)) =
                             term.base_resolved_inner(fly_terms)
                         else {
                             todo!();

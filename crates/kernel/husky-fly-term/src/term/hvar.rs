@@ -1,4 +1,4 @@
-use husky_eth_term::term::lambda_variable::EthHvar;
+use husky_eth_term::term::lambda_variable::EthLambdaVariable;
 
 use super::*;
 
@@ -55,8 +55,8 @@ impl FlyHvar {
     }
 }
 
-impl From<EthHvar> for FlyHvar {
-    fn from(value: EthHvar) -> Self {
+impl From<EthLambdaVariable> for FlyHvar {
+    fn from(value: EthLambdaVariable) -> Self {
         FlyHvar(value.into())
     }
 }

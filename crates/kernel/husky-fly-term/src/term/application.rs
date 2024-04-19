@@ -87,7 +87,7 @@ impl FlyTerm {
                     }
                 }
                 FlyTermDataKind::Solid => fly_terms
-                    .solid_terms_mut()
+                    .sol_terms_mut()
                     .intern_new(SolidTermData::TypeOntology {
                         path,
                         refined_path,
@@ -95,7 +95,7 @@ impl FlyTerm {
                     })
                     .into(),
                 FlyTermDataKind::Hollow => fly_terms
-                    .hollow_terms_mut()
+                    .hol_terms_mut()
                     .alloc_new(HolTermData::TypeOntology {
                         path,
                         refined_path,

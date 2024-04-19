@@ -58,8 +58,8 @@ pub enum TokenInfoData {
         syn_expr_region: ExprRegionLeash,
     },
     CurrentSynSymbol {
-        current_syn_symbol_idx: CurrentVariableIdx,
-        current_syn_symbol_kind: CurrentVariableKind,
+        current_variable_idx: CurrentVariableIdx,
+        current_variable_kind: CurrentVariableKind,
         syn_expr_region: ExprRegionLeash,
     },
     SelfType,
@@ -96,9 +96,9 @@ impl TokenInfoData {
             TokenInfoData::Entity(path) => path.item_kind(db).class().into(),
             TokenInfoData::EntityNode(_path, item_kind) => item_kind.class().into(),
             TokenInfoData::CurrentSynSymbol {
-                current_syn_symbol_kind,
+                current_variable_kind,
                 ..
-            } => match current_syn_symbol_kind {
+            } => match current_variable_kind {
                 CurrentVariableKind::LetVariable { .. }
                 | CurrentVariableKind::BeVariable { .. }
                 | CurrentVariableKind::CaseVariable { .. } => TokenClass::Variable,

@@ -75,8 +75,8 @@ impl HirLazyVariableData {
         }
     }
 
-    fn from_current_syn(current_syn_symbol_data: &CurrentVariableData) -> Option<Self> {
-        match current_syn_symbol_data {
+    fn from_current_syn(current_variable_data: &CurrentVariableData) -> Option<Self> {
+        match current_variable_data {
             CurrentVariableData::TemplateParameter { .. } => None,
             CurrentVariableData::SelfType => todo!(),
             CurrentVariableData::SelfValue {
@@ -144,15 +144,15 @@ impl HirLazyVariableRegion {
                     .push_inherited(inherited_syn_symbol_idx, hir_eager_runtime_symbol_idx)
             }
         }
-        for (current_syn_symbol_idx, current_variable) in
-            syn_symbol_region.indexed_current_syn_symbols()
+        for (current_variable_idx, current_variable) in
+            syn_symbol_region.indexed_current_variables()
         {
             if let Some(hir_eager_runtime_symbol) =
                 HirLazyVariable::from_current_syn(current_variable)
             {
                 let hir_eager_runtime_symbol_idx = arena.alloc_one(hir_eager_runtime_symbol);
                 syn_symbol_to_hir_eager_runtime_symbol_map
-                    .push_current(current_syn_symbol_idx, hir_eager_runtime_symbol_idx)
+                    .push_current(current_variable_idx, hir_eager_runtime_symbol_idx)
             }
         }
         (Self { arena }, syn_symbol_to_hir_eager_runtime_symbol_map)

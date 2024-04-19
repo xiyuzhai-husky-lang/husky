@@ -58,6 +58,7 @@ impl<'a> SemaExprBuilder<'a> {
         Result<StaticDispatch, SemaExprDataError>,
         Result<FlyTerm, SemaExprTypeError>,
     ) {
+        let db = self.db();
         match parent_term.static_dispatch(self, expr_idx, ident, /*ad hoc */ &[]) {
             JustOk(static_dispatch) => match static_dispatch {
                 StaticDispatch::AssocFn(ref signature) => {
@@ -65,8 +66,20 @@ impl<'a> SemaExprBuilder<'a> {
                     (Ok(static_dispatch), Ok(ty))
                 }
                 StaticDispatch::AssocGn => todo!(),
-                StaticDispatch::TypeAsTrait { trai } => {
-                    todo!()
+                StaticDispatch::TypeAsTrait {
+                    trai,
+                    trai_item_path,
+                } => {
+                    let ty_result = match trai_item_path.item_kind(db) {
+                        TraitItemKind::AssocRitchie(_) => todo!(),
+                        TraitItemKind::AssocType => Ok(self.term_menu().ty0().into()),
+                        TraitItemKind::AssocVal => todo!(),
+                        TraitItemKind::AssocFormal => todo!(),
+                        TraitItemKind::AssocConst => todo!(),
+                        TraitItemKind::MemoizedField => todo!(),
+                        TraitItemKind::MethodRitchie(_) => todo!(),
+                    };
+                    (Ok(static_dispatch), ty_result)
                 }
             },
             JustErr(_) => todo!(),

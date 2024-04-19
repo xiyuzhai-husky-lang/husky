@@ -19,8 +19,8 @@ impl HirTrait {
     pub fn from_eth(trai_term: EthTerm, db: &::salsa::Db) -> Self {
         match trai_term {
             EthTerm::Literal(_) => todo!(),
-            EthTerm::Symbol(_) => todo!(),
-            EthTerm::Hvar(_) => todo!(),
+            EthTerm::SymbolicVariable(_) => todo!(),
+            EthTerm::LambdaVariable(_) => todo!(),
             EthTerm::EntityPath(path) => match path {
                 ItemPathTerm::Fugitive(_) => todo!(),
                 ItemPathTerm::Trait(trai_path) => Self::new(db, trai_path, smallvec![]),

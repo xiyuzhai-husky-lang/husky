@@ -164,11 +164,11 @@ impl ToHirLazy for SemaExprIdx {
                     .unwrap(),
             ),
             SemaExprData::CurrentSynSymbol {
-                current_syn_symbol_idx,
+                current_variable_idx,
                 ..
             } => HirLazyExprData::Variable(
                 builder
-                    .current_syn_symbol_to_hir_lazy_variable(current_syn_symbol_idx)
+                    .current_variable_to_hir_lazy_variable(current_variable_idx)
                     .unwrap(),
             ),
             SemaExprData::FrameVarDecl {
@@ -176,7 +176,7 @@ impl ToHirLazy for SemaExprIdx {
                 ..
             } => HirLazyExprData::Variable(
                 builder
-                    .current_syn_symbol_to_hir_lazy_variable(frame_var_symbol_idx)
+                    .current_variable_to_hir_lazy_variable(frame_var_symbol_idx)
                     .unwrap(),
             ),
             SemaExprData::SelfType(_) => todo!(),
