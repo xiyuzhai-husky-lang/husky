@@ -73,14 +73,14 @@
     ),
     (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`mnist::input`, `Val`),
+            MajorItemPath::Form(
+                FormPath(`mnist::input`, `Val`),
             ),
         ),
         Ok(
             DecTemplate::MajorItem(
-                MajorItemDecTemplate::Fugitive(
-                    FugitiveDecTemplate::Ki(
+                MajorItemDecTemplate::Form(
+                    MajorFormDecTemplate::Ki(
                         MajorValDecTemplate {
                             return_ty: EntityPath(
                                 Type(

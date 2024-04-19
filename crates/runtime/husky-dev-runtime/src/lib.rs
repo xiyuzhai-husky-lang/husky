@@ -19,7 +19,7 @@ use husky_task::{
     IsTask,
 };
 use husky_task_interface::{
-    ki_repr::{KiReprInterface, KiRuntimeConstantInterface, ValDomainReprInterface},
+    ki_repr::{KiDomainReprInterface, KiReprInterface, KiRuntimeConstantInterface},
     IsDevRuntime, IsLinkageImpl, LinkageImplKiControlFlow, TaskIngredientIndex, TaskJarIndex,
 };
 use husky_vfs::{error::VfsResult, linktime_target_path::LinktimeTargetPath};
@@ -121,30 +121,30 @@ impl<Task: IsTask> IsDevRuntime<TaskLinkageImpl<Task>> for DevRuntime<Task> {
         self.eval_ki_repr_at_pedestal(ki_repr_interface.into(), pedestal)
     }
 
-    fn eval_val_domain_repr_interface_at_pedestal(
+    fn eval_ki_domain_repr_interface_at_pedestal(
         &self,
-        val_domain_repr: ValDomainReprInterface,
+        ki_domain_repr: KiDomainReprInterface,
         pedestal: <TaskLinkageImpl<Task> as IsLinkageImpl>::Pedestal,
     ) -> husky_task_interface::ki_control_flow::KiControlFlow<
         (),
         Infallible,
         <TaskLinkageImpl<Task> as IsLinkageImpl>::Exception,
     > {
-        self.eval_val_domain_repr_at_pedestal(val_domain_repr.into(), pedestal)
+        self.eval_ki_domain_repr_at_pedestal(ki_domain_repr.into(), pedestal)
     }
 
     fn eval_ki_repr_with(
         &self,
         ki_repr: KiReprInterface,
         pedestal: <TaskLinkageImpl<Task> as IsLinkageImpl>::Pedestal,
-        f: impl FnOnce(ValDomainReprInterface) -> LinkageImplKiControlFlow<TaskLinkageImpl<Task>>,
+        f: impl FnOnce(KiDomainReprInterface) -> LinkageImplKiControlFlow<TaskLinkageImpl<Task>>,
     ) -> LinkageImplKiControlFlow<TaskLinkageImpl<Task>> {
         let db = self.db();
         let ki_repr: KiRepr = unsafe { std::mem::transmute(ki_repr) };
-        let val_domain_repr: ValDomainReprInterface =
-            unsafe { std::mem::transmute(ki_repr.val_domain_repr(db)) };
+        let ki_domain_repr: KiDomainReprInterface =
+            unsafe { std::mem::transmute(ki_repr.ki_domain_repr(db)) };
         self.storage
-            .get_or_try_init_val_value(ki_repr.val(db), pedestal, || f(val_domain_repr), db)
+            .get_or_try_init_val_value(ki_repr.val(db), pedestal, || f(ki_domain_repr), db)
     }
 
     fn eval_memo_field_with(

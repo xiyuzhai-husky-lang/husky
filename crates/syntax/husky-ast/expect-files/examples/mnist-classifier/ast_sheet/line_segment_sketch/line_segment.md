@@ -22,7 +22,7 @@ AstSheet {
                     raw: 8,
                 },
                 body: Some(
-                    FugitiveBody {
+                    FormBody {
                         ast_idx_range: ArenaIdxRange(
                             1..2,
                         ),
@@ -42,7 +42,7 @@ AstSheet {
                     raw: 12,
                 },
                 body: Some(
-                    FugitiveBody {
+                    FormBody {
                         ast_idx_range: ArenaIdxRange(
                             3..4,
                         ),
@@ -62,7 +62,7 @@ AstSheet {
                     raw: 14,
                 },
                 body: Some(
-                    FugitiveBody {
+                    FormBody {
                         ast_idx_range: ArenaIdxRange(
                             5..6,
                         ),
@@ -91,7 +91,7 @@ AstSheet {
                     raw: 10,
                 },
                 body: Some(
-                    FugitiveBody {
+                    FormBody {
                         ast_idx_range: ArenaIdxRange(
                             7..9,
                         ),
@@ -154,7 +154,7 @@ AstSheet {
                 },
                 block: DefnBlock::AssocItem {
                     body: Some(
-                        FugitiveBody {
+                        FormBody {
                             ast_idx_range: ArenaIdxRange(
                                 0..1,
                             ),
@@ -195,7 +195,7 @@ AstSheet {
                 },
                 block: DefnBlock::AssocItem {
                     body: Some(
-                        FugitiveBody {
+                        FormBody {
                             ast_idx_range: ArenaIdxRange(
                                 10..13,
                             ),

@@ -1,21 +1,24 @@
 ```rust
 [
     HirDefn::MajorItem(
-        MajorItemHirDefn::Fugitive(
-            FugitiveHirDefn::FunctionFn(
-                FunctionFnHirDefn {
-                    path: FugitivePath(`syntax_basics::expr::nested`, `Ritchie(
+        MajorItemHirDefn::Form(
+            MajorFormHirDefn::Ritchie(
+                MajorRitchieHirDefn {
+                    path: FormPath(`syntax_basics::expr::nested`, `Ritchie(
                         Fn,
                     )`),
-                    hir_decl: FunctionMajorFnHirDecl {
-                        path: FugitivePath(`syntax_basics::expr::nested`, `Ritchie(
+                    hir_decl: MajorRitchieHirDecl {
+                        path: FormPath(`syntax_basics::expr::nested`, `Ritchie(
                             Fn,
                         )`),
+                        ritchie_item_kind: RitchieItemKind::Fn,
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
-                        parenate_parameters: HirEagerParenateParameters(
-                            [],
+                        parenate_parameters: HirParenateParameters::Eager(
+                            HirEagerParenateParameters(
+                                [],
+                            ),
                         ),
                         return_ty: HirType::PathLeading(
                             HirTypePathLeading {
@@ -24,148 +27,26 @@
                                 always_copyable: true,
                             },
                         ),
-                        hir_eager_expr_region: HirEagerExprRegion {
-                            region_path: RegionPath::Decl(
-                                ItemPath::MajorItem(
-                                    MajorItemPath::Fugitive(
-                                        FugitivePath(`syntax_basics::expr::nested`, `Ritchie(
-                                            Fn,
-                                        )`),
-                                    ),
+                        hir_expr_region: Eager(
+                            HirEagerExprRegion(
+                                Id {
+                                    value: 2,
+                                },
+                            ),
+                        ),
+                    },
+                    body_with_hir_expr_region: Some(
+                        (
+                            Eager(
+                                2,
+                            ),
+                            Eager(
+                                HirEagerExprRegion(
+                                    Id {
+                                        value: 3,
+                                    },
                                 ),
                             ),
-                            expr_arena: Arena {
-                                data: [],
-                            },
-                            stmt_arena: Arena {
-                                data: [],
-                            },
-                            pattern_arena: Arena {
-                                data: [],
-                            },
-                            comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
-                                arena: Arena {
-                                    data: [],
-                                },
-                            },
-                            runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
-                                arena: Arena {
-                                    data: [],
-                                },
-                                self_value_variable: None,
-                            },
-                        },
-                    },
-                    eager_body_with_hir_eager_expr_region: Some(
-                        (
-                            2,
-                            HirEagerExprRegion {
-                                region_path: RegionPath::Defn(
-                                    ItemPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`syntax_basics::expr::nested`, `Ritchie(
-                                                Fn,
-                                            )`),
-                                        ),
-                                    ),
-                                ),
-                                expr_arena: Arena {
-                                    data: [
-                                        HirEagerExprEntry {
-                                            data: HirEagerExprData::Literal(
-                                                Literal::I32(
-                                                    1,
-                                                ),
-                                            ),
-                                            contracted_quary: HirContractedQuary {
-                                                contract: None,
-                                                quary: Const,
-                                            },
-                                            is_always_copyable: true,
-                                            place_contract_site: HirPlaceContractSite {
-                                                place_contracts: [],
-                                            },
-                                        },
-                                        HirEagerExprEntry {
-                                            data: HirEagerExprData::Block {
-                                                stmts: ArenaIdxRange(
-                                                    0..1,
-                                                ),
-                                            },
-                                            contracted_quary: HirContractedQuary {
-                                                contract: None,
-                                                quary: Const,
-                                            },
-                                            is_always_copyable: true,
-                                            place_contract_site: HirPlaceContractSite {
-                                                place_contracts: [],
-                                            },
-                                        },
-                                        HirEagerExprEntry {
-                                            data: HirEagerExprData::Block {
-                                                stmts: ArenaIdxRange(
-                                                    1..2,
-                                                ),
-                                            },
-                                            contracted_quary: HirContractedQuary {
-                                                contract: None,
-                                                quary: Transient,
-                                            },
-                                            is_always_copyable: true,
-                                            place_contract_site: HirPlaceContractSite {
-                                                place_contracts: [],
-                                            },
-                                        },
-                                    ],
-                                },
-                                stmt_arena: Arena {
-                                    data: [
-                                        Eval {
-                                            expr: 0,
-                                            coersion: None,
-                                            discarded: false,
-                                        },
-                                        Let {
-                                            pattern: HirEagerLetVariablesPattern {
-                                                pattern_expr_idx: 0,
-                                                ty: None,
-                                            },
-                                            contract: Pure,
-                                            initial_value: 1,
-                                            coersion: None,
-                                        },
-                                    ],
-                                },
-                                pattern_arena: Arena {
-                                    data: [
-                                        HirEagerPatternEntry {
-                                            data: HirEagerPatternData::Ident {
-                                                symbol_modifier: None,
-                                                ident: `t`,
-                                            },
-                                            contract: Pure,
-                                        },
-                                    ],
-                                },
-                                comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
-                                    arena: Arena {
-                                        data: [],
-                                    },
-                                },
-                                runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
-                                    arena: Arena {
-                                        data: [
-                                            HirEagerRuntimeVariableEntry {
-                                                name: HirEagerRuntimeVariableName::Ident(
-                                                    `t`,
-                                                ),
-                                                data: HirEagerRuntimeVariableData::LetVariable,
-                                            },
-                                        ],
-                                    },
-                                    self_value_variable: None,
-                                },
-                            },
                         ),
                     ),
                 },
@@ -173,21 +54,24 @@
         ),
     ),
     HirDefn::MajorItem(
-        MajorItemHirDefn::Fugitive(
-            FugitiveHirDefn::FunctionFn(
-                FunctionFnHirDefn {
-                    path: FugitivePath(`syntax_basics::expr::closure_inline`, `Ritchie(
+        MajorItemHirDefn::Form(
+            MajorFormHirDefn::Ritchie(
+                MajorRitchieHirDefn {
+                    path: FormPath(`syntax_basics::expr::closure_inline`, `Ritchie(
                         Fn,
                     )`),
-                    hir_decl: FunctionMajorFnHirDecl {
-                        path: FugitivePath(`syntax_basics::expr::closure_inline`, `Ritchie(
+                    hir_decl: MajorRitchieHirDecl {
+                        path: FormPath(`syntax_basics::expr::closure_inline`, `Ritchie(
                             Fn,
                         )`),
+                        ritchie_item_kind: RitchieItemKind::Fn,
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
-                        parenate_parameters: HirEagerParenateParameters(
-                            [],
+                        parenate_parameters: HirParenateParameters::Eager(
+                            HirEagerParenateParameters(
+                                [],
+                            ),
                         ),
                         return_ty: HirType::PathLeading(
                             HirTypePathLeading {
@@ -196,212 +80,26 @@
                                 always_copyable: true,
                             },
                         ),
-                        hir_eager_expr_region: HirEagerExprRegion {
-                            region_path: RegionPath::Decl(
-                                ItemPath::MajorItem(
-                                    MajorItemPath::Fugitive(
-                                        FugitivePath(`syntax_basics::expr::closure_inline`, `Ritchie(
-                                            Fn,
-                                        )`),
-                                    ),
+                        hir_expr_region: Eager(
+                            HirEagerExprRegion(
+                                Id {
+                                    value: 4,
+                                },
+                            ),
+                        ),
+                    },
+                    body_with_hir_expr_region: Some(
+                        (
+                            Eager(
+                                4,
+                            ),
+                            Eager(
+                                HirEagerExprRegion(
+                                    Id {
+                                        value: 5,
+                                    },
                                 ),
                             ),
-                            expr_arena: Arena {
-                                data: [],
-                            },
-                            stmt_arena: Arena {
-                                data: [],
-                            },
-                            pattern_arena: Arena {
-                                data: [],
-                            },
-                            comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
-                                arena: Arena {
-                                    data: [],
-                                },
-                            },
-                            runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
-                                arena: Arena {
-                                    data: [],
-                                },
-                                self_value_variable: None,
-                            },
-                        },
-                    },
-                    eager_body_with_hir_eager_expr_region: Some(
-                        (
-                            4,
-                            HirEagerExprRegion {
-                                region_path: RegionPath::Defn(
-                                    ItemPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`syntax_basics::expr::closure_inline`, `Ritchie(
-                                                Fn,
-                                            )`),
-                                        ),
-                                    ),
-                                ),
-                                expr_arena: Arena {
-                                    data: [
-                                        HirEagerExprEntry {
-                                            data: HirEagerExprData::Variable(
-                                                1,
-                                            ),
-                                            contracted_quary: HirContractedQuary {
-                                                contract: Some(
-                                                    Pure,
-                                                ),
-                                                quary: ImmutableOnStack {
-                                                    place: Idx(
-                                                        PlaceIdx(0),
-                                                    ),
-                                                },
-                                            },
-                                            is_always_copyable: true,
-                                            place_contract_site: HirPlaceContractSite {
-                                                place_contracts: [
-                                                    (
-                                                        Idx(
-                                                            PlaceIdx(0),
-                                                        ),
-                                                        Pure,
-                                                    ),
-                                                ],
-                                            },
-                                        },
-                                        HirEagerExprEntry {
-                                            data: HirEagerExprData::Literal(
-                                                Literal::I32(
-                                                    1,
-                                                ),
-                                            ),
-                                            contracted_quary: HirContractedQuary {
-                                                contract: None,
-                                                quary: Const,
-                                            },
-                                            is_always_copyable: true,
-                                            place_contract_site: HirPlaceContractSite {
-                                                place_contracts: [],
-                                            },
-                                        },
-                                        HirEagerExprEntry {
-                                            data: HirEagerExprData::Binary {
-                                                lopd: 0,
-                                                opr: Closed(
-                                                    Add,
-                                                ),
-                                                ropd: 1,
-                                            },
-                                            contracted_quary: HirContractedQuary {
-                                                contract: None,
-                                                quary: Transient,
-                                            },
-                                            is_always_copyable: true,
-                                            place_contract_site: HirPlaceContractSite {
-                                                place_contracts: [],
-                                            },
-                                        },
-                                        HirEagerExprEntry {
-                                            data: HirEagerExprData::Closure {
-                                                parameters: [
-                                                    Simple {
-                                                        pattern_expr_idx: 1,
-                                                        ty: Some(
-                                                            PathLeading(
-                                                                HirTypePathLeading(
-                                                                    Id {
-                                                                        value: 2,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    },
-                                                ],
-                                                return_ty: None,
-                                                body: 2,
-                                            },
-                                            contracted_quary: HirContractedQuary {
-                                                contract: None,
-                                                quary: Transient,
-                                            },
-                                            is_always_copyable: true,
-                                            place_contract_site: HirPlaceContractSite {
-                                                place_contracts: [],
-                                            },
-                                        },
-                                        HirEagerExprEntry {
-                                            data: HirEagerExprData::Block {
-                                                stmts: ArenaIdxRange(
-                                                    0..1,
-                                                ),
-                                            },
-                                            contracted_quary: HirContractedQuary {
-                                                contract: None,
-                                                quary: Transient,
-                                            },
-                                            is_always_copyable: true,
-                                            place_contract_site: HirPlaceContractSite {
-                                                place_contracts: [],
-                                            },
-                                        },
-                                    ],
-                                },
-                                stmt_arena: Arena {
-                                    data: [
-                                        Let {
-                                            pattern: HirEagerLetVariablesPattern {
-                                                pattern_expr_idx: 0,
-                                                ty: None,
-                                            },
-                                            contract: Pure,
-                                            initial_value: 3,
-                                            coersion: None,
-                                        },
-                                    ],
-                                },
-                                pattern_arena: Arena {
-                                    data: [
-                                        HirEagerPatternEntry {
-                                            data: HirEagerPatternData::Ident {
-                                                symbol_modifier: None,
-                                                ident: `t`,
-                                            },
-                                            contract: Pure,
-                                        },
-                                        HirEagerPatternEntry {
-                                            data: HirEagerPatternData::Ident {
-                                                symbol_modifier: None,
-                                                ident: `x`,
-                                            },
-                                            contract: Pure,
-                                        },
-                                    ],
-                                },
-                                comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
-                                    arena: Arena {
-                                        data: [],
-                                    },
-                                },
-                                runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
-                                    arena: Arena {
-                                        data: [
-                                            HirEagerRuntimeVariableEntry {
-                                                name: HirEagerRuntimeVariableName::Ident(
-                                                    `t`,
-                                                ),
-                                                data: HirEagerRuntimeVariableData::LetVariable,
-                                            },
-                                            HirEagerRuntimeVariableEntry {
-                                                name: HirEagerRuntimeVariableName::Ident(
-                                                    `x`,
-                                                ),
-                                                data: HirEagerRuntimeVariableData::ClosureParameter,
-                                            },
-                                        ],
-                                    },
-                                    self_value_variable: None,
-                                },
-                            },
                         ),
                     ),
                 },
@@ -409,21 +107,24 @@
         ),
     ),
     HirDefn::MajorItem(
-        MajorItemHirDefn::Fugitive(
-            FugitiveHirDefn::FunctionFn(
-                FunctionFnHirDefn {
-                    path: FugitivePath(`syntax_basics::expr::closure_nested`, `Ritchie(
+        MajorItemHirDefn::Form(
+            MajorFormHirDefn::Ritchie(
+                MajorRitchieHirDefn {
+                    path: FormPath(`syntax_basics::expr::closure_nested`, `Ritchie(
                         Fn,
                     )`),
-                    hir_decl: FunctionMajorFnHirDecl {
-                        path: FugitivePath(`syntax_basics::expr::closure_nested`, `Ritchie(
+                    hir_decl: MajorRitchieHirDecl {
+                        path: FormPath(`syntax_basics::expr::closure_nested`, `Ritchie(
                             Fn,
                         )`),
+                        ritchie_item_kind: RitchieItemKind::Fn,
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
-                        parenate_parameters: HirEagerParenateParameters(
-                            [],
+                        parenate_parameters: HirParenateParameters::Eager(
+                            HirEagerParenateParameters(
+                                [],
+                            ),
                         ),
                         return_ty: HirType::PathLeading(
                             HirTypePathLeading {
@@ -432,232 +133,26 @@
                                 always_copyable: true,
                             },
                         ),
-                        hir_eager_expr_region: HirEagerExprRegion {
-                            region_path: RegionPath::Decl(
-                                ItemPath::MajorItem(
-                                    MajorItemPath::Fugitive(
-                                        FugitivePath(`syntax_basics::expr::closure_nested`, `Ritchie(
-                                            Fn,
-                                        )`),
-                                    ),
+                        hir_expr_region: Eager(
+                            HirEagerExprRegion(
+                                Id {
+                                    value: 6,
+                                },
+                            ),
+                        ),
+                    },
+                    body_with_hir_expr_region: Some(
+                        (
+                            Eager(
+                                5,
+                            ),
+                            Eager(
+                                HirEagerExprRegion(
+                                    Id {
+                                        value: 7,
+                                    },
                                 ),
                             ),
-                            expr_arena: Arena {
-                                data: [],
-                            },
-                            stmt_arena: Arena {
-                                data: [],
-                            },
-                            pattern_arena: Arena {
-                                data: [],
-                            },
-                            comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
-                                arena: Arena {
-                                    data: [],
-                                },
-                            },
-                            runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
-                                arena: Arena {
-                                    data: [],
-                                },
-                                self_value_variable: None,
-                            },
-                        },
-                    },
-                    eager_body_with_hir_eager_expr_region: Some(
-                        (
-                            5,
-                            HirEagerExprRegion {
-                                region_path: RegionPath::Defn(
-                                    ItemPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`syntax_basics::expr::closure_nested`, `Ritchie(
-                                                Fn,
-                                            )`),
-                                        ),
-                                    ),
-                                ),
-                                expr_arena: Arena {
-                                    data: [
-                                        HirEagerExprEntry {
-                                            data: HirEagerExprData::Variable(
-                                                1,
-                                            ),
-                                            contracted_quary: HirContractedQuary {
-                                                contract: Some(
-                                                    Pure,
-                                                ),
-                                                quary: ImmutableOnStack {
-                                                    place: Idx(
-                                                        PlaceIdx(0),
-                                                    ),
-                                                },
-                                            },
-                                            is_always_copyable: true,
-                                            place_contract_site: HirPlaceContractSite {
-                                                place_contracts: [
-                                                    (
-                                                        Idx(
-                                                            PlaceIdx(0),
-                                                        ),
-                                                        Pure,
-                                                    ),
-                                                ],
-                                            },
-                                        },
-                                        HirEagerExprEntry {
-                                            data: HirEagerExprData::Literal(
-                                                Literal::I32(
-                                                    1,
-                                                ),
-                                            ),
-                                            contracted_quary: HirContractedQuary {
-                                                contract: None,
-                                                quary: Const,
-                                            },
-                                            is_always_copyable: true,
-                                            place_contract_site: HirPlaceContractSite {
-                                                place_contracts: [],
-                                            },
-                                        },
-                                        HirEagerExprEntry {
-                                            data: HirEagerExprData::Binary {
-                                                lopd: 0,
-                                                opr: Closed(
-                                                    Add,
-                                                ),
-                                                ropd: 1,
-                                            },
-                                            contracted_quary: HirContractedQuary {
-                                                contract: None,
-                                                quary: Transient,
-                                            },
-                                            is_always_copyable: true,
-                                            place_contract_site: HirPlaceContractSite {
-                                                place_contracts: [],
-                                            },
-                                        },
-                                        HirEagerExprEntry {
-                                            data: HirEagerExprData::Block {
-                                                stmts: ArenaIdxRange(
-                                                    0..1,
-                                                ),
-                                            },
-                                            contracted_quary: HirContractedQuary {
-                                                contract: None,
-                                                quary: Transient,
-                                            },
-                                            is_always_copyable: true,
-                                            place_contract_site: HirPlaceContractSite {
-                                                place_contracts: [],
-                                            },
-                                        },
-                                        HirEagerExprEntry {
-                                            data: HirEagerExprData::Closure {
-                                                parameters: [
-                                                    Simple {
-                                                        pattern_expr_idx: 1,
-                                                        ty: Some(
-                                                            PathLeading(
-                                                                HirTypePathLeading(
-                                                                    Id {
-                                                                        value: 2,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    },
-                                                ],
-                                                return_ty: None,
-                                                body: 3,
-                                            },
-                                            contracted_quary: HirContractedQuary {
-                                                contract: None,
-                                                quary: Transient,
-                                            },
-                                            is_always_copyable: true,
-                                            place_contract_site: HirPlaceContractSite {
-                                                place_contracts: [],
-                                            },
-                                        },
-                                        HirEagerExprEntry {
-                                            data: HirEagerExprData::Block {
-                                                stmts: ArenaIdxRange(
-                                                    1..2,
-                                                ),
-                                            },
-                                            contracted_quary: HirContractedQuary {
-                                                contract: None,
-                                                quary: Transient,
-                                            },
-                                            is_always_copyable: true,
-                                            place_contract_site: HirPlaceContractSite {
-                                                place_contracts: [],
-                                            },
-                                        },
-                                    ],
-                                },
-                                stmt_arena: Arena {
-                                    data: [
-                                        Eval {
-                                            expr: 2,
-                                            coersion: None,
-                                            discarded: false,
-                                        },
-                                        Let {
-                                            pattern: HirEagerLetVariablesPattern {
-                                                pattern_expr_idx: 0,
-                                                ty: None,
-                                            },
-                                            contract: Pure,
-                                            initial_value: 4,
-                                            coersion: None,
-                                        },
-                                    ],
-                                },
-                                pattern_arena: Arena {
-                                    data: [
-                                        HirEagerPatternEntry {
-                                            data: HirEagerPatternData::Ident {
-                                                symbol_modifier: None,
-                                                ident: `t`,
-                                            },
-                                            contract: Pure,
-                                        },
-                                        HirEagerPatternEntry {
-                                            data: HirEagerPatternData::Ident {
-                                                symbol_modifier: None,
-                                                ident: `x`,
-                                            },
-                                            contract: Pure,
-                                        },
-                                    ],
-                                },
-                                comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
-                                    arena: Arena {
-                                        data: [],
-                                    },
-                                },
-                                runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
-                                    arena: Arena {
-                                        data: [
-                                            HirEagerRuntimeVariableEntry {
-                                                name: HirEagerRuntimeVariableName::Ident(
-                                                    `t`,
-                                                ),
-                                                data: HirEagerRuntimeVariableData::LetVariable,
-                                            },
-                                            HirEagerRuntimeVariableEntry {
-                                                name: HirEagerRuntimeVariableName::Ident(
-                                                    `x`,
-                                                ),
-                                                data: HirEagerRuntimeVariableData::ClosureParameter,
-                                            },
-                                        ],
-                                    },
-                                    self_value_variable: None,
-                                },
-                            },
                         ),
                     ),
                 },

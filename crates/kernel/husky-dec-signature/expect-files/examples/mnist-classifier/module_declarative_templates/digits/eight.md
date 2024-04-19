@@ -2,14 +2,14 @@
 [
     (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
+            MajorItemPath::Form(
+                FormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
             ),
         ),
         Ok(
             DecTemplate::MajorItem(
-                MajorItemDecTemplate::Fugitive(
-                    FugitiveDecTemplate::Ki(
+                MajorItemDecTemplate::Form(
+                    MajorFormDecTemplate::Ki(
                         MajorValDecTemplate {
                             return_ty: EntityPath(
                                 Type(
@@ -30,14 +30,14 @@
     ),
     (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
+            MajorItemPath::Form(
+                FormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
             ),
         ),
         Ok(
             DecTemplate::MajorItem(
-                MajorItemDecTemplate::Fugitive(
-                    FugitiveDecTemplate::Ki(
+                MajorItemDecTemplate::Form(
+                    MajorFormDecTemplate::Ki(
                         MajorValDecTemplate {
                             return_ty: Application(
                                 DecApplication(
@@ -54,17 +54,18 @@
     ),
     (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::digits::eight::big_mouth`, `Ritchie(
+            MajorItemPath::Form(
+                FormPath(`mnist_classifier::digits::eight::big_mouth`, `Ritchie(
                     Fn,
                 )`),
             ),
         ),
         Ok(
             DecTemplate::MajorItem(
-                MajorItemDecTemplate::Fugitive(
-                    FugitiveDecTemplate::Fn(
-                        MajorFnDecTemplate {
+                MajorItemDecTemplate::Form(
+                    MajorFormDecTemplate::Ritchie(
+                        MajorRitchieDecTemplate {
+                            ritchie_item_kind: RitchieItemKind::Fn,
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },

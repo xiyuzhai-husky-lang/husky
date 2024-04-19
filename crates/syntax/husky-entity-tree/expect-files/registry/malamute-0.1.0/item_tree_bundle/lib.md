@@ -188,8 +188,8 @@ EntityTreeCrateBundle {
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
-                                syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(`malamute::narrow_down`, `Ritchie(
+                                syn_node_path: MajorItemSynNodePath::Form(
+                                    FormSynNodePath(`malamute::narrow_down`, `Ritchie(
                                         Gn,
                                     )`, (0)),
                                 ),
@@ -201,8 +201,8 @@ EntityTreeCrateBundle {
                                         304,
                                     ),
                                 },
-                                block: DefnBlock::Fugitive {
-                                    path: FugitivePath(`malamute::narrow_down`, `Ritchie(
+                                block: DefnBlock::Form {
+                                    path: FormPath(`malamute::narrow_down`, `Ritchie(
                                         Gn,
                                     )`),
                                     body: None,
@@ -210,8 +210,8 @@ EntityTreeCrateBundle {
                             },
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
-                            MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(`malamute::narrow_down`, `Ritchie(
+                            MajorItemSynNodePath::Form(
+                                FormSynNodePath(`malamute::narrow_down`, `Ritchie(
                                     Gn,
                                 )`, (0)),
                             ),
@@ -254,8 +254,8 @@ EntityTreeCrateBundle {
                         ident: `narrow_down`,
                         visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
-                            major_item_path: MajorItemPath::Fugitive(
-                                FugitivePath(`malamute::narrow_down`, `Ritchie(
+                            major_item_path: MajorItemPath::Form(
+                                FormPath(`malamute::narrow_down`, `Ritchie(
                                     Gn,
                                 )`),
                             ),

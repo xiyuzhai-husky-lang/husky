@@ -1,7 +1,7 @@
 ```rust
 [
     (
-        FugitivePath(`mnist::input`, `Val`),
+        FormPath(`mnist::input`, `Val`),
         None,
     ),
 ]

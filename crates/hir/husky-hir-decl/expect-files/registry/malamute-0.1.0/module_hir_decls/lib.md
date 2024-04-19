@@ -156,12 +156,13 @@
         ),
     ),
     HirDecl::MajorItem(
-        MajorItemHirDecl::Fugitive(
-            FugitiveHirDecl::FunctionGn(
-                FunctionGnFugitiveHirDecl {
-                    path: FugitivePath(`malamute::narrow_down`, `Ritchie(
+        MajorItemHirDecl::Form(
+            MajorFormHirDecl::Ritchie(
+                MajorRitchieHirDecl {
+                    path: FormPath(`malamute::narrow_down`, `Ritchie(
                         Gn,
                     )`),
+                    ritchie_item_kind: RitchieItemKind::Gn,
                     template_parameters: HirTemplateParameters(
                         [
                             HirTemplateParameter {
@@ -214,35 +215,37 @@
                             },
                         ],
                     ),
-                    parenate_parameters: HirLazyParenateParameters(
-                        [
-                            Variadic {
-                                variant: Vec,
-                                ty: PathLeading(
-                                    HirTypePathLeading(
-                                        Id {
-                                            value: 2,
-                                        },
+                    parenate_parameters: HirParenateParameters::Lazy(
+                        HirLazyParenateParameters(
+                            [
+                                Variadic {
+                                    variant: Vec,
+                                    ty: PathLeading(
+                                        HirTypePathLeading(
+                                            Id {
+                                                value: 2,
+                                            },
+                                        ),
                                     ),
-                                ),
-                            },
-                            Keyed {
-                                ident: Ident(
-                                    Coword(
-                                        Id {
-                                            value: 36,
-                                        },
+                                },
+                                Keyed {
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 36,
+                                            },
+                                        ),
                                     ),
-                                ),
-                                ty: PathLeading(
-                                    HirTypePathLeading(
-                                        Id {
-                                            value: 3,
-                                        },
+                                    ty: PathLeading(
+                                        HirTypePathLeading(
+                                            Id {
+                                                value: 3,
+                                            },
+                                        ),
                                     ),
-                                ),
-                            },
-                        ],
+                                },
+                            ],
+                        ),
                     ),
                     return_ty: HirType::PathLeading(
                         HirTypePathLeading {
@@ -251,47 +254,13 @@
                             always_copyable: true,
                         },
                     ),
-                    hir_lazy_expr_region: HirLazyExprRegion {
-                        hir_lazy_expr_arena: Arena {
-                            data: [],
-                        },
-                        hir_lazy_stmt_arena: Arena {
-                            data: [],
-                        },
-                        hir_lazy_pattern_expr_arena: Arena {
-                            data: [],
-                        },
-                        hir_lazy_variable_region: HirLazyVariableRegion {
-                            arena: Arena {
-                                data: [
-                                    HirLazyVariable {
-                                        name: Ident(
-                                            Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 34,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                        data: ParenateParameter,
-                                    },
-                                    HirLazyVariable {
-                                        name: Ident(
-                                            Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 36,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                        data: ParenateParameter,
-                                    },
-                                ],
+                    hir_expr_region: Lazy(
+                        HirLazyExprRegion(
+                            Id {
+                                value: 1,
                             },
-                        },
-                    },
+                        ),
+                    ),
                 },
             ),
         ),

@@ -3,15 +3,15 @@ SynDeclSheet {
     decls: [
         (
             ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
+                MajorItemPath::Form(
+                    FormPath(`mnist_classifier::major::connected_components`, `Val`),
                 ),
             ),
             SynDecl::MajorItem(
-                MajorItemSynDecl::Fugitive(
-                    FugitiveSynDecl::Ki(
+                MajorItemSynDecl::Form(
+                    FormSynDecl::Val(
                         MajorValSynDecl {
-                            path: FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
+                            path: FormPath(`mnist_classifier::major::connected_components`, `Val`),
                             return_ty: ReturnTypeBeforeEqSyndicate {
                                 expr: 2,
                             },
@@ -21,8 +21,8 @@ SynDeclSheet {
                                     parent: None,
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
-                                            MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(`mnist_classifier::major::connected_components`, `Val`, (0)),
+                                            MajorItemSynNodePath::Form(
+                                                FormSynNodePath(`mnist_classifier::major::connected_components`, `Val`, (0)),
                                             ),
                                         ),
                                     ),
@@ -120,15 +120,15 @@ SynDeclSheet {
         ),
         (
             ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                MajorItemPath::Form(
+                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
             ),
             SynDecl::MajorItem(
-                MajorItemSynDecl::Fugitive(
-                    FugitiveSynDecl::Ki(
+                MajorItemSynDecl::Form(
+                    FormSynDecl::Val(
                         MajorValSynDecl {
-                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             return_ty: ReturnTypeBeforeEqSyndicate {
                                 expr: 1,
                             },
@@ -138,8 +138,8 @@ SynDeclSheet {
                                     parent: None,
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
-                                            MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(`mnist_classifier::major::major_connected_component`, `Val`, (0)),
+                                            MajorItemSynNodePath::Form(
+                                                FormSynNodePath(`mnist_classifier::major::major_connected_component`, `Val`, (0)),
                                             ),
                                         ),
                                     ),
@@ -231,15 +231,15 @@ SynDeclSheet {
         ),
         (
             ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
+                MajorItemPath::Form(
+                    FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                 ),
             ),
             SynDecl::MajorItem(
-                MajorItemSynDecl::Fugitive(
-                    FugitiveSynDecl::Ki(
+                MajorItemSynDecl::Form(
+                    FormSynDecl::Val(
                         MajorValSynDecl {
-                            path: FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
+                            path: FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                             return_ty: ReturnTypeBeforeEqSyndicate {
                                 expr: 0,
                             },
@@ -249,8 +249,8 @@ SynDeclSheet {
                                     parent: None,
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
-                                            MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`, (0)),
+                                            MajorItemSynNodePath::Form(
+                                                FormSynNodePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`, (0)),
                                             ),
                                         ),
                                     ),
@@ -335,15 +335,15 @@ SynDeclSheet {
         ),
         (
             ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::major::major_raw_contours`, `Val`),
+                MajorItemPath::Form(
+                    FormPath(`mnist_classifier::major::major_raw_contours`, `Val`),
                 ),
             ),
             SynDecl::MajorItem(
-                MajorItemSynDecl::Fugitive(
-                    FugitiveSynDecl::Ki(
+                MajorItemSynDecl::Form(
+                    FormSynDecl::Val(
                         MajorValSynDecl {
-                            path: FugitivePath(`mnist_classifier::major::major_raw_contours`, `Val`),
+                            path: FormPath(`mnist_classifier::major::major_raw_contours`, `Val`),
                             return_ty: ReturnTypeBeforeEqSyndicate {
                                 expr: 3,
                             },
@@ -353,8 +353,8 @@ SynDeclSheet {
                                     parent: None,
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
-                                            MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(`mnist_classifier::major::major_raw_contours`, `Val`, (0)),
+                                            MajorItemSynNodePath::Form(
+                                                FormSynNodePath(`mnist_classifier::major::major_raw_contours`, `Val`, (0)),
                                             ),
                                         ),
                                     ),
@@ -459,15 +459,15 @@ SynDeclSheet {
         ),
         (
             ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::major::major_raw_contour`, `Val`),
+                MajorItemPath::Form(
+                    FormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
                 ),
             ),
             SynDecl::MajorItem(
-                MajorItemSynDecl::Fugitive(
-                    FugitiveSynDecl::Ki(
+                MajorItemSynDecl::Form(
+                    FormSynDecl::Val(
                         MajorValSynDecl {
-                            path: FugitivePath(`mnist_classifier::major::major_raw_contour`, `Val`),
+                            path: FormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
                             return_ty: ReturnTypeBeforeEqSyndicate {
                                 expr: 1,
                             },
@@ -477,8 +477,8 @@ SynDeclSheet {
                                     parent: None,
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
-                                            MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(`mnist_classifier::major::major_raw_contour`, `Val`, (0)),
+                                            MajorItemSynNodePath::Form(
+                                                FormSynNodePath(`mnist_classifier::major::major_raw_contour`, `Val`, (0)),
                                             ),
                                         ),
                                     ),
@@ -570,15 +570,15 @@ SynDeclSheet {
         ),
         (
             ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                MajorItemPath::Form(
+                    FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                 ),
             ),
             SynDecl::MajorItem(
-                MajorItemSynDecl::Fugitive(
-                    FugitiveSynDecl::Ki(
+                MajorItemSynDecl::Form(
+                    FormSynDecl::Val(
                         MajorValSynDecl {
-                            path: FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                            path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                             return_ty: ReturnTypeBeforeEqSyndicate {
                                 expr: 1,
                             },
@@ -588,8 +588,8 @@ SynDeclSheet {
                                     parent: None,
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
-                                            MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`, (0)),
+                                            MajorItemSynNodePath::Form(
+                                                FormSynNodePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`, (0)),
                                             ),
                                         ),
                                     ),
@@ -681,15 +681,15 @@ SynDeclSheet {
         ),
         (
             ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                MajorItemPath::Form(
+                    FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                 ),
             ),
             SynDecl::MajorItem(
-                MajorItemSynDecl::Fugitive(
-                    FugitiveSynDecl::Ki(
+                MajorItemSynDecl::Form(
+                    FormSynDecl::Val(
                         MajorValSynDecl {
-                            path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             return_ty: ReturnTypeBeforeEqSyndicate {
                                 expr: 3,
                             },
@@ -699,8 +699,8 @@ SynDeclSheet {
                                     parent: None,
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
-                                            MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(`mnist_classifier::major::major_concave_components`, `Val`, (0)),
+                                            MajorItemSynNodePath::Form(
+                                                FormSynNodePath(`mnist_classifier::major::major_concave_components`, `Val`, (0)),
                                             ),
                                         ),
                                     ),

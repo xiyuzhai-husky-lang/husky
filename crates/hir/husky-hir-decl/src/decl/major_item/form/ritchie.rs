@@ -11,7 +11,7 @@ pub struct MajorRitchieHirDecl {
     #[return_ref]
     pub parenate_parameters: HirParenateParameters,
     pub return_ty: HirType,
-    pub hir_eager_expr_region: HirExprRegion,
+    pub hir_expr_region: HirExprRegion,
 }
 
 impl MajorRitchieHirDecl {
@@ -29,7 +29,10 @@ impl MajorRitchieHirDecl {
                 HirEagerParenateParameters::from_syn(syn_decl.parenate_parameters(db), &builder)
                     .into()
             }
-            RitchieItemKind::Gn => todo!(),
+            RitchieItemKind::Gn => {
+                HirLazyParenateParameters::from_syn(syn_decl.parenate_parameters(db), &builder)
+                    .into()
+            }
             RitchieItemKind::Vn => todo!(),
             RitchieItemKind::Pn => todo!(),
             RitchieItemKind::Qn => todo!(),

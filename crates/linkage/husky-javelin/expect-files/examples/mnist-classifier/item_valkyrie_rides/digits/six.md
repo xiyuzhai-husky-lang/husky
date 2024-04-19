@@ -2,8 +2,8 @@
 [
     (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
+            MajorItemPath::Form(
+                FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
             ),
         ),
         Some(
@@ -68,8 +68,8 @@
     ),
     (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
+            MajorItemPath::Form(
+                FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
             ),
         ),
         Some(
@@ -134,8 +134,8 @@
     ),
     (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+            MajorItemPath::Form(
+                FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
             ),
         ),
         Some(
@@ -143,8 +143,8 @@
                 hir_template_parameters: None,
                 rides: [
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavPath::Fugitive(
-                            FugitivePath(`malamute::narrow_down`, `Ritchie(
+                        javelin_item_path: JavPath::Form(
+                            FormPath(`malamute::narrow_down`, `Ritchie(
                                 Gn,
                             )`),
                         ),
@@ -225,8 +225,8 @@
     ),
     (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::digits::six::upmost`, `Ritchie(
+            MajorItemPath::Form(
+                FormPath(`mnist_classifier::digits::six::upmost`, `Ritchie(
                     Fn,
                 )`),
             ),
@@ -244,8 +244,8 @@
     ),
     (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::digits::six::bottom1`, `Ritchie(
+            MajorItemPath::Form(
+                FormPath(`mnist_classifier::digits::six::bottom1`, `Ritchie(
                     Fn,
                 )`),
             ),

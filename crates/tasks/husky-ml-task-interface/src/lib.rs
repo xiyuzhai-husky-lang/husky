@@ -6,7 +6,7 @@ use self::pedestal::MlPedestal;
 use husky_linkage_impl::standard::StandardLinkageImplKiControlFlow;
 use husky_standard_value::{ugly::__ValueStands, FromValue};
 use husky_task_interface::ki_repr::{
-    KiReprInterface, KiRuntimeConstantInterface, ValDomainReprInterface,
+    KiDomainReprInterface, KiReprInterface, KiRuntimeConstantInterface,
 };
 use serde::{Deserialize, Serialize};
 use shifted_unsigned_int::ShiftedU32;
@@ -77,10 +77,10 @@ where
     ))
 }
 
-pub fn eval_val_domain_repr_interface(
-    val_domain_repr_interface: ValDomainReprInterface,
+pub fn eval_ki_domain_repr_interface(
+    ki_domain_repr_interface: KiDomainReprInterface,
 ) -> StandardLinkageImplKiControlFlow<(), Infallible> {
-    dev_eval_context().eval_val_domain_repr_interface(val_domain_repr_interface)
+    dev_eval_context().eval_ki_domain_repr_interface(ki_domain_repr_interface)
 }
 
 pub fn eval_ki_repr_interface_at_input<T>(
@@ -96,12 +96,12 @@ where
     })
 }
 
-pub fn eval_val_domain_repr_interface_at_input(
-    val_domain_repr_interface: ValDomainReprInterface,
+pub fn eval_ki_domain_repr_interface_at_input(
+    ki_domain_repr_interface: KiDomainReprInterface,
     input_id: InputId,
 ) -> StandardLinkageImplKiControlFlow<(), Infallible> {
     with_dev_eval_context(dev_eval_context().with_pedestal(input_id.into()), || {
-        eval_val_domain_repr_interface(val_domain_repr_interface)
+        eval_ki_domain_repr_interface(ki_domain_repr_interface)
     })
 }
 

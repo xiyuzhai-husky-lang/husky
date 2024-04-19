@@ -18,8 +18,8 @@
     ),
     (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
+            MajorItemPath::Form(
+                FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
                     Fn,
                 )`),
             ),
@@ -35,8 +35,8 @@
                                     parent: None,
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
-                                            MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
+                                            MajorItemSynNodePath::Form(
+                                                FormSynNodePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
                                                     Fn,
                                                 )`, (0)),
                                             ),
@@ -286,8 +286,8 @@
                         ),
                         path: SynNodeRegionPath::Defn(
                             ItemSynNodePath::MajorItem(
-                                MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
+                                MajorItemSynNodePath::Form(
+                                    FormSynNodePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
                                         Fn,
                                     )`, (0)),
                                 ),
@@ -463,8 +463,8 @@
     ),
     (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Ritchie(
+            MajorItemPath::Form(
+                FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Ritchie(
                     Fn,
                 )`),
             ),
@@ -480,8 +480,8 @@
                                     parent: None,
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
-                                            MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Ritchie(
+                                            MajorItemSynNodePath::Form(
+                                                FormSynNodePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Ritchie(
                                                     Fn,
                                                 )`, (0)),
                                             ),
@@ -731,8 +731,8 @@
                         ),
                         path: SynNodeRegionPath::Defn(
                             ItemSynNodePath::MajorItem(
-                                MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Ritchie(
+                                MajorItemSynNodePath::Form(
+                                    FormSynNodePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Ritchie(
                                         Fn,
                                     )`, (0)),
                                 ),
@@ -879,8 +879,8 @@
     ),
     (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Ritchie(
+            MajorItemPath::Form(
+                FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Ritchie(
                     Fn,
                 )`),
             ),
@@ -896,8 +896,8 @@
                                     parent: None,
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
-                                            MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Ritchie(
+                                            MajorItemSynNodePath::Form(
+                                                FormSynNodePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Ritchie(
                                                     Fn,
                                                 )`, (0)),
                                             ),
@@ -1147,8 +1147,8 @@
                         ),
                         path: SynNodeRegionPath::Defn(
                             ItemSynNodePath::MajorItem(
-                                MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Ritchie(
+                                MajorItemSynNodePath::Form(
+                                    FormSynNodePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Ritchie(
                                         Fn,
                                     )`, (0)),
                                 ),
@@ -1324,8 +1324,8 @@
     ),
     (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::raw_contour::get_inward_direction`, `Ritchie(
+            MajorItemPath::Form(
+                FormPath(`mnist_classifier::raw_contour::get_inward_direction`, `Ritchie(
                     Fn,
                 )`),
             ),
@@ -1341,8 +1341,8 @@
                                     parent: None,
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
-                                            MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(`mnist_classifier::raw_contour::get_inward_direction`, `Ritchie(
+                                            MajorItemSynNodePath::Form(
+                                                FormSynNodePath(`mnist_classifier::raw_contour::get_inward_direction`, `Ritchie(
                                                     Fn,
                                                 )`, (0)),
                                             ),
@@ -1671,8 +1671,8 @@
                         ),
                         path: SynNodeRegionPath::Defn(
                             ItemSynNodePath::MajorItem(
-                                MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(`mnist_classifier::raw_contour::get_inward_direction`, `Ritchie(
+                                MajorItemSynNodePath::Form(
+                                    FormSynNodePath(`mnist_classifier::raw_contour::get_inward_direction`, `Ritchie(
                                         Fn,
                                     )`, (0)),
                                 ),
@@ -1684,8 +1684,8 @@
                                     path_expr_idx: 0,
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Fugitive(
-                                                FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
+                                            MajorItemPath::Form(
+                                                FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
                                                     Fn,
                                                 )`),
                                             ),
@@ -1740,8 +1740,8 @@
                                     path_expr_idx: 1,
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Fugitive(
-                                                FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
+                                            MajorItemPath::Form(
+                                                FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
                                                     Fn,
                                                 )`),
                                             ),
@@ -1983,8 +1983,8 @@
                                         },
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
+                                        MajorItemPath::Form(
+                                            FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -2000,8 +2000,8 @@
                                         },
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
+                                        MajorItemPath::Form(
+                                            FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -3664,8 +3664,8 @@
     ),
     (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::raw_contour::get_angle_change`, `Ritchie(
+            MajorItemPath::Form(
+                FormPath(`mnist_classifier::raw_contour::get_angle_change`, `Ritchie(
                     Fn,
                 )`),
             ),
@@ -3681,8 +3681,8 @@
                                     parent: None,
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
-                                            MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(`mnist_classifier::raw_contour::get_angle_change`, `Ritchie(
+                                            MajorItemSynNodePath::Form(
+                                                FormSynNodePath(`mnist_classifier::raw_contour::get_angle_change`, `Ritchie(
                                                     Fn,
                                                 )`, (0)),
                                             ),
@@ -3932,8 +3932,8 @@
                         ),
                         path: SynNodeRegionPath::Defn(
                             ItemSynNodePath::MajorItem(
-                                MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(`mnist_classifier::raw_contour::get_angle_change`, `Ritchie(
+                                MajorItemSynNodePath::Form(
+                                    FormSynNodePath(`mnist_classifier::raw_contour::get_angle_change`, `Ritchie(
                                         Fn,
                                     )`, (0)),
                                 ),
@@ -4640,8 +4640,8 @@
     ),
     (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::raw_contour::get_outward_direction`, `Ritchie(
+            MajorItemPath::Form(
+                FormPath(`mnist_classifier::raw_contour::get_outward_direction`, `Ritchie(
                     Fn,
                 )`),
             ),
@@ -4657,8 +4657,8 @@
                                     parent: None,
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
-                                            MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(`mnist_classifier::raw_contour::get_outward_direction`, `Ritchie(
+                                            MajorItemSynNodePath::Form(
+                                                FormSynNodePath(`mnist_classifier::raw_contour::get_outward_direction`, `Ritchie(
                                                     Fn,
                                                 )`, (0)),
                                             ),
@@ -5066,8 +5066,8 @@
                         ),
                         path: SynNodeRegionPath::Defn(
                             ItemSynNodePath::MajorItem(
-                                MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(`mnist_classifier::raw_contour::get_outward_direction`, `Ritchie(
+                                MajorItemSynNodePath::Form(
+                                    FormSynNodePath(`mnist_classifier::raw_contour::get_outward_direction`, `Ritchie(
                                         Fn,
                                     )`, (0)),
                                 ),
@@ -5079,8 +5079,8 @@
                                     path_expr_idx: 0,
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Fugitive(
-                                                FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
+                                            MajorItemPath::Form(
+                                                FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
                                                     Fn,
                                                 )`),
                                             ),
@@ -5135,8 +5135,8 @@
                                     path_expr_idx: 1,
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Fugitive(
-                                                FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
+                                            MajorItemPath::Form(
+                                                FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
                                                     Fn,
                                                 )`),
                                             ),
@@ -5479,8 +5479,8 @@
                                         },
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
+                                        MajorItemPath::Form(
+                                            FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -5496,8 +5496,8 @@
                                         },
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
+                                        MajorItemPath::Form(
+                                            FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -8194,8 +8194,8 @@
     ),
     (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Ritchie(
+            MajorItemPath::Form(
+                FormPath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Ritchie(
                     Fn,
                 )`),
             ),
@@ -8211,8 +8211,8 @@
                                     parent: None,
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
-                                            MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Ritchie(
+                                            MajorItemSynNodePath::Form(
+                                                FormSynNodePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Ritchie(
                                                     Fn,
                                                 )`, (0)),
                                             ),
@@ -8396,8 +8396,8 @@
                         ),
                         path: SynNodeRegionPath::Defn(
                             ItemSynNodePath::MajorItem(
-                                MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Ritchie(
+                                MajorItemSynNodePath::Form(
+                                    FormSynNodePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Ritchie(
                                         Fn,
                                     )`, (0)),
                                 ),
@@ -9089,8 +9089,8 @@
     ),
     (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Ritchie(
+            MajorItemPath::Form(
+                FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Ritchie(
                     Fn,
                 )`),
             ),
@@ -9106,8 +9106,8 @@
                                     parent: None,
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
-                                            MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(`mnist_classifier::raw_contour::find_raw_contours`, `Ritchie(
+                                            MajorItemSynNodePath::Form(
+                                                FormSynNodePath(`mnist_classifier::raw_contour::find_raw_contours`, `Ritchie(
                                                     Fn,
                                                 )`, (0)),
                                             ),
@@ -9298,8 +9298,8 @@
                         ),
                         path: SynNodeRegionPath::Defn(
                             ItemSynNodePath::MajorItem(
-                                MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(`mnist_classifier::raw_contour::find_raw_contours`, `Ritchie(
+                                MajorItemSynNodePath::Form(
+                                    FormSynNodePath(`mnist_classifier::raw_contour::find_raw_contours`, `Ritchie(
                                         Fn,
                                     )`, (0)),
                                 ),
@@ -10118,8 +10118,8 @@
                                     path_expr_idx: 3,
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Fugitive(
-                                                FugitivePath(`mnist_classifier::raw_contour::get_inward_direction`, `Ritchie(
+                                            MajorItemPath::Form(
+                                                FormPath(`mnist_classifier::raw_contour::get_inward_direction`, `Ritchie(
                                                     Fn,
                                                 )`),
                                             ),
@@ -10429,8 +10429,8 @@
                                     path_expr_idx: 4,
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Fugitive(
-                                                FugitivePath(`mnist_classifier::raw_contour::get_outward_direction`, `Ritchie(
+                                            MajorItemPath::Form(
+                                                FormPath(`mnist_classifier::raw_contour::get_outward_direction`, `Ritchie(
                                                     Fn,
                                                 )`),
                                             ),
@@ -10521,8 +10521,8 @@
                                     path_expr_idx: 5,
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Fugitive(
-                                                FugitivePath(`mnist_classifier::raw_contour::get_angle_change`, `Ritchie(
+                                            MajorItemPath::Form(
+                                                FormPath(`mnist_classifier::raw_contour::get_angle_change`, `Ritchie(
                                                     Fn,
                                                 )`),
                                             ),
@@ -10971,8 +10971,8 @@
                                     path_expr_idx: 6,
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Fugitive(
-                                                FugitivePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Ritchie(
+                                            MajorItemPath::Form(
+                                                FormPath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Ritchie(
                                                     Fn,
                                                 )`),
                                             ),
@@ -12834,8 +12834,8 @@
                                         },
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::raw_contour::get_inward_direction`, `Ritchie(
+                                        MajorItemPath::Form(
+                                            FormPath(`mnist_classifier::raw_contour::get_inward_direction`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -12851,8 +12851,8 @@
                                         },
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::raw_contour::get_outward_direction`, `Ritchie(
+                                        MajorItemPath::Form(
+                                            FormPath(`mnist_classifier::raw_contour::get_outward_direction`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -12868,8 +12868,8 @@
                                         },
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::raw_contour::get_angle_change`, `Ritchie(
+                                        MajorItemPath::Form(
+                                            FormPath(`mnist_classifier::raw_contour::get_angle_change`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -12885,8 +12885,8 @@
                                         },
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Ritchie(
+                                        MajorItemPath::Form(
+                                            FormPath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),

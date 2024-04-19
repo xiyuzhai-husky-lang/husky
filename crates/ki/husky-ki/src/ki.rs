@@ -8,8 +8,8 @@ use smallvec::SmallVec;
 
 #[salsa::interned(jar = KiJar)]
 pub struct Ki {
-    pub domain: ValDomain,
-    pub opn: ValOpn,
+    pub domain: KiDomain,
+    pub opn: KiOpn,
     #[return_ref]
     pub arguments: SmallVec<[KiArgument; 4]>,
 }
@@ -47,7 +47,7 @@ fn val_runtime_constants_works() {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub enum ValDomain {
+pub enum KiDomain {
     ConditionSatisfied(Ki),
     ConditionNotSatisfied(Ki),
     StmtNotReturned(Ki),
@@ -62,7 +62,7 @@ impl Ki {
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
-pub enum ValOpn {
+pub enum KiOpn {
     Return,
     Require,
     Assert,
@@ -78,7 +78,7 @@ pub enum ValOpn {
     TypeVariant(TypeVariantPath),
     /// use pattern_data instead of pattern for efficiency
     Be {
-        pattern_data: ValPatternData,
+        pattern_data: KiPatternData,
     },
     Unwrap {},
     // ad hoc
@@ -87,19 +87,19 @@ pub enum ValOpn {
 
 #[salsa::interned(jar = KiJar)]
 pub struct KiPattern {
-    data: ValPatternData,
+    data: KiPatternData,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
-pub enum ValPatternData {
+pub enum KiPatternData {
     None,
     Some,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub struct ValSuffixOpr;
+pub struct KiSuffixOpr;
 
-impl ValSuffixOpr {
+impl KiSuffixOpr {
     pub fn from_hir(_opr: HirSuffixOpr) -> Self {
         Self
     }

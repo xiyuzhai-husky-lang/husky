@@ -387,7 +387,7 @@
     },
     Linkage {
         data: LinkageData::MajorVal {
-            path: FugitivePath(`mnist::input`, `Val`),
+            path: FormPath(`mnist::input`, `Val`),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
                 separator: None,

@@ -6,8 +6,8 @@ EntityTreePresheet {
             ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
-                        syn_node_path: MajorItemSynNodePath::Fugitive(
-                            FugitiveSynNodePath(`quick_sort::quick_sort`, `Ritchie(
+                        syn_node_path: MajorItemSynNodePath::Form(
+                            FormSynNodePath(`quick_sort::quick_sort`, `Ritchie(
                                 Fn,
                             )`, (0)),
                         ),
@@ -19,12 +19,12 @@ EntityTreePresheet {
                                 3,
                             ),
                         },
-                        block: DefnBlock::Fugitive {
-                            path: FugitivePath(`quick_sort::quick_sort`, `Ritchie(
+                        block: DefnBlock::Form {
+                            path: FormPath(`quick_sort::quick_sort`, `Ritchie(
                                 Fn,
                             )`),
                             body: Some(
-                                FugitiveBody {
+                                FormBody {
                                     ast_idx_range: ArenaIdxRange(
                                         0..2,
                                     ),
@@ -34,8 +34,8 @@ EntityTreePresheet {
                     },
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
-                    MajorItemSynNodePath::Fugitive(
-                        FugitiveSynNodePath(`quick_sort::quick_sort`, `Ritchie(
+                    MajorItemSynNodePath::Form(
+                        FormSynNodePath(`quick_sort::quick_sort`, `Ritchie(
                             Fn,
                         )`, (0)),
                     ),
@@ -46,8 +46,8 @@ EntityTreePresheet {
             ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
-                        syn_node_path: MajorItemSynNodePath::Fugitive(
-                            FugitiveSynNodePath(`quick_sort::quick_sort_aux`, `Ritchie(
+                        syn_node_path: MajorItemSynNodePath::Form(
+                            FormSynNodePath(`quick_sort::quick_sort_aux`, `Ritchie(
                                 Fn,
                             )`, (0)),
                         ),
@@ -61,12 +61,12 @@ EntityTreePresheet {
                                 43,
                             ),
                         },
-                        block: DefnBlock::Fugitive {
-                            path: FugitivePath(`quick_sort::quick_sort_aux`, `Ritchie(
+                        block: DefnBlock::Form {
+                            path: FormPath(`quick_sort::quick_sort_aux`, `Ritchie(
                                 Fn,
                             )`),
                             body: Some(
-                                FugitiveBody {
+                                FormBody {
                                     ast_idx_range: ArenaIdxRange(
                                         6..7,
                                     ),
@@ -76,8 +76,8 @@ EntityTreePresheet {
                     },
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
-                    MajorItemSynNodePath::Fugitive(
-                        FugitiveSynNodePath(`quick_sort::quick_sort_aux`, `Ritchie(
+                    MajorItemSynNodePath::Form(
+                        FormSynNodePath(`quick_sort::quick_sort_aux`, `Ritchie(
                             Fn,
                         )`, (0)),
                     ),
@@ -90,8 +90,8 @@ EntityTreePresheet {
             ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
-                        syn_node_path: MajorItemSynNodePath::Fugitive(
-                            FugitiveSynNodePath(`quick_sort::partition`, `Ritchie(
+                        syn_node_path: MajorItemSynNodePath::Form(
+                            FormSynNodePath(`quick_sort::partition`, `Ritchie(
                                 Fn,
                             )`, (0)),
                         ),
@@ -105,12 +105,12 @@ EntityTreePresheet {
                                 105,
                             ),
                         },
-                        block: DefnBlock::Fugitive {
-                            path: FugitivePath(`quick_sort::partition`, `Ritchie(
+                        block: DefnBlock::Form {
+                            path: FormPath(`quick_sort::partition`, `Ritchie(
                                 Fn,
                             )`),
                             body: Some(
-                                FugitiveBody {
+                                FormBody {
                                     ast_idx_range: ArenaIdxRange(
                                         18..24,
                                     ),
@@ -120,8 +120,8 @@ EntityTreePresheet {
                     },
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
-                    MajorItemSynNodePath::Fugitive(
-                        FugitiveSynNodePath(`quick_sort::partition`, `Ritchie(
+                    MajorItemSynNodePath::Form(
+                        FormSynNodePath(`quick_sort::partition`, `Ritchie(
                             Fn,
                         )`, (0)),
                     ),
@@ -134,8 +134,8 @@ EntityTreePresheet {
             ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
-                        syn_node_path: MajorItemSynNodePath::Fugitive(
-                            FugitiveSynNodePath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
+                        syn_node_path: MajorItemSynNodePath::Form(
+                            FormSynNodePath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
                                 Fn,
                             )`, (0)),
                         ),
@@ -149,12 +149,12 @@ EntityTreePresheet {
                                 231,
                             ),
                         },
-                        block: DefnBlock::Fugitive {
-                            path: FugitivePath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
+                        block: DefnBlock::Form {
+                            path: FormPath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
                                 Fn,
                             )`),
                             body: Some(
-                                FugitiveBody {
+                                FormBody {
                                     ast_idx_range: ArenaIdxRange(
                                         24..25,
                                     ),
@@ -164,8 +164,8 @@ EntityTreePresheet {
                     },
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
-                    MajorItemSynNodePath::Fugitive(
-                        FugitiveSynNodePath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
+                    MajorItemSynNodePath::Form(
+                        FormSynNodePath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
                             Fn,
                         )`, (0)),
                     ),
@@ -178,8 +178,8 @@ EntityTreePresheet {
             ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
-                        syn_node_path: MajorItemSynNodePath::Fugitive(
-                            FugitiveSynNodePath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
+                        syn_node_path: MajorItemSynNodePath::Form(
+                            FormSynNodePath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
                                 Fn,
                             )`, (0)),
                         ),
@@ -193,12 +193,12 @@ EntityTreePresheet {
                                 268,
                             ),
                         },
-                        block: DefnBlock::Fugitive {
-                            path: FugitivePath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
+                        block: DefnBlock::Form {
+                            path: FormPath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
                                 Fn,
                             )`),
                             body: Some(
-                                FugitiveBody {
+                                FormBody {
                                     ast_idx_range: ArenaIdxRange(
                                         25..26,
                                     ),
@@ -208,8 +208,8 @@ EntityTreePresheet {
                     },
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
-                    MajorItemSynNodePath::Fugitive(
-                        FugitiveSynNodePath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
+                    MajorItemSynNodePath::Form(
+                        FormSynNodePath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
                             Fn,
                         )`, (0)),
                     ),

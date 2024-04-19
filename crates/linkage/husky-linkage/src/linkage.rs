@@ -13,7 +13,7 @@ use husky_entity_path::{AssocItemPath, MajorFormPath, PreludeTraitPath, TypeVari
 use husky_entity_path::{TraitForTypeItemPath, TypePath};
 use husky_hir_decl::decl::{HasHirDecl, TypeHirDecl};
 use husky_hir_decl::helpers::enum_ty_has_only_unit_variants;
-use husky_hir_defn::{FormHirDefn, HasHirDefn};
+use husky_hir_defn::{HasHirDefn, MajorFormHirDefn};
 use husky_hir_expr::HirExprIdx;
 use husky_hir_ty::{instantiation::HirInstantiation, HirType};
 use husky_javelin::{
@@ -116,7 +116,7 @@ pub enum LinkageField {
 impl Linkage {
     /// gives a linkage if the item is eagerly defined or extern
     pub fn new_val_item(path: MajorFormPath, db: &::salsa::Db) -> Option<Self> {
-        let FormHirDefn::Ki(hir_defn) = path.hir_defn(db).unwrap() else {
+        let MajorFormHirDefn::Val(hir_defn) = path.hir_defn(db).unwrap() else {
             unreachable!()
         };
         match hir_defn.hir_expr_body_and_region(db) {

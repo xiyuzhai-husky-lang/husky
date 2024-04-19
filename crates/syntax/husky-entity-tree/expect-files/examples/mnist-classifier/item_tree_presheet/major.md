@@ -6,8 +6,8 @@ EntityTreePresheet {
             ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
-                        syn_node_path: MajorItemSynNodePath::Fugitive(
-                            FugitiveSynNodePath(`mnist_classifier::major::connected_components`, `Val`, (0)),
+                        syn_node_path: MajorItemSynNodePath::Form(
+                            FormSynNodePath(`mnist_classifier::major::connected_components`, `Val`, (0)),
                         ),
                         visibility: Scope::Pub,
                         ast_idx: 19,
@@ -17,10 +17,10 @@ EntityTreePresheet {
                                 7,
                             ),
                         },
-                        block: DefnBlock::Fugitive {
-                            path: FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
+                        block: DefnBlock::Form {
+                            path: FormPath(`mnist_classifier::major::connected_components`, `Val`),
                             body: Some(
-                                FugitiveBody {
+                                FormBody {
                                     ast_idx_range: ArenaIdxRange(
                                         0..1,
                                     ),
@@ -30,8 +30,8 @@ EntityTreePresheet {
                     },
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
-                    MajorItemSynNodePath::Fugitive(
-                        FugitiveSynNodePath(`mnist_classifier::major::connected_components`, `Val`, (0)),
+                    MajorItemSynNodePath::Form(
+                        FormSynNodePath(`mnist_classifier::major::connected_components`, `Val`, (0)),
                     ),
                 ),
                 ident: `connected_components`,
@@ -40,8 +40,8 @@ EntityTreePresheet {
             ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
-                        syn_node_path: MajorItemSynNodePath::Fugitive(
-                            FugitiveSynNodePath(`mnist_classifier::major::major_connected_component`, `Val`, (0)),
+                        syn_node_path: MajorItemSynNodePath::Form(
+                            FormSynNodePath(`mnist_classifier::major::major_connected_component`, `Val`, (0)),
                         ),
                         visibility: Scope::Pub,
                         ast_idx: 20,
@@ -51,10 +51,10 @@ EntityTreePresheet {
                                 19,
                             ),
                         },
-                        block: DefnBlock::Fugitive {
-                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        block: DefnBlock::Form {
+                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             body: Some(
-                                FugitiveBody {
+                                FormBody {
                                     ast_idx_range: ArenaIdxRange(
                                         6..10,
                                     ),
@@ -64,8 +64,8 @@ EntityTreePresheet {
                     },
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
-                    MajorItemSynNodePath::Fugitive(
-                        FugitiveSynNodePath(`mnist_classifier::major::major_connected_component`, `Val`, (0)),
+                    MajorItemSynNodePath::Form(
+                        FormSynNodePath(`mnist_classifier::major::major_connected_component`, `Val`, (0)),
                     ),
                 ),
                 ident: `major_connected_component`,
@@ -74,8 +74,8 @@ EntityTreePresheet {
             ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
-                        syn_node_path: MajorItemSynNodePath::Fugitive(
-                            FugitiveSynNodePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`, (0)),
+                        syn_node_path: MajorItemSynNodePath::Form(
+                            FormSynNodePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`, (0)),
                         ),
                         visibility: Scope::Pub,
                         ast_idx: 21,
@@ -85,10 +85,10 @@ EntityTreePresheet {
                                 70,
                             ),
                         },
-                        block: DefnBlock::Fugitive {
-                            path: FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
+                        block: DefnBlock::Form {
+                            path: FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                             body: Some(
-                                FugitiveBody {
+                                FormBody {
                                     ast_idx_range: ArenaIdxRange(
                                         11..14,
                                     ),
@@ -98,8 +98,8 @@ EntityTreePresheet {
                     },
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
-                    MajorItemSynNodePath::Fugitive(
-                        FugitiveSynNodePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`, (0)),
+                    MajorItemSynNodePath::Form(
+                        FormSynNodePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`, (0)),
                     ),
                 ),
                 ident: `ignored_connected_components_row_span_sum_sum`,
@@ -108,8 +108,8 @@ EntityTreePresheet {
             ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
-                        syn_node_path: MajorItemSynNodePath::Fugitive(
-                            FugitiveSynNodePath(`mnist_classifier::major::major_raw_contours`, `Val`, (0)),
+                        syn_node_path: MajorItemSynNodePath::Form(
+                            FormSynNodePath(`mnist_classifier::major::major_raw_contours`, `Val`, (0)),
                         ),
                         visibility: Scope::Pub,
                         ast_idx: 22,
@@ -119,10 +119,10 @@ EntityTreePresheet {
                                 104,
                             ),
                         },
-                        block: DefnBlock::Fugitive {
-                            path: FugitivePath(`mnist_classifier::major::major_raw_contours`, `Val`),
+                        block: DefnBlock::Form {
+                            path: FormPath(`mnist_classifier::major::major_raw_contours`, `Val`),
                             body: Some(
-                                FugitiveBody {
+                                FormBody {
                                     ast_idx_range: ArenaIdxRange(
                                         14..15,
                                     ),
@@ -132,8 +132,8 @@ EntityTreePresheet {
                     },
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
-                    MajorItemSynNodePath::Fugitive(
-                        FugitiveSynNodePath(`mnist_classifier::major::major_raw_contours`, `Val`, (0)),
+                    MajorItemSynNodePath::Form(
+                        FormSynNodePath(`mnist_classifier::major::major_raw_contours`, `Val`, (0)),
                     ),
                 ),
                 ident: `major_raw_contours`,
@@ -142,8 +142,8 @@ EntityTreePresheet {
             ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
-                        syn_node_path: MajorItemSynNodePath::Fugitive(
-                            FugitiveSynNodePath(`mnist_classifier::major::major_raw_contour`, `Val`, (0)),
+                        syn_node_path: MajorItemSynNodePath::Form(
+                            FormSynNodePath(`mnist_classifier::major::major_raw_contour`, `Val`, (0)),
                         ),
                         visibility: Scope::Pub,
                         ast_idx: 23,
@@ -153,10 +153,10 @@ EntityTreePresheet {
                                 116,
                             ),
                         },
-                        block: DefnBlock::Fugitive {
-                            path: FugitivePath(`mnist_classifier::major::major_raw_contour`, `Val`),
+                        block: DefnBlock::Form {
+                            path: FormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
                             body: Some(
-                                FugitiveBody {
+                                FormBody {
                                     ast_idx_range: ArenaIdxRange(
                                         15..16,
                                     ),
@@ -166,8 +166,8 @@ EntityTreePresheet {
                     },
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
-                    MajorItemSynNodePath::Fugitive(
-                        FugitiveSynNodePath(`mnist_classifier::major::major_raw_contour`, `Val`, (0)),
+                    MajorItemSynNodePath::Form(
+                        FormSynNodePath(`mnist_classifier::major::major_raw_contour`, `Val`, (0)),
                     ),
                 ),
                 ident: `major_raw_contour`,
@@ -176,8 +176,8 @@ EntityTreePresheet {
             ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
-                        syn_node_path: MajorItemSynNodePath::Fugitive(
-                            FugitiveSynNodePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`, (0)),
+                        syn_node_path: MajorItemSynNodePath::Form(
+                            FormSynNodePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`, (0)),
                         ),
                         visibility: Scope::Pub,
                         ast_idx: 24,
@@ -187,10 +187,10 @@ EntityTreePresheet {
                                 129,
                             ),
                         },
-                        block: DefnBlock::Fugitive {
-                            path: FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                        block: DefnBlock::Form {
+                            path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                             body: Some(
-                                FugitiveBody {
+                                FormBody {
                                     ast_idx_range: ArenaIdxRange(
                                         16..17,
                                     ),
@@ -200,8 +200,8 @@ EntityTreePresheet {
                     },
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
-                    MajorItemSynNodePath::Fugitive(
-                        FugitiveSynNodePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`, (0)),
+                    MajorItemSynNodePath::Form(
+                        FormSynNodePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`, (0)),
                     ),
                 ),
                 ident: `major_line_segment_sketch`,
@@ -210,8 +210,8 @@ EntityTreePresheet {
             ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
-                        syn_node_path: MajorItemSynNodePath::Fugitive(
-                            FugitiveSynNodePath(`mnist_classifier::major::major_concave_components`, `Val`, (0)),
+                        syn_node_path: MajorItemSynNodePath::Form(
+                            FormSynNodePath(`mnist_classifier::major::major_concave_components`, `Val`, (0)),
                         ),
                         visibility: Scope::Pub,
                         ast_idx: 25,
@@ -221,10 +221,10 @@ EntityTreePresheet {
                                 139,
                             ),
                         },
-                        block: DefnBlock::Fugitive {
-                            path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        block: DefnBlock::Form {
+                            path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             body: Some(
-                                FugitiveBody {
+                                FormBody {
                                     ast_idx_range: ArenaIdxRange(
                                         17..18,
                                     ),
@@ -234,8 +234,8 @@ EntityTreePresheet {
                     },
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
-                    MajorItemSynNodePath::Fugitive(
-                        FugitiveSynNodePath(`mnist_classifier::major::major_concave_components`, `Val`, (0)),
+                    MajorItemSynNodePath::Form(
+                        FormSynNodePath(`mnist_classifier::major::major_concave_components`, `Val`, (0)),
                     ),
                 ),
                 ident: `major_concave_components`,

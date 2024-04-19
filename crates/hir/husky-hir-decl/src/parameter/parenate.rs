@@ -17,3 +17,13 @@ pub enum HirParenateParameters {
     Eager(HirEagerParenateParameters),
     Lazy(HirLazyParenateParameters),
 }
+
+impl HirParenateParameters {
+    #[track_caller]
+    pub fn eager(&self) -> &HirEagerParenateParameters {
+        match self {
+            HirParenateParameters::Eager(slf) => slf,
+            HirParenateParameters::Lazy(_) => unreachable!(),
+        }
+    }
+}

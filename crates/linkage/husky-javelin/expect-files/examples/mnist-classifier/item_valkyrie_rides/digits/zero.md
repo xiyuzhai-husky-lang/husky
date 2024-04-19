@@ -2,8 +2,8 @@
 [
     (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
+            MajorItemPath::Form(
+                FormPath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
             ),
         ),
         Some(
@@ -68,8 +68,8 @@
     ),
     (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `Ritchie(
+            MajorItemPath::Form(
+                FormPath(`mnist_classifier::digits::zero::almost_closed`, `Ritchie(
                     Fn,
                 )`),
             ),
@@ -87,8 +87,8 @@
     ),
     (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+            MajorItemPath::Form(
+                FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
             ),
         ),
         Some(
@@ -220,8 +220,8 @@
                         ),
                     },
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavPath::Fugitive(
-                            FugitivePath(`malamute::narrow_down`, `Ritchie(
+                        javelin_item_path: JavPath::Form(
+                            FormPath(`malamute::narrow_down`, `Ritchie(
                                 Gn,
                             )`),
                         ),

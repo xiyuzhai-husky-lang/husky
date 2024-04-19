@@ -3,16 +3,16 @@
     SemaExprRegion {
         path: RegionPath::Decl(
             ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
+                MajorItemPath::Form(
+                    FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
             path: RegionPath::Decl(
                 ItemPath::MajorItem(
-                    MajorItemPath::Fugitive(
-                        FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
+                    MajorItemPath::Form(
+                        FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                     ),
                 ),
             ),
@@ -158,16 +158,16 @@
     SemaExprRegion {
         path: RegionPath::Decl(
             ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
+                MajorItemPath::Form(
+                    FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
             path: RegionPath::Decl(
                 ItemPath::MajorItem(
-                    MajorItemPath::Fugitive(
-                        FugitivePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
+                    MajorItemPath::Form(
+                        FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
                     ),
                 ),
             ),
@@ -313,16 +313,16 @@
     SemaExprRegion {
         path: RegionPath::Decl(
             ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                MajorItemPath::Form(
+                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
             path: RegionPath::Decl(
                 ItemPath::MajorItem(
-                    MajorItemPath::Fugitive(
-                        FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                    MajorItemPath::Form(
+                        FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                     ),
                 ),
             ),
@@ -835,8 +835,8 @@
     SemaExprRegion {
         path: RegionPath::Decl(
             ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::digits::six::upmost`, `Ritchie(
+                MajorItemPath::Form(
+                    FormPath(`mnist_classifier::digits::six::upmost`, `Ritchie(
                         Fn,
                     )`),
                 ),
@@ -845,8 +845,8 @@
         data: SemaExprRegionData {
             path: RegionPath::Decl(
                 ItemPath::MajorItem(
-                    MajorItemPath::Fugitive(
-                        FugitivePath(`mnist_classifier::digits::six::upmost`, `Ritchie(
+                    MajorItemPath::Form(
+                        FormPath(`mnist_classifier::digits::six::upmost`, `Ritchie(
                             Fn,
                         )`),
                     ),
@@ -1256,8 +1256,8 @@
     SemaExprRegion {
         path: RegionPath::Decl(
             ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::digits::six::bottom1`, `Ritchie(
+                MajorItemPath::Form(
+                    FormPath(`mnist_classifier::digits::six::bottom1`, `Ritchie(
                         Fn,
                     )`),
                 ),
@@ -1266,8 +1266,8 @@
         data: SemaExprRegionData {
             path: RegionPath::Decl(
                 ItemPath::MajorItem(
-                    MajorItemPath::Fugitive(
-                        FugitivePath(`mnist_classifier::digits::six::bottom1`, `Ritchie(
+                    MajorItemPath::Form(
+                        FormPath(`mnist_classifier::digits::six::bottom1`, `Ritchie(
                             Fn,
                         )`),
                     ),

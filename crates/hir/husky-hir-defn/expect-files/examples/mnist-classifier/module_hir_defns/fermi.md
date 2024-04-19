@@ -132,117 +132,120 @@
         ),
     ),
     HirDefn::MajorItem(
-        MajorItemHirDefn::Fugitive(
-            FugitiveHirDefn::FunctionFn(
-                FunctionFnHirDefn {
-                    path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+        MajorItemHirDefn::Form(
+            MajorFormHirDefn::Ritchie(
+                MajorRitchieHirDefn {
+                    path: FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                         Fn,
                     )`),
-                    hir_decl: FunctionMajorFnHirDecl {
-                        path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                    hir_decl: MajorRitchieHirDecl {
+                        path: FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                             Fn,
                         )`),
+                        ritchie_item_kind: RitchieItemKind::Fn,
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
-                        parenate_parameters: HirEagerParenateParameters(
-                            [
-                                HirEagerParenateParameter::Simple {
-                                    pattern_expr_idx: 0,
-                                    contract: Pure,
-                                    ty: HirType::PathLeading(
-                                        HirTypePathLeading {
-                                            ty_path: TypePath(`core::mem::Leash`, `Extern`),
-                                            template_arguments: [
-                                                HirTemplateArgument::Type(
-                                                    HirType::PathLeading(
-                                                        HirTypePathLeading {
-                                                            ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                                            template_arguments: [
-                                                                HirTemplateArgument::Type(
-                                                                    HirType::PathLeading(
-                                                                        HirTypePathLeading {
-                                                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                                            template_arguments: [],
-                                                                            always_copyable: false,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            ],
-                                                            always_copyable: false,
-                                                        },
-                                                    ),
-                                                ),
-                                            ],
-                                            always_copyable: true,
-                                        },
-                                    ),
-                                },
-                                HirEagerParenateParameter::Simple {
-                                    pattern_expr_idx: 1,
-                                    contract: Pure,
-                                    ty: HirType::PathLeading(
-                                        HirTypePathLeading {
-                                            ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                            template_arguments: [
-                                                HirTemplateArgument::Type(
-                                                    HirType::Ritchie(
-                                                        HirRitchieType {
-                                                            ritchie_ty_kind: RitchieTypeKind::Item(
-                                                                RitchieItemKind::Fn,
-                                                            ),
-                                                            parameters: HirRitchieParameters {
-                                                                data: [
-                                                                    HirRitchieParameter::Simple(
-                                                                        HirRitchieSimpleParameter {
-                                                                            contract: Pure,
-                                                                            ty: HirType::PathLeading(
-                                                                                HirTypePathLeading {
-                                                                                    ty_path: TypePath(`core::mem::Leash`, `Extern`),
-                                                                                    template_arguments: [
-                                                                                        HirTemplateArgument::Type(
-                                                                                            HirType::PathLeading(
-                                                                                                HirTypePathLeading {
-                                                                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                                                                    template_arguments: [],
-                                                                                                    always_copyable: false,
-                                                                                                },
-                                                                                            ),
-                                                                                        ),
-                                                                                    ],
-                                                                                    always_copyable: true,
-                                                                                },
-                                                                            ),
-                                                                        },
+                        parenate_parameters: HirParenateParameters::Eager(
+                            HirEagerParenateParameters(
+                                [
+                                    HirEagerParenateParameter::Simple {
+                                        pattern_expr_idx: 0,
+                                        contract: Pure,
+                                        ty: HirType::PathLeading(
+                                            HirTypePathLeading {
+                                                ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                                template_arguments: [
+                                                    HirTemplateArgument::Type(
+                                                        HirType::PathLeading(
+                                                            HirTypePathLeading {
+                                                                ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                                                template_arguments: [
+                                                                    HirTemplateArgument::Type(
+                                                                        HirType::PathLeading(
+                                                                            HirTypePathLeading {
+                                                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                                template_arguments: [],
+                                                                                always_copyable: false,
+                                                                            },
+                                                                        ),
                                                                     ),
                                                                 ],
+                                                                always_copyable: false,
                                                             },
-                                                            return_ty: HirType::PathLeading(
-                                                                HirTypePathLeading {
-                                                                    ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                                    template_arguments: [
-                                                                        HirTemplateArgument::Type(
-                                                                            HirType::PathLeading(
-                                                                                HirTypePathLeading {
-                                                                                    ty_path: TypePath(`core::num::f32`, `Extern`),
-                                                                                    template_arguments: [],
-                                                                                    always_copyable: true,
-                                                                                },
-                                                                            ),
+                                                        ),
+                                                    ),
+                                                ],
+                                                always_copyable: true,
+                                            },
+                                        ),
+                                    },
+                                    HirEagerParenateParameter::Simple {
+                                        pattern_expr_idx: 1,
+                                        contract: Pure,
+                                        ty: HirType::PathLeading(
+                                            HirTypePathLeading {
+                                                ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                                template_arguments: [
+                                                    HirTemplateArgument::Type(
+                                                        HirType::Ritchie(
+                                                            HirRitchieType {
+                                                                ritchie_ty_kind: RitchieTypeKind::Item(
+                                                                    RitchieItemKind::Fn,
+                                                                ),
+                                                                parameters: HirRitchieParameters {
+                                                                    data: [
+                                                                        HirRitchieParameter::Simple(
+                                                                            HirRitchieSimpleParameter {
+                                                                                contract: Pure,
+                                                                                ty: HirType::PathLeading(
+                                                                                    HirTypePathLeading {
+                                                                                        ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                                                                        template_arguments: [
+                                                                                            HirTemplateArgument::Type(
+                                                                                                HirType::PathLeading(
+                                                                                                    HirTypePathLeading {
+                                                                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                                                        template_arguments: [],
+                                                                                                        always_copyable: false,
+                                                                                                    },
+                                                                                                ),
+                                                                                            ),
+                                                                                        ],
+                                                                                        always_copyable: true,
+                                                                                    },
+                                                                                ),
+                                                                            },
                                                                         ),
                                                                     ],
-                                                                    always_copyable: true,
                                                                 },
-                                                            ),
-                                                        },
+                                                                return_ty: HirType::PathLeading(
+                                                                    HirTypePathLeading {
+                                                                        ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                        template_arguments: [
+                                                                            HirTemplateArgument::Type(
+                                                                                HirType::PathLeading(
+                                                                                    HirTypePathLeading {
+                                                                                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                                                        template_arguments: [],
+                                                                                        always_copyable: true,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                        ],
+                                                                        always_copyable: true,
+                                                                    },
+                                                                ),
+                                                            },
+                                                        ),
                                                     ),
-                                                ),
-                                            ],
-                                            always_copyable: false,
-                                        },
-                                    ),
-                                },
-                            ],
+                                                ],
+                                                always_copyable: false,
+                                            },
+                                        ),
+                                    },
+                                ],
+                            ),
                         ),
                         return_ty: HirType::PathLeading(
                             HirTypePathLeading {
@@ -251,962 +254,26 @@
                                 always_copyable: false,
                             },
                         ),
-                        hir_eager_expr_region: HirEagerExprRegion {
-                            region_path: RegionPath::Decl(
-                                ItemPath::MajorItem(
-                                    MajorItemPath::Fugitive(
-                                        FugitivePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
-                                            Fn,
-                                        )`),
-                                    ),
+                        hir_expr_region: Eager(
+                            HirEagerExprRegion(
+                                Id {
+                                    value: 124,
+                                },
+                            ),
+                        ),
+                    },
+                    body_with_hir_expr_region: Some(
+                        (
+                            Eager(
+                                16,
+                            ),
+                            Eager(
+                                HirEagerExprRegion(
+                                    Id {
+                                        value: 125,
+                                    },
                                 ),
                             ),
-                            expr_arena: Arena {
-                                data: [],
-                            },
-                            stmt_arena: Arena {
-                                data: [],
-                            },
-                            pattern_arena: Arena {
-                                data: [
-                                    HirEagerPatternEntry {
-                                        data: HirEagerPatternData::Ident {
-                                            symbol_modifier: None,
-                                            ident: `concave_components`,
-                                        },
-                                        contract: Pure,
-                                    },
-                                    HirEagerPatternEntry {
-                                        data: HirEagerPatternData::Ident {
-                                            symbol_modifier: None,
-                                            ident: `templates`,
-                                        },
-                                        contract: Pure,
-                                    },
-                                ],
-                            },
-                            comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
-                                arena: Arena {
-                                    data: [],
-                                },
-                            },
-                            runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
-                                arena: Arena {
-                                    data: [
-                                        HirEagerRuntimeVariableEntry {
-                                            name: HirEagerRuntimeVariableName::Ident(
-                                                `concave_components`,
-                                            ),
-                                            data: HirEagerRuntimeVariableData::ParenateParameter,
-                                        },
-                                        HirEagerRuntimeVariableEntry {
-                                            name: HirEagerRuntimeVariableName::Ident(
-                                                `templates`,
-                                            ),
-                                            data: HirEagerRuntimeVariableData::ParenateParameter,
-                                        },
-                                    ],
-                                },
-                                self_value_variable: None,
-                            },
-                        },
-                    },
-                    eager_body_with_hir_eager_expr_region: Some(
-                        (
-                            16,
-                            HirEagerExprRegion {
-                                region_path: RegionPath::Defn(
-                                    ItemPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
-                                                Fn,
-                                            )`),
-                                        ),
-                                    ),
-                                ),
-                                expr_arena: Arena {
-                                    data: [
-                                        HirEagerExprEntry {
-                                            data: HirEagerExprData::Variable(
-                                                0,
-                                            ),
-                                            contracted_quary: HirContractedQuary {
-                                                contract: Some(
-                                                    Leash,
-                                                ),
-                                                quary: StackPure {
-                                                    place: Idx(
-                                                        PlaceIdx(0),
-                                                    ),
-                                                },
-                                            },
-                                            is_always_copyable: true,
-                                            place_contract_site: HirPlaceContractSite {
-                                                place_contracts: [
-                                                    (
-                                                        Idx(
-                                                            PlaceIdx(0),
-                                                        ),
-                                                        Leash,
-                                                    ),
-                                                ],
-                                            },
-                                        },
-                                        HirEagerExprEntry {
-                                            data: HirEagerExprData::MethodFnCall {
-                                                self_argument: 0,
-                                                self_contract: Leash,
-                                                ident: `collect_leashes`,
-                                                path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`<core::vec::Vec(0)>::collect_leashes`, `MethodRitchie(
-                                                        Fn,
-                                                    )`),
-                                                ),
-                                                instantiation: HirInstantiation {
-                                                    symbol_map: [
-                                                        (
-                                                            HirTemplateVariable::Type(
-                                                                HirTypeTemplateVariable::Type {
-                                                                    attrs: HirTemplateVariableAttrs {
-                                                                        class: Comptime,
-                                                                    },
-                                                                    variance: None,
-                                                                    disambiguator: 0,
-                                                                },
-                                                            ),
-                                                            HirTermSymbolicVariableResolution::Explicit(
-                                                                HirTemplateArgument::Type(
-                                                                    HirType::PathLeading(
-                                                                        HirTypePathLeading {
-                                                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                                            template_arguments: [],
-                                                                            always_copyable: false,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    ],
-                                                    separator: Some(
-                                                        1,
-                                                    ),
-                                                },
-                                                arguments: [],
-                                            },
-                                            contracted_quary: HirContractedQuary {
-                                                contract: None,
-                                                quary: Transient,
-                                            },
-                                            is_always_copyable: false,
-                                            place_contract_site: HirPlaceContractSite {
-                                                place_contracts: [],
-                                            },
-                                        },
-                                        HirEagerExprEntry {
-                                            data: HirEagerExprData::NewList {
-                                                exprs: [],
-                                                element_ty: HirType::PathLeading(
-                                                    HirTypePathLeading {
-                                                        ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                        template_arguments: [
-                                                            HirTemplateArgument::Type(
-                                                                HirType::PathLeading(
-                                                                    HirTypePathLeading {
-                                                                        ty_path: TypePath(`core::mem::Leash`, `Extern`),
-                                                                        template_arguments: [
-                                                                            HirTemplateArgument::Type(
-                                                                                HirType::PathLeading(
-                                                                                    HirTypePathLeading {
-                                                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                                                        template_arguments: [],
-                                                                                        always_copyable: false,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                        ],
-                                                                        always_copyable: true,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        ],
-                                                        always_copyable: true,
-                                                    },
-                                                ),
-                                            },
-                                            contracted_quary: HirContractedQuary {
-                                                contract: None,
-                                                quary: Transient,
-                                            },
-                                            is_always_copyable: false,
-                                            place_contract_site: HirPlaceContractSite {
-                                                place_contracts: [],
-                                            },
-                                        },
-                                        HirEagerExprEntry {
-                                            data: HirEagerExprData::Variable(
-                                                1,
-                                            ),
-                                            contracted_quary: HirContractedQuary {
-                                                contract: Some(
-                                                    Pure,
-                                                ),
-                                                quary: StackPure {
-                                                    place: Idx(
-                                                        PlaceIdx(1),
-                                                    ),
-                                                },
-                                            },
-                                            is_always_copyable: false,
-                                            place_contract_site: HirPlaceContractSite {
-                                                place_contracts: [
-                                                    (
-                                                        Idx(
-                                                            PlaceIdx(1),
-                                                        ),
-                                                        Pure,
-                                                    ),
-                                                ],
-                                            },
-                                        },
-                                        HirEagerExprEntry {
-                                            data: HirEagerExprData::MethodFnCall {
-                                                self_argument: 3,
-                                                self_contract: Pure,
-                                                ident: `ilen`,
-                                                path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
-                                                        Fn,
-                                                    )`),
-                                                ),
-                                                instantiation: HirInstantiation {
-                                                    symbol_map: [
-                                                        (
-                                                            HirTemplateVariable::Type(
-                                                                HirTypeTemplateVariable::Type {
-                                                                    attrs: HirTemplateVariableAttrs {
-                                                                        class: Comptime,
-                                                                    },
-                                                                    variance: None,
-                                                                    disambiguator: 0,
-                                                                },
-                                                            ),
-                                                            HirTermSymbolicVariableResolution::Explicit(
-                                                                HirTemplateArgument::Type(
-                                                                    HirType::Ritchie(
-                                                                        HirRitchieType {
-                                                                            ritchie_ty_kind: RitchieTypeKind::Item(
-                                                                                RitchieItemKind::Fn,
-                                                                            ),
-                                                                            parameters: HirRitchieParameters {
-                                                                                data: [
-                                                                                    HirRitchieParameter::Simple(
-                                                                                        HirRitchieSimpleParameter {
-                                                                                            contract: Pure,
-                                                                                            ty: HirType::PathLeading(
-                                                                                                HirTypePathLeading {
-                                                                                                    ty_path: TypePath(`core::mem::Leash`, `Extern`),
-                                                                                                    template_arguments: [
-                                                                                                        HirTemplateArgument::Type(
-                                                                                                            HirType::PathLeading(
-                                                                                                                HirTypePathLeading {
-                                                                                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                                                                                    template_arguments: [],
-                                                                                                                    always_copyable: false,
-                                                                                                                },
-                                                                                                            ),
-                                                                                                        ),
-                                                                                                    ],
-                                                                                                    always_copyable: true,
-                                                                                                },
-                                                                                            ),
-                                                                                        },
-                                                                                    ),
-                                                                                ],
-                                                                            },
-                                                                            return_ty: HirType::PathLeading(
-                                                                                HirTypePathLeading {
-                                                                                    ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                                                    template_arguments: [
-                                                                                        HirTemplateArgument::Type(
-                                                                                            HirType::PathLeading(
-                                                                                                HirTypePathLeading {
-                                                                                                    ty_path: TypePath(`core::num::f32`, `Extern`),
-                                                                                                    template_arguments: [],
-                                                                                                    always_copyable: true,
-                                                                                                },
-                                                                                            ),
-                                                                                        ),
-                                                                                    ],
-                                                                                    always_copyable: true,
-                                                                                },
-                                                                            ),
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    ],
-                                                    separator: Some(
-                                                        1,
-                                                    ),
-                                                },
-                                                arguments: [],
-                                            },
-                                            contracted_quary: HirContractedQuary {
-                                                contract: None,
-                                                quary: Transient,
-                                            },
-                                            is_always_copyable: true,
-                                            place_contract_site: HirPlaceContractSite {
-                                                place_contracts: [],
-                                            },
-                                        },
-                                        HirEagerExprEntry {
-                                            data: HirEagerExprData::Variable(
-                                                1,
-                                            ),
-                                            contracted_quary: HirContractedQuary {
-                                                contract: Some(
-                                                    Pure,
-                                                ),
-                                                quary: StackPure {
-                                                    place: Idx(
-                                                        PlaceIdx(1),
-                                                    ),
-                                                },
-                                            },
-                                            is_always_copyable: false,
-                                            place_contract_site: HirPlaceContractSite {
-                                                place_contracts: [
-                                                    (
-                                                        Idx(
-                                                            PlaceIdx(1),
-                                                        ),
-                                                        Pure,
-                                                    ),
-                                                ],
-                                            },
-                                        },
-                                        HirEagerExprEntry {
-                                            data: HirEagerExprData::Variable(
-                                                4,
-                                            ),
-                                            contracted_quary: HirContractedQuary {
-                                                contract: Some(
-                                                    Pure,
-                                                ),
-                                                quary: ImmutableOnStack {
-                                                    place: Idx(
-                                                        PlaceIdx(2),
-                                                    ),
-                                                },
-                                            },
-                                            is_always_copyable: true,
-                                            place_contract_site: HirPlaceContractSite {
-                                                place_contracts: [
-                                                    (
-                                                        Idx(
-                                                            PlaceIdx(2),
-                                                        ),
-                                                        Pure,
-                                                    ),
-                                                ],
-                                            },
-                                        },
-                                        HirEagerExprEntry {
-                                            data: HirEagerExprData::Index {
-                                                owner: 5,
-                                                items: [
-                                                    6,
-                                                ],
-                                            },
-                                            contracted_quary: HirContractedQuary {
-                                                contract: Some(
-                                                    Pure,
-                                                ),
-                                                quary: StackPure {
-                                                    place: Idx(
-                                                        PlaceIdx(1),
-                                                    ),
-                                                },
-                                            },
-                                            is_always_copyable: true,
-                                            place_contract_site: HirPlaceContractSite {
-                                                place_contracts: [
-                                                    (
-                                                        Idx(
-                                                            PlaceIdx(1),
-                                                        ),
-                                                        Pure,
-                                                    ),
-                                                ],
-                                            },
-                                        },
-                                        HirEagerExprEntry {
-                                            data: HirEagerExprData::Variable(
-                                                3,
-                                            ),
-                                            contracted_quary: HirContractedQuary {
-                                                contract: Some(
-                                                    BorrowMut,
-                                                ),
-                                                quary: MutableOnStack {
-                                                    place: Idx(
-                                                        PlaceIdx(1),
-                                                    ),
-                                                },
-                                            },
-                                            is_always_copyable: false,
-                                            place_contract_site: HirPlaceContractSite {
-                                                place_contracts: [
-                                                    (
-                                                        Idx(
-                                                            PlaceIdx(1),
-                                                        ),
-                                                        BorrowMut,
-                                                    ),
-                                                ],
-                                            },
-                                        },
-                                        HirEagerExprEntry {
-                                            data: HirEagerExprData::Variable(
-                                                2,
-                                            ),
-                                            contracted_quary: HirContractedQuary {
-                                                contract: Some(
-                                                    BorrowMut,
-                                                ),
-                                                quary: MutableOnStack {
-                                                    place: Idx(
-                                                        PlaceIdx(0),
-                                                    ),
-                                                },
-                                            },
-                                            is_always_copyable: false,
-                                            place_contract_site: HirPlaceContractSite {
-                                                place_contracts: [
-                                                    (
-                                                        Idx(
-                                                            PlaceIdx(0),
-                                                        ),
-                                                        BorrowMut,
-                                                    ),
-                                                ],
-                                            },
-                                        },
-                                        HirEagerExprEntry {
-                                            data: HirEagerExprData::Variable(
-                                                5,
-                                            ),
-                                            contracted_quary: HirContractedQuary {
-                                                contract: Some(
-                                                    Pure,
-                                                ),
-                                                quary: ImmutableOnStack {
-                                                    place: Idx(
-                                                        PlaceIdx(3),
-                                                    ),
-                                                },
-                                            },
-                                            is_always_copyable: true,
-                                            place_contract_site: HirPlaceContractSite {
-                                                place_contracts: [
-                                                    (
-                                                        Idx(
-                                                            PlaceIdx(3),
-                                                        ),
-                                                        Pure,
-                                                    ),
-                                                ],
-                                            },
-                                        },
-                                        HirEagerExprEntry {
-                                            data: HirEagerExprData::MethodFnCall {
-                                                self_argument: 9,
-                                                self_contract: BorrowMut,
-                                                ident: `pop_with_largest_opt_f32`,
-                                                path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`<core::vec::Vec(0)>::pop_with_largest_opt_f32`, `MethodRitchie(
-                                                        Fn,
-                                                    )`),
-                                                ),
-                                                instantiation: HirInstantiation {
-                                                    symbol_map: [
-                                                        (
-                                                            HirTemplateVariable::Type(
-                                                                HirTypeTemplateVariable::Type {
-                                                                    attrs: HirTemplateVariableAttrs {
-                                                                        class: Comptime,
-                                                                    },
-                                                                    variance: None,
-                                                                    disambiguator: 0,
-                                                                },
-                                                            ),
-                                                            HirTermSymbolicVariableResolution::Explicit(
-                                                                HirTemplateArgument::Type(
-                                                                    HirType::PathLeading(
-                                                                        HirTypePathLeading {
-                                                                            ty_path: TypePath(`core::mem::Leash`, `Extern`),
-                                                                            template_arguments: [
-                                                                                HirTemplateArgument::Type(
-                                                                                    HirType::PathLeading(
-                                                                                        HirTypePathLeading {
-                                                                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                                                            template_arguments: [],
-                                                                                            always_copyable: false,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
-                                                                            ],
-                                                                            always_copyable: true,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            ),
-                                                        ),
-                                                        (
-                                                            HirTemplateVariable::Type(
-                                                                HirTypeTemplateVariable::SelfLifetime,
-                                                            ),
-                                                            HirTermSymbolicVariableResolution::SelfLifetime,
-                                                        ),
-                                                    ],
-                                                    separator: Some(
-                                                        1,
-                                                    ),
-                                                },
-                                                arguments: [
-                                                    Simple(
-                                                        HirRitchieSimpleParameter {
-                                                            contract: Pure,
-                                                            ty: Ritchie(
-                                                                HirRitchieType(
-                                                                    Id {
-                                                                        value: 2,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        },
-                                                        10,
-                                                        Trivial(
-                                                            TrivialHirEagerCoersion {
-                                                                expectee_quary: ImmutableOnStack {
-                                                                    place: Idx(
-                                                                        PlaceIdx(3),
-                                                                    ),
-                                                                },
-                                                            },
-                                                        ),
-                                                    ),
-                                                ],
-                                            },
-                                            contracted_quary: HirContractedQuary {
-                                                contract: None,
-                                                quary: Transient,
-                                            },
-                                            is_always_copyable: true,
-                                            place_contract_site: HirPlaceContractSite {
-                                                place_contracts: [],
-                                            },
-                                        },
-                                        HirEagerExprEntry {
-                                            data: HirEagerExprData::MethodFnCall {
-                                                self_argument: 8,
-                                                self_contract: BorrowMut,
-                                                ident: `push`,
-                                                path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`<core::vec::Vec(0)>::push`, `MethodRitchie(
-                                                        Fn,
-                                                    )`),
-                                                ),
-                                                instantiation: HirInstantiation {
-                                                    symbol_map: [
-                                                        (
-                                                            HirTemplateVariable::Type(
-                                                                HirTypeTemplateVariable::Type {
-                                                                    attrs: HirTemplateVariableAttrs {
-                                                                        class: Comptime,
-                                                                    },
-                                                                    variance: None,
-                                                                    disambiguator: 0,
-                                                                },
-                                                            ),
-                                                            HirTermSymbolicVariableResolution::Explicit(
-                                                                HirTemplateArgument::Type(
-                                                                    HirType::PathLeading(
-                                                                        HirTypePathLeading {
-                                                                            ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                                            template_arguments: [
-                                                                                HirTemplateArgument::Type(
-                                                                                    HirType::PathLeading(
-                                                                                        HirTypePathLeading {
-                                                                                            ty_path: TypePath(`core::mem::Leash`, `Extern`),
-                                                                                            template_arguments: [
-                                                                                                HirTemplateArgument::Type(
-                                                                                                    HirType::PathLeading(
-                                                                                                        HirTypePathLeading {
-                                                                                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                                                                            template_arguments: [],
-                                                                                                            always_copyable: false,
-                                                                                                        },
-                                                                                                    ),
-                                                                                                ),
-                                                                                            ],
-                                                                                            always_copyable: true,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
-                                                                            ],
-                                                                            always_copyable: true,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            ),
-                                                        ),
-                                                        (
-                                                            HirTemplateVariable::Type(
-                                                                HirTypeTemplateVariable::SelfLifetime,
-                                                            ),
-                                                            HirTermSymbolicVariableResolution::SelfLifetime,
-                                                        ),
-                                                    ],
-                                                    separator: Some(
-                                                        1,
-                                                    ),
-                                                },
-                                                arguments: [
-                                                    Simple(
-                                                        HirRitchieSimpleParameter {
-                                                            contract: Move,
-                                                            ty: PathLeading(
-                                                                HirTypePathLeading(
-                                                                    Id {
-                                                                        value: 33,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        },
-                                                        11,
-                                                        Trivial(
-                                                            TrivialHirEagerCoersion {
-                                                                expectee_quary: Transient,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ],
-                                            },
-                                            contracted_quary: HirContractedQuary {
-                                                contract: None,
-                                                quary: Transient,
-                                            },
-                                            is_always_copyable: true,
-                                            place_contract_site: HirPlaceContractSite {
-                                                place_contracts: [],
-                                            },
-                                        },
-                                        HirEagerExprEntry {
-                                            data: HirEagerExprData::Variable(
-                                                3,
-                                            ),
-                                            contracted_quary: HirContractedQuary {
-                                                contract: Some(
-                                                    Move,
-                                                ),
-                                                quary: MutableOnStack {
-                                                    place: Idx(
-                                                        PlaceIdx(1),
-                                                    ),
-                                                },
-                                            },
-                                            is_always_copyable: false,
-                                            place_contract_site: HirPlaceContractSite {
-                                                place_contracts: [
-                                                    (
-                                                        Idx(
-                                                            PlaceIdx(1),
-                                                        ),
-                                                        Move,
-                                                    ),
-                                                ],
-                                            },
-                                        },
-                                        HirEagerExprEntry {
-                                            data: HirEagerExprData::Variable(
-                                                2,
-                                            ),
-                                            contracted_quary: HirContractedQuary {
-                                                contract: Some(
-                                                    Move,
-                                                ),
-                                                quary: MutableOnStack {
-                                                    place: Idx(
-                                                        PlaceIdx(0),
-                                                    ),
-                                                },
-                                            },
-                                            is_always_copyable: false,
-                                            place_contract_site: HirPlaceContractSite {
-                                                place_contracts: [
-                                                    (
-                                                        Idx(
-                                                            PlaceIdx(0),
-                                                        ),
-                                                        Move,
-                                                    ),
-                                                ],
-                                            },
-                                        },
-                                        HirEagerExprEntry {
-                                            data: HirEagerExprData::TypeConstructorFnCall {
-                                                path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                                instantiation: HirInstantiation {
-                                                    symbol_map: [],
-                                                    separator: None,
-                                                },
-                                                arguments: [
-                                                    Simple(
-                                                        HirRitchieSimpleParameter {
-                                                            contract: Move,
-                                                            ty: PathLeading(
-                                                                HirTypePathLeading(
-                                                                    Id {
-                                                                        value: 34,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        },
-                                                        13,
-                                                        Trivial(
-                                                            TrivialHirEagerCoersion {
-                                                                expectee_quary: MutableOnStack {
-                                                                    place: Idx(
-                                                                        PlaceIdx(1),
-                                                                    ),
-                                                                },
-                                                            },
-                                                        ),
-                                                    ),
-                                                    Simple(
-                                                        HirRitchieSimpleParameter {
-                                                            contract: Move,
-                                                            ty: PathLeading(
-                                                                HirTypePathLeading(
-                                                                    Id {
-                                                                        value: 37,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        },
-                                                        14,
-                                                        Trivial(
-                                                            TrivialHirEagerCoersion {
-                                                                expectee_quary: MutableOnStack {
-                                                                    place: Idx(
-                                                                        PlaceIdx(0),
-                                                                    ),
-                                                                },
-                                                            },
-                                                        ),
-                                                    ),
-                                                ],
-                                            },
-                                            contracted_quary: HirContractedQuary {
-                                                contract: None,
-                                                quary: Transient,
-                                            },
-                                            is_always_copyable: false,
-                                            place_contract_site: HirPlaceContractSite {
-                                                place_contracts: [],
-                                            },
-                                        },
-                                        HirEagerExprEntry {
-                                            data: HirEagerExprData::Block {
-                                                stmts: ArenaIdxRange(
-                                                    2..6,
-                                                ),
-                                            },
-                                            contracted_quary: HirContractedQuary {
-                                                contract: None,
-                                                quary: Transient,
-                                            },
-                                            is_always_copyable: true,
-                                            place_contract_site: HirPlaceContractSite {
-                                                place_contracts: [],
-                                            },
-                                        },
-                                    ],
-                                },
-                                stmt_arena: Arena {
-                                    data: [
-                                        Let {
-                                            pattern: HirEagerLetVariablesPattern {
-                                                pattern_expr_idx: 2,
-                                                ty: None,
-                                            },
-                                            contract: Pure,
-                                            initial_value: 7,
-                                            coersion: None,
-                                        },
-                                        Eval {
-                                            expr: 12,
-                                            coersion: Some(
-                                                Trivial(
-                                                    TrivialHirEagerCoersion {
-                                                        expectee_quary: Transient,
-                                                    },
-                                                ),
-                                            ),
-                                            discarded: false,
-                                        },
-                                        Let {
-                                            pattern: HirEagerLetVariablesPattern {
-                                                pattern_expr_idx: 0,
-                                                ty: None,
-                                            },
-                                            contract: Move,
-                                            initial_value: 1,
-                                            coersion: None,
-                                        },
-                                        Let {
-                                            pattern: HirEagerLetVariablesPattern {
-                                                pattern_expr_idx: 1,
-                                                ty: Some(
-                                                    PathLeading(
-                                                        HirTypePathLeading(
-                                                            Id {
-                                                                value: 34,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            },
-                                            contract: Move,
-                                            initial_value: 2,
-                                            coersion: Some(
-                                                Trivial(
-                                                    TrivialHirEagerCoersion {
-                                                        expectee_quary: Transient,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                        ForBetween {
-                                            particulars: HirEagerForBetweenParticulars {
-                                                frame_var_ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 65,
-                                                        },
-                                                    ),
-                                                ),
-                                                range: HirEagerForBetweenRange {
-                                                    initial_boundary: HirEagerForBetweenLoopBoundary {
-                                                        bound_expr: None,
-                                                        kind: LowerClosed,
-                                                    },
-                                                    final_boundary: HirEagerForBetweenLoopBoundary {
-                                                        bound_expr: Some(
-                                                            4,
-                                                        ),
-                                                        kind: UpperOpen,
-                                                    },
-                                                    step: Constant(
-                                                        1,
-                                                    ),
-                                                },
-                                            },
-                                            stmts: ArenaIdxRange(
-                                                0..2,
-                                            ),
-                                        },
-                                        Return {
-                                            result: 15,
-                                            coersion: Trivial(
-                                                TrivialHirEagerCoersion {
-                                                    expectee_quary: Transient,
-                                                },
-                                            ),
-                                        },
-                                    ],
-                                },
-                                pattern_arena: Arena {
-                                    data: [
-                                        HirEagerPatternEntry {
-                                            data: HirEagerPatternData::Ident {
-                                                symbol_modifier: Some(
-                                                    Mut,
-                                                ),
-                                                ident: `others`,
-                                            },
-                                            contract: Move,
-                                        },
-                                        HirEagerPatternEntry {
-                                            data: HirEagerPatternData::Ident {
-                                                symbol_modifier: Some(
-                                                    Mut,
-                                                ),
-                                                ident: `matches`,
-                                            },
-                                            contract: Move,
-                                        },
-                                        HirEagerPatternEntry {
-                                            data: HirEagerPatternData::Ident {
-                                                symbol_modifier: None,
-                                                ident: `template`,
-                                            },
-                                            contract: Pure,
-                                        },
-                                    ],
-                                },
-                                comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
-                                    arena: Arena {
-                                        data: [],
-                                    },
-                                },
-                                runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
-                                    arena: Arena {
-                                        data: [
-                                            HirEagerRuntimeVariableEntry {
-                                                name: HirEagerRuntimeVariableName::Ident(
-                                                    `concave_components`,
-                                                ),
-                                                data: HirEagerRuntimeVariableData::ParenateParameter,
-                                            },
-                                            HirEagerRuntimeVariableEntry {
-                                                name: HirEagerRuntimeVariableName::Ident(
-                                                    `templates`,
-                                                ),
-                                                data: HirEagerRuntimeVariableData::ParenateParameter,
-                                            },
-                                            HirEagerRuntimeVariableEntry {
-                                                name: HirEagerRuntimeVariableName::Ident(
-                                                    `others`,
-                                                ),
-                                                data: HirEagerRuntimeVariableData::LetVariable,
-                                            },
-                                            HirEagerRuntimeVariableEntry {
-                                                name: HirEagerRuntimeVariableName::Ident(
-                                                    `matches`,
-                                                ),
-                                                data: HirEagerRuntimeVariableData::LetVariable,
-                                            },
-                                            HirEagerRuntimeVariableEntry {
-                                                name: HirEagerRuntimeVariableName::Ident(
-                                                    `i`,
-                                                ),
-                                                data: HirEagerRuntimeVariableData::LoopVariable,
-                                            },
-                                            HirEagerRuntimeVariableEntry {
-                                                name: HirEagerRuntimeVariableName::Ident(
-                                                    `template`,
-                                                ),
-                                                data: HirEagerRuntimeVariableData::LetVariable,
-                                            },
-                                        ],
-                                    },
-                                    self_value_variable: None,
-                                },
-                            },
                         ),
                     ),
                 },

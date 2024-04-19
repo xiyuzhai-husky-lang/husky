@@ -131,17 +131,18 @@
     ),
     (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`malamute::narrow_down`, `Ritchie(
+            MajorItemPath::Form(
+                FormPath(`malamute::narrow_down`, `Ritchie(
                     Gn,
                 )`),
             ),
         ),
         Ok(
             DecTemplate::MajorItem(
-                MajorItemDecTemplate::Fugitive(
-                    FugitiveDecTemplate::Gn(
-                        MajorGnDecTemplate {
+                MajorItemDecTemplate::Form(
+                    MajorFormDecTemplate::Ritchie(
+                        MajorRitchieDecTemplate {
+                            ritchie_item_kind: RitchieItemKind::Gn,
                             template_parameters: DecTemplateParameters {
                                 data: [
                                     DeclarativeTemplateParameter {

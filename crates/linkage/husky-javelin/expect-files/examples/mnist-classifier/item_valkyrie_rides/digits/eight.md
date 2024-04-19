@@ -2,8 +2,8 @@
 [
     (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
+            MajorItemPath::Form(
+                FormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
             ),
         ),
         Some(
@@ -68,8 +68,8 @@
     ),
     (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
+            MajorItemPath::Form(
+                FormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
             ),
         ),
         Some(
@@ -81,8 +81,8 @@
     ),
     (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::digits::eight::big_mouth`, `Ritchie(
+            MajorItemPath::Form(
+                FormPath(`mnist_classifier::digits::eight::big_mouth`, `Ritchie(
                     Fn,
                 )`),
             ),

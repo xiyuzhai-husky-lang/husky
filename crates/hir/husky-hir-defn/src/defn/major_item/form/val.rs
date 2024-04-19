@@ -1,11 +1,11 @@
 use super::*;
-use husky_hir_decl::decl::MajorValFormHirDecl;
+use husky_hir_decl::decl::MajorValHirDecl;
 use husky_hir_expr::helpers::hir_body_with_expr_region;
 
 #[salsa::interned(db = HirDefnDb, jar = HirDefnJar, constructor = new_inner)]
 pub struct ValHirDefn {
     pub path: MajorFormPath,
-    pub hir_decl: MajorValFormHirDecl,
+    pub hir_decl: MajorValHirDecl,
     pub hir_expr_body_and_region: Option<(HirExprIdx, HirExprRegion)>,
 }
 
@@ -22,11 +22,7 @@ impl From<ValHirDefn> for HirDefn {
 }
 
 impl ValHirDefn {
-    pub(super) fn new(
-        db: &::salsa::Db,
-        path: MajorFormPath,
-        hir_decl: MajorValFormHirDecl,
-    ) -> Self {
+    pub(super) fn new(db: &::salsa::Db, path: MajorFormPath, hir_decl: MajorValHirDecl) -> Self {
         Self::new_inner(
             db,
             path,

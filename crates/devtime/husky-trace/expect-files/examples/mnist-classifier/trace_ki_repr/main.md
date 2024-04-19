@@ -63,7 +63,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
                     },
                 ),
             },
@@ -74,7 +74,7 @@
                             value: 14,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 64,
@@ -86,11 +86,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
+                            path: FormPath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -100,7 +100,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
+                    FormPath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -221,7 +221,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -232,7 +232,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -244,11 +244,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -258,7 +258,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                    FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -330,7 +330,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                     },
                 ),
             },
@@ -341,7 +341,7 @@
                             value: 15,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 66,
@@ -353,13 +353,13 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::ValItemLazilyDefined(
-                    FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                ki_domain_repr: Omni,
+                opn: KiOpn::ValItemLazilyDefined(
+                    FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                    FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -373,7 +373,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -432,8 +432,8 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Branches,
+                ki_domain_repr: Omni,
+                opn: KiOpn::Branches,
                 arguments: [
                     Branch {
                         condition: Some(
@@ -474,13 +474,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -503,7 +503,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                             },
                                         ),
                                     },
@@ -562,7 +562,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                             },
                                         ),
                                     },
@@ -610,14 +610,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: ConditionSatisfied(
+                ki_domain_repr: ConditionSatisfied(
                     KiRepr(
                         Id {
                             value: 8,
                         },
                     ),
                 ),
-                opn: ValOpn::Require,
+                opn: KiOpn::Require,
                 arguments: [
                     Simple(
                         KiRepr(
@@ -636,13 +636,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -665,7 +665,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                             },
                                         ),
                                     },
@@ -713,14 +713,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 14,
                         },
                     ),
                 ),
-                opn: ValOpn::Require,
+                opn: KiOpn::Require,
                 arguments: [
                     Simple(
                         KiRepr(
@@ -739,13 +739,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -768,7 +768,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                             },
                                         ),
                                     },
@@ -816,14 +816,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 20,
                         },
                     ),
                 ),
-                opn: ValOpn::Require,
+                opn: KiOpn::Require,
                 arguments: [
                     Simple(
                         KiRepr(
@@ -842,13 +842,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -871,7 +871,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                             },
                                         ),
                                     },
@@ -930,7 +930,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                             },
                                         ),
                                     },
@@ -978,14 +978,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 26,
                         },
                     ),
                 ),
-                opn: ValOpn::Require,
+                opn: KiOpn::Require,
                 arguments: [
                     Simple(
                         KiRepr(
@@ -1004,13 +1004,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -1033,7 +1033,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                             },
                                         ),
                                     },
@@ -1081,14 +1081,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 37,
                         },
                     ),
                 ),
-                opn: ValOpn::Return,
+                opn: KiOpn::Return,
                 arguments: [
                     Simple(
                         KiRepr(
@@ -1100,13 +1100,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -1123,7 +1123,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -1134,7 +1134,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -1146,11 +1146,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -1160,7 +1160,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -1219,8 +1219,8 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
@@ -1246,13 +1246,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -1317,8 +1317,8 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MethodRitchie {
                             path: AssocItemPath::TypeItem(
@@ -1372,13 +1372,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -1398,7 +1398,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -1552,17 +1552,17 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 40,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorRitchieEager {
-                            path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                            path: FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                 Fn,
                             )`),
                             instantiation: LinInstantiation {
@@ -1593,13 +1593,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -1616,7 +1616,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -1627,7 +1627,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -1639,11 +1639,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -1653,7 +1653,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                    FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -1712,17 +1712,17 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 40,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorRitchieEager {
-                            path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                            path: FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                 Fn,
                             )`),
                             instantiation: LinInstantiation {
@@ -1753,13 +1753,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -1779,7 +1779,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -1875,17 +1875,17 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 40,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorRitchieLazy {
-                            path: FugitivePath(`malamute::narrow_down`, `Ritchie(
+                            path: FormPath(`malamute::narrow_down`, `Ritchie(
                                 Gn,
                             )`),
                             instantiation: LinInstantiation {
@@ -1959,13 +1959,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -2030,17 +2030,17 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 40,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorRitchieEager {
-                            path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                            path: FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                 Fn,
                             )`),
                             instantiation: LinInstantiation {
@@ -2071,13 +2071,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -2142,14 +2142,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 40,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
@@ -2175,13 +2175,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -2246,17 +2246,17 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 40,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorRitchieEager {
-                            path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                            path: FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                 Fn,
                             )`),
                             instantiation: LinInstantiation {
@@ -2287,13 +2287,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -2358,14 +2358,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 40,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
@@ -2391,13 +2391,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -2462,17 +2462,17 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 40,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorRitchieEager {
-                            path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                            path: FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                 Fn,
                             )`),
                             instantiation: LinInstantiation {
@@ -2503,13 +2503,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -2574,14 +2574,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 40,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
@@ -2607,13 +2607,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -2678,17 +2678,17 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 40,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorRitchieLazy {
-                            path: FugitivePath(`malamute::narrow_down`, `Ritchie(
+                            path: FormPath(`malamute::narrow_down`, `Ritchie(
                                 Gn,
                             )`),
                             instantiation: LinInstantiation {
@@ -2762,13 +2762,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -2788,7 +2788,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -2831,14 +2831,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 49,
                         },
                     ),
                 ),
-                opn: ValOpn::Require,
+                opn: KiOpn::Require,
                 arguments: [
                     Simple(
                         KiRepr(
@@ -2857,13 +2857,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -2928,17 +2928,17 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 40,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorRitchieEager {
-                            path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                            path: FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                 Fn,
                             )`),
                             instantiation: LinInstantiation {
@@ -2969,13 +2969,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -3040,14 +3040,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 49,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
@@ -3073,13 +3073,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -3099,7 +3099,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -3142,14 +3142,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 54,
                         },
                     ),
                 ),
-                opn: ValOpn::Require,
+                opn: KiOpn::Require,
                 arguments: [
                     Simple(
                         KiRepr(
@@ -3168,13 +3168,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -3191,7 +3191,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -3202,7 +3202,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -3214,11 +3214,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -3228,7 +3228,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -3287,14 +3287,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 54,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
@@ -3320,13 +3320,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -3391,14 +3391,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 54,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::StructField {
                             self_ty: LinTypePathLeading {
@@ -3428,13 +3428,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -3454,7 +3454,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -3497,14 +3497,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 61,
                         },
                     ),
                 ),
-                opn: ValOpn::Require,
+                opn: KiOpn::Require,
                 arguments: [
                     Simple(
                         KiRepr(
@@ -3523,13 +3523,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -3546,7 +3546,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -3557,7 +3557,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -3569,11 +3569,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -3583,7 +3583,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -3642,14 +3642,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 61,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
@@ -3675,13 +3675,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -3746,14 +3746,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 61,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::StructField {
                             self_ty: LinTypePathLeading {
@@ -3783,13 +3783,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -3809,7 +3809,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -3915,7 +3915,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -3926,7 +3926,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -3938,11 +3938,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -3952,7 +3952,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -4011,14 +4011,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 68,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
@@ -4044,13 +4044,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -4115,14 +4115,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 68,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::StructField {
                             self_ty: LinTypePathLeading {
@@ -4152,13 +4152,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -4178,7 +4178,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -4332,14 +4332,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 68,
                         },
                     ),
                 ),
-                opn: ValOpn::Index,
+                opn: KiOpn::Index,
                 arguments: [
                     Simple(
                         KiRepr(
@@ -4358,13 +4358,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -4429,14 +4429,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 68,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
@@ -4462,13 +4462,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -4533,14 +4533,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 68,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MethodRitchie {
                             path: AssocItemPath::TypeItem(
@@ -4571,13 +4571,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -4642,14 +4642,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 68,
                         },
                     ),
                 ),
-                opn: ValOpn::Index,
+                opn: KiOpn::Index,
                 arguments: [
                     Simple(
                         KiRepr(
@@ -4668,13 +4668,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -4739,14 +4739,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 68,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
@@ -4772,13 +4772,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -4843,14 +4843,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 68,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MethodRitchie {
                             path: AssocItemPath::TypeItem(
@@ -4881,13 +4881,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -4907,7 +4907,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -5013,7 +5013,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                     },
                 ),
             },
@@ -5024,7 +5024,7 @@
                             value: 68,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 114,
@@ -5036,11 +5036,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                            path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -5050,7 +5050,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                    FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -5109,14 +5109,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 68,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
@@ -5142,13 +5142,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -5213,14 +5213,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 68,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MethodRitchie {
                             path: AssocItemPath::TypeItem(
@@ -5251,13 +5251,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -5274,7 +5274,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                     },
                 ),
             },
@@ -5285,7 +5285,7 @@
                             value: 68,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 114,
@@ -5297,11 +5297,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                            path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -5311,7 +5311,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                    FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -5370,14 +5370,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 68,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
@@ -5403,13 +5403,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -5474,14 +5474,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 68,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MethodRitchie {
                             path: AssocItemPath::TypeItem(
@@ -5512,13 +5512,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -5538,7 +5538,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -5692,14 +5692,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 68,
                         },
                     ),
                 ),
-                opn: ValOpn::Binary(
+                opn: KiOpn::Binary(
                     Closed(
                         Sub,
                     ),
@@ -5722,13 +5722,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -5793,14 +5793,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 68,
                         },
                     ),
                 ),
-                opn: ValOpn::Binary(
+                opn: KiOpn::Binary(
                     Closed(
                         Sub,
                     ),
@@ -5823,13 +5823,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -5849,7 +5849,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -5892,14 +5892,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 68,
                         },
                     ),
                 ),
-                opn: ValOpn::Require,
+                opn: KiOpn::Require,
                 arguments: [
                     Simple(
                         KiRepr(
@@ -5918,13 +5918,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -5989,14 +5989,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 68,
                         },
                     ),
                 ),
-                opn: ValOpn::Binary(
+                opn: KiOpn::Binary(
                     Closed(
                         Div,
                     ),
@@ -6019,13 +6019,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -6045,7 +6045,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -6199,17 +6199,17 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 40,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorRitchieEager {
-                            path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                            path: FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                 Fn,
                             )`),
                             instantiation: LinInstantiation {
@@ -6240,13 +6240,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -6311,14 +6311,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 94,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
@@ -6344,13 +6344,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -6370,7 +6370,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -6447,7 +6447,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                     },
                 ),
             },
@@ -6458,7 +6458,7 @@
                             value: 80,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 67,
@@ -6470,11 +6470,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
+                            path: FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -6484,7 +6484,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
+                    FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -6605,7 +6605,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -6616,7 +6616,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -6628,11 +6628,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -6642,7 +6642,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                    FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -6714,7 +6714,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                     },
                 ),
             },
@@ -6725,7 +6725,7 @@
                             value: 81,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 68,
@@ -6737,13 +6737,13 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::ValItemLazilyDefined(
-                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                ki_domain_repr: Omni,
+                opn: KiOpn::ValItemLazilyDefined(
+                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -6757,7 +6757,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 },
                             ),
                         },
@@ -6853,11 +6853,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorRitchieLazy {
-                            path: FugitivePath(`malamute::narrow_down`, `Ritchie(
+                            path: FormPath(`malamute::narrow_down`, `Ritchie(
                                 Gn,
                             )`),
                             instantiation: LinInstantiation {
@@ -6926,13 +6926,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -6949,7 +6949,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -6960,7 +6960,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -6972,11 +6972,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -6986,7 +6986,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -7045,8 +7045,8 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
@@ -7072,13 +7072,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -7095,7 +7095,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                     },
                 ),
             },
@@ -7106,7 +7106,7 @@
                             value: 90,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 111,
@@ -7118,11 +7118,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
+                            path: FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -7132,7 +7132,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
+                    FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -7191,11 +7191,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorRitchieLazy {
-                            path: FugitivePath(`malamute::narrow_down`, `Ritchie(
+                            path: FormPath(`malamute::narrow_down`, `Ritchie(
                                 Gn,
                             )`),
                             instantiation: LinInstantiation {
@@ -7264,13 +7264,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -7290,7 +7290,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 },
                             ),
                         },
@@ -7444,17 +7444,17 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 104,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorRitchieEager {
-                            path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                            path: FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                 Fn,
                             )`),
                             instantiation: LinInstantiation {
@@ -7485,13 +7485,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -7508,7 +7508,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -7519,7 +7519,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -7531,11 +7531,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -7545,7 +7545,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                    FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -7604,17 +7604,17 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 104,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorRitchieEager {
-                            path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                            path: FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                 Fn,
                             )`),
                             instantiation: LinInstantiation {
@@ -7645,13 +7645,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -7671,7 +7671,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 },
                             ),
                         },
@@ -7730,14 +7730,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 104,
                         },
                     ),
                 ),
-                opn: ValOpn::Branches,
+                opn: KiOpn::Branches,
                 arguments: [
                     Branch {
                         condition: Some(
@@ -7843,13 +7843,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -7872,7 +7872,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -7931,7 +7931,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -7995,14 +7995,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 114,
                         },
                     ),
                 ),
-                opn: ValOpn::Branches,
+                opn: KiOpn::Branches,
                 arguments: [
                     Branch {
                         condition: Some(
@@ -8023,13 +8023,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -8052,7 +8052,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -8153,17 +8153,17 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 104,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorRitchieEager {
-                            path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                            path: FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                 Fn,
                             )`),
                             instantiation: LinInstantiation {
@@ -8194,13 +8194,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -8265,14 +8265,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 104,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
@@ -8298,13 +8298,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -8324,7 +8324,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 },
                             ),
                         },
@@ -8383,14 +8383,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 104,
                         },
                     ),
                 ),
-                opn: ValOpn::Branches,
+                opn: KiOpn::Branches,
                 arguments: [
                     Branch {
                         condition: Some(
@@ -8496,13 +8496,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -8525,7 +8525,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -8573,14 +8573,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: ConditionNotSatisfied(
+                ki_domain_repr: ConditionNotSatisfied(
                     KiRepr(
                         Id {
                             value: 110,
                         },
                     ),
                 ),
-                opn: ValOpn::Require,
+                opn: KiOpn::Require,
                 arguments: [
                     Simple(
                         KiRepr(
@@ -8599,13 +8599,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -8628,7 +8628,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -8676,14 +8676,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 129,
                         },
                     ),
                 ),
-                opn: ValOpn::Require,
+                opn: KiOpn::Require,
                 arguments: [
                     Simple(
                         KiRepr(
@@ -8702,13 +8702,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -8731,7 +8731,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -8790,7 +8790,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -8849,7 +8849,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -8908,7 +8908,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -8972,14 +8972,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 133,
                         },
                     ),
                 ),
-                opn: ValOpn::Branches,
+                opn: KiOpn::Branches,
                 arguments: [
                     Branch {
                         condition: Some(
@@ -9015,13 +9015,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -9044,7 +9044,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -9103,7 +9103,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -9151,14 +9151,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 168,
                         },
                     ),
                 ),
-                opn: ValOpn::Require,
+                opn: KiOpn::Require,
                 arguments: [
                     Simple(
                         KiRepr(
@@ -9177,13 +9177,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -9206,7 +9206,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -9265,7 +9265,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -9324,7 +9324,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -9388,14 +9388,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 203,
                         },
                     ),
                 ),
-                opn: ValOpn::Branches,
+                opn: KiOpn::Branches,
                 arguments: [
                     Branch {
                         condition: Some(
@@ -9431,13 +9431,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -9460,7 +9460,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -9524,14 +9524,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 249,
                         },
                     ),
                 ),
-                opn: ValOpn::Branches,
+                opn: KiOpn::Branches,
                 arguments: [
                     Branch {
                         condition: Some(
@@ -9552,13 +9552,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -9581,7 +9581,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -9629,14 +9629,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 270,
                         },
                     ),
                 ),
-                opn: ValOpn::Require,
+                opn: KiOpn::Require,
                 arguments: [
                     Simple(
                         KiRepr(
@@ -9655,13 +9655,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -9684,7 +9684,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -9743,7 +9743,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -9802,7 +9802,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -9861,7 +9861,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -9920,7 +9920,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -9979,7 +9979,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -10027,14 +10027,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 299,
                         },
                     ),
                 ),
-                opn: ValOpn::Require,
+                opn: KiOpn::Require,
                 arguments: [
                     Simple(
                         KiRepr(
@@ -10053,13 +10053,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -10082,7 +10082,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -10141,7 +10141,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -10200,7 +10200,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -10259,7 +10259,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -10318,7 +10318,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -10366,14 +10366,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 303,
                         },
                     ),
                 ),
-                opn: ValOpn::Require,
+                opn: KiOpn::Require,
                 arguments: [
                     Simple(
                         KiRepr(
@@ -10392,13 +10392,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -10421,7 +10421,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -10469,14 +10469,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 316,
                         },
                     ),
                 ),
-                opn: ValOpn::Require,
+                opn: KiOpn::Require,
                 arguments: [
                     Simple(
                         KiRepr(
@@ -10495,13 +10495,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -10524,7 +10524,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -10606,7 +10606,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                     },
                 ),
             },
@@ -10617,7 +10617,7 @@
                             value: 124,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 72,
@@ -10629,11 +10629,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
+                            path: FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -10643,7 +10643,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
+                    FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -10764,7 +10764,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -10775,7 +10775,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -10787,11 +10787,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -10801,7 +10801,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                    FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -10873,7 +10873,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
                     },
                 ),
             },
@@ -10884,7 +10884,7 @@
                             value: 125,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 73,
@@ -10896,11 +10896,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
+                            path: FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -10910,7 +10910,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
+                    FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -11031,7 +11031,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -11042,7 +11042,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -11054,11 +11054,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -11068,7 +11068,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                    FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -11140,7 +11140,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                     },
                 ),
             },
@@ -11151,7 +11151,7 @@
                             value: 126,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 74,
@@ -11163,13 +11163,13 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::ValItemLazilyDefined(
-                    FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                ki_domain_repr: Omni,
+                opn: KiOpn::ValItemLazilyDefined(
+                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -11183,7 +11183,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -11289,7 +11289,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                     },
                 ),
             },
@@ -11300,7 +11300,7 @@
                             value: 124,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 72,
@@ -11312,11 +11312,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
+                            path: FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -11326,7 +11326,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
+                    FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -11385,8 +11385,8 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::StructField {
                             self_ty: LinTypePathLeading {
@@ -11416,13 +11416,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -11442,7 +11442,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -11485,8 +11485,8 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Require,
+                ki_domain_repr: Omni,
+                opn: KiOpn::Require,
                 arguments: [
                     Simple(
                         KiRepr(
@@ -11505,13 +11505,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -11576,8 +11576,8 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Index,
+                ki_domain_repr: Omni,
+                opn: KiOpn::Index,
                 arguments: [
                     Simple(
                         KiRepr(
@@ -11596,13 +11596,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -11622,7 +11622,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -11728,7 +11728,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -11739,7 +11739,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -11751,11 +11751,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -11765,7 +11765,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -11824,14 +11824,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 332,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
@@ -11857,13 +11857,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -11883,7 +11883,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -11989,7 +11989,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -12000,7 +12000,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -12012,11 +12012,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -12026,7 +12026,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -12085,14 +12085,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 332,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
@@ -12118,13 +12118,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -12141,7 +12141,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -12152,7 +12152,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -12164,11 +12164,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -12178,7 +12178,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -12237,14 +12237,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 332,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
@@ -12270,13 +12270,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -12296,7 +12296,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -12355,14 +12355,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 332,
                         },
                     ),
                 ),
-                opn: ValOpn::Branches,
+                opn: KiOpn::Branches,
                 arguments: [
                     Branch {
                         condition: Some(
@@ -12408,13 +12408,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -12437,7 +12437,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -12496,7 +12496,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -12555,7 +12555,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -12614,7 +12614,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -12673,7 +12673,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -12732,7 +12732,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -12791,7 +12791,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -12839,14 +12839,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 347,
                         },
                     ),
                 ),
-                opn: ValOpn::Require,
+                opn: KiOpn::Require,
                 arguments: [
                     Simple(
                         KiRepr(
@@ -12865,13 +12865,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -12894,7 +12894,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -12958,14 +12958,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 367,
                         },
                     ),
                 ),
-                opn: ValOpn::Branches,
+                opn: KiOpn::Branches,
                 arguments: [
                     Branch {
                         condition: Some(
@@ -13001,13 +13001,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -13030,7 +13030,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -13089,7 +13089,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -13148,7 +13148,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -13212,14 +13212,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 393,
                         },
                     ),
                 ),
-                opn: ValOpn::Branches,
+                opn: KiOpn::Branches,
                 arguments: [
                     Branch {
                         condition: Some(
@@ -13240,13 +13240,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -13269,7 +13269,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -13317,14 +13317,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 399,
                         },
                     ),
                 ),
-                opn: ValOpn::Return,
+                opn: KiOpn::Return,
                 arguments: [
                     Simple(
                         KiRepr(
@@ -13336,13 +13336,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -13407,14 +13407,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 332,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
@@ -13440,13 +13440,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -13511,14 +13511,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 332,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::StructField {
                             self_ty: LinTypePathLeading {
@@ -13548,13 +13548,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -13574,7 +13574,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -13670,17 +13670,17 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 402,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorRitchieLazy {
-                            path: FugitivePath(`malamute::narrow_down`, `Ritchie(
+                            path: FormPath(`malamute::narrow_down`, `Ritchie(
                                 Gn,
                             )`),
                             instantiation: LinInstantiation {
@@ -13744,13 +13744,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -13767,7 +13767,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                     },
                 ),
             },
@@ -13778,7 +13778,7 @@
                             value: 124,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 72,
@@ -13790,11 +13790,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
+                            path: FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -13804,7 +13804,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
+                    FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -13863,14 +13863,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 402,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
@@ -13896,13 +13896,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -13967,17 +13967,17 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 402,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorRitchieLazy {
-                            path: FugitivePath(`malamute::narrow_down`, `Ritchie(
+                            path: FormPath(`malamute::narrow_down`, `Ritchie(
                                 Gn,
                             )`),
                             instantiation: LinInstantiation {
@@ -14041,13 +14041,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -14067,7 +14067,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -14126,14 +14126,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 406,
                         },
                     ),
                 ),
-                opn: ValOpn::Branches,
+                opn: KiOpn::Branches,
                 arguments: [
                     Branch {
                         condition: Some(
@@ -14154,13 +14154,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -14183,7 +14183,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -14231,14 +14231,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: ConditionSatisfied(
+                ki_domain_repr: ConditionSatisfied(
                     KiRepr(
                         Id {
                             value: 409,
                         },
                     ),
                 ),
-                opn: ValOpn::Require,
+                opn: KiOpn::Require,
                 arguments: [
                     Simple(
                         KiRepr(
@@ -14257,13 +14257,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -14280,7 +14280,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                     },
                 ),
             },
@@ -14291,7 +14291,7 @@
                             value: 124,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 72,
@@ -14303,11 +14303,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
+                            path: FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -14317,7 +14317,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
+                    FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -14376,14 +14376,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 406,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
@@ -14409,13 +14409,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -14435,7 +14435,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -14478,14 +14478,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 415,
                         },
                     ),
                 ),
-                opn: ValOpn::Require,
+                opn: KiOpn::Require,
                 arguments: [
                     Simple(
                         KiRepr(
@@ -14504,13 +14504,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -14575,14 +14575,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 332,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
@@ -14608,13 +14608,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -14679,14 +14679,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 415,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::StructField {
                             self_ty: LinTypePathLeading {
@@ -14716,13 +14716,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -14787,14 +14787,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 415,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
@@ -14820,13 +14820,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -14891,14 +14891,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 415,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MethodRitchie {
                             path: AssocItemPath::TypeItem(
@@ -14929,13 +14929,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -14955,7 +14955,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -15014,14 +15014,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 425,
                         },
                     ),
                 ),
-                opn: ValOpn::Branches,
+                opn: KiOpn::Branches,
                 arguments: [
                     Branch {
                         condition: Some(
@@ -15042,13 +15042,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -15071,7 +15071,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -15119,14 +15119,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: ConditionSatisfied(
+                ki_domain_repr: ConditionSatisfied(
                     KiRepr(
                         Id {
                             value: 429,
                         },
                     ),
                 ),
-                opn: ValOpn::Require,
+                opn: KiOpn::Require,
                 arguments: [
                     Simple(
                         KiRepr(
@@ -15145,13 +15145,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -15216,14 +15216,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 332,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
@@ -15249,13 +15249,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -15320,14 +15320,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 425,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::StructField {
                             self_ty: LinTypePathLeading {
@@ -15357,13 +15357,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -15383,7 +15383,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -15426,14 +15426,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 440,
                         },
                     ),
                 ),
-                opn: ValOpn::Require,
+                opn: KiOpn::Require,
                 arguments: [
                     Simple(
                         KiRepr(
@@ -15452,13 +15452,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -15523,14 +15523,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 332,
                         },
                     ),
                 ),
-                opn: ValOpn::Binary(
+                opn: KiOpn::Binary(
                     Closed(
                         Sub,
                     ),
@@ -15553,13 +15553,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -15579,7 +15579,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -15656,7 +15656,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                     },
                 ),
             },
@@ -15667,7 +15667,7 @@
                             value: 176,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 77,
@@ -15679,11 +15679,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                            path: FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -15693,7 +15693,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                    FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -15814,7 +15814,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -15825,7 +15825,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -15837,11 +15837,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -15851,7 +15851,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                    FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -15923,7 +15923,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::three::is_three`, `Val`),
                     },
                 ),
             },
@@ -15934,7 +15934,7 @@
                             value: 177,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 78,
@@ -15946,11 +15946,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
+                            path: FormPath(`mnist_classifier::digits::three::is_three`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -15960,7 +15960,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
+                    FormPath(`mnist_classifier::digits::three::is_three`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -16020,7 +16020,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -16031,7 +16031,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -16043,11 +16043,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -16057,7 +16057,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                    FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -16178,7 +16178,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -16189,7 +16189,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -16201,11 +16201,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -16215,7 +16215,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                    FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -16388,7 +16388,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                     },
                 ),
             },
@@ -16399,7 +16399,7 @@
                             value: 176,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 77,
@@ -16411,11 +16411,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                            path: FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -16425,7 +16425,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                    FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -16598,7 +16598,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                     },
                 ),
             },
@@ -16609,7 +16609,7 @@
                             value: 176,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 77,
@@ -16621,11 +16621,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                            path: FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -16635,7 +16635,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                    FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -16808,7 +16808,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                     },
                 ),
             },
@@ -16819,7 +16819,7 @@
                             value: 176,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 77,
@@ -16831,11 +16831,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                            path: FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -16845,7 +16845,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                    FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -18652,7 +18652,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                     },
                 ),
             },
@@ -18663,7 +18663,7 @@
                             value: 176,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 77,
@@ -18675,11 +18675,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                            path: FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -18689,7 +18689,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                    FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -19010,7 +19010,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::four::left_components`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::four::left_components`, `Val`),
                     },
                 ),
             },
@@ -19021,7 +19021,7 @@
                             value: 229,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 82,
@@ -19033,11 +19033,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::digits::four::left_components`, `Val`),
+                            path: FormPath(`mnist_classifier::digits::four::left_components`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -19047,7 +19047,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::digits::four::left_components`, `Val`),
+                    FormPath(`mnist_classifier::digits::four::left_components`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -19168,7 +19168,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -19179,7 +19179,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -19191,11 +19191,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -19205,7 +19205,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                    FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -19277,7 +19277,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
                     },
                 ),
             },
@@ -19288,7 +19288,7 @@
                             value: 230,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 84,
@@ -19300,11 +19300,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
+                            path: FormPath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -19314,7 +19314,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
+                    FormPath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -19435,7 +19435,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -19446,7 +19446,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -19458,11 +19458,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -19472,7 +19472,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                    FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -19544,7 +19544,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
                     },
                 ),
             },
@@ -19555,7 +19555,7 @@
                             value: 231,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 85,
@@ -19567,11 +19567,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
+                            path: FormPath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -19581,7 +19581,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
+                    FormPath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -19702,7 +19702,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -19713,7 +19713,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -19725,11 +19725,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -19739,7 +19739,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                    FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -19811,7 +19811,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::four::is_four`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::four::is_four`, `Val`),
                     },
                 ),
             },
@@ -19822,7 +19822,7 @@
                             value: 232,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 86,
@@ -19834,11 +19834,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::digits::four::is_four`, `Val`),
+                            path: FormPath(`mnist_classifier::digits::four::is_four`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -19848,7 +19848,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::digits::four::is_four`, `Val`),
+                    FormPath(`mnist_classifier::digits::four::is_four`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -19908,7 +19908,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::four::left_components`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::four::left_components`, `Val`),
                     },
                 ),
             },
@@ -19919,7 +19919,7 @@
                             value: 229,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 82,
@@ -19931,11 +19931,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::digits::four::left_components`, `Val`),
+                            path: FormPath(`mnist_classifier::digits::four::left_components`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -19945,7 +19945,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::digits::four::left_components`, `Val`),
+                    FormPath(`mnist_classifier::digits::four::left_components`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -20066,7 +20066,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::four::left_components`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::four::left_components`, `Val`),
                     },
                 ),
             },
@@ -20077,7 +20077,7 @@
                             value: 229,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 82,
@@ -20089,11 +20089,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::digits::four::left_components`, `Val`),
+                            path: FormPath(`mnist_classifier::digits::four::left_components`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -20103,7 +20103,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::digits::four::left_components`, `Val`),
+                    FormPath(`mnist_classifier::digits::four::left_components`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -20276,7 +20276,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -20287,7 +20287,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -20299,11 +20299,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -20313,7 +20313,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -20657,7 +20657,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
                     },
                 ),
             },
@@ -20668,7 +20668,7 @@
                             value: 230,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 84,
@@ -20680,11 +20680,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
+                            path: FormPath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -20694,7 +20694,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
+                    FormPath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -21261,7 +21261,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -21272,7 +21272,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -21284,11 +21284,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -21298,7 +21298,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -21370,7 +21370,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -21381,7 +21381,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -21393,11 +21393,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -21407,7 +21407,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -22540,7 +22540,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::five::is_five`, `Val`),
                     },
                 ),
             },
@@ -22551,7 +22551,7 @@
                             value: 283,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 89,
@@ -22563,11 +22563,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
+                            path: FormPath(`mnist_classifier::digits::five::is_five`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -22577,7 +22577,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
+                    FormPath(`mnist_classifier::digits::five::is_five`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -22666,7 +22666,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
                     },
                 ),
             },
@@ -22677,7 +22677,7 @@
                             value: 285,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 90,
@@ -22689,11 +22689,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
+                            path: FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -22703,7 +22703,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
+                    FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -22824,7 +22824,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -22835,7 +22835,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -22847,11 +22847,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -22861,7 +22861,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                    FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -22933,7 +22933,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                     },
                 ),
             },
@@ -22944,7 +22944,7 @@
                             value: 286,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 92,
@@ -22956,11 +22956,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
+                            path: FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -22970,7 +22970,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
+                    FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -23091,7 +23091,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -23102,7 +23102,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -23114,11 +23114,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -23128,7 +23128,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                    FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -23200,7 +23200,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
                     },
                 ),
             },
@@ -23211,7 +23211,7 @@
                             value: 287,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 95,
@@ -23223,11 +23223,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
+                            path: FormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -23237,7 +23237,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
+                    FormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -23297,7 +23297,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -23308,7 +23308,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -23320,11 +23320,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -23334,7 +23334,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -23507,7 +23507,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
                     },
                 ),
             },
@@ -23518,7 +23518,7 @@
                             value: 285,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 90,
@@ -23530,11 +23530,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
+                            path: FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -23544,7 +23544,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
+                    FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -24276,7 +24276,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                     },
                 ),
             },
@@ -24287,7 +24287,7 @@
                             value: 286,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 92,
@@ -24299,11 +24299,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
+                            path: FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -24313,7 +24313,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
+                    FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -24486,7 +24486,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                     },
                 ),
             },
@@ -24497,7 +24497,7 @@
                             value: 286,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 92,
@@ -24509,11 +24509,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
+                            path: FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -24523,7 +24523,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
+                    FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -24722,7 +24722,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
                     },
                 ),
             },
@@ -24733,7 +24733,7 @@
                             value: 315,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 96,
@@ -24745,11 +24745,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
+                            path: FormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -24759,7 +24759,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
+                    FormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -24880,7 +24880,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -24891,7 +24891,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -24903,11 +24903,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -24917,7 +24917,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                    FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -24989,7 +24989,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
                     },
                 ),
             },
@@ -25000,7 +25000,7 @@
                             value: 316,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 97,
@@ -25012,11 +25012,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
+                            path: FormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -25026,7 +25026,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
+                    FormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -25138,7 +25138,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -25149,7 +25149,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -25161,11 +25161,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -25175,7 +25175,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -25247,7 +25247,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -25258,7 +25258,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -25270,11 +25270,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -25284,7 +25284,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -25535,7 +25535,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -25546,7 +25546,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -25558,11 +25558,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -25572,7 +25572,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -25783,7 +25783,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::nine::nine_match`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::nine::nine_match`, `Val`),
                     },
                 ),
             },
@@ -25794,7 +25794,7 @@
                             value: 329,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 99,
@@ -25806,11 +25806,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::digits::nine::nine_match`, `Val`),
+                            path: FormPath(`mnist_classifier::digits::nine::nine_match`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -25820,7 +25820,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::digits::nine::nine_match`, `Val`),
+                    FormPath(`mnist_classifier::digits::nine::nine_match`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -25941,7 +25941,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -25952,7 +25952,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -25964,11 +25964,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -25978,7 +25978,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                    FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -26050,7 +26050,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
                     },
                 ),
             },
@@ -26061,7 +26061,7 @@
                             value: 330,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 100,
@@ -26073,11 +26073,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
+                            path: FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -26087,7 +26087,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
+                    FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -26208,7 +26208,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -26219,7 +26219,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -26231,11 +26231,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -26245,7 +26245,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                    FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -26317,7 +26317,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
                     },
                 ),
             },
@@ -26328,7 +26328,7 @@
                             value: 331,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 101,
@@ -26340,11 +26340,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),
+                            path: FormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -26354,7 +26354,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),
+                    FormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -26466,7 +26466,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -26477,7 +26477,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -26489,11 +26489,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -26503,7 +26503,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -26847,7 +26847,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::nine::nine_match`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::nine::nine_match`, `Val`),
                     },
                 ),
             },
@@ -26858,7 +26858,7 @@
                             value: 329,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 99,
@@ -26870,11 +26870,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::digits::nine::nine_match`, `Val`),
+                            path: FormPath(`mnist_classifier::digits::nine::nine_match`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -26884,7 +26884,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::digits::nine::nine_match`, `Val`),
+                    FormPath(`mnist_classifier::digits::nine::nine_match`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -27451,7 +27451,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -27462,7 +27462,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -27474,11 +27474,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -27488,7 +27488,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -27560,7 +27560,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -27571,7 +27571,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -27583,11 +27583,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -27597,7 +27597,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -28730,7 +28730,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                     },
                 ),
             },
@@ -28741,7 +28741,7 @@
                             value: 376,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 104,
@@ -28753,11 +28753,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
+                            path: FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -28767,7 +28767,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
+                    FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -28888,7 +28888,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -28899,7 +28899,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -28911,11 +28911,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -28925,7 +28925,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                    FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -28997,7 +28997,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::two::is_two`, `Val`),
                     },
                 ),
             },
@@ -29008,7 +29008,7 @@
                             value: 377,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 108,
@@ -29020,11 +29020,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
+                            path: FormPath(`mnist_classifier::digits::two::is_two`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -29034,7 +29034,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
+                    FormPath(`mnist_classifier::digits::two::is_two`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -29146,7 +29146,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -29157,7 +29157,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -29169,11 +29169,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -29183,7 +29183,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                    FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -29356,7 +29356,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -29367,7 +29367,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -29379,11 +29379,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -29393,7 +29393,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -29737,7 +29737,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                     },
                 ),
             },
@@ -29748,7 +29748,7 @@
                             value: 376,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 104,
@@ -29760,11 +29760,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
+                            path: FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -29774,7 +29774,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
+                    FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -29947,7 +29947,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                     },
                 ),
             },
@@ -29958,7 +29958,7 @@
                             value: 376,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 104,
@@ -29970,11 +29970,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
+                            path: FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -29984,7 +29984,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
+                    FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -30157,7 +30157,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                     },
                 ),
             },
@@ -30168,7 +30168,7 @@
                             value: 376,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 104,
@@ -30180,11 +30180,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
+                            path: FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -30194,7 +30194,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
+                    FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -30477,7 +30477,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -30488,7 +30488,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -30500,11 +30500,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -30514,7 +30514,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -30586,7 +30586,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -30597,7 +30597,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -30609,11 +30609,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -30623,7 +30623,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -32066,7 +32066,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::connected_components`, `Val`),
                     },
                 ),
             },
@@ -32077,7 +32077,7 @@
                             value: 430,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 109,
@@ -32089,11 +32089,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
+                            path: FormPath(`mnist_classifier::major::connected_components`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -32103,7 +32103,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
+                    FormPath(`mnist_classifier::major::connected_components`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -32278,8 +32278,8 @@
                             },
                         ),
                         callee_path: MajorItem(
-                            Fugitive(
-                                FugitivePath(
+                            Form(
+                                MajorFormPath(
                                     ItemPathId(
                                         Id {
                                             value: 14,
@@ -32304,8 +32304,8 @@
                         },
                     ),
                     callee_path: MajorItem(
-                        Fugitive(
-                            FugitivePath(
+                        Form(
+                            MajorFormPath(
                                 ItemPathId(
                                     Id {
                                         value: 14,
@@ -32324,7 +32324,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist::input`, `Val`),
+                        val_item_path: FormPath(`mnist::input`, `Val`),
                     },
                 ),
             },
@@ -32335,7 +32335,7 @@
                             value: 435,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 275,
@@ -32347,11 +32347,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist::input`, `Val`),
+                            path: FormPath(`mnist::input`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -32361,7 +32361,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist::input`, `Val`),
+                    FormPath(`mnist::input`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -32487,8 +32487,8 @@
                             },
                         ),
                         callee_path: MajorItem(
-                            Fugitive(
-                                FugitivePath(
+                            Form(
+                                MajorFormPath(
                                     ItemPathId(
                                         Id {
                                             value: 14,
@@ -32513,8 +32513,8 @@
                         },
                     ),
                     callee_path: MajorItem(
-                        Fugitive(
-                            FugitivePath(
+                        Form(
+                            MajorFormPath(
                                 ItemPathId(
                                     Id {
                                         value: 14,
@@ -32533,7 +32533,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -32544,7 +32544,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -32556,11 +32556,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -32570,7 +32570,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -32951,7 +32951,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::connected_components`, `Val`),
                     },
                 ),
             },
@@ -32962,7 +32962,7 @@
                             value: 430,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 109,
@@ -32974,11 +32974,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
+                            path: FormPath(`mnist_classifier::major::connected_components`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -32988,7 +32988,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
+                    FormPath(`mnist_classifier::major::connected_components`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -33465,7 +33465,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::connected_components`, `Val`),
                     },
                 ),
             },
@@ -33476,7 +33476,7 @@
                             value: 430,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 109,
@@ -33488,11 +33488,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
+                            path: FormPath(`mnist_classifier::major::connected_components`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -33502,7 +33502,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
+                    FormPath(`mnist_classifier::major::connected_components`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -33724,7 +33724,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::connected_components`, `Val`),
                     },
                 ),
             },
@@ -33735,7 +33735,7 @@
                             value: 430,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 109,
@@ -33747,11 +33747,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
+                            path: FormPath(`mnist_classifier::major::connected_components`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -33761,7 +33761,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
+                    FormPath(`mnist_classifier::major::connected_components`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -33882,7 +33882,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                     },
                 ),
             },
@@ -33893,7 +33893,7 @@
                             value: 90,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 111,
@@ -33905,11 +33905,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
+                            path: FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -33919,7 +33919,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
+                    FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -34208,7 +34208,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::connected_components`, `Val`),
                     },
                 ),
             },
@@ -34219,7 +34219,7 @@
                             value: 430,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 109,
@@ -34231,11 +34231,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
+                            path: FormPath(`mnist_classifier::major::connected_components`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -34245,7 +34245,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
+                    FormPath(`mnist_classifier::major::connected_components`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -34437,7 +34437,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::connected_components`, `Val`),
                     },
                 ),
             },
@@ -34448,7 +34448,7 @@
                             value: 430,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 109,
@@ -34460,11 +34460,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
+                            path: FormPath(`mnist_classifier::major::connected_components`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -34474,7 +34474,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
+                    FormPath(`mnist_classifier::major::connected_components`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -34757,7 +34757,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -34768,7 +34768,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -34780,11 +34780,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -34794,7 +34794,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -35080,7 +35080,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_raw_contours`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_raw_contours`, `Val`),
                     },
                 ),
             },
@@ -35091,7 +35091,7 @@
                             value: 431,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 112,
@@ -35103,11 +35103,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::major_raw_contours`, `Val`),
+                            path: FormPath(`mnist_classifier::major::major_raw_contours`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -35117,7 +35117,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_raw_contours`, `Val`),
+                    FormPath(`mnist_classifier::major::major_raw_contours`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -35177,7 +35177,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -35188,7 +35188,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -35200,11 +35200,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -35214,7 +35214,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -35500,7 +35500,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_raw_contour`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
                     },
                 ),
             },
@@ -35511,7 +35511,7 @@
                             value: 432,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 113,
@@ -35523,11 +35523,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::major_raw_contour`, `Val`),
+                            path: FormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -35537,7 +35537,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_raw_contour`, `Val`),
+                    FormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -35597,7 +35597,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -35608,7 +35608,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -35620,11 +35620,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -35634,7 +35634,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -35920,7 +35920,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                     },
                 ),
             },
@@ -35931,7 +35931,7 @@
                             value: 68,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 114,
@@ -35943,11 +35943,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                            path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -35957,7 +35957,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                    FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -36017,7 +36017,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_raw_contour`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
                     },
                 ),
             },
@@ -36028,7 +36028,7 @@
                             value: 432,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 113,
@@ -36040,11 +36040,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::major_raw_contour`, `Val`),
+                            path: FormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -36054,7 +36054,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_raw_contour`, `Val`),
+                    FormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -36175,7 +36175,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -36186,7 +36186,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -36198,11 +36198,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -36212,7 +36212,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                    FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -36272,7 +36272,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                     },
                 ),
             },
@@ -36283,7 +36283,7 @@
                             value: 68,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 114,
@@ -36295,11 +36295,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                            path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -36309,7 +36309,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                    FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -36430,7 +36430,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::main`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::main`, `Val`),
                     },
                 ),
             },
@@ -36441,7 +36441,7 @@
                             value: 3,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 8,
@@ -36453,11 +36453,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::main`, `Val`),
+                            path: FormPath(`mnist_classifier::main`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -36467,7 +36467,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::main`, `Val`),
+                    FormPath(`mnist_classifier::main`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -36527,7 +36527,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                     },
                 ),
             },
@@ -36538,7 +36538,7 @@
                             value: 81,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 68,
@@ -36550,13 +36550,13 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::ValItemLazilyDefined(
-                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                ki_domain_repr: Omni,
+                opn: KiOpn::ValItemLazilyDefined(
+                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -36570,7 +36570,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 },
                             ),
                         },
@@ -36666,11 +36666,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorRitchieLazy {
-                            path: FugitivePath(`malamute::narrow_down`, `Ritchie(
+                            path: FormPath(`malamute::narrow_down`, `Ritchie(
                                 Gn,
                             )`),
                             instantiation: LinInstantiation {
@@ -36739,13 +36739,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -36762,7 +36762,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -36773,7 +36773,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -36785,11 +36785,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -36799,7 +36799,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -36858,8 +36858,8 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
@@ -36885,13 +36885,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -36908,7 +36908,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                     },
                 ),
             },
@@ -36919,7 +36919,7 @@
                             value: 90,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 111,
@@ -36931,11 +36931,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
+                            path: FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -36945,7 +36945,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
+                    FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -37004,11 +37004,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorRitchieLazy {
-                            path: FugitivePath(`malamute::narrow_down`, `Ritchie(
+                            path: FormPath(`malamute::narrow_down`, `Ritchie(
                                 Gn,
                             )`),
                             instantiation: LinInstantiation {
@@ -37077,13 +37077,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -37103,7 +37103,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 },
                             ),
                         },
@@ -37257,17 +37257,17 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 104,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorRitchieEager {
-                            path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                            path: FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                 Fn,
                             )`),
                             instantiation: LinInstantiation {
@@ -37298,13 +37298,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -37321,7 +37321,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -37332,7 +37332,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -37344,11 +37344,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -37358,7 +37358,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                    FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -37417,17 +37417,17 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 104,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorRitchieEager {
-                            path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                            path: FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                 Fn,
                             )`),
                             instantiation: LinInstantiation {
@@ -37458,13 +37458,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -37484,7 +37484,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 },
                             ),
                         },
@@ -37543,14 +37543,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 104,
                         },
                     ),
                 ),
-                opn: ValOpn::Branches,
+                opn: KiOpn::Branches,
                 arguments: [
                     Branch {
                         condition: Some(
@@ -37656,13 +37656,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -37685,7 +37685,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -37744,7 +37744,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -37808,14 +37808,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 114,
                         },
                     ),
                 ),
-                opn: ValOpn::Branches,
+                opn: KiOpn::Branches,
                 arguments: [
                     Branch {
                         condition: Some(
@@ -37836,13 +37836,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -37865,7 +37865,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -37966,17 +37966,17 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 104,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorRitchieEager {
-                            path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                            path: FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                 Fn,
                             )`),
                             instantiation: LinInstantiation {
@@ -38007,13 +38007,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -38078,14 +38078,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 104,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
@@ -38111,13 +38111,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -38137,7 +38137,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 },
                             ),
                         },
@@ -38196,14 +38196,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 104,
                         },
                     ),
                 ),
-                opn: ValOpn::Branches,
+                opn: KiOpn::Branches,
                 arguments: [
                     Branch {
                         condition: Some(
@@ -38309,13 +38309,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -38338,7 +38338,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -38386,14 +38386,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: ConditionNotSatisfied(
+                ki_domain_repr: ConditionNotSatisfied(
                     KiRepr(
                         Id {
                             value: 110,
                         },
                     ),
                 ),
-                opn: ValOpn::Require,
+                opn: KiOpn::Require,
                 arguments: [
                     Simple(
                         KiRepr(
@@ -38412,13 +38412,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -38441,7 +38441,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -38489,14 +38489,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 129,
                         },
                     ),
                 ),
-                opn: ValOpn::Require,
+                opn: KiOpn::Require,
                 arguments: [
                     Simple(
                         KiRepr(
@@ -38515,13 +38515,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -38544,7 +38544,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -38603,7 +38603,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -38662,7 +38662,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -38721,7 +38721,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -38785,14 +38785,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 133,
                         },
                     ),
                 ),
-                opn: ValOpn::Branches,
+                opn: KiOpn::Branches,
                 arguments: [
                     Branch {
                         condition: Some(
@@ -38828,13 +38828,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -38857,7 +38857,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -38916,7 +38916,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -38964,14 +38964,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 168,
                         },
                     ),
                 ),
-                opn: ValOpn::Require,
+                opn: KiOpn::Require,
                 arguments: [
                     Simple(
                         KiRepr(
@@ -38990,13 +38990,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -39019,7 +39019,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -39078,7 +39078,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -39137,7 +39137,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -39201,14 +39201,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 203,
                         },
                     ),
                 ),
-                opn: ValOpn::Branches,
+                opn: KiOpn::Branches,
                 arguments: [
                     Branch {
                         condition: Some(
@@ -39244,13 +39244,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -39273,7 +39273,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -39337,14 +39337,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 249,
                         },
                     ),
                 ),
-                opn: ValOpn::Branches,
+                opn: KiOpn::Branches,
                 arguments: [
                     Branch {
                         condition: Some(
@@ -39365,13 +39365,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -39394,7 +39394,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -39442,14 +39442,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 270,
                         },
                     ),
                 ),
-                opn: ValOpn::Require,
+                opn: KiOpn::Require,
                 arguments: [
                     Simple(
                         KiRepr(
@@ -39468,13 +39468,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -39497,7 +39497,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -39556,7 +39556,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -39615,7 +39615,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -39674,7 +39674,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -39733,7 +39733,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -39792,7 +39792,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -39840,14 +39840,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 299,
                         },
                     ),
                 ),
-                opn: ValOpn::Require,
+                opn: KiOpn::Require,
                 arguments: [
                     Simple(
                         KiRepr(
@@ -39866,13 +39866,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -39895,7 +39895,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -39954,7 +39954,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -40013,7 +40013,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -40072,7 +40072,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -40131,7 +40131,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -40179,14 +40179,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 303,
                         },
                     ),
                 ),
-                opn: ValOpn::Require,
+                opn: KiOpn::Require,
                 arguments: [
                     Simple(
                         KiRepr(
@@ -40205,13 +40205,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -40234,7 +40234,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -40282,14 +40282,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 316,
                         },
                     ),
                 ),
-                opn: ValOpn::Require,
+                opn: KiOpn::Require,
                 arguments: [
                     Simple(
                         KiRepr(
@@ -40308,13 +40308,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -40337,7 +40337,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -40439,7 +40439,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                     },
                 ),
             },
@@ -40450,7 +40450,7 @@
                             value: 126,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 74,
@@ -40462,13 +40462,13 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::ValItemLazilyDefined(
-                    FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                ki_domain_repr: Omni,
+                opn: KiOpn::ValItemLazilyDefined(
+                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -40482,7 +40482,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -40588,7 +40588,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                     },
                 ),
             },
@@ -40599,7 +40599,7 @@
                             value: 124,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 72,
@@ -40611,11 +40611,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
+                            path: FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -40625,7 +40625,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
+                    FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -40684,8 +40684,8 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::StructField {
                             self_ty: LinTypePathLeading {
@@ -40715,13 +40715,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -40741,7 +40741,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -40784,8 +40784,8 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Require,
+                ki_domain_repr: Omni,
+                opn: KiOpn::Require,
                 arguments: [
                     Simple(
                         KiRepr(
@@ -40804,13 +40804,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -40875,8 +40875,8 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Index,
+                ki_domain_repr: Omni,
+                opn: KiOpn::Index,
                 arguments: [
                     Simple(
                         KiRepr(
@@ -40895,13 +40895,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -40921,7 +40921,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -41027,7 +41027,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -41038,7 +41038,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -41050,11 +41050,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -41064,7 +41064,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -41123,14 +41123,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 332,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
@@ -41156,13 +41156,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -41182,7 +41182,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -41288,7 +41288,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -41299,7 +41299,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -41311,11 +41311,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -41325,7 +41325,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -41384,14 +41384,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 332,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
@@ -41417,13 +41417,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -41440,7 +41440,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -41451,7 +41451,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -41463,11 +41463,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -41477,7 +41477,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -41536,14 +41536,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 332,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
@@ -41569,13 +41569,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -41595,7 +41595,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -41654,14 +41654,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 332,
                         },
                     ),
                 ),
-                opn: ValOpn::Branches,
+                opn: KiOpn::Branches,
                 arguments: [
                     Branch {
                         condition: Some(
@@ -41707,13 +41707,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -41736,7 +41736,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -41795,7 +41795,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -41854,7 +41854,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -41913,7 +41913,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -41972,7 +41972,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -42031,7 +42031,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -42090,7 +42090,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -42138,14 +42138,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 347,
                         },
                     ),
                 ),
-                opn: ValOpn::Require,
+                opn: KiOpn::Require,
                 arguments: [
                     Simple(
                         KiRepr(
@@ -42164,13 +42164,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -42193,7 +42193,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -42257,14 +42257,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 367,
                         },
                     ),
                 ),
-                opn: ValOpn::Branches,
+                opn: KiOpn::Branches,
                 arguments: [
                     Branch {
                         condition: Some(
@@ -42300,13 +42300,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -42329,7 +42329,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -42388,7 +42388,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -42447,7 +42447,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -42511,14 +42511,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 393,
                         },
                     ),
                 ),
-                opn: ValOpn::Branches,
+                opn: KiOpn::Branches,
                 arguments: [
                     Branch {
                         condition: Some(
@@ -42539,13 +42539,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -42568,7 +42568,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -42616,14 +42616,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 399,
                         },
                     ),
                 ),
-                opn: ValOpn::Return,
+                opn: KiOpn::Return,
                 arguments: [
                     Simple(
                         KiRepr(
@@ -42635,13 +42635,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -42706,14 +42706,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 332,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
@@ -42739,13 +42739,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -42810,14 +42810,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 332,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::StructField {
                             self_ty: LinTypePathLeading {
@@ -42847,13 +42847,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -42873,7 +42873,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -42969,17 +42969,17 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 402,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorRitchieLazy {
-                            path: FugitivePath(`malamute::narrow_down`, `Ritchie(
+                            path: FormPath(`malamute::narrow_down`, `Ritchie(
                                 Gn,
                             )`),
                             instantiation: LinInstantiation {
@@ -43043,13 +43043,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -43066,7 +43066,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                     },
                 ),
             },
@@ -43077,7 +43077,7 @@
                             value: 124,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 72,
@@ -43089,11 +43089,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
+                            path: FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -43103,7 +43103,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
+                    FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -43162,14 +43162,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 402,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
@@ -43195,13 +43195,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -43266,17 +43266,17 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 402,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorRitchieLazy {
-                            path: FugitivePath(`malamute::narrow_down`, `Ritchie(
+                            path: FormPath(`malamute::narrow_down`, `Ritchie(
                                 Gn,
                             )`),
                             instantiation: LinInstantiation {
@@ -43340,13 +43340,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -43366,7 +43366,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -43425,14 +43425,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 406,
                         },
                     ),
                 ),
-                opn: ValOpn::Branches,
+                opn: KiOpn::Branches,
                 arguments: [
                     Branch {
                         condition: Some(
@@ -43453,13 +43453,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -43482,7 +43482,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -43530,14 +43530,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: ConditionSatisfied(
+                ki_domain_repr: ConditionSatisfied(
                     KiRepr(
                         Id {
                             value: 409,
                         },
                     ),
                 ),
-                opn: ValOpn::Require,
+                opn: KiOpn::Require,
                 arguments: [
                     Simple(
                         KiRepr(
@@ -43556,13 +43556,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -43579,7 +43579,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                     },
                 ),
             },
@@ -43590,7 +43590,7 @@
                             value: 124,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 72,
@@ -43602,11 +43602,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
+                            path: FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -43616,7 +43616,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
+                    FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -43675,14 +43675,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 406,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
@@ -43708,13 +43708,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -43734,7 +43734,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -43777,14 +43777,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 415,
                         },
                     ),
                 ),
-                opn: ValOpn::Require,
+                opn: KiOpn::Require,
                 arguments: [
                     Simple(
                         KiRepr(
@@ -43803,13 +43803,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -43874,14 +43874,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 332,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
@@ -43907,13 +43907,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -43978,14 +43978,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 415,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::StructField {
                             self_ty: LinTypePathLeading {
@@ -44015,13 +44015,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -44086,14 +44086,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 415,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
@@ -44119,13 +44119,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -44190,14 +44190,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 415,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MethodRitchie {
                             path: AssocItemPath::TypeItem(
@@ -44228,13 +44228,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -44254,7 +44254,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -44313,14 +44313,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 425,
                         },
                     ),
                 ),
-                opn: ValOpn::Branches,
+                opn: KiOpn::Branches,
                 arguments: [
                     Branch {
                         condition: Some(
@@ -44341,13 +44341,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -44370,7 +44370,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -44418,14 +44418,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: ConditionSatisfied(
+                ki_domain_repr: ConditionSatisfied(
                     KiRepr(
                         Id {
                             value: 429,
                         },
                     ),
                 ),
-                opn: ValOpn::Require,
+                opn: KiOpn::Require,
                 arguments: [
                     Simple(
                         KiRepr(
@@ -44444,13 +44444,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -44515,14 +44515,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 332,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
@@ -44548,13 +44548,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -44619,14 +44619,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 425,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::StructField {
                             self_ty: LinTypePathLeading {
@@ -44656,13 +44656,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -44682,7 +44682,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -44725,14 +44725,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 440,
                         },
                     ),
                 ),
-                opn: ValOpn::Require,
+                opn: KiOpn::Require,
                 arguments: [
                     Simple(
                         KiRepr(
@@ -44751,13 +44751,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -44822,14 +44822,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 332,
                         },
                     ),
                 ),
-                opn: ValOpn::Binary(
+                opn: KiOpn::Binary(
                     Closed(
                         Sub,
                     ),
@@ -44852,13 +44852,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -44878,7 +44878,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -44975,7 +44975,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                     },
                 ),
             },
@@ -44986,7 +44986,7 @@
                             value: 15,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 66,
@@ -44998,13 +44998,13 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::ValItemLazilyDefined(
-                    FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                ki_domain_repr: Omni,
+                opn: KiOpn::ValItemLazilyDefined(
+                    FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                    FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -45018,7 +45018,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -45077,8 +45077,8 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Branches,
+                ki_domain_repr: Omni,
+                opn: KiOpn::Branches,
                 arguments: [
                     Branch {
                         condition: Some(
@@ -45119,13 +45119,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -45148,7 +45148,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                             },
                                         ),
                                     },
@@ -45207,7 +45207,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                             },
                                         ),
                                     },
@@ -45255,14 +45255,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: ConditionSatisfied(
+                ki_domain_repr: ConditionSatisfied(
                     KiRepr(
                         Id {
                             value: 8,
                         },
                     ),
                 ),
-                opn: ValOpn::Require,
+                opn: KiOpn::Require,
                 arguments: [
                     Simple(
                         KiRepr(
@@ -45281,13 +45281,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -45310,7 +45310,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                             },
                                         ),
                                     },
@@ -45358,14 +45358,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 14,
                         },
                     ),
                 ),
-                opn: ValOpn::Require,
+                opn: KiOpn::Require,
                 arguments: [
                     Simple(
                         KiRepr(
@@ -45384,13 +45384,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -45413,7 +45413,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                             },
                                         ),
                                     },
@@ -45461,14 +45461,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 20,
                         },
                     ),
                 ),
-                opn: ValOpn::Require,
+                opn: KiOpn::Require,
                 arguments: [
                     Simple(
                         KiRepr(
@@ -45487,13 +45487,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -45516,7 +45516,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                             },
                                         ),
                                     },
@@ -45575,7 +45575,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                             },
                                         ),
                                     },
@@ -45623,14 +45623,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 26,
                         },
                     ),
                 ),
-                opn: ValOpn::Require,
+                opn: KiOpn::Require,
                 arguments: [
                     Simple(
                         KiRepr(
@@ -45649,13 +45649,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -45678,7 +45678,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                             },
                                         ),
                                     },
@@ -45726,14 +45726,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 37,
                         },
                     ),
                 ),
-                opn: ValOpn::Return,
+                opn: KiOpn::Return,
                 arguments: [
                     Simple(
                         KiRepr(
@@ -45745,13 +45745,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -45768,7 +45768,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -45779,7 +45779,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -45791,11 +45791,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -45805,7 +45805,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -45864,8 +45864,8 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
@@ -45891,13 +45891,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -45962,8 +45962,8 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MethodRitchie {
                             path: AssocItemPath::TypeItem(
@@ -46017,13 +46017,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -46043,7 +46043,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -46197,17 +46197,17 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 40,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorRitchieEager {
-                            path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                            path: FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                 Fn,
                             )`),
                             instantiation: LinInstantiation {
@@ -46238,13 +46238,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -46261,7 +46261,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -46272,7 +46272,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -46284,11 +46284,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -46298,7 +46298,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                    FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -46357,17 +46357,17 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 40,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorRitchieEager {
-                            path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                            path: FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                 Fn,
                             )`),
                             instantiation: LinInstantiation {
@@ -46398,13 +46398,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -46424,7 +46424,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -46520,17 +46520,17 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 40,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorRitchieLazy {
-                            path: FugitivePath(`malamute::narrow_down`, `Ritchie(
+                            path: FormPath(`malamute::narrow_down`, `Ritchie(
                                 Gn,
                             )`),
                             instantiation: LinInstantiation {
@@ -46604,13 +46604,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -46675,17 +46675,17 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 40,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorRitchieEager {
-                            path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                            path: FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                 Fn,
                             )`),
                             instantiation: LinInstantiation {
@@ -46716,13 +46716,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -46787,14 +46787,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 40,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
@@ -46820,13 +46820,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -46891,17 +46891,17 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 40,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorRitchieEager {
-                            path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                            path: FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                 Fn,
                             )`),
                             instantiation: LinInstantiation {
@@ -46932,13 +46932,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -47003,14 +47003,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 40,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
@@ -47036,13 +47036,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -47107,17 +47107,17 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 40,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorRitchieEager {
-                            path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                            path: FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                 Fn,
                             )`),
                             instantiation: LinInstantiation {
@@ -47148,13 +47148,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -47219,14 +47219,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 40,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
@@ -47252,13 +47252,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -47323,17 +47323,17 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 40,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorRitchieLazy {
-                            path: FugitivePath(`malamute::narrow_down`, `Ritchie(
+                            path: FormPath(`malamute::narrow_down`, `Ritchie(
                                 Gn,
                             )`),
                             instantiation: LinInstantiation {
@@ -47407,13 +47407,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -47433,7 +47433,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -47476,14 +47476,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 49,
                         },
                     ),
                 ),
-                opn: ValOpn::Require,
+                opn: KiOpn::Require,
                 arguments: [
                     Simple(
                         KiRepr(
@@ -47502,13 +47502,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -47573,17 +47573,17 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 40,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorRitchieEager {
-                            path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                            path: FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                 Fn,
                             )`),
                             instantiation: LinInstantiation {
@@ -47614,13 +47614,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -47685,14 +47685,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 49,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
@@ -47718,13 +47718,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -47744,7 +47744,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -47787,14 +47787,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 54,
                         },
                     ),
                 ),
-                opn: ValOpn::Require,
+                opn: KiOpn::Require,
                 arguments: [
                     Simple(
                         KiRepr(
@@ -47813,13 +47813,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -47836,7 +47836,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -47847,7 +47847,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -47859,11 +47859,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -47873,7 +47873,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -47932,14 +47932,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 54,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
@@ -47965,13 +47965,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -48036,14 +48036,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 54,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::StructField {
                             self_ty: LinTypePathLeading {
@@ -48073,13 +48073,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -48099,7 +48099,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -48142,14 +48142,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 61,
                         },
                     ),
                 ),
-                opn: ValOpn::Require,
+                opn: KiOpn::Require,
                 arguments: [
                     Simple(
                         KiRepr(
@@ -48168,13 +48168,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -48191,7 +48191,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -48202,7 +48202,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -48214,11 +48214,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -48228,7 +48228,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -48287,14 +48287,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 61,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
@@ -48320,13 +48320,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -48391,14 +48391,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 61,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::StructField {
                             self_ty: LinTypePathLeading {
@@ -48428,13 +48428,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -48454,7 +48454,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -48560,7 +48560,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -48571,7 +48571,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -48583,11 +48583,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -48597,7 +48597,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -48656,14 +48656,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 68,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
@@ -48689,13 +48689,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -48760,14 +48760,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 68,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::StructField {
                             self_ty: LinTypePathLeading {
@@ -48797,13 +48797,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -48823,7 +48823,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -48977,14 +48977,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 68,
                         },
                     ),
                 ),
-                opn: ValOpn::Index,
+                opn: KiOpn::Index,
                 arguments: [
                     Simple(
                         KiRepr(
@@ -49003,13 +49003,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -49074,14 +49074,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 68,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
@@ -49107,13 +49107,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -49178,14 +49178,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 68,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MethodRitchie {
                             path: AssocItemPath::TypeItem(
@@ -49216,13 +49216,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -49287,14 +49287,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 68,
                         },
                     ),
                 ),
-                opn: ValOpn::Index,
+                opn: KiOpn::Index,
                 arguments: [
                     Simple(
                         KiRepr(
@@ -49313,13 +49313,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -49384,14 +49384,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 68,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
@@ -49417,13 +49417,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -49488,14 +49488,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 68,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MethodRitchie {
                             path: AssocItemPath::TypeItem(
@@ -49526,13 +49526,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -49552,7 +49552,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -49658,7 +49658,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                     },
                 ),
             },
@@ -49669,7 +49669,7 @@
                             value: 68,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 114,
@@ -49681,11 +49681,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                            path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -49695,7 +49695,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                    FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -49754,14 +49754,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 68,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
@@ -49787,13 +49787,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -49858,14 +49858,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 68,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MethodRitchie {
                             path: AssocItemPath::TypeItem(
@@ -49896,13 +49896,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -49919,7 +49919,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                     },
                 ),
             },
@@ -49930,7 +49930,7 @@
                             value: 68,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 114,
@@ -49942,11 +49942,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                            path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -49956,7 +49956,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                    FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -50015,14 +50015,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 68,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
@@ -50048,13 +50048,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -50119,14 +50119,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 68,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MethodRitchie {
                             path: AssocItemPath::TypeItem(
@@ -50157,13 +50157,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -50183,7 +50183,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -50337,14 +50337,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 68,
                         },
                     ),
                 ),
-                opn: ValOpn::Binary(
+                opn: KiOpn::Binary(
                     Closed(
                         Sub,
                     ),
@@ -50367,13 +50367,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -50438,14 +50438,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 68,
                         },
                     ),
                 ),
-                opn: ValOpn::Binary(
+                opn: KiOpn::Binary(
                     Closed(
                         Sub,
                     ),
@@ -50468,13 +50468,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -50494,7 +50494,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -50537,14 +50537,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 68,
                         },
                     ),
                 ),
-                opn: ValOpn::Require,
+                opn: KiOpn::Require,
                 arguments: [
                     Simple(
                         KiRepr(
@@ -50563,13 +50563,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -50634,14 +50634,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 68,
                         },
                     ),
                 ),
-                opn: ValOpn::Binary(
+                opn: KiOpn::Binary(
                     Closed(
                         Div,
                     ),
@@ -50664,13 +50664,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -50690,7 +50690,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -50844,17 +50844,17 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 40,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorRitchieEager {
-                            path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                            path: FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                 Fn,
                             )`),
                             instantiation: LinInstantiation {
@@ -50885,13 +50885,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -50956,14 +50956,14 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: StmtNotReturned(
+                ki_domain_repr: StmtNotReturned(
                     KiRepr(
                         Id {
                             value: 94,
                         },
                     ),
                 ),
-                opn: ValOpn::Linkage(
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
@@ -50989,13 +50989,13 @@
                 ],
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::ValItemLazilyDefined(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValItemLazilyDefined(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -51015,7 +51015,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -51112,7 +51112,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
                     },
                 ),
             },
@@ -51123,7 +51123,7 @@
                             value: 287,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 95,
@@ -51135,11 +51135,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
+                            path: FormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -51149,7 +51149,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
+                    FormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -51209,7 +51209,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -51220,7 +51220,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -51232,11 +51232,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -51246,7 +51246,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -51419,7 +51419,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
                     },
                 ),
             },
@@ -51430,7 +51430,7 @@
                             value: 285,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 90,
@@ -51442,11 +51442,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
+                            path: FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -51456,7 +51456,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
+                    FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -52188,7 +52188,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                     },
                 ),
             },
@@ -52199,7 +52199,7 @@
                             value: 286,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 92,
@@ -52211,11 +52211,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
+                            path: FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -52225,7 +52225,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
+                    FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -52398,7 +52398,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                     },
                 ),
             },
@@ -52409,7 +52409,7 @@
                             value: 286,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 92,
@@ -52421,11 +52421,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
+                            path: FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -52435,7 +52435,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
+                    FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -52654,7 +52654,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
                     },
                 ),
             },
@@ -52665,7 +52665,7 @@
                             value: 316,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 97,
@@ -52677,11 +52677,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
+                            path: FormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -52691,7 +52691,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
+                    FormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -52803,7 +52803,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -52814,7 +52814,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -52826,11 +52826,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -52840,7 +52840,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -52912,7 +52912,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -52923,7 +52923,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -52935,11 +52935,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -52949,7 +52949,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -53200,7 +53200,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -53211,7 +53211,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -53223,11 +53223,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -53237,7 +53237,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -53468,7 +53468,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::three::is_three`, `Val`),
                     },
                 ),
             },
@@ -53479,7 +53479,7 @@
                             value: 177,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 78,
@@ -53491,11 +53491,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
+                            path: FormPath(`mnist_classifier::digits::three::is_three`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -53505,7 +53505,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
+                    FormPath(`mnist_classifier::digits::three::is_three`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -53565,7 +53565,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -53576,7 +53576,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -53588,11 +53588,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -53602,7 +53602,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                    FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -53723,7 +53723,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -53734,7 +53734,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -53746,11 +53746,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -53760,7 +53760,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                    FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -53933,7 +53933,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                     },
                 ),
             },
@@ -53944,7 +53944,7 @@
                             value: 176,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 77,
@@ -53956,11 +53956,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                            path: FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -53970,7 +53970,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                    FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -54143,7 +54143,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                     },
                 ),
             },
@@ -54154,7 +54154,7 @@
                             value: 176,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 77,
@@ -54166,11 +54166,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                            path: FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -54180,7 +54180,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                    FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -54353,7 +54353,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                     },
                 ),
             },
@@ -54364,7 +54364,7 @@
                             value: 176,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 77,
@@ -54376,11 +54376,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                            path: FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -54390,7 +54390,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                    FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -56197,7 +56197,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                     },
                 ),
             },
@@ -56208,7 +56208,7 @@
                             value: 176,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 77,
@@ -56220,11 +56220,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                            path: FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -56234,7 +56234,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                    FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -56575,7 +56575,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
                     },
                 ),
             },
@@ -56586,7 +56586,7 @@
                             value: 331,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 101,
@@ -56598,11 +56598,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),
+                            path: FormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -56612,7 +56612,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),
+                    FormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -56724,7 +56724,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -56735,7 +56735,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -56747,11 +56747,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -56761,7 +56761,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -57105,7 +57105,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::nine::nine_match`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::nine::nine_match`, `Val`),
                     },
                 ),
             },
@@ -57116,7 +57116,7 @@
                             value: 329,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 99,
@@ -57128,11 +57128,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::digits::nine::nine_match`, `Val`),
+                            path: FormPath(`mnist_classifier::digits::nine::nine_match`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -57142,7 +57142,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::digits::nine::nine_match`, `Val`),
+                    FormPath(`mnist_classifier::digits::nine::nine_match`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -57709,7 +57709,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -57720,7 +57720,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -57732,11 +57732,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -57746,7 +57746,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -57818,7 +57818,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -57829,7 +57829,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -57841,11 +57841,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -57855,7 +57855,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -59008,7 +59008,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::five::is_five`, `Val`),
                     },
                 ),
             },
@@ -59019,7 +59019,7 @@
                             value: 283,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 89,
@@ -59031,11 +59031,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
+                            path: FormPath(`mnist_classifier::digits::five::is_five`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -59045,7 +59045,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
+                    FormPath(`mnist_classifier::digits::five::is_five`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -59154,7 +59154,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::two::is_two`, `Val`),
                     },
                 ),
             },
@@ -59165,7 +59165,7 @@
                             value: 377,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 108,
@@ -59177,11 +59177,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
+                            path: FormPath(`mnist_classifier::digits::two::is_two`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -59191,7 +59191,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
+                    FormPath(`mnist_classifier::digits::two::is_two`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -59303,7 +59303,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -59314,7 +59314,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -59326,11 +59326,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -59340,7 +59340,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                    FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -59513,7 +59513,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -59524,7 +59524,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -59536,11 +59536,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -59550,7 +59550,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -59894,7 +59894,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                     },
                 ),
             },
@@ -59905,7 +59905,7 @@
                             value: 376,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 104,
@@ -59917,11 +59917,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
+                            path: FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -59931,7 +59931,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
+                    FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -60104,7 +60104,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                     },
                 ),
             },
@@ -60115,7 +60115,7 @@
                             value: 376,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 104,
@@ -60127,11 +60127,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
+                            path: FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -60141,7 +60141,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
+                    FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -60314,7 +60314,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                     },
                 ),
             },
@@ -60325,7 +60325,7 @@
                             value: 376,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 104,
@@ -60337,11 +60337,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
+                            path: FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -60351,7 +60351,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
+                    FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -60634,7 +60634,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -60645,7 +60645,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -60657,11 +60657,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -60671,7 +60671,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: ValItem,
             },
@@ -60743,7 +60743,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -60754,7 +60754,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -60766,11 +60766,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -60780,7 +60780,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: ValItem,
             },

@@ -1,10 +1,10 @@
 ```rust
 [
     HirDecl::MajorItem(
-        MajorItemHirDecl::Fugitive(
-            FugitiveHirDecl::Ki(
-                ValFugitiveHirDecl {
-                    path: FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
+        MajorItemHirDecl::Form(
+            MajorFormHirDecl::Val(
+                MajorValHirDecl {
+                    path: FormPath(`mnist_classifier::digits::five::is_five`, `Val`),
                     return_ty: HirType::PathLeading(
                         HirTypePathLeading {
                             ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
@@ -15,8 +15,8 @@
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::Decl(
                             ItemPath::MajorItem(
-                                MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
+                                MajorItemPath::Form(
+                                    FormPath(`mnist_classifier::digits::five::is_five`, `Val`),
                                 ),
                             ),
                         ),

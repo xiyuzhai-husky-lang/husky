@@ -9,15 +9,15 @@ Ok(
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
-                            MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(`quick_sort::quick_sort`, `Ritchie(
+                            MajorItemSynNodePath::Form(
+                                FormSynNodePath(`quick_sort::quick_sort`, `Ritchie(
                                     Fn,
                                 )`, (0)),
                             ),
                         ),
                         EntityKind::MajorItem {
-                            module_item_kind: MajorItemKind::Fugitive(
-                                MajorFugitiveKind::Ritchie(
+                            module_item_kind: MajorItemKind::Form(
+                                MajorFormKind::Ritchie(
                                     RitchieItemKind::Fn,
                                 ),
                             ),
@@ -192,8 +192,8 @@ Ok(
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         0,
                         PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`quick_sort::quick_sort_aux`, `Ritchie(
+                            MajorItemPath::Form(
+                                FormPath(`quick_sort::quick_sort_aux`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -201,8 +201,8 @@ Ok(
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`quick_sort::quick_sort_aux`, `Ritchie(
+                            MajorItemPath::Form(
+                                FormPath(`quick_sort::quick_sort_aux`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -295,15 +295,15 @@ Ok(
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
-                            MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(`quick_sort::quick_sort_aux`, `Ritchie(
+                            MajorItemSynNodePath::Form(
+                                FormSynNodePath(`quick_sort::quick_sort_aux`, `Ritchie(
                                     Fn,
                                 )`, (0)),
                             ),
                         ),
                         EntityKind::MajorItem {
-                            module_item_kind: MajorItemKind::Fugitive(
-                                MajorFugitiveKind::Ritchie(
+                            module_item_kind: MajorItemKind::Form(
+                                MajorFormKind::Ritchie(
                                     RitchieItemKind::Fn,
                                 ),
                             ),
@@ -554,8 +554,8 @@ Ok(
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         0,
                         PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`quick_sort::partition`, `Ritchie(
+                            MajorItemPath::Form(
+                                FormPath(`quick_sort::partition`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -563,8 +563,8 @@ Ok(
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`quick_sort::partition`, `Ritchie(
+                            MajorItemPath::Form(
+                                FormPath(`quick_sort::partition`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -647,8 +647,8 @@ Ok(
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         1,
                         PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`quick_sort::quick_sort_aux`, `Ritchie(
+                            MajorItemPath::Form(
+                                FormPath(`quick_sort::quick_sort_aux`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -656,8 +656,8 @@ Ok(
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`quick_sort::quick_sort_aux`, `Ritchie(
+                            MajorItemPath::Form(
+                                FormPath(`quick_sort::quick_sort_aux`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -742,8 +742,8 @@ Ok(
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         2,
                         PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`quick_sort::quick_sort_aux`, `Ritchie(
+                            MajorItemPath::Form(
+                                FormPath(`quick_sort::quick_sort_aux`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -751,8 +751,8 @@ Ok(
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`quick_sort::quick_sort_aux`, `Ritchie(
+                            MajorItemPath::Form(
+                                FormPath(`quick_sort::quick_sort_aux`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -838,15 +838,15 @@ Ok(
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
-                            MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(`quick_sort::partition`, `Ritchie(
+                            MajorItemSynNodePath::Form(
+                                FormSynNodePath(`quick_sort::partition`, `Ritchie(
                                     Fn,
                                 )`, (0)),
                             ),
                         ),
                         EntityKind::MajorItem {
-                            module_item_kind: MajorItemKind::Fugitive(
-                                MajorFugitiveKind::Ritchie(
+                            module_item_kind: MajorItemKind::Form(
+                                MajorFormKind::Ritchie(
                                     RitchieItemKind::Fn,
                                 ),
                             ),
@@ -1723,15 +1723,15 @@ Ok(
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
-                            MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
+                            MajorItemSynNodePath::Form(
+                                FormSynNodePath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
                                     Fn,
                                 )`, (0)),
                             ),
                         ),
                         EntityKind::MajorItem {
-                            module_item_kind: MajorItemKind::Fugitive(
-                                MajorFugitiveKind::Ritchie(
+                            module_item_kind: MajorItemKind::Form(
+                                MajorFormKind::Ritchie(
                                     RitchieItemKind::Fn,
                                 ),
                             ),
@@ -1830,15 +1830,15 @@ Ok(
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
-                            MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
+                            MajorItemSynNodePath::Form(
+                                FormSynNodePath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
                                     Fn,
                                 )`, (0)),
                             ),
                         ),
                         EntityKind::MajorItem {
-                            module_item_kind: MajorItemKind::Fugitive(
-                                MajorFugitiveKind::Ritchie(
+                            module_item_kind: MajorItemKind::Form(
+                                MajorFormKind::Ritchie(
                                     RitchieItemKind::Fn,
                                 ),
                             ),

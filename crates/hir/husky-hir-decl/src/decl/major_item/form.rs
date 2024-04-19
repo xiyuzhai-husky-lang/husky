@@ -14,7 +14,7 @@ use husky_syn_decl::decl::FormSynDecl;
 #[enum_class::from_variants]
 pub enum MajorFormHirDecl {
     Ritchie(MajorRitchieHirDecl),
-    Val(MajorValFormHirDecl),
+    Val(MajorValHirDecl),
     TypeAlias(MajorTypeAliasHirDecl),
 }
 
@@ -29,7 +29,7 @@ impl MajorFormHirDecl {
 
     pub fn hir_expr_region(self, db: &::salsa::Db) -> HirExprRegion {
         match self {
-            MajorFormHirDecl::Ritchie(decl) => decl.hir_eager_expr_region(db).into(),
+            MajorFormHirDecl::Ritchie(decl) => decl.hir_expr_region(db).into(),
             MajorFormHirDecl::Val(decl) => decl.hir_eager_expr_region(db).into(),
             MajorFormHirDecl::TypeAlias(decl) => decl.hir_eager_expr_region(db).into(),
         }
@@ -58,9 +58,7 @@ fn major_form_hir_decl(db: &::salsa::Db, path: MajorFormPath) -> Option<MajorFor
         FormSynDecl::Ritchie(syn_decl) => {
             Some(MajorRitchieHirDecl::from_syn(path, syn_decl, db).into())
         }
-        FormSynDecl::Val(syn_decl) => {
-            Some(MajorValFormHirDecl::from_syn(path, syn_decl, db).into())
-        }
+        FormSynDecl::Val(syn_decl) => Some(MajorValHirDecl::from_syn(path, syn_decl, db).into()),
         FormSynDecl::TypeAlias(_) => None, // should there be some?
     }
 }

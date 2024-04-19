@@ -204,16 +204,16 @@
     SemaExprRegion {
         path: RegionPath::Decl(
             ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist::input`, `Val`),
+                MajorItemPath::Form(
+                    FormPath(`mnist::input`, `Val`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
             path: RegionPath::Decl(
                 ItemPath::MajorItem(
-                    MajorItemPath::Fugitive(
-                        FugitivePath(`mnist::input`, `Val`),
+                    MajorItemPath::Form(
+                        FormPath(`mnist::input`, `Val`),
                     ),
                 ),
             ),

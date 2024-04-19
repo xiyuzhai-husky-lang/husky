@@ -186,8 +186,8 @@ EntityTreePresheet {
             ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
-                        syn_node_path: MajorItemSynNodePath::Fugitive(
-                            FugitiveSynNodePath(`malamute::narrow_down`, `Ritchie(
+                        syn_node_path: MajorItemSynNodePath::Form(
+                            FormSynNodePath(`malamute::narrow_down`, `Ritchie(
                                 Gn,
                             )`, (0)),
                         ),
@@ -199,8 +199,8 @@ EntityTreePresheet {
                                 304,
                             ),
                         },
-                        block: DefnBlock::Fugitive {
-                            path: FugitivePath(`malamute::narrow_down`, `Ritchie(
+                        block: DefnBlock::Form {
+                            path: FormPath(`malamute::narrow_down`, `Ritchie(
                                 Gn,
                             )`),
                             body: None,
@@ -208,8 +208,8 @@ EntityTreePresheet {
                     },
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
-                    MajorItemSynNodePath::Fugitive(
-                        FugitiveSynNodePath(`malamute::narrow_down`, `Ritchie(
+                    MajorItemSynNodePath::Form(
+                        FormSynNodePath(`malamute::narrow_down`, `Ritchie(
                             Gn,
                         )`, (0)),
                     ),

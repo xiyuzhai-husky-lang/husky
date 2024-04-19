@@ -581,19 +581,20 @@ SynDeclSheet {
         ),
         (
             ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`malamute::narrow_down`, `Ritchie(
+                MajorItemPath::Form(
+                    FormPath(`malamute::narrow_down`, `Ritchie(
                         Gn,
                     )`),
                 ),
             ),
             SynDecl::MajorItem(
-                MajorItemSynDecl::Fugitive(
-                    FugitiveSynDecl::FunctionGn(
-                        MajorGnSynDecl {
-                            path: FugitivePath(`malamute::narrow_down`, `Ritchie(
+                MajorItemSynDecl::Form(
+                    FormSynDecl::Ritchie(
+                        MajorRitchieSynDecl {
+                            path: FormPath(`malamute::narrow_down`, `Ritchie(
                                 Gn,
                             )`),
+                            ritchie_item_kind: RitchieItemKind::Gn,
                             template_parameters: [
                                 TemplateSynParameterData {
                                     annotated_variance_token: None,
@@ -704,8 +705,8 @@ SynDeclSheet {
                                     parent: None,
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
-                                            MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(`malamute::narrow_down`, `Ritchie(
+                                            MajorItemSynNodePath::Form(
+                                                FormSynNodePath(`malamute::narrow_down`, `Ritchie(
                                                     Gn,
                                                 )`, (0)),
                                             ),

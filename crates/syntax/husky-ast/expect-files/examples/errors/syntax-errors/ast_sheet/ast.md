@@ -8,7 +8,7 @@ AstSheet {
                     raw: 3,
                 },
                 error: AstError::Original(
-                    OriginalAstError::UnexpectedModUnderFugitive,
+                    OriginalAstError::UnexpectedModUnderForm,
                 ),
             },
             AstData::Err {

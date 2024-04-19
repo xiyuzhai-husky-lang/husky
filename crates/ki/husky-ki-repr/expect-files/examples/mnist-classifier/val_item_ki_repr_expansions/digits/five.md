@@ -1,7 +1,7 @@
 ```rust
 [
     (
-        FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
+        FormPath(`mnist_classifier::digits::five::is_five`, `Val`),
         None,
     ),
 ]

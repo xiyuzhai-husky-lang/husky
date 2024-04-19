@@ -3,16 +3,16 @@
     SemaExprRegion {
         path: RegionPath::Decl(
             ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                MajorItemPath::Form(
+                    FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
             path: RegionPath::Decl(
                 ItemPath::MajorItem(
-                    MajorItemPath::Fugitive(
-                        FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                    MajorItemPath::Form(
+                        FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                     ),
                 ),
             ),
@@ -158,16 +158,16 @@
     SemaExprRegion {
         path: RegionPath::Decl(
             ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
+                MajorItemPath::Form(
+                    FormPath(`mnist_classifier::digits::three::is_three`, `Val`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
             path: RegionPath::Decl(
                 ItemPath::MajorItem(
-                    MajorItemPath::Fugitive(
-                        FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
+                    MajorItemPath::Form(
+                        FormPath(`mnist_classifier::digits::three::is_three`, `Val`),
                     ),
                 ),
             ),
@@ -680,8 +680,8 @@
     SemaExprRegion {
         path: RegionPath::Decl(
             ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::digits::three::uparc`, `Ritchie(
+                MajorItemPath::Form(
+                    FormPath(`mnist_classifier::digits::three::uparc`, `Ritchie(
                         Fn,
                     )`),
                 ),
@@ -690,8 +690,8 @@
         data: SemaExprRegionData {
             path: RegionPath::Decl(
                 ItemPath::MajorItem(
-                    MajorItemPath::Fugitive(
-                        FugitivePath(`mnist_classifier::digits::three::uparc`, `Ritchie(
+                    MajorItemPath::Form(
+                        FormPath(`mnist_classifier::digits::three::uparc`, `Ritchie(
                             Fn,
                         )`),
                     ),
@@ -1101,8 +1101,8 @@
     SemaExprRegion {
         path: RegionPath::Decl(
             ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::digits::three::downarc`, `Ritchie(
+                MajorItemPath::Form(
+                    FormPath(`mnist_classifier::digits::three::downarc`, `Ritchie(
                         Fn,
                     )`),
                 ),
@@ -1111,8 +1111,8 @@
         data: SemaExprRegionData {
             path: RegionPath::Decl(
                 ItemPath::MajorItem(
-                    MajorItemPath::Fugitive(
-                        FugitivePath(`mnist_classifier::digits::three::downarc`, `Ritchie(
+                    MajorItemPath::Form(
+                        FormPath(`mnist_classifier::digits::three::downarc`, `Ritchie(
                             Fn,
                         )`),
                     ),
@@ -1522,8 +1522,8 @@
     SemaExprRegion {
         path: RegionPath::Decl(
             ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::digits::three::back`, `Ritchie(
+                MajorItemPath::Form(
+                    FormPath(`mnist_classifier::digits::three::back`, `Ritchie(
                         Fn,
                     )`),
                 ),
@@ -1532,8 +1532,8 @@
         data: SemaExprRegionData {
             path: RegionPath::Decl(
                 ItemPath::MajorItem(
-                    MajorItemPath::Fugitive(
-                        FugitivePath(`mnist_classifier::digits::three::back`, `Ritchie(
+                    MajorItemPath::Form(
+                        FormPath(`mnist_classifier::digits::three::back`, `Ritchie(
                             Fn,
                         )`),
                     ),
