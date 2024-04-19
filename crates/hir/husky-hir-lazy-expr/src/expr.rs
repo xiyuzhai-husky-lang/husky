@@ -153,6 +153,7 @@ impl ToHirLazy for SemaExprIdx {
             SemaExprData::PrincipalEntityPath { path, .. } => {
                 HirLazyExprData::PrincipalEntityPath(path)
             }
+            SemaExprData::MajorItemPathAssocItem { .. } => todo!(),
             SemaExprData::AssocItem { .. } => todo!(),
             SemaExprData::InheritedSynSymbol {
                 inherited_syn_symbol_idx,
@@ -313,7 +314,7 @@ impl ToHirLazy for SemaExprIdx {
                             }
                         }
                     }
-                    SemaExprData::AssocItem { .. } => todo!(),
+                    SemaExprData::MajorItemPathAssocItem { .. } => todo!(),
                     _ => todo!(),
                 }
             }

@@ -22,13 +22,13 @@ use super::*;
 
 impl<'a> SemaExprBuilder<'a> {
     /// perform this during finish stage
-    pub(crate) fn infer_expr_term(&mut self, sem_expr_idx: SemaExprIdx) -> Option<FlyTerm> {
-        if let Some(term_result) = self.sem_expr_term_results.get_value(sem_expr_idx) {
+    pub(crate) fn infer_expr_term(&mut self, expr: SemaExprIdx) -> Option<FlyTerm> {
+        if let Some(term_result) = self.sem_expr_term_results.get_value(expr) {
             return term_result.as_ref().ok().copied();
         }
-        let term_result = self.calc_expr_term(sem_expr_idx);
+        let term_result = self.calc_expr_term(expr);
         let term = term_result.as_ref().ok().copied();
-        self.save_new_expr_term(sem_expr_idx, term_result);
+        self.save_new_expr_term(expr, term_result);
         term
     }
 
@@ -179,11 +179,18 @@ impl<'a> SemaExprBuilder<'a> {
                 *ty_path_disambiguation,
                 instantiation.as_ref(),
             )),
-            SemaExprData::AssocItem {
+            SemaExprData::MajorItemPathAssocItem {
                 parent_expr_idx,
                 parent_path,
                 colon_colon_regional_token,
                 ident_token,
+                static_dispatch,
+            } => todo!(),
+            SemaExprData::AssocItem {
+                parent_expr_idx,
+                colon_colon_regional_token_idx,
+                ident,
+                ident_regional_token_idx,
                 static_dispatch,
             } => todo!(),
             &SemaExprData::InheritedSynSymbol {

@@ -65,8 +65,8 @@ impl<'a> SemaExprBuilder<'a> {
                             parameter_contracted_tys,
                             return_ty,
                         } => todo!(),
-                        FlyTermData::Symbol { .. } => todo!(),
-                        FlyTermData::Hvar { .. } => todo!(),
+                        FlyTermData::SymbolicVariable { .. } => todo!(),
+                        FlyTermData::LambdaVariable { .. } => todo!(),
                         FlyTermData::TypeVariant { path } => todo!(),
                     },
                     None => (

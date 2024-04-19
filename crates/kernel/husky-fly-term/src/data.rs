@@ -41,11 +41,11 @@ pub enum FlyTermData<'a> {
         parameter_contracted_tys: &'a [FlyRitchieParameter],
         return_ty: FlyTerm,
     },
-    Symbol {
-        term: EthSymbolicVariable,
+    SymbolicVariable {
+        symbolic_variable: EthSymbolicVariable,
         ty: FlyTerm,
     },
-    Hvar {
+    LambdaVariable {
         ty: FlyTerm,
         index: LambdaVariableIndex,
     },
@@ -119,8 +119,11 @@ impl<'a> FlyTermData<'a> {
                 }
                 RitchieKind::Trait(_) => todo!(),
             },
-            FlyTermData::Symbol { term, ty } => format!("symbol({})", ty.show(db, terms)),
-            FlyTermData::Hvar { ty, index: idx } => {
+            FlyTermData::SymbolicVariable {
+                symbolic_variable: term,
+                ty,
+            } => format!("symbol({})", ty.show(db, terms)),
+            FlyTermData::LambdaVariable { ty, index: idx } => {
                 format!("hvar({idx}, {})", ty.show(db, terms))
             }
             FlyTermData::TypeVariant { path } => format!("{:?}", path.debug(db)),
@@ -152,11 +155,11 @@ pub enum FlyBaseTypeData<'a> {
         parameter_contracted_tys: &'a [FlyRitchieParameter],
         return_ty: FlyTerm,
     },
-    Symbol {
-        symbol: EthSymbolicVariable,
+    SymbolicVariable {
+        symbolic_variable: EthSymbolicVariable,
     },
-    Hvar {
-        hvar: EthHvar,
+    LambdaVariable {
+        lambda_variable: EthHvar,
     },
 }
 
@@ -244,8 +247,12 @@ impl FlyTerm {
                 RitchieKind::Type(_) => Ok(Some(true)),
                 RitchieKind::Trait(_) => todo!(),
             },
-            FlyBaseTypeData::Symbol { symbol: term } => Ok(Some(false)),
-            FlyBaseTypeData::Hvar { hvar } => todo!(), // ad hoc
+            FlyBaseTypeData::SymbolicVariable {
+                symbolic_variable: term,
+            } => Ok(Some(false)),
+            FlyBaseTypeData::LambdaVariable {
+                lambda_variable: hvar,
+            } => todo!(), // ad hoc
         }
     }
 }

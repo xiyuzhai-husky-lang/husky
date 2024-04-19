@@ -162,8 +162,8 @@ impl FlyLifetime {
             FlyTermData::Hole(_, _) => todo!(),
             FlyTermData::Sort(_) => todo!(),
             FlyTermData::Ritchie { .. } => todo!(),
-            FlyTermData::Symbol { .. } => todo!(),
-            FlyTermData::Hvar { .. } => todo!(),
+            FlyTermData::SymbolicVariable { .. } => todo!(),
+            FlyTermData::LambdaVariable { .. } => todo!(),
             FlyTermData::TypeVariant { .. } => todo!(),
         }
     }

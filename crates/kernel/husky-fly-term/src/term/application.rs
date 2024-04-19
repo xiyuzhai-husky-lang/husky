@@ -40,8 +40,8 @@ impl FlyTerm {
                         }
                     }
                     FlyTermData::Hole(_, _) => todo!(),
-                    FlyTermData::Symbol { .. } => todo!(),
-                    FlyTermData::Hvar { .. } => todo!(),
+                    FlyTermData::SymbolicVariable { .. } => todo!(),
+                    FlyTermData::LambdaVariable { .. } => todo!(),
                     FlyTermData::TypeVariant { .. } => todo!(),
                     FlyTermData::Sort(_)
                     | FlyTermData::Literal(_)

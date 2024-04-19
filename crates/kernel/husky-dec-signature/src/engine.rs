@@ -16,7 +16,7 @@ pub(super) struct DecTermEngine<'a> {
     syn_expr_region_data: &'a SynExprRegionData,
     dec_term_menu: &'a DecTermMenu,
     symbolic_variable_region: DecSymbolicVariableRegion,
-    expr_terms: SynExprMap<DecTermResult2<DecTerm>>,
+    expr_terms: SynExprMap<SynExprDecTermResult<DecTerm>>,
     /// todo: change this to ordered
     pattern_expr_ty_infos: SynPatternMap<PatternExprDeclarativeTypeInfo>,
     pattern_symbol_ty_infos: SynPatternSymbolMap<DecPatternVariableTypeInfo>,
@@ -31,7 +31,7 @@ pub fn syn_expr_dec_term_region(
     let expr_region_data = syn_expr_region.data(db);
     let parent_expr_region = expr_region_data.parent();
     let parent_term_symbol_region =
-        parent_expr_region.map(|r| syn_expr_dec_term_region(db, r).symbol_variable_region());
+        parent_expr_region.map(|r| syn_expr_dec_term_region(db, r).symbolic_variable_region());
     let engine = DecTermEngine::new(db, syn_expr_region, parent_term_symbol_region);
     engine.infer_all()
 }
@@ -42,11 +42,7 @@ impl<'a> DecTermEngine<'a> {
         syn_expr_region: SynExprRegion,
         parent_term_symbol_region: Option<&'a DecSymbolicVariableRegion>,
     ) -> Self {
-        use husky_dec_term::jar::DecTermDb;
-
         let toolchain = syn_expr_region.toolchain(db);
-        // ad hoc
-        let _item_path_menu = item_path_menu(db, toolchain);
         let dec_term_menu = db.dec_term_menu(toolchain).unwrap();
         let syn_expr_region_data = &syn_expr_region.data(db);
         Self {
@@ -337,11 +333,14 @@ impl<'a> DecTermEngine<'a> {
 
     // infer the term for expr, assuming it hasn't been computed before
     #[track_caller]
-    fn infer_new_expr_term(&mut self, expr_idx: SynExprIdx) -> DerivedDecTermResult2<DecTerm> {
+    fn infer_new_expr_term(
+        &mut self,
+        expr_idx: SynExprIdx,
+    ) -> DerivedSynExprDecTermResult<DecTerm> {
         let result = self.calc_expr_term(expr_idx);
         let result_export = match result {
             Ok(term) => Ok(term),
-            Err(_) => Err(DerivedDecTermError2::DecTermAbortion),
+            Err(_) => Err(DerivedSynExprDecTermError::DecTermAbortion),
         };
         self.save_expr_term(expr_idx, result);
         result_export
@@ -365,11 +364,11 @@ impl<'a> DecTermEngine<'a> {
     }
 
     #[track_caller]
-    fn save_expr_term(&mut self, expr_idx: SynExprIdx, outcome: DecTermResult2<DecTerm>) {
+    fn save_expr_term(&mut self, expr_idx: SynExprIdx, outcome: SynExprDecTermResult<DecTerm>) {
         self.expr_terms.insert_new(expr_idx, outcome)
     }
 
-    fn calc_expr_term(&mut self, expr_idx: SynExprIdx) -> DecTermResult2<DecTerm> {
+    fn calc_expr_term(&mut self, expr_idx: SynExprIdx) -> SynExprDecTermResult<DecTerm> {
         let db = self.db;
         match self.syn_expr_region_data.expr_arena()[expr_idx] {
             SynExprData::Literal(token_idx, literal) => {
@@ -388,9 +387,9 @@ impl<'a> DecTermEngine<'a> {
                     },
                     PrincipalEntityPath::TypeVariant(path) => DecItemPath::TypeVariant(path),
                 })),
-                None => Err(DerivedDecTermError2::InvalidEntityPath.into()),
+                None => Err(DerivedSynExprDecTermError::InvalidEntityPath.into()),
             },
-            SynExprData::PrincipalEntityPathAssocItem {
+            SynExprData::MajorItemPathAssocItem {
                 parent_expr_idx,
                 parent_path,
                 colon_colon_regional_token,
@@ -406,11 +405,13 @@ impl<'a> DecTermEngine<'a> {
                 match parent {
                     DecTerm::Literal(_) => todo!(),
                     DecTerm::SymbolicVariable(svar) => {
-                        let obvious_trais = self.symbolic_variable_region.obvious_trais(svar)?;
-                        match obvious_trais.len() {
+                        let symbolic_variable_obvious_trais = self
+                            .symbolic_variable_region
+                            .symbolic_variable_obvious_trais(svar)?;
+                        match symbolic_variable_obvious_trais.len() {
                             0 => unreachable!(),
                             1 => {
-                                let trai = obvious_trais[0];
+                                let trai = symbolic_variable_obvious_trais[0];
                                 Ok(DecTypeAsTraitItem::new(db, parent, trai, ident).into())
                             }
                             _ => todo!(),
@@ -440,7 +441,7 @@ impl<'a> DecTermEngine<'a> {
                 .inherited_variable_signature(inherited_syn_symbol_idx)
                 .term()
                 .map(Into::into)
-                .ok_or(DerivedDecTermError2::InheritedSynSymbolIsNotValidTerm.into()),
+                .ok_or(DerivedSynExprDecTermError::InheritedSynSymbolIsNotValidTerm.into()),
             SynExprData::CurrentSynSymbol {
                 current_syn_symbol_idx,
                 ..
@@ -449,25 +450,29 @@ impl<'a> DecTermEngine<'a> {
                 .current_parameter_variable_signature(current_syn_symbol_idx)
                 .expect("not none")
                 .term()
-                .ok_or(OriginalDecTermError2::InvalidSymbolForTerm)?
+                .ok_or(OriginalSynExprDecTermError::InvalidSymbolForTerm)?
                 .into()),
             SynExprData::FrameVarDecl { .. } => unreachable!(),
             SynExprData::SelfType(_) => self
                 .symbolic_variable_region
                 .self_ty()
-                .ok_or(DerivedDecTermError2::SelfTypeNotAllowedInThisRegion.into()),
+                .ok_or(DerivedSynExprDecTermError::SelfTypeNotAllowedInThisRegion.into()),
             SynExprData::SelfValue(_) => self
                 .symbolic_variable_region
                 .self_ty()
-                .ok_or(DerivedDecTermError2::SelfValueNotAllowedInThisRegion.into()),
+                .ok_or(DerivedSynExprDecTermError::SelfValueNotAllowedInThisRegion.into()),
             SynExprData::Binary {
                 lopd, opr, ropd, ..
             } => {
                 let Ok(lopd) = self.infer_new_expr_term(lopd) else {
-                    return Err(DerivedDecTermError2::CannotInferOperandDecTermInPrefix.into());
+                    return Err(
+                        DerivedSynExprDecTermError::CannotInferOperandDecTermInPrefix.into(),
+                    );
                 };
                 let Ok(ropd) = self.infer_new_expr_term(ropd) else {
-                    return Err(DerivedDecTermError2::CannotInferOperandDecTermInPrefix.into());
+                    return Err(
+                        DerivedSynExprDecTermError::CannotInferOperandDecTermInPrefix.into(),
+                    );
                 };
                 match opr {
                     SynBinaryOpr::Closed(_) => todo!(),
@@ -495,7 +500,9 @@ impl<'a> DecTermEngine<'a> {
             SynExprData::Be { .. } => todo!(),
             SynExprData::Prefix { opr, opd, .. } => {
                 let Ok(opd) = self.infer_new_expr_term(opd) else {
-                    return Err(DerivedDecTermError2::CannotInferOperandDecTermInPrefix.into());
+                    return Err(
+                        DerivedSynExprDecTermError::CannotInferOperandDecTermInPrefix.into(),
+                    );
                 };
                 let tmpl = match opr {
                     SynPrefixOpr::Minus => todo!(),
@@ -541,7 +548,7 @@ impl<'a> DecTermEngine<'a> {
             } => {
                 let Ok(function) = self.infer_new_expr_term(function) else {
                     return Err(
-                        DerivedDecTermError2::CannotInferArgumentDecTermInApplication.into(),
+                        DerivedSynExprDecTermError::CannotInferArgumentDecTermInApplication.into(),
                     );
                 };
                 let template_arguments = match template_arguments {
@@ -559,7 +566,7 @@ impl<'a> DecTermEngine<'a> {
                 let items = items
                     .into_iter()
                     .map(|item| self.infer_new_expr_term(item.syn_expr_idx()))
-                    .collect::<DerivedDecTermResult2<_>>()?;
+                    .collect::<DerivedSynExprDecTermResult<_>>()?;
                 Ok(DecApplicationOrRitchieCall::new(
                     function,
                     template_arguments,
@@ -574,10 +581,10 @@ impl<'a> DecTermEngine<'a> {
                 argument_expr_idx: argument,
             } => {
                 let Ok(argument) = self.infer_new_expr_term(argument) else {
-                    Err(DerivedDecTermError2::CannotInferArgumentDecTermInApplication)?
+                    Err(DerivedSynExprDecTermError::CannotInferArgumentDecTermInApplication)?
                 };
                 let Ok(function) = self.infer_new_expr_term(function) else {
-                    Err(DerivedDecTermError2::CannotInferFunctionDecTermInApplication)?
+                    Err(DerivedSynExprDecTermError::CannotInferFunctionDecTermInApplication)?
                 };
                 Ok(DecApplication::new(self.db, function, argument).into())
             }
@@ -590,7 +597,7 @@ impl<'a> DecTermEngine<'a> {
                 let items = items
                     .iter()
                     .map(|item| self.infer_new_expr_term(item.syn_expr_idx()))
-                    .collect::<DerivedDecTermResult2<Vec<_>>>()?;
+                    .collect::<DerivedSynExprDecTermResult<Vec<_>>>()?;
                 Ok(DecList::new(
                     self.db,
                     self.syn_expr_region_data.path().toolchain(self.db),
@@ -607,7 +614,7 @@ impl<'a> DecTermEngine<'a> {
             }
             SynExprData::Block { stmts: _ } => todo!(),
             SynExprData::IndexOrCompositionWithList { .. } => todo!(),
-            SynExprData::Err(ref e) => Err(DerivedDecTermError2::ExprError.into()),
+            SynExprData::Err(ref e) => Err(DerivedSynExprDecTermError::ExprError.into()),
             SynExprData::At {
                 at_regional_token_idx,
                 place_label_regional_token,
@@ -648,7 +655,7 @@ impl<'a> DecTermEngine<'a> {
                         )
                         .into())
                     })
-                    .collect::<DecTermResult2<SmallVec<_>>>()?;
+                    .collect::<SynExprDecTermResult<SmallVec<_>>>()?;
                 let return_ty = match return_ty_expr {
                     Some(return_ty_expr) => self.infer_new_expr_term(return_ty_expr)?,
                     None => self.dec_term_menu.unit(),

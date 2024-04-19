@@ -37,7 +37,7 @@ pub fn instantiation_eth_term_fmt_context(
     let path = path_id.item_path(db);
     let symbol_name_map =
         syn_expr_dec_term_region(db, path.syn_decl(db).unwrap().syn_expr_region(db).unwrap())
-            .symbol_variable_region()
+            .symbolic_variable_region()
             .symbol_name_map();
     let symbol_names = VecMap::from_iter_assuming_no_repetitions(
         symbol_name_map

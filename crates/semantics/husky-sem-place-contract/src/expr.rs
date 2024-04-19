@@ -54,6 +54,7 @@ impl<'a> PlaceContractEngine<'a> {
             SemaExprData::Literal(_, _)
             | SemaExprData::Unit { .. }
             | SemaExprData::PrincipalEntityPath { .. }
+            | SemaExprData::MajorItemPathAssocItem { .. }
             | SemaExprData::AssocItem { .. }
             | SemaExprData::InheritedSynSymbol { .. }
             | SemaExprData::CurrentSynSymbol { .. }

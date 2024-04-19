@@ -349,7 +349,7 @@ impl<'a> SemaExprRangeCalculator<'a> {
             }
             SemaExprData::Binary { lopd, ropd, .. } => self[lopd].join(self[ropd]),
             SemaExprData::PrincipalEntityPath { path_expr_idx, .. } => self[*path_expr_idx],
-            SemaExprData::AssocItem {
+            SemaExprData::MajorItemPathAssocItem {
                 parent_expr_idx,
                 ident_token,
                 ..
@@ -359,6 +359,13 @@ impl<'a> SemaExprRangeCalculator<'a> {
                     ident_token.regional_token_idx(),
                 ))
             }
+            SemaExprData::AssocItem {
+                parent_expr_idx,
+                colon_colon_regional_token_idx,
+                ident,
+                ident_regional_token_idx,
+                static_dispatch,
+            } => todo!(),
             SemaExprData::Be {
                 src,
                 be_regional_token_idx,

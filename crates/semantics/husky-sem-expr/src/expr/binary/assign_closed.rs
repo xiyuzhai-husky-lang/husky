@@ -72,8 +72,12 @@ impl<'a> SemaExprBuilder<'a> {
                         parameter_contracted_tys,
                         return_ty,
                     } => todo!(),
-                    FlyBaseTypeData::Symbol { symbol } => todo!(),
-                    FlyBaseTypeData::Hvar { hvar } => todo!(),
+                    FlyBaseTypeData::SymbolicVariable {
+                        symbolic_variable: symbol,
+                    } => todo!(),
+                    FlyBaseTypeData::LambdaVariable {
+                        lambda_variable: hvar,
+                    } => todo!(),
                 };
                 self.build_sem_expr(ropd, ExpectCoersion::new(Contract::Move, ropd_ty_expected))
             }

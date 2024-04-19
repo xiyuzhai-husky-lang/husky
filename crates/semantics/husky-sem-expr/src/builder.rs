@@ -24,7 +24,7 @@ use husky_syn_decl::decl::{
 use husky_token_data::{IntegerLikeLiteralTokenData, LiteralTokenData, TokenData};
 use husky_vfs::Toolchain;
 use husky_vfs::VfsPathMenu;
-use vec_like::VecPairMap;
+use vec_like::{SmallVecPairMap, SmallVecSet, VecPairMap};
 
 pub(crate) struct SemaExprBuilder<'a> {
     db: &'a ::salsa::Db,
@@ -54,51 +54,11 @@ pub(crate) struct SemaExprBuilder<'a> {
     self_lifetime: Option<EthSymbolicVariable>,
     self_place: Option<EthSymbolicVariable>,
     available_trai_items_table: AvailableTraitItemsTable<'a>,
+    obvious_trais_map:
+        SmallVecPairMap<EthSymbolicVariable, EthTermResult<SmallVecSet<EthTerm, 2>>, 4>,
 }
 
-impl<'a> FlyTermEngine<'a> for SemaExprBuilder<'a> {
-    fn db(&self) -> &'a ::salsa::Db {
-        self.db
-    }
-
-    fn fly_term_region(&self) -> &FlyTermRegion {
-        &self.fly_term_region
-    }
-
-    fn syn_expr_region_data(&self) -> &'a SynExprRegionData {
-        self.syn_expr_region_data
-    }
-
-    fn item_path_menu(&self) -> &'a ItemPathMenu {
-        self.item_path_menu
-    }
-
-    fn term_menu(&self) -> &'a EthTermMenu {
-        self.term_menu
-    }
-
-    fn available_trai_items_table(&self) -> AvailableTraitItemsTable<'a> {
-        self.available_trai_items_table
-    }
-}
-
-impl<'a> FlyTermEngineMut<'a> for SemaExprBuilder<'a> {
-    fn place_registry_mut(&mut self) -> &mut PlaceRegistry {
-        &mut self.place_registry
-    }
-
-    fn fly_term_region_mut(&mut self) -> &mut FlyTermRegion {
-        &mut self.fly_term_region
-    }
-}
-
-impl<'a> std::ops::Index<SynExprIdx> for SemaExprBuilder<'a> {
-    type Output = SynExprData;
-
-    fn index(&self, index: SynExprIdx) -> &Self::Output {
-        &self.syn_expr_region_data[index]
-    }
-}
+/// # constructors
 
 impl<'a> SemaExprBuilder<'a> {
     pub(crate) fn new(db: &'a ::salsa::Db, syn_expr_region: SynExprRegion) -> Self {
@@ -117,23 +77,23 @@ impl<'a> SemaExprBuilder<'a> {
             .flatten();
         let dec_term_region = db.syn_expr_dec_term_region(syn_expr_region);
         let self_ty = dec_term_region
-            .symbol_variable_region()
+            .symbolic_variable_region()
             .self_ty()
             .map(|self_ty| EthTerm::ty_from_dec(db, self_ty).ok())
             .flatten();
         let self_value = dec_term_region
-            .symbol_variable_region()
+            .symbolic_variable_region()
             .self_value()
             .map(|self_value| EthSymbolicVariable::from_dec(db, self_value).ok())
             .flatten();
         let mut stack_location_registry = Default::default();
         let self_lifetime = dec_term_region
-            .symbol_variable_region()
+            .symbolic_variable_region()
             .self_lifetime()
             .map(|self_lifetime| EthSymbolicVariable::from_dec(db, self_lifetime).ok())
             .flatten();
         let self_place = dec_term_region
-            .symbol_variable_region()
+            .symbolic_variable_region()
             .self_place()
             .map(|self_place| EthSymbolicVariable::from_dec(db, self_place).ok())
             .flatten();
@@ -157,6 +117,23 @@ impl<'a> SemaExprBuilder<'a> {
                 .expect("guaranteed")
                 .tokens_data(db),
         };
+        let obvious_trais_map = dec_term_region
+            .symbolic_variable_region()
+            .obvious_trais_map()
+            .iter()
+            .filter_map(|&(svar, ref trais)| {
+                let trais = match trais {
+                    Ok(trais) => trais
+                        .iter()
+                        .map(|&trai| {
+                            EthTerm::from_dec(db, trai, TypeFinalDestinationExpectation::Any)
+                        })
+                        .collect(),
+                    &Err(e) => Err(e.into()),
+                };
+                Some((EthSymbolicVariable::from_dec(db, svar).ok()?, trais))
+            })
+            .collect();
         Self {
             db,
             toolchain,
@@ -165,6 +142,7 @@ impl<'a> SemaExprBuilder<'a> {
             syn_expr_region,
             syn_expr_region_data,
             dec_term_region,
+            obvious_trais_map,
             place_registry: stack_location_registry,
             sem_expr_arena: SemaExprArena::default(),
             sem_stmt_arena: SemaStmtArena::default(),
@@ -198,107 +176,6 @@ impl<'a> SemaExprBuilder<'a> {
             available_trai_items_table: AvailableTraitItemsTable::new_ad_hoc(db, module_path),
             regional_tokens_data,
         }
-    }
-
-    pub(crate) fn infer_all(&mut self) {
-        self.infer_current_parameter_symbols();
-        self.build_all_exprs()
-    }
-
-    pub(crate) fn alloc_expr(
-        &mut self,
-        data_result: Result<SemaExprData, SemaExprDataError>,
-        immediate_ty_result: Result<FlyTerm, SemaExprTypeError>,
-        expectation_idx_and_ty: Option<(FlyTermExpectationIdx, FlyTerm)>,
-    ) -> SemaExprIdx {
-        let expr =
-            self.sem_expr_arena
-                .alloc_one(data_result, immediate_ty_result, expectation_idx_and_ty);
-        self.fly_term_region.resolve_as_much_as_possible(self.db());
-        expr
-    }
-
-    pub(crate) fn alloc_stmt_batch(&mut self, batch: SemaStmtBatch) -> SemaStmtIdxRange {
-        self.sem_stmt_arena.alloc_batch(batch)
-    }
-
-    pub(crate) fn db(&self) -> &'a ::salsa::Db {
-        self.db
-    }
-
-    pub(crate) fn expr_region_data(&self) -> &SynExprRegionData {
-        self.syn_expr_region_data
-    }
-
-    pub(crate) fn item_path_menu(&self) -> &ItemPathMenu {
-        self.item_path_menu
-    }
-
-    pub(crate) fn toolchain(&self) -> Toolchain {
-        self.toolchain
-    }
-
-    pub(crate) fn eth_term_menu(&self) -> &EthTermMenu {
-        self.term_menu
-    }
-
-    pub(crate) fn token_data(&self, regional_token_idx: RegionalTokenIdx) -> TokenData {
-        self.regional_tokens_data[regional_token_idx]
-    }
-
-    pub(crate) fn syn_expr_region_data(&self) -> &'a SynExprRegionData {
-        self.syn_expr_region_data
-    }
-
-    pub(crate) fn add_symbol_ty(&mut self, symbol_idx: CurrentVariableIdx, symbol_ty: SymbolType) {
-        self.symbol_tys.insert_new(symbol_idx, symbol_ty)
-    }
-
-    pub(crate) fn sem_expr_arena(&self) -> &SemaExprArena {
-        &self.sem_expr_arena
-    }
-
-    pub(crate) fn finish(mut self) -> SemaExprRegion {
-        let db = self.db;
-        self.fly_term_region
-            .finalize_unresolved_term_table(db, self.term_menu);
-        self.infer_extra_expr_terms_in_preparation_for_hir();
-        SemaExprRegion::new(
-            self.syn_expr_region_data
-                .path()
-                .region_path(db)
-                .expect("should be some"),
-            self.place_registry,
-            self.syn_expr_region,
-            self.sem_expr_arena,
-            self.sem_stmt_arena,
-            self.sem_expr_roots,
-            self.pattern_expr_ty_infos,
-            self.pattern_symbol_ty_infos,
-            self.sem_expr_term_results,
-            self.symbol_tys,
-            self.symbol_terms,
-            self.fly_term_region,
-            self.return_ty,
-            self.self_ty,
-            self.db,
-        )
-    }
-
-    pub(crate) fn return_ty(&self) -> Option<EthTerm> {
-        self.return_ty
-    }
-
-    pub(crate) fn symbol_tys(&self) -> &SymbolMap<SymbolType> {
-        &self.symbol_tys
-    }
-
-    pub(crate) fn self_ty(&self) -> Option<EthTerm> {
-        self.self_ty
-    }
-
-    pub(crate) fn self_value_ty(&self) -> Option<FlyTerm> {
-        self.self_value_ty
     }
 }
 
@@ -397,4 +274,168 @@ fn calc_self_value_ty(
         VariableModifier::At => FlyQuary::EtherealSymbol(self_place?),
     };
     Some(self_ty.with_quary(place))
+}
+
+/// # getters
+
+impl<'a> FlyTermEngine<'a> for SemaExprBuilder<'a> {
+    fn db(&self) -> &'a ::salsa::Db {
+        self.db
+    }
+
+    fn fly_term_region(&self) -> &FlyTermRegion {
+        &self.fly_term_region
+    }
+
+    fn syn_expr_region_data(&self) -> &'a SynExprRegionData {
+        self.syn_expr_region_data
+    }
+
+    fn item_path_menu(&self) -> &'a ItemPathMenu {
+        self.item_path_menu
+    }
+
+    fn term_menu(&self) -> &'a EthTermMenu {
+        self.term_menu
+    }
+
+    fn available_trai_items_table(&self) -> AvailableTraitItemsTable<'a> {
+        self.available_trai_items_table
+    }
+
+    fn obvious_trais_map(
+        &self,
+    ) -> &[(
+        EthSymbolicVariable,
+        Result<SmallVecSet<EthTerm, 2>, EthTermError>,
+    )] {
+        &self.obvious_trais_map
+    }
+}
+
+impl<'a> std::ops::Index<SynExprIdx> for SemaExprBuilder<'a> {
+    type Output = SynExprData;
+
+    fn index(&self, index: SynExprIdx) -> &Self::Output {
+        &self.syn_expr_region_data[index]
+    }
+}
+
+impl<'a> SemaExprBuilder<'a> {
+    pub(crate) fn db(&self) -> &'a ::salsa::Db {
+        self.db
+    }
+
+    pub(crate) fn expr_region_data(&self) -> &SynExprRegionData {
+        self.syn_expr_region_data
+    }
+
+    pub(crate) fn item_path_menu(&self) -> &ItemPathMenu {
+        self.item_path_menu
+    }
+
+    pub(crate) fn toolchain(&self) -> Toolchain {
+        self.toolchain
+    }
+
+    pub(crate) fn eth_term_menu(&self) -> &EthTermMenu {
+        self.term_menu
+    }
+
+    pub(crate) fn token_data(&self, regional_token_idx: RegionalTokenIdx) -> TokenData {
+        self.regional_tokens_data[regional_token_idx]
+    }
+
+    pub(crate) fn syn_expr_region_data(&self) -> &'a SynExprRegionData {
+        self.syn_expr_region_data
+    }
+
+    pub(crate) fn sem_expr_arena(&self) -> &SemaExprArena {
+        &self.sem_expr_arena
+    }
+
+    pub(crate) fn return_ty(&self) -> Option<EthTerm> {
+        self.return_ty
+    }
+
+    pub(crate) fn symbol_tys(&self) -> &SymbolMap<SymbolType> {
+        &self.symbol_tys
+    }
+
+    pub(crate) fn self_ty(&self) -> Option<EthTerm> {
+        self.self_ty
+    }
+
+    pub(crate) fn self_value_ty(&self) -> Option<FlyTerm> {
+        self.self_value_ty
+    }
+}
+
+/// # mut getters
+
+impl<'a> FlyTermEngineMut<'a> for SemaExprBuilder<'a> {
+    fn place_registry_mut(&mut self) -> &mut PlaceRegistry {
+        &mut self.place_registry
+    }
+
+    fn fly_term_region_mut(&mut self) -> &mut FlyTermRegion {
+        &mut self.fly_term_region
+    }
+}
+
+/// # actions
+
+impl<'a> SemaExprBuilder<'a> {
+    pub(crate) fn infer_all(&mut self) {
+        self.infer_current_parameter_symbols();
+        self.build_all_exprs()
+    }
+
+    pub(crate) fn alloc_expr(
+        &mut self,
+        data_result: Result<SemaExprData, SemaExprDataError>,
+        immediate_ty_result: Result<FlyTerm, SemaExprTypeError>,
+        expectation_idx_and_ty: Option<(FlyTermExpectationIdx, FlyTerm)>,
+    ) -> SemaExprIdx {
+        let expr =
+            self.sem_expr_arena
+                .alloc_one(data_result, immediate_ty_result, expectation_idx_and_ty);
+        self.fly_term_region.resolve_as_much_as_possible(self.db());
+        expr
+    }
+
+    pub(crate) fn alloc_stmt_batch(&mut self, batch: SemaStmtBatch) -> SemaStmtIdxRange {
+        self.sem_stmt_arena.alloc_batch(batch)
+    }
+
+    pub(crate) fn add_symbol_ty(&mut self, symbol_idx: CurrentVariableIdx, symbol_ty: SymbolType) {
+        self.symbol_tys.insert_new(symbol_idx, symbol_ty)
+    }
+
+    pub(crate) fn finish(mut self) -> SemaExprRegion {
+        let db = self.db;
+        self.fly_term_region
+            .finalize_unresolved_term_table(db, self.term_menu);
+        self.infer_extra_expr_terms_in_preparation_for_hir();
+        SemaExprRegion::new(
+            self.syn_expr_region_data
+                .path()
+                .region_path(db)
+                .expect("should be some"),
+            self.place_registry,
+            self.syn_expr_region,
+            self.sem_expr_arena,
+            self.sem_stmt_arena,
+            self.sem_expr_roots,
+            self.pattern_expr_ty_infos,
+            self.pattern_symbol_ty_infos,
+            self.sem_expr_term_results,
+            self.symbol_tys,
+            self.symbol_terms,
+            self.fly_term_region,
+            self.return_ty,
+            self.self_ty,
+            self.db,
+        )
+    }
 }

@@ -64,7 +64,7 @@ fn ty_ontology_path_declarative_ty_works() {
                                         .expect("should be okay at this branch")
                                         .syn_expr_region(db),
                                 )
-                                .symbol_variable_region()
+                                .symbolic_variable_region()
                                 .symbol_name_map();
                             t.with_symbol_source_map(name_map)
                         }),

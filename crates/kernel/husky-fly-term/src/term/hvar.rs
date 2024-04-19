@@ -44,8 +44,12 @@ impl FlyHvar {
                 parameter_contracted_tys,
                 return_ty,
             } => todo!(),
-            FlyBaseTypeData::Symbol { symbol } => todo!(),
-            FlyBaseTypeData::Hvar { hvar } => (),
+            FlyBaseTypeData::SymbolicVariable {
+                symbolic_variable: symbol,
+            } => todo!(),
+            FlyBaseTypeData::LambdaVariable {
+                lambda_variable: hvar,
+            } => (),
         }
         Self(slf)
     }
