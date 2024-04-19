@@ -54,7 +54,7 @@
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
-                                        current_syn_symbol_arena: Arena {
+                                        current_variable_arena: Arena {
                                             data: [],
                                         },
                                         allow_self_type: False,
@@ -196,7 +196,7 @@
                             inherited_syn_symbol_arena: Arena {
                                 data: [],
                             },
-                            current_syn_symbol_arena: Arena {
+                            current_variable_arena: Arena {
                                 data: [
                                     CurrentVariableEntry {
                                         modifier: Pure,
@@ -308,7 +308,7 @@
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
-                                        current_syn_symbol_arena: Arena {
+                                        current_variable_arena: Arena {
                                             data: [],
                                         },
                                         allow_self_type: False,
@@ -349,8 +349,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         9,
                                     ),
-                                    current_syn_symbol_idx: 1,
-                                    current_syn_symbol_kind: CurrentVariableKind::SimpleClosureParameter {
+                                    current_variable_idx: 1,
+                                    current_variable_kind: CurrentVariableKind::SimpleClosureParameter {
                                         pattern_variable_idx: 1,
                                     },
                                 },
@@ -534,7 +534,7 @@
                             inherited_syn_symbol_arena: Arena {
                                 data: [],
                             },
-                            current_syn_symbol_arena: Arena {
+                            current_variable_arena: Arena {
                                 data: [
                                     CurrentVariableEntry {
                                         modifier: Pure,
@@ -679,7 +679,7 @@
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
-                                        current_syn_symbol_arena: Arena {
+                                        current_variable_arena: Arena {
                                             data: [],
                                         },
                                         allow_self_type: False,
@@ -720,8 +720,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         10,
                                     ),
-                                    current_syn_symbol_idx: 1,
-                                    current_syn_symbol_kind: CurrentVariableKind::SimpleClosureParameter {
+                                    current_variable_idx: 1,
+                                    current_variable_kind: CurrentVariableKind::SimpleClosureParameter {
                                         pattern_variable_idx: 1,
                                     },
                                 },
@@ -924,7 +924,7 @@
                             inherited_syn_symbol_arena: Arena {
                                 data: [],
                             },
-                            current_syn_symbol_arena: Arena {
+                            current_variable_arena: Arena {
                                 data: [
                                     CurrentVariableEntry {
                                         modifier: Pure,

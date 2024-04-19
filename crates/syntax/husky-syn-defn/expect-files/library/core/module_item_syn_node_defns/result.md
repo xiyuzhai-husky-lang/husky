@@ -1,6 +1,27 @@
 ```rust
 [
     (
+        ItemSynNodePath::MajorItem(
+            MajorItemSynNodePath::Type(
+                TypeSynNodePath(
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::MajorItem(
+                            MajorItemSynNodePathData::Type(
+                                TypeSynNodePathData {
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: TypePath(`core::result::Result`, `Enum`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        ),
+                    },
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
         ItemSynNodePath::ImplBlock(
             ImplBlockSynNodePath::TraitForTypeImplBlock(
                 TraitForTypeImplBlockSynNodePath(

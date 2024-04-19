@@ -77,7 +77,7 @@
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
-                                        current_syn_symbol_arena: Arena {
+                                        current_variable_arena: Arena {
                                             data: [],
                                         },
                                         allow_self_type: False,
@@ -267,7 +267,7 @@
                             inherited_syn_symbol_arena: Arena {
                                 data: [],
                             },
-                            current_syn_symbol_arena: Arena {
+                            current_variable_arena: Arena {
                                 data: [],
                             },
                             allow_self_type: False,
@@ -438,7 +438,7 @@
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
-                                        current_syn_symbol_arena: Arena {
+                                        current_variable_arena: Arena {
                                             data: [
                                                 CurrentVariableEntry {
                                                     modifier: Pure,
@@ -691,7 +691,7 @@
                                     },
                                 ],
                             },
-                            current_syn_symbol_arena: Arena {
+                            current_variable_arena: Arena {
                                 data: [],
                             },
                             allow_self_type: False,
@@ -887,7 +887,7 @@
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
-                                        current_syn_symbol_arena: Arena {
+                                        current_variable_arena: Arena {
                                             data: [],
                                         },
                                         allow_self_type: False,
@@ -1005,8 +1005,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         19,
                                     ),
-                                    current_syn_symbol_idx: 0,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 0,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 0,
                                     },
                                 },
@@ -1246,8 +1246,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         61,
                                     ),
-                                    current_syn_symbol_idx: 1,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 1,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 2,
                                     },
                                 },
@@ -1361,8 +1361,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         80,
                                     ),
-                                    current_syn_symbol_idx: 2,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 2,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 3,
                                     },
                                 },
@@ -1383,8 +1383,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         84,
                                     ),
-                                    current_syn_symbol_idx: 2,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 2,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 3,
                                     },
                                 },
@@ -1405,8 +1405,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         88,
                                     ),
-                                    current_syn_symbol_idx: 2,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 2,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 3,
                                     },
                                 },
@@ -1496,8 +1496,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         98,
                                     ),
-                                    current_syn_symbol_idx: 2,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 2,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 3,
                                     },
                                 },
@@ -1751,8 +1751,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         142,
                                     ),
-                                    current_syn_symbol_idx: 3,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 3,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 5,
                                     },
                                 },
@@ -1780,8 +1780,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         151,
                                     ),
-                                    current_syn_symbol_idx: 3,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 3,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 5,
                                     },
                                 },
@@ -1953,8 +1953,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         180,
                                     ),
-                                    current_syn_symbol_idx: 4,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 4,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 6,
                                     },
                                 },
@@ -1963,8 +1963,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         182,
                                     ),
-                                    current_syn_symbol_idx: 5,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 5,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 7,
                                     },
                                 },
@@ -1983,8 +1983,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         184,
                                     ),
-                                    current_syn_symbol_idx: 6,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 6,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 8,
                                     },
                                 },
@@ -2017,8 +2017,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         190,
                                     ),
-                                    current_syn_symbol_idx: 2,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 2,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 3,
                                     },
                                 },
@@ -3041,7 +3041,7 @@
                             inherited_syn_symbol_arena: Arena {
                                 data: [],
                             },
-                            current_syn_symbol_arena: Arena {
+                            current_variable_arena: Arena {
                                 data: [
                                     CurrentVariableEntry {
                                         modifier: Pure,

@@ -23,7 +23,7 @@
             place_registry: PlaceRegistry {
                 infos: [
                     Variable {
-                        current_syn_symbol_idx: 0,
+                        current_variable_idx: 0,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -33,7 +33,7 @@
                         ),
                     },
                     Variable {
-                        current_syn_symbol_idx: 1,
+                        current_variable_idx: 1,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -43,7 +43,7 @@
                         ),
                     },
                     Variable {
-                        current_syn_symbol_idx: 2,
+                        current_variable_idx: 2,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -53,7 +53,7 @@
                         ),
                     },
                     Variable {
-                        current_syn_symbol_idx: 3,
+                        current_variable_idx: 3,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -858,8 +858,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         26,
                                     ),
-                                    current_syn_symbol_idx: 0,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 0,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 0,
                                     },
                                 },
@@ -1038,8 +1038,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         34,
                                     ),
-                                    current_syn_symbol_idx: 0,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 0,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 0,
                                     },
                                 },
@@ -1128,8 +1128,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         37,
                                     ),
-                                    current_syn_symbol_idx: 0,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 0,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 0,
                                     },
                                 },
@@ -1173,8 +1173,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         39,
                                     ),
-                                    current_syn_symbol_idx: 0,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 0,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 0,
                                     },
                                 },
@@ -1616,8 +1616,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         52,
                                     ),
-                                    current_syn_symbol_idx: 1,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 1,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 1,
                                     },
                                 },
@@ -1836,8 +1836,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         58,
                                     ),
-                                    current_syn_symbol_idx: 0,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 0,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 0,
                                     },
                                 },
@@ -1926,8 +1926,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         63,
                                     ),
-                                    current_syn_symbol_idx: 1,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 1,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 1,
                                     },
                                 },
@@ -2190,8 +2190,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         69,
                                     ),
-                                    current_syn_symbol_idx: 0,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 0,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 0,
                                     },
                                 },
@@ -2454,8 +2454,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         76,
                                     ),
-                                    current_syn_symbol_idx: 2,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 2,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 2,
                                     },
                                 },
@@ -2674,8 +2674,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         82,
                                     ),
-                                    current_syn_symbol_idx: 3,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 3,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 3,
                                     },
                                 },
@@ -3319,7 +3319,7 @@
                         },
                     ),
                 ],
-                current_syn_symbol_map: [
+                current_variable_map: [
                     SymbolType(
                         FlyTerm {
                             place: Some(
@@ -3380,14 +3380,14 @@
             },
             symbol_terms: SymbolMap {
                 inherited_syn_symbol_map: [],
-                current_syn_symbol_map: [],
+                current_variable_map: [],
             },
             fly_term_region: FlyTermRegion {
                 terms: FlyTerms {
-                    solid_terms: SolTerms {
+                    sol_terms: SolTerms {
                         entries: [],
                     },
-                    hollow_terms: HolTerms {
+                    hol_terms: HolTerms {
                         entries: [],
                         first_unresolved_term_idx: 0,
                     },
@@ -5354,7 +5354,7 @@
             place_registry: PlaceRegistry {
                 infos: [
                     Variable {
-                        current_syn_symbol_idx: 0,
+                        current_variable_idx: 0,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -5364,7 +5364,7 @@
                         ),
                     },
                     Variable {
-                        current_syn_symbol_idx: 1,
+                        current_variable_idx: 1,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -5374,7 +5374,7 @@
                         ),
                     },
                     Variable {
-                        current_syn_symbol_idx: 2,
+                        current_variable_idx: 2,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -5384,7 +5384,7 @@
                         ),
                     },
                     Variable {
-                        current_syn_symbol_idx: 3,
+                        current_variable_idx: 3,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -6189,8 +6189,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         26,
                                     ),
-                                    current_syn_symbol_idx: 0,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 0,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 0,
                                     },
                                 },
@@ -6369,8 +6369,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         34,
                                     ),
-                                    current_syn_symbol_idx: 0,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 0,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 0,
                                     },
                                 },
@@ -6459,8 +6459,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         37,
                                     ),
-                                    current_syn_symbol_idx: 0,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 0,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 0,
                                     },
                                 },
@@ -6504,8 +6504,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         39,
                                     ),
-                                    current_syn_symbol_idx: 0,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 0,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 0,
                                     },
                                 },
@@ -6947,8 +6947,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         53,
                                     ),
-                                    current_syn_symbol_idx: 1,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 1,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 1,
                                     },
                                 },
@@ -7211,8 +7211,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         59,
                                     ),
-                                    current_syn_symbol_idx: 0,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 0,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 0,
                                     },
                                 },
@@ -7301,8 +7301,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         63,
                                     ),
-                                    current_syn_symbol_idx: 1,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 1,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 1,
                                     },
                                 },
@@ -7521,8 +7521,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         69,
                                     ),
-                                    current_syn_symbol_idx: 0,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 0,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 0,
                                     },
                                 },
@@ -7785,8 +7785,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         76,
                                     ),
-                                    current_syn_symbol_idx: 2,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 2,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 2,
                                     },
                                 },
@@ -8005,8 +8005,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         82,
                                     ),
-                                    current_syn_symbol_idx: 3,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 3,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 3,
                                     },
                                 },
@@ -8650,7 +8650,7 @@
                         },
                     ),
                 ],
-                current_syn_symbol_map: [
+                current_variable_map: [
                     SymbolType(
                         FlyTerm {
                             place: Some(
@@ -8711,14 +8711,14 @@
             },
             symbol_terms: SymbolMap {
                 inherited_syn_symbol_map: [],
-                current_syn_symbol_map: [],
+                current_variable_map: [],
             },
             fly_term_region: FlyTermRegion {
                 terms: FlyTerms {
-                    solid_terms: SolTerms {
+                    sol_terms: SolTerms {
                         entries: [],
                     },
-                    hollow_terms: HolTerms {
+                    hol_terms: HolTerms {
                         entries: [],
                         first_unresolved_term_idx: 0,
                     },
@@ -10685,7 +10685,7 @@
             place_registry: PlaceRegistry {
                 infos: [
                     Variable {
-                        current_syn_symbol_idx: 0,
+                        current_variable_idx: 0,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -10695,7 +10695,7 @@
                         ),
                     },
                     Variable {
-                        current_syn_symbol_idx: 1,
+                        current_variable_idx: 1,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -10705,7 +10705,7 @@
                         ),
                     },
                     Variable {
-                        current_syn_symbol_idx: 2,
+                        current_variable_idx: 2,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -10715,7 +10715,7 @@
                         ),
                     },
                     Variable {
-                        current_syn_symbol_idx: 3,
+                        current_variable_idx: 3,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -10725,7 +10725,7 @@
                         ),
                     },
                     Variable {
-                        current_syn_symbol_idx: 4,
+                        current_variable_idx: 4,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -10735,7 +10735,7 @@
                         ),
                     },
                     Variable {
-                        current_syn_symbol_idx: 5,
+                        current_variable_idx: 5,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -10745,7 +10745,7 @@
                         ),
                     },
                     Variable {
-                        current_syn_symbol_idx: 6,
+                        current_variable_idx: 6,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -10755,7 +10755,7 @@
                         ),
                     },
                     Variable {
-                        current_syn_symbol_idx: 7,
+                        current_variable_idx: 7,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -10765,7 +10765,7 @@
                         ),
                     },
                     Variable {
-                        current_syn_symbol_idx: 8,
+                        current_variable_idx: 8,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -10775,7 +10775,7 @@
                         ),
                     },
                     Variable {
-                        current_syn_symbol_idx: 9,
+                        current_variable_idx: 9,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -10932,8 +10932,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         16,
                                     ),
-                                    current_syn_symbol_idx: 0,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 0,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 0,
                                     },
                                 },
@@ -11530,8 +11530,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         35,
                                     ),
-                                    current_syn_symbol_idx: 2,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 2,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 2,
                                     },
                                 },
@@ -11620,8 +11620,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         37,
                                     ),
-                                    current_syn_symbol_idx: 0,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 0,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 0,
                                     },
                                 },
@@ -11665,8 +11665,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         39,
                                     ),
-                                    current_syn_symbol_idx: 3,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 3,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 3,
                                     },
                                 },
@@ -11755,8 +11755,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         41,
                                     ),
-                                    current_syn_symbol_idx: 1,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 1,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 1,
                                     },
                                 },
@@ -12041,8 +12041,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         49,
                                     ),
-                                    current_syn_symbol_idx: 0,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 0,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 0,
                                     },
                                 },
@@ -12118,8 +12118,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         51,
                                     ),
-                                    current_syn_symbol_idx: 1,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 1,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 1,
                                     },
                                 },
@@ -12253,8 +12253,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         59,
                                     ),
-                                    current_syn_symbol_idx: 0,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 0,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 0,
                                     },
                                 },
@@ -12611,8 +12611,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         64,
                                     ),
-                                    current_syn_symbol_idx: 1,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 1,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 1,
                                     },
                                 },
@@ -12852,8 +12852,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         73,
                                     ),
-                                    current_syn_symbol_idx: 0,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 0,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 0,
                                     },
                                 },
@@ -12945,8 +12945,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         80,
                                     ),
-                                    current_syn_symbol_idx: 1,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 1,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 1,
                                     },
                                 },
@@ -13187,8 +13187,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         90,
                                     ),
-                                    current_syn_symbol_idx: 1,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 1,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 1,
                                     },
                                 },
@@ -13426,8 +13426,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         100,
                                     ),
-                                    current_syn_symbol_idx: 0,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 0,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 0,
                                     },
                                 },
@@ -13471,8 +13471,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         102,
                                     ),
-                                    current_syn_symbol_idx: 3,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 3,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 3,
                                     },
                                 },
@@ -13561,8 +13561,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         104,
                                     ),
-                                    current_syn_symbol_idx: 4,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 4,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 4,
                                     },
                                 },
@@ -13606,8 +13606,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         108,
                                     ),
-                                    current_syn_symbol_idx: 1,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 1,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 1,
                                     },
                                 },
@@ -13927,8 +13927,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         113,
                                     ),
-                                    current_syn_symbol_idx: 1,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 1,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 1,
                                     },
                                 },
@@ -13972,8 +13972,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         117,
                                     ),
-                                    current_syn_symbol_idx: 5,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 5,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 5,
                                     },
                                 },
@@ -14293,8 +14293,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         125,
                                     ),
-                                    current_syn_symbol_idx: 1,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 1,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 1,
                                     },
                                 },
@@ -14444,8 +14444,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         131,
                                     ),
-                                    current_syn_symbol_idx: 7,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 7,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 7,
                                     },
                                 },
@@ -14489,8 +14489,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         133,
                                     ),
-                                    current_syn_symbol_idx: 6,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 6,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 6,
                                     },
                                 },
@@ -14673,8 +14673,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         139,
                                     ),
-                                    current_syn_symbol_idx: 7,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 7,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 7,
                                     },
                                 },
@@ -14718,8 +14718,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         141,
                                     ),
-                                    current_syn_symbol_idx: 6,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 6,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 6,
                                     },
                                 },
@@ -14812,8 +14812,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         143,
                                     ),
-                                    current_syn_symbol_idx: 6,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 6,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 6,
                                     },
                                 },
@@ -14861,8 +14861,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         145,
                                     ),
-                                    current_syn_symbol_idx: 7,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 7,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 7,
                                     },
                                 },
@@ -14949,8 +14949,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         147,
                                     ),
-                                    current_syn_symbol_idx: 7,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 7,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 7,
                                     },
                                 },
@@ -15132,8 +15132,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         156,
                                     ),
-                                    current_syn_symbol_idx: 1,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 1,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 1,
                                     },
                                 },
@@ -15374,8 +15374,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         165,
                                     ),
-                                    current_syn_symbol_idx: 1,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 1,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 1,
                                     },
                                 },
@@ -15568,8 +15568,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         170,
                                     ),
-                                    current_syn_symbol_idx: 4,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 4,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 4,
                                     },
                                 },
@@ -15613,8 +15613,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         174,
                                     ),
-                                    current_syn_symbol_idx: 8,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 8,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 8,
                                     },
                                 },
@@ -15889,8 +15889,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         179,
                                     ),
-                                    current_syn_symbol_idx: 4,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 4,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 4,
                                     },
                                 },
@@ -15934,8 +15934,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         181,
                                     ),
-                                    current_syn_symbol_idx: 8,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 8,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 8,
                                     },
                                 },
@@ -16022,8 +16022,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         183,
                                     ),
-                                    current_syn_symbol_idx: 9,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 9,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 9,
                                     },
                                 },
@@ -16067,8 +16067,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         187,
                                     ),
-                                    current_syn_symbol_idx: 5,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 5,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 5,
                                     },
                                 },
@@ -16343,8 +16343,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         192,
                                     ),
-                                    current_syn_symbol_idx: 5,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 5,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 5,
                                     },
                                 },
@@ -16388,8 +16388,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         194,
                                     ),
-                                    current_syn_symbol_idx: 9,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 9,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 9,
                                     },
                                 },
@@ -16476,8 +16476,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         195,
                                     ),
-                                    current_syn_symbol_idx: 0,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 0,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 0,
                                     },
                                 },
@@ -16553,8 +16553,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         197,
                                     ),
-                                    current_syn_symbol_idx: 1,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 1,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 1,
                                     },
                                 },
@@ -16688,8 +16688,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         205,
                                     ),
-                                    current_syn_symbol_idx: 0,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 0,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 0,
                                     },
                                 },
@@ -17046,8 +17046,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         210,
                                     ),
-                                    current_syn_symbol_idx: 0,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 0,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 0,
                                     },
                                 },
@@ -17181,8 +17181,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         214,
                                     ),
-                                    current_syn_symbol_idx: 0,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 0,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 0,
                                     },
                                 },
@@ -18846,7 +18846,7 @@
                         },
                     ),
                 ],
-                current_syn_symbol_map: [
+                current_variable_map: [
                     SymbolType(
                         FlyTerm {
                             place: Some(
@@ -18993,14 +18993,14 @@
             },
             symbol_terms: SymbolMap {
                 inherited_syn_symbol_map: [],
-                current_syn_symbol_map: [],
+                current_variable_map: [],
             },
             fly_term_region: FlyTermRegion {
                 terms: FlyTerms {
-                    solid_terms: SolTerms {
+                    sol_terms: SolTerms {
                         entries: [],
                     },
-                    hollow_terms: HolTerms {
+                    hol_terms: HolTerms {
                         entries: [
                             HolTermEntry {
                                 data: HolTermData::Hole {
@@ -23533,7 +23533,7 @@
             place_registry: PlaceRegistry {
                 infos: [
                     Variable {
-                        current_syn_symbol_idx: 0,
+                        current_variable_idx: 0,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -23543,7 +23543,7 @@
                         ),
                     },
                     Variable {
-                        current_syn_symbol_idx: 1,
+                        current_variable_idx: 1,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -23553,7 +23553,7 @@
                         ),
                     },
                     Variable {
-                        current_syn_symbol_idx: 2,
+                        current_variable_idx: 2,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -23563,7 +23563,7 @@
                         ),
                     },
                     Variable {
-                        current_syn_symbol_idx: 3,
+                        current_variable_idx: 3,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -23573,7 +23573,7 @@
                         ),
                     },
                     Variable {
-                        current_syn_symbol_idx: 4,
+                        current_variable_idx: 4,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -23583,7 +23583,7 @@
                         ),
                     },
                     Variable {
-                        current_syn_symbol_idx: 5,
+                        current_variable_idx: 5,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -23593,7 +23593,7 @@
                         ),
                     },
                     Variable {
-                        current_syn_symbol_idx: 6,
+                        current_variable_idx: 6,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -23603,7 +23603,7 @@
                         ),
                     },
                     Variable {
-                        current_syn_symbol_idx: 7,
+                        current_variable_idx: 7,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -23613,7 +23613,7 @@
                         ),
                     },
                     Variable {
-                        current_syn_symbol_idx: 8,
+                        current_variable_idx: 8,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -23623,7 +23623,7 @@
                         ),
                     },
                     Variable {
-                        current_syn_symbol_idx: 9,
+                        current_variable_idx: 9,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -23780,8 +23780,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         16,
                                     ),
-                                    current_syn_symbol_idx: 0,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 0,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 0,
                                     },
                                 },
@@ -24423,8 +24423,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         33,
                                     ),
-                                    current_syn_symbol_idx: 0,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 0,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 0,
                                     },
                                 },
@@ -24468,8 +24468,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         35,
                                     ),
-                                    current_syn_symbol_idx: 2,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 2,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 2,
                                     },
                                 },
@@ -24558,8 +24558,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         37,
                                     ),
-                                    current_syn_symbol_idx: 1,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 1,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 1,
                                     },
                                 },
@@ -24844,8 +24844,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         45,
                                     ),
-                                    current_syn_symbol_idx: 0,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 0,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 0,
                                     },
                                 },
@@ -24921,8 +24921,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         47,
                                     ),
-                                    current_syn_symbol_idx: 1,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 1,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 1,
                                     },
                                 },
@@ -25056,8 +25056,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         55,
                                     ),
-                                    current_syn_symbol_idx: 0,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 0,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 0,
                                     },
                                 },
@@ -25414,8 +25414,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         60,
                                     ),
-                                    current_syn_symbol_idx: 1,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 1,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 1,
                                     },
                                 },
@@ -25655,8 +25655,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         69,
                                     ),
-                                    current_syn_symbol_idx: 0,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 0,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 0,
                                     },
                                 },
@@ -25942,8 +25942,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         81,
                                     ),
-                                    current_syn_symbol_idx: 1,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 1,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 1,
                                     },
                                 },
@@ -26184,8 +26184,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         91,
                                     ),
-                                    current_syn_symbol_idx: 1,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 1,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 1,
                                     },
                                 },
@@ -26423,8 +26423,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         101,
                                     ),
-                                    current_syn_symbol_idx: 0,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 0,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 0,
                                     },
                                 },
@@ -26468,8 +26468,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         103,
                                     ),
-                                    current_syn_symbol_idx: 2,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 2,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 2,
                                     },
                                 },
@@ -26648,8 +26648,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         114,
                                     ),
-                                    current_syn_symbol_idx: 0,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 0,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 0,
                                     },
                                 },
@@ -26963,8 +26963,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         121,
                                     ),
-                                    current_syn_symbol_idx: 6,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 6,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 6,
                                     },
                                 },
@@ -27114,8 +27114,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         127,
                                     ),
-                                    current_syn_symbol_idx: 7,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 7,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 7,
                                     },
                                 },
@@ -27159,8 +27159,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         129,
                                     ),
-                                    current_syn_symbol_idx: 5,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 5,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 5,
                                     },
                                 },
@@ -27343,8 +27343,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         135,
                                     ),
-                                    current_syn_symbol_idx: 7,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 7,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 7,
                                     },
                                 },
@@ -27388,8 +27388,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         137,
                                     ),
-                                    current_syn_symbol_idx: 5,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 5,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 5,
                                     },
                                 },
@@ -27482,8 +27482,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         139,
                                     ),
-                                    current_syn_symbol_idx: 5,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 5,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 5,
                                     },
                                 },
@@ -27531,8 +27531,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         141,
                                     ),
-                                    current_syn_symbol_idx: 7,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 7,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 7,
                                     },
                                 },
@@ -27619,8 +27619,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         143,
                                     ),
-                                    current_syn_symbol_idx: 7,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 7,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 7,
                                     },
                                 },
@@ -27802,8 +27802,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         152,
                                     ),
-                                    current_syn_symbol_idx: 6,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 6,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 6,
                                     },
                                 },
@@ -28044,8 +28044,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         161,
                                     ),
-                                    current_syn_symbol_idx: 6,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 6,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 6,
                                     },
                                 },
@@ -28238,8 +28238,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         166,
                                     ),
-                                    current_syn_symbol_idx: 3,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 3,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 3,
                                     },
                                 },
@@ -28283,8 +28283,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         170,
                                     ),
-                                    current_syn_symbol_idx: 8,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 8,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 8,
                                     },
                                 },
@@ -28559,8 +28559,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         175,
                                     ),
-                                    current_syn_symbol_idx: 3,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 3,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 3,
                                     },
                                 },
@@ -28604,8 +28604,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         177,
                                     ),
-                                    current_syn_symbol_idx: 8,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 8,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 8,
                                     },
                                 },
@@ -28692,8 +28692,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         179,
                                     ),
-                                    current_syn_symbol_idx: 9,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 9,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 9,
                                     },
                                 },
@@ -28737,8 +28737,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         183,
                                     ),
-                                    current_syn_symbol_idx: 4,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 4,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 4,
                                     },
                                 },
@@ -29013,8 +29013,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         188,
                                     ),
-                                    current_syn_symbol_idx: 4,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 4,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 4,
                                     },
                                 },
@@ -29058,8 +29058,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         190,
                                     ),
-                                    current_syn_symbol_idx: 9,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 9,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 9,
                                     },
                                 },
@@ -29146,8 +29146,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         192,
                                     ),
-                                    current_syn_symbol_idx: 3,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 3,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 3,
                                     },
                                 },
@@ -29191,8 +29191,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         196,
                                     ),
-                                    current_syn_symbol_idx: 4,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 4,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 4,
                                     },
                                 },
@@ -29467,8 +29467,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         202,
                                     ),
-                                    current_syn_symbol_idx: 0,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 0,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 0,
                                     },
                                 },
@@ -29602,8 +29602,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         208,
                                     ),
-                                    current_syn_symbol_idx: 3,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 3,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 3,
                                     },
                                 },
@@ -29647,8 +29647,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         212,
                                     ),
-                                    current_syn_symbol_idx: 6,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 6,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 6,
                                     },
                                 },
@@ -29923,8 +29923,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         217,
                                     ),
-                                    current_syn_symbol_idx: 6,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 6,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 6,
                                     },
                                 },
@@ -29968,8 +29968,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         221,
                                     ),
-                                    current_syn_symbol_idx: 4,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 4,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 4,
                                     },
                                 },
@@ -30400,8 +30400,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         228,
                                     ),
-                                    current_syn_symbol_idx: 0,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 0,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 0,
                                     },
                                 },
@@ -30477,8 +30477,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         234,
                                     ),
-                                    current_syn_symbol_idx: 0,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 0,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 0,
                                     },
                                 },
@@ -30612,8 +30612,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         239,
                                     ),
-                                    current_syn_symbol_idx: 0,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 0,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 0,
                                     },
                                 },
@@ -32517,7 +32517,7 @@
                         },
                     ),
                 ],
-                current_syn_symbol_map: [
+                current_variable_map: [
                     SymbolType(
                         FlyTerm {
                             place: Some(
@@ -32664,14 +32664,14 @@
             },
             symbol_terms: SymbolMap {
                 inherited_syn_symbol_map: [],
-                current_syn_symbol_map: [],
+                current_variable_map: [],
             },
             fly_term_region: FlyTermRegion {
                 terms: FlyTerms {
-                    solid_terms: SolTerms {
+                    sol_terms: SolTerms {
                         entries: [],
                     },
-                    hollow_terms: HolTerms {
+                    hol_terms: HolTerms {
                         entries: [
                             HolTermEntry {
                                 data: HolTermData::Hole {
@@ -37542,7 +37542,7 @@
             place_registry: PlaceRegistry {
                 infos: [
                     Variable {
-                        current_syn_symbol_idx: 0,
+                        current_variable_idx: 0,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -37552,7 +37552,7 @@
                         ),
                     },
                     Variable {
-                        current_syn_symbol_idx: 1,
+                        current_variable_idx: 1,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -37562,7 +37562,7 @@
                         ),
                     },
                     Variable {
-                        current_syn_symbol_idx: 2,
+                        current_variable_idx: 2,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -37572,7 +37572,7 @@
                         ),
                     },
                     Variable {
-                        current_syn_symbol_idx: 3,
+                        current_variable_idx: 3,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -37582,7 +37582,7 @@
                         ),
                     },
                     Variable {
-                        current_syn_symbol_idx: 4,
+                        current_variable_idx: 4,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -37592,7 +37592,7 @@
                         ),
                     },
                     Variable {
-                        current_syn_symbol_idx: 5,
+                        current_variable_idx: 5,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -37602,7 +37602,7 @@
                         ),
                     },
                     Variable {
-                        current_syn_symbol_idx: 6,
+                        current_variable_idx: 6,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -37612,7 +37612,7 @@
                         ),
                     },
                     Variable {
-                        current_syn_symbol_idx: 7,
+                        current_variable_idx: 7,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -37622,7 +37622,7 @@
                         ),
                     },
                     Variable {
-                        current_syn_symbol_idx: 8,
+                        current_variable_idx: 8,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -37632,7 +37632,7 @@
                         ),
                     },
                     Variable {
-                        current_syn_symbol_idx: 9,
+                        current_variable_idx: 9,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -37642,7 +37642,7 @@
                         ),
                     },
                     Variable {
-                        current_syn_symbol_idx: 11,
+                        current_variable_idx: 11,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -37652,7 +37652,7 @@
                         ),
                     },
                     Variable {
-                        current_syn_symbol_idx: 12,
+                        current_variable_idx: 12,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -37662,7 +37662,7 @@
                         ),
                     },
                     Variable {
-                        current_syn_symbol_idx: 13,
+                        current_variable_idx: 13,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -37672,7 +37672,7 @@
                         ),
                     },
                     Variable {
-                        current_syn_symbol_idx: 14,
+                        current_variable_idx: 14,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -37682,7 +37682,7 @@
                         ),
                     },
                     Variable {
-                        current_syn_symbol_idx: 15,
+                        current_variable_idx: 15,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -37692,7 +37692,7 @@
                         ),
                     },
                     Variable {
-                        current_syn_symbol_idx: 16,
+                        current_variable_idx: 16,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -37702,7 +37702,7 @@
                         ),
                     },
                     Variable {
-                        current_syn_symbol_idx: 18,
+                        current_variable_idx: 18,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -38177,8 +38177,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         33,
                                     ),
-                                    current_syn_symbol_idx: 2,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 2,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 2,
                                     },
                                 },
@@ -38226,8 +38226,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         35,
                                     ),
-                                    current_syn_symbol_idx: 3,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 3,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 3,
                                     },
                                 },
@@ -38316,8 +38316,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         37,
                                     ),
-                                    current_syn_symbol_idx: 2,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 2,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 2,
                                     },
                                 },
@@ -38458,8 +38458,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         43,
                                     ),
-                                    current_syn_symbol_idx: 1,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 1,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 1,
                                     },
                                 },
@@ -38728,7 +38728,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                SemaExprData::AssocItem {
+                                SemaExprData::MajorItemPathAssocItem {
                                     parent_expr_idx: 2,
                                     parent_path: MajorItemPath::Type(
                                         TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
@@ -38954,8 +38954,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         56,
                                     ),
-                                    current_syn_symbol_idx: 1,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 1,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 1,
                                     },
                                 },
@@ -39003,8 +39003,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         58,
                                     ),
-                                    current_syn_symbol_idx: 2,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 2,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 2,
                                     },
                                 },
@@ -39225,8 +39225,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         66,
                                     ),
-                                    current_syn_symbol_idx: 0,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 0,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 0,
                                     },
                                 },
@@ -39470,8 +39470,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         77,
                                     ),
-                                    current_syn_symbol_idx: 4,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 4,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 4,
                                     },
                                 },
@@ -39621,8 +39621,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         85,
                                     ),
-                                    current_syn_symbol_idx: 0,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 0,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 0,
                                     },
                                 },
@@ -39949,8 +39949,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         96,
                                     ),
-                                    current_syn_symbol_idx: 6,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 6,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 6,
                                     },
                                 },
@@ -39994,8 +39994,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         100,
                                     ),
-                                    current_syn_symbol_idx: 7,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 7,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 7,
                                     },
                                 },
@@ -40368,8 +40368,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         109,
                                     ),
-                                    current_syn_symbol_idx: 6,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 6,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 6,
                                     },
                                 },
@@ -40413,8 +40413,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         113,
                                     ),
-                                    current_syn_symbol_idx: 7,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 7,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 7,
                                     },
                                 },
@@ -40976,8 +40976,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         128,
                                     ),
-                                    current_syn_symbol_idx: 0,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 0,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 0,
                                     },
                                 },
@@ -41193,7 +41193,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                SemaExprData::AssocItem {
+                                SemaExprData::MajorItemPathAssocItem {
                                     parent_expr_idx: 3,
                                     parent_path: MajorItemPath::Type(
                                         TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
@@ -41419,8 +41419,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         141,
                                     ),
-                                    current_syn_symbol_idx: 0,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 0,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 0,
                                     },
                                 },
@@ -41842,8 +41842,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         154,
                                     ),
-                                    current_syn_symbol_idx: 2,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 2,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 2,
                                     },
                                 },
@@ -42068,8 +42068,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         156,
                                     ),
-                                    current_syn_symbol_idx: 5,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 5,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 5,
                                     },
                                 },
@@ -42191,8 +42191,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         160,
                                     ),
-                                    current_syn_symbol_idx: 5,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 5,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 5,
                                     },
                                 },
@@ -42236,8 +42236,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         162,
                                     ),
-                                    current_syn_symbol_idx: 1,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 1,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 1,
                                     },
                                 },
@@ -42378,8 +42378,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         168,
                                     ),
-                                    current_syn_symbol_idx: 1,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 1,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 1,
                                     },
                                 },
@@ -42427,8 +42427,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         170,
                                     ),
-                                    current_syn_symbol_idx: 2,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 2,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 2,
                                     },
                                 },
@@ -42731,7 +42731,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                SemaExprData::AssocItem {
+                                SemaExprData::MajorItemPathAssocItem {
                                     parent_expr_idx: 5,
                                     parent_path: MajorItemPath::Type(
                                         TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
@@ -42957,8 +42957,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         184,
                                     ),
-                                    current_syn_symbol_idx: 1,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 1,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 1,
                                     },
                                 },
@@ -43006,8 +43006,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         186,
                                     ),
-                                    current_syn_symbol_idx: 2,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 2,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 2,
                                     },
                                 },
@@ -43193,8 +43193,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         189,
                                     ),
-                                    current_syn_symbol_idx: 0,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 0,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 0,
                                     },
                                 },
@@ -43438,8 +43438,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         200,
                                     ),
-                                    current_syn_symbol_idx: 0,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 0,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 0,
                                     },
                                 },
@@ -43660,8 +43660,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         209,
                                     ),
-                                    current_syn_symbol_idx: 10,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 10,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 10,
                                     },
                                 },
@@ -43821,8 +43821,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         217,
                                     ),
-                                    current_syn_symbol_idx: 9,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 9,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 9,
                                     },
                                 },
@@ -43972,8 +43972,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         225,
                                     ),
-                                    current_syn_symbol_idx: 10,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 10,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 10,
                                     },
                                 },
@@ -44116,8 +44116,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         231,
                                     ),
-                                    current_syn_symbol_idx: 9,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 9,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 9,
                                     },
                                 },
@@ -44401,8 +44401,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         236,
                                     ),
-                                    current_syn_symbol_idx: 12,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 12,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 12,
                                     },
                                 },
@@ -44446,8 +44446,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         240,
                                     ),
-                                    current_syn_symbol_idx: 11,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 11,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 11,
                                     },
                                 },
@@ -44820,8 +44820,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         249,
                                     ),
-                                    current_syn_symbol_idx: 12,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 12,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 12,
                                     },
                                 },
@@ -44865,8 +44865,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         253,
                                     ),
-                                    current_syn_symbol_idx: 11,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 11,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 11,
                                     },
                                 },
@@ -45190,8 +45190,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         258,
                                     ),
-                                    current_syn_symbol_idx: 12,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 12,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 12,
                                     },
                                 },
@@ -45235,8 +45235,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         262,
                                     ),
-                                    current_syn_symbol_idx: 13,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 13,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 13,
                                     },
                                 },
@@ -45654,8 +45654,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         271,
                                     ),
-                                    current_syn_symbol_idx: 12,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 12,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 12,
                                     },
                                 },
@@ -45699,8 +45699,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         275,
                                     ),
-                                    current_syn_symbol_idx: 13,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 13,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 13,
                                     },
                                 },
@@ -46024,8 +46024,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         283,
                                     ),
-                                    current_syn_symbol_idx: 0,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 0,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 0,
                                     },
                                 },
@@ -46222,8 +46222,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         289,
                                     ),
-                                    current_syn_symbol_idx: 9,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 9,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 9,
                                     },
                                 },
@@ -46262,7 +46262,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                SemaExprData::AssocItem {
+                                SemaExprData::MajorItemPathAssocItem {
                                     parent_expr_idx: 6,
                                     parent_path: MajorItemPath::Type(
                                         TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
@@ -46488,8 +46488,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         297,
                                     ),
-                                    current_syn_symbol_idx: 14,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 14,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 14,
                                     },
                                 },
@@ -46734,8 +46734,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         305,
                                     ),
-                                    current_syn_symbol_idx: 9,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 9,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 9,
                                     },
                                 },
@@ -47153,8 +47153,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         315,
                                     ),
-                                    current_syn_symbol_idx: 3,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 3,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 3,
                                     },
                                 },
@@ -47198,8 +47198,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         317,
                                     ),
-                                    current_syn_symbol_idx: 1,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 1,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 1,
                                     },
                                 },
@@ -47573,8 +47573,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         326,
                                     ),
-                                    current_syn_symbol_idx: 0,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 0,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 0,
                                     },
                                 },
@@ -47618,8 +47618,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         330,
                                     ),
-                                    current_syn_symbol_idx: 9,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 9,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 9,
                                     },
                                 },
@@ -47828,8 +47828,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         332,
                                     ),
-                                    current_syn_symbol_idx: 1,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 1,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 1,
                                     },
                                 },
@@ -47877,8 +47877,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         334,
                                     ),
-                                    current_syn_symbol_idx: 2,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 2,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 2,
                                     },
                                 },
@@ -47969,8 +47969,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         335,
                                     ),
-                                    current_syn_symbol_idx: 2,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 2,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 2,
                                     },
                                 },
@@ -48018,8 +48018,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         337,
                                     ),
-                                    current_syn_symbol_idx: 1,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 1,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 1,
                                     },
                                 },
@@ -48430,8 +48430,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         353,
                                     ),
-                                    current_syn_symbol_idx: 0,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 0,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 0,
                                     },
                                 },
@@ -48853,8 +48853,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         368,
                                     ),
-                                    current_syn_symbol_idx: 0,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 0,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 0,
                                     },
                                 },
@@ -49075,8 +49075,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         375,
                                     ),
-                                    current_syn_symbol_idx: 17,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 17,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 17,
                                     },
                                 },
@@ -49337,8 +49337,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         383,
                                     ),
-                                    current_syn_symbol_idx: 16,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 16,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 16,
                                     },
                                 },
@@ -49382,8 +49382,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         385,
                                     ),
-                                    current_syn_symbol_idx: 15,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 15,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 15,
                                     },
                                 },
@@ -49517,8 +49517,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         390,
                                     ),
-                                    current_syn_symbol_idx: 0,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 0,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 0,
                                     },
                                 },
@@ -49715,8 +49715,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         396,
                                     ),
-                                    current_syn_symbol_idx: 0,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 0,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 0,
                                     },
                                 },
@@ -49932,7 +49932,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                SemaExprData::AssocItem {
+                                SemaExprData::MajorItemPathAssocItem {
                                     parent_expr_idx: 7,
                                     parent_path: MajorItemPath::Type(
                                         TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
@@ -50158,8 +50158,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         409,
                                     ),
-                                    current_syn_symbol_idx: 18,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 18,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 18,
                                     },
                                 },
@@ -50404,8 +50404,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         417,
                                     ),
-                                    current_syn_symbol_idx: 15,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 15,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 15,
                                     },
                                 },
@@ -50494,8 +50494,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         419,
                                     ),
-                                    current_syn_symbol_idx: 0,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 0,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 0,
                                     },
                                 },
@@ -51172,8 +51172,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         434,
                                     ),
-                                    current_syn_symbol_idx: 0,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 0,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 0,
                                     },
                                 },
@@ -53703,7 +53703,7 @@
                         },
                     ),
                 ],
-                current_syn_symbol_map: [
+                current_variable_map: [
                     SymbolType(
                         FlyTerm {
                             place: Some(
@@ -53982,11 +53982,11 @@
             },
             symbol_terms: SymbolMap {
                 inherited_syn_symbol_map: [],
-                current_syn_symbol_map: [],
+                current_variable_map: [],
             },
             fly_term_region: FlyTermRegion {
                 terms: FlyTerms {
-                    solid_terms: SolTerms {
+                    sol_terms: SolTerms {
                         entries: [
                             SolidTermData::TypeOntology {
                                 path: TypePath(`core::option::Option`, `Enum`),
@@ -54010,7 +54010,7 @@
                             },
                         ],
                     },
-                    hollow_terms: HolTerms {
+                    hol_terms: HolTerms {
                         entries: [
                             HolTermEntry {
                                 data: HolTermData::Hole {
@@ -61733,18 +61733,18 @@
             sem_expr_terms: [],
             symbol_tys: SymbolMap {
                 inherited_syn_symbol_map: [],
-                current_syn_symbol_map: [],
+                current_variable_map: [],
             },
             symbol_terms: SymbolMap {
                 inherited_syn_symbol_map: [],
-                current_syn_symbol_map: [],
+                current_variable_map: [],
             },
             fly_term_region: FlyTermRegion {
                 terms: FlyTerms {
-                    solid_terms: SolTerms {
+                    sol_terms: SolTerms {
                         entries: [],
                     },
-                    hollow_terms: HolTerms {
+                    hol_terms: HolTerms {
                         entries: [],
                         first_unresolved_term_idx: 0,
                     },
@@ -62901,18 +62901,18 @@
                         },
                     ),
                 ],
-                current_syn_symbol_map: [],
+                current_variable_map: [],
             },
             symbol_terms: SymbolMap {
                 inherited_syn_symbol_map: [],
-                current_syn_symbol_map: [],
+                current_variable_map: [],
             },
             fly_term_region: FlyTermRegion {
                 terms: FlyTerms {
-                    solid_terms: SolTerms {
+                    sol_terms: SolTerms {
                         entries: [],
                     },
-                    hollow_terms: HolTerms {
+                    hol_terms: HolTerms {
                         entries: [],
                         first_unresolved_term_idx: 0,
                     },
@@ -63955,18 +63955,18 @@
             sem_expr_terms: [],
             symbol_tys: SymbolMap {
                 inherited_syn_symbol_map: [],
-                current_syn_symbol_map: [],
+                current_variable_map: [],
             },
             symbol_terms: SymbolMap {
                 inherited_syn_symbol_map: [],
-                current_syn_symbol_map: [],
+                current_variable_map: [],
             },
             fly_term_region: FlyTermRegion {
                 terms: FlyTerms {
-                    solid_terms: SolTerms {
+                    sol_terms: SolTerms {
                         entries: [],
                     },
-                    hollow_terms: HolTerms {
+                    hol_terms: HolTerms {
                         entries: [],
                         first_unresolved_term_idx: 0,
                     },
@@ -64572,18 +64572,18 @@
             sem_expr_terms: [],
             symbol_tys: SymbolMap {
                 inherited_syn_symbol_map: [],
-                current_syn_symbol_map: [],
+                current_variable_map: [],
             },
             symbol_terms: SymbolMap {
                 inherited_syn_symbol_map: [],
-                current_syn_symbol_map: [],
+                current_variable_map: [],
             },
             fly_term_region: FlyTermRegion {
                 terms: FlyTerms {
-                    solid_terms: SolTerms {
+                    sol_terms: SolTerms {
                         entries: [],
                     },
-                    hollow_terms: HolTerms {
+                    hol_terms: HolTerms {
                         entries: [],
                         first_unresolved_term_idx: 0,
                     },
@@ -65005,18 +65005,18 @@
             sem_expr_terms: [],
             symbol_tys: SymbolMap {
                 inherited_syn_symbol_map: [],
-                current_syn_symbol_map: [],
+                current_variable_map: [],
             },
             symbol_terms: SymbolMap {
                 inherited_syn_symbol_map: [],
-                current_syn_symbol_map: [],
+                current_variable_map: [],
             },
             fly_term_region: FlyTermRegion {
                 terms: FlyTerms {
-                    solid_terms: SolTerms {
+                    sol_terms: SolTerms {
                         entries: [],
                     },
-                    hollow_terms: HolTerms {
+                    hol_terms: HolTerms {
                         entries: [],
                         first_unresolved_term_idx: 0,
                     },
@@ -65228,7 +65228,7 @@
                 infos: [
                     SelfValue,
                     Variable {
-                        current_syn_symbol_idx: 0,
+                        current_variable_idx: 0,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -65238,7 +65238,7 @@
                         ),
                     },
                     Variable {
-                        current_syn_symbol_idx: 1,
+                        current_variable_idx: 1,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -65248,7 +65248,7 @@
                         ),
                     },
                     Variable {
-                        current_syn_symbol_idx: 2,
+                        current_variable_idx: 2,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -65258,7 +65258,7 @@
                         ),
                     },
                     Variable {
-                        current_syn_symbol_idx: 3,
+                        current_variable_idx: 3,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -65268,7 +65268,7 @@
                         ),
                     },
                     Variable {
-                        current_syn_symbol_idx: 4,
+                        current_variable_idx: 4,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -65278,7 +65278,7 @@
                         ),
                     },
                     Variable {
-                        current_syn_symbol_idx: 5,
+                        current_variable_idx: 5,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -65288,7 +65288,7 @@
                         ),
                     },
                     Variable {
-                        current_syn_symbol_idx: 6,
+                        current_variable_idx: 6,
                         ident: Ident(
                             Coword(
                                 Id {
@@ -65638,8 +65638,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         16,
                                     ),
-                                    current_syn_symbol_idx: 0,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 0,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 0,
                                     },
                                 },
@@ -65768,8 +65768,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         23,
                                     ),
-                                    current_syn_symbol_idx: 0,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 0,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 0,
                                     },
                                 },
@@ -65898,8 +65898,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         30,
                                     ),
-                                    current_syn_symbol_idx: 0,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 0,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 0,
                                     },
                                 },
@@ -66028,8 +66028,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         37,
                                     ),
-                                    current_syn_symbol_idx: 0,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 0,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 0,
                                     },
                                 },
@@ -66402,7 +66402,7 @@
                                     ),
                                     ident: `i`,
                                     frame_var_symbol_idx: 5,
-                                    current_syn_symbol_kind: CurrentVariableKind::LoopVariable(
+                                    current_variable_kind: CurrentVariableKind::LoopVariable(
                                         15,
                                     ),
                                 },
@@ -66571,8 +66571,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         58,
                                     ),
-                                    current_syn_symbol_idx: 5,
-                                    current_syn_symbol_kind: CurrentVariableKind::LoopVariable(
+                                    current_variable_idx: 5,
+                                    current_variable_kind: CurrentVariableKind::LoopVariable(
                                         15,
                                     ),
                                 },
@@ -66778,8 +66778,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         62,
                                     ),
-                                    current_syn_symbol_idx: 1,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 1,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 1,
                                     },
                                 },
@@ -66823,8 +66823,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         64,
                                     ),
-                                    current_syn_symbol_idx: 1,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 1,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 1,
                                     },
                                 },
@@ -66868,8 +66868,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         68,
                                     ),
-                                    current_syn_symbol_idx: 6,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 6,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 5,
                                     },
                                 },
@@ -67190,8 +67190,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         72,
                                     ),
-                                    current_syn_symbol_idx: 2,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 2,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 2,
                                     },
                                 },
@@ -67235,8 +67235,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         74,
                                     ),
-                                    current_syn_symbol_idx: 2,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 2,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 2,
                                     },
                                 },
@@ -67280,8 +67280,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         78,
                                     ),
-                                    current_syn_symbol_idx: 6,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 6,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 5,
                                     },
                                 },
@@ -67602,8 +67602,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         82,
                                     ),
-                                    current_syn_symbol_idx: 3,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 3,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 3,
                                     },
                                 },
@@ -67647,8 +67647,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         84,
                                     ),
-                                    current_syn_symbol_idx: 3,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 3,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 3,
                                     },
                                 },
@@ -67692,8 +67692,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         88,
                                     ),
-                                    current_syn_symbol_idx: 6,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 6,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 5,
                                     },
                                 },
@@ -68014,8 +68014,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         92,
                                     ),
-                                    current_syn_symbol_idx: 4,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 4,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 4,
                                     },
                                 },
@@ -68059,8 +68059,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         94,
                                     ),
-                                    current_syn_symbol_idx: 4,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 4,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 4,
                                     },
                                 },
@@ -68104,8 +68104,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         98,
                                     ),
-                                    current_syn_symbol_idx: 6,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 6,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 5,
                                     },
                                 },
@@ -68514,8 +68514,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         107,
                                     ),
-                                    current_syn_symbol_idx: 1,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 1,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 1,
                                     },
                                 },
@@ -68559,8 +68559,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         109,
                                     ),
-                                    current_syn_symbol_idx: 2,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 2,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 2,
                                     },
                                 },
@@ -68752,8 +68752,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         114,
                                     ),
-                                    current_syn_symbol_idx: 3,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 3,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 3,
                                     },
                                 },
@@ -68797,8 +68797,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         116,
                                     ),
-                                    current_syn_symbol_idx: 4,
-                                    current_syn_symbol_kind: CurrentVariableKind::LetVariable {
+                                    current_variable_idx: 4,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
                                         pattern_variable_idx: 4,
                                     },
                                 },
@@ -69875,7 +69875,7 @@
             ],
             symbol_tys: SymbolMap {
                 inherited_syn_symbol_map: [],
-                current_syn_symbol_map: [
+                current_variable_map: [
                     SymbolType(
                         FlyTerm {
                             place: Some(
@@ -69978,14 +69978,14 @@
             },
             symbol_terms: SymbolMap {
                 inherited_syn_symbol_map: [],
-                current_syn_symbol_map: [],
+                current_variable_map: [],
             },
             fly_term_region: FlyTermRegion {
                 terms: FlyTerms {
-                    solid_terms: SolTerms {
+                    sol_terms: SolTerms {
                         entries: [],
                     },
-                    hollow_terms: HolTerms {
+                    hol_terms: HolTerms {
                         entries: [
                             HolTermEntry {
                                 data: HolTermData::Hole {
@@ -72775,18 +72775,18 @@
                         },
                     ),
                 ],
-                current_syn_symbol_map: [],
+                current_variable_map: [],
             },
             symbol_terms: SymbolMap {
                 inherited_syn_symbol_map: [],
-                current_syn_symbol_map: [],
+                current_variable_map: [],
             },
             fly_term_region: FlyTermRegion {
                 terms: FlyTerms {
-                    solid_terms: SolTerms {
+                    sol_terms: SolTerms {
                         entries: [],
                     },
-                    hollow_terms: HolTerms {
+                    hol_terms: HolTerms {
                         entries: [],
                         first_unresolved_term_idx: 0,
                     },

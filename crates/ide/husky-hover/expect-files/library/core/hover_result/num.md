@@ -160,7 +160,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 225;\n\ntoken_line_group_idx = 28\n\ntoken = TokenData::Ident(\n    `Clone`,\n);\n\ntoken_info = None;\n\n\n",
+                            value: "\ntoken_idx = 225;\n\ntoken_line_group_idx = 28\n\ntoken = TokenData::Ident(\n    `Clone`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::SynPrincipalEntityPathExpr(\n            3,\n            PrincipalEntityPath::MajorItem(\n                MajorItemPath::Trait(\n                    TraitPath(`core::clone::Clone`),\n                ),\n            ),\n        ),\n        data: TokenInfoData::Entity(\n            EntityPath::MajorItem(\n                MajorItemPath::Trait(\n                    TraitPath(`core::clone::Clone`),\n                ),\n            ),\n        ),\n    },\n);\n\n\n",
                         },
                     ),
                     range: Some(
@@ -400,7 +400,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 585;\n\ntoken_line_group_idx = 77\n\ntoken = TokenData::Ident(\n    `PartialEq`,\n);\n\ntoken_info = None;\n\n\n",
+                            value: "\ntoken_idx = 585;\n\ntoken_line_group_idx = 77\n\ntoken = TokenData::Ident(\n    `PartialEq`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::SynPrincipalEntityPathExpr(\n            1,\n            PrincipalEntityPath::MajorItem(\n                MajorItemPath::Trait(\n                    TraitPath(`core::cmp::PartialEq`),\n                ),\n            ),\n        ),\n        data: TokenInfoData::Entity(\n            EntityPath::MajorItem(\n                MajorItemPath::Trait(\n                    TraitPath(`core::cmp::PartialEq`),\n                ),\n            ),\n        ),\n    },\n);\n\n\n",
                         },
                     ),
                     range: Some(

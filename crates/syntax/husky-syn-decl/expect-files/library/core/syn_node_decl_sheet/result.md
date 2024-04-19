@@ -143,7 +143,7 @@ SynNodeDeclSheet {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
-                                        current_syn_symbol_arena: Arena {
+                                        current_variable_arena: Arena {
                                             data: [
                                                 CurrentVariableEntry {
                                                     modifier: Const,
@@ -418,8 +418,8 @@ SynNodeDeclSheet {
                                             regional_token_idx: RegionalTokenIdx(
                                                 17,
                                             ),
-                                            current_syn_symbol_idx: 1,
-                                            current_syn_symbol_kind: CurrentVariableKind::TemplateParameter {
+                                            current_variable_idx: 1,
+                                            current_variable_kind: CurrentVariableKind::TemplateParameter {
                                                 template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                                     ident_token: IdentRegionalToken {
                                                         ident: `T2`,
@@ -439,8 +439,8 @@ SynNodeDeclSheet {
                                             regional_token_idx: RegionalTokenIdx(
                                                 18,
                                             ),
-                                            current_syn_symbol_idx: 3,
-                                            current_syn_symbol_kind: CurrentVariableKind::TemplateParameter {
+                                            current_variable_idx: 3,
+                                            current_variable_kind: CurrentVariableKind::TemplateParameter {
                                                 template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                                     ident_token: IdentRegionalToken {
                                                         ident: `E2`,
@@ -470,8 +470,8 @@ SynNodeDeclSheet {
                                             regional_token_idx: RegionalTokenIdx(
                                                 21,
                                             ),
-                                            current_syn_symbol_idx: 0,
-                                            current_syn_symbol_kind: CurrentVariableKind::TemplateParameter {
+                                            current_variable_idx: 0,
+                                            current_variable_kind: CurrentVariableKind::TemplateParameter {
                                                 template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                                     ident_token: IdentRegionalToken {
                                                         ident: `T1`,
@@ -491,8 +491,8 @@ SynNodeDeclSheet {
                                             regional_token_idx: RegionalTokenIdx(
                                                 22,
                                             ),
-                                            current_syn_symbol_idx: 2,
-                                            current_syn_symbol_kind: CurrentVariableKind::TemplateParameter {
+                                            current_variable_idx: 2,
+                                            current_variable_kind: CurrentVariableKind::TemplateParameter {
                                                 template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                                     ident_token: IdentRegionalToken {
                                                         ident: `E1`,
@@ -621,7 +621,7 @@ SynNodeDeclSheet {
                                     inherited_syn_symbol_arena: Arena {
                                         data: [],
                                     },
-                                    current_syn_symbol_arena: Arena {
+                                    current_variable_arena: Arena {
                                         data: [
                                             CurrentVariableEntry {
                                                 modifier: Const,
@@ -870,8 +870,8 @@ SynNodeDeclSheet {
                                                             regional_token_idx: RegionalTokenIdx(
                                                                 17,
                                                             ),
-                                                            current_syn_symbol_idx: 1,
-                                                            current_syn_symbol_kind: CurrentVariableKind::TemplateParameter {
+                                                            current_variable_idx: 1,
+                                                            current_variable_kind: CurrentVariableKind::TemplateParameter {
                                                                 template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                                                     ident_token: IdentRegionalToken {
                                                                         ident: `T2`,
@@ -891,8 +891,8 @@ SynNodeDeclSheet {
                                                             regional_token_idx: RegionalTokenIdx(
                                                                 18,
                                                             ),
-                                                            current_syn_symbol_idx: 3,
-                                                            current_syn_symbol_kind: CurrentVariableKind::TemplateParameter {
+                                                            current_variable_idx: 3,
+                                                            current_variable_kind: CurrentVariableKind::TemplateParameter {
                                                                 template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                                                     ident_token: IdentRegionalToken {
                                                                         ident: `E2`,
@@ -922,8 +922,8 @@ SynNodeDeclSheet {
                                                             regional_token_idx: RegionalTokenIdx(
                                                                 21,
                                                             ),
-                                                            current_syn_symbol_idx: 0,
-                                                            current_syn_symbol_kind: CurrentVariableKind::TemplateParameter {
+                                                            current_variable_idx: 0,
+                                                            current_variable_kind: CurrentVariableKind::TemplateParameter {
                                                                 template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                                                     ident_token: IdentRegionalToken {
                                                                         ident: `T1`,
@@ -943,8 +943,8 @@ SynNodeDeclSheet {
                                                             regional_token_idx: RegionalTokenIdx(
                                                                 22,
                                                             ),
-                                                            current_syn_symbol_idx: 2,
-                                                            current_syn_symbol_kind: CurrentVariableKind::TemplateParameter {
+                                                            current_variable_idx: 2,
+                                                            current_variable_kind: CurrentVariableKind::TemplateParameter {
                                                                 template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                                                     ident_token: IdentRegionalToken {
                                                                         ident: `E1`,
@@ -1073,7 +1073,7 @@ SynNodeDeclSheet {
                                                     inherited_syn_symbol_arena: Arena {
                                                         data: [],
                                                     },
-                                                    current_syn_symbol_arena: Arena {
+                                                    current_variable_arena: Arena {
                                                         data: [
                                                             CurrentVariableEntry {
                                                                 modifier: Const,
@@ -1308,7 +1308,7 @@ SynNodeDeclSheet {
                                                 },
                                             ],
                                         },
-                                        current_syn_symbol_arena: Arena {
+                                        current_variable_arena: Arena {
                                             data: [],
                                         },
                                         allow_self_type: True,
@@ -1494,8 +1494,8 @@ SynNodeDeclSheet {
                                                             regional_token_idx: RegionalTokenIdx(
                                                                 17,
                                                             ),
-                                                            current_syn_symbol_idx: 1,
-                                                            current_syn_symbol_kind: CurrentVariableKind::TemplateParameter {
+                                                            current_variable_idx: 1,
+                                                            current_variable_kind: CurrentVariableKind::TemplateParameter {
                                                                 template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                                                     ident_token: IdentRegionalToken {
                                                                         ident: `T2`,
@@ -1515,8 +1515,8 @@ SynNodeDeclSheet {
                                                             regional_token_idx: RegionalTokenIdx(
                                                                 18,
                                                             ),
-                                                            current_syn_symbol_idx: 3,
-                                                            current_syn_symbol_kind: CurrentVariableKind::TemplateParameter {
+                                                            current_variable_idx: 3,
+                                                            current_variable_kind: CurrentVariableKind::TemplateParameter {
                                                                 template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                                                     ident_token: IdentRegionalToken {
                                                                         ident: `E2`,
@@ -1546,8 +1546,8 @@ SynNodeDeclSheet {
                                                             regional_token_idx: RegionalTokenIdx(
                                                                 21,
                                                             ),
-                                                            current_syn_symbol_idx: 0,
-                                                            current_syn_symbol_kind: CurrentVariableKind::TemplateParameter {
+                                                            current_variable_idx: 0,
+                                                            current_variable_kind: CurrentVariableKind::TemplateParameter {
                                                                 template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                                                     ident_token: IdentRegionalToken {
                                                                         ident: `T1`,
@@ -1567,8 +1567,8 @@ SynNodeDeclSheet {
                                                             regional_token_idx: RegionalTokenIdx(
                                                                 22,
                                                             ),
-                                                            current_syn_symbol_idx: 2,
-                                                            current_syn_symbol_kind: CurrentVariableKind::TemplateParameter {
+                                                            current_variable_idx: 2,
+                                                            current_variable_kind: CurrentVariableKind::TemplateParameter {
                                                                 template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                                                     ident_token: IdentRegionalToken {
                                                                         ident: `E1`,
@@ -1697,7 +1697,7 @@ SynNodeDeclSheet {
                                                     inherited_syn_symbol_arena: Arena {
                                                         data: [],
                                                     },
-                                                    current_syn_symbol_arena: Arena {
+                                                    current_variable_arena: Arena {
                                                         data: [
                                                             CurrentVariableEntry {
                                                                 modifier: Const,
@@ -2075,7 +2075,7 @@ SynNodeDeclSheet {
                                                 },
                                             ],
                                         },
-                                        current_syn_symbol_arena: Arena {
+                                        current_variable_arena: Arena {
                                             data: [
                                                 CurrentVariableEntry {
                                                     modifier: Pure,

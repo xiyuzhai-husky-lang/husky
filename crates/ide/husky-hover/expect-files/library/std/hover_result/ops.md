@@ -220,7 +220,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 7;\n\ntoken_line_group_idx = 1\n\ntoken = TokenData::Ident(\n    `Add`,\n);\n\ntoken_info = None;\n\n\n",
+                            value: "\ntoken_idx = 7;\n\ntoken_line_group_idx = 1\n\ntoken = TokenData::Ident(\n    `Add`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::AstIdentifiable,\n        data: TokenInfoData::EntityNode(\n            ItemSynNodePath::MajorItem(\n                MajorItemSynNodePath::Trait(\n                    TraitSynNodePath(\n                        ItemSynNodePathId {\n                            data: ItemSynNodePathData::MajorItem(\n                                MajorItemSynNodePathData::Trait(\n                                    TraitSynNodePathData {\n                                        disambiguated_item_path: DisambiguatedItemPath {\n                                            maybe_ambiguous_item_path: TraitPath(`std::ops::Add`),\n                                            disambiguator: 0,\n                                        },\n                                    },\n                                ),\n                            ),\n                        },\n                    ),\n                ),\n            ),\n            EntityKind::MajorItem {\n                module_item_kind: MajorItemKind::Trait,\n                connection: MajorItemConnectionKind::Connected,\n            },\n        ),\n    },\n);\n\n\n",
                         },
                     ),
                     range: Some(
@@ -280,7 +280,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 9;\n\ntoken_line_group_idx = 1\n\ntoken = TokenData::Ident(\n    `B`,\n);\n\ntoken_info = None;\n\n\n",
+                            value: "\ntoken_idx = 9;\n\ntoken_line_group_idx = 1\n\ntoken = TokenData::Ident(\n    `B`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::TemplateParameter(\n            0,\n        ),\n        data: TokenInfoData::CurrentSynSymbol {\n            current_variable_idx: 0,\n            current_variable_kind: CurrentVariableKind::TemplateParameter {\n                template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {\n                    ident_token: IdentRegionalToken {\n                        ident: `B`,\n                        regional_token_idx: RegionalTokenIdx(\n                            4,\n                        ),\n                    },\n                },\n            },\n            syn_expr_region: ExprRegionLeash(_),\n        },\n    },\n);\n\nCurrentVariableEntry {\n    modifier: Const,\n    access_start: RegionalTokenIdx(\n        5,\n    ),\n    access_end: None,\n    data: CurrentVariableData::TemplateParameter {\n        syn_attrs: TemplateParameterSynAttrs {\n            syn_attrs: [],\n        },\n        annotated_variance_token: None,\n        data: CurrentTemplateVariableData::Type {\n            ident_token: IdentRegionalToken {\n                ident: `B`,\n                regional_token_idx: RegionalTokenIdx(\n                    4,\n                ),\n            },\n            trai_syn_expr_idxs: [],\n        },\n    },\n}\n",
                         },
                     ),
                     range: Some(
@@ -400,7 +400,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 13;\n\ntoken_line_group_idx = 2\n\ntoken = TokenData::Ident(\n    `Output`,\n);\n\ntoken_info = None;\n\n\n",
+                            value: "\ntoken_idx = 13;\n\ntoken_line_group_idx = 2\n\ntoken = TokenData::Ident(\n    `Output`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::AstIdentifiable,\n        data: TokenInfoData::EntityNode(\n            ItemSynNodePath::AssocItem(\n                AssocItemSynNodePath::TraitItem(\n                    TraitItemSynNodePath(\n                        ItemSynNodePathId {\n                            data: ItemSynNodePathData::AssocItem(\n                                AssocItemSynNodePathData::TraitItem(\n                                    TraitItemSynNodePathData {\n                                        parent_trai_syn_node_path: TraitSynNodePath(\n                                            ItemSynNodePathId {\n                                                data: ItemSynNodePathData::MajorItem(\n                                                    MajorItemSynNodePathData::Trait(\n                                                        TraitSynNodePathData {\n                                                            disambiguated_item_path: DisambiguatedItemPath {\n                                                                maybe_ambiguous_item_path: TraitPath(`std::ops::Add`),\n                                                                disambiguator: 0,\n                                                            },\n                                                        },\n                                                    ),\n                                                ),\n                                            },\n                                        ),\n                                        disambiguated_item_path: DisambiguatedItemPath {\n                                            maybe_ambiguous_item_path: TraitItemPath(`std::ops::Add::Output`, `AssocType`),\n                                            disambiguator: 0,\n                                        },\n                                    },\n                                ),\n                            ),\n                        },\n                    ),\n                ),\n            ),\n            EntityKind::AssocItem {\n                assoc_item_kind: AssocItemKind::TraitItem(\n                    TraitItemKind::AssocType,\n                ),\n            },\n        ),\n    },\n);\n\n\n",
                         },
                     ),
                     range: Some(
@@ -490,7 +490,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 16;\n\ntoken_line_group_idx = 3\n\ntoken = TokenData::Ident(\n    `add`,\n);\n\ntoken_info = None;\n\n\n",
+                            value: "\ntoken_idx = 16;\n\ntoken_line_group_idx = 3\n\ntoken = TokenData::Ident(\n    `add`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::AstIdentifiable,\n        data: TokenInfoData::EntityNode(\n            ItemSynNodePath::AssocItem(\n                AssocItemSynNodePath::TraitItem(\n                    TraitItemSynNodePath(\n                        ItemSynNodePathId {\n                            data: ItemSynNodePathData::AssocItem(\n                                AssocItemSynNodePathData::TraitItem(\n                                    TraitItemSynNodePathData {\n                                        parent_trai_syn_node_path: TraitSynNodePath(\n                                            ItemSynNodePathId {\n                                                data: ItemSynNodePathData::MajorItem(\n                                                    MajorItemSynNodePathData::Trait(\n                                                        TraitSynNodePathData {\n                                                            disambiguated_item_path: DisambiguatedItemPath {\n                                                                maybe_ambiguous_item_path: TraitPath(`std::ops::Add`),\n                                                                disambiguator: 0,\n                                                            },\n                                                        },\n                                                    ),\n                                                ),\n                                            },\n                                        ),\n                                        disambiguated_item_path: DisambiguatedItemPath {\n                                            maybe_ambiguous_item_path: TraitItemPath(`std::ops::Add::add`, `MethodRitchie(\n                                                Fn,\n                                            )`),\n                                            disambiguator: 0,\n                                        },\n                                    },\n                                ),\n                            ),\n                        },\n                    ),\n                ),\n            ),\n            EntityKind::AssocItem {\n                assoc_item_kind: AssocItemKind::TraitItem(\n                    TraitItemKind::MethodRitchie(\n                        RitchieItemKind::Fn,\n                    ),\n                ),\n            },\n        ),\n    },\n);\n\n\n",
                         },
                     ),
                     range: Some(
@@ -550,7 +550,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 18;\n\ntoken_line_group_idx = 3\n\ntoken = TokenData::Ident(\n    `other`,\n);\n\ntoken_info = None;\n\n\n",
+                            value: "\ntoken_idx = 18;\n\ntoken_line_group_idx = 3\n\ntoken = TokenData::Ident(\n    `other`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::PatternExpr(\n            0,\n        ),\n        data: TokenInfoData::CurrentSynSymbol {\n            current_variable_idx: 0,\n            current_variable_kind: CurrentVariableKind::SimpleParenateParameter {\n                pattern_variable_idx: 0,\n            },\n            syn_expr_region: ExprRegionLeash(_),\n        },\n    },\n);\n\nCurrentVariableEntry {\n    modifier: Pure,\n    access_start: RegionalTokenIdx(\n        5,\n    ),\n    access_end: None,\n    data: CurrentVariableData::SimpleParenateParameter {\n        ident: `other`,\n        pattern_variable_idx: 0,\n    },\n}\n",
                         },
                     ),
                     range: Some(
@@ -610,7 +610,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 20;\n\ntoken_line_group_idx = 3\n\ntoken = TokenData::Ident(\n    `B`,\n);\n\ntoken_info = None;\n\n\n",
+                            value: "\ntoken_idx = 20;\n\ntoken_line_group_idx = 3\n\ntoken = TokenData::Ident(\n    `B`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::SemaExpr(\n            SemaExprIdx(\n                0,\n            ),\n        ),\n        data: TokenInfoData::InheritedSynSymbol {\n            inherited_syn_symbol_idx: 0,\n            inherited_syn_symbol_kind: InheritedVariableKind::Template(\n                InheritedTemplateVariable::Type {\n                    ident: `B`,\n                },\n            ),\n            syn_expr_region: ExprRegionLeash(_),\n        },\n    },\n);\n\nInheritedVariable {\n    modifier: Const,\n    kind: InheritedVariableKind::Template(\n        InheritedTemplateVariable::Type {\n            ident: `B`,\n        },\n    ),\n}\n",
                         },
                     ),
                     range: Some(
@@ -700,7 +700,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "Other\ntoken_idx = 23;\n\ntoken_line_group_idx = 3\n\ntoken = TokenData::Keyword(\n    Keyword::Pronoun(\n        SelfType,\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                            value: "Other\ntoken_idx = 23;\n\ntoken_line_group_idx = 3\n\ntoken = TokenData::Keyword(\n    Keyword::Pronoun(\n        SelfType,\n    ),\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::SemaExpr(\n            SemaExprIdx(\n                1,\n            ),\n        ),\n        data: TokenInfoData::SelfType,\n    },\n);\n\nself type\n",
                         },
                     ),
                     range: Some(

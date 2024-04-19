@@ -70,7 +70,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 12;\n\ntoken_line_group_idx = 1\n\ntoken = TokenData::Ident(\n    `Point2d`,\n);\n\ntoken_info = None;\n\n\n",
+                            value: "\ntoken_idx = 12;\n\ntoken_line_group_idx = 1\n\ntoken = TokenData::Ident(\n    `Point2d`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::SynPrincipalEntityPathExpr(\n            0,\n            PrincipalEntityPath::MajorItem(\n                MajorItemPath::Type(\n                    TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),\n                ),\n            ),\n        ),\n        data: TokenInfoData::Entity(\n            EntityPath::MajorItem(\n                MajorItemPath::Type(\n                    TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),\n                ),\n            ),\n        ),\n    },\n);\n\n\n",
                         },
                     ),
                     range: Some(
@@ -220,7 +220,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 42;\n\ntoken_line_group_idx = 5\n\ntoken = TokenData::Ident(\n    `pt`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::PatternExpr(\n            0,\n        ),\n        data: TokenInfoData::CurrentSynSymbol {\n            current_syn_symbol_idx: 0,\n            current_syn_symbol_kind: CurrentVariableKind::SimpleParenateParameter {\n                pattern_variable_idx: 0,\n            },\n            syn_expr_region: ExprRegionLeash(_),\n        },\n    },\n);\n\nCurrentVariableEntry {\n    modifier: Pure,\n    access_start: RegionalTokenIdx(\n        5,\n    ),\n    access_end: None,\n    data: CurrentVariableData::SimpleParenateParameter {\n        ident: `pt`,\n        pattern_variable_idx: 0,\n    },\n}\n",
+                            value: "\ntoken_idx = 42;\n\ntoken_line_group_idx = 5\n\ntoken = TokenData::Ident(\n    `pt`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::PatternExpr(\n            0,\n        ),\n        data: TokenInfoData::CurrentSynSymbol {\n            current_variable_idx: 0,\n            current_variable_kind: CurrentVariableKind::SimpleParenateParameter {\n                pattern_variable_idx: 0,\n            },\n            syn_expr_region: ExprRegionLeash(_),\n        },\n    },\n);\n\nCurrentVariableEntry {\n    modifier: Pure,\n    access_start: RegionalTokenIdx(\n        5,\n    ),\n    access_end: None,\n    data: CurrentVariableData::SimpleParenateParameter {\n        ident: `pt`,\n        pattern_variable_idx: 0,\n    },\n}\n",
                         },
                     ),
                     range: Some(
@@ -400,7 +400,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 78;\n\ntoken_line_group_idx = 9\n\ntoken = TokenData::Ident(\n    `ap`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::SemaExpr(\n            SemaExprIdx(\n                11,\n            ),\n        ),\n        data: TokenInfoData::CurrentSynSymbol {\n            current_syn_symbol_idx: 1,\n            current_syn_symbol_kind: CurrentVariableKind::LetVariable {\n                pattern_variable_idx: 1,\n            },\n            syn_expr_region: ExprRegionLeash(_),\n        },\n    },\n);\n\nCurrentVariableEntry {\n    modifier: Pure,\n    access_start: RegionalTokenIdx(\n        11,\n    ),\n    access_end: Some(\n        RegionalTokenIdxRangeEnd(\n            RegionalTokenIdx(\n                81,\n            ),\n        ),\n    ),\n    data: CurrentVariableData::LetVariable {\n        ident: `ap`,\n        pattern_variable_idx: 1,\n    },\n}\n",
+                            value: "\ntoken_idx = 78;\n\ntoken_line_group_idx = 9\n\ntoken = TokenData::Ident(\n    `ap`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::SemaExpr(\n            SemaExprIdx(\n                11,\n            ),\n        ),\n        data: TokenInfoData::CurrentSynSymbol {\n            current_variable_idx: 1,\n            current_variable_kind: CurrentVariableKind::LetVariable {\n                pattern_variable_idx: 1,\n            },\n            syn_expr_region: ExprRegionLeash(_),\n        },\n    },\n);\n\nCurrentVariableEntry {\n    modifier: Pure,\n    access_start: RegionalTokenIdx(\n        11,\n    ),\n    access_end: Some(\n        RegionalTokenIdxRangeEnd(\n            RegionalTokenIdx(\n                81,\n            ),\n        ),\n    ),\n    data: CurrentVariableData::LetVariable {\n        ident: `ap`,\n        pattern_variable_idx: 1,\n    },\n}\n",
                         },
                     ),
                     range: Some(

@@ -27,32 +27,222 @@ Ok(
             None,
             None,
             None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::AstIdentifiable,
+                    data: TokenInfoData::EntityNode(
+                        ItemSynNodePath::MajorItem(
+                            MajorItemSynNodePath::Type(
+                                TypeSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Type(
+                                                TypeSynNodePathData {
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TypePath(`core::mem::Ref`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
+                        ),
+                        EntityKind::MajorItem {
+                            module_item_kind: MajorItemKind::Type(
+                                TypeKind::Extern,
+                            ),
+                            connection: MajorItemConnectionKind::Connected,
+                        },
+                    ),
+                },
+            ),
+            None,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::TemplateParameter(
+                        0,
+                    ),
+                    data: TokenInfoData::CurrentSynSymbol {
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::TemplateParameter {
+                            template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Lifetime {
+                                label_token: LifetimeLabelRegionalToken {
+                                    label: `'a`,
+                                    token_idx: RegionalTokenIdx(
+                                        6,
+                                    ),
+                                },
+                            },
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::TemplateParameter(
+                        1,
+                    ),
+                    data: TokenInfoData::CurrentSynSymbol {
+                        current_variable_idx: 1,
+                        current_variable_kind: CurrentVariableKind::TemplateParameter {
+                            template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
+                                ident_token: IdentRegionalToken {
+                                    ident: `E`,
+                                    regional_token_idx: RegionalTokenIdx(
+                                        9,
+                                    ),
+                                },
+                            },
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
             None,
             None,
             None,
             None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::AstIdentifiable,
+                    data: TokenInfoData::EntityNode(
+                        ItemSynNodePath::MajorItem(
+                            MajorItemSynNodePath::Type(
+                                TypeSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Type(
+                                                TypeSynNodePathData {
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TypePath(`core::mem::RefMut`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
+                        ),
+                        EntityKind::MajorItem {
+                            module_item_kind: MajorItemKind::Type(
+                                TypeKind::Extern,
+                            ),
+                            connection: MajorItemConnectionKind::Connected,
+                        },
+                    ),
+                },
+            ),
+            None,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::TemplateParameter(
+                        0,
+                    ),
+                    data: TokenInfoData::CurrentSynSymbol {
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::TemplateParameter {
+                            template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Lifetime {
+                                label_token: LifetimeLabelRegionalToken {
+                                    label: `'a`,
+                                    token_idx: RegionalTokenIdx(
+                                        6,
+                                    ),
+                                },
+                            },
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::TemplateParameter(
+                        1,
+                    ),
+                    data: TokenInfoData::CurrentSynSymbol {
+                        current_variable_idx: 1,
+                        current_variable_kind: CurrentVariableKind::TemplateParameter {
+                            template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
+                                ident_token: IdentRegionalToken {
+                                    ident: `E`,
+                                    regional_token_idx: RegionalTokenIdx(
+                                        9,
+                                    ),
+                                },
+                            },
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
             None,
             None,
             None,
             None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::AstIdentifiable,
+                    data: TokenInfoData::EntityNode(
+                        ItemSynNodePath::MajorItem(
+                            MajorItemSynNodePath::Type(
+                                TypeSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Type(
+                                                TypeSynNodePathData {
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TypePath(`core::mem::Leash`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
+                        ),
+                        EntityKind::MajorItem {
+                            module_item_kind: MajorItemKind::Type(
+                                TypeKind::Extern,
+                            ),
+                            connection: MajorItemConnectionKind::Connected,
+                        },
+                    ),
+                },
+            ),
             None,
             None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::TemplateParameter(
+                        0,
+                    ),
+                    data: TokenInfoData::CurrentSynSymbol {
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::TemplateParameter {
+                            template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
+                                ident_token: IdentRegionalToken {
+                                    ident: `E`,
+                                    regional_token_idx: RegionalTokenIdx(
+                                        6,
+                                    ),
+                                },
+                            },
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
             None,
             None,
             None,
@@ -63,8 +253,8 @@ Ok(
                         0,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 0,
-                        current_syn_symbol_kind: CurrentVariableKind::TemplateParameter {
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::TemplateParameter {
                             template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
                                     ident: `E`,
@@ -126,8 +316,8 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 0,
-                        current_syn_symbol_kind: CurrentVariableKind::TemplateParameter {
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::TemplateParameter {
                             template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
                                     ident: `E`,
@@ -144,11 +334,81 @@ Ok(
             None,
             None,
             None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::AstIdentifiable,
+                    data: TokenInfoData::EntityNode(
+                        ItemSynNodePath::MajorItem(
+                            MajorItemSynNodePath::Type(
+                                TypeSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Type(
+                                                TypeSynNodePathData {
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TypePath(`core::mem::At`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
+                        ),
+                        EntityKind::MajorItem {
+                            module_item_kind: MajorItemKind::Type(
+                                TypeKind::Extern,
+                            ),
+                            connection: MajorItemConnectionKind::Connected,
+                        },
+                    ),
+                },
+            ),
             None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::TemplateParameter(
+                        0,
+                    ),
+                    data: TokenInfoData::CurrentSynSymbol {
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::TemplateParameter {
+                            template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Place {
+                                label_token: PlaceLabelRegionalToken {
+                                    label: `'α`,
+                                    regional_token_idx: RegionalTokenIdx(
+                                        5,
+                                    ),
+                                },
+                            },
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
             None,
-            None,
-            None,
-            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::TemplateParameter(
+                        1,
+                    ),
+                    data: TokenInfoData::CurrentSynSymbol {
+                        current_variable_idx: 1,
+                        current_variable_kind: CurrentVariableKind::TemplateParameter {
+                            template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
+                                ident_token: IdentRegionalToken {
+                                    ident: `E`,
+                                    regional_token_idx: RegionalTokenIdx(
+                                        7,
+                                    ),
+                                },
+                            },
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
             None,
             None,
         ],

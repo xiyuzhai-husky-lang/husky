@@ -132,7 +132,7 @@ SynNodeDeclSheet {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
-                                        current_syn_symbol_arena: Arena {
+                                        current_variable_arena: Arena {
                                             data: [
                                                 CurrentVariableEntry {
                                                     modifier: Const,
@@ -320,7 +320,7 @@ SynNodeDeclSheet {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
-                                        current_syn_symbol_arena: Arena {
+                                        current_variable_arena: Arena {
                                             data: [
                                                 CurrentVariableEntry {
                                                     modifier: Const,
@@ -514,8 +514,8 @@ SynNodeDeclSheet {
                                             regional_token_idx: RegionalTokenIdx(
                                                 6,
                                             ),
-                                            current_syn_symbol_idx: 0,
-                                            current_syn_symbol_kind: CurrentVariableKind::TemplateParameter {
+                                            current_variable_idx: 0,
+                                            current_variable_kind: CurrentVariableKind::TemplateParameter {
                                                 template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                                     ident_token: IdentRegionalToken {
                                                         ident: `E`,
@@ -573,7 +573,7 @@ SynNodeDeclSheet {
                                     inherited_syn_symbol_arena: Arena {
                                         data: [],
                                     },
-                                    current_syn_symbol_arena: Arena {
+                                    current_variable_arena: Arena {
                                         data: [
                                             CurrentVariableEntry {
                                                 modifier: Const,
@@ -759,8 +759,8 @@ SynNodeDeclSheet {
                                                             regional_token_idx: RegionalTokenIdx(
                                                                 6,
                                                             ),
-                                                            current_syn_symbol_idx: 0,
-                                                            current_syn_symbol_kind: CurrentVariableKind::TemplateParameter {
+                                                            current_variable_idx: 0,
+                                                            current_variable_kind: CurrentVariableKind::TemplateParameter {
                                                                 template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                                                     ident_token: IdentRegionalToken {
                                                                         ident: `E`,
@@ -818,7 +818,7 @@ SynNodeDeclSheet {
                                                     inherited_syn_symbol_arena: Arena {
                                                         data: [],
                                                     },
-                                                    current_syn_symbol_arena: Arena {
+                                                    current_variable_arena: Arena {
                                                         data: [
                                                             CurrentVariableEntry {
                                                                 modifier: Const,
@@ -954,7 +954,7 @@ SynNodeDeclSheet {
                                                 },
                                             ],
                                         },
-                                        current_syn_symbol_arena: Arena {
+                                        current_variable_arena: Arena {
                                             data: [],
                                         },
                                         allow_self_type: True,
@@ -1165,8 +1165,8 @@ SynNodeDeclSheet {
                                                             regional_token_idx: RegionalTokenIdx(
                                                                 6,
                                                             ),
-                                                            current_syn_symbol_idx: 0,
-                                                            current_syn_symbol_kind: CurrentVariableKind::TemplateParameter {
+                                                            current_variable_idx: 0,
+                                                            current_variable_kind: CurrentVariableKind::TemplateParameter {
                                                                 template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                                                     ident_token: IdentRegionalToken {
                                                                         ident: `E`,
@@ -1224,7 +1224,7 @@ SynNodeDeclSheet {
                                                     inherited_syn_symbol_arena: Arena {
                                                         data: [],
                                                     },
-                                                    current_syn_symbol_arena: Arena {
+                                                    current_variable_arena: Arena {
                                                         data: [
                                                             CurrentVariableEntry {
                                                                 modifier: Const,
@@ -1430,7 +1430,7 @@ SynNodeDeclSheet {
                                                 },
                                             ],
                                         },
-                                        current_syn_symbol_arena: Arena {
+                                        current_variable_arena: Arena {
                                             data: [
                                                 CurrentVariableEntry {
                                                     modifier: Pure,
@@ -1661,8 +1661,8 @@ SynNodeDeclSheet {
                                             regional_token_idx: RegionalTokenIdx(
                                                 12,
                                             ),
-                                            current_syn_symbol_idx: 0,
-                                            current_syn_symbol_kind: CurrentVariableKind::TemplateParameter {
+                                            current_variable_idx: 0,
+                                            current_variable_kind: CurrentVariableKind::TemplateParameter {
                                                 template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                                     ident_token: IdentRegionalToken {
                                                         ident: `E`,
@@ -1776,7 +1776,7 @@ SynNodeDeclSheet {
                                     inherited_syn_symbol_arena: Arena {
                                         data: [],
                                     },
-                                    current_syn_symbol_arena: Arena {
+                                    current_variable_arena: Arena {
                                         data: [
                                             CurrentVariableEntry {
                                                 modifier: Const,
@@ -1937,8 +1937,8 @@ SynNodeDeclSheet {
                                                             regional_token_idx: RegionalTokenIdx(
                                                                 12,
                                                             ),
-                                                            current_syn_symbol_idx: 0,
-                                                            current_syn_symbol_kind: CurrentVariableKind::TemplateParameter {
+                                                            current_variable_idx: 0,
+                                                            current_variable_kind: CurrentVariableKind::TemplateParameter {
                                                                 template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                                                     ident_token: IdentRegionalToken {
                                                                         ident: `E`,
@@ -2052,7 +2052,7 @@ SynNodeDeclSheet {
                                                     inherited_syn_symbol_arena: Arena {
                                                         data: [],
                                                     },
-                                                    current_syn_symbol_arena: Arena {
+                                                    current_variable_arena: Arena {
                                                         data: [
                                                             CurrentVariableEntry {
                                                                 modifier: Const,
@@ -2179,7 +2179,7 @@ SynNodeDeclSheet {
                                                 },
                                             ],
                                         },
-                                        current_syn_symbol_arena: Arena {
+                                        current_variable_arena: Arena {
                                             data: [],
                                         },
                                         allow_self_type: True,
@@ -2340,8 +2340,8 @@ SynNodeDeclSheet {
                                             regional_token_idx: RegionalTokenIdx(
                                                 6,
                                             ),
-                                            current_syn_symbol_idx: 0,
-                                            current_syn_symbol_kind: CurrentVariableKind::TemplateParameter {
+                                            current_variable_idx: 0,
+                                            current_variable_kind: CurrentVariableKind::TemplateParameter {
                                                 template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                                     ident_token: IdentRegionalToken {
                                                         ident: `E`,
@@ -2399,7 +2399,7 @@ SynNodeDeclSheet {
                                     inherited_syn_symbol_arena: Arena {
                                         data: [],
                                     },
-                                    current_syn_symbol_arena: Arena {
+                                    current_variable_arena: Arena {
                                         data: [
                                             CurrentVariableEntry {
                                                 modifier: Const,
@@ -2585,8 +2585,8 @@ SynNodeDeclSheet {
                                                             regional_token_idx: RegionalTokenIdx(
                                                                 6,
                                                             ),
-                                                            current_syn_symbol_idx: 0,
-                                                            current_syn_symbol_kind: CurrentVariableKind::TemplateParameter {
+                                                            current_variable_idx: 0,
+                                                            current_variable_kind: CurrentVariableKind::TemplateParameter {
                                                                 template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                                                     ident_token: IdentRegionalToken {
                                                                         ident: `E`,
@@ -2644,7 +2644,7 @@ SynNodeDeclSheet {
                                                     inherited_syn_symbol_arena: Arena {
                                                         data: [],
                                                     },
-                                                    current_syn_symbol_arena: Arena {
+                                                    current_variable_arena: Arena {
                                                         data: [
                                                             CurrentVariableEntry {
                                                                 modifier: Const,
@@ -2780,7 +2780,7 @@ SynNodeDeclSheet {
                                                 },
                                             ],
                                         },
-                                        current_syn_symbol_arena: Arena {
+                                        current_variable_arena: Arena {
                                             data: [],
                                         },
                                         allow_self_type: True,
@@ -2937,8 +2937,8 @@ SynNodeDeclSheet {
                                                             regional_token_idx: RegionalTokenIdx(
                                                                 6,
                                                             ),
-                                                            current_syn_symbol_idx: 0,
-                                                            current_syn_symbol_kind: CurrentVariableKind::TemplateParameter {
+                                                            current_variable_idx: 0,
+                                                            current_variable_kind: CurrentVariableKind::TemplateParameter {
                                                                 template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                                                     ident_token: IdentRegionalToken {
                                                                         ident: `E`,
@@ -2996,7 +2996,7 @@ SynNodeDeclSheet {
                                                     inherited_syn_symbol_arena: Arena {
                                                         data: [],
                                                     },
-                                                    current_syn_symbol_arena: Arena {
+                                                    current_variable_arena: Arena {
                                                         data: [
                                                             CurrentVariableEntry {
                                                                 modifier: Const,
@@ -3132,7 +3132,7 @@ SynNodeDeclSheet {
                                                 },
                                             ],
                                         },
-                                        current_syn_symbol_arena: Arena {
+                                        current_variable_arena: Arena {
                                             data: [],
                                         },
                                         allow_self_type: True,
@@ -3289,8 +3289,8 @@ SynNodeDeclSheet {
                                                             regional_token_idx: RegionalTokenIdx(
                                                                 6,
                                                             ),
-                                                            current_syn_symbol_idx: 0,
-                                                            current_syn_symbol_kind: CurrentVariableKind::TemplateParameter {
+                                                            current_variable_idx: 0,
+                                                            current_variable_kind: CurrentVariableKind::TemplateParameter {
                                                                 template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                                                     ident_token: IdentRegionalToken {
                                                                         ident: `E`,
@@ -3348,7 +3348,7 @@ SynNodeDeclSheet {
                                                     inherited_syn_symbol_arena: Arena {
                                                         data: [],
                                                     },
-                                                    current_syn_symbol_arena: Arena {
+                                                    current_variable_arena: Arena {
                                                         data: [
                                                             CurrentVariableEntry {
                                                                 modifier: Const,
@@ -3484,7 +3484,7 @@ SynNodeDeclSheet {
                                                 },
                                             ],
                                         },
-                                        current_syn_symbol_arena: Arena {
+                                        current_variable_arena: Arena {
                                             data: [],
                                         },
                                         allow_self_type: True,
@@ -3641,8 +3641,8 @@ SynNodeDeclSheet {
                                                             regional_token_idx: RegionalTokenIdx(
                                                                 6,
                                                             ),
-                                                            current_syn_symbol_idx: 0,
-                                                            current_syn_symbol_kind: CurrentVariableKind::TemplateParameter {
+                                                            current_variable_idx: 0,
+                                                            current_variable_kind: CurrentVariableKind::TemplateParameter {
                                                                 template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                                                     ident_token: IdentRegionalToken {
                                                                         ident: `E`,
@@ -3700,7 +3700,7 @@ SynNodeDeclSheet {
                                                     inherited_syn_symbol_arena: Arena {
                                                         data: [],
                                                     },
-                                                    current_syn_symbol_arena: Arena {
+                                                    current_variable_arena: Arena {
                                                         data: [
                                                             CurrentVariableEntry {
                                                                 modifier: Const,
@@ -3836,7 +3836,7 @@ SynNodeDeclSheet {
                                                 },
                                             ],
                                         },
-                                        current_syn_symbol_arena: Arena {
+                                        current_variable_arena: Arena {
                                             data: [],
                                         },
                                         allow_self_type: True,
@@ -3993,8 +3993,8 @@ SynNodeDeclSheet {
                                                             regional_token_idx: RegionalTokenIdx(
                                                                 6,
                                                             ),
-                                                            current_syn_symbol_idx: 0,
-                                                            current_syn_symbol_kind: CurrentVariableKind::TemplateParameter {
+                                                            current_variable_idx: 0,
+                                                            current_variable_kind: CurrentVariableKind::TemplateParameter {
                                                                 template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                                                     ident_token: IdentRegionalToken {
                                                                         ident: `E`,
@@ -4052,7 +4052,7 @@ SynNodeDeclSheet {
                                                     inherited_syn_symbol_arena: Arena {
                                                         data: [],
                                                     },
-                                                    current_syn_symbol_arena: Arena {
+                                                    current_variable_arena: Arena {
                                                         data: [
                                                             CurrentVariableEntry {
                                                                 modifier: Const,
@@ -4188,7 +4188,7 @@ SynNodeDeclSheet {
                                                 },
                                             ],
                                         },
-                                        current_syn_symbol_arena: Arena {
+                                        current_variable_arena: Arena {
                                             data: [],
                                         },
                                         allow_self_type: True,

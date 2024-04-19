@@ -130,7 +130,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 68;\n\ntoken_line_group_idx = 9\n\ntoken = TokenData::Ident(\n    `MnistLabel`,\n);\n\ntoken_info = None;\n\n\n",
+                            value: "\ntoken_idx = 68;\n\ntoken_line_group_idx = 9\n\ntoken = TokenData::Ident(\n    `MnistLabel`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::SynPrincipalEntityPathExpr(\n            1,\n            PrincipalEntityPath::MajorItem(\n                MajorItemPath::Type(\n                    TypePath(`mnist::MnistLabel`, `Enum`),\n                ),\n            ),\n        ),\n        data: TokenInfoData::Entity(\n            EntityPath::MajorItem(\n                MajorItemPath::Type(\n                    TypePath(`mnist::MnistLabel`, `Enum`),\n                ),\n            ),\n        ),\n    },\n);\n\n\n",
                         },
                     ),
                     range: Some(
@@ -190,7 +190,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 102;\n\ntoken_line_group_idx = 12\n\ntoken = TokenData::Ident(\n    `eff_holes`,\n);\n\ntoken_info = None;\n\n\n",
+                            value: "\ntoken_idx = 102;\n\ntoken_line_group_idx = 12\n\ntoken = TokenData::Ident(\n    `eff_holes`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::SemaExpr(\n            SemaExprIdx(\n                11,\n            ),\n        ),\n        data: TokenInfoData::Field,\n    },\n);\n\n\n",
                         },
                     ),
                     range: Some(
@@ -370,7 +370,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 204;\n\ntoken_line_group_idx = 25\n\ntoken = TokenData::Ident(\n    `upper_arc`,\n);\n\ntoken_info = None;\n\n\n",
+                            value: "\ntoken_idx = 204;\n\ntoken_line_group_idx = 25\n\ntoken = TokenData::Ident(\n    `upper_arc`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::PatternExpr(\n            16,\n        ),\n        data: TokenInfoData::CurrentSynSymbol {\n            current_variable_idx: 6,\n            current_variable_kind: CurrentVariableKind::LetVariable {\n                pattern_variable_idx: 10,\n            },\n            syn_expr_region: ExprRegionLeash(_),\n        },\n    },\n);\n\nCurrentVariableEntry {\n    modifier: Pure,\n    access_start: RegionalTokenIdx(\n        133,\n    ),\n    access_end: Some(\n        RegionalTokenIdxRangeEnd(\n            RegionalTokenIdx(\n                193,\n            ),\n        ),\n    ),\n    data: CurrentVariableData::LetVariable {\n        ident: `upper_arc`,\n        pattern_variable_idx: 10,\n    },\n}\n",
                         },
                     ),
                     range: Some(
@@ -520,7 +520,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 289;\n\ntoken_line_group_idx = 37\n\ntoken = TokenData::Ident(\n    `dp`,\n);\n\ntoken_info = None;\n\n\n",
+                            value: "\ntoken_idx = 289;\n\ntoken_line_group_idx = 37\n\ntoken = TokenData::Ident(\n    `dp`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::SemaExpr(\n            SemaExprIdx(\n                2,\n            ),\n        ),\n        data: TokenInfoData::CurrentSynSymbol {\n            current_variable_idx: 0,\n            current_variable_kind: CurrentVariableKind::LetVariable {\n                pattern_variable_idx: 0,\n            },\n            syn_expr_region: ExprRegionLeash(_),\n        },\n    },\n);\n\nCurrentVariableEntry {\n    modifier: Pure,\n    access_start: RegionalTokenIdx(\n        3,\n    ),\n    access_end: Some(\n        RegionalTokenIdxRangeEnd(\n            RegionalTokenIdx(\n                18,\n            ),\n        ),\n    ),\n    data: CurrentVariableData::LetVariable {\n        ident: `dp`,\n        pattern_variable_idx: 0,\n    },\n}\n",
                         },
                     ),
                     range: Some(
@@ -550,7 +550,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 306;\n\ntoken_line_group_idx = 39\n\ntoken = TokenData::Punctuation(\n    Punctuation(\n        PunctuationMapped::Question,\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                            value: "\ntoken_idx = 306;\n\ntoken_line_group_idx = 39\n\ntoken = TokenData::Punctuation(\n    Punctuation(\n        PunctuationMapped::Question,\n    ),\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::SemaExpr(\n            SemaExprIdx(\n                3,\n            ),\n        ),\n        data: TokenInfoData::SemaPrefixTypeOpr,\n    },\n);\n\nSemaPrefixTypeOpr\n",
                         },
                     ),
                     range: Some(

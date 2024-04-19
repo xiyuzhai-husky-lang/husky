@@ -12,7 +12,7 @@ Ok(
             delta_line: 0,
             delta_start: 5,
             length: 1,
-            token_type: 19,
+            token_type: 8,
             token_modifiers_bitset: 0,
         },
         SemanticToken {

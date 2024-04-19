@@ -1,6 +1,118 @@
 ```rust
 [
     (
+        ItemSynNodePath::MajorItem(
+            MajorItemSynNodePath::Type(
+                TypeSynNodePath(
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::MajorItem(
+                            MajorItemSynNodePathData::Type(
+                                TypeSynNodePathData {
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        ),
+                    },
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemSynNodePath::MajorItem(
+            MajorItemSynNodePath::Type(
+                TypeSynNodePath(
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::MajorItem(
+                            MajorItemSynNodePathData::Type(
+                                TypeSynNodePathData {
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: TypePath(`mnist::BinaryImage28`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        ),
+                    },
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemSynNodePath::Attr(
+            Room32,
+            AttrSynNodePath(
+                ItemSynNodePathId {
+                    data: ItemSynNodePathData::Attr(
+                        AttrSynNodePathData {
+                            parent_syn_node_path: ItemSynNodePath::MajorItem(
+                                MajorItemSynNodePath::Type(
+                                    TypeSynNodePath(
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Type(
+                                                    TypeSynNodePathData {
+                                                        disambiguated_item_path: DisambiguatedItemPath {
+                                                            maybe_ambiguous_item_path: TypePath(`mnist::BinaryImage28`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                            attr_item_path_result: Ok(
+                                AttrItemPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 153,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                },
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemSynNodePath::MajorItem(
+            MajorItemSynNodePath::Type(
+                TypeSynNodePath(
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::MajorItem(
+                            MajorItemSynNodePathData::Type(
+                                TypeSynNodePathData {
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: TypePath(`mnist::BinaryGrid28`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        ),
+                    },
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemSynNodePath::MajorItem(
+            MajorItemSynNodePath::Fugitive(
+                FugitiveSynNodePath(`mnist::input`, `Val`, (0)),
+            ),
+        ),
+        None,
+    ),
+    (
         ItemSynNodePath::ImplBlock(
             ImplBlockSynNodePath::TraitForTypeImplBlock(
                 TraitForTypeImplBlockSynNodePath(

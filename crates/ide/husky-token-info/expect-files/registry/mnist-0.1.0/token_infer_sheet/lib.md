@@ -4,6 +4,37 @@ Ok(
         token_infos: [
             None,
             None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::AstIdentifiable,
+                    data: TokenInfoData::EntityNode(
+                        ItemSynNodePath::MajorItem(
+                            MajorItemSynNodePath::Type(
+                                TypeSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Type(
+                                                TypeSynNodePathData {
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
+                        ),
+                        EntityKind::MajorItem {
+                            module_item_kind: MajorItemKind::Type(
+                                TypeKind::Enum,
+                            ),
+                            connection: MajorItemConnectionKind::Connected,
+                        },
+                    ),
+                },
+            ),
             None,
             None,
             None,
@@ -27,14 +58,79 @@ Ok(
             None,
             None,
             None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        0,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::fmt::Debug`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::fmt::Debug`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        1,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::clone::Clone`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::clone::Clone`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
             None,
             None,
             None,
-            None,
-            None,
-            None,
-            None,
-            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::AstIdentifiable,
+                    data: TokenInfoData::EntityNode(
+                        ItemSynNodePath::MajorItem(
+                            MajorItemSynNodePath::Type(
+                                TypeSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Type(
+                                                TypeSynNodePathData {
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TypePath(`mnist::BinaryImage28`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
+                        ),
+                        EntityKind::MajorItem {
+                            module_item_kind: MajorItemKind::Type(
+                                TypeKind::Extern,
+                            ),
+                            connection: MajorItemConnectionKind::Connected,
+                        },
+                    ),
+                },
+            ),
             None,
             None,
             Some(
@@ -339,7 +435,37 @@ Ok(
             ),
             None,
             None,
-            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::AstIdentifiable,
+                    data: TokenInfoData::EntityNode(
+                        ItemSynNodePath::MajorItem(
+                            MajorItemSynNodePath::Type(
+                                TypeSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Type(
+                                                TypeSynNodePathData {
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TypePath(`mnist::BinaryGrid28`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
+                        ),
+                        EntityKind::MajorItem {
+                            module_item_kind: MajorItemKind::Type(
+                                TypeKind::Extern,
+                            ),
+                            connection: MajorItemConnectionKind::Connected,
+                        },
+                    ),
+                },
+            ),
             None,
             None,
             Some(
@@ -644,9 +770,44 @@ Ok(
             ),
             None,
             None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::AstIdentifiable,
+                    data: TokenInfoData::EntityNode(
+                        ItemSynNodePath::MajorItem(
+                            MajorItemSynNodePath::Fugitive(
+                                FugitiveSynNodePath(`mnist::input`, `Val`, (0)),
+                            ),
+                        ),
+                        EntityKind::MajorItem {
+                            module_item_kind: MajorItemKind::Fugitive(
+                                MajorFugitiveKind::Val,
+                            ),
+                            connection: MajorItemConnectionKind::Connected,
+                        },
+                    ),
+                },
+            ),
             None,
-            None,
-            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        0,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`mnist::BinaryImage28`, `Extern`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`mnist::BinaryImage28`, `Extern`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
             None,
         ],
     },

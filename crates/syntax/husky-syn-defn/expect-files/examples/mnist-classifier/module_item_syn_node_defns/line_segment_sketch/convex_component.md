@@ -1,6 +1,27 @@
 ```rust
 [
     (
+        ItemSynNodePath::MajorItem(
+            MajorItemSynNodePath::Type(
+                TypeSynNodePath(
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::MajorItem(
+                            MajorItemSynNodePathData::Type(
+                                TypeSynNodePathData {
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        ),
+                    },
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
         ItemSynNodePath::ImplBlock(
             ImplBlockSynNodePath::TraitForTypeImplBlock(
                 TraitForTypeImplBlockSynNodePath(
@@ -151,7 +172,7 @@
                                                     inherited_syn_symbol_arena: Arena {
                                                         data: [],
                                                     },
-                                                    current_syn_symbol_arena: Arena {
+                                                    current_variable_arena: Arena {
                                                         data: [],
                                                     },
                                                     allow_self_type: True,
@@ -255,7 +276,7 @@
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
-                                        current_syn_symbol_arena: Arena {
+                                        current_variable_arena: Arena {
                                             data: [],
                                         },
                                         allow_self_type: True,
@@ -378,7 +399,7 @@
                             inherited_syn_symbol_arena: Arena {
                                 data: [],
                             },
-                            current_syn_symbol_arena: Arena {
+                            current_variable_arena: Arena {
                                 data: [],
                             },
                             allow_self_type: True,

@@ -100,7 +100,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 9;\n\ntoken_line_group_idx = 1\n\ntoken = TokenData::Ident(\n    `PartialEq`,\n);\n\ntoken_info = None;\n\n\n",
+                            value: "\ntoken_idx = 9;\n\ntoken_line_group_idx = 1\n\ntoken = TokenData::Ident(\n    `PartialEq`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::SynPrincipalEntityPathExpr(\n            1,\n            PrincipalEntityPath::MajorItem(\n                MajorItemPath::Trait(\n                    TraitPath(`core::cmp::PartialEq`),\n                ),\n            ),\n        ),\n        data: TokenInfoData::Entity(\n            EntityPath::MajorItem(\n                MajorItemPath::Trait(\n                    TraitPath(`core::cmp::PartialEq`),\n                ),\n            ),\n        ),\n    },\n);\n\n\n",
                         },
                     ),
                     range: Some(
@@ -160,7 +160,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 15;\n\ntoken_line_group_idx = 1\n\ntoken = TokenData::Ident(\n    `Copy`,\n);\n\ntoken_info = None;\n\n\n",
+                            value: "\ntoken_idx = 15;\n\ntoken_line_group_idx = 1\n\ntoken = TokenData::Ident(\n    `Copy`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::SynPrincipalEntityPathExpr(\n            4,\n            PrincipalEntityPath::MajorItem(\n                MajorItemPath::Trait(\n                    TraitPath(`core::marker::Copy`),\n                ),\n            ),\n        ),\n        data: TokenInfoData::Entity(\n            EntityPath::MajorItem(\n                MajorItemPath::Trait(\n                    TraitPath(`core::marker::Copy`),\n                ),\n            ),\n        ),\n    },\n);\n\n\n",
                         },
                     ),
                     range: Some(
@@ -250,7 +250,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 24;\n\ntoken_line_group_idx = 3\n\ntoken = TokenData::Ident(\n    `Debug`,\n);\n\ntoken_info = None;\n\n\n",
+                            value: "\ntoken_idx = 24;\n\ntoken_line_group_idx = 3\n\ntoken = TokenData::Ident(\n    `Debug`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::SynPrincipalEntityPathExpr(\n            0,\n            PrincipalEntityPath::MajorItem(\n                MajorItemPath::Trait(\n                    TraitPath(`core::fmt::Debug`),\n                ),\n            ),\n        ),\n        data: TokenInfoData::Entity(\n            EntityPath::MajorItem(\n                MajorItemPath::Trait(\n                    TraitPath(`core::fmt::Debug`),\n                ),\n            ),\n        ),\n    },\n);\n\n\n",
                         },
                     ),
                     range: Some(
@@ -310,7 +310,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 30;\n\ntoken_line_group_idx = 3\n\ntoken = TokenData::Ident(\n    `Clone`,\n);\n\ntoken_info = None;\n\n\n",
+                            value: "\ntoken_idx = 30;\n\ntoken_line_group_idx = 3\n\ntoken = TokenData::Ident(\n    `Clone`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::SynPrincipalEntityPathExpr(\n            3,\n            PrincipalEntityPath::MajorItem(\n                MajorItemPath::Trait(\n                    TraitPath(`core::clone::Clone`),\n                ),\n            ),\n        ),\n        data: TokenInfoData::Entity(\n            EntityPath::MajorItem(\n                MajorItemPath::Trait(\n                    TraitPath(`core::clone::Clone`),\n                ),\n            ),\n        ),\n    },\n);\n\n\n",
                         },
                     ),
                     range: Some(
@@ -370,7 +370,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 36;\n\ntoken_line_group_idx = 4\n\ntoken = TokenData::Ident(\n    `never`,\n);\n\ntoken_info = None;\n\n\n",
+                            value: "\ntoken_idx = 36;\n\ntoken_line_group_idx = 4\n\ntoken = TokenData::Ident(\n    `never`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::AstIdentifiable,\n        data: TokenInfoData::EntityNode(\n            ItemSynNodePath::MajorItem(\n                MajorItemSynNodePath::Type(\n                    TypeSynNodePath(\n                        ItemSynNodePathId {\n                            data: ItemSynNodePathData::MajorItem(\n                                MajorItemSynNodePathData::Type(\n                                    TypeSynNodePathData {\n                                        disambiguated_item_path: DisambiguatedItemPath {\n                                            maybe_ambiguous_item_path: TypePath(`core::basic::never`, `Extern`),\n                                            disambiguator: 0,\n                                        },\n                                    },\n                                ),\n                            ),\n                        },\n                    ),\n                ),\n            ),\n            EntityKind::MajorItem {\n                module_item_kind: MajorItemKind::Type(\n                    TypeKind::Extern,\n                ),\n                connection: MajorItemConnectionKind::Connected,\n            },\n        ),\n    },\n);\n\n\n",
                         },
                     ),
                     range: Some(
@@ -460,7 +460,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 45;\n\ntoken_line_group_idx = 5\n\ntoken = TokenData::Ident(\n    `Eq`,\n);\n\ntoken_info = None;\n\n\n",
+                            value: "\ntoken_idx = 45;\n\ntoken_line_group_idx = 5\n\ntoken = TokenData::Ident(\n    `Eq`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::SynPrincipalEntityPathExpr(\n            2,\n            PrincipalEntityPath::MajorItem(\n                MajorItemPath::Trait(\n                    TraitPath(`core::cmp::Eq`),\n                ),\n            ),\n        ),\n        data: TokenInfoData::Entity(\n            EntityPath::MajorItem(\n                MajorItemPath::Trait(\n                    TraitPath(`core::cmp::Eq`),\n                ),\n            ),\n        ),\n    },\n);\n\n\n",
                         },
                     ),
                     range: Some(
@@ -580,7 +580,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 57;\n\ntoken_line_group_idx = 7\n\ntoken = TokenData::Ident(\n    `Trait`,\n);\n\ntoken_info = None;\n\n\n",
+                            value: "\ntoken_idx = 57;\n\ntoken_line_group_idx = 7\n\ntoken = TokenData::Ident(\n    `Trait`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::AstIdentifiable,\n        data: TokenInfoData::EntityNode(\n            ItemSynNodePath::MajorItem(\n                MajorItemSynNodePath::Type(\n                    TypeSynNodePath(\n                        ItemSynNodePathId {\n                            data: ItemSynNodePathData::MajorItem(\n                                MajorItemSynNodePathData::Type(\n                                    TypeSynNodePathData {\n                                        disambiguated_item_path: DisambiguatedItemPath {\n                                            maybe_ambiguous_item_path: TypePath(`core::basic::Trait`, `Extern`),\n                                            disambiguator: 0,\n                                        },\n                                    },\n                                ),\n                            ),\n                        },\n                    ),\n                ),\n            ),\n            EntityKind::MajorItem {\n                module_item_kind: MajorItemKind::Type(\n                    TypeKind::Extern,\n                ),\n                connection: MajorItemConnectionKind::Connected,\n            },\n        ),\n    },\n);\n\n\n",
                         },
                     ),
                     range: Some(
@@ -700,7 +700,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 69;\n\ntoken_line_group_idx = 10\n\ntoken = TokenData::Ident(\n    `Place`,\n);\n\ntoken_info = None;\n\n\n",
+                            value: "\ntoken_idx = 69;\n\ntoken_line_group_idx = 10\n\ntoken = TokenData::Ident(\n    `Place`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::AstIdentifiable,\n        data: TokenInfoData::EntityNode(\n            ItemSynNodePath::MajorItem(\n                MajorItemSynNodePath::Type(\n                    TypeSynNodePath(\n                        ItemSynNodePathId {\n                            data: ItemSynNodePathData::MajorItem(\n                                MajorItemSynNodePathData::Type(\n                                    TypeSynNodePathData {\n                                        disambiguated_item_path: DisambiguatedItemPath {\n                                            maybe_ambiguous_item_path: TypePath(`core::basic::Place`, `Extern`),\n                                            disambiguator: 0,\n                                        },\n                                    },\n                                ),\n                            ),\n                        },\n                    ),\n                ),\n            ),\n            EntityKind::MajorItem {\n                module_item_kind: MajorItemKind::Type(\n                    TypeKind::Extern,\n                ),\n                connection: MajorItemConnectionKind::Connected,\n            },\n        ),\n    },\n);\n\n\n",
                         },
                     ),
                     range: Some(

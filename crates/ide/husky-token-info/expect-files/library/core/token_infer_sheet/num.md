@@ -106,19 +106,139 @@ Ok(
             None,
             None,
             None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        0,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::fmt::Debug`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::fmt::Debug`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        1,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::cmp::PartialEq`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::cmp::PartialEq`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        2,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::cmp::Eq`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::cmp::Eq`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        3,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::clone::Clone`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::clone::Clone`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        4,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::marker::Copy`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::marker::Copy`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
             None,
             None,
             None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::AstIdentifiable,
+                    data: TokenInfoData::EntityNode(
+                        ItemSynNodePath::MajorItem(
+                            MajorItemSynNodePath::Type(
+                                TypeSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Type(
+                                                TypeSynNodePathData {
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TypePath(`core::num::i8`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
+                        ),
+                        EntityKind::MajorItem {
+                            module_item_kind: MajorItemKind::Type(
+                                TypeKind::Extern,
+                            ),
+                            connection: MajorItemConnectionKind::Connected,
+                        },
+                    ),
+                },
+            ),
             None,
             None,
             Some(
@@ -243,8 +363,8 @@ Ok(
                         0,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 0,
-                        current_syn_symbol_kind: CurrentVariableKind::SimpleParenateParameter {
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::SimpleParenateParameter {
                             pattern_variable_idx: 0,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -399,8 +519,8 @@ Ok(
                         0,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 0,
-                        current_syn_symbol_kind: CurrentVariableKind::SimpleParenateParameter {
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::SimpleParenateParameter {
                             pattern_variable_idx: 0,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -459,19 +579,139 @@ Ok(
             None,
             None,
             None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        0,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::fmt::Debug`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::fmt::Debug`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        1,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::cmp::PartialEq`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::cmp::PartialEq`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        2,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::cmp::Eq`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::cmp::Eq`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        3,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::clone::Clone`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::clone::Clone`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        4,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::marker::Copy`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::marker::Copy`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
             None,
             None,
             None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::AstIdentifiable,
+                    data: TokenInfoData::EntityNode(
+                        ItemSynNodePath::MajorItem(
+                            MajorItemSynNodePath::Type(
+                                TypeSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Type(
+                                                TypeSynNodePathData {
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TypePath(`core::num::i16`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
+                        ),
+                        EntityKind::MajorItem {
+                            module_item_kind: MajorItemKind::Type(
+                                TypeKind::Extern,
+                            ),
+                            connection: MajorItemConnectionKind::Connected,
+                        },
+                    ),
+                },
+            ),
             None,
             None,
             Some(
@@ -596,8 +836,8 @@ Ok(
                         0,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 0,
-                        current_syn_symbol_kind: CurrentVariableKind::SimpleParenateParameter {
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::SimpleParenateParameter {
                             pattern_variable_idx: 0,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -752,8 +992,8 @@ Ok(
                         0,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 0,
-                        current_syn_symbol_kind: CurrentVariableKind::SimpleParenateParameter {
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::SimpleParenateParameter {
                             pattern_variable_idx: 0,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -812,19 +1052,139 @@ Ok(
             None,
             None,
             None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        0,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::fmt::Debug`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::fmt::Debug`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        1,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::cmp::PartialEq`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::cmp::PartialEq`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        2,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::cmp::Eq`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::cmp::Eq`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        3,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::clone::Clone`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::clone::Clone`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        4,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::marker::Copy`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::marker::Copy`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
             None,
             None,
             None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::AstIdentifiable,
+                    data: TokenInfoData::EntityNode(
+                        ItemSynNodePath::MajorItem(
+                            MajorItemSynNodePath::Type(
+                                TypeSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Type(
+                                                TypeSynNodePathData {
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TypePath(`core::num::i32`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
+                        ),
+                        EntityKind::MajorItem {
+                            module_item_kind: MajorItemKind::Type(
+                                TypeKind::Extern,
+                            ),
+                            connection: MajorItemConnectionKind::Connected,
+                        },
+                    ),
+                },
+            ),
             None,
             None,
             Some(
@@ -949,8 +1309,8 @@ Ok(
                         0,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 0,
-                        current_syn_symbol_kind: CurrentVariableKind::SimpleParenateParameter {
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::SimpleParenateParameter {
                             pattern_variable_idx: 0,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -1042,8 +1402,8 @@ Ok(
                         0,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 0,
-                        current_syn_symbol_kind: CurrentVariableKind::SimpleParenateParameter {
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::SimpleParenateParameter {
                             pattern_variable_idx: 0,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -1197,8 +1557,8 @@ Ok(
                         0,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 0,
-                        current_syn_symbol_kind: CurrentVariableKind::SimpleParenateParameter {
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::SimpleParenateParameter {
                             pattern_variable_idx: 0,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -1257,19 +1617,139 @@ Ok(
             None,
             None,
             None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        0,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::fmt::Debug`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::fmt::Debug`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        1,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::cmp::PartialEq`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::cmp::PartialEq`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        2,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::cmp::Eq`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::cmp::Eq`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        3,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::clone::Clone`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::clone::Clone`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        4,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::marker::Copy`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::marker::Copy`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
             None,
             None,
             None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::AstIdentifiable,
+                    data: TokenInfoData::EntityNode(
+                        ItemSynNodePath::MajorItem(
+                            MajorItemSynNodePath::Type(
+                                TypeSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Type(
+                                                TypeSynNodePathData {
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TypePath(`core::num::i64`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
+                        ),
+                        EntityKind::MajorItem {
+                            module_item_kind: MajorItemKind::Type(
+                                TypeKind::Extern,
+                            ),
+                            connection: MajorItemConnectionKind::Connected,
+                        },
+                    ),
+                },
+            ),
             None,
             None,
             Some(
@@ -1457,8 +1937,8 @@ Ok(
                         0,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 0,
-                        current_syn_symbol_kind: CurrentVariableKind::SimpleParenateParameter {
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::SimpleParenateParameter {
                             pattern_variable_idx: 0,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -1517,19 +1997,139 @@ Ok(
             None,
             None,
             None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        0,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::fmt::Debug`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::fmt::Debug`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        1,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::cmp::PartialEq`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::cmp::PartialEq`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        2,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::cmp::Eq`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::cmp::Eq`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        3,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::clone::Clone`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::clone::Clone`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        4,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::marker::Copy`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::marker::Copy`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
             None,
             None,
             None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::AstIdentifiable,
+                    data: TokenInfoData::EntityNode(
+                        ItemSynNodePath::MajorItem(
+                            MajorItemSynNodePath::Type(
+                                TypeSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Type(
+                                                TypeSynNodePathData {
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TypePath(`core::num::i128`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
+                        ),
+                        EntityKind::MajorItem {
+                            module_item_kind: MajorItemKind::Type(
+                                TypeKind::Extern,
+                            ),
+                            connection: MajorItemConnectionKind::Connected,
+                        },
+                    ),
+                },
+            ),
             None,
             None,
             Some(
@@ -1717,8 +2317,8 @@ Ok(
                         0,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 0,
-                        current_syn_symbol_kind: CurrentVariableKind::SimpleParenateParameter {
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::SimpleParenateParameter {
                             pattern_variable_idx: 0,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -1777,19 +2377,139 @@ Ok(
             None,
             None,
             None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        0,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::fmt::Debug`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::fmt::Debug`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        1,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::cmp::PartialEq`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::cmp::PartialEq`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        2,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::cmp::Eq`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::cmp::Eq`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        3,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::clone::Clone`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::clone::Clone`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        4,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::marker::Copy`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::marker::Copy`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
             None,
             None,
             None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::AstIdentifiable,
+                    data: TokenInfoData::EntityNode(
+                        ItemSynNodePath::MajorItem(
+                            MajorItemSynNodePath::Type(
+                                TypeSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Type(
+                                                TypeSynNodePathData {
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TypePath(`core::num::isize`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
+                        ),
+                        EntityKind::MajorItem {
+                            module_item_kind: MajorItemKind::Type(
+                                TypeKind::Extern,
+                            ),
+                            connection: MajorItemConnectionKind::Connected,
+                        },
+                    ),
+                },
+            ),
             None,
             None,
             Some(
@@ -1977,8 +2697,8 @@ Ok(
                         0,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 0,
-                        current_syn_symbol_kind: CurrentVariableKind::SimpleParenateParameter {
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::SimpleParenateParameter {
                             pattern_variable_idx: 0,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -2037,19 +2757,139 @@ Ok(
             None,
             None,
             None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        0,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::fmt::Debug`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::fmt::Debug`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        1,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::cmp::PartialEq`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::cmp::PartialEq`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        2,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::cmp::Eq`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::cmp::Eq`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        3,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::clone::Clone`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::clone::Clone`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        4,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::marker::Copy`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::marker::Copy`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
             None,
             None,
             None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::AstIdentifiable,
+                    data: TokenInfoData::EntityNode(
+                        ItemSynNodePath::MajorItem(
+                            MajorItemSynNodePath::Type(
+                                TypeSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Type(
+                                                TypeSynNodePathData {
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TypePath(`core::num::u8`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
+                        ),
+                        EntityKind::MajorItem {
+                            module_item_kind: MajorItemKind::Type(
+                                TypeKind::Extern,
+                            ),
+                            connection: MajorItemConnectionKind::Connected,
+                        },
+                    ),
+                },
+            ),
             None,
             None,
             Some(
@@ -2237,8 +3077,8 @@ Ok(
                         0,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 0,
-                        current_syn_symbol_kind: CurrentVariableKind::SimpleParenateParameter {
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::SimpleParenateParameter {
                             pattern_variable_idx: 0,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -2297,19 +3137,139 @@ Ok(
             None,
             None,
             None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        0,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::fmt::Debug`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::fmt::Debug`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        1,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::cmp::PartialEq`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::cmp::PartialEq`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        2,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::cmp::Eq`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::cmp::Eq`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        3,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::clone::Clone`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::clone::Clone`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        4,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::marker::Copy`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::marker::Copy`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
             None,
             None,
             None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::AstIdentifiable,
+                    data: TokenInfoData::EntityNode(
+                        ItemSynNodePath::MajorItem(
+                            MajorItemSynNodePath::Type(
+                                TypeSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Type(
+                                                TypeSynNodePathData {
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TypePath(`core::num::u16`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
+                        ),
+                        EntityKind::MajorItem {
+                            module_item_kind: MajorItemKind::Type(
+                                TypeKind::Extern,
+                            ),
+                            connection: MajorItemConnectionKind::Connected,
+                        },
+                    ),
+                },
+            ),
             None,
             None,
             Some(
@@ -2497,8 +3457,8 @@ Ok(
                         0,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 0,
-                        current_syn_symbol_kind: CurrentVariableKind::SimpleParenateParameter {
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::SimpleParenateParameter {
                             pattern_variable_idx: 0,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -2557,19 +3517,139 @@ Ok(
             None,
             None,
             None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        0,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::fmt::Debug`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::fmt::Debug`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        1,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::cmp::PartialEq`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::cmp::PartialEq`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        2,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::cmp::Eq`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::cmp::Eq`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        3,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::clone::Clone`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::clone::Clone`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        4,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::marker::Copy`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::marker::Copy`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
             None,
             None,
             None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::AstIdentifiable,
+                    data: TokenInfoData::EntityNode(
+                        ItemSynNodePath::MajorItem(
+                            MajorItemSynNodePath::Type(
+                                TypeSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Type(
+                                                TypeSynNodePathData {
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TypePath(`core::num::u32`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
+                        ),
+                        EntityKind::MajorItem {
+                            module_item_kind: MajorItemKind::Type(
+                                TypeKind::Extern,
+                            ),
+                            connection: MajorItemConnectionKind::Connected,
+                        },
+                    ),
+                },
+            ),
             None,
             None,
             Some(
@@ -2757,8 +3837,8 @@ Ok(
                         0,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 0,
-                        current_syn_symbol_kind: CurrentVariableKind::SimpleParenateParameter {
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::SimpleParenateParameter {
                             pattern_variable_idx: 0,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -2817,19 +3897,139 @@ Ok(
             None,
             None,
             None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        0,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::fmt::Debug`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::fmt::Debug`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        1,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::cmp::PartialEq`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::cmp::PartialEq`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        2,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::cmp::Eq`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::cmp::Eq`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        3,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::clone::Clone`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::clone::Clone`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        4,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::marker::Copy`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::marker::Copy`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
             None,
             None,
             None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::AstIdentifiable,
+                    data: TokenInfoData::EntityNode(
+                        ItemSynNodePath::MajorItem(
+                            MajorItemSynNodePath::Type(
+                                TypeSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Type(
+                                                TypeSynNodePathData {
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TypePath(`core::num::u64`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
+                        ),
+                        EntityKind::MajorItem {
+                            module_item_kind: MajorItemKind::Type(
+                                TypeKind::Extern,
+                            ),
+                            connection: MajorItemConnectionKind::Connected,
+                        },
+                    ),
+                },
+            ),
             None,
             None,
             Some(
@@ -3017,8 +4217,8 @@ Ok(
                         0,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 0,
-                        current_syn_symbol_kind: CurrentVariableKind::SimpleParenateParameter {
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::SimpleParenateParameter {
                             pattern_variable_idx: 0,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -3077,19 +4277,139 @@ Ok(
             None,
             None,
             None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        0,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::fmt::Debug`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::fmt::Debug`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        1,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::cmp::PartialEq`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::cmp::PartialEq`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        2,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::cmp::Eq`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::cmp::Eq`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        3,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::clone::Clone`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::clone::Clone`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        4,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::marker::Copy`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::marker::Copy`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
             None,
             None,
             None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::AstIdentifiable,
+                    data: TokenInfoData::EntityNode(
+                        ItemSynNodePath::MajorItem(
+                            MajorItemSynNodePath::Type(
+                                TypeSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Type(
+                                                TypeSynNodePathData {
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TypePath(`core::num::u128`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
+                        ),
+                        EntityKind::MajorItem {
+                            module_item_kind: MajorItemKind::Type(
+                                TypeKind::Extern,
+                            ),
+                            connection: MajorItemConnectionKind::Connected,
+                        },
+                    ),
+                },
+            ),
             None,
             None,
             Some(
@@ -3277,8 +4597,8 @@ Ok(
                         0,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 0,
-                        current_syn_symbol_kind: CurrentVariableKind::SimpleParenateParameter {
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::SimpleParenateParameter {
                             pattern_variable_idx: 0,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -3337,19 +4657,139 @@ Ok(
             None,
             None,
             None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        0,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::fmt::Debug`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::fmt::Debug`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        1,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::cmp::PartialEq`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::cmp::PartialEq`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        2,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::cmp::Eq`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::cmp::Eq`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        3,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::clone::Clone`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::clone::Clone`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        4,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::marker::Copy`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::marker::Copy`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
             None,
             None,
             None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::AstIdentifiable,
+                    data: TokenInfoData::EntityNode(
+                        ItemSynNodePath::MajorItem(
+                            MajorItemSynNodePath::Type(
+                                TypeSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Type(
+                                                TypeSynNodePathData {
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TypePath(`core::num::usize`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
+                        ),
+                        EntityKind::MajorItem {
+                            module_item_kind: MajorItemKind::Type(
+                                TypeKind::Extern,
+                            ),
+                            connection: MajorItemConnectionKind::Connected,
+                        },
+                    ),
+                },
+            ),
             None,
             None,
             Some(
@@ -3537,8 +4977,8 @@ Ok(
                         0,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 0,
-                        current_syn_symbol_kind: CurrentVariableKind::SimpleParenateParameter {
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::SimpleParenateParameter {
                             pattern_variable_idx: 0,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -3597,19 +5037,139 @@ Ok(
             None,
             None,
             None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        0,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::fmt::Debug`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::fmt::Debug`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        1,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::cmp::PartialEq`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::cmp::PartialEq`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        2,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::cmp::Eq`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::cmp::Eq`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        3,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::clone::Clone`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::clone::Clone`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        4,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::marker::Copy`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::marker::Copy`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
             None,
             None,
             None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::AstIdentifiable,
+                    data: TokenInfoData::EntityNode(
+                        ItemSynNodePath::MajorItem(
+                            MajorItemSynNodePath::Type(
+                                TypeSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Type(
+                                                TypeSynNodePathData {
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TypePath(`core::num::f32`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
+                        ),
+                        EntityKind::MajorItem {
+                            module_item_kind: MajorItemKind::Type(
+                                TypeKind::Extern,
+                            ),
+                            connection: MajorItemConnectionKind::Connected,
+                        },
+                    ),
+                },
+            ),
             None,
             None,
             Some(
@@ -3818,8 +5378,8 @@ Ok(
                         0,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 0,
-                        current_syn_symbol_kind: CurrentVariableKind::SimpleParenateParameter {
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::SimpleParenateParameter {
                             pattern_variable_idx: 0,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -3922,8 +5482,8 @@ Ok(
                         0,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 0,
-                        current_syn_symbol_kind: CurrentVariableKind::SimpleParenateParameter {
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::SimpleParenateParameter {
                             pattern_variable_idx: 0,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -4341,8 +5901,8 @@ Ok(
                         0,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 0,
-                        current_syn_symbol_kind: CurrentVariableKind::SimpleParenateParameter {
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::SimpleParenateParameter {
                             pattern_variable_idx: 0,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -4401,19 +5961,139 @@ Ok(
             None,
             None,
             None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        0,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::fmt::Debug`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::fmt::Debug`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        1,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::cmp::PartialEq`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::cmp::PartialEq`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        2,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::cmp::Eq`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::cmp::Eq`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        3,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::clone::Clone`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::clone::Clone`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        4,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::marker::Copy`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::marker::Copy`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
             None,
             None,
             None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::AstIdentifiable,
+                    data: TokenInfoData::EntityNode(
+                        ItemSynNodePath::MajorItem(
+                            MajorItemSynNodePath::Type(
+                                TypeSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Type(
+                                                TypeSynNodePathData {
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TypePath(`core::num::f64`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
+                        ),
+                        EntityKind::MajorItem {
+                            module_item_kind: MajorItemKind::Type(
+                                TypeKind::Extern,
+                            ),
+                            connection: MajorItemConnectionKind::Connected,
+                        },
+                    ),
+                },
+            ),
             None,
             None,
             Some(
@@ -4660,8 +6340,8 @@ Ok(
                         0,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 0,
-                        current_syn_symbol_kind: CurrentVariableKind::SimpleParenateParameter {
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::SimpleParenateParameter {
                             pattern_variable_idx: 0,
                         },
                         syn_expr_region: ExprRegionLeash(_),
