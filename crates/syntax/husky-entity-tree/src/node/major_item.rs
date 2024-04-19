@@ -1,8 +1,8 @@
-mod fugitive;
+mod form;
 mod trai;
 mod ty;
 
-pub use self::fugitive::*;
+pub use self::form::*;
 pub use self::trai::*;
 pub use self::ty::*;
 
@@ -15,7 +15,7 @@ use husky_entity_path::MajorItemPath;
 pub enum MajorItemSynNodePath {
     Trait(TraitSynNodePath),
     Type(TypeSynNodePath),
-    Fugitive(FugitiveSynNodePath),
+    Form(FormSynNodePath),
 }
 
 impl std::ops::Deref for MajorItemSynNodePath {
@@ -33,7 +33,7 @@ impl std::ops::Deref for MajorItemSynNodePath {
 pub enum MajorItemSynNodePathData {
     Trait(TraitSynNodePathData),
     Type(TypeSynNodePathData),
-    Fugitive(FugitiveSynNodePathData),
+    Form(FormSynNodePathData),
 }
 
 impl MajorItemSynNodePath {
@@ -45,7 +45,7 @@ impl MajorItemSynNodePath {
         match path {
             MajorItemPath::Type(path) => TypeSynNodePath::new(db, registry, path).into(),
             MajorItemPath::Trait(path) => TraitSynNodePath::new(db, registry, path).into(),
-            MajorItemPath::Fugitive(path) => FugitiveSynNodePath::new(db, registry, path).into(),
+            MajorItemPath::Form(path) => FormSynNodePath::new(db, registry, path).into(),
         }
     }
 
@@ -61,7 +61,7 @@ impl MajorItemSynNodePath {
         match self {
             MajorItemSynNodePath::Trait(slf) => slf.ident(db),
             MajorItemSynNodePath::Type(slf) => slf.ident(db),
-            MajorItemSynNodePath::Fugitive(slf) => slf.ident(db),
+            MajorItemSynNodePath::Form(slf) => slf.ident(db),
         }
     }
 
@@ -70,7 +70,7 @@ impl MajorItemSynNodePath {
         match self {
             MajorItemSynNodePath::Trait(_) => &[],
             MajorItemSynNodePath::Type(syn_node_path) => syn_node_path.attr_syn_nodes(db),
-            MajorItemSynNodePath::Fugitive(_) => &[],
+            MajorItemSynNodePath::Form(_) => &[],
         }
     }
 }
@@ -81,7 +81,7 @@ impl MajorItemSynNodePathData {
         match self {
             MajorItemSynNodePathData::Trait(slf) => slf.syn_node_path(id).into(),
             MajorItemSynNodePathData::Type(slf) => slf.syn_node_path(id).into(),
-            MajorItemSynNodePathData::Fugitive(slf) => slf.syn_node_path(id).into(),
+            MajorItemSynNodePathData::Form(slf) => slf.syn_node_path(id).into(),
         }
     }
 
@@ -89,7 +89,7 @@ impl MajorItemSynNodePathData {
         match self {
             MajorItemSynNodePathData::Trait(slf) => slf.path().map(Into::into),
             MajorItemSynNodePathData::Type(slf) => slf.path().map(Into::into),
-            MajorItemSynNodePathData::Fugitive(slf) => slf.path().map(Into::into),
+            MajorItemSynNodePathData::Form(slf) => slf.path().map(Into::into),
         }
     }
 
@@ -97,7 +97,7 @@ impl MajorItemSynNodePathData {
         match self {
             MajorItemSynNodePathData::Trait(slf) => slf.module_path(db),
             MajorItemSynNodePathData::Type(slf) => slf.module_path(db),
-            MajorItemSynNodePathData::Fugitive(slf) => slf.module_path(db),
+            MajorItemSynNodePathData::Form(slf) => slf.module_path(db),
         }
     }
 
@@ -105,7 +105,7 @@ impl MajorItemSynNodePathData {
         match self {
             MajorItemSynNodePathData::Trait(slf) => slf.ast_idx(id, db),
             MajorItemSynNodePathData::Type(slf) => slf.ast_idx(id, db),
-            MajorItemSynNodePathData::Fugitive(slf) => slf.ast_idx(id, db),
+            MajorItemSynNodePathData::Form(slf) => slf.ast_idx(id, db),
         }
     }
 }
@@ -117,7 +117,7 @@ impl HasSynNodePath for MajorItemPath {
         match self {
             MajorItemPath::Type(path) => path.syn_node_path(db).into(),
             MajorItemPath::Trait(path) => path.syn_node_path(db).into(),
-            MajorItemPath::Fugitive(path) => path.syn_node_path(db).into(),
+            MajorItemPath::Form(path) => path.syn_node_path(db).into(),
         }
     }
 }

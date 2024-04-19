@@ -12,7 +12,7 @@ fn reduce_eth_application(db: &::salsa::Db, eth_application: EthApplication) -> 
     let argument = eth_application.argument(db).reduce(db);
     let shift = eth_application.shift(db);
     match function {
-        EthTerm::EntityPath(ItemPathTerm::Fugitive(_)) => todo!(),
+        EthTerm::EntityPath(ItemPathTerm::Form(_)) => todo!(),
         EthTerm::Ritchie(_) => todo!(),
         EthTerm::Abstraction(_) => todo!(),
         EthTerm::Application(function_term_application)

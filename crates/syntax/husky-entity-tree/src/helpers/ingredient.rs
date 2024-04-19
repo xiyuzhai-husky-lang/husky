@@ -48,12 +48,12 @@ impl IngredientPath {
                 connection: _,
             } => match module_item_kind {
                 MajorItemKind::Type(_) => false,
-                MajorItemKind::Fugitive(fugitive_kind) => match fugitive_kind {
-                    MajorFugitiveKind::Ritchie(ritchie_item_kind) => ritchie_item_kind.needs_jar(),
-                    MajorFugitiveKind::TypeAlias => false,
-                    MajorFugitiveKind::Val => true,
-                    MajorFugitiveKind::Formal => false,
-                    MajorFugitiveKind::Const => false,
+                MajorItemKind::Form(form_kind) => match form_kind {
+                    MajorFormKind::Ritchie(ritchie_item_kind) => ritchie_item_kind.needs_jar(),
+                    MajorFormKind::TypeAlias => false,
+                    MajorFormKind::Val => true,
+                    MajorFormKind::Formal => false,
+                    MajorFormKind::Const => false,
                 },
                 MajorItemKind::Trait => false,
             },

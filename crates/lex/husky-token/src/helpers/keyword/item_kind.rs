@@ -224,32 +224,30 @@ where
             _ => return Ok(None),
         };
         match kw {
-            Keyword::Fugitive(kw) => match kw {
-                FugitiveKeyword::Val => {
-                    Ok(Some(EntityKindKeywordGroup::Ki(ValToken { token_idx })))
-                }
-                FugitiveKeyword::Fn => Ok(Some(EntityKindKeywordGroup::Fn(FnToken { token_idx }))),
-                FugitiveKeyword::Vn => Ok(Some(EntityKindKeywordGroup::Vn(VnToken { token_idx }))),
-                FugitiveKeyword::Gn => Ok(Some(EntityKindKeywordGroup::Gn(GnToken { token_idx }))),
-                FugitiveKeyword::Pn => Ok(Some(EntityKindKeywordGroup::Pn(PnToken { token_idx }))),
-                FugitiveKeyword::Qn => Ok(Some(EntityKindKeywordGroup::Qn(QnToken { token_idx }))),
-                FugitiveKeyword::Tn => Ok(Some(EntityKindKeywordGroup::Tn(TnToken { token_idx }))),
-                FugitiveKeyword::Def => Ok(Some(EntityKindKeywordGroup::FormalEntity(
+            Keyword::Form(kw) => match kw {
+                FormKeyword::Val => Ok(Some(EntityKindKeywordGroup::Ki(ValToken { token_idx }))),
+                FormKeyword::Fn => Ok(Some(EntityKindKeywordGroup::Fn(FnToken { token_idx }))),
+                FormKeyword::Vn => Ok(Some(EntityKindKeywordGroup::Vn(VnToken { token_idx }))),
+                FormKeyword::Gn => Ok(Some(EntityKindKeywordGroup::Gn(GnToken { token_idx }))),
+                FormKeyword::Pn => Ok(Some(EntityKindKeywordGroup::Pn(PnToken { token_idx }))),
+                FormKeyword::Qn => Ok(Some(EntityKindKeywordGroup::Qn(QnToken { token_idx }))),
+                FormKeyword::Tn => Ok(Some(EntityKindKeywordGroup::Tn(TnToken { token_idx }))),
+                FormKeyword::Def => Ok(Some(EntityKindKeywordGroup::FormalEntity(
                     FormalEntityToken::Def(DefToken { token_idx }),
                 ))),
-                FugitiveKeyword::Theorem => Ok(Some(EntityKindKeywordGroup::FormalEntity(
+                FormKeyword::Theorem => Ok(Some(EntityKindKeywordGroup::FormalEntity(
                     FormalEntityToken::Theorem(TheoremToken { token_idx }),
                 ))),
-                FugitiveKeyword::Lemma => Ok(Some(EntityKindKeywordGroup::FormalEntity(
+                FormKeyword::Lemma => Ok(Some(EntityKindKeywordGroup::FormalEntity(
                     FormalEntityToken::Lemma(LemmaToken { token_idx }),
                 ))),
-                FugitiveKeyword::Proposition => Ok(Some(EntityKindKeywordGroup::FormalEntity(
+                FormKeyword::Proposition => Ok(Some(EntityKindKeywordGroup::FormalEntity(
                     FormalEntityToken::Proposition(PropositionToken { token_idx }),
                 ))),
-                FugitiveKeyword::Type => Ok(Some(EntityKindKeywordGroup::AliasOrAssociateType(
+                FormKeyword::Type => Ok(Some(EntityKindKeywordGroup::AliasOrAssociateType(
                     TypeToken { token_idx },
                 ))),
-                FugitiveKeyword::Memo => {
+                FormKeyword::Memo => {
                     Ok(Some(EntityKindKeywordGroup::Memo(MemoToken { token_idx })))
                 }
             },
@@ -270,7 +268,7 @@ where
                 token_idx,
             }))),
             Keyword::Static => match token_stream.peek() {
-                Some(TokenData::Keyword(Keyword::Fugitive(FugitiveKeyword::Fn))) => {
+                Some(TokenData::Keyword(Keyword::Form(FormKeyword::Fn))) => {
                     token_stream.next();
                     Ok(Some(EntityKindKeywordGroup::StaticFn(
                         StaticToken { token_idx },

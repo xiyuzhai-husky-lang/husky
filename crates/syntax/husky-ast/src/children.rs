@@ -1,11 +1,11 @@
-mod fugitive_body;
+mod form_body;
 mod major_items;
 mod trai_for_ty_items;
 mod trai_items;
 mod ty_items;
 mod ty_variants;
 
-pub use self::fugitive_body::*;
+pub use self::form_body::*;
 pub use self::major_items::*;
 pub use self::trai_for_ty_items::*;
 pub use self::trai_items::*;
@@ -35,9 +35,9 @@ pub(crate) trait IsAstChildren {
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[enum_class::from_variants]
 pub enum DefnBlock {
-    Fugitive {
-        path: FugitivePath,
-        body: Option<FugitiveBody>,
+    Form {
+        path: MajorFormPath,
+        body: Option<FormBody>,
     },
     Submodule {
         path: SubmoduleItemPath,
@@ -52,14 +52,14 @@ pub enum DefnBlock {
     },
     // doesn't have a path field because the impl block might be ill-formed
     AssocItem {
-        body: Option<FugitiveBody>,
+        body: Option<FormBody>,
     },
 }
 
 impl DefnBlock {
     pub fn children(self) -> Option<AstIdxRange> {
         match self {
-            DefnBlock::Fugitive { body, .. } => body.map(|v| v.ast_idx_range()),
+            DefnBlock::Form { body, .. } => body.map(|v| v.ast_idx_range()),
             // in husky, there are no inline modules
             DefnBlock::Submodule { .. } => None,
             DefnBlock::Type { variants, .. } => variants.map(|v| v.ast_idx_range()),
@@ -72,7 +72,7 @@ impl DefnBlock {
     #[inline(always)]
     pub fn item_path(self) -> Option<ItemPath> {
         match self {
-            DefnBlock::Fugitive { path, .. } => Some(path.into()),
+            DefnBlock::Form { path, .. } => Some(path.into()),
             DefnBlock::Submodule { path } => Some(path.into()),
             DefnBlock::Type { path, .. } => Some(path.into()),
             DefnBlock::Trait { path, .. } => Some(path.into()),

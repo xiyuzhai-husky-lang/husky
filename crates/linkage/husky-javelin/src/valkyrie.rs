@@ -140,7 +140,7 @@ impl ValkyrieRides {
                     PrincipalEntityPath::MajorItem(path) => match path {
                         MajorItemPath::Type(_) => (),
                         MajorItemPath::Trait(_) => (),
-                        MajorItemPath::Fugitive(_) => (),
+                        MajorItemPath::Form(_) => (),
                     },
                     PrincipalEntityPath::TypeVariant(_path) => (),
                 },

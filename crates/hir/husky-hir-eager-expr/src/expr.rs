@@ -117,7 +117,7 @@ pub enum HirEagerExprData {
         arguments: SmallVec<[HirEagerRitchieArgument; 4]>,
     },
     FunctionFnCall {
-        path: FugitivePath,
+        path: MajorFormPath,
         instantiation: HirInstantiation,
         arguments: SmallVec<[HirEagerRitchieArgument; 4]>,
     },
@@ -350,7 +350,7 @@ impl ToHirEager for SemaExprIdx {
                                 arguments: item_groups,
                             },
                             MajorItemPath::Trait(_) => unreachable!(),
-                            MajorItemPath::Fugitive(path) => HirEagerExprData::FunctionFnCall {
+                            MajorItemPath::Form(path) => HirEagerExprData::FunctionFnCall {
                                 path,
                                 instantiation: HirInstantiation::from_fly(
                                     instantiation.as_ref().unwrap(),

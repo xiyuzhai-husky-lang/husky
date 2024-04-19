@@ -23,8 +23,8 @@ pub struct HirDefnJar(
     UnionHirDefn,
     crate::defn::union_hir_defn_dependencies,
     crate::defn::union_hir_defn_version_stamp,
-    // - fugitive
-    fugitive_hir_defn,
+    // - Form
+    form_hir_defn,
     ValHirDefn,
     crate::defn::val_hir_defn_dependencies,
     crate::defn::val_hir_defn_version_stamp,

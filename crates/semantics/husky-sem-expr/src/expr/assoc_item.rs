@@ -21,7 +21,7 @@ impl<'a> SemaExprBuilder<'a> {
                 ItemPathTerm::TypeOntology(path).into()
             }
             MajorItemPath::Trait(_) => todo!(),
-            MajorItemPath::Fugitive(_) => todo!(),
+            MajorItemPath::Form(_) => todo!(),
         };
         self.calc_assoc_item_ty_aux(
             parent_term,

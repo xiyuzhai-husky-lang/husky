@@ -244,9 +244,7 @@ impl ImplBlockSynNode {
                 )?
                 .into()
             }
-            MajorItemPath::Fugitive(fugitive_path) => {
-                Err(ImplBlockIllForm::UnexpectedFugitivePath(fugitive_path))?
-            }
+            MajorItemPath::Form(form_path) => Err(ImplBlockIllForm::UnexpectedFormPath(form_path))?,
         })
     }
 }

@@ -16,9 +16,10 @@ pub enum TypeKind {
     Extern,
 }
 
+#[enum_class::from_variants]
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
-pub enum MajorFugitiveKind {
+pub enum MajorFormKind {
     Ritchie(RitchieItemKind),
     TypeAlias,
     Val,
@@ -26,13 +27,13 @@ pub enum MajorFugitiveKind {
     Const,
 }
 
-impl MajorFugitiveKind {
-    pub const FN: Self = MajorFugitiveKind::Ritchie(RitchieItemKind::Fn);
-    pub const GN: Self = MajorFugitiveKind::Ritchie(RitchieItemKind::Gn);
-    pub const VN: Self = MajorFugitiveKind::Ritchie(RitchieItemKind::Vn);
-    pub const PN: Self = MajorFugitiveKind::Ritchie(RitchieItemKind::Pn);
-    pub const QN: Self = MajorFugitiveKind::Ritchie(RitchieItemKind::Qn);
-    pub const TN: Self = MajorFugitiveKind::Ritchie(RitchieItemKind::Tn);
+impl MajorFormKind {
+    pub const FN: Self = MajorFormKind::Ritchie(RitchieItemKind::Fn);
+    pub const GN: Self = MajorFormKind::Ritchie(RitchieItemKind::Gn);
+    pub const VN: Self = MajorFormKind::Ritchie(RitchieItemKind::Vn);
+    pub const PN: Self = MajorFormKind::Ritchie(RitchieItemKind::Pn);
+    pub const QN: Self = MajorFormKind::Ritchie(RitchieItemKind::Qn);
+    pub const TN: Self = MajorFormKind::Ritchie(RitchieItemKind::Tn);
 }
 
 #[salsa::derive_debug_with_db]
@@ -60,12 +61,12 @@ impl EntityKind {
                 module_item_kind, ..
             } => match module_item_kind {
                 MajorItemKind::Type(_) => EntityClass::Type,
-                MajorItemKind::Fugitive(major_fugitive_kind) => match major_fugitive_kind {
-                    MajorFugitiveKind::Ritchie(_) => EntityClass::MajorRitchie,
-                    MajorFugitiveKind::TypeAlias => EntityClass::TypeAlias,
-                    MajorFugitiveKind::Val => EntityClass::Val,
-                    MajorFugitiveKind::Formal => EntityClass::Formal,
-                    MajorFugitiveKind::Const => EntityClass::Const,
+                MajorItemKind::Form(major_form_kind) => match major_form_kind {
+                    MajorFormKind::Ritchie(_) => EntityClass::MajorRitchie,
+                    MajorFormKind::TypeAlias => EntityClass::TypeAlias,
+                    MajorFormKind::Val => EntityClass::Val,
+                    MajorFormKind::Formal => EntityClass::Formal,
+                    MajorFormKind::Const => EntityClass::Const,
                 },
                 MajorItemKind::Trait => EntityClass::Trait,
             },
@@ -86,7 +87,7 @@ impl EntityKind {
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum MajorItemKind {
     Type(TypeKind),
-    Fugitive(MajorFugitiveKind),
+    Form(MajorFormKind),
     Trait,
 }
 

@@ -1,6 +1,6 @@
 use super::*;
 use crate::registry::assoc_trace::VoidAssocTraceRegistry;
-use husky_entity_kind::MajorFugitiveKind;
+use husky_entity_kind::MajorFormKind;
 use husky_entity_path::{ItemPath, MajorItemPath, SubmoduleItemPath};
 use husky_entity_tree::helpers::paths::module_item_paths;
 use husky_entity_tree::HasSynNodePath;
@@ -76,8 +76,8 @@ pub(super) fn submodule_contains_val_item(
                     return true;
                 }
             }
-            ItemPath::MajorItem(MajorItemPath::Fugitive(fugitive_path))
-                if fugitive_path.major_fugitive_kind(db) == MajorFugitiveKind::Val =>
+            ItemPath::MajorItem(MajorItemPath::Form(form_path))
+                if form_path.major_form_kind(db) == MajorFormKind::Val =>
             {
                 return true
             }

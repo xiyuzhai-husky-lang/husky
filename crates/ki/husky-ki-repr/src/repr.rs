@@ -5,8 +5,8 @@ pub(crate) use self::val_domain_repr_guard::ValDomainReprGuard;
 
 use self::source::*;
 use crate::*;
-use husky_entity_path::FugitivePath;
-use husky_hir_defn::{FugitiveHirDefn, HasHirDefn};
+use husky_entity_path::MajorFormPath;
+use husky_hir_defn::{FormHirDefn, HasHirDefn};
 use husky_ki::{Ki, KiArgument, KiRuntimeConstant, ValDomain, ValOpn};
 use husky_linkage::linkage::Linkage;
 use husky_task_interface::ki_repr::{
@@ -84,7 +84,7 @@ impl KiRepr {
         )
     }
 
-    pub fn new_val_item(path: FugitivePath, db: &::salsa::Db) -> Self {
+    pub fn new_val_item(path: MajorFormPath, db: &::salsa::Db) -> Self {
         val_item_ki_repr(db, path)
     }
 
@@ -100,9 +100,9 @@ impl KiRepr {
 }
 
 #[salsa::tracked(jar = KiReprJar)]
-fn val_item_ki_repr(db: &::salsa::Db, path: FugitivePath) -> KiRepr {
+fn val_item_ki_repr(db: &::salsa::Db, path: MajorFormPath) -> KiRepr {
     let domain = ValDomainRepr::Omni;
-    let FugitiveHirDefn::Ki(hir_defn) = path.hir_defn(db).unwrap() else {
+    let FormHirDefn::Ki(hir_defn) = path.hir_defn(db).unwrap() else {
         unreachable!()
     };
     let opn = match Linkage::new_val_item(path, db) {
@@ -221,20 +221,18 @@ impl ValDomainRepr {
 pub(crate) fn val_item_ki_reprs(
     db: &::salsa::Db,
     module_path: ModulePath,
-) -> Vec<(FugitivePath, KiRepr)> {
-    use husky_entity_kind::MajorFugitiveKind;
+) -> Vec<(MajorFormPath, KiRepr)> {
+    use husky_entity_kind::MajorFormKind;
     use husky_entity_path::{ItemPath, MajorItemPath};
     use husky_entity_tree::helpers::paths::module_item_paths;
 
     module_item_paths(db, module_path)
         .iter()
         .filter_map(|&path| match path {
-            ItemPath::MajorItem(MajorItemPath::Fugitive(path)) => {
-                match path.major_fugitive_kind(db) {
-                    MajorFugitiveKind::Val => Some((path, KiRepr::new_val_item(path, db))),
-                    _ => None,
-                }
-            }
+            ItemPath::MajorItem(MajorItemPath::Form(path)) => match path.major_form_kind(db) {
+                MajorFormKind::Val => Some((path, KiRepr::new_val_item(path, db))),
+                _ => None,
+            },
             _ => None,
         })
         .collect()

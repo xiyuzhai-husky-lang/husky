@@ -1,6 +1,6 @@
 use super::*;
 use either::*;
-use husky_eth_signature::{FugitiveEthTemplate, HasEthTemplate, TypeVariantEthTemplate};
+use husky_eth_signature::{FormEthTemplate, HasEthTemplate, TypeVariantEthTemplate};
 use husky_eth_term::instantiation::EthInstantiate;
 use husky_fly_term::{
     instantiation::{
@@ -61,7 +61,7 @@ impl<'a> SemaExprBuilder<'a> {
                 MajorItemPath::Trait(path) => {
                     (Ok(None), path.ty(db).map(Into::into).map_err(Into::into))
                 }
-                MajorItemPath::Fugitive(path) => match path.eth_template(db) {
+                MajorItemPath::Form(path) => match path.eth_template(db) {
                     Ok(tmpl) => {
                         let instantiation = FlyInstantiation::from_template_parameters(
                             path,
@@ -73,20 +73,14 @@ impl<'a> SemaExprBuilder<'a> {
                             db,
                         );
                         let ty = match tmpl {
-                            FugitiveEthTemplate::FunctionFn(tmpl) => FlyInstantiate::instantiate(
+                            FormEthTemplate::Ritchie(tmpl) => FlyInstantiate::instantiate(
                                 tmpl.ritchie_ty(db),
                                 self,
                                 syn_expr_idx,
                                 &instantiation,
                             ),
-                            FugitiveEthTemplate::FunctionGn(tmpl) => FlyInstantiate::instantiate(
-                                tmpl.ritchie_ty(db),
-                                self,
-                                syn_expr_idx,
-                                &instantiation,
-                            ),
-                            FugitiveEthTemplate::TypeAlias(_) => todo!(),
-                            FugitiveEthTemplate::Ki(tmpl) => FlyInstantiate::instantiate(
+                            FormEthTemplate::TypeAlias(_) => todo!(),
+                            FormEthTemplate::Val(tmpl) => FlyInstantiate::instantiate(
                                 tmpl.return_ty(db),
                                 self,
                                 syn_expr_idx,

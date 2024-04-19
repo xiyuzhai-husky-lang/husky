@@ -95,7 +95,7 @@ impl EthTerm {
                 EthLambdaVariable::from_dec(db, declarative_term)?.into()
             }
             DecTerm::EntityPath(declarative_term) => match declarative_term {
-                DecItemPath::Fugitive(path) => ItemPathTerm::Fugitive(path).into(),
+                DecItemPath::Form(path) => ItemPathTerm::Form(path).into(),
                 DecItemPath::Trait(path) => ItemPathTerm::Trait(path).into(),
                 DecItemPath::Type(path) => match ty_expectation {
                     TypeFinalDestinationExpectation::EqsSort => {
@@ -210,7 +210,7 @@ impl EthTerm {
             )
             | EthTerm::Category(_)
             | EthTerm::Universe(_) => self,
-            EthTerm::EntityPath(ItemPathTerm::Fugitive(_)) => todo!(),
+            EthTerm::EntityPath(ItemPathTerm::Form(_)) => todo!(),
             EthTerm::Curry(_) => self,
             EthTerm::Ritchie(slf) => slf.reduce(db).into(),
             EthTerm::Abstraction(_) => todo!(),

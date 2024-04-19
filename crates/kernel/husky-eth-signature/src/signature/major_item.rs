@@ -1,8 +1,8 @@
-mod fugitive;
+mod form;
 mod trai;
 mod ty;
 
-pub use self::fugitive::*;
+pub use self::form::*;
 pub use self::trai::*;
 pub use self::ty::*;
 
@@ -13,7 +13,7 @@ use super::*;
 #[enum_class::from_variants]
 pub enum MajorItemEthTemplate {
     Type(TypeEthTemplate),
-    Fugitive(FugitiveEthTemplate),
+    Form(FormEthTemplate),
     Trait(TraitEthTemplate),
 }
 
@@ -24,7 +24,7 @@ impl HasEthTemplate for MajorItemPath {
         Ok(match self {
             MajorItemPath::Type(path) => path.eth_template(db)?.into(),
             MajorItemPath::Trait(path) => path.eth_template(db)?.into(),
-            MajorItemPath::Fugitive(path) => path.eth_template(db)?.into(),
+            MajorItemPath::Form(path) => path.eth_template(db)?.into(),
         })
     }
 }

@@ -9,3 +9,10 @@ use crate::builder::HirDeclBuilder;
 use husky_hir_eager_expr::HirEagerPatternIdx;
 use husky_syn_expr::{ParenateParameterSyndicate, SelfValueParameterSyndicate};
 use smallvec::SmallVec;
+
+#[salsa::derive_debug_with_db]
+#[derive(Debug, Clone, PartialEq, Eq, Hash)]
+pub enum HirParenateParameters {
+    Eager(HirEagerParenateParameters),
+    Lazy(HirLazyParenateParameters),
+}

@@ -29,9 +29,9 @@ use crate::{
     registry::trace_path::{TracePathDisambiguator, TracePathRegistry},
     *,
 };
-use husky_entity_kind::MajorFugitiveKind;
+use husky_entity_kind::MajorFormKind;
 use husky_entity_path::MajorItemPath;
-use husky_entity_path::{FugitivePath, ItemPath};
+use husky_entity_path::{ItemPath, MajorFormPath};
 use husky_entity_tree::helpers::paths::module_item_paths;
 use husky_entity_tree::helpers::tokra_region::HasRegionalTokenIdxBase;
 use husky_ki_repr::expansion::KiReprExpansion;
@@ -126,18 +126,16 @@ impl Trace {
 
     fn from_major_item_path(major_item_path: MajorItemPath, db: &::salsa::Db) -> Option<Self> {
         match major_item_path {
-            MajorItemPath::Fugitive(fugitive_path) => Self::from_fugitive_path(fugitive_path, db),
+            MajorItemPath::Form(form_path) => Self::from_form_path(form_path, db),
             _ => None,
         }
     }
 
-    fn from_fugitive_path(fugitive_path: FugitivePath, db: &::salsa::Db) -> Option<Self> {
-        match fugitive_path.major_fugitive_kind(db) {
-            MajorFugitiveKind::Const => todo!(),
-            MajorFugitiveKind::Val => Some(Trace::from_val_item_path(fugitive_path, db).into()),
-            MajorFugitiveKind::Ritchie(_)
-            | MajorFugitiveKind::TypeAlias
-            | MajorFugitiveKind::Formal => None,
+    fn from_form_path(form_path: MajorFormPath, db: &::salsa::Db) -> Option<Self> {
+        match form_path.major_form_kind(db) {
+            MajorFormKind::Const => todo!(),
+            MajorFormKind::Val => Some(Trace::from_val_item_path(form_path, db).into()),
+            MajorFormKind::Ritchie(_) | MajorFormKind::TypeAlias | MajorFormKind::Formal => None,
         }
     }
 

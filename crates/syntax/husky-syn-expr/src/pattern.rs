@@ -9,7 +9,7 @@ pub use self::symbol::*;
 
 use super::*;
 use husky_coword::Ident;
-use husky_entity_kind::MajorFugitiveKind;
+use husky_entity_kind::MajorFormKind;
 use husky_entity_path::{ItemPath, TypePath, TypeVariantPath};
 use idx_arena::{map::ArenaMap, ordered_map::ArenaOrderedMap, Arena, ArenaIdx, ArenaIdxRange};
 use parsec::{IsStreamParser, PunctuatedSmallList, TryParseOptionFromStream};
@@ -145,19 +145,17 @@ where
                                 PrincipalEntityPath::MajorItem(path) => match path {
                                     MajorItemPath::Type(_) => todo!(),
                                     MajorItemPath::Trait(_) => todo!(),
-                                    MajorItemPath::Fugitive(path) => match path
-                                        .major_fugitive_kind(db)
-                                    {
-                                        MajorFugitiveKind::Ritchie(_) | MajorFugitiveKind::Val => {
+                                    MajorItemPath::Form(path) => match path.major_form_kind(db) {
+                                        MajorFormKind::Ritchie(_) | MajorFormKind::Val => {
                                             parse_overriding_ident_pattern(
                                                 parser,
                                                 path_expr_idx,
                                                 symbol_modifier_tokens,
                                             )
                                         }
-                                        MajorFugitiveKind::TypeAlias => todo!(),
-                                        MajorFugitiveKind::Formal => todo!(),
-                                        MajorFugitiveKind::Const => todo!(),
+                                        MajorFormKind::TypeAlias => todo!(),
+                                        MajorFormKind::Formal => todo!(),
+                                        MajorFormKind::Const => todo!(),
                                     },
                                 },
                                 PrincipalEntityPath::TypeVariant(path) => {
