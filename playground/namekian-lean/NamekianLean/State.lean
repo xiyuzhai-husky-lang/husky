@@ -1,4 +1,7 @@
+import NamekianLean.Registry
+-- import NamekianLean.Registry
+
 structure LogicState where
-  registry: LogicRegistry
+  registry:  LogicRegistry
   intros: List LogicIntro
   tree: LogicTree
