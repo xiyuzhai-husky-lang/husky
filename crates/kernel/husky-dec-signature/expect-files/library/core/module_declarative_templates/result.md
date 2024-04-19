@@ -36,7 +36,7 @@
                             self_ty: Application(
                                 DecApplication(
                                     Id {
-                                        value: 30,
+                                        value: 44,
                                     },
                                 ),
                             ),
@@ -99,7 +99,7 @@
                         trai: Application(
                             DecApplication(
                                 Id {
-                                    value: 33,
+                                    value: 47,
                                 },
                             ),
                         ),
@@ -107,7 +107,7 @@
                             Application(
                                 DecApplication(
                                     Id {
-                                        value: 34,
+                                        value: 48,
                                     },
                                 ),
                             ),
@@ -170,7 +170,7 @@
                             self_ty: Application(
                                 DecApplication(
                                     Id {
-                                        value: 34,
+                                        value: 48,
                                     },
                                 ),
                             ),
@@ -185,7 +185,7 @@
                                             ty: Application(
                                                 DecApplication(
                                                     Id {
-                                                        value: 36,
+                                                        value: 50,
                                                     },
                                                 ),
                                             ),
@@ -196,7 +196,7 @@
                             return_ty: Application(
                                 DecApplication(
                                     Id {
-                                        value: 34,
+                                        value: 48,
                                     },
                                 ),
                             ),

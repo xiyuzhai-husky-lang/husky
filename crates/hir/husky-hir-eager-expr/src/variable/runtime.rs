@@ -68,11 +68,11 @@ impl HirEagerRuntimeVariableRegionData {
                     .push_inherited(inherited_syn_symbol_idx, hir_eager_runtime_symbol_idx)
             }
         }
-        for (current_syn_symbol_idx, current_syn_symbol) in
+        for (current_syn_symbol_idx, current_variable) in
             syn_symbol_region.indexed_current_syn_symbols()
         {
             if let Some(hir_eager_runtime_symbol) =
-                HirEagerRuntimeVariableEntry::from_current_syn(current_syn_symbol)
+                HirEagerRuntimeVariableEntry::from_current_syn(current_variable)
             {
                 let hir_eager_runtime_symbol_idx = arena.alloc_one(hir_eager_runtime_symbol);
                 syn_symbol_to_hir_eager_runtime_symbol_map
@@ -124,14 +124,14 @@ impl HirEagerRuntimeVariableEntry {
         Some(Self { name, data })
     }
 
-    fn from_current_syn(current_syn_symbol: &CurrentVariableEntry) -> Option<Self> {
-        let name = match current_syn_symbol.data() {
+    fn from_current_syn(current_variable: &CurrentVariableEntry) -> Option<Self> {
+        let name = match current_variable.data() {
             CurrentVariableData::SelfValue {
                 symbol_modifier_keyword_group: _,
             } => HirEagerRuntimeVariableName::SelfValue,
-            _ => HirEagerRuntimeVariableName::Ident(current_syn_symbol.ident()?),
+            _ => HirEagerRuntimeVariableName::Ident(current_variable.ident()?),
         };
-        let data = HirEagerRuntimeVariableData::from_current_syn(current_syn_symbol.data())?;
+        let data = HirEagerRuntimeVariableData::from_current_syn(current_variable.data())?;
         Some(Self { name, data })
     }
 }

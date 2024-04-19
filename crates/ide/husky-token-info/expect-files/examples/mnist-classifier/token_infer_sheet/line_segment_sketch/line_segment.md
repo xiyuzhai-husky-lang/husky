@@ -243,7 +243,7 @@ Ok(
                     data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 0,
                         current_syn_symbol_kind: CurrentVariableKind::SimpleParenateParameter {
-                            pattern_symbol_idx: 0,
+                            pattern_variable_idx: 0,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -300,7 +300,7 @@ Ok(
                     data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 0,
                         current_syn_symbol_kind: CurrentVariableKind::LetVariable {
-                            pattern_symbol_idx: 0,
+                            pattern_variable_idx: 0,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -339,7 +339,7 @@ Ok(
                     data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 1,
                         current_syn_symbol_kind: CurrentVariableKind::LetVariable {
-                            pattern_symbol_idx: 1,
+                            pattern_variable_idx: 1,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -407,7 +407,7 @@ Ok(
                     data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 0,
                         current_syn_symbol_kind: CurrentVariableKind::LetVariable {
-                            pattern_symbol_idx: 0,
+                            pattern_variable_idx: 0,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -435,7 +435,7 @@ Ok(
                     data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 1,
                         current_syn_symbol_kind: CurrentVariableKind::LetVariable {
-                            pattern_symbol_idx: 1,
+                            pattern_variable_idx: 1,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -455,7 +455,7 @@ Ok(
                     data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 1,
                         current_syn_symbol_kind: CurrentVariableKind::LetVariable {
-                            pattern_symbol_idx: 1,
+                            pattern_variable_idx: 1,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -485,7 +485,7 @@ Ok(
                     data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 2,
                         current_syn_symbol_kind: CurrentVariableKind::LetVariable {
-                            pattern_symbol_idx: 2,
+                            pattern_variable_idx: 2,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -553,7 +553,7 @@ Ok(
                     data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 0,
                         current_syn_symbol_kind: CurrentVariableKind::LetVariable {
-                            pattern_symbol_idx: 0,
+                            pattern_variable_idx: 0,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -581,7 +581,7 @@ Ok(
                     data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 2,
                         current_syn_symbol_kind: CurrentVariableKind::LetVariable {
-                            pattern_symbol_idx: 2,
+                            pattern_variable_idx: 2,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -601,7 +601,7 @@ Ok(
                     data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 2,
                         current_syn_symbol_kind: CurrentVariableKind::LetVariable {
-                            pattern_symbol_idx: 2,
+                            pattern_variable_idx: 2,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -632,7 +632,7 @@ Ok(
                     data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 0,
                         current_syn_symbol_kind: CurrentVariableKind::LetVariable {
-                            pattern_symbol_idx: 0,
+                            pattern_variable_idx: 0,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -660,7 +660,7 @@ Ok(
                     data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 1,
                         current_syn_symbol_kind: CurrentVariableKind::LetVariable {
-                            pattern_symbol_idx: 1,
+                            pattern_variable_idx: 1,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -691,7 +691,7 @@ Ok(
                     data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 0,
                         current_syn_symbol_kind: CurrentVariableKind::LetVariable {
-                            pattern_symbol_idx: 0,
+                            pattern_variable_idx: 0,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },

@@ -138,7 +138,7 @@
                         SemaExprIdx(
                             0,
                         ),
-                        SynExprRootKind::Trait,
+                        SynExprRootKind::PrimalTrait,
                     ),
                 ),
             ],

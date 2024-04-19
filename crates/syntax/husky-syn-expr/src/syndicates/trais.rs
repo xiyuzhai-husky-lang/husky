@@ -7,7 +7,7 @@ use smallvec::smallvec;
 pub struct TraitsSyndicate {
     pub colon_regional_token: ColonRegionalToken,
     pub traits_syn_expr_idx: SynExprIdx,
-    pub trait_syn_expr_idxs: SmallVec<[SynExprIdx; 4]>,
+    pub trai_syn_expr_idxs: SmallVec<[SynExprIdx; 4]>,
 }
 
 impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for TraitsSyndicate {
@@ -24,17 +24,17 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for TraitsSyndicate
                 None,
                 OriginalSynExprError::ExpectedTraits,
             );
-            let trait_syn_expr_idxs =
+            let trai_syn_expr_idxs =
                 expand_expr_into_traits(traits_syn_expr_idx, parser.syn_expr_arena());
-            for &trait_syn_expr_idx in &trait_syn_expr_idxs {
+            for &trai_syn_expr_idx in &trai_syn_expr_idxs {
                 parser
                     .context_mut()
-                    .add_expr_root(SynExprRootKind::Trait, trait_syn_expr_idx)
+                    .add_expr_root(SynExprRootKind::TraitInConstraint, trai_syn_expr_idx)
             }
             Ok(Some(TraitsSyndicate {
                 colon_regional_token,
                 traits_syn_expr_idx,
-                trait_syn_expr_idxs,
+                trai_syn_expr_idxs,
             }))
         } else {
             Ok(None)

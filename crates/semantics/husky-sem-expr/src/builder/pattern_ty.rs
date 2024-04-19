@@ -65,7 +65,7 @@ impl<'a> SemaExprBuilder<'a> {
             return;
         };
         let modifier =
-            match *self.syn_expr_region_data.symbol_region()[current_syn_symbol_idx].data() {
+            match *self.syn_expr_region_data.variable_region()[current_syn_symbol_idx].data() {
                 CurrentVariableData::SimpleClosureParameter {
                     pattern_variable_idx,
                     ..

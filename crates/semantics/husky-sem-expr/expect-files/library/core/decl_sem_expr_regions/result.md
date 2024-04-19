@@ -569,7 +569,7 @@
                         SemaExprIdx(
                             6,
                         ),
-                        SynExprRootKind::Trait,
+                        SynExprRootKind::PrimalTrait,
                     ),
                 ),
                 (

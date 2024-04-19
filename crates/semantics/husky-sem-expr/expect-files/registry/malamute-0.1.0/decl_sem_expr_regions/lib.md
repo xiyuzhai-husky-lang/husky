@@ -516,6 +516,16 @@
             place_registry: PlaceRegistry {
                 infos: [
                     Parameter {
+                        current_syn_symbol_idx: 2,
+                        ident: Ident(
+                            Coword(
+                                Id {
+                                    value: 34,
+                                },
+                            ),
+                        ),
+                    },
+                    Parameter {
                         current_syn_symbol_idx: 3,
                         ident: Ident(
                             Coword(
@@ -526,7 +536,7 @@
                         ),
                     },
                 ],
-                next: 1,
+                next: 2,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
@@ -1069,7 +1079,11 @@
                     SymbolType(
                         FlyTerm {
                             place: Some(
-                                Const,
+                                StackPure {
+                                    place: Idx(
+                                        PlaceIdx(0),
+                                    ),
+                                },
                             ),
                             base: FlyTermBase::Eth(
                                 EthTerm(`f32`),
@@ -1081,7 +1095,7 @@
                             place: Some(
                                 StackPure {
                                     place: Idx(
-                                        PlaceIdx(0),
+                                        PlaceIdx(1),
                                     ),
                                 },
                             ),
@@ -1105,12 +1119,6 @@
                         place: None,
                         base: FlyTermBase::Eth(
                             EthTerm(`label`),
-                        ),
-                    },
-                    FlyTerm {
-                        place: None,
-                        base: FlyTermBase::Eth(
-                            EthTerm(`f`),
                         ),
                     },
                 ],
@@ -1782,7 +1790,7 @@
                         SemaExprIdx(
                             1,
                         ),
-                        SynExprRootKind::Trait,
+                        SynExprRootKind::PrimalTrait,
                     ),
                 ),
                 (
@@ -2860,7 +2868,7 @@
                         SemaExprIdx(
                             7,
                         ),
-                        SynExprRootKind::Trait,
+                        SynExprRootKind::PrimalTrait,
                     ),
                 ),
                 (
@@ -5212,7 +5220,7 @@
                         SemaExprIdx(
                             7,
                         ),
-                        SynExprRootKind::Trait,
+                        SynExprRootKind::PrimalTrait,
                     ),
                 ),
                 (

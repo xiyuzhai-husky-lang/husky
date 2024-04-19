@@ -43,9 +43,8 @@ impl SynExprRegionData {
             variable_region
                 .current_syn_symbol_arena()
                 .indexed_iter()
-                .filter_map(
-                    |(current_syn_symbol_idx, current_syn_symbol)| match *current_syn_symbol.data()
-                    {
+                .filter_map(|(current_syn_symbol_idx, current_variable)| {
+                    match *current_variable.data() {
                         CurrentVariableData::SimpleParenateParameter {
                             pattern_variable_idx,
                             ..
@@ -63,8 +62,8 @@ impl SynExprRegionData {
                             ..
                         } => Some((pattern_variable_idx, current_syn_symbol_idx)),
                         _ => None,
-                    },
-                ),
+                    }
+                }),
         )
         .expect("no repetition");
         Self {
@@ -115,7 +114,7 @@ impl SynExprRegionData {
         &self.pattern_expr_region
     }
 
-    pub fn symbol_region(&self) -> &VariableRegionData {
+    pub fn variable_region(&self) -> &VariableRegionData {
         &self.variable_region
     }
 

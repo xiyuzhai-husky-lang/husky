@@ -5,7 +5,7 @@ impl<'a> SemaExprBuilder<'a> {
     pub(super) fn infer_current_parameter_symbols(&mut self) {
         for (current_syn_symbol_idx, current_syn_symbol_entry) in self
             .syn_expr_region_data
-            .symbol_region()
+            .variable_region()
             .indexed_current_syn_symbols()
         {
             let Some(signature) = self

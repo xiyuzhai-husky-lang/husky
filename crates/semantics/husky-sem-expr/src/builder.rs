@@ -144,7 +144,7 @@ impl<'a> SemaExprBuilder<'a> {
             db,
             &mut stack_location_registry,
         );
-        let symbol_region = syn_expr_region_data.symbol_region();
+        let symbol_region = syn_expr_region_data.variable_region();
         let pattern_expr_region = syn_expr_region_data.pattern_expr_region();
         let toolchain = syn_expr_region.toolchain(db);
         let parent_sem_expr_region =
@@ -176,12 +176,12 @@ impl<'a> SemaExprBuilder<'a> {
             symbol_terms: SymbolMap::new(
                 parent_sem_expr_region
                     .map(|parent_sem_expr_region| parent_sem_expr_region.data(db).symbol_terms()),
-                syn_expr_region_data.symbol_region(),
+                syn_expr_region_data.variable_region(),
             ),
             symbol_tys: SymbolMap::new(
                 parent_sem_expr_region
                     .map(|parent_sem_expr_region| parent_sem_expr_region.data(db).symbol_tys()),
-                syn_expr_region_data.symbol_region(),
+                syn_expr_region_data.variable_region(),
             ),
             pattern_expr_ty_infos: SynPatternMap::new(pattern_expr_region.pattern_expr_arena()),
             pattern_symbol_ty_infos: SynPatternSymbolMap::new(

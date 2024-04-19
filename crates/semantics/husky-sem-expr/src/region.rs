@@ -50,7 +50,7 @@ fn sem_expr_region_eth_term_fmt_context(
                 else {
                     todo!();
                 };
-                (symbol, syn_expr_region_data.symbol_region()[idx].name())
+                (symbol, syn_expr_region_data.variable_region()[idx].name())
             })
             .chain(
                 sem_expr_region_data
@@ -63,7 +63,7 @@ fn sem_expr_region_eth_term_fmt_context(
                         else {
                             todo!();
                         };
-                        (symbol, syn_expr_region_data.symbol_region()[idx].name())
+                        (symbol, syn_expr_region_data.variable_region()[idx].name())
                     }),
             ),
     )

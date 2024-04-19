@@ -196,7 +196,7 @@
                         SemaExprIdx(
                             0,
                         ),
-                        SynExprRootKind::Trait,
+                        SynExprRootKind::TraitInConstraint,
                     ),
                 ),
                 (
@@ -748,7 +748,7 @@
                         SemaExprIdx(
                             0,
                         ),
-                        SynExprRootKind::Trait,
+                        SynExprRootKind::TraitInConstraint,
                     ),
                 ),
                 (
@@ -1469,7 +1469,7 @@
                         SemaExprIdx(
                             0,
                         ),
-                        SynExprRootKind::Trait,
+                        SynExprRootKind::TraitInConstraint,
                     ),
                 ),
                 (

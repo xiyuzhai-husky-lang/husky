@@ -1714,7 +1714,7 @@
                         SemaExprIdx(
                             2,
                         ),
-                        SynExprRootKind::Trait,
+                        SynExprRootKind::PrimalTrait,
                     ),
                 ),
                 (
@@ -3007,7 +3007,7 @@
                         SemaExprIdx(
                             2,
                         ),
-                        SynExprRootKind::Trait,
+                        SynExprRootKind::PrimalTrait,
                     ),
                 ),
                 (
@@ -4576,7 +4576,7 @@
                         SemaExprIdx(
                             2,
                         ),
-                        SynExprRootKind::Trait,
+                        SynExprRootKind::PrimalTrait,
                     ),
                 ),
                 (
@@ -5593,7 +5593,7 @@
                         SemaExprIdx(
                             2,
                         ),
-                        SynExprRootKind::Trait,
+                        SynExprRootKind::PrimalTrait,
                     ),
                 ),
                 (
@@ -6610,7 +6610,7 @@
                         SemaExprIdx(
                             2,
                         ),
-                        SynExprRootKind::Trait,
+                        SynExprRootKind::PrimalTrait,
                     ),
                 ),
                 (
@@ -7627,7 +7627,7 @@
                         SemaExprIdx(
                             2,
                         ),
-                        SynExprRootKind::Trait,
+                        SynExprRootKind::PrimalTrait,
                     ),
                 ),
                 (
@@ -8644,7 +8644,7 @@
                         SemaExprIdx(
                             2,
                         ),
-                        SynExprRootKind::Trait,
+                        SynExprRootKind::PrimalTrait,
                     ),
                 ),
                 (
@@ -9661,7 +9661,7 @@
                         SemaExprIdx(
                             2,
                         ),
-                        SynExprRootKind::Trait,
+                        SynExprRootKind::PrimalTrait,
                     ),
                 ),
                 (
@@ -10678,7 +10678,7 @@
                         SemaExprIdx(
                             2,
                         ),
-                        SynExprRootKind::Trait,
+                        SynExprRootKind::PrimalTrait,
                     ),
                 ),
                 (
@@ -11695,7 +11695,7 @@
                         SemaExprIdx(
                             2,
                         ),
-                        SynExprRootKind::Trait,
+                        SynExprRootKind::PrimalTrait,
                     ),
                 ),
                 (
@@ -12712,7 +12712,7 @@
                         SemaExprIdx(
                             2,
                         ),
-                        SynExprRootKind::Trait,
+                        SynExprRootKind::PrimalTrait,
                     ),
                 ),
                 (
@@ -13729,7 +13729,7 @@
                         SemaExprIdx(
                             2,
                         ),
-                        SynExprRootKind::Trait,
+                        SynExprRootKind::PrimalTrait,
                     ),
                 ),
                 (
@@ -16113,7 +16113,7 @@
                         SemaExprIdx(
                             2,
                         ),
-                        SynExprRootKind::Trait,
+                        SynExprRootKind::PrimalTrait,
                     ),
                 ),
                 (
@@ -17293,7 +17293,7 @@
                         SemaExprIdx(
                             2,
                         ),
-                        SynExprRootKind::Trait,
+                        SynExprRootKind::PrimalTrait,
                     ),
                 ),
                 (

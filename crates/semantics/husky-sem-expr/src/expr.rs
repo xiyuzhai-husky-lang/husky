@@ -2,7 +2,6 @@ pub mod assoc_item;
 pub mod binary;
 pub mod box_list;
 pub mod closure;
-pub mod current_syn_symbol;
 pub mod field;
 pub mod function_application;
 pub mod function_call;
@@ -17,6 +16,7 @@ pub mod ritchie_call_arguments_ty;
 pub mod suffix;
 pub mod template_argument;
 pub mod utils;
+pub mod variable;
 
 use std::ops::Index;
 
@@ -529,7 +529,13 @@ impl<'a> SemaExprBuilder<'a> {
                     self.infer_expr_term(sem_expr_idx);
                     sem_expr_idx
                 }
-                SynExprRootKind::Trait => {
+                SynExprRootKind::PrimalTrait => {
+                    let sem_expr_idx = self.build_sem_expr(root.syn_expr_idx(), ExpectAnyOriginal);
+                    self.infer_expr_term(sem_expr_idx);
+                    sem_expr_idx
+                }
+                SynExprRootKind::TraitInConstraint => {
+                    // ad hoc
                     let sem_expr_idx = self.build_sem_expr(root.syn_expr_idx(), ExpectAnyOriginal);
                     self.infer_expr_term(sem_expr_idx);
                     sem_expr_idx

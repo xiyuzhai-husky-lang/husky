@@ -241,7 +241,8 @@ impl<'a> PlaceContractEngine<'a> {
 fn root_contract(root_kind: SynExprRootKind) -> Option<Contract> {
     match root_kind {
         SynExprRootKind::SelfType => None,
-        SynExprRootKind::Trait => None,
+        SynExprRootKind::PrimalTrait => None,
+        SynExprRootKind::TraitInConstraint => None,
         SynExprRootKind::ReturnType => None,
         SynExprRootKind::PropsStructFieldType { .. } => None,
         SynExprRootKind::TupleStructFieldType => None,

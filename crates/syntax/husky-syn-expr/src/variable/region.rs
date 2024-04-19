@@ -158,8 +158,8 @@ impl VariableRegionData {
                 };
                 symbol.ident() == Some(ident) && accessible
             })
-            .map(|(current_syn_symbol_idx, current_syn_symbol)| {
-                Symbol::Current(current_syn_symbol_idx, current_syn_symbol.kind())
+            .map(|(current_syn_symbol_idx, current_variable)| {
+                Symbol::Current(current_syn_symbol_idx, current_variable.kind())
             })
             .or_else(|| {
                 self.inherited_syn_symbol_arena
@@ -201,8 +201,8 @@ impl VariableRegionData {
         for (_, inherited_syn_symbol) in self.indexed_inherited_syn_symbols() {
             inherited_syn_symbol_arena.alloc_one(inherited_syn_symbol);
         }
-        for (current_syn_symbol_idx, current_syn_symbol) in self.indexed_current_syn_symbols() {
-            let kind = match current_syn_symbol.data {
+        for (current_syn_symbol_idx, current_variable) in self.indexed_current_syn_symbols() {
+            let kind = match current_variable.data {
                 CurrentVariableData::SimpleParenateParameter { ident, .. } => {
                     InheritedVariableKind::Parenate { ident }
                 }
@@ -233,7 +233,7 @@ impl VariableRegionData {
             };
             inherited_syn_symbol_arena.alloc_one(InheritedVariable {
                 kind,
-                modifier: current_syn_symbol.modifier,
+                modifier: current_variable.modifier,
             });
         }
         inherited_syn_symbol_arena
@@ -311,6 +311,6 @@ impl IntoLocalSymbolIdx for InheritedSymbolicVariableIdx {
 
 impl IntoLocalSymbolIdx for CurrentVariableIdx {
     fn into_local_symbol_idx(self, expr_region_data: &SynExprRegionData) -> LocalSymbolIdx {
-        LocalSymbolIdx::from_current_syn_symbol_idx(self, expr_region_data.symbol_region())
+        LocalSymbolIdx::from_current_syn_symbol_idx(self, expr_region_data.variable_region())
     }
 }
