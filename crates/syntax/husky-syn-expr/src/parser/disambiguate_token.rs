@@ -1,5 +1,5 @@
 use super::*;
-use husky_entity_kind::{ritchie::RitchieItemKind, EntityKind, MajorFugitiveKind, MajorItemKind};
+use husky_entity_kind::{ritchie::RitchieItemKind, EntityKind, MajorFormKind, MajorItemKind};
 use husky_opr::*;
 use husky_term_prelude::ritchie::RitchieKind;
 use husky_token_data::delimiter::Delimiter;
@@ -57,7 +57,7 @@ where
                         PronounKeyword::Super => todo!(),
                     }
                 }
-                Keyword::Fugitive(FugitiveKeyword::Fn) => {
+                Keyword::Form(FormKeyword::Fn) => {
                     DisambiguatedTokenData::Ritchie(regional_token_idx, RitchieItemKind::Fn.into())
                 }
                 Keyword::Sorry => DisambiguatedTokenData::Sorry { regional_token_idx },
@@ -122,14 +122,14 @@ where
                                     EntityKind::MajorItem {
                                         module_item_kind, ..
                                     } => match module_item_kind {
-                                        MajorItemKind::Fugitive(
-                                            MajorFugitiveKind::Val | MajorFugitiveKind::Const,
+                                        MajorItemKind::Form(
+                                            MajorFormKind::Val | MajorFormKind::Const,
                                         ) => DisambiguatedTokenData::SynBinaryOpr(
                                             regional_token_idx,
                                             BinaryComparisonOpr::Less.into(),
                                         ),
                                         MajorItemKind::Type(_)
-                                        | MajorItemKind::Fugitive(_)
+                                        | MajorItemKind::Form(_)
                                         | MajorItemKind::Trait => {
                                             DisambiguatedTokenData::LeftDelimiter(
                                                 regional_token_idx,

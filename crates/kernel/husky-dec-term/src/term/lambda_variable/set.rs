@@ -55,7 +55,7 @@ impl DecTerm {
             }
             DecTerm::SymbolicVariable(_symbol) => None,
             DecTerm::EntityPath(path) => match path {
-                DecItemPath::Fugitive(_) => todo!(),
+                DecItemPath::Form(_) => todo!(),
                 DecItemPath::Trait(_) | DecItemPath::Type(_) => None,
                 DecItemPath::TypeVariant(_) => todo!(),
             },

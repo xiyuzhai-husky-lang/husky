@@ -31,12 +31,11 @@ pub struct DecSignatureJar(
     // trait
     TraitDecTemplate,
     trai_syn_dec_template,
-    // fugitive
-    // fugitive_signature,
-    fugitive_syn_dec_template,
+    // Form
+    // form_signature,
+    form_syn_dec_template,
     MajorValDecTemplate,
-    MajorFnDecTemplate,
-    MajorGnDecTemplate,
+    MajorRitchieDecTemplate,
     TypeAliasDecTemplate,
     // impl block
     TypeImplBlockDecTemplate,

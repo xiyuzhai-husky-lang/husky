@@ -17,7 +17,7 @@ pub(super) fn ethereal_term_data<'a>(db: &'a ::salsa::Db, term: EthTerm) -> FlyT
             index: term.index(db),
         },
         EthTerm::EntityPath(path) => match path {
-            ItemPathTerm::Fugitive(_) => todo!(),
+            ItemPathTerm::Form(_) => todo!(),
             ItemPathTerm::Trait(_) => todo!(),
             ItemPathTerm::TypeOntology(ty_path) => FlyTermData::TypeOntology {
                 ty_path,
@@ -171,7 +171,7 @@ pub(super) fn ethereal_term_fly_base_ty_data<'a>(
             lambda_variable: hvar,
         },
         EthTerm::EntityPath(path) => match path {
-            ItemPathTerm::Fugitive(_) => todo!(),
+            ItemPathTerm::Form(_) => todo!(),
             ItemPathTerm::Trait(_) => todo!(),
             ItemPathTerm::TypeOntology(ty_path) => FlyBaseTypeData::TypeOntology {
                 ty_path,

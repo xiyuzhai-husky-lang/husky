@@ -51,7 +51,7 @@ pub fn item_variances(db: &::salsa::Db, path: ItemPath) -> VarianceResultRef<&[V
         ItemPath::MajorItem(path) => match path {
             MajorItemPath::Type(path) => ty_path_variances(db, path).as_ref().map(Vec::as_ref),
             MajorItemPath::Trait(path) => trai_item_variances(db, path).as_ref().map(Vec::as_ref),
-            MajorItemPath::Fugitive(_path) => {
+            MajorItemPath::Form(_path) => {
                 todo!()
                 // form_item_variances(db, path).as_ref().map(Vec::as_ref)
             }
@@ -77,9 +77,9 @@ pub(crate) fn trai_item_variances(
 }
 
 #[salsa::tracked(jar = DeclarativeTypeJar, return_ref)]
-pub(crate) fn fugitive_path_variances(
+pub(crate) fn form_path_variances(
     db: &::salsa::Db,
-    path: FugitivePath,
+    path: MajorFormPath,
 ) -> VarianceResult<Vec<Variance>> {
     calc_item_path_variances(db, path)
 }

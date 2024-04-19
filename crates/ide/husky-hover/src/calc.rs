@@ -77,7 +77,7 @@ impl<'a> HoverResultCalculator<'a> {
 
     fn gen_keyword_content(&self, kw: Keyword) -> &'static str {
         match kw {
-            Keyword::Fugitive(_keyword) => "This is a paradigm",
+            Keyword::Form(_keyword) => "This is a paradigm",
             _ => "Other",
         }
     }

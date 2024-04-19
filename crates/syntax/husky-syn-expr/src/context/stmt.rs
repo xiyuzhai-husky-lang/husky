@@ -29,7 +29,7 @@ impl<'a> SynExprContext<'a> {
             .ast_token_idx_range(defn_ast_idx)
     }
 
-    pub(crate) fn fugitive_body_end(&self, body: DefnAstIdxRange) -> RegionalTokenIdxRangeEnd {
+    pub(crate) fn form_body_end(&self, body: DefnAstIdxRange) -> RegionalTokenIdxRangeEnd {
         self.defn_tokra_region_data()
             .ast_token_idx_range(body.end() - 1)
             .end()

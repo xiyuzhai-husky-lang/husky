@@ -5,9 +5,9 @@ pub use self::call_list::*;
 pub use self::html::*;
 
 use crate::*;
-use husky_entity_kind::MajorFugitiveKind;
+use husky_entity_kind::MajorFormKind;
 use husky_entity_path::{
-    AssocItemPath, FugitivePath, MajorItemPath, PrincipalEntityPath, TraitForTypeItemPath,
+    AssocItemPath, MajorFormPath, MajorItemPath, PrincipalEntityPath, TraitForTypeItemPath,
     TypePath, TypeVariantPath,
 };
 use husky_fly_term::signature::{FlyFieldSignature, MethodFlySignature};
@@ -66,12 +66,12 @@ pub enum HirLazyExprData {
         item_groups: SmallVec<[HirLazyCallListArgument; 4]>,
     },
     FunctionFnItemCall {
-        path: FugitivePath,
+        path: MajorFormPath,
         instantiation: HirInstantiation,
         item_groups: SmallVec<[HirLazyCallListArgument; 4]>,
     },
     FunctionGnItemCall {
-        path: FugitivePath,
+        path: MajorFormPath,
         instantiation: HirInstantiation,
         item_groups: SmallVec<[HirLazyCallListArgument; 4]>,
     },
@@ -281,27 +281,23 @@ impl ToHirLazy for SemaExprIdx {
                                     }
                                 }
                                 MajorItemPath::Trait(_) => unreachable!(),
-                                MajorItemPath::Fugitive(path) => {
-                                    match path.major_fugitive_kind(builder.db()) {
-                                        MajorFugitiveKind::FN => {
-                                            HirLazyExprData::FunctionFnItemCall {
-                                                path,
-                                                instantiation,
-                                                item_groups,
-                                            }
-                                        }
-                                        MajorFugitiveKind::GN => {
-                                            HirLazyExprData::FunctionGnItemCall {
-                                                path,
-                                                instantiation,
-                                                item_groups,
-                                            }
-                                        }
-                                        MajorFugitiveKind::Ritchie(_) => todo!(),
-                                        MajorFugitiveKind::TypeAlias
-                                        | MajorFugitiveKind::Val
-                                        | MajorFugitiveKind::Formal => unreachable!(),
-                                        MajorFugitiveKind::Const => todo!(),
+                                MajorItemPath::Form(path) => {
+                                    match path.major_form_kind(builder.db()) {
+                                        MajorFormKind::FN => HirLazyExprData::FunctionFnItemCall {
+                                            path,
+                                            instantiation,
+                                            item_groups,
+                                        },
+                                        MajorFormKind::GN => HirLazyExprData::FunctionGnItemCall {
+                                            path,
+                                            instantiation,
+                                            item_groups,
+                                        },
+                                        MajorFormKind::Ritchie(_) => todo!(),
+                                        MajorFormKind::TypeAlias
+                                        | MajorFormKind::Val
+                                        | MajorFormKind::Formal => unreachable!(),
+                                        MajorFormKind::Const => todo!(),
                                     }
                                 }
                             },

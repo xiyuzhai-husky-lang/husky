@@ -1143,7 +1143,15 @@ dependencies = [
 name = "cargo-rename-extension"
 version = "0.1.0"
 dependencies = [
- "clap 3.2.25",
+ "clap 4.5.4",
+]
+
+[[package]]
+name = "cargo-replace-file-stem"
+version = "0.1.0"
+dependencies = [
+ "clap 4.5.4",
+ "husky-cli-utils",
 ]
 
 [[package]]
@@ -1298,7 +1306,7 @@ checksum = "4ea181bf566f71cb9a5d17a59e1871af638180a18fb0035c92ae62b705207123"
 dependencies = [
  "atty",
  "bitflags 1.3.2",
- "clap_derive",
+ "clap_derive 3.2.25",
  "clap_lex 0.2.4",
  "indexmap 1.9.3",
  "once_cell",
@@ -1314,6 +1322,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "90bc066a67923782aa8515dbaea16946c5bcc5addbd668bb80af688e53e548a0"
 dependencies = [
  "clap_builder",
+ "clap_derive 4.5.4",
 ]
 
 [[package]]
@@ -1340,6 +1349,18 @@ dependencies = [
  "proc-macro2",
  "quote",
  "syn 1.0.109",
+]
+
+[[package]]
+name = "clap_derive"
+version = "4.5.4"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "528131438037fd55894f62d6e9f068b8f45ac57ffa77517819645d10aed04f64"
+dependencies = [
+ "heck 0.5.0",
+ "proc-macro2",
+ "quote",
+ "syn 2.0.55",
 ]
 
 [[package]]

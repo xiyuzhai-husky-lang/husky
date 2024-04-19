@@ -61,14 +61,14 @@ pub enum OriginalAstError {
     InvalidAstForDefinitionOrUse,
     #[error("todo")]
     Todo,
-    #[error("UnexpectedEndAfterFugitiveKeywordInsideModule")]
-    UnexpectedEndAfterFugitiveKeywordInsideModule,
-    #[error("UnexpectedEndAfterFugitiveKeywordInsideTrait")]
-    UnexpectedEndAfterFugitiveKeywordInsideTrait,
-    #[error("UnexpectedEndAfterFugitiveKeywordInsideTypeImplBlock")]
-    UnexpectedEndAfterFugitiveKeywordInsideTypeImplBlock,
-    #[error("UnexpectedEndAfterFugitiveKeywordInsideTraitForTypeImplBlock")]
-    UnexpectedEndAfterFugitiveKeywordInsideTraitForTypeImplBlock,
+    #[error("UnexpectedEndAfterFormKeywordInsideModule")]
+    UnexpectedEndAfterFormKeywordInsideModule,
+    #[error("UnexpectedEndAfterFormKeywordInsideTrait")]
+    UnexpectedEndAfterFormKeywordInsideTrait,
+    #[error("UnexpectedEndAfterFormKeywordInsideTypeImplBlock")]
+    UnexpectedEndAfterFormKeywordInsideTypeImplBlock,
+    #[error("UnexpectedEndAfterFormKeywordInsideTraitForTypeImplBlock")]
+    UnexpectedEndAfterFormKeywordInsideTraitForTypeImplBlock,
     #[error("UnexpectedStmtInsideTrait")]
     UnexpectedStmtInsideTrait,
     #[error("UnexpectedStmtInsideModule")]
@@ -78,7 +78,7 @@ pub enum OriginalAstError {
     #[error("UnexpectedUseInsideTrait")]
     UnexpectedUseInsideTrait,
     #[error("unexpected submodule inside module item")]
-    UnexpectedModUnderFugitive,
+    UnexpectedModUnderForm,
     #[error("unexpected implemention block inside module item")]
     UnexpectedImplBlockInsideModuleItem,
     #[error("UnexpectedTraitInsideTrait")]
@@ -120,8 +120,8 @@ pub enum OriginalAstError {
     ExpectedLboxOrIdentAfterPoundForAttrOrSorce,
     #[error("UnexpectedMemoUnderModule")]
     UnexpectedMemoUnderModule,
-    #[error("UnexpectedMemoUnderFugitive")]
-    UnexpectedMemoUnderFugitive,
+    #[error("UnexpectedMemoUnderForm")]
+    UnexpectedMemoUnderForm,
 }
 
 impl From<std::convert::Infallible> for AstError {

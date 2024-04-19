@@ -181,8 +181,8 @@ impl EntityPath {
     }
 }
 
-impl From<FugitivePath> for EntityPath {
-    fn from(v: FugitivePath) -> Self {
+impl From<MajorFormPath> for EntityPath {
+    fn from(v: MajorFormPath) -> Self {
         EntityPath::MajorItem(v.into())
     }
 }
@@ -278,8 +278,8 @@ impl salsa::DisplayWithDb for ItemPath {
     }
 }
 
-impl From<FugitivePath> for ItemPath {
-    fn from(v: FugitivePath) -> Self {
+impl From<MajorFormPath> for ItemPath {
+    fn from(v: MajorFormPath) -> Self {
         ItemPath::MajorItem(v.into())
     }
 }
@@ -312,8 +312,8 @@ pub enum MajorEntityPath {
     MajorItem(MajorItemPath),
 }
 
-impl From<FugitivePath> for MajorEntityPath {
-    fn from(v: FugitivePath) -> Self {
+impl From<MajorFormPath> for MajorEntityPath {
+    fn from(v: MajorFormPath) -> Self {
         MajorEntityPath::MajorItem(v.into())
     }
 }
@@ -406,8 +406,8 @@ impl From<PrincipalItemPath> for ItemPath {
     }
 }
 
-impl From<FugitivePath> for PrincipalItemPath {
-    fn from(path: FugitivePath) -> Self {
+impl From<MajorFormPath> for PrincipalItemPath {
+    fn from(path: MajorFormPath) -> Self {
         PrincipalItemPath::Major(path.into())
     }
 }

@@ -7,7 +7,7 @@ use husky_hir_defn::HirDefn;
 #[enum_class::from_variants]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum JavPath {
-    Fugitive(FugitivePath),
+    Form(MajorFormPath),
     TypeItem(TypeItemPath),
     TraitItem(TraitItemPath),
     TraitForTypeItem(TraitForTypeItemPath),
@@ -56,7 +56,7 @@ impl JavPath {
                     | TypeKind::Extern => None,
                 },
                 MajorItemPath::Trait(_) => None,
-                MajorItemPath::Fugitive(path) => Some(path.into()),
+                MajorItemPath::Form(path) => Some(path.into()),
             },
             ItemPath::AssocItem(path) => match path {
                 AssocItemPath::TraitForTypeItem(path) => {

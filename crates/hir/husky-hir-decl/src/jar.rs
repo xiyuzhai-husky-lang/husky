@@ -36,12 +36,12 @@ pub struct HirDeclJar(
     // trai
     crate::decl::trai_hir_decl,
     crate::decl::TraitHirDecl,
-    // fugitive
-    crate::decl::fugitive_hir_decl,
-    crate::decl::FunctionMajorFnHirDecl,
-    crate::decl::FunctionGnFugitiveHirDecl,
+    // Form
+    crate::decl::form_hir_decl,
+    crate::decl::MajorRitchieHirDecl,
+    crate::decl::FunctionGnFormHirDecl,
     crate::decl::TypeAliasHirDecl,
-    crate::decl::ValFugitiveHirDecl,
+    crate::decl::ValFormHirDecl,
     // ty variant
     crate::decl::ty_variant_hir_decl,
     crate::decl::EnumTupleVariantHirDecl,

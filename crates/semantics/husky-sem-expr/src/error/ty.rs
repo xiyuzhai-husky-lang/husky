@@ -43,7 +43,7 @@ pub enum OriginalSemaExprTypeError {
     #[error("final destination")]
     FinalDestination,
     #[error("form path type error")]
-    FugitivePathTypeError,
+    FormPathTypeError,
     #[error("ambiguous type path")]
     AmbiguousTypePath,
     #[error("ritchie call wrong number of arguments")]
@@ -140,7 +140,7 @@ pub enum DerivedSemaExprTypeError {
     #[error("cannot disambiguate list expression")]
     AmbiguateListExpr,
     #[error("form path type error {0}")]
-    FugitivePathTypeError(EthTermError),
+    FormPathTypeError(EthTermError),
     #[error("ambiguous type path")]
     AmbiguousTypePath,
     #[error("explicit application function type not inferred")]

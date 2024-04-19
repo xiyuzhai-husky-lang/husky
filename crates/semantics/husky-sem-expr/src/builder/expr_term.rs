@@ -421,9 +421,7 @@ impl<'a> SemaExprBuilder<'a> {
                 }
                 .into(),
                 MajorItemPath::Trait(trai_path) => ItemPathTerm::Trait(trai_path).into(),
-                MajorItemPath::Fugitive(fugitive_path) => {
-                    ItemPathTerm::Fugitive(fugitive_path).into()
-                }
+                MajorItemPath::Form(form_path) => ItemPathTerm::Form(form_path).into(),
             },
             // todo: generics
             PrincipalEntityPath::TypeVariant(ty_variant_path) => {

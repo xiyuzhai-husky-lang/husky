@@ -27,12 +27,11 @@ pub struct EtherealSignatureJar(
     // trai
     TraitEthTemplate,
     trai_eth_template,
-    // fugitive
-    // fugitive_eth_template,
-    FunctionFnEthTemplate,
-    GnFugitiveEthTemplate,
-    TypeAliasEthTemplate,
-    ValFugitiveEthTemplate,
+    // Form
+    form_eth_template,
+    MajorRitchieEthTemplate,
+    MajorTypeAliasEthTemplate,
+    MajorValEthTemplate,
     // ty
     EnumEthTemplate,
     ExternTypeEthTemplate,

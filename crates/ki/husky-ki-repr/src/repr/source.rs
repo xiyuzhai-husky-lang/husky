@@ -10,7 +10,7 @@ use salsa::DebugWithDb;
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum KiReprSource {
-    ValItem(FugitivePath),
+    ValItem(MajorFormPath),
     Expansion {
         parent_ki_repr: KiRepr,
         source: KiReprExpansionSource,

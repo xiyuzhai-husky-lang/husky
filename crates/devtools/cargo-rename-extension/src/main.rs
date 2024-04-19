@@ -30,7 +30,7 @@ struct RenameExtensionInstance<'a> {
 }
 
 impl<'a> RenameExtensionInstance<'a> {
-    pub fn rename_all(&self) -> std::io::Result<()> {
+    pub fn rename_all(self) -> std::io::Result<()> {
         for entry in std::fs::read_dir(&self.dir)? {
             let entry = entry?;
             let path = entry.path();

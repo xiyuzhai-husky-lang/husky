@@ -18,7 +18,7 @@ pub fn item_syn_node_defn(
 ) -> Option<ItemSynNodeDefn> {
     let syn_node_path = item_syn_node_path_id.syn_node_path(db);
     let (allow_self_ty, allow_self_value) = match syn_node_path {
-        ItemSynNodePath::MajorItem(MajorItemSynNodePath::Fugitive(_path)) => {
+        ItemSynNodePath::MajorItem(MajorItemSynNodePath::Form(_path)) => {
             (AllowSelfType::False, AllowSelfValue::False)
         }
         ItemSynNodePath::AssocItem(path) => (

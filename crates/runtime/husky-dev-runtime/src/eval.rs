@@ -324,7 +324,7 @@ impl<Task: IsTask> DevRuntime<Task> {
 
 #[test]
 fn ki_repr_eval_works() {
-    use husky_entity_kind::MajorFugitiveKind;
+    use husky_entity_kind::MajorFormKind;
     use husky_entity_path::*;
     use husky_entity_tree::helpers::paths::module_item_paths;
     use husky_ml_task::MlTask;
@@ -343,13 +343,13 @@ fn ki_repr_eval_works() {
         unreachable!()
     };
     for &item_path in module_item_paths(db, crate_path.root_module_path(db)) {
-        let ItemPath::MajorItem(MajorItemPath::Fugitive(fugitive_path)) = item_path else {
+        let ItemPath::MajorItem(MajorItemPath::Form(form_path)) = item_path else {
             continue;
         };
-        if fugitive_path.major_fugitive_kind(db) != MajorFugitiveKind::Val {
+        if form_path.major_form_kind(db) != MajorFormKind::Val {
             continue;
         }
-        let ki_repr = KiRepr::new_val_item(fugitive_path, db);
+        let ki_repr = KiRepr::new_val_item(form_path, db);
         runtime.eval_ki_repr_at_pedestal(ki_repr, InputId::from_index(0).into());
     }
 }

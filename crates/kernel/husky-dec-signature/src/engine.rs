@@ -383,7 +383,7 @@ impl<'a> DecTermEngine<'a> {
                     PrincipalEntityPath::MajorItem(path) => match path {
                         MajorItemPath::Type(path) => DecItemPath::Type(path),
                         MajorItemPath::Trait(path) => path.into(),
-                        MajorItemPath::Fugitive(path) => path.into(),
+                        MajorItemPath::Form(path) => path.into(),
                     },
                     PrincipalEntityPath::TypeVariant(path) => DecItemPath::TypeVariant(path),
                 })),

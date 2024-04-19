@@ -94,7 +94,7 @@ where
                         }
                     }
                     MajorItemPath::Trait(_) => None,
-                    MajorItemPath::Fugitive(_) => None,
+                    MajorItemPath::Form(_) => None,
                 },
             }
         } else {

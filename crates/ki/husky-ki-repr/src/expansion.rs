@@ -2,10 +2,10 @@ use crate::{
     repr::source::{KiReprExpansionSource, KiReprSource},
     *,
 };
-use husky_entity_kind::MajorFugitiveKind;
+use husky_entity_kind::MajorFormKind;
 use husky_entity_path::{MajorItemPath, PrincipalEntityPath};
 
-use husky_hir_defn::{FugitiveHirDefn, HasHirDefn};
+use husky_hir_defn::{FormHirDefn, HasHirDefn};
 use husky_hir_expr::{HirExprIdx, HirExprRegion};
 use husky_hir_lazy_expr::{
     helpers::control_flow::{HasControlFlow, HirLazyExprRegionControlFlowChart},
@@ -45,8 +45,8 @@ impl KiRepr {
 #[salsa::tracked(jar = KiReprJar)]
 fn ki_repr_expansion(db: &::salsa::Db, ki_repr: KiRepr) -> Option<KiReprExpansion> {
     match ki_repr.opn(db) {
-        ValOpn::ValItemLazilyDefined(fugitive_path) => {
-            let FugitiveHirDefn::Ki(hir_defn) = fugitive_path.hir_defn(db)? else {
+        ValOpn::ValItemLazilyDefined(form_path) => {
+            let FormHirDefn::Ki(hir_defn) = form_path.hir_defn(db)? else {
                 unreachable!()
             };
             debug_assert!(ki_repr.arguments(db).is_empty());
@@ -368,11 +368,11 @@ impl<'a> KiReprExpansionBuilder<'a> {
                 PrincipalEntityPath::MajorItem(path) => match path {
                     MajorItemPath::Type(_) => todo!(),
                     MajorItemPath::Trait(_) => todo!(),
-                    MajorItemPath::Fugitive(path) => match path.major_fugitive_kind(self.db) {
-                        MajorFugitiveKind::Ritchie(_) => todo!(),
-                        MajorFugitiveKind::Const => todo!(),
-                        MajorFugitiveKind::Val => return KiRepr::new_val_item(path, self.db),
-                        MajorFugitiveKind::TypeAlias | MajorFugitiveKind::Formal => unreachable!(),
+                    MajorItemPath::Form(path) => match path.major_form_kind(self.db) {
+                        MajorFormKind::Ritchie(_) => todo!(),
+                        MajorFormKind::Const => todo!(),
+                        MajorFormKind::Val => return KiRepr::new_val_item(path, self.db),
+                        MajorFormKind::TypeAlias | MajorFormKind::Formal => unreachable!(),
                     },
                 },
                 PrincipalEntityPath::TypeVariant(path) => (ValOpn::TypeVariant(path), smallvec![]),
@@ -534,7 +534,7 @@ impl<'a> KiReprExpansionBuilder<'a> {
                 ..
             } => {
                 let db = self.db;
-                let Some(FugitiveHirDefn::FunctionGn(hir_defn)) = path.hir_defn(db) else {
+                let Some(FormHirDefn::FunctionGn(hir_defn)) = path.hir_defn(db) else {
                     unreachable!()
                 };
                 let opn = match hir_defn.lazy_body_with_hir_lazy_expr_region(db) {
@@ -777,7 +777,7 @@ fn runtime_constants(
 fn val_item_ki_repr_expansions(
     db: &::salsa::Db,
     module_path: ModulePath,
-) -> Vec<(husky_entity_path::FugitivePath, Option<KiReprExpansion>)> {
+) -> Vec<(husky_entity_path::MajorFormPath, Option<KiReprExpansion>)> {
     val_item_ki_reprs(db, module_path)
         .into_iter()
         .map(|(path, ki_repr)| (path, ki_repr.expansion(db)))

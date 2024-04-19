@@ -7,22 +7,19 @@ use husky_syn_defn::{item_syn_defn, ItemSynDefn};
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct ValItemTracePathData {
-    val_item_path: FugitivePath,
+    val_item_path: MajorFormPath,
 }
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct ValItemTraceData {
     path: TracePath,
-    val_item_path: FugitivePath,
+    val_item_path: MajorFormPath,
 }
 
 impl Trace {
-    pub fn from_val_item_path(val_item_path: FugitivePath, db: &::salsa::Db) -> Self {
-        debug_assert_eq!(
-            val_item_path.major_fugitive_kind(db),
-            MajorFugitiveKind::Val
-        );
+    pub fn from_val_item_path(val_item_path: MajorFormPath, db: &::salsa::Db) -> Self {
+        debug_assert_eq!(val_item_path.major_form_kind(db), MajorFormKind::Val);
         let path = TracePath::new(ValItemTracePathData { val_item_path }, db);
         Trace::new(
             path,

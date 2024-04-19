@@ -1,8 +1,8 @@
-mod fugitive;
+mod form;
 mod trai;
 mod ty;
 
-pub use self::fugitive::*;
+pub use self::form::*;
 pub use self::trai::*;
 pub use self::ty::*;
 
@@ -15,7 +15,7 @@ use husky_hir_decl::decl::MajorItemHirDecl;
 pub enum MajorItemHirDefn {
     Type(TypeHirDefn),
     Trait(TraitHirDefn),
-    Fugitive(FugitiveHirDefn),
+    Form(FormHirDefn),
 }
 
 impl MajorItemHirDefn {
@@ -23,7 +23,7 @@ impl MajorItemHirDefn {
         match self {
             MajorItemHirDefn::Type(hir_defn) => hir_defn.path(db).into(),
             MajorItemHirDefn::Trait(hir_defn) => hir_defn.path(db).into(),
-            MajorItemHirDefn::Fugitive(hir_defn) => hir_defn.path(db).into(),
+            MajorItemHirDefn::Form(hir_defn) => hir_defn.path(db).into(),
         }
     }
 
@@ -31,21 +31,21 @@ impl MajorItemHirDefn {
         match self {
             MajorItemHirDefn::Type(hir_defn) => hir_defn.hir_decl(db).into(),
             MajorItemHirDefn::Trait(hir_defn) => hir_defn.hir_decl(db).into(),
-            MajorItemHirDefn::Fugitive(hir_defn) => hir_defn.hir_decl(db).into(),
+            MajorItemHirDefn::Form(hir_defn) => hir_defn.hir_decl(db).into(),
         }
     }
 
     pub fn hir_expr_region(self, db: &::salsa::Db) -> Option<HirExprRegion> {
         match self {
             MajorItemHirDefn::Type(_) | MajorItemHirDefn::Trait(_) => None,
-            MajorItemHirDefn::Fugitive(hir_defn) => hir_defn.hir_expr_region(db),
+            MajorItemHirDefn::Form(hir_defn) => hir_defn.hir_expr_region(db),
         }
     }
 
     pub fn hir_expr_body_and_region(self, db: &::salsa::Db) -> Option<(HirExprIdx, HirExprRegion)> {
         match self {
             MajorItemHirDefn::Type(_) | MajorItemHirDefn::Trait(_) => None,
-            MajorItemHirDefn::Fugitive(hir_defn) => hir_defn.hir_expr_body_and_region(db),
+            MajorItemHirDefn::Form(hir_defn) => hir_defn.hir_expr_body_and_region(db),
         }
     }
 
@@ -53,7 +53,7 @@ impl MajorItemHirDefn {
         match self {
             MajorItemHirDefn::Type(hir_defn) => hir_defn.dependencies(db),
             MajorItemHirDefn::Trait(hir_defn) => hir_defn.dependencies(db),
-            MajorItemHirDefn::Fugitive(hir_defn) => hir_defn.dependencies(db),
+            MajorItemHirDefn::Form(hir_defn) => hir_defn.dependencies(db),
         }
     }
 
@@ -61,7 +61,7 @@ impl MajorItemHirDefn {
         match self {
             MajorItemHirDefn::Type(hir_defn) => hir_defn.version_stamp(db),
             MajorItemHirDefn::Trait(hir_defn) => hir_defn.version_stamp(db),
-            MajorItemHirDefn::Fugitive(hir_defn) => hir_defn.version_stamp(db),
+            MajorItemHirDefn::Form(hir_defn) => hir_defn.version_stamp(db),
         }
     }
 }
@@ -72,7 +72,7 @@ impl HasHirDefn for MajorItemPath {
     fn hir_defn(self, db: &::salsa::Db) -> Option<Self::HirDefn> {
         Some(match self {
             MajorItemPath::Type(path) => path.hir_defn(db)?.into(),
-            MajorItemPath::Fugitive(path) => path.hir_defn(db)?.into(),
+            MajorItemPath::Form(path) => path.hir_defn(db)?.into(),
             MajorItemPath::Trait(path) => path.hir_defn(db)?.into(),
         })
     }

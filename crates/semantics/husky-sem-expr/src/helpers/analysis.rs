@@ -7,10 +7,10 @@ pub fn sem_expr_region_requires_lazy(db: &::salsa::Db, sem_expr_region: SemaExpr
     for sem_expr_entry in sem_expr_region.data(db).sem_expr_arena().iter() {
         match sem_expr_entry.data() {
             SemaExprData::PrincipalEntityPath {
-                path: PrincipalEntityPath::MajorItem(MajorItemPath::Fugitive(path)),
+                path: PrincipalEntityPath::MajorItem(MajorItemPath::Form(path)),
                 ..
-            } => match path.major_fugitive_kind(db) {
-                MajorFugitiveKind::Ritchie(ritchie_item_kind) if ritchie_item_kind.is_lazy() => {
+            } => match path.major_form_kind(db) {
+                MajorFormKind::Ritchie(ritchie_item_kind) if ritchie_item_kind.is_lazy() => {
                     return true
                 }
                 _ => (),

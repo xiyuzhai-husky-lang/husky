@@ -1,4 +1,4 @@
-use husky_entity_kind::{MajorFugitiveKind, TraitItemKind, TypeItemKind};
+use husky_entity_kind::{MajorFormKind, TraitItemKind, TypeItemKind};
 use husky_entity_path::{region::RegionPath, AssocItemPath, ItemPath, MajorItemPath};
 use husky_hir_eager_expr::{
     builder::hir_eager_expr_region_with_source_map,
@@ -69,9 +69,9 @@ fn is_lazy(sem_expr_region: husky_sem_expr::SemaExprRegion, db: &salsa::Db) -> b
         }
         RegionPath::Decl(path) | RegionPath::Defn(path) => match path {
             ItemPath::MajorItem(path) => match path {
-                MajorItemPath::Fugitive(path) => match path.major_fugitive_kind(db) {
-                    MajorFugitiveKind::GN | MajorFugitiveKind::QN => true,
-                    MajorFugitiveKind::Val | MajorFugitiveKind::VN | MajorFugitiveKind::TN => {
+                MajorItemPath::Form(path) => match path.major_form_kind(db) {
+                    MajorFormKind::GN | MajorFormKind::QN => true,
+                    MajorFormKind::Val | MajorFormKind::VN | MajorFormKind::TN => {
                         sem_expr_region_requires_lazy(db, sem_expr_region)
                     }
                     _ => false,

@@ -170,7 +170,7 @@ impl Diagnose for OriginalSemaExprTypeError {
             OriginalSemaExprTypeError::FinalDestination => {
                 format!("Type Error: final destination")
             }
-            OriginalSemaExprTypeError::FugitivePathTypeError => {
+            OriginalSemaExprTypeError::FormPathTypeError => {
                 format!("Type Error: form path error")
             }
             OriginalSemaExprTypeError::AmbiguousTypePath => {

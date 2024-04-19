@@ -1,8 +1,8 @@
-mod fugitive;
+mod form;
 mod trai;
 mod ty;
 
-pub use self::fugitive::*;
+pub use self::form::*;
 pub use self::trai::*;
 pub use self::ty::*;
 
@@ -13,7 +13,7 @@ use super::*;
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum MajorItemDecTemplate {
     Type(TypeDecTemplate),
-    Fugitive(FugitiveDecTemplate),
+    Form(MajorFormDecTemplate),
     Trait(TraitDecTemplate),
 }
 
@@ -24,7 +24,7 @@ impl HasDecTemplate for MajorItemPath {
     fn dec_template(self, db: &::salsa::Db) -> DecSignatureResult<Self::DecTemplate> {
         match self {
             MajorItemPath::Type(path) => path.dec_template(db).map(Into::into),
-            MajorItemPath::Fugitive(path) => path.dec_template(db).map(Into::into),
+            MajorItemPath::Form(path) => path.dec_template(db).map(Into::into),
             MajorItemPath::Trait(decl) => decl.dec_template(db).map(Into::into),
         }
     }

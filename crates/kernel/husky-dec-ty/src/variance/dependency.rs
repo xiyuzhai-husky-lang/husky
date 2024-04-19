@@ -36,7 +36,7 @@ pub(crate) fn item_variance_crate_dependencies(
             MajorItemPath::Trait(path) => trai_item_variance_crate_dependencies(db, path, id.idx)
                 .as_ref()
                 .map(|t| t.as_ref()),
-            MajorItemPath::Fugitive(_path) => {
+            MajorItemPath::Form(_path) => {
                 todo!()
                 // form_item_variance_crate_dependencies(db, path, id.idx)
                 //     .as_ref()
@@ -86,7 +86,7 @@ pub(crate) fn trai_item_variance_crate_dependencies(
 #[salsa::tracked(jar = DeclarativeTypeJar, return_ref)]
 pub(crate) fn form_item_variance_crate_dependencies(
     db: &::salsa::Db,
-    path: FugitivePath,
+    path: MajorFormPath,
     _idx: u8,
 ) -> VarianceResult<VecSet<VarianceId>> {
     let _signature = match path.dec_template(db) {

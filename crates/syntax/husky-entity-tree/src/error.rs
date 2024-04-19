@@ -39,8 +39,8 @@ pub enum OriginalEntityTreeError {
     CanOnlyUseParentSuperForModulePath,
     #[error("NoSuperForCrateRoot")]
     NoSuperForCrateRoot { super_token: SuperToken },
-    #[error("NoSubitemForFugitive")]
-    NoSubitemForFugitive,
+    #[error("NoSubitemForForm")]
+    NoSubitemForForm,
     #[error("InvalidParentPath")]
     InvalidParentPath {
         name_token: PathNameToken,

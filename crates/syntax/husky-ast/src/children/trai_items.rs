@@ -21,9 +21,7 @@ impl IsAstChildren for TraitItems {
     #[inline(always)]
     fn determine_item_kind(item_keyword_group: EntityKindKeywordGroup) -> AstResult<EntityKind> {
         let trait_item_kind = match item_keyword_group {
-            EntityKindKeywordGroup::Submodule(_) => {
-                Err(OriginalAstError::UnexpectedModUnderFugitive)?
-            }
+            EntityKindKeywordGroup::Submodule(_) => Err(OriginalAstError::UnexpectedModUnderForm)?,
             EntityKindKeywordGroup::Fn(_) => TraitItemKind::METHOD_FN,
             EntityKindKeywordGroup::Gn(_) => TraitItemKind::METHOD_GN,
             EntityKindKeywordGroup::Vn(_) => TraitItemKind::METHOD_VN,

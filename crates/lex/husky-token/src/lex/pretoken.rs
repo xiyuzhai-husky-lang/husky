@@ -100,8 +100,8 @@ impl From<WordOpr> for Pretoken {
     }
 }
 
-impl From<FugitiveKeyword> for Pretoken {
-    fn from(val: FugitiveKeyword) -> Self {
+impl From<FormKeyword> for Pretoken {
+    fn from(val: FormKeyword) -> Self {
         Pretoken::Certain(val.into())
     }
 }

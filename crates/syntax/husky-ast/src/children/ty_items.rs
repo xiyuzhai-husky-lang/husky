@@ -18,9 +18,7 @@ impl IsAstChildren for TypeItems {
     #[inline(always)]
     fn determine_item_kind(item_keyword_group: EntityKindKeywordGroup) -> AstResult<EntityKind> {
         let ty_item_kind = match item_keyword_group {
-            EntityKindKeywordGroup::Submodule(_) => {
-                Err(OriginalAstError::UnexpectedModUnderFugitive)?
-            }
+            EntityKindKeywordGroup::Submodule(_) => Err(OriginalAstError::UnexpectedModUnderForm)?,
             EntityKindKeywordGroup::Fn(_) => TypeItemKind::METHOD_FN,
             EntityKindKeywordGroup::Gn(_) => TypeItemKind::METHOD_GN,
             EntityKindKeywordGroup::Vn(_) => TypeItemKind::METHOD_VN,
